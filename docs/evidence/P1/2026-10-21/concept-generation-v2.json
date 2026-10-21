@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-21",
+  "tool": "image_gen.imagegen (built-in)",
+  "mode": "edit using v1 concept",
+  "prompt": "concept-prompt-v2.txt",
+  "input": "../../../references/concept/forest-moments-overview-v1.png",
+  "image": "../../../references/concept/forest-moments-overview-v2.png",
+  "width": 1672,
+  "height": 941,
+  "bytes": 3650409,
+  "sha256": "5cfaa78e9c1b8f95f065b6aaf5e63f89ddec667d3fd10d7bc8d81c7d5fc93382",
+  "status": "GENERATED_REVIEW_PENDING",
+  "visual_review": "已查看实际生成图：海面、地平线、整岛海岸轮廓清晰，内部池塘与海水分离，工坊/牧场/木塔/码头/种树区可辨；用户确认和实机验收未完成"
+}

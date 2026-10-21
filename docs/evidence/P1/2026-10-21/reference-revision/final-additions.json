@@ -1,0 +1,22 @@
+[
+  {
+    "id": "interactions-final",
+    "dest": "interaction/forest-moments-interaction-scale-v3.png",
+    "inputs": [
+      "E:/Projects/forest-moments/docs/references/interaction/forest-moments-interaction-scale-v2.png",
+      "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v3.png"
+    ],
+    "prompt": "Use case: precise-object-edit. Image 1 is the edit target; Image 2 is ONLY animal identity/color reference. Keep the entire four-panel FOREST MOMENTS interaction sheet, layout, typography, raccoon, canoe and fishing panel exactly unchanged. Change only these lower-panel details: in FARM GATE panel recolor the chicken to warm rust-orange brown body with red comb and dark brown tail, matching reference image 2, NOT white; lower the gate and nearby fence to raccoon chest height while maintaining an open clear hinged gateway, do not shorten raccoon. In FEEDING panel change sheep face and visible legs to soft charcoal grey, cream wool in broad simple sculpted clumps matching image 2; keep the sheep nose at trough and readable feeding contact. Keep the raccoon hand, straw and trough placement. Maintain mature warm hand-painted style and natural proportions. No new panels, no new text, no new props. Keep upper panels unaltered."
+  },
+  {
+    "id": "style-final",
+    "dest": "style/forest-moments-environment-board-v2.png",
+    "inputs": [
+      "E:/Projects/forest-moments/docs/references/concept/forest-moments-overview-v2.png",
+      "E:/Projects/forest-moments/docs/references/lookout/forest-moments-lookout-master-v2.png",
+      "E:/Projects/forest-moments/docs/references/workshop/forest-moments-workshop-master-v2.png",
+      "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v3.png"
+    ],
+    "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Create the CURRENT project environment design board. Image 1 provides island layout and atmosphere; image 2 provides authoritative OPEN lookout design; image 3 authoritative low-plinth workshop with lean-to on viewer-left of front door; image 4 authoritative simplified cream sheep with CHARCOAL face/legs and rust-orange chicken. Compose a premium spacious landscape reference board with top title exactly FOREST MOMENTS and smaller subtitle ISLAND LIFE. Upper band one panoramic forest island with visible surrounding blue ocean, inner separate freshwater pond, sparse landmarks matching the references and walking paths. Below, organized isolated reference rows: two pine tree heights, one rounded broadleaf tree, tiny newly planted broadleaf sapling, a small bush and 3 varied warm grey rock forms; compact workshop, OPEN four-post lookout with NO enclosed room/masonry tower, tiny chicken coop; wooden lantern post, split-rail fence with open gate, cedar canoe and paddle, short low pond dock with open boarding edge. Put a small cream-wool DARK-FACED sheep and rust-orange chicken near coop. Add seven muted color swatches dark pine, olive green, warm timber, dark timber, warm grey stone, amber, sea blue. Large objects legible, no dense microdetail, coherent low-to-medium-complexity shapes and hand-painted matte textures. Only header and simple section labels VEGETATION, BUILDINGS, PROPS, PALETTE; no dimensions, no tiny paragraphs, no slogans, no other brand name. Do NOT include a library, extra cabins, human, hero tree, waterfall, bridge, castle, or old project title. Do not copy title text from source headers repeatedly into individual objects. This is an illustrated art-direction board, not a screenshot and not a multi-asset model input."
+  }
+]

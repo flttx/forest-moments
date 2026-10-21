@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-21",
+  "original_image_hashes": "35/35 unchanged",
+  "generated_images": "13/13 decoded and hashes matched",
+  "final_design_references": 9,
+  "historical_generated_images": 4,
+  "all_catalogued_images": 50,
+  "local_links_checked": 107,
+  "lint": "PASS",
+  "tests": "PASS 3/3",
+  "build": "PASS; existing >500 kB warning; main JS 1145.60 kB",
+  "visual_check": "actual generated images inspected; design review only",
+  "user_visual_acceptance": "PENDING",
+  "runtime_visual_validation": "NOT_RUN: reference images and documentation only"
+}

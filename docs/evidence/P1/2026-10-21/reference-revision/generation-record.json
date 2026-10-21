@@ -1,0 +1,347 @@
+{
+  "date": "2026-10-21",
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit/reference generation",
+  "final_design_count": 9,
+  "generation_count": 13,
+  "user_visual_acceptance": "PENDING",
+  "runtime_validation": "NOT_APPLICABLE_NO_RUNTIME_CHANGE",
+  "records": [
+    {
+      "id": "lookout",
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Redesign the supplied lookout tower reference to match a lightweight OPEN wooden lookout on the island. Remove ALL enclosed masonry rooms and ALL wall panels and doors from below the observation deck. Exactly four main timber legs on small separate stone footings, open cross-braces, one square observation platform, safety railing and simple dark hipped shingle roof. Simple continuous exterior timber staircase: two straight flights with ONE broad intermediate landing, bottom flight meets ground, top flight meets an actual opening in platform railing; sturdy continuous handrails. No ladder, no floating steps, no spiral stairs. About 6m to deck, roof apex about 8m; these are design targets. Make a unified 3-view reference sheet: large front-right three-quarter hero view left, true front elevation upper right, true side elevation lower right. SAME design, identical stair side and support arrangement across views. Camera views must not mirror the design. Show an open underside in EVERY view. Simplify ornament, omit flags, only two amber lamps. Text header exactly \"FOREST MOMENTS\", subtitle \"OPEN LOOKOUT\", view labels \"3/4\", \"FRONT\", \"SIDE\".",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/lookout/forest-moments-lookout-tower-three-quarter.png"
+      ],
+      "output": "docs/evidence/P1/2026-10-21/reference-revision/lookout-rejected-multiview.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-c2e00f63-e198-4e57-b452-e18334306e4b.png",
+      "status": "SUPERSEDED",
+      "visual_review": "未采用：FRONT 与 SIDE 画面过于相似，无法当作可靠结构投影。",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2066392,
+      "sha256": "aaf375fce28833cd1650225db061ad5f46d41219ac2b163f93a20f9985184003",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/lookout/forest-moments-lookout-tower-three-quarter.png",
+          "sha256": "b4d623d3bd02c3cc4046552ccf056c9695f21fa12474f5d4e2fca16ce518e912"
+        }
+      ],
+      "planned_destination": "lookout/forest-moments-lookout-design-v2.png"
+    },
+    {
+      "id": "lookout-final",
+      "dest": "lookout/forest-moments-lookout-master-v2.png",
+      "inputs": [
+        "C:/Users/Administrator/.codex/generated_images/01a15dbe-ef91-7550-9444-28ad904a9a69/exec-c2e00f63-e198-4e57-b452-e18334306e4b.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Edit this sheet: keep ONLY the large left three-quarter open lookout tower design and expand it centered as a single isolated full-height tower on a landscape off-white canvas. Remove both right-hand elevation panels and all FRONT, SIDE, 3/4 labels. Preserve the open wooden supports, separate small stone footings, square platform, roof and physically connected two-flight stair with landing and clear railing opening. No masonry room or door. Keep exactly the title FOREST MOMENTS and subtitle OPEN LOOKOUT. This single master is the authoritative appearance design, no alternative tower drawings. Leave generous margin around the complete tower.",
+      "output": "docs/references/lookout/forest-moments-lookout-master-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-d9244602-1ddc-4cdd-83de-92e40ff1e1f6.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "开放式木支架、独立小石脚与外置折返楼梯清楚；已取消错误的多视图。平台入口、踏步及支撑须建模复核。",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1823570,
+      "sha256": "770b68a5e4590f752a906e1d804267b729506cb93c8c940b8f3df43849e4f29c",
+      "input_evidence": [
+        {
+          "path": "C:/Users/Administrator/.codex/generated_images/01a15dbe-ef91-7550-9444-28ad904a9a69/exec-c2e00f63-e198-4e57-b452-e18334306e4b.png",
+          "sha256": "aaf375fce28833cd1650225db061ad5f46d41219ac2b163f93a20f9985184003"
+        }
+      ]
+    },
+    {
+      "id": "workshop",
+      "dest": "workshop/forest-moments-workshop-master-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/workshop/forest-moments-workshop-three-quarter.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Edit the workshop into one compact approachable woodworking workshop for a small island. SINGLE large isolated front-left three-quarter view only; no multiple views or mirrored versions. Preserve closed double-door gabled main house, muted dark shingle roof, warm timber beams and plaster infill, modest attached open woodworking lean-to. Freeze attached lean-to on the LEFT when looking squarely at the front door. Main closed house approximately 5m wide, 4m deep, with attached lean-to approximately 2m wide on its left. Reduce masonry to a low two-course plinth and ONE broad shallow entrance step. No high stairs or bulky side stone walls. Lean-to accessible flush with path, one clean workbench against main wall and 3-4 chunky readable hand tools, no tiny tool clutter. Lean-to roof and rear wall visibly connect to the main building. Main roof simple, two small loft windows, no additional buildings. Use broad wood grain and few well-defined beams, reduced surface noise. No chimney because no hearth is designed. Show door leaf split and hinges clearly, no floating parts. Title FOREST MOMENTS, subtitle WOODWORKING WORKSHOP, no other text. All building edges contained in frame. This master replaces conflicting earlier camera views; do not invent orthographic projections.",
+      "output": "docs/references/workshop/forest-moments-workshop-master-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-9a41fbae-0803-4de7-9668-5ebe1b479931.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "固定正门左侧附棚，降低石基，去掉烟囱，减少工具；单张主图取代未经核准的多视图，实际进深和门扇开合须建模确定。",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2047527,
+      "sha256": "ce280400eefdec37c149aab249dcbf07c544db4ed5d7bc6d5374fc8e624627d6",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/workshop/forest-moments-workshop-three-quarter.png",
+          "sha256": "35a2d6d632c2a4ec785be1a6adca54e3235fc4210d6888837fa5111e9723f887"
+        }
+      ]
+    },
+    {
+      "id": "growth",
+      "dest": "environment/forest-moments-tree-growth-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/environment/forest-moments-broadleaf-tree.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Edit into a coherent THREE-STAGE growth sheet for the SAME small rounded broadleaf tree species, based on the supplied mature tree. Left a newly planted sapling 0.45m high with short trunk and 5-7 broad leaves, center a juvenile tree 1.5m high with a small developing branched crown, right a mature tree 3m high with rounded grouped crown and visible Y-branch trunk. All stand on the SAME baseline, SAME scale, equal camera and neutral light: left genuinely much smaller than right, do not normalize height. Same olive-green leaf shape and warm-brown bark at all ages. Simple natural root contact on a small patch of earth, no planters, no support stakes, no tools, no environment. Mature foliage grouped into a few softly sculpted clumps, hand painted texture rather than individual photoreal leaves. Title FOREST MOMENTS, subtitle TREE GROWTH. Only captions NEWLY PLANTED, YOUNG, MATURE. No conifer in this sheet. This is the plantable species; ambient island forest still uses pine trees.",
+      "output": "docs/references/environment/forest-moments-tree-growth-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-7afe7eee-c7cf-4129-b497-3a7a7fb85bfc.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "同一种阔叶树的初栽、幼树、成树可辨且共用基线；画面尺寸为示意，0.45/1.5/3m 是设计目标而非已测量尺寸。",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1573528,
+      "sha256": "79c2ecd2125349a6d0119c203508de60556e4bc6b63dbdb393bb3bd2a8ea8045",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/environment/forest-moments-broadleaf-tree.png",
+          "sha256": "56faadce0440a7d5732de6f37f917d0ea547f6844ca87807bd7ceefa9da02789"
+        }
+      ]
+    },
+    {
+      "id": "raccoon",
+      "dest": "player/forest-moments-raccoon-design-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/player/forest-moments-raccoon-front.png",
+        "E:/Projects/forest-moments/docs/references/player/forest-moments-raccoon-back.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Refine this exact raccoon explorer identity into a simple animation-friendly character design reference. ONE sheet with front, true side and back of the SAME design, equal scale, feet same baseline, full body uncropped. Preserve rounded face, dark eye mask, brown eyes, cream muzzle, muted moss green short capelet and tunic, cream undersleeves, brown belt, olive-brown trousers and simple brown boots, bushy dark-ringed tail hanging down freely behind the pelvis. Reduce surface microfur, use broad softly painted fur clumps, only a few broad clothing folds, simplified low boots with no complicated laces, one simple belt buckle. Arms in a relaxed low A-pose about 30 degrees away from torso, hands fully separated from clothes, clear finger and thumb silhouettes, legs separated. Cape ends above elbows and must not cover hands. Tail root visible in back view below short cape, tail extends below pelvis without touching ground or fusing with legs, consistent 4 broad dark rings. No backpack, no weapons, no tools, no expression variants. Friendly but mature forest explorer, not baby toy. Title FOREST MOMENTS, subtitle RACCOON EXPLORER; labels FRONT, SIDE, BACK. No alternate costume or body proportions.",
+      "output": "docs/references/player/forest-moments-raccoon-design-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-e42e84ec-9d40-4360-b983-4329b15c1933.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "正背面手臂间隙扩大、鞋部简化、角色身份保留；侧面双臂投影重叠且尾巴细节有差异，不能当作精确三维投影或已绑定证据，毛发细纹仅作贴图参考。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1967584,
+      "sha256": "2dc9570980eeeee48d95c386c10785b1fa131d92db466a297cfdfc2b359901cd",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/player/forest-moments-raccoon-front.png",
+          "sha256": "7a9a4572edb289f54c53822a7ce1a9d9206b948b062a7850a736cae114172db2"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/player/forest-moments-raccoon-back.png",
+          "sha256": "9569f7054a2523cc30587c00dacf5c83e240689fe55aaee427b7d2e8b4085ea1"
+        }
+      ]
+    },
+    {
+      "id": "animals",
+      "dest": "farm/forest-moments-farm-animals-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/farm/forest-moments-sheep.png",
+        "E:/Projects/forest-moments/docs/references/farm/forest-moments-chicken.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Refine the provided sheep and chicken into a matching stylized farm animal reference sheet for the same hand-painted game as a round raccoon explorer. Left one sheep in clear side-three-quarter standing view; right one chicken in side-three-quarter view. Shared baseline and realistic relative scale, sheep about 0.75m shoulder height, chicken about 0.35m full height. Sheep: cream wool represented by 12-20 broad sculpted clumps, no hundreds of curls, soft dark grey face and legs, all four legs distinguishable, small friendly eyes, simple cloven hoof shapes. Chicken: warm rust-orange plumage grouped into broad smooth overlapping masses, simplified wing layered silhouette and tail fan, small red comb, rounded body, readable separated legs and toes, no individually embossed tiny feathers. Preserve natural species silhouette, mild stylization, not photoreal and not plastic toddler toys. Matte painterly finish with broad shading only. Title FOREST MOMENTS, subtitle FARM ANIMALS, labels SHEEP and CHICKEN. No fence or scenery. These are separate animals, never fused into one asset.",
+      "output": "docs/references/farm/forest-moments-farm-animals-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-f080502b-b7ec-45ed-b755-f9b8b2d08b82.png",
+      "status": "SUPERSEDED",
+      "visual_review": "已替代：毛羽仍过密、鸡相对偏大。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1725575,
+      "sha256": "db77f91069d96f2e2b3956146f7e884c244b29d42c90929d8de570c8578309d1",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/farm/forest-moments-sheep.png",
+          "sha256": "a1fb110d6e79ca085016040cf405c112741b211bd23ce1e63443de15296a8d15"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/farm/forest-moments-chicken.png",
+          "sha256": "2883fb58c9e9619593151d7c53932c69e72e59c473546a8e5ee5f5ae3639b4b7"
+        }
+      ]
+    },
+    {
+      "id": "dock",
+      "dest": "waterside/forest-moments-pond-dock-layout-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/waterside/forest-moments-dock-pier.png",
+        "E:/Projects/forest-moments/docs/references/waterside/forest-moments-dock-end.png",
+        "E:/Projects/forest-moments/docs/references/waterside/forest-moments-canoe.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Redesign the two dock references as ONE clearly assembled pond dock connecting a natural grassy freshwater bank to a short low wooden pier and small widened end platform. Show elevated three-quarter view of the entire assembly with bank on left, shallow pond water to right, clear scale canoe moored alongside. Compact island pond, no ocean jetty. Pier is a continuous walkable deck, about 1.5m wide, end platform about 2m square. Shore entry level with path by short gentle timber ramp, no gap at bank. Low deck near water for boarding canoe. Keep far-edge short railing only, leave near-side boarding edge OPEN with a clear 1m boarding zone beside the canoe seat. Far corner provides open fishing stance facing pond with rod silhouette leaning beside it. Lantern post on rear bank-side corner, away from boarding and casting path. Six modest timber piles, broad wood planks, restrained rope. Remove marine barnacles and saltwater encrustation; use subtle green freshwater stain at waterline. Canoe empty, no people. Show all connections clearly, no floating planks, no ladder blocking canoe. Title FOREST MOMENTS and POND DOCK, no other labels. Use continuous low shore, shallow reeds only at margins; do not hide connection points.",
+      "output": "docs/references/waterside/forest-moments-pond-dock-layout-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-1686510d-833b-4c87-a1f3-191cde5f0648.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "岸边接入、连续甲板、靠船开放边和淡水水线清楚；栈桥与平台已统一为一个组装方案。实际甲板高度、上船距离和碰撞需灰盒实测。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2862865,
+      "sha256": "a668c2a7164a2d576f8ec32d5b99235519aa3f5557ca810d199fa9af8be5ce18",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/waterside/forest-moments-dock-pier.png",
+          "sha256": "4f77e25d58d9fce59d866c50fd01340c07e2935a5c02abc29b33ef4c16137385"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/waterside/forest-moments-dock-end.png",
+          "sha256": "2d3e4cb5caf5fe19b79a7d800d7dbf945e63d4c1dbcacb58864a1055117ca256"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/waterside/forest-moments-canoe.png",
+          "sha256": "b12201215820f1fd05d2bb98e7a176f75370aa2ce9c45cd5d70ea8a69c4fc8d5"
+        }
+      ]
+    },
+    {
+      "id": "coast",
+      "dest": "environment/forest-moments-shore-transitions-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/concept/forest-moments-overview-v2.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Produce an environment construction reference sheet based on this forest island, focusing on THREE distinct connected surface transitions in three wide clearly separated panels. Title FOREST MOMENTS, subtitle SHORE TRANSITIONS. Panel 1 label ROCKY COAST: close oblique view of a low continuous weathered warm-grey rocky shoreline mass integrated into grass and soil, irregular angular strata and a few detached smaller rocks, turquoise seawater and modest white wave foam at the sea-contact edge; do not build a necklace of repeated identical boulders. Panel 2 label SANDY COVE: walkable earth path through grass slopes gently into a small sandy beach, sand extends smoothly underwater, small side rock outcrops and open sea, no vertical wall at sand/soil join. Panel 3 label FRESHWATER POND: gently sloped grassy earthen bank with dark damp soil at waterline, small reeds clustered at side, a few rounded rocks partially buried, calm green-blue water with visible shallow pond bottom, NO ocean foam or barnacles. Show terrain continuity rather than isolated props; same material palette and daylight, easy to translate into low-complexity game terrain. No buildings, no waterfalls, no cliff fortresses, no characters, no UI. Distinguish sea and pond water behavior visibly. Keep each panel spacious and uncluttered.",
+      "output": "docs/references/environment/forest-moments-shore-transitions-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-90cf0bf3-1e38-436c-ab4a-0fead6cbc168.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "岩岸/缓坡沙滩/淡水池岸三类过渡可辨；海边有泡沫、池塘无海浪，连续岩体替代单纯重复圆石。植被密度仅作气氛参考。",
+      "width": 1672,
+      "height": 941,
+      "bytes": 3082324,
+      "sha256": "ba222decfd361e47ecb957f0a9fc9a84d43877f7dacfc88624f5ed12b04741ad",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/concept/forest-moments-overview-v2.png",
+          "sha256": "5cfaa78e9c1b8f95f065b6aaf5e63f89ddec667d3fd10d7bc8d81c7d5fc93382"
+        }
+      ]
+    },
+    {
+      "id": "interactions",
+      "dest": "interaction/forest-moments-interaction-scale-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/player/forest-moments-raccoon-design-v2.png",
+        "E:/Projects/forest-moments/docs/references/waterside/forest-moments-canoe.png",
+        "E:/Projects/forest-moments/docs/references/waterside/forest-moments-fishing-rod.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Create a FOUR-PANEL gameplay interaction design reference, same small green-caped raccoon explorer identity and scale throughout, each panel shows complete feet/body and contact points. Title FOREST MOMENTS, subtitle INTERACTION SCALE. Top-left PADDLING: side view of raccoon seated low in cedar canoe, hips resting on seat, both feet INSIDE hull on floor, two hands clearly gripping a single-blade paddle one on T grip and one lower on shaft, blade enters water beside hull, natural bent elbows, ringed tail curls freely inside rear hull without penetrating wood, no standing in boat. Top-right FISHING: raccoon standing at open edge of low pond dock, both feet on planks, holding rod with both hands around handle/reel, visible fine fishing line runs through rod tip to small float in water, casting clearance away from lamp/fence. Bottom-left FARM GATE: raccoon standing beside an OPEN hinged wooden paddock gate about chest high, visible hinge post and latch post, unobstructed walk-through gap wider than character, short connecting fence rails, one chicken inside, no extra houses. Bottom-right FEEDING: raccoon outside sheep paddock reaching down with one hand toward a low wooden hay trough at sheep head height along fence, sheep inside eating, raccoon feet grounded, tail clear of fence. Broad readable silhouettes, reduced fur detail, muted natural colors. These are pose/scale sketches not a progression or screenshots. Avoid tool/body intersections, duplicate limbs, oversized props, labels beyond the specified text.",
+      "output": "docs/references/interaction/forest-moments-interaction-scale-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-649b9b3d-e061-4e0d-a394-1ba708a41a95.png",
+      "status": "SUPERSEDED",
+      "visual_review": "已替代：牧场门过高、鸡羊颜色与动物参考不一致。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2628393,
+      "sha256": "827dbf8dc7579e2b28832dbb8c9405f680f74bf450b76df181a960728074605b",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/player/forest-moments-raccoon-design-v2.png",
+          "sha256": "2dc9570980eeeee48d95c386c10785b1fa131d92db466a297cfdfc2b359901cd"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/waterside/forest-moments-canoe.png",
+          "sha256": "b12201215820f1fd05d2bb98e7a176f75370aa2ce9c45cd5d70ea8a69c4fc8d5"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/waterside/forest-moments-fishing-rod.png",
+          "sha256": "38dbdb286c95f60ad87eaa44c2292353c65bb030b23b7170fbd55748a96903d1"
+        }
+      ]
+    },
+    {
+      "id": "animals-final",
+      "dest": "farm/forest-moments-farm-animals-v3.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v2.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Edit the supplied farm animal sheet. Keep identities, title, layout and colors but SIGNIFICANTLY simplify wool and plumage. The present sheet is still too intricately feathered. Sheep wool must become about 15 LARGE broad rounded sculpted lobes with soft painted shading, smooth tops and almost NO tiny scallops/curls. Sheep face soft charcoal with broad matte strokes, four readable separated legs, cloven hooves. Chicken wing must be a SINGLE smooth broad mass with just 3 broad painted feather bands; neck/body feathers must be smooth painterly color gradients with almost no etched lines; tail only 4 large simple feathers, simplified comb. Keep attractive mature handcrafted feel, not shiny clay, no plastic. SCALE CORRECTION: both animals on same ground baseline; chicken including comb is approximately HALF the full height of sheep including head. Reduce chicken size visibly, preserve spacious background. No fur strands, no tiny repeated feather scales, no outlines around every lobe. Title FOREST MOMENTS, subtitle FARM ANIMALS, labels SHEEP, CHICKEN. Make the change in detail level unmistakable.",
+      "output": "docs/references/farm/forest-moments-farm-animals-v3.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-9c15407d-4a6a-4032-b061-bede3b8c4bbe.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "羊毛分为大形体块、鸡翅和尾羽简化，鸡相对尺寸减小；最终模型统一到约0.75m羊肩高、0.35m鸡全高，不从图像像素推断精确比例。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1694481,
+      "sha256": "755dc585e5739e79388b95b8ec202ae2fe751430bbb7d74800fa97f6dffafd39",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v2.png",
+          "sha256": "db77f91069d96f2e2b3956146f7e884c244b29d42c90929d8de570c8578309d1"
+        }
+      ]
+    },
+    {
+      "id": "interactions-final",
+      "dest": "interaction/forest-moments-interaction-scale-v3.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/interaction/forest-moments-interaction-scale-v2.png",
+        "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v3.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Image 1 is the edit target; Image 2 is ONLY animal identity/color reference. Keep the entire four-panel FOREST MOMENTS interaction sheet, layout, typography, raccoon, canoe and fishing panel exactly unchanged. Change only these lower-panel details: in FARM GATE panel recolor the chicken to warm rust-orange brown body with red comb and dark brown tail, matching reference image 2, NOT white; lower the gate and nearby fence to raccoon chest height while maintaining an open clear hinged gateway, do not shorten raccoon. In FEEDING panel change sheep face and visible legs to soft charcoal grey, cream wool in broad simple sculpted clumps matching image 2; keep the sheep nose at trough and readable feeding contact. Keep the raccoon hand, straw and trough placement. Maintain mature warm hand-painted style and natural proportions. No new panels, no new text, no new props. Keep upper panels unaltered.",
+      "output": "docs/references/interaction/forest-moments-interaction-scale-v3.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-4938ce26-42d8-4a5a-8b83-1f633a8f7290.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "已统一棕鸡与深灰脸羊、降低牧场门；划桨握持、鱼线浮漂、开门空间、喂食位置可辨。船内脚部和尾根部分遮挡，仍需绑定与碰撞验证。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2480047,
+      "sha256": "ed1f85b04511d300e5c9336ef04822436ecd80c8e906d5923766517ec6aacb85",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/interaction/forest-moments-interaction-scale-v2.png",
+          "sha256": "827dbf8dc7579e2b28832dbb8c9405f680f74bf450b76df181a960728074605b"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v3.png",
+          "sha256": "755dc585e5739e79388b95b8ec202ae2fe751430bbb7d74800fa97f6dffafd39"
+        }
+      ]
+    },
+    {
+      "id": "style-final",
+      "dest": "style/forest-moments-environment-board-v2.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/concept/forest-moments-overview-v2.png",
+        "E:/Projects/forest-moments/docs/references/lookout/forest-moments-lookout-master-v2.png",
+        "E:/Projects/forest-moments/docs/references/workshop/forest-moments-workshop-master-v2.png",
+        "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v3.png"
+      ],
+      "prompt": "Forest Moments PC browser forest island game. Mature restrained warm storybook hand-painted game art, matte warm timber, warm grey stone, deep olive pine greens, subtle amber lamps, softly sculpted shapes, clear economical detail, no plastic gloss, no photoreal microdetail, no dense clutter. Clean warm off-white presentation background, spacious readable layout. No brand names except FOREST MOMENTS, no watermarks. This is a design reference sheet, not a gameplay screenshot. Create the CURRENT project environment design board. Image 1 provides island layout and atmosphere; image 2 provides authoritative OPEN lookout design; image 3 authoritative low-plinth workshop with lean-to on viewer-left of front door; image 4 authoritative simplified cream sheep with CHARCOAL face/legs and rust-orange chicken. Compose a premium spacious landscape reference board with top title exactly FOREST MOMENTS and smaller subtitle ISLAND LIFE. Upper band one panoramic forest island with visible surrounding blue ocean, inner separate freshwater pond, sparse landmarks matching the references and walking paths. Below, organized isolated reference rows: two pine tree heights, one rounded broadleaf tree, tiny newly planted broadleaf sapling, a small bush and 3 varied warm grey rock forms; compact workshop, OPEN four-post lookout with NO enclosed room/masonry tower, tiny chicken coop; wooden lantern post, split-rail fence with open gate, cedar canoe and paddle, short low pond dock with open boarding edge. Put a small cream-wool DARK-FACED sheep and rust-orange chicken near coop. Add seven muted color swatches dark pine, olive green, warm timber, dark timber, warm grey stone, amber, sea blue. Large objects legible, no dense microdetail, coherent low-to-medium-complexity shapes and hand-painted matte textures. Only header and simple section labels VEGETATION, BUILDINGS, PROPS, PALETTE; no dimensions, no tiny paragraphs, no slogans, no other brand name. Do NOT include a library, extra cabins, human, hero tree, waterfall, bridge, castle, or old project title. Do not copy title text from source headers repeatedly into individual objects. This is an illustrated art-direction board, not a screenshot and not a multi-asset model input.",
+      "output": "docs/references/style/forest-moments-environment-board-v2.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-7d251059-6812-4bc7-9d62-94b586bdf7c5.png",
+      "status": "SUPERSEDED",
+      "visual_review": "已替代：总板重新出现烟囱、船身误为纯木色。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2908486,
+      "sha256": "779932a4573afc395a3a055f64c543e073f5fe04272784e4011719d8f73d9c7f",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/concept/forest-moments-overview-v2.png",
+          "sha256": "5cfaa78e9c1b8f95f065b6aaf5e63f89ddec667d3fd10d7bc8d81c7d5fc93382"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/lookout/forest-moments-lookout-master-v2.png",
+          "sha256": "770b68a5e4590f752a906e1d804267b729506cb93c8c940b8f3df43849e4f29c"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/workshop/forest-moments-workshop-master-v2.png",
+          "sha256": "ce280400eefdec37c149aab249dcbf07c544db4ed5d7bc6d5374fc8e624627d6"
+        },
+        {
+          "path": "E:/Projects/forest-moments/docs/references/farm/forest-moments-farm-animals-v3.png",
+          "sha256": "755dc585e5739e79388b95b8ec202ae2fe751430bbb7d74800fa97f6dffafd39"
+        }
+      ]
+    },
+    {
+      "id": "style-final-corrected",
+      "dest": "style/forest-moments-environment-board-v3.png",
+      "inputs": [
+        "E:/Projects/forest-moments/docs/references/style/forest-moments-environment-board-v2.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit this FOREST MOMENTS ISLAND LIFE board with ONLY two consistency fixes. 1. Remove the chimney from the workshop in BOTH the top island panorama and the BUILDINGS row. Restore continuous plain roof shingles in its place. No chimney anywhere, retain all other workshop geometry and left lean-to. 2. Recolor ONLY the exterior hull of the canoe in the PROPS row to muted weathered teal-green with a thin worn cream gunwale stripe, keeping the interior natural warm cedar and paddle wooden. Match the teal canoe identity used in Forest Moments. Keep ALL text, layout, scenery, tower, vegetation, animals, swatches, lighting and other details unchanged. Do not introduce any new object, label or building. Preserve original hand-painted matte texture and title spelling.",
+      "output": "docs/references/style/forest-moments-environment-board-v3.png",
+      "generated_source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a15dbe-ef91-7550-9444-28ad904a9a69\\exec-d481f869-5954-4e14-b82b-46d12693721d.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "visual_review": "已移除烟囱、恢复青绿色船身与FOREST MOMENTS标题；开放塔和海岛要素清楚。总板仅总览色彩与构成，建筑/动物具体结构以各自专题主图为准。",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2738262,
+      "sha256": "f37a92f40669e9231fd7cb4edbe51efb10dd59084cac91318dd9a1e7cc0729c8",
+      "input_evidence": [
+        {
+          "path": "E:/Projects/forest-moments/docs/references/style/forest-moments-environment-board-v2.png",
+          "sha256": "779932a4573afc395a3a055f64c543e073f5fe04272784e4011719d8f73d9c7f"
+        }
+      ]
+    }
+  ]
+}

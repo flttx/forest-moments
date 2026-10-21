@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-21",
+  "tool": "image_gen.imagegen (built-in)",
+  "mode": "new image from text",
+  "prompt": "concept-prompt.txt",
+  "image": "../../../references/concept/forest-moments-overview-v1.png",
+  "width": 1672,
+  "height": 941,
+  "bytes": 3712751,
+  "sha256": "a8d8f09f90d855995f6d5c6602be078a360cf22cec00ef9036e319a49df78a17",
+  "status": "SUPERSEDED",
+  "visual_review": "已查看本次实际生成图；关键地标可辨，风格与少建筑方向符合初稿目标；用户确认及实机验收未完成",
+  "superseded_reason": "初稿未呈现海上小岛；按用户补充要求由 v2 取代"
+}

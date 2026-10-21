@@ -1,0 +1,840 @@
+{
+  "date": "2026-10-21",
+  "source_root": "E:\\Projects\\my-blog",
+  "source_revision": "6160c8c4765f6738d31f50ca86c5e2b306ee476d",
+  "purpose": "先整理参考图，供风格与单体资产设计使用",
+  "validation": "2026-10-21：35 张原参考图哈希保持不变；13 次图像生成，9 张当前专题参考、4 张迭代记录；所有新增图已实际查看、解码并记录哈希。15 张原参考保留当前用途，20 张标为历史；模型/动画/用户验收未完成。",
+  "images": [
+    {
+      "source": "docs/references/world/style/flttxq-forest-style-v1.png",
+      "group": "style",
+      "use": "全局色彩、材质与林间光照",
+      "width": 1672,
+      "height": 941,
+      "destination": "style/forest-moments-style-board.png",
+      "bytes": 2310281,
+      "sha256": "3805518809b8b591cdc24415006220aca2ca182a74d974c6fe13281678138d8d",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "display_name": "整体风格板",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "style/forest-moments-environment-board-v3.png"
+    },
+    {
+      "source": "docs/references/world/environment/flttxq-forest-environment-kit.png",
+      "group": "style",
+      "use": "植被、石头、环境道具风格总览",
+      "width": 1672,
+      "height": 941,
+      "destination": "style/forest-moments-environment-board.png",
+      "bytes": 2459471,
+      "sha256": "8a0adafe023cfa9e1453a5bfbfbe6fbf43a4b05688256bf28127e17ac3cbdae0",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_BLENDER_REFERENCE_PURPOSE",
+        "model_state": "PENDING"
+      },
+      "display_name": "环境元素板",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "style/forest-moments-environment-board-v3.png"
+    },
+    {
+      "source": "docs/references/world/environment/kit/tall-pine-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "environment/forest-moments-pine-tall.png",
+      "bytes": 398400,
+      "sha256": "21d36322c8519d74db6b62e4dc0f3261568f151c3f969a2eb95b8d4d1cdfc994",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_REFERENCE_INPUT",
+        "model_state": "PASS"
+      },
+      "display_name": "高松树",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/normal-pine-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "environment/forest-moments-pine.png",
+      "bytes": 391964,
+      "sha256": "c5dfdb32a884bbadf3e1123072ffff532481f22c5389029d5f3f603790b29eb0",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_REFERENCE_INPUT",
+        "model_state": "PASS"
+      },
+      "display_name": "松树",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/round-tree-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "environment/forest-moments-broadleaf-tree.png",
+      "bytes": 568827,
+      "sha256": "56faadce0440a7d5732de6f37f917d0ea547f6844ca87807bd7ceefa9da02789",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_REFERENCE_INPUT",
+        "model_state": "PASS"
+      },
+      "display_name": "阔叶树",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/young-tree-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-sapling.png",
+      "bytes": 1365815,
+      "sha256": "2acef285e60f79a693ddd940e2f3c05f1a6e724b515931fee5bf1e7a9dc2e6fa",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_REFERENCE_INPUT",
+        "model_state": "PASS"
+      },
+      "display_name": "树苗",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "environment/forest-moments-tree-growth-v2.png"
+    },
+    {
+      "source": "docs/references/world/environment/kit/rock-a-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "environment/forest-moments-rock-rounded.png",
+      "bytes": 349366,
+      "sha256": "375e126e10b8dde912eb34226cb415f369a24da6077d23155d0668682cb586f0",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_ASSET_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "圆岩",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/rock-b-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-rock-flat.png",
+      "bytes": 1459545,
+      "sha256": "9afe99595fbea8e9a32de718a09e378948b548df30182bdacd3eaa0c83eeb4bd",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_ASSET_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "扁岩",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/rock-c-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-rock-upright.png",
+      "bytes": 1470486,
+      "sha256": "8f53498bc74d3efc6bbb039615b2ccbff8f0167c9a8540767341f4f53529022a",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_ASSET_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "立岩",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/bush-a-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "environment/forest-moments-bush.png",
+      "bytes": 436759,
+      "sha256": "d390071e5f27301610ace25f77928fb863afd8b06c5646bf1e103200773cd224",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_REFERENCE_INPUT",
+        "model_state": "PASS"
+      },
+      "display_name": "灌木",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/fence-segment-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-fence.png",
+      "bytes": 1367003,
+      "sha256": "1afe11e348d6bb35c08b8edfa4f36b27b0119892cc94d2056f6bc2e8bdf92608",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_FOR_3D_REFERENCE_USE",
+        "model_state": "PASS"
+      },
+      "display_name": "围栏",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/lantern-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-lantern-post.png",
+      "bytes": 1397215,
+      "sha256": "b34a8a8f95e9f25b68f66356760e53bce859bebf60182bb99be72a630a3d3ffa",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_ASSET_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "路灯",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/log-bench-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-wood-bench.png",
+      "bytes": 1473553,
+      "sha256": "9af15ea56f2e0266526ae84f81798088497f1facfed9e0b80cda40d800813c07",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_ASSET_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "木长椅",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/environment/kit/wood-sign-isolation-reference.png",
+      "group": "environment",
+      "use": "单体造型与建模输入参考",
+      "width": 1254,
+      "height": 1254,
+      "destination": "environment/forest-moments-signpost.png",
+      "bytes": 1427114,
+      "sha256": "4009551433537a4fe3d716dd30ec01aadd7f8faee08be4ee86e3126a236ae053",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_SINGLE_ASSET_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "路牌",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "assets/tripo/player/v4/reference/front.png",
+      "group": "player",
+      "use": "浣熊角色多视图；仅造型，不代表骨骼与动作可用",
+      "width": 1086,
+      "height": 1448,
+      "destination": "player/forest-moments-raccoon-front.png",
+      "bytes": 2292014,
+      "sha256": "7a9a4572edb289f54c53822a7ce1a9d9206b948b062a7850a736cae114172db2",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "assets/tripo/player/v4/ledger.json",
+        "role": "multiview_to_model input"
+      },
+      "display_name": "浣熊 · 正面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "player/forest-moments-raccoon-design-v2.png"
+    },
+    {
+      "source": "assets/tripo/player/v4/reference/left.png",
+      "group": "player",
+      "use": "浣熊角色多视图；仅造型，不代表骨骼与动作可用",
+      "width": 1086,
+      "height": 1448,
+      "destination": "player/forest-moments-raccoon-left.png",
+      "bytes": 2185417,
+      "sha256": "0254426120b38d6cad2b9a67bb4a7d5d5bb9edf088d352c1e8b32cb2744b69a7",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "assets/tripo/player/v4/ledger.json",
+        "role": "multiview_to_model input"
+      },
+      "display_name": "浣熊 · 左侧",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "player/forest-moments-raccoon-design-v2.png"
+    },
+    {
+      "source": "assets/tripo/player/v4/reference/back.png",
+      "group": "player",
+      "use": "浣熊角色多视图；仅造型，不代表骨骼与动作可用",
+      "width": 1086,
+      "height": 1448,
+      "destination": "player/forest-moments-raccoon-back.png",
+      "bytes": 2210104,
+      "sha256": "9569f7054a2523cc30587c00dacf5c83e240689fe55aaee427b7d2e8b4085ea1",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "assets/tripo/player/v4/ledger.json",
+        "role": "multiview_to_model input"
+      },
+      "display_name": "浣熊 · 背面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "player/forest-moments-raccoon-design-v2.png"
+    },
+    {
+      "source": "assets/tripo/player/v4/reference/right.png",
+      "group": "player",
+      "use": "浣熊角色多视图；仅造型，不代表骨骼与动作可用",
+      "width": 1086,
+      "height": 1448,
+      "destination": "player/forest-moments-raccoon-right.png",
+      "bytes": 2210189,
+      "sha256": "ce21d8e46a15dd69875dc28f976c71a454350c88c7dee6f59d0d0eae96656903",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "assets/tripo/player/v4/ledger.json",
+        "role": "multiview_to_model input"
+      },
+      "display_name": "浣熊 · 右侧",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "player/forest-moments-raccoon-design-v2.png"
+    },
+    {
+      "source": "docs/references/world/production-v1/generated/lookout-isolated-r1/working/lookout-isolated-r1.png",
+      "group": "lookout",
+      "use": "木瞭望塔多视图",
+      "width": 1024,
+      "height": 1024,
+      "destination": "lookout/forest-moments-lookout-tower-three-quarter.png",
+      "bytes": 906909,
+      "sha256": "b4d623d3bd02c3cc4046552ccf056c9695f21fa12474f5d4e2fca16ce518e912",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_MULTIVIEW_AND_DESIGN_TECHNICAL_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "瞭望塔 · 斜侧面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "lookout/forest-moments-lookout-master-v2.png"
+    },
+    {
+      "source": "docs/references/world/production-v1/generated/lookout-right-r1/working/lookout-right-r1.png",
+      "group": "lookout",
+      "use": "木瞭望塔多视图",
+      "width": 1024,
+      "height": 1024,
+      "destination": "lookout/forest-moments-lookout-tower-right.png",
+      "bytes": 764178,
+      "sha256": "9d757cf8597d5da6b654b32cc3b5a9b7d6d88a90160b24d039ef22de55ec55ac",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_MULTIVIEW_AND_DESIGN_TECHNICAL_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "瞭望塔 · 右侧",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "lookout/forest-moments-lookout-master-v2.png"
+    },
+    {
+      "source": "docs/references/world/production-v1/generated/lookout-back-r1/working/lookout-back-r1.png",
+      "group": "lookout",
+      "use": "木瞭望塔多视图",
+      "width": 1024,
+      "height": 1024,
+      "destination": "lookout/forest-moments-lookout-tower-back.png",
+      "bytes": 1124715,
+      "sha256": "b148e87e7d1dd5adc61936f41685a4d358ec2ca8e03215f81550c895bbee2866",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_MULTIVIEW_AND_DESIGN_TECHNICAL_REFERENCE",
+        "model_state": "PASS"
+      },
+      "display_name": "瞭望塔 · 背面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "lookout/forest-moments-lookout-master-v2.png"
+    },
+    {
+      "source": "docs/references/world/production-v1/generated/workshop-isolated-r1/working/workshop-isolated-r1.png",
+      "group": "workshop",
+      "use": "工坊造型与多视图参考；模型尚待制作与验证",
+      "width": 1024,
+      "height": 1024,
+      "destination": "workshop/forest-moments-workshop-three-quarter.png",
+      "bytes": 1418108,
+      "sha256": "35a2d6d632c2a4ec785be1a6adca54e3235fc4210d6888837fa5111e9723f887",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_AS_MULTIVIEW_REFERENCE_SET",
+        "model_state": "DEFERRED"
+      },
+      "display_name": "工坊 · 斜侧面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "workshop/forest-moments-workshop-master-v2.png"
+    },
+    {
+      "source": "generated/workshop-front-r1/working/workshop-front-r1.png",
+      "group": "workshop",
+      "use": "工坊造型与多视图参考；模型尚待制作与验证",
+      "width": 1024,
+      "height": 1024,
+      "destination": "workshop/forest-moments-workshop-front.png",
+      "bytes": 1383573,
+      "sha256": "8b2793ff3e30cbd81ef7d87b2cf7acd3219c54ed7a4502fcc1aaad4754f8a2b1",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_AS_MULTIVIEW_REFERENCE_SET",
+        "model_state": "DEFERRED"
+      },
+      "display_name": "工坊 · 正面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "workshop/forest-moments-workshop-master-v2.png"
+    },
+    {
+      "source": "generated/workshop-left-r1/working/workshop-left-r1.png",
+      "group": "workshop",
+      "use": "工坊造型与多视图参考；模型尚待制作与验证",
+      "width": 1024,
+      "height": 1024,
+      "destination": "workshop/forest-moments-workshop-left.png",
+      "bytes": 1306693,
+      "sha256": "7515f81b15dbb8bca3ff79cdd7bec66301963adbfc68672fd26e9fd47bf4a38c",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_AS_MULTIVIEW_REFERENCE_SET",
+        "model_state": "DEFERRED"
+      },
+      "display_name": "工坊 · 左侧",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "workshop/forest-moments-workshop-master-v2.png"
+    },
+    {
+      "source": "generated/workshop-back-r1/working/workshop-back-r1.png",
+      "group": "workshop",
+      "use": "工坊造型与多视图参考；模型尚待制作与验证",
+      "width": 1024,
+      "height": 1024,
+      "destination": "workshop/forest-moments-workshop-back.png",
+      "bytes": 1415348,
+      "sha256": "04a33f703dadf2767b5ffd8eb58709764315a150002691b4a991011a6844e328",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_AS_MULTIVIEW_REFERENCE_SET",
+        "model_state": "DEFERRED"
+      },
+      "display_name": "工坊 · 背面",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "workshop/forest-moments-workshop-master-v2.png"
+    },
+    {
+      "source": "generated/workshop-right-r1/working/workshop-right-r1.png",
+      "group": "workshop",
+      "use": "工坊造型与多视图参考；模型尚待制作与验证",
+      "width": 1024,
+      "height": 1024,
+      "destination": "workshop/forest-moments-workshop-right.png",
+      "bytes": 1432721,
+      "sha256": "8c1afc86cc615f48aa08b722268a5efa27ba208b8c30c2ec50c5677d1bdfe713",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "source_record": {
+        "path": "docs/references/world/production-v1/reference-index.json",
+        "reference_gate": "PASS",
+        "reference_gate_reason": "PASS_AS_MULTIVIEW_REFERENCE_SET",
+        "model_state": "DEFERRED"
+      },
+      "display_name": "工坊 · 右侧",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "workshop/forest-moments-workshop-master-v2.png"
+    },
+    {
+      "source": "docs/references/world/landmarks/forest-lookout-tower-reference.png",
+      "group": "lookout",
+      "use": "木塔整体风格；本项目高度另定",
+      "width": 1672,
+      "height": 941,
+      "destination": "lookout/forest-moments-lookout-tower-design-board.png",
+      "bytes": 2708785,
+      "sha256": "85aff0cc4130d11b158694c5fe5572ecd6e742140a828e1410db58c0b485a22f",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "display_name": "瞭望塔 · 设计板",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "lookout/forest-moments-lookout-master-v2.png"
+    },
+    {
+      "source": "docs/references/world/coast/coast-canoe/working/coast-canoe.png",
+      "group": "waterside",
+      "use": "划船、码头与钓鱼道具建模参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "waterside/forest-moments-canoe.png",
+      "bytes": 1394595,
+      "sha256": "b12201215820f1fd05d2bb98e7a176f75370aa2ce9c45cd5d70ea8a69c4fc8d5",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-18T16:34:06.743Z",
+        "metadata_path": "docs/references/world/coast/coast-canoe/tripo-reference.metadata.json"
+      },
+      "display_name": "独木舟",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/coast/coast-paddle/working/coast-paddle.png",
+      "group": "waterside",
+      "use": "划船、码头与钓鱼道具建模参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "waterside/forest-moments-paddle.png",
+      "bytes": 1116224,
+      "sha256": "c75449312d1403514f70bcb163d627a945523af35863dc2b5c1f07f5507196b8",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-18T16:34:52.225Z",
+        "metadata_path": "docs/references/world/coast/coast-paddle/tripo-reference.metadata.json"
+      },
+      "display_name": "船桨",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/coast/coast-dock-pier/working/coast-dock-pier.png",
+      "group": "waterside",
+      "use": "划船、码头与钓鱼道具建模参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "waterside/forest-moments-dock-pier.png",
+      "bytes": 1493177,
+      "sha256": "4f77e25d58d9fce59d866c50fd01340c07e2935a5c02abc29b33ef4c16137385",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-18T16:35:35.007Z",
+        "metadata_path": "docs/references/world/coast/coast-dock-pier/tripo-reference.metadata.json"
+      },
+      "display_name": "码头栈桥",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "waterside/forest-moments-pond-dock-layout-v2.png"
+    },
+    {
+      "source": "docs/references/world/coast/coast-dock-end/working/coast-dock-end.png",
+      "group": "waterside",
+      "use": "划船、码头与钓鱼道具建模参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "waterside/forest-moments-dock-end.png",
+      "bytes": 1321416,
+      "sha256": "2d3e4cb5caf5fe19b79a7d800d7dbf945e63d4c1dbcacb58864a1055117ca256",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-18T16:07:21.986Z",
+        "metadata_path": "docs/references/world/coast/coast-dock-end/tripo-reference.metadata.json"
+      },
+      "display_name": "码头平台",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "waterside/forest-moments-pond-dock-layout-v2.png"
+    },
+    {
+      "source": "docs/references/world/coast/coast-fishing-rod/working/coast-fishing-rod.png",
+      "group": "waterside",
+      "use": "划船、码头与钓鱼道具建模参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "waterside/forest-moments-fishing-rod.png",
+      "bytes": 1120094,
+      "sha256": "38dbdb286c95f60ad87eaa44c2292353c65bb030b23b7170fbd55748a96903d1",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-18T16:08:01.342Z",
+        "metadata_path": "docs/references/world/coast/coast-fishing-rod/tripo-reference.metadata.json"
+      },
+      "display_name": "钓竿",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    },
+    {
+      "source": "docs/references/world/farm/animal-sheep/working/animal-sheep.png",
+      "group": "farm",
+      "use": "小型牧场动物与鸡舍参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "farm/forest-moments-sheep.png",
+      "bytes": 874667,
+      "sha256": "a1fb110d6e79ca085016040cf405c112741b211bd23ce1e63443de15296a8d15",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-19T11:20:55.001Z",
+        "metadata_path": "docs/references/world/farm/animal-sheep/tripo-reference.metadata.json"
+      },
+      "display_name": "绵羊",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "farm/forest-moments-farm-animals-v3.png"
+    },
+    {
+      "source": "docs/references/world/farm/animal-chicken/working/animal-chicken.png",
+      "group": "farm",
+      "use": "小型牧场动物与鸡舍参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "farm/forest-moments-chicken.png",
+      "bytes": 939626,
+      "sha256": "2883fb58c9e9619593151d7c53932c69e72e59c473546a8e5ee5f5ae3639b4b7",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-19T11:20:48.115Z",
+        "metadata_path": "docs/references/world/farm/animal-chicken/tripo-reference.metadata.json"
+      },
+      "display_name": "鸡",
+      "design_status": "SUPERSEDED_REFERENCE",
+      "superseded_by": "farm/forest-moments-farm-animals-v3.png"
+    },
+    {
+      "source": "docs/references/world/farm/ranch-coop/working/ranch-coop.png",
+      "group": "farm",
+      "use": "小型牧场动物与鸡舍参考",
+      "width": 1024,
+      "height": 1024,
+      "destination": "farm/forest-moments-chicken-coop.png",
+      "bytes": 1248589,
+      "sha256": "141ef9eda2ba7c77447f084df6fefa5ee1590e0bf49503a7f6f3bbcd360e22a8",
+      "status": "REFERENCE_FILE_VERIFIED",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "generation": {
+        "model": "gpt_image_2",
+        "created_at": "2026-10-19T11:21:51.009Z",
+        "metadata_path": "docs/references/world/farm/ranch-coop/tripo-reference.metadata.json"
+      },
+      "display_name": "鸡舍",
+      "design_status": "ACTIVE_APPEARANCE_REFERENCE"
+    }
+  ],
+  "unavailable_images": [
+    {
+      "source": "docs/references/world/player/player.png",
+      "group": "player",
+      "use": "浣熊外形与服装基线",
+      "width": 1024,
+      "height": 1536,
+      "destination": "player/player.png",
+      "bytes": 2185021,
+      "sha256": "e8ca07d223d5d11dcaf4df668b019e192731ed179937e4587ae9dcc719b5c242",
+      "status": "MISSING_LOCAL_FILE",
+      "rights": "用户授权本地设计参考；公开分发及商业使用权未独立核实",
+      "checked_date": "2026-10-21",
+      "note": "命名整理前本地文件已缺失，未恢复；不计入当前可用参考图"
+    }
+  ],
+  "naming_convention": "forest-moments-对象[-视角].png；按本项目用途命名，不沿用外部生产批次",
+  "design_revisions": [
+    {
+      "id": "lookout-final",
+      "destination": "lookout/forest-moments-lookout-master-v2.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1823570,
+      "sha256": "770b68a5e4590f752a906e1d804267b729506cb93c8c940b8f3df43849e4f29c",
+      "visual_review": "开放式木支架、独立小石脚与外置折返楼梯清楚；已取消错误的多视图。平台入口、踏步及支撑须建模复核。"
+    },
+    {
+      "id": "workshop",
+      "destination": "workshop/forest-moments-workshop-master-v2.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 2047527,
+      "sha256": "ce280400eefdec37c149aab249dcbf07c544db4ed5d7bc6d5374fc8e624627d6",
+      "visual_review": "固定正门左侧附棚，降低石基，去掉烟囱，减少工具；单张主图取代未经核准的多视图，实际进深和门扇开合须建模确定。"
+    },
+    {
+      "id": "growth",
+      "destination": "environment/forest-moments-tree-growth-v2.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1254,
+      "height": 1254,
+      "bytes": 1573528,
+      "sha256": "79c2ecd2125349a6d0119c203508de60556e4bc6b63dbdb393bb3bd2a8ea8045",
+      "visual_review": "同一种阔叶树的初栽、幼树、成树可辨且共用基线；画面尺寸为示意，0.45/1.5/3m 是设计目标而非已测量尺寸。"
+    },
+    {
+      "id": "raccoon",
+      "destination": "player/forest-moments-raccoon-design-v2.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1967584,
+      "sha256": "2dc9570980eeeee48d95c386c10785b1fa131d92db466a297cfdfc2b359901cd",
+      "visual_review": "正背面手臂间隙扩大、鞋部简化、角色身份保留；侧面双臂投影重叠且尾巴细节有差异，不能当作精确三维投影或已绑定证据，毛发细纹仅作贴图参考。"
+    },
+    {
+      "id": "dock",
+      "destination": "waterside/forest-moments-pond-dock-layout-v2.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2862865,
+      "sha256": "a668c2a7164a2d576f8ec32d5b99235519aa3f5557ca810d199fa9af8be5ce18",
+      "visual_review": "岸边接入、连续甲板、靠船开放边和淡水水线清楚；栈桥与平台已统一为一个组装方案。实际甲板高度、上船距离和碰撞需灰盒实测。"
+    },
+    {
+      "id": "coast",
+      "destination": "environment/forest-moments-shore-transitions-v2.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1672,
+      "height": 941,
+      "bytes": 3082324,
+      "sha256": "ba222decfd361e47ecb957f0a9fc9a84d43877f7dacfc88624f5ed12b04741ad",
+      "visual_review": "岩岸/缓坡沙滩/淡水池岸三类过渡可辨；海边有泡沫、池塘无海浪，连续岩体替代单纯重复圆石。植被密度仅作气氛参考。"
+    },
+    {
+      "id": "animals-final",
+      "destination": "farm/forest-moments-farm-animals-v3.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 1694481,
+      "sha256": "755dc585e5739e79388b95b8ec202ae2fe751430bbb7d74800fa97f6dffafd39",
+      "visual_review": "羊毛分为大形体块、鸡翅和尾羽简化，鸡相对尺寸减小；最终模型统一到约0.75m羊肩高、0.35m鸡全高，不从图像像素推断精确比例。"
+    },
+    {
+      "id": "interactions-final",
+      "destination": "interaction/forest-moments-interaction-scale-v3.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2480047,
+      "sha256": "ed1f85b04511d300e5c9336ef04822436ecd80c8e906d5923766517ec6aacb85",
+      "visual_review": "已统一棕鸡与深灰脸羊、降低牧场门；划桨握持、鱼线浮漂、开门空间、喂食位置可辨。船内脚部和尾根部分遮挡，仍需绑定与碰撞验证。"
+    },
+    {
+      "id": "style-final-corrected",
+      "destination": "style/forest-moments-environment-board-v3.png",
+      "status": "CURRENT_DESIGN_REFERENCE",
+      "width": 1536,
+      "height": 1024,
+      "bytes": 2738262,
+      "sha256": "f37a92f40669e9231fd7cb4edbe51efb10dd59084cac91318dd9a1e7cc0729c8",
+      "visual_review": "已移除烟囱、恢复青绿色船身与FOREST MOMENTS标题；开放塔和海岛要素清楚。总板仅总览色彩与构成，建筑/动物具体结构以各自专题主图为准。"
+    }
+  ],
+  "revision_history": [
+    {
+      "id": "lookout",
+      "path": "docs/evidence/P1/2026-10-21/reference-revision/lookout-rejected-multiview.png",
+      "status": "SUPERSEDED",
+      "sha256": "aaf375fce28833cd1650225db061ad5f46d41219ac2b163f93a20f9985184003",
+      "reason": "未采用：FRONT 与 SIDE 画面过于相似，无法当作可靠结构投影。"
+    },
+    {
+      "id": "animals",
+      "path": "docs/references/farm/forest-moments-farm-animals-v2.png",
+      "status": "SUPERSEDED",
+      "sha256": "db77f91069d96f2e2b3956146f7e884c244b29d42c90929d8de570c8578309d1",
+      "reason": "已替代：毛羽仍过密、鸡相对偏大。"
+    },
+    {
+      "id": "interactions",
+      "path": "docs/references/interaction/forest-moments-interaction-scale-v2.png",
+      "status": "SUPERSEDED",
+      "sha256": "827dbf8dc7579e2b28832dbb8c9405f680f74bf450b76df181a960728074605b",
+      "reason": "已替代：牧场门过高、鸡羊颜色与动物参考不一致。"
+    },
+    {
+      "id": "style-final",
+      "path": "docs/references/style/forest-moments-environment-board-v2.png",
+      "status": "SUPERSEDED",
+      "sha256": "779932a4573afc395a3a055f64c543e073f5fe04272784e4011719d8f73d9c7f",
+      "reason": "已替代：总板重新出现烟囱、船身误为纯木色。"
+    }
+  ]
+}
