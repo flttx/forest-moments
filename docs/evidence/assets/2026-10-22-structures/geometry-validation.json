@@ -1,0 +1,26 @@
+[
+  {
+    "asset": "workshop",
+    "variant": "structure-v2",
+    "retainedImportedTriangles": 283470,
+    "retainedTriangleMultisetMatches": true,
+    "coordinateTolerance": 2e-06,
+    "gateOriginalCoordinatesRecovered": false
+  },
+  {
+    "asset": "lookout",
+    "variant": "structure-v3",
+    "retainedImportedTriangles": 281358,
+    "retainedTriangleMultisetMatches": true,
+    "coordinateTolerance": 2e-06,
+    "gateOriginalCoordinatesRecovered": true
+  },
+  {
+    "asset": "canoe",
+    "variant": "structure-v2",
+    "retainedImportedTriangles": 287052,
+    "retainedTriangleMultisetMatches": true,
+    "coordinateTolerance": 2e-06,
+    "gateOriginalCoordinatesRecovered": false
+  }
+]

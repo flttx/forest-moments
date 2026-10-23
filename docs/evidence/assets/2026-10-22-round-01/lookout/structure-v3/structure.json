@@ -1,0 +1,10 @@
+{
+  "source": "structure-v2.blend",
+  "output": "assets/lux3d/round-01/lookout/structure-v3.glb",
+  "outputSha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+  "changes": "Two timber end covers at separated gate edges",
+  "characterModified": false,
+  "originalFacesDeleted": 0,
+  "stairsModified": false,
+  "status": "candidate; original stair path and player collision require runtime verification"
+}

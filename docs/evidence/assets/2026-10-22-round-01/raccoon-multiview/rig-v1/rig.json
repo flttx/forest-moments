@@ -1,0 +1,53 @@
+{
+  "source": "assets/lux3d/round-01/raccoon-multiview/surface-v1.glb",
+  "sourceSha256": "e01ea0e19879d779339c4d94ab13c812c3463696296a49740cc9d886a692c054",
+  "output": "assets/lux3d/round-01/raccoon-multiview/rig-v1.glb",
+  "outputSha256": "a020774d05627412691141d089d12f95d2fd32834470abd8f34ccb41dfdd0423",
+  "bones": 22,
+  "tailBones": 4,
+  "clips": [
+    {
+      "name": "Idle",
+      "durationSeconds": 3.0
+    },
+    {
+      "name": "Walk",
+      "durationSeconds": 1.2
+    },
+    {
+      "name": "Run",
+      "durationSeconds": 0.8
+    },
+    {
+      "name": "Sit",
+      "durationSeconds": 3.0
+    },
+    {
+      "name": "Crouch",
+      "durationSeconds": 3.0
+    },
+    {
+      "name": "Fish",
+      "durationSeconds": 3.0
+    },
+    {
+      "name": "Paddle",
+      "durationSeconds": 2.0
+    },
+    {
+      "name": "TailSweep",
+      "durationSeconds": 2.0
+    }
+  ],
+  "weights": "region-constrained, normalized, max two influences; cloth excluded from tail",
+  "tailVertexCount": 47846,
+  "clothVerticesWithTailWeights": 0,
+  "geometryModified": false,
+  "paidApiCalls": 0,
+  "status": "candidate; deformation and continuous playback review pending",
+  "motionLimitations": [
+    "Procedurally authored in-place cycles, not motion capture",
+    "Fish/Paddle require prop alignment and interaction integration",
+    "No runtime transition or foot-lock acceptance yet"
+  ]
+}

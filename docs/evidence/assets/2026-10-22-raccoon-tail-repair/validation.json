@@ -1,0 +1,151 @@
+{
+  "verifiedAt": "2026-10-22T04:16:16.258646+00:00",
+  "sourceTaskId": 4268120,
+  "paidApiCalls": 0,
+  "imageCounts": {
+    "v1": 3,
+    "v2": 3,
+    "v3": 4,
+    "v4": 4,
+    "v5": 12
+  },
+  "images": [
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v1/tail-closeup/back.png",
+      "sha256": "9804fb0e1c1293e3c170cb85e28193c17f34d725fede2d6ffb12589d882c587a"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v1/tail-closeup/elevated.png",
+      "sha256": "0c8a3d1b760310fe387675445da2d58d7e952aaed3aced10ea39683d0787ad26"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v1/tail-closeup/side.png",
+      "sha256": "ced9585c306fc53f479afbb48e1776d3edf0efd069002189b366f2f1a95eea83"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v2/tail-closeup/back.png",
+      "sha256": "29e0b413fda212b4eb1b0d60ad56d28ba1bff6803e322a47ce5981a74c4d95cb"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v2/tail-closeup/elevated.png",
+      "sha256": "46aad8364c240c9dd537f012555f6f880cd498f94ee8f6bdcfc4c5d65c8bad83"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v2/tail-closeup/side.png",
+      "sha256": "082953f1e696b3cba59dba25096e01741c2f8a1dcc210142ec4802d05d4bf169"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v3/tail-closeup/back.png",
+      "sha256": "91f11fa682cbb0b1fbdcc887655177678bce4f50d8f084dc4ce4fddc22ec1a2d"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v3/tail-closeup/elevated.png",
+      "sha256": "80c2c0a15d7f6e4b05356b25b0f89ef10a194703d8850d32d60711f4c3cf013e"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v3/tail-closeup/left.png",
+      "sha256": "0f802d6c65ffce73bb83867b505013dfedf0346fd3c3ef26e9f3e9e51596a473"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v3/tail-closeup/side.png",
+      "sha256": "090a060c33428606bcee39e1806b37b1721c2f6858a0531a75c530906072cc55"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v4/tail-closeup/back.png",
+      "sha256": "a40ca7fcc94e2a3e04b6d4fb500e552f6e563c2a05cb3ff9646cccbb79fe9b89"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v4/tail-closeup/elevated.png",
+      "sha256": "fbbdde578bf3a3b57587b4fc353d349ae518ce9549effb8210a7e7af377de029"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v4/tail-closeup/left.png",
+      "sha256": "67446dffe57123587a435af914ed13dcdccd62e193c380bd9c8b2373b5973ec7"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v4/tail-closeup/side.png",
+      "sha256": "b0232f7ff7fe491b9d2fceb3cbcdf4f07a8879cef9ae8035e8bb4e05bf60fbfb"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/back.png",
+      "sha256": "131d4d9fd41de2fc695f044cd1117b1a260005b5a8ac0b080b6992469ff12284"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/clay/tail-closeup/back.png",
+      "sha256": "535b2e320b7fb30390fc1f316ccf45f60c07eff4bc01d3c39df4c976f83a71d8"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/clay/tail-closeup/elevated.png",
+      "sha256": "ed6c84bcaedaa3531363da928d68a639bb9e6098061074748a0d8dc126077821"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/elevated.png",
+      "sha256": "d386500a69aa5795797c1f0be0561c80539845d2ae8487d65a830fa792c817da"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/front.png",
+      "sha256": "1e7c978bae6500f44b1e48827c18cc477b72f033e6d2fdb7c71fc9eabecf742a"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/left.png",
+      "sha256": "bc239501d68b92da25d6cb3800764e34ef6472a575c35fce4d9cd4598dd8fdb3"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/side.png",
+      "sha256": "5f467d012ab4e5e1777fb0f0688c66378f27b0de604e0abbd9d02c1789c0a8bb"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/tail-closeup/back.png",
+      "sha256": "5e4f52501e50fb6d6af45e22c74759d808383dbf79b0193522b3979f5b0fe658"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/tail-closeup/elevated.png",
+      "sha256": "6d598f51bccde26d5d80c4ec7b25aa014d395dec6c1cc9c11cfb8fd7bfbcd213"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/tail-closeup/left.png",
+      "sha256": "78628a97b72a76de7e5f111ddbe2bd1f35c278e6cbbba9cf8a726cc57b25ea3a"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/tail-closeup/side.png",
+      "sha256": "c6fe2f266ca79c2fc13cd0876427cffa0d48777286c145d294373d08a29927ea"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-repair-v5/three-quarter.png",
+      "sha256": "586a90c83b122bb03ca5e5101996464746e7cc77c8d9f265f670675c01ed5c88"
+    }
+  ],
+  "httpHead": [
+    {
+      "path": "scripts/aholo/review.html",
+      "status": 200
+    },
+    {
+      "path": "scripts/aholo/review.mjs",
+      "status": 200
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-raccoon-tail-repair/manifest.json",
+      "status": 200
+    },
+    {
+      "path": "assets/lux3d/round-01/raccoon-multiview/tail-repair-v5.glb",
+      "status": 200
+    }
+  ],
+  "checks": {
+    "lint": "passed",
+    "tests": "3/3 passed",
+    "build": "passed; existing JS size warning",
+    "syntax": "JS/Python passed",
+    "assetAudit": "passed; exterior triangle multiset preserved and textures identical"
+  },
+  "browser": {
+    "apps": 0,
+    "browsers": 0,
+    "visualVerified": false,
+    "performanceMeasured": false
+  },
+  "acceptance": "local static separation visible; full asset and animation pending",
+  "localLinksChecked": 37
+}

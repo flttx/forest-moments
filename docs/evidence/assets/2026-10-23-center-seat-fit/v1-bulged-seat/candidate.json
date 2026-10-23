@@ -1,0 +1,30 @@
+{
+  "status": "central bench candidate; checks pending",
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v1.glb",
+  "boatScale": 0.5,
+  "characterShift": [
+    0.0,
+    0.0,
+    0.14000000059604645
+  ],
+  "waterZ": -0.355,
+  "bakedAssemblyCoordinates": true,
+  "changes": [
+    {
+      "mesh": "Lux3D_canoe",
+      "changedVertices": 5796,
+      "maxMoveM": 0.15041608563941217,
+      "polygons": 287052
+    },
+    {
+      "mesh": "Measured_hull_cavity_caps",
+      "changedVertices": 0,
+      "maxMoveM": 0,
+      "polygons": 8846
+    }
+  ],
+  "outputSHA256": "8e7c7d53421543b54ef1a7109910a7d34b2906be1241a5562e83f3bbe6030cdc",
+  "bytes": 17904680,
+  "sourceActorModified": false,
+  "sourceHullModified": false
+}

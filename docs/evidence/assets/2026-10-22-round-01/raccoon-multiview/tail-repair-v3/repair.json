@@ -1,0 +1,59 @@
+{
+  "status": "rejected: slot offset; exterior geometry preservation failed",
+  "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+  "outputSha256": "2f7aa05cc9873ed87b6f6cbc60856a8087f1b141ce5f68e6cd02901843b8f20b",
+  "sourceModified": false,
+  "paidApiCalls": 0,
+  "decimationApplied": false,
+  "originalVertices": 237762,
+  "originalFaces": 289504,
+  "outputVertices": 140895,
+  "outputPolygons": 287449,
+  "meshValidationCorrectedData": true,
+  "method": "Two narrow V-shaped hem clearances; preserve central attachment",
+  "runtimeBrowserVerified": false,
+  "cutterRowsNormalized": [
+    [
+      1.49,
+      -0.04,
+      0.03,
+      0.001
+    ],
+    [
+      1.45,
+      -0.06,
+      0.055,
+      0.014
+    ],
+    [
+      1.4,
+      -0.09,
+      0.1,
+      0.017
+    ],
+    [
+      1.35,
+      -0.12,
+      0.13,
+      0.017
+    ],
+    [
+      1.3,
+      -0.18,
+      0.145,
+      0.017
+    ],
+    [
+      1.24,
+      -0.24,
+      0.16,
+      0.018
+    ],
+    [
+      1.205,
+      -0.26,
+      0.165,
+      0.001
+    ]
+  ]
+}

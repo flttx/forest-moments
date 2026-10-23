@@ -1,0 +1,72 @@
+{
+  "assets": [
+    {
+      "asset": "raccoon-surface",
+      "variant": "surface-v1",
+      "taskId": "4268120",
+      "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+      "files": [
+        {
+          "variant": "surface-v1",
+          "path": "assets/lux3d/round-01/raccoon-multiview/surface-v1.glb",
+          "sha256": "e01ea0e19879d779339c4d94ab13c812c3463696296a49740cc9d886a692c054",
+          "bytes": 18434852,
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 247308,
+            "triangles": 290520,
+            "materials": 6,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4761156
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "candidate; visual/skin acceptance not passed"
+    },
+    {
+      "asset": "raccoon-mixamo",
+      "variant": "rig-mixamo-v6",
+      "taskId": "4268120",
+      "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+      "files": [
+        {
+          "variant": "rig-mixamo-v6",
+          "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v6.glb",
+          "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+          "bytes": 24777392,
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 248958,
+            "triangles": 290520,
+            "materials": 6,
+            "skins": 1,
+            "animations": 19,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4761156
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "candidate; visual/skin acceptance not passed",
+      "tailUserDecision": "Current tail accepted; proceed to other assets",
+      "garmentEditingStopped": true
+    }
+  ]
+}

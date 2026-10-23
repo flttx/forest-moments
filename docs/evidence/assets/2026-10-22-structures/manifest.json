@@ -1,0 +1,124 @@
+{
+  "assets": [
+    {
+      "asset": "workshop-structure",
+      "variant": "structure-v2",
+      "taskId": 4266166,
+      "sourceSha256": "79f76e1283c72b6ee8239c66524325d61d12c812554e4823c0ce2db22a33fc14",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/workshop/structure-v2.glb",
+          "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+          "bytes": 18892400,
+          "glb": {
+            "version": 2,
+            "meshes": 4,
+            "vertices": 284531,
+            "triangles": 283794,
+            "materials": 3,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4787020
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 1593536
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "local structure improvement; runtime validation pending",
+      "originalDecodedTexturesPreserved": true,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "lookout-structure",
+      "variant": "structure-v3",
+      "taskId": 4266456,
+      "sourceSha256": "183120006624644f71289fdd669631123558c96e8fad51548efa3f236545f38c",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/lookout/structure-v3.glb",
+          "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+          "bytes": 17295608,
+          "glb": {
+            "version": 2,
+            "meshes": 4,
+            "vertices": 230676,
+            "triangles": 281574,
+            "materials": 2,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4362840
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 2178712
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "local structure improvement; runtime validation pending",
+      "originalDecodedTexturesPreserved": true,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "canoe-structure",
+      "variant": "structure-v2",
+      "taskId": 4266578,
+      "sourceSha256": "d76f1bf7b807e763cbd4b7c0fd42496253b4c9d66a9b25bcb2b1299165876d21",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/canoe/structure-v2.glb",
+          "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+          "bytes": 17562100,
+          "glb": {
+            "version": 2,
+            "meshes": 4,
+            "vertices": 253645,
+            "triangles": 296122,
+            "materials": 3,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4005008
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 1914628
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "local structure improvement; runtime validation pending",
+      "originalDecodedTexturesPreserved": true,
+      "commercialLicense": "not_verified"
+    }
+  ]
+}

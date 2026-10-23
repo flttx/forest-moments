@@ -1,0 +1,276 @@
+{
+  "artifacts": [
+    {
+      "variant": "surface-v1",
+      "path": "assets/lux3d/round-01/raccoon-multiview/surface-v1.glb",
+      "sha256": "e01ea0e19879d779339c4d94ab13c812c3463696296a49740cc9d886a692c054",
+      "bytes": 18434852,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 247308,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    },
+    {
+      "variant": "rig-v1",
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-v1.glb",
+      "sha256": "a020774d05627412691141d089d12f95d2fd32834470abd8f34ccb41dfdd0423",
+      "bytes": 23547844,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 247524,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 1,
+        "animations": 8,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    },
+    {
+      "variant": "rig-mixamo-v2",
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v2.glb",
+      "sha256": "22a431b01c98cd285a534a1672f3050896c7d59d9d144873143a5a49b235e622",
+      "bytes": 24060460,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 247524,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 1,
+        "animations": 10,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    },
+    {
+      "variant": "rig-mixamo-v3",
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v3.glb",
+      "sha256": "7476e2613f56610705493f44a72e4454a0771d82ad79fbe6dac5dd892627ea9a",
+      "bytes": 24762996,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 248273,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 1,
+        "animations": 19,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    },
+    {
+      "variant": "rig-mixamo-v4",
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v4.glb",
+      "sha256": "e891e052441d682cce38999e7bc410a1db5f00f29bd652d3e78a3758a684d010",
+      "bytes": 24806100,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 248958,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 1,
+        "animations": 19,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    },
+    {
+      "variant": "rig-mixamo-v5",
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v5.glb",
+      "sha256": "86a66b899db48d9141adc432384063d9bb0250a26b391203925342e14ec3bd8b",
+      "bytes": 24771880,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 248958,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 1,
+        "animations": 19,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    },
+    {
+      "variant": "rig-mixamo-v6",
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v6.glb",
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "bytes": 24777392,
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 248958,
+        "triangles": 290520,
+        "materials": 6,
+        "skins": 1,
+        "animations": 19,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4761156
+          }
+        ],
+        "extensionsRequired": []
+      }
+    }
+  ],
+  "surfaceGeometryMatchesTailV5": true,
+  "surfaceBaseColorTextureBytesPreserved": true,
+  "cutVertexColorsPresent": true,
+  "originalLux3dFileUnchanged": true,
+  "myBlogRuntimeFileUnchanged": true,
+  "reusedAnimationCount": 19,
+  "nativeSkeletonJoints": 38,
+  "durationsPreserved": true,
+  "tailSeamFaceGeometryPreserved": true,
+  "tailLedVerticesMaxLegWeight": 0,
+  "tailSeamMaxCoordinateDrift": 1.1920928955078125e-07,
+  "tailSeamCoordinateTolerance": 1e-06,
+  "clips": {
+    "bench_ready": 0.9666666388511658,
+    "bench_sit_down": 2.2333333492279053,
+    "bench_sit_idle": 4.300000190734863,
+    "bench_stand_up": 2.2666666507720947,
+    "fish_cast": 3.200000047683716,
+    "fish_hold": 1.5666667222976685,
+    "fish_land": 1.1666666269302368,
+    "fish_reel": 2.4000000953674316,
+    "idle": 9.933333396911621,
+    "interact": 4.066666603088379,
+    "paddle": 7.199999809265137,
+    "run": 0.699999988079071,
+    "sit_down_floor_hug": 2.200000047683716,
+    "sit_down_floor_idle": 2.200000047683716,
+    "sit_floor_hug": 4.0,
+    "sit_floor_idle": 10.866666793823242,
+    "stand_up_floor_hug": 2.2333333492279053,
+    "stand_up_floor_idle": 2.2333333492279053,
+    "walk": 1.0
+  },
+  "pngs": [
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/surface-v1/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/surface-v1/front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/surface-v1/side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/surface-v1/tail-closeup/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/surface-v1/tail-closeup/elevated.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Crouch-001-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Fish-023-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Idle-001-front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Paddle-016-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Run-007-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Sit-001-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/TailSweep-016-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/TailSweep-046-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Walk-010-front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-v1/Walk-010-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/CrouchReach-095-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/FishCast-090-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Idle-001-front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Paddle-055-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Run-007-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Sit-001-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Walk-010-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Walk-010-front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Walk-010-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v2/Walk-025-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/bench_sit_idle-001-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/fish_cast-065-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/idle-001-front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/interact-055-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/paddle-055-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/run-007-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/walk-010-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/walk-010-front.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/walk-010-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v3/walk-025-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v4/paddle-055-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v4/walk-010-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v4/walk-010-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v5/paddle-055-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v5/walk-010-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v5/walk-010-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/paddle-055-three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/walk-010-back.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/walk-010-side.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0000.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0001.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0002.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0003.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0004.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0005.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0006.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0007.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0008.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0009.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0010.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0011.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0012.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0013.png",
+    "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/rig-mixamo-v6/continuous/walk/0014.png"
+  ],
+  "pngCount": 59,
+  "browserVerified": false,
+  "visualAcceptance": "NOT PASSED: projected/analytical skin weights still deform garment and tail incorrectly",
+  "checks": {
+    "lint": "passed",
+    "test": "3/3 passed",
+    "build": "passed with existing >500 kB warning",
+    "pythonSyntax": "passed",
+    "reviewModuleSyntax": "passed"
+  }
+}

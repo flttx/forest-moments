@@ -1,0 +1,40 @@
+{
+  "asset": "canoe",
+  "blenderVersion": "5.2.1 LTS",
+  "source": "assets/lux3d/round-01/canoe/optimized-v2.glb",
+  "sourceSha256": "718076fde61272a3b5ec749533803bd3823173d86f8705b7d65620ee8552a4ce",
+  "meshObjects": 1,
+  "renderEngine": "CYCLES",
+  "resolution": [
+    900,
+    900
+  ],
+  "views": [
+    "three-quarter",
+    "left",
+    "elevated",
+    "bottom"
+  ],
+  "previewScaleOnly": 0.6232703421200058,
+  "sourceGeometryModified": false,
+  "runtimeBrowserVerified": false,
+  "framingBoundsBlenderXYZ": {
+    "min": [
+      -2.4000000953674316,
+      -2.406660318374634,
+      -0.7301744818687439
+    ],
+    "max": [
+      2.4000000953674316,
+      2.406660318374634,
+      0.7301744818687439
+    ],
+    "size": [
+      4.800000190734863,
+      4.813320636749268,
+      1.4603489637374878
+    ]
+  },
+  "framingReference": "raw-source-bounds",
+  "orthographicScale": 4.8
+}

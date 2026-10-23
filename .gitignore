@@ -30,3 +30,17 @@ dist-ssr
 .tmp/
 coverage/
 *.blend1
+
+# Aholo responses contain temporary signed resource URLs; keep local only.
+assets/lux3d/**/ledger.json
+assets/lux3d/**/result.json
+__pycache__/
+
+# Local modeling workspace; runtime exports are versioned under public/ with LFS.
+/assets/**/*.blend
+/assets/**/*.glb
+/assets/**/*.zip
+
+# Capture batches stay local. Only reviewed evidence is explicitly added with -f.
+/docs/evidence/assets/**/*.png
+/docs/evidence/rendering/**/*.png

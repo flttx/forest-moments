@@ -1,0 +1,144 @@
+{
+  "sampleRate": null,
+  "sampleCount": 8,
+  "boneOverrides": false,
+  "frames": [
+    {
+      "frame": 0,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 74
+      },
+      "handContactTriangles": {
+        "Right": 400,
+        "Left": 505
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.19269132614135742
+    },
+    {
+      "frame": 55,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 204,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 204,
+        "mixamorig:RightShoulder": 109,
+        "mixamorig:RightForeArm": 42,
+        "mixamorig:LeftForeArm": 36
+      },
+      "handContactTriangles": {
+        "Left": 501,
+        "Right": 313
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4100554287433624
+    },
+    {
+      "frame": 75,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 40,
+        "mixamorig:Hips": 3,
+        "mixamorig:RightForeArm": 43
+      },
+      "handContactTriangles": {
+        "Left": 491,
+        "Right": 287
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.44475415349006653
+    },
+    {
+      "frame": 100,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 25,
+        "mixamorig:LeftForeArm": 59,
+        "mixamorig:RightForeArm": 136
+      },
+      "handContactTriangles": {
+        "Left": 447,
+        "Right": 352
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.1270310878753662
+    },
+    {
+      "frame": 139,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 5
+      },
+      "handContactTriangles": {
+        "Right": 337
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5723431706428528
+    },
+    {
+      "frame": 163,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 62,
+        "mixamorig:RightForeArm": 2
+      },
+      "handContactTriangles": {
+        "Left": 339,
+        "Right": 274
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.03588559478521347
+    },
+    {
+      "frame": 190,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 169,
+        "Right": 23
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.5460126399993896
+    },
+    {
+      "frame": 216,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 74
+      },
+      "handContactTriangles": {
+        "Right": 400,
+        "Left": 505
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.19182999432086945
+    }
+  ],
+  "summary": {
+    "paddleHullFrames": [],
+    "paddleSeatFrames": [],
+    "bodyHullFrames": [],
+    "bodySeatFrames": [],
+    "paddleHeadFrames": [
+      55
+    ]
+  },
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v11.glb",
+  "assetSHA256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+  "timelineFPS": 30
+}

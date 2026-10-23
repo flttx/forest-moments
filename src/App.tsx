@@ -1,6 +1,9 @@
 import { useForestStore } from './game/store'
 import { landmarks } from './game/landmarks'
 import { ForestWorld } from './world/ForestWorld'
+import { AssetLoadingNotice, WorldErrorBoundary } from './world/ModelAsset'
+import { canBoard, canLand } from './game/rowing'
+import { FishBook, FishingHud } from './FishingHud'
 import './App.css'
 
 function App() {
@@ -10,9 +13,13 @@ function App() {
   const interact = useForestStore((s) => s.interact)
   const dismiss = useForestStore((s) => s.dismiss)
   const current = landmarks.find((l) => l.id === nearby)
+  const mode = useForestStore((s) => s.mode)
+  const boardable = useForestStore((s) => s.boatReady && canBoard(s.position.x, s.position.z, s.boat))
+  const landable = useForestStore((s) => canLand(s.boat))
 
   return <main className="app-shell">
-    <div className="world"><ForestWorld /></div>
+    <div className="world"><WorldErrorBoundary><ForestWorld /></WorldErrorBoundary></div>
+    <AssetLoadingNotice />
     <header className="hero-panel" aria-label="项目简介">
       <span className="eyebrow">FOREST MOMENTS · EARLY PROTOTYPE</span>
       <h1>森林拾光</h1>
@@ -26,22 +33,32 @@ function App() {
           <span className="bullet">✦</span>{point.name}{point.id === 'grove' && planted ? ' · 已种植' : ''}
         </li>)}
       </ul>
-      <small>已实现：WASD 行走、Shift 奔跑、F 互动、种树苗存档。其余地点为概念占位。</small>
+      <small>池塘西岸按 F 钓鱼，木码头前端按 F 上船。可保存渔获和树苗；工坊玩法仍在制作中。</small>
+      <FishBook />
     </aside>
     <footer className="controls">
-      <strong>漫步森林</strong>
-      <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</span>
-      <span><kbd>Shift</kbd> 奔跑</span>
-      <span><kbd>F</kbd> 互动</span>
+      <strong>{mode === 'fishing' ? '池边垂钓' : mode === 'rowing' ? '泛舟池塘' : '漫步森林'}</strong>
+      {mode === 'fishing' ? <><span><kbd>F</kbd> 提竿</span><span><kbd>Space</kbd> 按住收线，松开放线</span><span><kbd>Esc</kbd> 收起</span></> : mode === 'rowing' ? <>
+        <span><kbd>W</kbd> 前划 <kbd>S</kbd> 后划</span>
+        <span><kbd>A</kbd><kbd>D</kbd> 转向 · 松开停船</span>
+        <span><kbd>F</kbd> 靠码头下船</span>
+      </> : <>
+        <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> 移动</span>
+        <span><kbd>Shift</kbd> 奔跑</span>
+        <span><kbd>F</kbd> 互动</span>
+      </>}
     </footer>
-    {current && <div className="interaction" aria-live="polite">
+    {mode === 'fishing' ? <FishingHud /> : mode === 'rowing' ? <div className="interaction" aria-live="polite">
+      <span>{landable ? '已靠近码头' : '回到木码头，停稳后下船'}</span>
+      <button type="button" onClick={interact} disabled={!landable}>下船 <kbd>F</kbd></button>
+    </div> : current && <div className="interaction" aria-live="polite">
       <span>发现 · {current.name}</span>
-      <button type="button" onClick={interact}>{nearby === 'grove' ? (planted ? '看看树苗' : '种一棵树') : '探索地点'} <kbd>F</kbd></button>
+      <button type="button" onClick={interact}>{nearby === 'pond' ? '到岸边钓鱼' : nearby === 'dock' ? (boardable ? '上船' : '走到码头前端') : nearby === 'grove' ? (planted ? '看看树苗' : '种一棵树') : '探索地点'} <kbd>F</kbd></button>
     </div>}
-    {message && <div className="notice" role="status">
+    {message && <div className={`notice${mode === 'fishing' ? ' fishing-notice' : ''}`} role="status">
       <p>{message}</p><button type="button" onClick={dismiss} aria-label="关闭提示">×</button>
     </div>}
-    <div className="draft-flag">原型阶段 · 美术资源待制作</div>
+    <div className="draft-flag">原型阶段 · 森林与玩法持续制作中</div>
   </main>
 }
 

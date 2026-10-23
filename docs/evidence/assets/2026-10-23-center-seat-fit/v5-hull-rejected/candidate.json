@@ -1,0 +1,30 @@
+{
+  "status": "central rigid bench candidate; checks pending",
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v5.glb",
+  "boatScale": 0.5,
+  "characterShift": [
+    0,
+    0,
+    0.14
+  ],
+  "waterZ": -0.355,
+  "bakedAssemblyCoordinates": true,
+  "interiorBenchFacesRemoved": 16497,
+  "exteriorHullDeformed": true,
+  "upperMiddleWidthRatio": 0.65,
+  "seatTopZ": 0.007,
+  "seatBoundsXY": [
+    [
+      -0.06,
+      0.22
+    ],
+    [
+      -0.24,
+      0.24
+    ]
+  ],
+  "outputSHA256": "b855ed1d7ca8120d64171e2891871f053fc65dbb03ec895b987bc26e5f479736",
+  "bytes": 17353464,
+  "sourceActorModified": false,
+  "sourceHullModified": false
+}

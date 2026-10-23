@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-23",
+  "lint": "PASS, 0 warnings/errors",
+  "test": "PASS, 16 tests in 5 files",
+  "build": "PASS, TypeScript + Vite; existing >500 kB warning",
+  "mainJsKB": 1246.2,
+  "mainJsGzipKB": 347.12,
+  "diffCheck": "PASS (existing LF/CRLF notices only)",
+  "productionTelemetryAbsent": true,
+  "browserReports": {
+    "final": {
+      "status": "PASS: captures and scoped render checks; visual assessment recorded separately",
+      "errors": [],
+      "screenshots": 16
+    },
+    "regression": {
+      "status": "PASS: scoped runtime smoke checks; not complete visual or gameplay acceptance",
+      "errors": [],
+      "screenshots": 7
+    },
+    "production-fishing": {
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "errors": [],
+      "screenshots": 6
+    },
+    "production-rowing": {
+      "status": "PASS: static build load, eight model/track resources, boarding/rowing HUD, development telemetry absent",
+      "errors": [],
+      "screenshots": 2
+    }
+  }
+}

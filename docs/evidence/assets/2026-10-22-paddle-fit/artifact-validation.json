@@ -1,0 +1,526 @@
+{
+  "sourceRuntimeDistHashesMatchPreviousManifest": true,
+  "originalRaccoonClips": 19,
+  "reviewGlb": {
+    "version": 2,
+    "meshes": 5,
+    "vertices": 511819,
+    "triangles": 586642,
+    "materials": 9,
+    "skins": 1,
+    "animations": 1,
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 4005008
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 1914628
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 4761156
+      }
+    ],
+    "extensionsRequired": []
+  },
+  "reviewSha256": "15166b60c3aa419c7080a69404d4a37a56d1eadc3f03dfa396e81002b76f61a3",
+  "images": [
+    {
+      "path": "face-contact-rejected/headless-grip-close.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1d2bc65aef716d3b0c3dabd65d82cd0b8b6657ee8a68e64265080bd36450d9b2"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "646915c80dbb8bf93549dba8ed81ff60f95f58e179c55d61261693964d420834"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1cd0a35a0d257628f98a727bd58517c8e78f3fedc40d98326c1c6d34b39b86f1"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "777d4a1277c2d27d4e3329f9b03ffb9aacc6f894f5ebeec240403b9be3281238"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "3dc9863c0f5dd5ad6a124a3b937f24746f0e32f6be85af7699a63d8e1136def7"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "6bec93cbccfb890178b4856db205671658997815fc4027935d6b8be9dd06baf2"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "d709355e5a9ec2d3d7109956c836892aa12248050ddf5820d2f5d72c3bce2cc0"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c44844e06a8747e919db5ebed335c8c90372210352b7e8c117b12a6aae5bfd17"
+    },
+    {
+      "path": "face-contact-rejected/headless-left-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "ac013f209b83f95d5b46b975d194eb45e13b912f6279f10aed277975fba43c8a"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "bb2d80342e17f7c6930d9e2514e88fa5931e63da7b24cea04fc98b585c2a7153"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "8b01ab3926b5751b65de3604fd98cba48fa28e5b1ba2f667ed5970c6c736c9fa"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "cf4d39185aef3163178f20fead765b702fa52067a54765f7a3f9539e169fdb0d"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "12511a1f6856303c6ee7d2bf372d88e22296172b82c570b5ff13dfe1e0bed32e"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "eec405e40e06dff82b51745ff8621fb1074849d6503eba8d8d8ab18ccc03d3cf"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c5453a35cacc015a66f2bfdf0b43c66c97776af6c0b11269da39098e428b7664"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "e89946be59f19a8a9eb6433ffd1877856f58ff0d9d519c54f920f4cc97ce4664"
+    },
+    {
+      "path": "face-contact-rejected/headless-right-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "084978bd0b8db76e113ae1990fdbfed0a7b488baf6711709056e616f1550cb42"
+    },
+    {
+      "path": "face-contact-rejected/headless-water-playback.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "e274bc1a24eeb9d23510db8128478b2c634741fb1a3c0b919b32de369e9bf1ce"
+    },
+    {
+      "path": "headless-grip-close.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "dc1c8599829a34c36c6cba597180b765e4518d6b589b63bd8f6da1b39ee406f1"
+    },
+    {
+      "path": "headless-left-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "4675b9fb67d13845ac452a8f6dc98c7796ba127308b583389666984256dc1f1a"
+    },
+    {
+      "path": "headless-left-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "e2546dc4344e01dfee5455f83390eae2b86031f5e414cce03eb53ef6cd2c9abd"
+    },
+    {
+      "path": "headless-left-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "87f27ab02ca6f9cde5ab529cd8a8d60d70615c2e1d18a7dbaec7e03378155522"
+    },
+    {
+      "path": "headless-left-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "5a50a5a3d77594e560ae15a5be8f80ad2cd7e1a5ffc9aba40ec7211f2bd28e32"
+    },
+    {
+      "path": "headless-left-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "22c195d2e396097cf077acc8c97f271f646d109403e0cabc7aa7375f3d243984"
+    },
+    {
+      "path": "headless-left-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "05f1524109ee4a9934f5c67d875485664d690bd6bb379acb6068ff9cdd0a1db2"
+    },
+    {
+      "path": "headless-left-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "634d008b234a84a3efe074d4c766dfec2e215b28974a721c5013c207e6192101"
+    },
+    {
+      "path": "headless-left-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "868710541d5de8969b59eab1ab9d9f9fb9d407d72c1aaa32408dcd106aa2b6e2"
+    },
+    {
+      "path": "headless-right-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "60da51d690b80907aa8b2b60127233a11c6be045d733125ad55ff0d2bcc2bb7d"
+    },
+    {
+      "path": "headless-right-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "830d53c6c70ec4e4de31486ca6fedf4f97983318560a83117c653baad18a8297"
+    },
+    {
+      "path": "headless-right-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1d2fbd9818269ae1226a5eae2f8e0e8bb79844c5490fe5e80b4fe449664f7ae7"
+    },
+    {
+      "path": "headless-right-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "252600ab52790363c0c6ed97b63ac7a9003f86c34efe84e9016c289c4c9dfe68"
+    },
+    {
+      "path": "headless-right-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "21b56c300fb441da25e91eeb56cb72dda8d088dd21ff2e7871de13a9ea948be0"
+    },
+    {
+      "path": "headless-right-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "a393182a3b449da605e30b30c390135473dbfabfb17640b1b88ba8af7e1ffe28"
+    },
+    {
+      "path": "headless-right-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "ed83493bd3be1c1e6933de46bb1a89a891c94e5e00620065fcad71c254dbd39b"
+    },
+    {
+      "path": "headless-right-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "e8502b8388889b02cfd3163043be0200a1065db9bccd36e19bb77b11722578f5"
+    },
+    {
+      "path": "headless-water-playback.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "9fc0c6340463107927e2ee84f1f54c40f8105c15cba48d64499a19fae8e769d0"
+    },
+    {
+      "path": "high-grip-rejected/candidate-027.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "eb20bed52a0a0f851bc249e8c8990109b45b759ddf20a44c7a999fd50e2eed04"
+    },
+    {
+      "path": "high-grip-rejected/candidate-075.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "8114527e22911efd9b77259ec31ac097d603cf713ecfdf770c204e86a87a5751"
+    },
+    {
+      "path": "high-grip-rejected/candidate-139.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "bfb6741ca52f40d94d94bc303bf6df19325c55bb61e565a3cc8f9d79d24e2c59"
+    },
+    {
+      "path": "high-grip-rejected/candidate-190.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "47b19138466de1c9fc30579732f9fe51e57f1a6e4f45fd49a0d62e8b5c47c5b3"
+    },
+    {
+      "path": "high-grip-rejected/headless-grip-close.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "7a09bbdc52b54fc8fac36647ac7c2d071e179328c905f35a646f35af432ae3d3"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "89e31064659333d9d6eb08acf82cb19bd1b92c91b266451058706a66beee6e8c"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "b72270e0b1e37ffc72bd65d91deb817163f77f65b28a00ce6d2becce70573cff"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "552ebed7faab6b2fb6a1f51fa19db694fca371048fd525a5759f38d80fe7cf79"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "0b291fc97d080c86b35e3c2097dd7c9cd11ec113047443a7c8f1e2afeed95313"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "2acf0075c0ece1bad22796678ddb299fadd241e7173a053461a9a60b468850b3"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "178e4323f33719a4616db8b7e2358ecf3138e68607a8afc82752bc2cd55537cb"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "ae1073fb10bb968c6489e7f2f3a99b556cd9634b77dff126064d96e5281f1c75"
+    },
+    {
+      "path": "high-grip-rejected/headless-left-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "b0290edc62d9bef4e68569acb67d37fa24bae89413638567de0b5cc077b502f2"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "65deba91954d430b613fc1c21aaad46138d4f0796050105e8657dc7d53f91da5"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "30755536eec7556cae7e2e7b2f4f88877b89878003e3dde02fff84262ee65032"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "06355882aa1c04d62116b50e2500d5ce77b8a91d75adb16f15f6a6278fedb35f"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "53dc7ebd5b3d8d7e74dccc250a6093102ee754d872f4fde54bf1778280bac4b8"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "15c36b07b4a5800774e6b3282d8dc317c1236663c1dc1cf6704b2f6bfe9eea93"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "fef8ccba6892f90654a36629e4659dd8ed7320ecc2a92e64abb5d96576c847ea"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "6b55ac3cba1d5c7a4aec3fb7930889d579339412cccf59b0e4c3a16a0b2f3fe4"
+    },
+    {
+      "path": "high-grip-rejected/headless-right-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "f6affb42203f0e823344bb93f669d3b554a01ce02ed88e6237d1e6327fe3f46d"
+    },
+    {
+      "path": "high-grip-rejected/headless-water-playback.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "4eedd8330079a30492d9a269e8266fe9a171b4e91086758fae91d7197b0a992f"
+    }
+  ],
+  "checks": {
+    "lint": "pass",
+    "tests": "6/6",
+    "build": "pass; existing >500 kB chunk warning",
+    "pythonSyntax": "pass",
+    "diffWhitespace": "pass",
+    "documentLinks": "pass",
+    "finalEvidenceAssertions": "pass",
+    "jsSyntax": "pass"
+  },
+  "gameplayIntegrated": false,
+  "paidCalls": 0,
+  "deployed": false,
+  "sourceFiles": {
+    "scripts/aholo/fit_paddle.py": "513632c1cbe5c6b1d1acbcd509c85d07adcb836bc8a06af1e6f986e2ba1b2fee",
+    "scripts/aholo/adapt_paddle.py": "74a5a9ef272491eace44052b71ed71c2642ba5764a1f37d6394c77e4748f574a",
+    "scripts/aholo/audit_paddle_candidate.py": "7844f1568ed1e2174e761a3198c302fc26c947e9e6c3a039590af42f46732c2d",
+    "scripts/aholo/audit_paddle_head.py": "30ebc2a4dc0bd284fbc77fc56618179aa41343d9abd7b1b291074308a2282a49",
+    "scripts/aholo/paddle-review.html": "28025b430deb3dda85551b6ca2214d88d3428ea45babcca36ad71590d066f44d",
+    "scripts/aholo/paddle-review.mjs": "66500abcade61340f15cf114e30d552267062782468cf9503b5293d0e267b63b",
+    "scripts/aholo/check_paddle_headless.mjs": "85b6e232044f1ceeb441326ace9474e1f168e538c42caefc0fa10a81c92b3db7",
+    "PROGRESS.md": "73ab8533a1ef04ae74ccae40c0540901fefe64e24567c2a62d18c02e10624879",
+    "docs/report/PROJECT_REPORT.md": "2f690e32d88f8714249beaae148e6461d94f3354f90aa83ccaa46391f4c48920",
+    "docs/evidence/assets/2026-10-22-paddle-fit/evidence.md": "a7382bd2fa630d8be2e16e0ce5ac8e73fb631cd977bf7be65f7af48078385229"
+  }
+}

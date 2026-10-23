@@ -1,0 +1,753 @@
+{
+  "scope": "actual skinned body / original hull and caps; surface overlap includes seating contact; 8 poses only",
+  "results": [
+    {
+      "layout": {
+        "boatScale": 0.5,
+        "characterShift": [
+          0,
+          0,
+          0
+        ],
+        "name": "baseline"
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 6906,
+          "dominantBone": {
+            "mixamorig:RightFoot": 720,
+            "mixamorig:RightLeg": 703,
+            "mixamorig:LeftLeg": 787,
+            "mixamorig:LeftUpLeg": 47,
+            "mixamorig:Hips": 234,
+            "tail_05": 979,
+            "mixamorig:RightToeBase": 862,
+            "mixamorig:RightUpLeg": 74,
+            "mixamorig:LeftFoot": 1233,
+            "mixamorig:LeftToeBase": 1267
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 6306,
+          "dominantBone": {
+            "mixamorig:RightFoot": 479,
+            "tail_05": 1252,
+            "mixamorig:RightLeg": 545,
+            "mixamorig:LeftLeg": 811,
+            "mixamorig:LeftToeBase": 1177,
+            "mixamorig:LeftUpLeg": 30,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightToeBase": 621,
+            "mixamorig:RightUpLeg": 66,
+            "mixamorig:LeftFoot": 1082
+          }
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 6246,
+          "dominantBone": {
+            "mixamorig:RightFoot": 555,
+            "mixamorig:RightLeg": 539,
+            "mixamorig:LeftLeg": 894,
+            "mixamorig:LeftToeBase": 1163,
+            "mixamorig:LeftUpLeg": 30,
+            "mixamorig:Hips": 224,
+            "tail_05": 977,
+            "mixamorig:RightToeBase": 718,
+            "mixamorig:RightUpLeg": 64,
+            "mixamorig:LeftFoot": 1082
+          }
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 6575,
+          "dominantBone": {
+            "mixamorig:RightFoot": 590,
+            "tail_05": 1251,
+            "mixamorig:RightLeg": 469,
+            "mixamorig:LeftLeg": 890,
+            "mixamorig:LeftToeBase": 1169,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightToeBase": 753,
+            "mixamorig:RightUpLeg": 68,
+            "mixamorig:LeftFoot": 1121
+          }
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 6251,
+          "dominantBone": {
+            "mixamorig:RightFoot": 493,
+            "tail_05": 1063,
+            "mixamorig:RightLeg": 570,
+            "mixamorig:LeftLeg": 782,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightToeBase": 722,
+            "mixamorig:LeftFoot": 1147,
+            "mixamorig:RightUpLeg": 70,
+            "mixamorig:LeftToeBase": 1141
+          }
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 6590,
+          "dominantBone": {
+            "mixamorig:RightFoot": 528,
+            "tail_05": 1317,
+            "mixamorig:RightLeg": 505,
+            "mixamorig:LeftLeg": 773,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightToeBase": 826,
+            "mixamorig:RightUpLeg": 70,
+            "mixamorig:LeftToeBase": 1166,
+            "mixamorig:LeftFoot": 1144
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 6923,
+          "dominantBone": {
+            "mixamorig:RightFoot": 598,
+            "tail_05": 1356,
+            "mixamorig:RightLeg": 578,
+            "mixamorig:LeftLeg": 781,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightToeBase": 870,
+            "mixamorig:RightUpLeg": 75,
+            "mixamorig:LeftFoot": 1206,
+            "mixamorig:LeftToeBase": 1200
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 6905,
+          "dominantBone": {
+            "mixamorig:RightFoot": 720,
+            "mixamorig:RightLeg": 703,
+            "mixamorig:LeftLeg": 786,
+            "mixamorig:LeftUpLeg": 47,
+            "mixamorig:Hips": 234,
+            "tail_05": 979,
+            "mixamorig:RightToeBase": 862,
+            "mixamorig:RightUpLeg": 74,
+            "mixamorig:LeftFoot": 1233,
+            "mixamorig:LeftToeBase": 1267
+          }
+        }
+      ],
+      "allHitTriangles": 52702
+    },
+    {
+      "layout": {
+        "boatScale": 0.5,
+        "characterShift": [
+          -0.6000000238418579,
+          -0.20000000298023224,
+          0.36000001430511475
+        ],
+        "seatSurface": [
+          -0.6000000238418579,
+          -0.20000000298023224,
+          -0.2773432731628418
+        ],
+        "seatLift": 0.5202563861628418,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 144,
+          "dominantBone": {
+            "tail_05": 144
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 147,
+          "dominantBone": {
+            "tail_05": 147
+          }
+        }
+      ],
+      "allHitTriangles": 291
+    },
+    {
+      "layout": {
+        "boatScale": 0.475,
+        "characterShift": [
+          -0.30000001192092896,
+          -0.20000000298023224,
+          0.36000001430511475
+        ],
+        "seatSurface": [
+          -0.29999998211860657,
+          -0.20000000298023224,
+          -0.2799651324748993
+        ],
+        "seatLift": 0.5228782514353637,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 155,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 61,
+            "tail_05": 94
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 17,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 17
+          }
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 2,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 2
+          }
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 57,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 57
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 187,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 66,
+            "tail_05": 121
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 155,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 61,
+            "tail_05": 94
+          }
+        }
+      ],
+      "allHitTriangles": 573
+    },
+    {
+      "layout": {
+        "boatScale": 0.475,
+        "characterShift": [
+          -0.4000000059604645,
+          -0.20000000298023224,
+          0.36000001430511475
+        ],
+        "seatSurface": [
+          -0.4000000059604645,
+          -0.20000000298023224,
+          -0.2682287096977234
+        ],
+        "seatLift": 0.5111418226977233,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 224,
+          "dominantBone": {
+            "tail_05": 201,
+            "mixamorig:RightToeBase": 23
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 26,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 26
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 38,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 29,
+            "tail_05": 9
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 223,
+          "dominantBone": {
+            "tail_05": 200,
+            "mixamorig:RightToeBase": 23
+          }
+        }
+      ],
+      "allHitTriangles": 511
+    },
+    {
+      "layout": {
+        "boatScale": 0.475,
+        "characterShift": [
+          -0.5,
+          -0.20000000298023224,
+          0.36000001430511475
+        ],
+        "seatSurface": [
+          -0.5,
+          -0.20000000298023224,
+          -0.259050577878952
+        ],
+        "seatLift": 0.5019636849184875,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 188,
+          "dominantBone": {
+            "tail_05": 173,
+            "mixamorig:RightToeBase": 15
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 25,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 25
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 24,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 24
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 188,
+          "dominantBone": {
+            "tail_05": 173,
+            "mixamorig:RightToeBase": 15
+          }
+        }
+      ],
+      "allHitTriangles": 425
+    },
+    {
+      "layout": {
+        "boatScale": 0.475,
+        "characterShift": [
+          -0.6000000238418579,
+          -0.15000000596046448,
+          0.3199999928474426
+        ],
+        "seatSurface": [
+          -0.5999999642372131,
+          -0.14999999105930328,
+          -0.26664888858795166
+        ],
+        "seatLift": 0.4695620015879517,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 1202,
+          "dominantBone": {
+            "tail_05": 1202
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 345,
+          "dominantBone": {
+            "tail_05": 345
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 1207,
+          "dominantBone": {
+            "tail_05": 1207
+          }
+        }
+      ],
+      "allHitTriangles": 2754
+    },
+    {
+      "layout": {
+        "boatScale": 0.475,
+        "characterShift": [
+          -0.6000000238418579,
+          -0.20000000298023224,
+          0.36000001430511475
+        ],
+        "seatSurface": [
+          -0.5999999642372131,
+          -0.20000000298023224,
+          -0.2631789445877075
+        ],
+        "seatLift": 0.5060920575877075,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 35,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 29,
+            "tail_05": 6
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 7,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 7
+          }
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 33,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 33
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 43,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 43
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 35,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 29,
+            "tail_05": 6
+          }
+        }
+      ],
+      "allHitTriangles": 153
+    },
+    {
+      "layout": {
+        "boatScale": 0.475,
+        "characterShift": [
+          -0.6000000238418579,
+          -0.15000000596046448,
+          0.36000001430511475
+        ],
+        "seatSurface": [
+          -0.5999999642372131,
+          -0.14999999105930328,
+          -0.26664888858795166
+        ],
+        "seatLift": 0.5095620015879516,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 496,
+          "dominantBone": {
+            "tail_05": 496
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {}
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 498,
+          "dominantBone": {
+            "tail_05": 498
+          }
+        }
+      ],
+      "allHitTriangles": 994
+    },
+    {
+      "layout": {
+        "boatScale": 0.45,
+        "characterShift": [
+          0.0,
+          -0.20000000298023224,
+          0.3199999928474426
+        ],
+        "seatSurface": [
+          0.0,
+          -0.20000000298023224,
+          -0.10383131355047226
+        ],
+        "seatLift": 0.30674442804058843,
+        "coarseHits": 0,
+        "shaftFrames": [],
+        "shaftHits": 0,
+        "fullPaddleFrames": [],
+        "fullPaddleHits": 0
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 1003,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 847,
+            "mixamorig:RightFoot": 67,
+            "tail_05": 89
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 1573,
+          "dominantBone": {
+            "tail_05": 798,
+            "mixamorig:RightToeBase": 727,
+            "mixamorig:RightFoot": 48
+          }
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 1296,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 795,
+            "mixamorig:RightFoot": 94,
+            "tail_05": 407
+          }
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 1170,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 785,
+            "mixamorig:RightFoot": 98,
+            "tail_05": 287
+          }
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 1577,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 769,
+            "tail_05": 766,
+            "mixamorig:RightFoot": 42
+          }
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 1550,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 771,
+            "tail_05": 736,
+            "mixamorig:RightFoot": 43
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 1427,
+          "dominantBone": {
+            "tail_05": 587,
+            "mixamorig:RightToeBase": 792,
+            "mixamorig:RightFoot": 48
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 1003,
+          "dominantBone": {
+            "mixamorig:RightToeBase": 847,
+            "mixamorig:RightFoot": 67,
+            "tail_05": 89
+          }
+        }
+      ],
+      "allHitTriangles": 10599
+    }
+  ]
+}

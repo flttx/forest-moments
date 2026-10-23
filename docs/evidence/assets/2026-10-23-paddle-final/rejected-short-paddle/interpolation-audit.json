@@ -1,0 +1,6093 @@
+{
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v11.glb",
+  "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+  "trackSHA256": "c305bf22b7c2503fa827b601201a6b22e233662f8d02ef0bf4a806c131f96b11",
+  "sampleHz": 120,
+  "sampleCount": 865,
+  "collisionSamples": [
+    {
+      "frame": 198.25,
+      "contacts": {
+        "Lux3D_canoe": 13
+      },
+      "bladeMinZ": 0.016540035605430603,
+      "speed": 1.3865649247565404,
+      "angularSpeed": 2.407350540161133
+    },
+    {
+      "frame": 198.5,
+      "contacts": {
+        "Lux3D_canoe": 18
+      },
+      "bladeMinZ": 0.010641470551490784,
+      "speed": 1.3865676828239415,
+      "angularSpeed": 2.407350540161133
+    }
+  ],
+  "loopPositionGap": 0.0003288106031007327,
+  "loopAngleGap": 0.0006905339541845024,
+  "maxSpeed": 3.2842150582729515,
+  "maxAngularSpeed": 747.2145080566406,
+  "wetSamplesLeft": 37,
+  "wetSamplesRight": 0,
+  "frames": [
+    {
+      "frame": 0.0,
+      "contacts": {},
+      "bladeMinZ": 0.20459666848182678
+    },
+    {
+      "frame": 0.25,
+      "contacts": {},
+      "bladeMinZ": 0.21467669308185577,
+      "speed": 0.4498310894579292,
+      "angularSpeed": 1.7440908774733543
+    },
+    {
+      "frame": 0.5,
+      "contacts": {},
+      "bladeMinZ": 0.22472624480724335,
+      "speed": 0.4498281051852451,
+      "angularSpeed": 1.7440908774733543
+    },
+    {
+      "frame": 0.75,
+      "contacts": {},
+      "bladeMinZ": 0.2347436547279358,
+      "speed": 0.4498291096499687,
+      "angularSpeed": 1.7440908774733543
+    },
+    {
+      "frame": 1.0,
+      "contacts": {},
+      "bladeMinZ": 0.24472734332084656,
+      "speed": 0.44983008499762644,
+      "angularSpeed": 1.746058277785778
+    },
+    {
+      "frame": 1.25,
+      "contacts": {},
+      "bladeMinZ": 0.25628724694252014,
+      "speed": 0.4874298593041261,
+      "angularSpeed": 1.8786632269620895
+    },
+    {
+      "frame": 1.5,
+      "contacts": {},
+      "bladeMinZ": 0.2678029537200928,
+      "speed": 0.4874298593041261,
+      "angularSpeed": 1.8804900348186493
+    },
+    {
+      "frame": 1.75,
+      "contacts": {},
+      "bladeMinZ": 0.27927228808403015,
+      "speed": 0.48742882484883354,
+      "angularSpeed": 1.8804900348186493
+    },
+    {
+      "frame": 2.0,
+      "contacts": {},
+      "bladeMinZ": 0.2906930446624756,
+      "speed": 0.4874298593041261,
+      "angularSpeed": 1.8804900348186493
+    },
+    {
+      "frame": 2.25,
+      "contacts": {},
+      "bladeMinZ": 0.30307233333587646,
+      "speed": 0.4912569123333043,
+      "angularSpeed": 1.9184470921754837
+    },
+    {
+      "frame": 2.5,
+      "contacts": {},
+      "bladeMinZ": 0.31539666652679443,
+      "speed": 0.49125793872768825,
+      "angularSpeed": 1.916656717658043
+    },
+    {
+      "frame": 2.75,
+      "contacts": {},
+      "bladeMinZ": 0.3276636004447937,
+      "speed": 0.49125793872768825,
+      "angularSpeed": 1.9184470921754837
+    },
+    {
+      "frame": 3.0,
+      "contacts": {},
+      "bladeMinZ": 0.3398706614971161,
+      "speed": 0.49125792539790486,
+      "angularSpeed": 1.916656717658043
+    },
+    {
+      "frame": 3.25,
+      "contacts": {},
+      "bladeMinZ": 0.35214316844940186,
+      "speed": 0.4615333143029914,
+      "angularSpeed": 1.8342789262533188
+    },
+    {
+      "frame": 3.5,
+      "contacts": {},
+      "bladeMinZ": 0.36435773968696594,
+      "speed": 0.4615345557754349,
+      "angularSpeed": 1.832406297326088
+    },
+    {
+      "frame": 3.75,
+      "contacts": {},
+      "bladeMinZ": 0.3758465349674225,
+      "speed": 0.4615345132107207,
+      "angularSpeed": 1.832406297326088
+    },
+    {
+      "frame": 4.0,
+      "contacts": {},
+      "bladeMinZ": 0.38510286808013916,
+      "speed": 0.4615333284912667,
+      "angularSpeed": 1.832406297326088
+    },
+    {
+      "frame": 4.25,
+      "contacts": {},
+      "bladeMinZ": 0.3940313756465912,
+      "speed": 0.40798325491586757,
+      "angularSpeed": 1.661422848701477
+    },
+    {
+      "frame": 4.5,
+      "contacts": {},
+      "bladeMinZ": 0.40291762351989746,
+      "speed": 0.40798335121924767,
+      "angularSpeed": 1.661422848701477
+    },
+    {
+      "frame": 4.75,
+      "contacts": {},
+      "bladeMinZ": 0.4117604196071625,
+      "speed": 0.40798410960757175,
+      "angularSpeed": 1.661422848701477
+    },
+    {
+      "frame": 5.0,
+      "contacts": {},
+      "bladeMinZ": 0.4205586612224579,
+      "speed": 0.40798325491586757,
+      "angularSpeed": 1.661422848701477
+    },
+    {
+      "frame": 5.25,
+      "contacts": {},
+      "bladeMinZ": 0.42822012305259705,
+      "speed": 0.33485888949532067,
+      "angularSpeed": 1.3540119677782059
+    },
+    {
+      "frame": 5.5,
+      "contacts": {},
+      "bladeMinZ": 0.43585237860679626,
+      "speed": 0.3348594712735024,
+      "angularSpeed": 1.3540119677782059
+    },
+    {
+      "frame": 5.75,
+      "contacts": {},
+      "bladeMinZ": 0.4434547424316406,
+      "speed": 0.33485954481688435,
+      "angularSpeed": 1.3514739274978638
+    },
+    {
+      "frame": 6.0,
+      "contacts": {},
+      "bladeMinZ": 0.45102658867836,
+      "speed": 0.3348594712735024,
+      "angularSpeed": 1.3540119677782059
+    },
+    {
+      "frame": 6.25,
+      "contacts": {},
+      "bladeMinZ": 0.4569045901298523,
+      "speed": 0.2797549923730968,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 6.5,
+      "contacts": {},
+      "bladeMinZ": 0.462769478559494,
+      "speed": 0.2797549923730968,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 6.75,
+      "contacts": {},
+      "bladeMinZ": 0.46862104535102844,
+      "speed": 0.2797549846867997,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 7.0,
+      "contacts": {},
+      "bladeMinZ": 0.47445905208587646,
+      "speed": 0.2797549923730968,
+      "angularSpeed": 0.9556357562541962
+    },
+    {
+      "frame": 7.25,
+      "contacts": {},
+      "bladeMinZ": 0.4780900776386261,
+      "speed": 0.29831084113211964,
+      "angularSpeed": 0.5370207130908966
+    },
+    {
+      "frame": 7.5,
+      "contacts": {},
+      "bladeMinZ": 0.4817206859588623,
+      "speed": 0.29831381005383223,
+      "angularSpeed": 0.5370207130908966
+    },
+    {
+      "frame": 7.75,
+      "contacts": {},
+      "bladeMinZ": 0.48535093665122986,
+      "speed": 0.2983115710176458,
+      "angularSpeed": 0.5370207130908966
+    },
+    {
+      "frame": 8.0,
+      "contacts": {},
+      "bladeMinZ": 0.4889807105064392,
+      "speed": 0.2983115710176458,
+      "angularSpeed": 0.5370207130908966
+    },
+    {
+      "frame": 8.25,
+      "contacts": {},
+      "bladeMinZ": 0.489965558052063,
+      "speed": 0.41271792041088035,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 8.5,
+      "contacts": {},
+      "bladeMinZ": 0.4909498989582062,
+      "speed": 0.41271792041088035,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 8.75,
+      "contacts": {},
+      "bladeMinZ": 0.49193379282951355,
+      "speed": 0.41271792041088035,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 9.0,
+      "contacts": {},
+      "bladeMinZ": 0.4929172396659851,
+      "speed": 0.41271792041088035,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 9.25,
+      "contacts": {},
+      "bladeMinZ": 0.490939736366272,
+      "speed": 0.5842950185548798,
+      "angularSpeed": 1.1452053487300873
+    },
+    {
+      "frame": 9.5,
+      "contacts": {},
+      "bladeMinZ": 0.488941490650177,
+      "speed": 0.5842950185548798,
+      "angularSpeed": 1.1452053487300873
+    },
+    {
+      "frame": 9.75,
+      "contacts": {},
+      "bladeMinZ": 0.48692265152931213,
+      "speed": 0.5842988738488224,
+      "angularSpeed": 1.1481993645429611
+    },
+    {
+      "frame": 10.0,
+      "contacts": {},
+      "bladeMinZ": 0.4848833978176117,
+      "speed": 0.58429384178858,
+      "angularSpeed": 1.1481993645429611
+    },
+    {
+      "frame": 10.25,
+      "contacts": {},
+      "bladeMinZ": 0.47856754064559937,
+      "speed": 0.8570768939249421,
+      "angularSpeed": 2.189250737428665
+    },
+    {
+      "frame": 10.5,
+      "contacts": {},
+      "bladeMinZ": 0.4721691608428955,
+      "speed": 0.8570741128354057,
+      "angularSpeed": 2.189250737428665
+    },
+    {
+      "frame": 10.75,
+      "contacts": {},
+      "bladeMinZ": 0.46569034457206726,
+      "speed": 0.8570768939249421,
+      "angularSpeed": 2.187681868672371
+    },
+    {
+      "frame": 11.0,
+      "contacts": {},
+      "bladeMinZ": 0.4591330885887146,
+      "speed": 0.8570754881005902,
+      "angularSpeed": 2.187681868672371
+    },
+    {
+      "frame": 11.25,
+      "contacts": {},
+      "bladeMinZ": 0.4485858976840973,
+      "speed": 1.1490861820762739,
+      "angularSpeed": 3.3207985013723373
+    },
+    {
+      "frame": 11.5,
+      "contacts": {},
+      "bladeMinZ": 0.4378678500652313,
+      "speed": 1.1490866379766689,
+      "angularSpeed": 3.3197645097970963
+    },
+    {
+      "frame": 11.75,
+      "contacts": {},
+      "bladeMinZ": 0.426986426115036,
+      "speed": 1.1490866379766689,
+      "angularSpeed": 3.3207985013723373
+    },
+    {
+      "frame": 12.0,
+      "contacts": {},
+      "bladeMinZ": 0.4159494638442993,
+      "speed": 1.1490861820762739,
+      "angularSpeed": 3.3197645097970963
+    },
+    {
+      "frame": 12.25,
+      "contacts": {},
+      "bladeMinZ": 0.42365962266921997,
+      "speed": 1.2487419394109982,
+      "angularSpeed": 1.1600982025265694
+    },
+    {
+      "frame": 12.5,
+      "contacts": {},
+      "bladeMinZ": 0.43131116032600403,
+      "speed": 1.2487408486653306,
+      "angularSpeed": 1.163053885102272
+    },
+    {
+      "frame": 12.75,
+      "contacts": {},
+      "bladeMinZ": 0.43895992636680603,
+      "speed": 1.2487419394109982,
+      "angularSpeed": 1.163053885102272
+    },
+    {
+      "frame": 13.0,
+      "contacts": {},
+      "bladeMinZ": 0.4466060996055603,
+      "speed": 1.2487419394109982,
+      "angularSpeed": 1.163053885102272
+    },
+    {
+      "frame": 13.25,
+      "contacts": {},
+      "bladeMinZ": 0.45429283380508423,
+      "speed": 1.537466741993036,
+      "angularSpeed": 3.2686952501535416
+    },
+    {
+      "frame": 13.5,
+      "contacts": {},
+      "bladeMinZ": 0.4619603157043457,
+      "speed": 1.537465873118179,
+      "angularSpeed": 3.26974555850029
+    },
+    {
+      "frame": 13.75,
+      "contacts": {},
+      "bladeMinZ": 0.469609797000885,
+      "speed": 1.5374643568451938,
+      "angularSpeed": 3.2686952501535416
+    },
+    {
+      "frame": 14.0,
+      "contacts": {},
+      "bladeMinZ": 0.47724249958992004,
+      "speed": 1.5374673893896689,
+      "angularSpeed": 3.26974555850029
+    },
+    {
+      "frame": 14.25,
+      "contacts": {},
+      "bladeMinZ": 0.48428624868392944,
+      "speed": 1.9228731108054298,
+      "angularSpeed": 5.0337012112140656
+    },
+    {
+      "frame": 14.5,
+      "contacts": {},
+      "bladeMinZ": 0.4912976622581482,
+      "speed": 1.9228723888373673,
+      "angularSpeed": 5.032336860895157
+    },
+    {
+      "frame": 14.75,
+      "contacts": {},
+      "bladeMinZ": 0.4982815086841583,
+      "speed": 1.9228734786003758,
+      "angularSpeed": 5.0337012112140656
+    },
+    {
+      "frame": 15.0,
+      "contacts": {},
+      "bladeMinZ": 0.5052423477172852,
+      "speed": 1.922874282300199,
+      "angularSpeed": 5.032336860895157
+    },
+    {
+      "frame": 15.25,
+      "contacts": {},
+      "bladeMinZ": 0.5111551880836487,
+      "speed": 2.302066880954162,
+      "angularSpeed": 6.4545562863349915
+    },
+    {
+      "frame": 15.5,
+      "contacts": {},
+      "bladeMinZ": 0.5170480608940125,
+      "speed": 2.302065310757829,
+      "angularSpeed": 6.4545562863349915
+    },
+    {
+      "frame": 15.75,
+      "contacts": {},
+      "bladeMinZ": 0.5229310393333435,
+      "speed": 2.3020677684559634,
+      "angularSpeed": 6.455087810754776
+    },
+    {
+      "frame": 16.0,
+      "contacts": {},
+      "bladeMinZ": 0.5288141965866089,
+      "speed": 2.302066880954162,
+      "angularSpeed": 6.4545562863349915
+    },
+    {
+      "frame": 16.25,
+      "contacts": {},
+      "bladeMinZ": 0.5332182049751282,
+      "speed": 2.6370297089636807,
+      "angularSpeed": 7.535474896430969
+    },
+    {
+      "frame": 16.5,
+      "contacts": {},
+      "bladeMinZ": 0.537652313709259,
+      "speed": 2.637032013403833,
+      "angularSpeed": 7.5350189208984375
+    },
+    {
+      "frame": 16.75,
+      "contacts": {},
+      "bladeMinZ": 0.5421324968338013,
+      "speed": 2.637031337964687,
+      "angularSpeed": 7.5350189208984375
+    },
+    {
+      "frame": 17.0,
+      "contacts": {},
+      "bladeMinZ": 0.5466744303703308,
+      "speed": 2.6370297089636807,
+      "angularSpeed": 7.535474896430969
+    },
+    {
+      "frame": 17.25,
+      "contacts": {},
+      "bladeMinZ": 0.5496647953987122,
+      "speed": 2.925227624018182,
+      "angularSpeed": 8.275208473205566
+    },
+    {
+      "frame": 17.5,
+      "contacts": {},
+      "bladeMinZ": 0.5527685880661011,
+      "speed": 2.9252246064081135,
+      "angularSpeed": 8.275208473205566
+    },
+    {
+      "frame": 17.75,
+      "contacts": {},
+      "bladeMinZ": 0.5560050010681152,
+      "speed": 2.925227624018182,
+      "angularSpeed": 8.274378776550293
+    },
+    {
+      "frame": 18.0,
+      "contacts": {},
+      "bladeMinZ": 0.5593932867050171,
+      "speed": 2.925225833152048,
+      "angularSpeed": 8.27479362487793
+    },
+    {
+      "frame": 18.25,
+      "contacts": {},
+      "bladeMinZ": 0.5613492131233215,
+      "speed": 3.1546290823549676,
+      "angularSpeed": 8.673138320446014
+    },
+    {
+      "frame": 18.5,
+      "contacts": {},
+      "bladeMinZ": 0.5635119080543518,
+      "speed": 3.154629364663014,
+      "angularSpeed": 8.672743141651154
+    },
+    {
+      "frame": 18.75,
+      "contacts": {},
+      "bladeMinZ": 0.5659000873565674,
+      "speed": 3.154629364663014,
+      "angularSpeed": 8.672743141651154
+    },
+    {
+      "frame": 19.0,
+      "contacts": {},
+      "bladeMinZ": 0.5685317516326904,
+      "speed": 3.1546290823549676,
+      "angularSpeed": 8.673138320446014
+    },
+    {
+      "frame": 19.25,
+      "contacts": {},
+      "bladeMinZ": 0.5700305700302124,
+      "speed": 3.2842150582729515,
+      "angularSpeed": 8.729573786258698
+    },
+    {
+      "frame": 19.5,
+      "contacts": {},
+      "bladeMinZ": 0.5718079805374146,
+      "speed": 3.2842130205172713,
+      "angularSpeed": 8.72918039560318
+    },
+    {
+      "frame": 19.75,
+      "contacts": {},
+      "bladeMinZ": 0.5738780498504639,
+      "speed": 3.284213271747492,
+      "angularSpeed": 8.729967176914215
+    },
+    {
+      "frame": 20.0,
+      "contacts": {},
+      "bladeMinZ": 0.5762530565261841,
+      "speed": 3.2842150582729515,
+      "angularSpeed": 8.729573786258698
+    },
+    {
+      "frame": 20.25,
+      "contacts": {},
+      "bladeMinZ": 0.5782061219215393,
+      "speed": 3.2679289802434015,
+      "angularSpeed": 8.44525694847107
+    },
+    {
+      "frame": 20.5,
+      "contacts": {},
+      "bladeMinZ": 0.5804628729820251,
+      "speed": 3.267925517629818,
+      "angularSpeed": 8.44525694847107
+    },
+    {
+      "frame": 20.75,
+      "contacts": {},
+      "bladeMinZ": 0.5830302834510803,
+      "speed": 3.267925517629818,
+      "angularSpeed": 8.444850146770477
+    },
+    {
+      "frame": 21.0,
+      "contacts": {},
+      "bladeMinZ": 0.585913360118866,
+      "speed": 3.2679289802434015,
+      "angularSpeed": 8.445663750171661
+    },
+    {
+      "frame": 21.25,
+      "contacts": {},
+      "bladeMinZ": 0.5889039039611816,
+      "speed": 3.0688342771830293,
+      "angularSpeed": 7.819483280181885
+    },
+    {
+      "frame": 21.5,
+      "contacts": {},
+      "bladeMinZ": 0.5921700596809387,
+      "speed": 3.068840695728338,
+      "angularSpeed": 7.819923162460327
+    },
+    {
+      "frame": 21.75,
+      "contacts": {},
+      "bladeMinZ": 0.5957122445106506,
+      "speed": 3.0688402220196687,
+      "angularSpeed": 7.819923162460327
+    },
+    {
+      "frame": 22.0,
+      "contacts": {},
+      "bladeMinZ": 0.5995299220085144,
+      "speed": 3.0688342771830293,
+      "angularSpeed": 7.819923162460327
+    },
+    {
+      "frame": 22.25,
+      "contacts": {},
+      "bladeMinZ": 0.6035006642341614,
+      "speed": 2.7165619528468246,
+      "angularSpeed": 6.85244545340538
+    },
+    {
+      "frame": 22.5,
+      "contacts": {},
+      "bladeMinZ": 0.6076794862747192,
+      "speed": 2.7165614201190103,
+      "angularSpeed": 6.852946579456329
+    },
+    {
+      "frame": 22.75,
+      "contacts": {},
+      "bladeMinZ": 0.6120638847351074,
+      "speed": 2.7165608873910916,
+      "angularSpeed": 6.85244545340538
+    },
+    {
+      "frame": 23.0,
+      "contacts": {},
+      "bladeMinZ": 0.6166507005691528,
+      "speed": 2.7165619528468246,
+      "angularSpeed": 6.85244545340538
+    },
+    {
+      "frame": 23.25,
+      "contacts": {},
+      "bladeMinZ": 0.6210827231407166,
+      "speed": 2.2168577493462895,
+      "angularSpeed": 5.544590950012207
+    },
+    {
+      "frame": 23.5,
+      "contacts": {},
+      "bladeMinZ": 0.6255496144294739,
+      "speed": 2.2168538502033472,
+      "angularSpeed": 5.543971359729767
+    },
+    {
+      "frame": 23.75,
+      "contacts": {},
+      "bladeMinZ": 0.6301344037055969,
+      "speed": 2.2168559061159354,
+      "angularSpeed": 5.543971359729767
+    },
+    {
+      "frame": 24.0,
+      "contacts": {},
+      "bladeMinZ": 0.6348407864570618,
+      "speed": 2.2168583873872096,
+      "angularSpeed": 5.544590950012207
+    },
+    {
+      "frame": 24.25,
+      "contacts": {},
+      "bladeMinZ": 0.6388251185417175,
+      "speed": 1.5609687765930502,
+      "angularSpeed": 3.8946542143821716
+    },
+    {
+      "frame": 24.5,
+      "contacts": {},
+      "bladeMinZ": 0.6428669095039368,
+      "speed": 1.560962165160272,
+      "angularSpeed": 3.8955357670783997
+    },
+    {
+      "frame": 24.75,
+      "contacts": {},
+      "bladeMinZ": 0.6469648480415344,
+      "speed": 1.5609650178123673,
+      "angularSpeed": 3.8946542143821716
+    },
+    {
+      "frame": 25.0,
+      "contacts": {},
+      "bladeMinZ": 0.6511180400848389,
+      "speed": 1.5609687765930502,
+      "angularSpeed": 3.8955357670783997
+    },
+    {
+      "frame": 25.25,
+      "contacts": {},
+      "bladeMinZ": 0.6541617512702942,
+      "speed": 0.7632619757818283,
+      "angularSpeed": 1.905878707766533
+    },
+    {
+      "frame": 25.5,
+      "contacts": {},
+      "bladeMinZ": 0.6572181582450867,
+      "speed": 0.7632592131965045,
+      "angularSpeed": 1.905878707766533
+    },
+    {
+      "frame": 25.75,
+      "contacts": {},
+      "bladeMinZ": 0.6602870225906372,
+      "speed": 0.7632592131965045,
+      "angularSpeed": 1.9022724777460098
+    },
+    {
+      "frame": 26.0,
+      "contacts": {},
+      "bladeMinZ": 0.6633684039115906,
+      "speed": 0.763263485762127,
+      "angularSpeed": 1.904076486825943
+    },
+    {
+      "frame": 26.25,
+      "contacts": {},
+      "bladeMinZ": 0.6653343439102173,
+      "speed": 0.2316403285788382,
+      "angularSpeed": 0.20297471433877945
+    },
+    {
+      "frame": 26.5,
+      "contacts": {},
+      "bladeMinZ": 0.6673002243041992,
+      "speed": 0.23163715795332585,
+      "angularSpeed": 0.21923774387687445
+    },
+    {
+      "frame": 26.75,
+      "contacts": {},
+      "bladeMinZ": 0.6692662239074707,
+      "speed": 0.2316416638682923,
+      "angularSpeed": 0.20297471433877945
+    },
+    {
+      "frame": 27.0,
+      "contacts": {},
+      "bladeMinZ": 0.6712321639060974,
+      "speed": 0.2316403285788382,
+      "angularSpeed": 0.20297471433877945
+    },
+    {
+      "frame": 27.25,
+      "contacts": {},
+      "bladeMinZ": 0.672845721244812,
+      "speed": 0.22019895840912163,
+      "angularSpeed": 0.43057442642748356
+    },
+    {
+      "frame": 27.5,
+      "contacts": {},
+      "bladeMinZ": 0.6744591593742371,
+      "speed": 0.22020365017052282,
+      "angularSpeed": 0.422525592148304
+    },
+    {
+      "frame": 27.75,
+      "contacts": {},
+      "bladeMinZ": 0.6760722398757935,
+      "speed": 0.22020311059226536,
+      "angularSpeed": 0.422525592148304
+    },
+    {
+      "frame": 28.0,
+      "contacts": {},
+      "bladeMinZ": 0.6776850819587708,
+      "speed": 0.22019895840912163,
+      "angularSpeed": 0.422525592148304
+    },
+    {
+      "frame": 28.25,
+      "contacts": {},
+      "bladeMinZ": 0.6791291236877441,
+      "speed": 0.3118234976172753,
+      "angularSpeed": 0.7457769848406315
+    },
+    {
+      "frame": 28.5,
+      "contacts": {},
+      "bladeMinZ": 0.6805721521377563,
+      "speed": 0.31182285522318454,
+      "angularSpeed": 0.7457769848406315
+    },
+    {
+      "frame": 28.75,
+      "contacts": {},
+      "bladeMinZ": 0.6820144057273865,
+      "speed": 0.31182566137065154,
+      "angularSpeed": 0.7503664121031761
+    },
+    {
+      "frame": 29.0,
+      "contacts": {},
+      "bladeMinZ": 0.6834557056427002,
+      "speed": 0.31182209322444276,
+      "angularSpeed": 0.7503664121031761
+    },
+    {
+      "frame": 29.25,
+      "contacts": {},
+      "bladeMinZ": 0.6848481297492981,
+      "speed": 0.4094183299594542,
+      "angularSpeed": 1.0012511909008026
+    },
+    {
+      "frame": 29.5,
+      "contacts": {},
+      "bladeMinZ": 0.6862414479255676,
+      "speed": 0.40941843092349534,
+      "angularSpeed": 1.0046742483973503
+    },
+    {
+      "frame": 29.75,
+      "contacts": {},
+      "bladeMinZ": 0.6876357793807983,
+      "speed": 0.40941928061988453,
+      "angularSpeed": 1.0012511909008026
+    },
+    {
+      "frame": 30.0,
+      "contacts": {},
+      "bladeMinZ": 0.6890308260917664,
+      "speed": 0.4094183299594542,
+      "angularSpeed": 1.0012511909008026
+    },
+    {
+      "frame": 30.25,
+      "contacts": {},
+      "bladeMinZ": 0.6905884146690369,
+      "speed": 0.4783911579823802,
+      "angularSpeed": 1.1979533359408379
+    },
+    {
+      "frame": 30.5,
+      "contacts": {},
+      "bladeMinZ": 0.6921470165252686,
+      "speed": 0.4783911579823802,
+      "angularSpeed": 1.1979533359408379
+    },
+    {
+      "frame": 30.75,
+      "contacts": {},
+      "bladeMinZ": 0.693706750869751,
+      "speed": 0.47838865216133547,
+      "angularSpeed": 1.200815811753273
+    },
+    {
+      "frame": 31.0,
+      "contacts": {},
+      "bladeMinZ": 0.695267379283905,
+      "speed": 0.4783911579823802,
+      "angularSpeed": 1.200815811753273
+    },
+    {
+      "frame": 31.25,
+      "contacts": {},
+      "bladeMinZ": 0.6969989538192749,
+      "speed": 0.5014095450318472,
+      "angularSpeed": 1.341273933649063
+    },
+    {
+      "frame": 31.5,
+      "contacts": {},
+      "bladeMinZ": 0.698731541633606,
+      "speed": 0.5014096293090502,
+      "angularSpeed": 1.3463836535811424
+    },
+    {
+      "frame": 31.75,
+      "contacts": {},
+      "bladeMinZ": 0.7004650235176086,
+      "speed": 0.5014088089831304,
+      "angularSpeed": 1.3438311964273453
+    },
+    {
+      "frame": 32.0,
+      "contacts": {},
+      "bladeMinZ": 0.702199399471283,
+      "speed": 0.5014095450318472,
+      "angularSpeed": 1.3438311964273453
+    },
+    {
+      "frame": 32.25,
+      "contacts": {},
+      "bladeMinZ": 0.7039874196052551,
+      "speed": 0.46807078089512,
+      "angularSpeed": 1.4304578304290771
+    },
+    {
+      "frame": 32.5,
+      "contacts": {},
+      "bladeMinZ": 0.7057762145996094,
+      "speed": 0.4680690461182281,
+      "angularSpeed": 1.4304578304290771
+    },
+    {
+      "frame": 32.75,
+      "contacts": {},
+      "bladeMinZ": 0.7075655460357666,
+      "speed": 0.4680698986429577,
+      "angularSpeed": 1.428055688738823
+    },
+    {
+      "frame": 33.0,
+      "contacts": {},
+      "bladeMinZ": 0.7093554735183716,
+      "speed": 0.46807078089512,
+      "angularSpeed": 1.4304578304290771
+    },
+    {
+      "frame": 33.25,
+      "contacts": {},
+      "bladeMinZ": 0.7110171914100647,
+      "speed": 0.4520655438578157,
+      "angularSpeed": 1.4542608708143234
+    },
+    {
+      "frame": 33.5,
+      "contacts": {},
+      "bladeMinZ": 0.7126792669296265,
+      "speed": 0.4520663573608551,
+      "angularSpeed": 1.4542608708143234
+    },
+    {
+      "frame": 33.75,
+      "contacts": {},
+      "bladeMinZ": 0.714341402053833,
+      "speed": 0.4520663573608551,
+      "angularSpeed": 1.4566197618842125
+    },
+    {
+      "frame": 34.0,
+      "contacts": {},
+      "bladeMinZ": 0.7160035967826843,
+      "speed": 0.4520655438578157,
+      "angularSpeed": 1.4566197618842125
+    },
+    {
+      "frame": 34.25,
+      "contacts": {},
+      "bladeMinZ": 0.7175762057304382,
+      "speed": 0.43371580557490325,
+      "angularSpeed": 1.4304578304290771
+    },
+    {
+      "frame": 34.5,
+      "contacts": {},
+      "bladeMinZ": 0.7191485166549683,
+      "speed": 0.43371506858957687,
+      "angularSpeed": 1.4304578304290771
+    },
+    {
+      "frame": 34.75,
+      "contacts": {},
+      "bladeMinZ": 0.7207204699516296,
+      "speed": 0.43371374206001595,
+      "angularSpeed": 1.428055688738823
+    },
+    {
+      "frame": 35.0,
+      "contacts": {},
+      "bladeMinZ": 0.7222920060157776,
+      "speed": 0.43371755697162767,
+      "angularSpeed": 1.4304578304290771
+    },
+    {
+      "frame": 35.25,
+      "contacts": {},
+      "bladeMinZ": 0.7238404750823975,
+      "speed": 0.44022418063018787,
+      "angularSpeed": 1.341273933649063
+    },
+    {
+      "frame": 35.5,
+      "contacts": {},
+      "bladeMinZ": 0.7253884077072144,
+      "speed": 0.44022740943642935,
+      "angularSpeed": 1.3463836535811424
+    },
+    {
+      "frame": 35.75,
+      "contacts": {},
+      "bladeMinZ": 0.7269355654716492,
+      "speed": 0.44022740943642935,
+      "angularSpeed": 1.341273933649063
+    },
+    {
+      "frame": 36.0,
+      "contacts": {},
+      "bladeMinZ": 0.7284819483757019,
+      "speed": 0.44022418063018787,
+      "angularSpeed": 1.3463836535811424
+    },
+    {
+      "frame": 36.25,
+      "contacts": {},
+      "bladeMinZ": 0.7300311326980591,
+      "speed": 0.4483999975858943,
+      "angularSpeed": 1.200815811753273
+    },
+    {
+      "frame": 36.5,
+      "contacts": {},
+      "bladeMinZ": 0.7315794229507446,
+      "speed": 0.4483971329422398,
+      "angularSpeed": 1.203671470284462
+    },
+    {
+      "frame": 36.75,
+      "contacts": {},
+      "bladeMinZ": 0.7331269383430481,
+      "speed": 0.4483983154029107,
+      "angularSpeed": 1.1979533359408379
+    },
+    {
+      "frame": 37.0,
+      "contacts": {},
+      "bladeMinZ": 0.7346735596656799,
+      "speed": 0.4483999975858943,
+      "angularSpeed": 1.200815811753273
+    },
+    {
+      "frame": 37.25,
+      "contacts": {},
+      "bladeMinZ": 0.7362933158874512,
+      "speed": 0.4687608570582178,
+      "angularSpeed": 1.0012511909008026
+    },
+    {
+      "frame": 37.5,
+      "contacts": {},
+      "bladeMinZ": 0.7379123568534851,
+      "speed": 0.4687608570582178,
+      "angularSpeed": 1.0012511909008026
+    },
+    {
+      "frame": 37.75,
+      "contacts": {},
+      "bladeMinZ": 0.7395305633544922,
+      "speed": 0.46875990189165234,
+      "angularSpeed": 0.9978162869811058
+    },
+    {
+      "frame": 38.0,
+      "contacts": {},
+      "bladeMinZ": 0.741148054599762,
+      "speed": 0.4687608570582178,
+      "angularSpeed": 0.9978162869811058
+    },
+    {
+      "frame": 38.25,
+      "contacts": {},
+      "bladeMinZ": 0.7431369423866272,
+      "speed": 0.5108322978277094,
+      "angularSpeed": 0.7411591149866581
+    },
+    {
+      "frame": 38.5,
+      "contacts": {},
+      "bladeMinZ": 0.7451244592666626,
+      "speed": 0.5108344289828689,
+      "angularSpeed": 0.7457769848406315
+    },
+    {
+      "frame": 38.75,
+      "contacts": {},
+      "bladeMinZ": 0.7471105456352234,
+      "speed": 0.5108331182433797,
+      "angularSpeed": 0.7503664121031761
+    },
+    {
+      "frame": 39.0,
+      "contacts": {},
+      "bladeMinZ": 0.74909508228302,
+      "speed": 0.5108322978277094,
+      "angularSpeed": 0.7503664121031761
+    },
+    {
+      "frame": 39.25,
+      "contacts": {},
+      "bladeMinZ": 0.7508754134178162,
+      "speed": 0.4686144039772818,
+      "angularSpeed": 0.43057442642748356
+    },
+    {
+      "frame": 39.5,
+      "contacts": {},
+      "bladeMinZ": 0.7526552081108093,
+      "speed": 0.46861554683191814,
+      "angularSpeed": 0.422525592148304
+    },
+    {
+      "frame": 39.75,
+      "contacts": {},
+      "bladeMinZ": 0.7544345259666443,
+      "speed": 0.46861554683191814,
+      "angularSpeed": 0.422525592148304
+    },
+    {
+      "frame": 40.0,
+      "contacts": {},
+      "bladeMinZ": 0.7562133073806763,
+      "speed": 0.4686144039772818,
+      "angularSpeed": 0.422525592148304
+    },
+    {
+      "frame": 40.25,
+      "contacts": {},
+      "bladeMinZ": 0.7569525241851807,
+      "speed": 0.3482611430410513,
+      "angularSpeed": 0.1171875
+    },
+    {
+      "frame": 40.5,
+      "contacts": {},
+      "bladeMinZ": 0.7576920390129089,
+      "speed": 0.34826007479273885,
+      "angularSpeed": 0.08286407450214028
+    },
+    {
+      "frame": 40.75,
+      "contacts": {},
+      "bladeMinZ": 0.7584316730499268,
+      "speed": 0.3482591294225671,
+      "angularSpeed": 0.0
+    },
+    {
+      "frame": 41.0,
+      "contacts": {},
+      "bladeMinZ": 0.759171724319458,
+      "speed": 0.3482611430410513,
+      "angularSpeed": 0.0
+    },
+    {
+      "frame": 41.25,
+      "contacts": {},
+      "bladeMinZ": 0.7560919523239136,
+      "speed": 0.5229075172677218,
+      "angularSpeed": 0.9001348167657852
+    },
+    {
+      "frame": 41.5,
+      "contacts": {},
+      "bladeMinZ": 0.7530178427696228,
+      "speed": 0.5229064252233457,
+      "angularSpeed": 0.9039408713579178
+    },
+    {
+      "frame": 41.75,
+      "contacts": {},
+      "bladeMinZ": 0.7499493956565857,
+      "speed": 0.5229075102235439,
+      "angularSpeed": 0.9001348167657852
+    },
+    {
+      "frame": 42.0,
+      "contacts": {},
+      "bladeMinZ": 0.746770441532135,
+      "speed": 0.5229075172677218,
+      "angularSpeed": 0.8963125571608543
+    },
+    {
+      "frame": 42.25,
+      "contacts": {},
+      "bladeMinZ": 0.7394625544548035,
+      "speed": 0.8032958214831636,
+      "angularSpeed": 1.8417506664991379
+    },
+    {
+      "frame": 42.5,
+      "contacts": {},
+      "bladeMinZ": 0.732180655002594,
+      "speed": 0.8032968689975749,
+      "angularSpeed": 1.8436137959361076
+    },
+    {
+      "frame": 42.75,
+      "contacts": {},
+      "bladeMinZ": 0.7249261140823364,
+      "speed": 0.8032968689975749,
+      "angularSpeed": 1.8417506664991379
+    },
+    {
+      "frame": 43.0,
+      "contacts": {},
+      "bladeMinZ": 0.717700183391571,
+      "speed": 0.803295395930044,
+      "angularSpeed": 1.8417506664991379
+    },
+    {
+      "frame": 43.25,
+      "contacts": {},
+      "bladeMinZ": 0.7075566053390503,
+      "speed": 1.0437987477884545,
+      "angularSpeed": 2.62433297932148
+    },
+    {
+      "frame": 43.5,
+      "contacts": {},
+      "bladeMinZ": 0.6974771022796631,
+      "speed": 1.043797484713754,
+      "angularSpeed": 2.62302428483963
+    },
+    {
+      "frame": 43.75,
+      "contacts": {},
+      "bladeMinZ": 0.6874650120735168,
+      "speed": 1.0437985982761315,
+      "angularSpeed": 2.62433297932148
+    },
+    {
+      "frame": 44.0,
+      "contacts": {},
+      "bladeMinZ": 0.6775239706039429,
+      "speed": 1.0437985982761315,
+      "angularSpeed": 2.62433297932148
+    },
+    {
+      "frame": 44.25,
+      "contacts": {},
+      "bladeMinZ": 0.6658415794372559,
+      "speed": 1.2136299511289925,
+      "angularSpeed": 3.2423298060894012
+    },
+    {
+      "frame": 44.5,
+      "contacts": {},
+      "bladeMinZ": 0.6542794704437256,
+      "speed": 1.2136299511289925,
+      "angularSpeed": 3.2423298060894012
+    },
+    {
+      "frame": 44.75,
+      "contacts": {},
+      "bladeMinZ": 0.6428438425064087,
+      "speed": 1.2136316099629885,
+      "angularSpeed": 3.2423298060894012
+    },
+    {
+      "frame": 45.0,
+      "contacts": {},
+      "bladeMinZ": 0.6315411329269409,
+      "speed": 1.2136299511289925,
+      "angularSpeed": 3.24338860809803
+    },
+    {
+      "frame": 45.25,
+      "contacts": {},
+      "bladeMinZ": 0.6198432445526123,
+      "speed": 1.3553130242743727,
+      "angularSpeed": 3.6993400007486343
+    },
+    {
+      "frame": 45.5,
+      "contacts": {},
+      "bladeMinZ": 0.6083354353904724,
+      "speed": 1.355309907873825,
+      "angularSpeed": 3.701195642352104
+    },
+    {
+      "frame": 45.75,
+      "contacts": {},
+      "bladeMinZ": 0.597026526927948,
+      "speed": 1.3553122125614319,
+      "angularSpeed": 3.7002678215503693
+    },
+    {
+      "frame": 46.0,
+      "contacts": {},
+      "bladeMinZ": 0.5858871936798096,
+      "speed": 1.3553130242743727,
+      "angularSpeed": 3.7002678215503693
+    },
+    {
+      "frame": 46.25,
+      "contacts": {},
+      "bladeMinZ": 0.5751494765281677,
+      "speed": 1.4563980521141997,
+      "angularSpeed": 3.9964663982391357
+    },
+    {
+      "frame": 46.5,
+      "contacts": {},
+      "bladeMinZ": 0.5646741390228271,
+      "speed": 1.4564012337852323,
+      "angularSpeed": 3.9956071972846985
+    },
+    {
+      "frame": 46.75,
+      "contacts": {},
+      "bladeMinZ": 0.5544712543487549,
+      "speed": 1.4564012337852323,
+      "angularSpeed": 3.9956071972846985
+    },
+    {
+      "frame": 47.0,
+      "contacts": {},
+      "bladeMinZ": 0.544550895690918,
+      "speed": 1.4563980521141997,
+      "angularSpeed": 3.9956071972846985
+    },
+    {
+      "frame": 47.25,
+      "contacts": {},
+      "bladeMinZ": 0.535858154296875,
+      "speed": 1.493886876092155,
+      "angularSpeed": 4.130806624889374
+    },
+    {
+      "frame": 47.5,
+      "contacts": {},
+      "bladeMinZ": 0.5274879932403564,
+      "speed": 1.4938882640963098,
+      "angularSpeed": 4.131637662649155
+    },
+    {
+      "frame": 47.75,
+      "contacts": {},
+      "bladeMinZ": 0.5194503664970398,
+      "speed": 1.4938882494092347,
+      "angularSpeed": 4.130806624889374
+    },
+    {
+      "frame": 48.0,
+      "contacts": {},
+      "bladeMinZ": 0.5117552280426025,
+      "speed": 1.493886876092155,
+      "angularSpeed": 4.130806624889374
+    },
+    {
+      "frame": 48.25,
+      "contacts": {},
+      "bladeMinZ": 0.5054227113723755,
+      "speed": 1.4668535831696163,
+      "angularSpeed": 4.104123115539551
+    },
+    {
+      "frame": 48.5,
+      "contacts": {},
+      "bladeMinZ": 0.4994455873966217,
+      "speed": 1.4668541774692145,
+      "angularSpeed": 4.1049595177173615
+    },
+    {
+      "frame": 48.75,
+      "contacts": {},
+      "bladeMinZ": 0.49383220076560974,
+      "speed": 1.4668593202432858,
+      "angularSpeed": 4.103286266326904
+    },
+    {
+      "frame": 49.0,
+      "contacts": {},
+      "bladeMinZ": 0.4885900616645813,
+      "speed": 1.4668535831696163,
+      "angularSpeed": 4.1049595177173615
+    },
+    {
+      "frame": 49.25,
+      "contacts": {},
+      "bladeMinZ": 0.4845138490200043,
+      "speed": 1.3696227768388567,
+      "angularSpeed": 3.914877623319626
+    },
+    {
+      "frame": 49.5,
+      "contacts": {},
+      "bladeMinZ": 0.4807882606983185,
+      "speed": 1.3696179096270058,
+      "angularSpeed": 3.9157547056674957
+    },
+    {
+      "frame": 49.75,
+      "contacts": {},
+      "bladeMinZ": 0.4774188995361328,
+      "speed": 1.3696188754209095,
+      "angularSpeed": 3.914877623319626
+    },
+    {
+      "frame": 50.0,
+      "contacts": {},
+      "bladeMinZ": 0.4744112193584442,
+      "speed": 1.3696222939433655,
+      "angularSpeed": 3.914877623319626
+    },
+    {
+      "frame": 50.25,
+      "contacts": {},
+      "bladeMinZ": 0.47204041481018066,
+      "speed": 1.2168837997145228,
+      "angularSpeed": 3.565114662051201
+    },
+    {
+      "frame": 50.5,
+      "contacts": {},
+      "bladeMinZ": 0.4699768126010895,
+      "speed": 1.2168852163290382,
+      "angularSpeed": 3.565114662051201
+    },
+    {
+      "frame": 50.75,
+      "contacts": {},
+      "bladeMinZ": 0.468223512172699,
+      "speed": 1.2168828956633715,
+      "angularSpeed": 3.5660775750875473
+    },
+    {
+      "frame": 51.0,
+      "contacts": {},
+      "bladeMinZ": 0.46678340435028076,
+      "speed": 1.2168847037650021,
+      "angularSpeed": 3.565114662051201
+    },
+    {
+      "frame": 51.25,
+      "contacts": {},
+      "bladeMinZ": 0.4653483033180237,
+      "speed": 1.0264496596343564,
+      "angularSpeed": 3.053648918867111
+    },
+    {
+      "frame": 51.5,
+      "contacts": {},
+      "bladeMinZ": 0.46414637565612793,
+      "speed": 1.0264496596343564,
+      "angularSpeed": 3.054772987961769
+    },
+    {
+      "frame": 51.75,
+      "contacts": {},
+      "bladeMinZ": 0.46317875385284424,
+      "speed": 1.026446469817902,
+      "angularSpeed": 3.053648918867111
+    },
+    {
+      "frame": 52.0,
+      "contacts": {},
+      "bladeMinZ": 0.4624468982219696,
+      "speed": 1.0264480647273684,
+      "angularSpeed": 3.053648918867111
+    },
+    {
+      "frame": 52.25,
+      "contacts": {},
+      "bladeMinZ": 0.4610777497291565,
+      "speed": 0.816538400970474,
+      "angularSpeed": 2.3800990730524063
+    },
+    {
+      "frame": 52.5,
+      "contacts": {},
+      "bladeMinZ": 0.45985299348831177,
+      "speed": 0.8165415767503856,
+      "angularSpeed": 2.381541207432747
+    },
+    {
+      "frame": 52.75,
+      "contacts": {},
+      "bladeMinZ": 0.4587726593017578,
+      "speed": 0.8165417579438955,
+      "angularSpeed": 2.381541207432747
+    },
+    {
+      "frame": 53.0,
+      "contacts": {},
+      "bladeMinZ": 0.4578373432159424,
+      "speed": 0.816538400970474,
+      "angularSpeed": 2.381541207432747
+    },
+    {
+      "frame": 53.25,
+      "contacts": {},
+      "bladeMinZ": 0.45569300651550293,
+      "speed": 0.647141097011106,
+      "angularSpeed": 1.5480313450098038
+    },
+    {
+      "frame": 53.5,
+      "contacts": {},
+      "bladeMinZ": 0.45361003279685974,
+      "speed": 0.6471378741305731,
+      "angularSpeed": 1.5458119288086891
+    },
+    {
+      "frame": 53.75,
+      "contacts": {},
+      "bladeMinZ": 0.45158836245536804,
+      "speed": 0.6471366547948207,
+      "angularSpeed": 1.5480313450098038
+    },
+    {
+      "frame": 54.0,
+      "contacts": {},
+      "bladeMinZ": 0.44962799549102783,
+      "speed": 0.647141097011106,
+      "angularSpeed": 1.5458119288086891
+    },
+    {
+      "frame": 54.25,
+      "contacts": {},
+      "bladeMinZ": 0.4460543990135193,
+      "speed": 0.6391370920009793,
+      "angularSpeed": 0.5433762073516846
+    },
+    {
+      "frame": 54.5,
+      "contacts": {},
+      "bladeMinZ": 0.44248509407043457,
+      "speed": 0.639142988333566,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 54.75,
+      "contacts": {},
+      "bladeMinZ": 0.43892019987106323,
+      "speed": 0.6391359598579155,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 55.0,
+      "contacts": {},
+      "bladeMinZ": 0.43535950779914856,
+      "speed": 0.6391406113650275,
+      "angularSpeed": 0.5496582202613354
+    },
+    {
+      "frame": 55.25,
+      "contacts": {},
+      "bladeMinZ": 0.4208686649799347,
+      "speed": 0.5859635671390271,
+      "angularSpeed": 8.97818773984909
+    },
+    {
+      "frame": 55.5,
+      "contacts": {},
+      "bladeMinZ": 0.40712910890579224,
+      "speed": 0.5859683222412537,
+      "angularSpeed": 8.97818773984909
+    },
+    {
+      "frame": 55.75,
+      "contacts": {},
+      "bladeMinZ": 0.3942303955554962,
+      "speed": 0.5859628002285032,
+      "angularSpeed": 8.978569507598877
+    },
+    {
+      "frame": 56.0,
+      "contacts": {},
+      "bladeMinZ": 0.3822579085826874,
+      "speed": 0.5859635671390271,
+      "angularSpeed": 8.97818773984909
+    },
+    {
+      "frame": 56.25,
+      "contacts": {},
+      "bladeMinZ": 0.36887669563293457,
+      "speed": 0.39287200862689453,
+      "angularSpeed": 8.31907868385315
+    },
+    {
+      "frame": 56.5,
+      "contacts": {},
+      "bladeMinZ": 0.35631176829338074,
+      "speed": 0.39286975011633135,
+      "angularSpeed": 8.31907868385315
+    },
+    {
+      "frame": 56.75,
+      "contacts": {},
+      "bladeMinZ": 0.34462741017341614,
+      "speed": 0.3928661821015528,
+      "angularSpeed": 8.31907868385315
+    },
+    {
+      "frame": 57.0,
+      "contacts": {},
+      "bladeMinZ": 0.3338845670223236,
+      "speed": 0.39287200862689453,
+      "angularSpeed": 8.31907868385315
+    },
+    {
+      "frame": 57.25,
+      "contacts": {},
+      "bladeMinZ": 0.3215952515602112,
+      "speed": 0.34512925993515314,
+      "angularSpeed": 7.524986565113068
+    },
+    {
+      "frame": 57.5,
+      "contacts": {},
+      "bladeMinZ": 0.31009411811828613,
+      "speed": 0.3451338586429831,
+      "angularSpeed": 7.524986565113068
+    },
+    {
+      "frame": 57.75,
+      "contacts": {},
+      "bladeMinZ": 0.29942309856414795,
+      "speed": 0.3451338586429831,
+      "angularSpeed": 7.525443434715271
+    },
+    {
+      "frame": 58.0,
+      "contacts": {},
+      "bladeMinZ": 0.28962114453315735,
+      "speed": 0.34512925993515314,
+      "angularSpeed": 7.524986565113068
+    },
+    {
+      "frame": 58.25,
+      "contacts": {},
+      "bladeMinZ": 0.2783359885215759,
+      "speed": 0.4088688307133438,
+      "angularSpeed": 6.747414171695709
+    },
+    {
+      "frame": 58.5,
+      "contacts": {},
+      "bladeMinZ": 0.2677631378173828,
+      "speed": 0.4088632116310288,
+      "angularSpeed": 6.747922897338867
+    },
+    {
+      "frame": 58.75,
+      "contacts": {},
+      "bladeMinZ": 0.2579286992549896,
+      "speed": 0.40886568609881163,
+      "angularSpeed": 6.747414171695709
+    },
+    {
+      "frame": 59.0,
+      "contacts": {},
+      "bladeMinZ": 0.24885621666908264,
+      "speed": 0.4088688307133438,
+      "angularSpeed": 6.747414171695709
+    },
+    {
+      "frame": 59.25,
+      "contacts": {},
+      "bladeMinZ": 0.23878124356269836,
+      "speed": 0.4816468929950118,
+      "angularSpeed": 5.918988883495331
+    },
+    {
+      "frame": 59.5,
+      "contacts": {},
+      "bladeMinZ": 0.2293035387992859,
+      "speed": 0.4816489168490403,
+      "angularSpeed": 5.918988883495331
+    },
+    {
+      "frame": 59.75,
+      "contacts": {},
+      "bladeMinZ": 0.22043775022029877,
+      "speed": 0.48164580342002894,
+      "angularSpeed": 5.918988883495331
+    },
+    {
+      "frame": 60.0,
+      "contacts": {},
+      "bladeMinZ": 0.21188659965991974,
+      "speed": 0.4816468929950118,
+      "angularSpeed": 5.919569134712219
+    },
+    {
+      "frame": 60.25,
+      "contacts": {},
+      "bladeMinZ": 0.2024458795785904,
+      "speed": 0.5081772451182175,
+      "angularSpeed": 5.714752972126007
+    },
+    {
+      "frame": 60.5,
+      "contacts": {},
+      "bladeMinZ": 0.19360117614269257,
+      "speed": 0.5081731314537735,
+      "angularSpeed": 5.714152157306671
+    },
+    {
+      "frame": 60.75,
+      "contacts": {},
+      "bladeMinZ": 0.1853630095720291,
+      "speed": 0.5081776415632935,
+      "angularSpeed": 5.714152157306671
+    },
+    {
+      "frame": 61.0,
+      "contacts": {},
+      "bladeMinZ": 0.1777414232492447,
+      "speed": 0.5081772451182175,
+      "angularSpeed": 5.714752972126007
+    },
+    {
+      "frame": 61.25,
+      "contacts": {},
+      "bladeMinZ": 0.16680699586868286,
+      "speed": 0.5930282136504681,
+      "angularSpeed": 2.4187329411506653
+    },
+    {
+      "frame": 61.5,
+      "contacts": {},
+      "bladeMinZ": 0.15581229329109192,
+      "speed": 0.5930282136504681,
+      "angularSpeed": 2.4187329411506653
+    },
+    {
+      "frame": 61.75,
+      "contacts": {},
+      "bladeMinZ": 0.14493319392204285,
+      "speed": 0.5930282136504681,
+      "angularSpeed": 2.4187329411506653
+    },
+    {
+      "frame": 62.0,
+      "contacts": {},
+      "bladeMinZ": 0.13416758179664612,
+      "speed": 0.59303176924217,
+      "angularSpeed": 2.4173131585121155
+    },
+    {
+      "frame": 62.25,
+      "contacts": {},
+      "bladeMinZ": 0.1225430965423584,
+      "speed": 0.6273877471326109,
+      "angularSpeed": 1.475355215370655
+    },
+    {
+      "frame": 62.5,
+      "contacts": {},
+      "bladeMinZ": 0.11097368597984314,
+      "speed": 0.6273913092161867,
+      "angularSpeed": 1.477680467069149
+    },
+    {
+      "frame": 62.75,
+      "contacts": {},
+      "bladeMinZ": 0.09946047514677048,
+      "speed": 0.6273877604750836,
+      "angularSpeed": 1.477680467069149
+    },
+    {
+      "frame": 63.0,
+      "contacts": {},
+      "bladeMinZ": 0.08800435066223145,
+      "speed": 0.6273877471326109,
+      "angularSpeed": 1.477680467069149
+    },
+    {
+      "frame": 63.25,
+      "contacts": {},
+      "bladeMinZ": 0.0774306058883667,
+      "speed": 0.5850089287588325,
+      "angularSpeed": 1.259426325559616
+    },
+    {
+      "frame": 63.5,
+      "contacts": {},
+      "bladeMinZ": 0.06690222024917603,
+      "speed": 0.5850095388102647,
+      "angularSpeed": 1.2621494382619858
+    },
+    {
+      "frame": 63.75,
+      "contacts": {},
+      "bladeMinZ": 0.05641969293355942,
+      "speed": 0.5850095388102647,
+      "angularSpeed": 1.259426325559616
+    },
+    {
+      "frame": 64.0,
+      "contacts": {},
+      "bladeMinZ": 0.045983873307704926,
+      "speed": 0.5850089287588325,
+      "angularSpeed": 1.2621494382619858
+    },
+    {
+      "frame": 64.25,
+      "contacts": {},
+      "bladeMinZ": 0.036626189947128296,
+      "speed": 0.541102928724609,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 64.5,
+      "contacts": {},
+      "bladeMinZ": 0.027352266013622284,
+      "speed": 0.5411064888987981,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 64.75,
+      "contacts": {},
+      "bladeMinZ": 0.018163427710533142,
+      "speed": 0.5411058717421623,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 65.0,
+      "contacts": {},
+      "bladeMinZ": 0.009060658514499664,
+      "speed": 0.541102928724609,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 65.25,
+      "contacts": {},
+      "bladeMinZ": 0.0010701939463615417,
+      "speed": 0.5042434707229277,
+      "angularSpeed": 2.52430759370327
+    },
+    {
+      "frame": 65.5,
+      "contacts": {},
+      "bladeMinZ": -0.00676862895488739,
+      "speed": 0.5042428652266299,
+      "angularSpeed": 2.52430759370327
+    },
+    {
+      "frame": 65.75,
+      "contacts": {},
+      "bladeMinZ": -0.014453664422035217,
+      "speed": 0.504243465459841,
+      "angularSpeed": 2.5229472666978836
+    },
+    {
+      "frame": 66.0,
+      "contacts": {},
+      "bladeMinZ": -0.02198394387960434,
+      "speed": 0.5042434707229277,
+      "angularSpeed": 2.52430759370327
+    },
+    {
+      "frame": 66.25,
+      "contacts": {},
+      "bladeMinZ": -0.02938631922006607,
+      "speed": 0.514642609413133,
+      "angularSpeed": 2.807628884911537
+    },
+    {
+      "frame": 66.5,
+      "contacts": {},
+      "bladeMinZ": -0.03659515082836151,
+      "speed": 0.5146426845275406,
+      "angularSpeed": 2.807628884911537
+    },
+    {
+      "frame": 66.75,
+      "contacts": {},
+      "bladeMinZ": -0.04360855370759964,
+      "speed": 0.5146461709174653,
+      "angularSpeed": 2.806405797600746
+    },
+    {
+      "frame": 67.0,
+      "contacts": {},
+      "bladeMinZ": -0.05042515695095062,
+      "speed": 0.514642609413133,
+      "angularSpeed": 2.807628884911537
+    },
+    {
+      "frame": 67.25,
+      "contacts": {},
+      "bladeMinZ": -0.057216934859752655,
+      "speed": 0.5129296944706654,
+      "angularSpeed": 2.674868255853653
+    },
+    {
+      "frame": 67.5,
+      "contacts": {},
+      "bladeMinZ": -0.06382551044225693,
+      "speed": 0.5129340542417861,
+      "angularSpeed": 2.674868255853653
+    },
+    {
+      "frame": 67.75,
+      "contacts": {},
+      "bladeMinZ": -0.07026968151330948,
+      "speed": 0.5129340542417861,
+      "angularSpeed": 2.674868255853653
+    },
+    {
+      "frame": 68.0,
+      "contacts": {},
+      "bladeMinZ": -0.07660765200853348,
+      "speed": 0.5129296944706654,
+      "angularSpeed": 2.674868255853653
+    },
+    {
+      "frame": 68.25,
+      "contacts": {},
+      "bladeMinZ": -0.08277782797813416,
+      "speed": 0.48379233737537447,
+      "angularSpeed": 2.2964054346084595
+    },
+    {
+      "frame": 68.5,
+      "contacts": {},
+      "bladeMinZ": -0.08880553394556046,
+      "speed": 0.48379002830145074,
+      "angularSpeed": 2.2964054346084595
+    },
+    {
+      "frame": 68.75,
+      "contacts": {},
+      "bladeMinZ": -0.09469019621610641,
+      "speed": 0.48379107222925716,
+      "angularSpeed": 2.2964054346084595
+    },
+    {
+      "frame": 69.0,
+      "contacts": {},
+      "bladeMinZ": -0.10043088346719742,
+      "speed": 0.48379061836626963,
+      "angularSpeed": 2.2964054346084595
+    },
+    {
+      "frame": 69.25,
+      "contacts": {},
+      "bladeMinZ": -0.1061653271317482,
+      "speed": 0.43286722788566107,
+      "angularSpeed": 1.6778730601072311
+    },
+    {
+      "frame": 69.5,
+      "contacts": {},
+      "bladeMinZ": -0.11181624978780746,
+      "speed": 0.4328702393862364,
+      "angularSpeed": 1.6799180209636688
+    },
+    {
+      "frame": 69.75,
+      "contacts": {},
+      "bladeMinZ": -0.11738317459821701,
+      "speed": 0.4328676571389366,
+      "angularSpeed": 1.6778730601072311
+    },
+    {
+      "frame": 70.0,
+      "contacts": {},
+      "bladeMinZ": -0.12286568433046341,
+      "speed": 0.43286892220448425,
+      "angularSpeed": 1.6778730601072311
+    },
+    {
+      "frame": 70.25,
+      "contacts": {},
+      "bladeMinZ": -0.12822331488132477,
+      "speed": 0.3622430359912781,
+      "angularSpeed": 1.0676298290491104
+    },
+    {
+      "frame": 70.5,
+      "contacts": {},
+      "bladeMinZ": -0.13354116678237915,
+      "speed": 0.362242810025447,
+      "angularSpeed": 1.0644091665744781
+    },
+    {
+      "frame": 70.75,
+      "contacts": {},
+      "bladeMinZ": -0.13881893455982208,
+      "speed": 0.36224252163635035,
+      "angularSpeed": 1.0676298290491104
+    },
+    {
+      "frame": 71.0,
+      "contacts": {},
+      "bladeMinZ": -0.14405646920204163,
+      "speed": 0.3622430359912781,
+      "angularSpeed": 1.0676298290491104
+    },
+    {
+      "frame": 71.25,
+      "contacts": {},
+      "bladeMinZ": -0.1492447704076767,
+      "speed": 0.30457317483336044,
+      "angularSpeed": 0.7128239795565605
+    },
+    {
+      "frame": 71.5,
+      "contacts": {},
+      "bladeMinZ": -0.15442419052124023,
+      "speed": 0.30457422103108894,
+      "angularSpeed": 0.7128239795565605
+    },
+    {
+      "frame": 71.75,
+      "contacts": {},
+      "bladeMinZ": -0.15959446132183075,
+      "speed": 0.3045716457169943,
+      "angularSpeed": 0.7128239795565605
+    },
+    {
+      "frame": 72.0,
+      "contacts": {},
+      "bladeMinZ": -0.16475562751293182,
+      "speed": 0.30457422103108894,
+      "angularSpeed": 0.7128239795565605
+    },
+    {
+      "frame": 72.25,
+      "contacts": {},
+      "bladeMinZ": -0.16981416940689087,
+      "speed": 0.2687442568868953,
+      "angularSpeed": 0.6364912167191505
+    },
+    {
+      "frame": 72.5,
+      "contacts": {},
+      "bladeMinZ": -0.1748654544353485,
+      "speed": 0.2687461657493522,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 72.75,
+      "contacts": {},
+      "bladeMinZ": -0.17990952730178833,
+      "speed": 0.2687468765603893,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 73.0,
+      "contacts": {},
+      "bladeMinZ": -0.18494632840156555,
+      "speed": 0.2687442568868953,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 73.25,
+      "contacts": {},
+      "bladeMinZ": -0.18993200361728668,
+      "speed": 0.25455539214481454,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 73.5,
+      "contacts": {},
+      "bladeMinZ": -0.19491088390350342,
+      "speed": 0.25455292336525465,
+      "angularSpeed": 0.6577134132385254
+    },
+    {
+      "frame": 73.75,
+      "contacts": {},
+      "bladeMinZ": -0.19988316297531128,
+      "speed": 0.254553642859002,
+      "angularSpeed": 0.6471893191337585
+    },
+    {
+      "frame": 74.0,
+      "contacts": {},
+      "bladeMinZ": -0.20484882593154907,
+      "speed": 0.25455539214481454,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 74.25,
+      "contacts": {},
+      "bladeMinZ": -0.2096869945526123,
+      "speed": 0.2514009041691789,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 74.5,
+      "contacts": {},
+      "bladeMinZ": -0.21451899409294128,
+      "speed": 0.2514011440908417,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 74.75,
+      "contacts": {},
+      "bladeMinZ": -0.219344824552536,
+      "speed": 0.2514011440908417,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 75.0,
+      "contacts": {},
+      "bladeMinZ": -0.22416459023952484,
+      "speed": 0.2514009041691789,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 75.25,
+      "contacts": {},
+      "bladeMinZ": -0.22799894213676453,
+      "speed": 0.23574348469112386,
+      "angularSpeed": 0.5740992911159992
+    },
+    {
+      "frame": 75.5,
+      "contacts": {},
+      "bladeMinZ": -0.23182722926139832,
+      "speed": 0.23574523466638214,
+      "angularSpeed": 0.5680876225233078
+    },
+    {
+      "frame": 75.75,
+      "contacts": {},
+      "bladeMinZ": -0.23564936220645905,
+      "speed": 0.2357435745610464,
+      "angularSpeed": 0.5740992911159992
+    },
+    {
+      "frame": 76.0,
+      "contacts": {},
+      "bladeMinZ": -0.23946529626846313,
+      "speed": 0.23574348469112386,
+      "angularSpeed": 0.5740992911159992
+    },
+    {
+      "frame": 76.25,
+      "contacts": {},
+      "bladeMinZ": -0.24376070499420166,
+      "speed": 0.2821813789113286,
+      "angularSpeed": 0.7318359799683094
+    },
+    {
+      "frame": 76.5,
+      "contacts": {},
+      "bladeMinZ": -0.24804699420928955,
+      "speed": 0.28218229036569253,
+      "angularSpeed": 0.7271295972168446
+    },
+    {
+      "frame": 76.75,
+      "contacts": {},
+      "bladeMinZ": -0.25232404470443726,
+      "speed": 0.2821805731060765,
+      "angularSpeed": 0.7318359799683094
+    },
+    {
+      "frame": 77.0,
+      "contacts": {},
+      "bladeMinZ": -0.2565920948982239,
+      "speed": 0.2821813789113286,
+      "angularSpeed": 0.7318359799683094
+    },
+    {
+      "frame": 77.25,
+      "contacts": {},
+      "bladeMinZ": -0.2611885666847229,
+      "speed": 0.32796993285717624,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 77.5,
+      "contacts": {},
+      "bladeMinZ": -0.2657470703125,
+      "speed": 0.3279704528982393,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 77.75,
+      "contacts": {},
+      "bladeMinZ": -0.27026820182800293,
+      "speed": 0.32797161002613007,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 78.0,
+      "contacts": {},
+      "bladeMinZ": -0.2747510075569153,
+      "speed": 0.3279687011807637,
+      "angularSpeed": 0.9520363435149193
+    },
+    {
+      "frame": 78.25,
+      "contacts": {},
+      "bladeMinZ": -0.2795608639717102,
+      "speed": 0.3823115630014597,
+      "angularSpeed": 1.2234747782349586
+    },
+    {
+      "frame": 78.5,
+      "contacts": {},
+      "bladeMinZ": -0.2843114733695984,
+      "speed": 0.3823108757262607,
+      "angularSpeed": 1.2234747782349586
+    },
+    {
+      "frame": 78.75,
+      "contacts": {},
+      "bladeMinZ": -0.2890024781227112,
+      "speed": 0.38231252646928465,
+      "angularSpeed": 1.2262776866555214
+    },
+    {
+      "frame": 79.0,
+      "contacts": {},
+      "bladeMinZ": -0.29363375902175903,
+      "speed": 0.38231005356365205,
+      "angularSpeed": 1.2234747782349586
+    },
+    {
+      "frame": 79.25,
+      "contacts": {},
+      "bladeMinZ": -0.29845672845840454,
+      "speed": 0.4297485669267689,
+      "angularSpeed": 1.444786749780178
+    },
+    {
+      "frame": 79.5,
+      "contacts": {},
+      "bladeMinZ": -0.30319899320602417,
+      "speed": 0.42974660233574496,
+      "angularSpeed": 1.444786749780178
+    },
+    {
+      "frame": 79.75,
+      "contacts": {},
+      "bladeMinZ": -0.3079305589199066,
+      "speed": 0.42974935928427427,
+      "angularSpeed": 1.442408412694931
+    },
+    {
+      "frame": 80.0,
+      "contacts": {},
+      "bladeMinZ": -0.31277626752853394,
+      "speed": 0.4297468603056415,
+      "angularSpeed": 1.444786749780178
+    },
+    {
+      "frame": 80.25,
+      "contacts": {},
+      "bladeMinZ": -0.31791555881500244,
+      "speed": 0.476664976910058,
+      "angularSpeed": 1.6448081284761429
+    },
+    {
+      "frame": 80.5,
+      "contacts": {},
+      "bladeMinZ": -0.3229484260082245,
+      "speed": 0.47666398252329684,
+      "angularSpeed": 1.6448081284761429
+    },
+    {
+      "frame": 80.75,
+      "contacts": {},
+      "bladeMinZ": -0.3278743624687195,
+      "speed": 0.4766623667074653,
+      "angularSpeed": 1.6448081284761429
+    },
+    {
+      "frame": 81.0,
+      "contacts": {},
+      "bladeMinZ": -0.3326934576034546,
+      "speed": 0.4766647381071665,
+      "angularSpeed": 1.6448081284761429
+    },
+    {
+      "frame": 81.25,
+      "contacts": {},
+      "bladeMinZ": -0.3375064730644226,
+      "speed": 0.5179591593464511,
+      "angularSpeed": 1.8454751372337341
+    },
+    {
+      "frame": 81.5,
+      "contacts": {},
+      "bladeMinZ": -0.34218722581863403,
+      "speed": 0.5179584260738571,
+      "angularSpeed": 1.8454751372337341
+    },
+    {
+      "frame": 81.75,
+      "contacts": {},
+      "bladeMinZ": -0.34673547744750977,
+      "speed": 0.5179591593464511,
+      "angularSpeed": 1.8454751372337341
+    },
+    {
+      "frame": 82.0,
+      "contacts": {},
+      "bladeMinZ": -0.3511510491371155,
+      "speed": 0.5179591593464511,
+      "angularSpeed": 1.8473345786333084
+    },
+    {
+      "frame": 82.25,
+      "contacts": {},
+      "bladeMinZ": -0.355408638715744,
+      "speed": 0.5679134031385996,
+      "angularSpeed": 2.1432892978191376
+    },
+    {
+      "frame": 82.5,
+      "contacts": {},
+      "bladeMinZ": -0.3594914376735687,
+      "speed": 0.5679156054720571,
+      "angularSpeed": 2.141686901450157
+    },
+    {
+      "frame": 82.75,
+      "contacts": {},
+      "bladeMinZ": -0.363399475812912,
+      "speed": 0.5679134031385996,
+      "angularSpeed": 2.1432892978191376
+    },
+    {
+      "frame": 83.0,
+      "contacts": {},
+      "bladeMinZ": -0.36713263392448425,
+      "speed": 0.5679134031385996,
+      "angularSpeed": 2.141686901450157
+    },
+    {
+      "frame": 83.25,
+      "contacts": {},
+      "bladeMinZ": -0.3706378936767578,
+      "speed": 0.6381302857717883,
+      "angularSpeed": 2.4859334528446198
+    },
+    {
+      "frame": 83.5,
+      "contacts": {},
+      "bladeMinZ": -0.37391284108161926,
+      "speed": 0.6381279255546899,
+      "angularSpeed": 2.4873141199350357
+    },
+    {
+      "frame": 83.75,
+      "contacts": {},
+      "bladeMinZ": -0.3769584894180298,
+      "speed": 0.6381279255546899,
+      "angularSpeed": 2.4873141199350357
+    },
+    {
+      "frame": 84.0,
+      "contacts": {},
+      "bladeMinZ": -0.3797741234302521,
+      "speed": 0.6381297579305157,
+      "angularSpeed": 2.4873141199350357
+    },
+    {
+      "frame": 84.25,
+      "contacts": {},
+      "bladeMinZ": -0.38289880752563477,
+      "speed": 0.7383422130561583,
+      "angularSpeed": 2.75579072535038
+    },
+    {
+      "frame": 84.5,
+      "contacts": {},
+      "bladeMinZ": -0.3857363760471344,
+      "speed": 0.7383423571774991,
+      "angularSpeed": 2.75579072535038
+    },
+    {
+      "frame": 84.75,
+      "contacts": {},
+      "bladeMinZ": -0.38828763365745544,
+      "speed": 0.7383417496504256,
+      "angularSpeed": 2.75579072535038
+    },
+    {
+      "frame": 85.0,
+      "contacts": {},
+      "bladeMinZ": -0.3905535638332367,
+      "speed": 0.7383400334946053,
+      "angularSpeed": 2.75579072535038
+    },
+    {
+      "frame": 85.25,
+      "contacts": {},
+      "bladeMinZ": -0.39259570837020874,
+      "speed": 0.7659970381598694,
+      "angularSpeed": 2.7929162979125977
+    },
+    {
+      "frame": 85.5,
+      "contacts": {},
+      "bladeMinZ": -0.3943417966365814,
+      "speed": 0.7659944222200568,
+      "angularSpeed": 2.7929162979125977
+    },
+    {
+      "frame": 85.75,
+      "contacts": {},
+      "bladeMinZ": -0.3957933783531189,
+      "speed": 0.7659970381598694,
+      "angularSpeed": 2.7916867285966873
+    },
+    {
+      "frame": 86.0,
+      "contacts": {},
+      "bladeMinZ": -0.3969517946243286,
+      "speed": 0.7659970381598694,
+      "angularSpeed": 2.7916867285966873
+    },
+    {
+      "frame": 86.25,
+      "contacts": {},
+      "bladeMinZ": -0.3976844847202301,
+      "speed": 0.7514347307319684,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 86.5,
+      "contacts": {},
+      "bladeMinZ": -0.39813846349716187,
+      "speed": 0.7514319595226754,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 86.75,
+      "contacts": {},
+      "bladeMinZ": -0.3983154296875,
+      "speed": 0.751434713303011,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 87.0,
+      "contacts": {},
+      "bladeMinZ": -0.3982173204421997,
+      "speed": 0.7514338707213731,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 87.25,
+      "contacts": {},
+      "bladeMinZ": -0.3976570665836334,
+      "speed": 0.6721281434912247,
+      "angularSpeed": 2.4734723567962646
+    },
+    {
+      "frame": 87.5,
+      "contacts": {},
+      "bladeMinZ": -0.3968685269355774,
+      "speed": 0.6721281337484964,
+      "angularSpeed": 2.472083866596222
+    },
+    {
+      "frame": 87.75,
+      "contacts": {},
+      "bladeMinZ": -0.39585351943969727,
+      "speed": 0.6721281337484964,
+      "angularSpeed": 2.472083866596222
+    },
+    {
+      "frame": 88.0,
+      "contacts": {},
+      "bladeMinZ": -0.39461374282836914,
+      "speed": 0.6721281337484964,
+      "angularSpeed": 2.4748599529266357
+    },
+    {
+      "frame": 88.25,
+      "contacts": {},
+      "bladeMinZ": -0.39295172691345215,
+      "speed": 0.6217274264921709,
+      "angularSpeed": 2.3612722009420395
+    },
+    {
+      "frame": 88.5,
+      "contacts": {},
+      "bladeMinZ": -0.3910878002643585,
+      "speed": 0.6217266056126872,
+      "angularSpeed": 2.3612722009420395
+    },
+    {
+      "frame": 88.75,
+      "contacts": {},
+      "bladeMinZ": -0.3890244662761688,
+      "speed": 0.6217274264921709,
+      "angularSpeed": 2.3612722009420395
+    },
+    {
+      "frame": 89.0,
+      "contacts": {},
+      "bladeMinZ": -0.3867627680301666,
+      "speed": 0.6217274264921709,
+      "angularSpeed": 2.3612722009420395
+    },
+    {
+      "frame": 89.25,
+      "contacts": {},
+      "bladeMinZ": -0.3843454420566559,
+      "speed": 0.6728417051447569,
+      "angularSpeed": 2.4441495537757874
+    },
+    {
+      "frame": 89.5,
+      "contacts": {},
+      "bladeMinZ": -0.38171297311782837,
+      "speed": 0.6728433596500258,
+      "angularSpeed": 2.4455539137125015
+    },
+    {
+      "frame": 89.75,
+      "contacts": {},
+      "bladeMinZ": -0.378866970539093,
+      "speed": 0.6728431358054332,
+      "angularSpeed": 2.4441495537757874
+    },
+    {
+      "frame": 90.0,
+      "contacts": {},
+      "bladeMinZ": -0.3758103847503662,
+      "speed": 0.6728418219334976,
+      "angularSpeed": 2.4441495537757874
+    },
+    {
+      "frame": 90.25,
+      "contacts": {},
+      "bladeMinZ": -0.3723694086074829,
+      "speed": 0.7901302323059213,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 90.5,
+      "contacts": {},
+      "bladeMinZ": -0.36866483092308044,
+      "speed": 0.7901288731220505,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 90.75,
+      "contacts": {},
+      "bladeMinZ": -0.3647001385688782,
+      "speed": 0.7901288731220505,
+      "angularSpeed": 2.7131011337041855
+    },
+    {
+      "frame": 91.0,
+      "contacts": {},
+      "bladeMinZ": -0.3604786992073059,
+      "speed": 0.7901302323059213,
+      "angularSpeed": 2.711835578083992
+    },
+    {
+      "frame": 91.25,
+      "contacts": {},
+      "bladeMinZ": -0.35517486929893494,
+      "speed": 0.8608484337786052,
+      "angularSpeed": 2.8883980214595795
+    },
+    {
+      "frame": 91.5,
+      "contacts": {},
+      "bladeMinZ": -0.3495834767818451,
+      "speed": 0.8608467602656482,
+      "angularSpeed": 2.8907744586467743
+    },
+    {
+      "frame": 91.75,
+      "contacts": {},
+      "bladeMinZ": -0.3437088429927826,
+      "speed": 0.8608467602656482,
+      "angularSpeed": 2.889586463570595
+    },
+    {
+      "frame": 92.0,
+      "contacts": {},
+      "bladeMinZ": -0.33755624294281006,
+      "speed": 0.8608484337786052,
+      "angularSpeed": 2.889586463570595
+    },
+    {
+      "frame": 92.25,
+      "contacts": {},
+      "bladeMinZ": -0.3303735554218292,
+      "speed": 0.9351527401299304,
+      "angularSpeed": 3.0356063693761826
+    },
+    {
+      "frame": 92.5,
+      "contacts": {},
+      "bladeMinZ": -0.32288461923599243,
+      "speed": 0.9351528556703756,
+      "angularSpeed": 3.0367371439933777
+    },
+    {
+      "frame": 92.75,
+      "contacts": {},
+      "bladeMinZ": -0.31509536504745483,
+      "speed": 0.9351524819144901,
+      "angularSpeed": 3.037867471575737
+    },
+    {
+      "frame": 93.0,
+      "contacts": {},
+      "bladeMinZ": -0.3070121705532074,
+      "speed": 0.935152624589471,
+      "angularSpeed": 3.0367371439933777
+    },
+    {
+      "frame": 93.25,
+      "contacts": {},
+      "bladeMinZ": -0.2982895076274872,
+      "speed": 0.9941905120025532,
+      "angularSpeed": 3.087194636464119
+    },
+    {
+      "frame": 93.5,
+      "contacts": {},
+      "bladeMinZ": -0.28925877809524536,
+      "speed": 0.9941906320026527,
+      "angularSpeed": 3.08608241379261
+    },
+    {
+      "frame": 93.75,
+      "contacts": {},
+      "bladeMinZ": -0.27992671728134155,
+      "speed": 0.994191195364847,
+      "angularSpeed": 3.087194636464119
+    },
+    {
+      "frame": 94.0,
+      "contacts": {},
+      "bladeMinZ": -0.2703007161617279,
+      "speed": 0.9941905120025532,
+      "angularSpeed": 3.087194636464119
+    },
+    {
+      "frame": 94.25,
+      "contacts": {},
+      "bladeMinZ": -0.2605283260345459,
+      "speed": 1.0180255542051577,
+      "angularSpeed": 3.0083394795656204
+    },
+    {
+      "frame": 94.5,
+      "contacts": {},
+      "bladeMinZ": -0.2504710257053375,
+      "speed": 1.018024251590231,
+      "angularSpeed": 3.0083394795656204
+    },
+    {
+      "frame": 94.75,
+      "contacts": {},
+      "bladeMinZ": -0.24013572931289673,
+      "speed": 1.0180251425305769,
+      "angularSpeed": 3.0083394795656204
+    },
+    {
+      "frame": 95.0,
+      "contacts": {},
+      "bladeMinZ": -0.2295294553041458,
+      "speed": 1.0180248136229704,
+      "angularSpeed": 3.0083394795656204
+    },
+    {
+      "frame": 95.25,
+      "contacts": {},
+      "bladeMinZ": -0.21902033686637878,
+      "speed": 1.0389772336179066,
+      "angularSpeed": 2.901443839073181
+    },
+    {
+      "frame": 95.5,
+      "contacts": {},
+      "bladeMinZ": -0.2082505226135254,
+      "speed": 1.0389771328485609,
+      "angularSpeed": 2.9026269167661667
+    },
+    {
+      "frame": 95.75,
+      "contacts": {},
+      "bladeMinZ": -0.197226881980896,
+      "speed": 1.0389772336179066,
+      "angularSpeed": 2.9038095474243164
+    },
+    {
+      "frame": 96.0,
+      "contacts": {},
+      "bladeMinZ": -0.1859557032585144,
+      "speed": 1.0389772233083143,
+      "angularSpeed": 2.9026269167661667
+    },
+    {
+      "frame": 96.25,
+      "contacts": {},
+      "bladeMinZ": -0.17486868798732758,
+      "speed": 1.0288707682850602,
+      "angularSpeed": 2.7719394117593765
+    },
+    {
+      "frame": 96.5,
+      "contacts": {},
+      "bladeMinZ": -0.16355282068252563,
+      "speed": 1.0288710087479784,
+      "angularSpeed": 2.770700678229332
+    },
+    {
+      "frame": 96.75,
+      "contacts": {},
+      "bladeMinZ": -0.15201403200626373,
+      "speed": 1.0288707682850602,
+      "angularSpeed": 2.770700678229332
+    },
+    {
+      "frame": 97.0,
+      "contacts": {},
+      "bladeMinZ": -0.14026400446891785,
+      "speed": 1.0288707682850602,
+      "angularSpeed": 2.7719394117593765
+    },
+    {
+      "frame": 97.25,
+      "contacts": {},
+      "bladeMinZ": -0.12926839292049408,
+      "speed": 1.0103324328514283,
+      "angularSpeed": 2.5993571430444717
+    },
+    {
+      "frame": 97.5,
+      "contacts": {},
+      "bladeMinZ": -0.11807641386985779,
+      "speed": 1.0103323769494097,
+      "angularSpeed": 2.5993571430444717
+    },
+    {
+      "frame": 97.75,
+      "contacts": {},
+      "bladeMinZ": -0.10669299960136414,
+      "speed": 1.0103314784658155,
+      "angularSpeed": 2.5980359315872192
+    },
+    {
+      "frame": 98.0,
+      "contacts": {},
+      "bladeMinZ": -0.09512323141098022,
+      "speed": 1.0103328436096446,
+      "angularSpeed": 2.5993571430444717
+    },
+    {
+      "frame": 98.25,
+      "contacts": {},
+      "bladeMinZ": -0.08377913385629654,
+      "speed": 0.9853213397162468,
+      "angularSpeed": 2.4706947058439255
+    },
+    {
+      "frame": 98.5,
+      "contacts": {},
+      "bladeMinZ": -0.0722678154706955,
+      "speed": 0.9853229231042189,
+      "angularSpeed": 2.4706947058439255
+    },
+    {
+      "frame": 98.75,
+      "contacts": {},
+      "bladeMinZ": -0.060593657195568085,
+      "speed": 0.9853221783472866,
+      "angularSpeed": 2.4706947058439255
+    },
+    {
+      "frame": 99.0,
+      "contacts": {},
+      "bladeMinZ": -0.04876125603914261,
+      "speed": 0.9853213397162468,
+      "angularSpeed": 2.4706947058439255
+    },
+    {
+      "frame": 99.25,
+      "contacts": {},
+      "bladeMinZ": -0.037346355617046356,
+      "speed": 0.948540366883645,
+      "angularSpeed": 2.336423546075821
+    },
+    {
+      "frame": 99.5,
+      "contacts": {},
+      "bladeMinZ": -0.025791730731725693,
+      "speed": 0.9485392450447991,
+      "angularSpeed": 2.336423546075821
+    },
+    {
+      "frame": 99.75,
+      "contacts": {},
+      "bladeMinZ": -0.014101244509220123,
+      "speed": 0.948540366883645,
+      "angularSpeed": 2.336423546075821
+    },
+    {
+      "frame": 100.0,
+      "contacts": {},
+      "bladeMinZ": -0.0022788234055042267,
+      "speed": 0.948540366883645,
+      "angularSpeed": 2.336423546075821
+    },
+    {
+      "frame": 100.25,
+      "contacts": {},
+      "bladeMinZ": 0.009253650903701782,
+      "speed": 0.9572770697233101,
+      "angularSpeed": 2.270847111940384
+    },
+    {
+      "frame": 100.5,
+      "contacts": {},
+      "bladeMinZ": 0.02090929076075554,
+      "speed": 0.9572770697233101,
+      "angularSpeed": 2.270847111940384
+    },
+    {
+      "frame": 100.75,
+      "contacts": {},
+      "bladeMinZ": 0.03268439322710037,
+      "speed": 0.9572754006123123,
+      "angularSpeed": 2.270847111940384
+    },
+    {
+      "frame": 101.0,
+      "contacts": {},
+      "bladeMinZ": 0.04457535594701767,
+      "speed": 0.9572772338980052,
+      "angularSpeed": 2.2693345695734024
+    },
+    {
+      "frame": 101.25,
+      "contacts": {},
+      "bladeMinZ": 0.05687598139047623,
+      "speed": 0.988603516721686,
+      "angularSpeed": 2.2768865525722504
+    },
+    {
+      "frame": 101.5,
+      "contacts": {},
+      "bladeMinZ": 0.06928688287734985,
+      "speed": 0.9886051329398755,
+      "angularSpeed": 2.275378257036209
+    },
+    {
+      "frame": 101.75,
+      "contacts": {},
+      "bladeMinZ": 0.0818043053150177,
+      "speed": 0.9886022250700037,
+      "angularSpeed": 2.2768865525722504
+    },
+    {
+      "frame": 102.0,
+      "contacts": {},
+      "bladeMinZ": 0.09442441165447235,
+      "speed": 0.988603516721686,
+      "angularSpeed": 2.275378257036209
+    },
+    {
+      "frame": 102.25,
+      "contacts": {},
+      "bladeMinZ": 0.10705353319644928,
+      "speed": 0.9674624568684922,
+      "angularSpeed": 2.1735117584466934
+    },
+    {
+      "frame": 102.5,
+      "contacts": {},
+      "bladeMinZ": 0.11974094063043594,
+      "speed": 0.9674624128726218,
+      "angularSpeed": 2.1750906854867935
+    },
+    {
+      "frame": 102.75,
+      "contacts": {},
+      "bladeMinZ": 0.13230763375759125,
+      "speed": 0.9674639831855316,
+      "angularSpeed": 2.1735117584466934
+    },
+    {
+      "frame": 103.0,
+      "contacts": {},
+      "bladeMinZ": 0.14495721459388733,
+      "speed": 0.9674608865531047,
+      "angularSpeed": 2.1750906854867935
+    },
+    {
+      "frame": 103.25,
+      "contacts": {},
+      "bladeMinZ": 0.15702979266643524,
+      "speed": 0.8800095882182817,
+      "angularSpeed": 1.962677389383316
+    },
+    {
+      "frame": 103.5,
+      "contacts": {},
+      "bladeMinZ": 0.16916033625602722,
+      "speed": 0.8800051829936436,
+      "angularSpeed": 1.9609274715185165
+    },
+    {
+      "frame": 103.75,
+      "contacts": {},
+      "bladeMinZ": 0.18134622275829315,
+      "speed": 0.8800082115879512,
+      "angularSpeed": 1.962677389383316
+    },
+    {
+      "frame": 104.0,
+      "contacts": {},
+      "bladeMinZ": 0.19358478486537933,
+      "speed": 0.8800095882182817,
+      "angularSpeed": 1.962677389383316
+    },
+    {
+      "frame": 104.25,
+      "contacts": {},
+      "bladeMinZ": 0.205657958984375,
+      "speed": 0.8210466776313521,
+      "angularSpeed": 1.8380185961723328
+    },
+    {
+      "frame": 104.5,
+      "contacts": {},
+      "bladeMinZ": 0.21776963770389557,
+      "speed": 0.8210434833866215,
+      "angularSpeed": 1.8380185961723328
+    },
+    {
+      "frame": 104.75,
+      "contacts": {},
+      "bladeMinZ": 0.229917511343956,
+      "speed": 0.821043654863246,
+      "angularSpeed": 1.839885525405407
+    },
+    {
+      "frame": 105.0,
+      "contacts": {},
+      "bladeMinZ": 0.24209941923618317,
+      "speed": 0.8210480614014288,
+      "angularSpeed": 1.8380185961723328
+    },
+    {
+      "frame": 105.25,
+      "contacts": {},
+      "bladeMinZ": 0.253926157951355,
+      "speed": 0.7920562502008076,
+      "angularSpeed": 1.746058277785778
+    },
+    {
+      "frame": 105.5,
+      "contacts": {},
+      "bladeMinZ": 0.2657809257507324,
+      "speed": 0.7920590446265839,
+      "angularSpeed": 1.7480234429240227
+    },
+    {
+      "frame": 105.75,
+      "contacts": {},
+      "bladeMinZ": 0.2776618003845215,
+      "speed": 0.7920579119759042,
+      "angularSpeed": 1.7480234429240227
+    },
+    {
+      "frame": 106.0,
+      "contacts": {},
+      "bladeMinZ": 0.28956684470176697,
+      "speed": 0.7920562502008076,
+      "angularSpeed": 1.746058277785778
+    },
+    {
+      "frame": 106.25,
+      "contacts": {},
+      "bladeMinZ": 0.3010832965373993,
+      "speed": 0.7473842841129628,
+      "angularSpeed": 1.6427194699645042
+    },
+    {
+      "frame": 106.5,
+      "contacts": {},
+      "bladeMinZ": 0.31261807680130005,
+      "speed": 0.7473885685752344,
+      "angularSpeed": 1.6448081284761429
+    },
+    {
+      "frame": 106.75,
+      "contacts": {},
+      "bladeMinZ": 0.3241695761680603,
+      "speed": 0.7473886123835151,
+      "angularSpeed": 1.6448081284761429
+    },
+    {
+      "frame": 107.0,
+      "contacts": {},
+      "bladeMinZ": 0.33573612570762634,
+      "speed": 0.74738598388212,
+      "angularSpeed": 1.6427194699645042
+    },
+    {
+      "frame": 107.25,
+      "contacts": {},
+      "bladeMinZ": 0.3464216887950897,
+      "speed": 0.6402329778559649,
+      "angularSpeed": 1.4636736363172531
+    },
+    {
+      "frame": 107.5,
+      "contacts": {},
+      "bladeMinZ": 0.3571152985095978,
+      "speed": 0.6402329573997805,
+      "angularSpeed": 1.4613261446356773
+    },
+    {
+      "frame": 107.75,
+      "contacts": {},
+      "bladeMinZ": 0.36781591176986694,
+      "speed": 0.6402371406759098,
+      "angularSpeed": 1.4613261446356773
+    },
+    {
+      "frame": 108.0,
+      "contacts": {},
+      "bladeMinZ": 0.37764787673950195,
+      "speed": 0.6402329880840569,
+      "angularSpeed": 1.4613261446356773
+    },
+    {
+      "frame": 108.25,
+      "contacts": {},
+      "bladeMinZ": 0.3851671814918518,
+      "speed": 0.5299996140289455,
+      "angularSpeed": 1.2756777182221413
+    },
+    {
+      "frame": 108.5,
+      "contacts": {},
+      "bladeMinZ": 0.39268413186073303,
+      "speed": 0.5299996881613925,
+      "angularSpeed": 1.2756777182221413
+    },
+    {
+      "frame": 108.75,
+      "contacts": {},
+      "bladeMinZ": 0.40019822120666504,
+      "speed": 0.5299996140289455,
+      "angularSpeed": 1.2756777182221413
+    },
+    {
+      "frame": 109.0,
+      "contacts": {},
+      "bladeMinZ": 0.4077088534832001,
+      "speed": 0.5299996140289455,
+      "angularSpeed": 1.2729835510253906
+    },
+    {
+      "frame": 109.25,
+      "contacts": {},
+      "bladeMinZ": 0.41443517804145813,
+      "speed": 0.40922274085996935,
+      "angularSpeed": 1.077233925461769
+    },
+    {
+      "frame": 109.5,
+      "contacts": {},
+      "bladeMinZ": 0.42115655541419983,
+      "speed": 0.40922271685704364,
+      "angularSpeed": 1.0804162546992302
+    },
+    {
+      "frame": 109.75,
+      "contacts": {},
+      "bladeMinZ": 0.4278726577758789,
+      "speed": 0.4092241090244103,
+      "angularSpeed": 1.0804162546992302
+    },
+    {
+      "frame": 110.0,
+      "contacts": {},
+      "bladeMinZ": 0.4345831871032715,
+      "speed": 0.4092229168813819,
+      "angularSpeed": 1.0804162546992302
+    },
+    {
+      "frame": 110.25,
+      "contacts": {},
+      "bladeMinZ": 0.4407472610473633,
+      "speed": 0.3450031733033193,
+      "angularSpeed": 0.8769514225423336
+    },
+    {
+      "frame": 110.5,
+      "contacts": {},
+      "bladeMinZ": 0.446903795003891,
+      "speed": 0.3450036389204665,
+      "angularSpeed": 0.8808577246963978
+    },
+    {
+      "frame": 110.75,
+      "contacts": {},
+      "bladeMinZ": 0.4530525803565979,
+      "speed": 0.3450036389204665,
+      "angularSpeed": 0.8808577246963978
+    },
+    {
+      "frame": 111.0,
+      "contacts": {},
+      "bladeMinZ": 0.4591934084892273,
+      "speed": 0.3450031733033193,
+      "angularSpeed": 0.8769514225423336
+    },
+    {
+      "frame": 111.25,
+      "contacts": {},
+      "bladeMinZ": 0.46279916167259216,
+      "speed": 0.3147918713851968,
+      "angularSpeed": 0.504042562097311
+    },
+    {
+      "frame": 111.5,
+      "contacts": {},
+      "bladeMinZ": 0.4664004445075989,
+      "speed": 0.3147898119611679,
+      "angularSpeed": 0.504042562097311
+    },
+    {
+      "frame": 111.75,
+      "contacts": {},
+      "bladeMinZ": 0.46999725699424744,
+      "speed": 0.3147908208726029,
+      "angularSpeed": 0.504042562097311
+    },
+    {
+      "frame": 112.0,
+      "contacts": {},
+      "bladeMinZ": 0.47358956933021545,
+      "speed": 0.3147918713851968,
+      "angularSpeed": 0.5108085460960865
+    },
+    {
+      "frame": 112.25,
+      "contacts": {},
+      "bladeMinZ": 0.474874883890152,
+      "speed": 0.3646167949108304,
+      "angularSpeed": 0.6145366095006466
+    },
+    {
+      "frame": 112.5,
+      "contacts": {},
+      "bladeMinZ": 0.4761585593223572,
+      "speed": 0.364616323471741,
+      "angularSpeed": 0.6089242547750473
+    },
+    {
+      "frame": 112.75,
+      "contacts": {},
+      "bladeMinZ": 0.4774405062198639,
+      "speed": 0.364616323471741,
+      "angularSpeed": 0.6089242547750473
+    },
+    {
+      "frame": 113.0,
+      "contacts": {},
+      "bladeMinZ": 0.4787207841873169,
+      "speed": 0.3646167949108304,
+      "angularSpeed": 0.6089242547750473
+    },
+    {
+      "frame": 113.25,
+      "contacts": {},
+      "bladeMinZ": 0.47814691066741943,
+      "speed": 0.47452473264893585,
+      "angularSpeed": 0.9001348167657852
+    },
+    {
+      "frame": 113.5,
+      "contacts": {},
+      "bladeMinZ": 0.4775747060775757,
+      "speed": 0.4745224714655168,
+      "angularSpeed": 0.9039408713579178
+    },
+    {
+      "frame": 113.75,
+      "contacts": {},
+      "bladeMinZ": 0.47700434923171997,
+      "speed": 0.47452521763733446,
+      "angularSpeed": 0.9039408713579178
+    },
+    {
+      "frame": 114.0,
+      "contacts": {},
+      "bladeMinZ": 0.47643575072288513,
+      "speed": 0.4745224487711523,
+      "angularSpeed": 0.9039408713579178
+    },
+    {
+      "frame": 114.25,
+      "contacts": {},
+      "bladeMinZ": 0.4729703366756439,
+      "speed": 0.6411748031584178,
+      "angularSpeed": 1.2943798676133156
+    },
+    {
+      "frame": 114.5,
+      "contacts": {},
+      "bladeMinZ": 0.4695163369178772,
+      "speed": 0.6411697834158551,
+      "angularSpeed": 1.2970295548439026
+    },
+    {
+      "frame": 114.75,
+      "contacts": {},
+      "bladeMinZ": 0.4660741090774536,
+      "speed": 0.6411727350088161,
+      "angularSpeed": 1.2970295548439026
+    },
+    {
+      "frame": 115.0,
+      "contacts": {},
+      "bladeMinZ": 0.4626440107822418,
+      "speed": 0.6411747367734725,
+      "angularSpeed": 1.2996738776564598
+    },
+    {
+      "frame": 115.25,
+      "contacts": {},
+      "bladeMinZ": 0.4554692506790161,
+      "speed": 0.8486346884666687,
+      "angularSpeed": 1.8768348544836044
+    },
+    {
+      "frame": 115.5,
+      "contacts": {},
+      "bladeMinZ": 0.4483167231082916,
+      "speed": 0.8486365944028545,
+      "angularSpeed": 1.8768348544836044
+    },
+    {
+      "frame": 115.75,
+      "contacts": {},
+      "bladeMinZ": 0.44118767976760864,
+      "speed": 0.8486365944028545,
+      "angularSpeed": 1.8768348544836044
+    },
+    {
+      "frame": 116.0,
+      "contacts": {},
+      "bladeMinZ": 0.43408337235450745,
+      "speed": 0.8486346884666687,
+      "angularSpeed": 1.8768348544836044
+    },
+    {
+      "frame": 116.25,
+      "contacts": {},
+      "bladeMinZ": 0.42182835936546326,
+      "speed": 1.1501370614885902,
+      "angularSpeed": 2.84769706428051
+    },
+    {
+      "frame": 116.5,
+      "contacts": {},
+      "bladeMinZ": 0.40960609912872314,
+      "speed": 1.1501338161610137,
+      "angularSpeed": 2.8489024937152863
+    },
+    {
+      "frame": 116.75,
+      "contacts": {},
+      "bladeMinZ": 0.39536458253860474,
+      "speed": 1.1501369191498532,
+      "angularSpeed": 2.8489024937152863
+    },
+    {
+      "frame": 117.0,
+      "contacts": {},
+      "bladeMinZ": 0.37910905480384827,
+      "speed": 1.150135461600175,
+      "angularSpeed": 2.8489024937152863
+    },
+    {
+      "frame": 117.25,
+      "contacts": {},
+      "bladeMinZ": 0.3548347055912018,
+      "speed": 1.5768033479039487,
+      "angularSpeed": 4.182842373847961
+    },
+    {
+      "frame": 117.5,
+      "contacts": {},
+      "bladeMinZ": 0.3307134211063385,
+      "speed": 1.576803480797864,
+      "angularSpeed": 4.182842373847961
+    },
+    {
+      "frame": 117.75,
+      "contacts": {},
+      "bladeMinZ": 0.3067696690559387,
+      "speed": 1.5768019525171624,
+      "angularSpeed": 4.182842373847961
+    },
+    {
+      "frame": 118.0,
+      "contacts": {},
+      "bladeMinZ": 0.2830275893211365,
+      "speed": 1.5768033479039487,
+      "angularSpeed": 4.1836631298065186
+    },
+    {
+      "frame": 118.25,
+      "contacts": {},
+      "bladeMinZ": 0.2560596764087677,
+      "speed": 1.9089711494134751,
+      "angularSpeed": 5.068368762731552
+    },
+    {
+      "frame": 118.5,
+      "contacts": {},
+      "bladeMinZ": 0.22945164144039154,
+      "speed": 1.9089695268763964,
+      "angularSpeed": 5.069046467542648
+    },
+    {
+      "frame": 118.75,
+      "contacts": {},
+      "bladeMinZ": 0.20267628133296967,
+      "speed": 1.9089706417276031,
+      "angularSpeed": 5.068368762731552
+    },
+    {
+      "frame": 119.0,
+      "contacts": {},
+      "bladeMinZ": 0.17625229060649872,
+      "speed": 1.9089703364299526,
+      "angularSpeed": 5.068368762731552
+    },
+    {
+      "frame": 119.25,
+      "contacts": {},
+      "bladeMinZ": 0.1518777310848236,
+      "speed": 2.071479064883265,
+      "angularSpeed": 5.3279538452625275
+    },
+    {
+      "frame": 119.5,
+      "contacts": {},
+      "bladeMinZ": 0.12807868421077728,
+      "speed": 2.0714791235630594,
+      "angularSpeed": 5.3279538452625275
+    },
+    {
+      "frame": 119.75,
+      "contacts": {},
+      "bladeMinZ": 0.10490067303180695,
+      "speed": 2.0714782125442492,
+      "angularSpeed": 5.3279538452625275
+    },
+    {
+      "frame": 120.0,
+      "contacts": {},
+      "bladeMinZ": 0.0823877677321434,
+      "speed": 2.0714790656735658,
+      "angularSpeed": 5.3279538452625275
+    },
+    {
+      "frame": 120.25,
+      "contacts": {},
+      "bladeMinZ": 0.06653398275375366,
+      "speed": 1.9690254352167367,
+      "angularSpeed": 4.7839996218681335
+    },
+    {
+      "frame": 120.5,
+      "contacts": {},
+      "bladeMinZ": 0.05131110921502113,
+      "speed": 1.9690255715698899,
+      "angularSpeed": 4.7839996218681335
+    },
+    {
+      "frame": 120.75,
+      "contacts": {},
+      "bladeMinZ": 0.03674696385860443,
+      "speed": 1.9690257844138175,
+      "angularSpeed": 4.783281683921814
+    },
+    {
+      "frame": 121.0,
+      "contacts": {},
+      "bladeMinZ": 0.02286827564239502,
+      "speed": 1.9690252190470845,
+      "angularSpeed": 4.7839996218681335
+    },
+    {
+      "frame": 121.25,
+      "contacts": {},
+      "bladeMinZ": 0.016757341101765633,
+      "speed": 1.8385370188778947,
+      "angularSpeed": 4.045139104127884
+    },
+    {
+      "frame": 121.5,
+      "contacts": {},
+      "bladeMinZ": 0.011079873889684677,
+      "speed": 1.838536983260652,
+      "angularSpeed": 4.045987576246262
+    },
+    {
+      "frame": 121.75,
+      "contacts": {},
+      "bladeMinZ": 0.0059056151658296585,
+      "speed": 1.8385372468282313,
+      "angularSpeed": 4.045987576246262
+    },
+    {
+      "frame": 122.0,
+      "contacts": {},
+      "bladeMinZ": 0.0013073841109871864,
+      "speed": 1.8385367909275296,
+      "angularSpeed": 4.045987576246262
+    },
+    {
+      "frame": 122.25,
+      "contacts": {},
+      "bladeMinZ": 0.001292634755373001,
+      "speed": 1.7894910262148012,
+      "angularSpeed": 3.7610086798667908
+    },
+    {
+      "frame": 122.5,
+      "contacts": {},
+      "bladeMinZ": 0.0017981883138418198,
+      "speed": 1.7894919294433986,
+      "angularSpeed": 3.7610086798667908
+    },
+    {
+      "frame": 122.75,
+      "contacts": {},
+      "bladeMinZ": 0.0028302576392889023,
+      "speed": 1.7894919294433986,
+      "angularSpeed": 3.7610086798667908
+    },
+    {
+      "frame": 123.0,
+      "contacts": {},
+      "bladeMinZ": 0.004394929856061935,
+      "speed": 1.7894910262148012,
+      "angularSpeed": 3.7610086798667908
+    },
+    {
+      "frame": 123.25,
+      "contacts": {},
+      "bladeMinZ": 0.016267787665128708,
+      "speed": 0.9586078514745331,
+      "angularSpeed": 1.0415861383080482
+    },
+    {
+      "frame": 123.5,
+      "contacts": {},
+      "bladeMinZ": 0.02813892811536789,
+      "speed": 0.95860857728038,
+      "angularSpeed": 1.0448770970106125
+    },
+    {
+      "frame": 123.75,
+      "contacts": {},
+      "bladeMinZ": 0.0400080680847168,
+      "speed": 0.9586068088481355,
+      "angularSpeed": 1.0448770970106125
+    },
+    {
+      "frame": 124.0,
+      "contacts": {},
+      "bladeMinZ": 0.05187477171421051,
+      "speed": 0.95860857728038,
+      "angularSpeed": 1.0415861383080482
+    },
+    {
+      "frame": 124.25,
+      "contacts": {},
+      "bladeMinZ": 0.07219098508358002,
+      "speed": 1.1195616473948176,
+      "angularSpeed": 2.914431318640709
+    },
+    {
+      "frame": 124.5,
+      "contacts": {},
+      "bladeMinZ": 0.09248027205467224,
+      "speed": 1.1195616177840477,
+      "angularSpeed": 2.914431318640709
+    },
+    {
+      "frame": 124.75,
+      "contacts": {},
+      "bladeMinZ": 0.11273603141307831,
+      "speed": 1.1195615881275813,
+      "angularSpeed": 2.9156090319156647
+    },
+    {
+      "frame": 125.0,
+      "contacts": {},
+      "bladeMinZ": 0.13295169174671173,
+      "speed": 1.1195616473948176,
+      "angularSpeed": 2.914431318640709
+    },
+    {
+      "frame": 125.25,
+      "contacts": {},
+      "bladeMinZ": 0.16011370718479156,
+      "speed": 1.3194212592009682,
+      "angularSpeed": 4.456271678209305
+    },
+    {
+      "frame": 125.5,
+      "contacts": {},
+      "bladeMinZ": 0.18714384734630585,
+      "speed": 1.3194230527241813,
+      "angularSpeed": 4.456271678209305
+    },
+    {
+      "frame": 125.75,
+      "contacts": {},
+      "bladeMinZ": 0.21401940286159515,
+      "speed": 1.3194229664911943,
+      "angularSpeed": 4.456271678209305
+    },
+    {
+      "frame": 126.0,
+      "contacts": {},
+      "bladeMinZ": 0.24071753025054932,
+      "speed": 1.3194213454340666,
+      "angularSpeed": 4.455501437187195
+    },
+    {
+      "frame": 126.25,
+      "contacts": {},
+      "bladeMinZ": 0.2722623646259308,
+      "speed": 1.455637044717785,
+      "angularSpeed": 5.66769540309906
+    },
+    {
+      "frame": 126.5,
+      "contacts": {},
+      "bladeMinZ": 0.3034387528896332,
+      "speed": 1.4556381153895939,
+      "angularSpeed": 5.667089223861694
+    },
+    {
+      "frame": 126.75,
+      "contacts": {},
+      "bladeMinZ": 0.3341980576515198,
+      "speed": 1.4556369457480822,
+      "angularSpeed": 5.66769540309906
+    },
+    {
+      "frame": 127.0,
+      "contacts": {},
+      "bladeMinZ": 0.3643435835838318,
+      "speed": 1.455637044717785,
+      "angularSpeed": 5.667089223861694
+    },
+    {
+      "frame": 127.25,
+      "contacts": {},
+      "bladeMinZ": 0.3968577980995178,
+      "speed": 1.510034798886454,
+      "angularSpeed": 6.548038423061371
+    },
+    {
+      "frame": 127.5,
+      "contacts": {},
+      "bladeMinZ": 0.4286347031593323,
+      "speed": 1.5100363947409932,
+      "angularSpeed": 6.546989232301712
+    },
+    {
+      "frame": 127.75,
+      "contacts": {},
+      "bladeMinZ": 0.4596131443977356,
+      "speed": 1.5100363947409932,
+      "angularSpeed": 6.546989232301712
+    },
+    {
+      "frame": 128.0,
+      "contacts": {},
+      "bladeMinZ": 0.48973414301872253,
+      "speed": 1.5100363947409932,
+      "angularSpeed": 6.548038423061371
+    },
+    {
+      "frame": 128.25,
+      "contacts": {},
+      "bladeMinZ": 0.5195406675338745,
+      "speed": 1.507698030791564,
+      "angularSpeed": 7.097604274749756
+    },
+    {
+      "frame": 128.5,
+      "contacts": {},
+      "bladeMinZ": 0.5482053756713867,
+      "speed": 1.507700768958652,
+      "angularSpeed": 7.098087966442108
+    },
+    {
+      "frame": 128.75,
+      "contacts": {},
+      "bladeMinZ": 0.5756641626358032,
+      "speed": 1.507699959208756,
+      "angularSpeed": 7.097604274749756
+    },
+    {
+      "frame": 129.0,
+      "contacts": {},
+      "bladeMinZ": 0.6018570065498352,
+      "speed": 1.507698030791564,
+      "angularSpeed": 7.097120583057404
+    },
+    {
+      "frame": 129.25,
+      "contacts": {},
+      "bladeMinZ": 0.6253880262374878,
+      "speed": 1.5091802562405943,
+      "angularSpeed": 7.318171262741089
+    },
+    {
+      "frame": 129.5,
+      "contacts": {},
+      "bladeMinZ": 0.6474587917327881,
+      "speed": 1.509181540589681,
+      "angularSpeed": 7.3177023231983185
+    },
+    {
+      "frame": 129.75,
+      "contacts": {},
+      "bladeMinZ": 0.6674994230270386,
+      "speed": 1.5091802562405943,
+      "angularSpeed": 7.317232936620712
+    },
+    {
+      "frame": 130.0,
+      "contacts": {},
+      "bladeMinZ": 0.6858436465263367,
+      "speed": 1.5091802562405943,
+      "angularSpeed": 7.318171262741089
+    },
+    {
+      "frame": 130.25,
+      "contacts": {},
+      "bladeMinZ": 0.6999518275260925,
+      "speed": 1.540772186974861,
+      "angularSpeed": 7.207540422677994
+    },
+    {
+      "frame": 130.5,
+      "contacts": {},
+      "bladeMinZ": 0.7118573188781738,
+      "speed": 1.540772186974861,
+      "angularSpeed": 7.207540422677994
+    },
+    {
+      "frame": 130.75,
+      "contacts": {},
+      "bladeMinZ": 0.7203647494316101,
+      "speed": 1.5407706059547208,
+      "angularSpeed": 7.207540422677994
+    },
+    {
+      "frame": 131.0,
+      "contacts": {},
+      "bladeMinZ": 0.7276493310928345,
+      "speed": 1.540772186974861,
+      "angularSpeed": 7.207540422677994
+    },
+    {
+      "frame": 131.25,
+      "contacts": {},
+      "bladeMinZ": 0.7309876084327698,
+      "speed": 1.5035050243206904,
+      "angularSpeed": 6.767231673002243
+    },
+    {
+      "frame": 131.5,
+      "contacts": {},
+      "bladeMinZ": 0.7325202822685242,
+      "speed": 1.5035014877338537,
+      "angularSpeed": 6.7677390575408936
+    },
+    {
+      "frame": 131.75,
+      "contacts": {},
+      "bladeMinZ": 0.7320719957351685,
+      "speed": 1.5035024807664654,
+      "angularSpeed": 6.7677390575408936
+    },
+    {
+      "frame": 132.0,
+      "contacts": {},
+      "bladeMinZ": 0.7303081750869751,
+      "speed": 1.5035050243206904,
+      "angularSpeed": 747.2145080566406
+    },
+    {
+      "frame": 132.25,
+      "contacts": {},
+      "bladeMinZ": 0.7256498336791992,
+      "speed": 1.3919831038370738,
+      "angularSpeed": 5.996790379285812
+    },
+    {
+      "frame": 132.5,
+      "contacts": {},
+      "bladeMinZ": 0.7199857234954834,
+      "speed": 1.3919881092458788,
+      "angularSpeed": 5.996790379285812
+    },
+    {
+      "frame": 132.75,
+      "contacts": {},
+      "bladeMinZ": 0.7133327722549438,
+      "speed": 1.3919884403125795,
+      "angularSpeed": 5.996790379285812
+    },
+    {
+      "frame": 133.0,
+      "contacts": {},
+      "bladeMinZ": 0.7057101130485535,
+      "speed": 1.3919831038370738,
+      "angularSpeed": 5.996790379285812
+    },
+    {
+      "frame": 133.25,
+      "contacts": {},
+      "bladeMinZ": 0.6974218487739563,
+      "speed": 1.1845297153941896,
+      "angularSpeed": 4.897485226392746
+    },
+    {
+      "frame": 133.5,
+      "contacts": {},
+      "bladeMinZ": 0.6885145306587219,
+      "speed": 1.1845266195770208,
+      "angularSpeed": 4.897485226392746
+    },
+    {
+      "frame": 133.75,
+      "contacts": {},
+      "bladeMinZ": 0.6790022253990173,
+      "speed": 1.1845315065418565,
+      "angularSpeed": 4.897485226392746
+    },
+    {
+      "frame": 134.0,
+      "contacts": {},
+      "bladeMinZ": 0.6687072515487671,
+      "speed": 1.1845297153941896,
+      "angularSpeed": 4.896783828735352
+    },
+    {
+      "frame": 134.25,
+      "contacts": {},
+      "bladeMinZ": 0.6604336500167847,
+      "speed": 0.8600129576092269,
+      "angularSpeed": 3.4664831310510635
+    },
+    {
+      "frame": 134.5,
+      "contacts": {},
+      "bladeMinZ": 0.6518795490264893,
+      "speed": 0.8600120110610691,
+      "angularSpeed": 3.4664831310510635
+    },
+    {
+      "frame": 134.75,
+      "contacts": {},
+      "bladeMinZ": 0.6430514454841614,
+      "speed": 0.8600152395046007,
+      "angularSpeed": 3.4664831310510635
+    },
+    {
+      "frame": 135.0,
+      "contacts": {},
+      "bladeMinZ": 0.6338953375816345,
+      "speed": 0.8600129576092269,
+      "angularSpeed": 3.4654925018548965
+    },
+    {
+      "frame": 135.25,
+      "contacts": {},
+      "bladeMinZ": 0.6291365623474121,
+      "speed": 0.43543544006716195,
+      "angularSpeed": 1.704265996813774
+    },
+    {
+      "frame": 135.5,
+      "contacts": {},
+      "bladeMinZ": 0.6243090629577637,
+      "speed": 0.43543601271043875,
+      "angularSpeed": 1.7022503167390823
+    },
+    {
+      "frame": 135.75,
+      "contacts": {},
+      "bladeMinZ": 0.6194135546684265,
+      "speed": 0.4354365874677672,
+      "angularSpeed": 1.7022503167390823
+    },
+    {
+      "frame": 136.0,
+      "contacts": {},
+      "bladeMinZ": 0.6144508123397827,
+      "speed": 0.43543544006716195,
+      "angularSpeed": 1.7022503167390823
+    },
+    {
+      "frame": 136.25,
+      "contacts": {},
+      "bladeMinZ": 0.6144527792930603,
+      "speed": 0.10749200662561027,
+      "angularSpeed": 0.16572814900428057
+    },
+    {
+      "frame": 136.5,
+      "contacts": {},
+      "bladeMinZ": 0.6144547462463379,
+      "speed": 0.10749151712660356,
+      "angularSpeed": 0.16572814900428057
+    },
+    {
+      "frame": 136.75,
+      "contacts": {},
+      "bladeMinZ": 0.6144570112228394,
+      "speed": 0.10749072112078524,
+      "angularSpeed": 0.16572814900428057
+    },
+    {
+      "frame": 137.0,
+      "contacts": {},
+      "bladeMinZ": 0.6144593954086304,
+      "speed": 0.10749240456500503,
+      "angularSpeed": 0.16572814900428057
+    },
+    {
+      "frame": 137.25,
+      "contacts": {},
+      "bladeMinZ": 0.6144683957099915,
+      "speed": 0.21159706787245094,
+      "angularSpeed": 0.6629128195345402
+    },
+    {
+      "frame": 137.5,
+      "contacts": {},
+      "bladeMinZ": 0.6144883036613464,
+      "speed": 0.2115966810306161,
+      "angularSpeed": 0.6629128195345402
+    },
+    {
+      "frame": 137.75,
+      "contacts": {},
+      "bladeMinZ": 0.6145191788673401,
+      "speed": 0.21159939664535304,
+      "angularSpeed": 0.6731911562383175
+    },
+    {
+      "frame": 138.0,
+      "contacts": {},
+      "bladeMinZ": 0.614561140537262,
+      "speed": 0.21159706787245094,
+      "angularSpeed": 0.6731911562383175
+    },
+    {
+      "frame": 138.25,
+      "contacts": {},
+      "bladeMinZ": 0.6143089532852173,
+      "speed": 0.40543630307970885,
+      "angularSpeed": 1.1391937360167503
+    },
+    {
+      "frame": 138.5,
+      "contacts": {},
+      "bladeMinZ": 0.6140947937965393,
+      "speed": 0.4054333635151739,
+      "angularSpeed": 1.1422035098075867
+    },
+    {
+      "frame": 138.75,
+      "contacts": {},
+      "bladeMinZ": 0.6139183640480042,
+      "speed": 0.40543536225986215,
+      "angularSpeed": 1.1422035098075867
+    },
+    {
+      "frame": 139.0,
+      "contacts": {},
+      "bladeMinZ": 0.6137797832489014,
+      "speed": 0.40543630307970885,
+      "angularSpeed": 1.1391937360167503
+    },
+    {
+      "frame": 139.25,
+      "contacts": {},
+      "bladeMinZ": 0.6135129928588867,
+      "speed": 0.5821520718631927,
+      "angularSpeed": 1.521184779703617
+    },
+    {
+      "frame": 139.5,
+      "contacts": {},
+      "bladeMinZ": 0.6133130788803101,
+      "speed": 0.582154637579596,
+      "angularSpeed": 1.521184779703617
+    },
+    {
+      "frame": 139.75,
+      "contacts": {},
+      "bladeMinZ": 0.613154411315918,
+      "speed": 0.5821576521676786,
+      "angularSpeed": 1.523440070450306
+    },
+    {
+      "frame": 140.0,
+      "contacts": {},
+      "bladeMinZ": 0.6130232214927673,
+      "speed": 0.5821529998671429,
+      "angularSpeed": 1.523440070450306
+    },
+    {
+      "frame": 140.25,
+      "contacts": {},
+      "bladeMinZ": 0.6129757761955261,
+      "speed": 0.7165811421649136,
+      "angularSpeed": 1.8078849837183952
+    },
+    {
+      "frame": 140.5,
+      "contacts": {},
+      "bladeMinZ": 0.6130220890045166,
+      "speed": 0.716580614996752,
+      "angularSpeed": 1.8059849739074707
+    },
+    {
+      "frame": 140.75,
+      "contacts": {},
+      "bladeMinZ": 0.6131621599197388,
+      "speed": 0.7165811421649136,
+      "angularSpeed": 1.8059849739074707
+    },
+    {
+      "frame": 141.0,
+      "contacts": {},
+      "bladeMinZ": 0.6133955121040344,
+      "speed": 0.7165786228344769,
+      "angularSpeed": 1.8078849837183952
+    },
+    {
+      "frame": 141.25,
+      "contacts": {},
+      "bladeMinZ": 0.6139193773269653,
+      "speed": 0.8042520769788495,
+      "angularSpeed": 1.9990747421979904
+    },
+    {
+      "frame": 141.5,
+      "contacts": {},
+      "bladeMinZ": 0.6145568490028381,
+      "speed": 0.804254226510406,
+      "angularSpeed": 1.9990747421979904
+    },
+    {
+      "frame": 141.75,
+      "contacts": {},
+      "bladeMinZ": 0.6153074502944946,
+      "speed": 0.8042531517453458,
+      "angularSpeed": 1.9990747421979904
+    },
+    {
+      "frame": 142.0,
+      "contacts": {},
+      "bladeMinZ": 0.6161707043647766,
+      "speed": 0.8042520769788495,
+      "angularSpeed": 1.9973565638065338
+    },
+    {
+      "frame": 142.25,
+      "contacts": {},
+      "bladeMinZ": 0.6175072193145752,
+      "speed": 0.8497752877261167,
+      "angularSpeed": 2.0930423587560654
+    },
+    {
+      "frame": 142.5,
+      "contacts": {},
+      "bladeMinZ": 0.618966281414032,
+      "speed": 0.8497769110400136,
+      "angularSpeed": 2.0930423587560654
+    },
+    {
+      "frame": 142.75,
+      "contacts": {},
+      "bladeMinZ": 0.6205474734306335,
+      "speed": 0.849770422582092,
+      "angularSpeed": 2.0930423587560654
+    },
+    {
+      "frame": 143.0,
+      "contacts": {},
+      "bladeMinZ": 0.6222503185272217,
+      "speed": 0.8497779231714081,
+      "angularSpeed": 2.0930423587560654
+    },
+    {
+      "frame": 143.25,
+      "contacts": {},
+      "bladeMinZ": 0.6245770454406738,
+      "speed": 0.852309371012978,
+      "angularSpeed": 2.091401293873787
+    },
+    {
+      "frame": 143.5,
+      "contacts": {},
+      "bladeMinZ": 0.6270240545272827,
+      "speed": 0.8523094987141765,
+      "angularSpeed": 2.0930423587560654
+    },
+    {
+      "frame": 143.75,
+      "contacts": {},
+      "bladeMinZ": 0.6295905113220215,
+      "speed": 0.8523107232341445,
+      "angularSpeed": 2.0930423587560654
+    },
+    {
+      "frame": 144.0,
+      "contacts": {},
+      "bladeMinZ": 0.6322758197784424,
+      "speed": 0.8523117858679117,
+      "angularSpeed": 2.0946820825338364
+    },
+    {
+      "frame": 144.25,
+      "contacts": {},
+      "bladeMinZ": 0.6356551051139832,
+      "speed": 0.8569559409019939,
+      "angularSpeed": 1.9973565638065338
+    },
+    {
+      "frame": 144.5,
+      "contacts": {},
+      "bladeMinZ": 0.6391413807868958,
+      "speed": 0.8569563549714404,
+      "angularSpeed": 1.9973565638065338
+    },
+    {
+      "frame": 144.75,
+      "contacts": {},
+      "bladeMinZ": 0.642733633518219,
+      "speed": 0.8569555268323473,
+      "angularSpeed": 1.9973565638065338
+    },
+    {
+      "frame": 145.0,
+      "contacts": {},
+      "bladeMinZ": 0.6464312672615051,
+      "speed": 0.8569563549714404,
+      "angularSpeed": 1.9973565638065338
+    },
+    {
+      "frame": 145.25,
+      "contacts": {},
+      "bladeMinZ": 0.6504390239715576,
+      "speed": 0.8198473900477035,
+      "angularSpeed": 1.8078849837183952
+    },
+    {
+      "frame": 145.5,
+      "contacts": {},
+      "bladeMinZ": 0.6545317769050598,
+      "speed": 0.8198508485385593,
+      "angularSpeed": 1.8059849739074707
+    },
+    {
+      "frame": 145.75,
+      "contacts": {},
+      "bladeMinZ": 0.6587089896202087,
+      "speed": 0.8198488277592999,
+      "angularSpeed": 1.8078849837183952
+    },
+    {
+      "frame": 146.0,
+      "contacts": {},
+      "bladeMinZ": 0.6629698276519775,
+      "speed": 0.8198473900477035,
+      "angularSpeed": 1.8078849837183952
+    },
+    {
+      "frame": 146.25,
+      "contacts": {},
+      "bladeMinZ": 0.6669005751609802,
+      "speed": 0.7317944566241462,
+      "angularSpeed": 1.521184779703617
+    },
+    {
+      "frame": 146.5,
+      "contacts": {},
+      "bladeMinZ": 0.6708897948265076,
+      "speed": 0.7317945550561237,
+      "angularSpeed": 1.521184779703617
+    },
+    {
+      "frame": 146.75,
+      "contacts": {},
+      "bladeMinZ": 0.6749372482299805,
+      "speed": 0.7317937407548201,
+      "angularSpeed": 1.523440070450306
+    },
+    {
+      "frame": 147.0,
+      "contacts": {},
+      "bladeMinZ": 0.6790423393249512,
+      "speed": 0.7317952709246531,
+      "angularSpeed": 1.521184779703617
+    },
+    {
+      "frame": 147.25,
+      "contacts": {},
+      "bladeMinZ": 0.6823201775550842,
+      "speed": 0.5986811858830978,
+      "angularSpeed": 1.1391937360167503
+    },
+    {
+      "frame": 147.5,
+      "contacts": {},
+      "bladeMinZ": 0.6856299638748169,
+      "speed": 0.5986818859133033,
+      "angularSpeed": 1.1391937360167503
+    },
+    {
+      "frame": 147.75,
+      "contacts": {},
+      "bladeMinZ": 0.6889718174934387,
+      "speed": 0.5986868585652471,
+      "angularSpeed": 1.1391937360167503
+    },
+    {
+      "frame": 148.0,
+      "contacts": {},
+      "bladeMinZ": 0.692280650138855,
+      "speed": 0.5986811858830978,
+      "angularSpeed": 1.1422035098075867
+    },
+    {
+      "frame": 148.25,
+      "contacts": {},
+      "bladeMinZ": 0.694265604019165,
+      "speed": 0.420913501820356,
+      "angularSpeed": 0.6629128195345402
+    },
+    {
+      "frame": 148.5,
+      "contacts": {},
+      "bladeMinZ": 0.6962604522705078,
+      "speed": 0.4209163323035161,
+      "angularSpeed": 0.6629128195345402
+    },
+    {
+      "frame": 148.75,
+      "contacts": {},
+      "bladeMinZ": 0.6982653737068176,
+      "speed": 0.42091711114490765,
+      "angularSpeed": 0.6731911562383175
+    },
+    {
+      "frame": 149.0,
+      "contacts": {},
+      "bladeMinZ": 0.7002803087234497,
+      "speed": 0.420913501820356,
+      "angularSpeed": 0.6731911562383175
+    },
+    {
+      "frame": 149.25,
+      "contacts": {},
+      "bladeMinZ": 0.7005332708358765,
+      "speed": 0.238320999025043,
+      "angularSpeed": 0.1171875
+    },
+    {
+      "frame": 149.5,
+      "contacts": {},
+      "bladeMinZ": 0.7007865905761719,
+      "speed": 0.2383149642979868,
+      "angularSpeed": 0.14352479483932257
+    },
+    {
+      "frame": 149.75,
+      "contacts": {},
+      "bladeMinZ": 0.7010403275489807,
+      "speed": 0.2383149642979868,
+      "angularSpeed": 0.1171875
+    },
+    {
+      "frame": 150.0,
+      "contacts": {},
+      "bladeMinZ": 0.7012944221496582,
+      "speed": 0.238320999025043,
+      "angularSpeed": 0.1171875
+    },
+    {
+      "frame": 150.25,
+      "contacts": {},
+      "bladeMinZ": 0.6988934278488159,
+      "speed": 0.24167909965171536,
+      "angularSpeed": 0.7176242396235466
+    },
+    {
+      "frame": 150.5,
+      "contacts": {},
+      "bladeMinZ": 0.6964775323867798,
+      "speed": 0.2416851790777523,
+      "angularSpeed": 0.7176242396235466
+    },
+    {
+      "frame": 150.75,
+      "contacts": {},
+      "bladeMinZ": 0.6940466165542603,
+      "speed": 0.24168020039478677,
+      "angularSpeed": 0.7223925366997719
+    },
+    {
+      "frame": 151.0,
+      "contacts": {},
+      "bladeMinZ": 0.6916008591651917,
+      "speed": 0.24167852048950184,
+      "angularSpeed": 0.7223925366997719
+    },
+    {
+      "frame": 151.25,
+      "contacts": {},
+      "bladeMinZ": 0.6866475343704224,
+      "speed": 0.350380887137749,
+      "angularSpeed": 1.4730263873934746
+    },
+    {
+      "frame": 151.5,
+      "contacts": {},
+      "bladeMinZ": 0.6815450191497803,
+      "speed": 0.3503801302216293,
+      "angularSpeed": 1.4730263873934746
+    },
+    {
+      "frame": 151.75,
+      "contacts": {},
+      "bladeMinZ": 0.6763870120048523,
+      "speed": 0.3503801302216293,
+      "angularSpeed": 1.4730263873934746
+    },
+    {
+      "frame": 152.0,
+      "contacts": {},
+      "bladeMinZ": 0.6711740493774414,
+      "speed": 0.350380887137749,
+      "angularSpeed": 1.475355215370655
+    },
+    {
+      "frame": 152.25,
+      "contacts": {},
+      "bladeMinZ": 0.6637008190155029,
+      "speed": 0.4520152363438004,
+      "angularSpeed": 2.0831771939992905
+    },
+    {
+      "frame": 152.5,
+      "contacts": {},
+      "bladeMinZ": 0.656121015548706,
+      "speed": 0.4520144649083748,
+      "angularSpeed": 2.0831771939992905
+    },
+    {
+      "frame": 152.75,
+      "contacts": {},
+      "bladeMinZ": 0.6484363675117493,
+      "speed": 0.4520152363438004,
+      "angularSpeed": 2.0815283060073853
+    },
+    {
+      "frame": 153.0,
+      "contacts": {},
+      "bladeMinZ": 0.6406486630439758,
+      "speed": 0.4520140592704398,
+      "angularSpeed": 2.0831771939992905
+    },
+    {
+      "frame": 153.25,
+      "contacts": {},
+      "bladeMinZ": 0.6309872269630432,
+      "speed": 0.5223179899578928,
+      "angularSpeed": 2.551364377140999
+    },
+    {
+      "frame": 153.5,
+      "contacts": {},
+      "bladeMinZ": 0.6211775541305542,
+      "speed": 0.5223176013071152,
+      "angularSpeed": 2.5500183552503586
+    },
+    {
+      "frame": 153.75,
+      "contacts": {},
+      "bladeMinZ": 0.6112229228019714,
+      "speed": 0.5223205678962541,
+      "angularSpeed": 2.551364377140999
+    },
+    {
+      "frame": 154.0,
+      "contacts": {},
+      "bladeMinZ": 0.6011272668838501,
+      "speed": 0.5223179899578928,
+      "angularSpeed": 2.551364377140999
+    },
+    {
+      "frame": 154.25,
+      "contacts": {},
+      "bladeMinZ": 0.589726984500885,
+      "speed": 0.6391233473411978,
+      "angularSpeed": 2.87887305021286
+    },
+    {
+      "frame": 154.5,
+      "contacts": {},
+      "bladeMinZ": 0.5781569480895996,
+      "speed": 0.6391192489881173,
+      "angularSpeed": 2.8776803612709045
+    },
+    {
+      "frame": 154.75,
+      "contacts": {},
+      "bladeMinZ": 0.5664225816726685,
+      "speed": 0.6391192489881173,
+      "angularSpeed": 2.8800655156373978
+    },
+    {
+      "frame": 155.0,
+      "contacts": {},
+      "bladeMinZ": 0.5545294880867004,
+      "speed": 0.6391233473411978,
+      "angularSpeed": 2.87887305021286
+    },
+    {
+      "frame": 155.25,
+      "contacts": {},
+      "bladeMinZ": 0.5420148372650146,
+      "speed": 0.7949307467156098,
+      "angularSpeed": 3.065991550683975
+    },
+    {
+      "frame": 155.5,
+      "contacts": {},
+      "bladeMinZ": 0.5293334722518921,
+      "speed": 0.7949358684584569,
+      "angularSpeed": 3.065991550683975
+    },
+    {
+      "frame": 155.75,
+      "contacts": {},
+      "bladeMinZ": 0.5164922475814819,
+      "speed": 0.7949369084544816,
+      "angularSpeed": 3.067111149430275
+    },
+    {
+      "frame": 156.0,
+      "contacts": {},
+      "bladeMinZ": 0.5034984350204468,
+      "speed": 0.7949307467156098,
+      "angularSpeed": 3.067111149430275
+    },
+    {
+      "frame": 156.25,
+      "contacts": {},
+      "bladeMinZ": 0.49073871970176697,
+      "speed": 0.9390542470536982,
+      "angularSpeed": 3.1126682460308075
+    },
+    {
+      "frame": 156.5,
+      "contacts": {},
+      "bladeMinZ": 0.4778367877006531,
+      "speed": 0.9390611367065562,
+      "angularSpeed": 3.1126682460308075
+    },
+    {
+      "frame": 156.75,
+      "contacts": {},
+      "bladeMinZ": 0.4648003876209259,
+      "speed": 0.9390542470536982,
+      "angularSpeed": 3.113771080970764
+    },
+    {
+      "frame": 157.0,
+      "contacts": {},
+      "bladeMinZ": 0.45163726806640625,
+      "speed": 0.9390542470536982,
+      "angularSpeed": 3.1126682460308075
+    },
+    {
+      "frame": 157.25,
+      "contacts": {},
+      "bladeMinZ": 0.4394521415233612,
+      "speed": 1.0117730609550284,
+      "angularSpeed": 3.018593341112137
+    },
+    {
+      "frame": 157.5,
+      "contacts": {},
+      "bladeMinZ": 0.42716264724731445,
+      "speed": 1.0117730609550284,
+      "angularSpeed": 3.0197305977344513
+    },
+    {
+      "frame": 157.75,
+      "contacts": {},
+      "bladeMinZ": 0.4147762060165405,
+      "speed": 1.0117692233586153,
+      "angularSpeed": 3.0197305977344513
+    },
+    {
+      "frame": 158.0,
+      "contacts": {},
+      "bladeMinZ": 0.40230023860931396,
+      "speed": 1.0117730579212012,
+      "angularSpeed": 3.0197305977344513
+    },
+    {
+      "frame": 158.25,
+      "contacts": {},
+      "bladeMinZ": 0.39075252413749695,
+      "speed": 0.883379106357838,
+      "angularSpeed": 2.785530611872673
+    },
+    {
+      "frame": 158.5,
+      "contacts": {},
+      "bladeMinZ": 0.3791393041610718,
+      "speed": 0.8833757490227767,
+      "angularSpeed": 2.785530611872673
+    },
+    {
+      "frame": 158.75,
+      "contacts": {},
+      "bladeMinZ": 0.36746957898139954,
+      "speed": 0.8833828950139367,
+      "angularSpeed": 2.784297913312912
+    },
+    {
+      "frame": 159.0,
+      "contacts": {},
+      "bladeMinZ": 0.3557494282722473,
+      "speed": 0.8833757490227767,
+      "angularSpeed": 2.785530611872673
+    },
+    {
+      "frame": 159.25,
+      "contacts": {},
+      "bladeMinZ": 0.34476661682128906,
+      "speed": 0.6374838745078918,
+      "angularSpeed": 2.411625310778618
+    },
+    {
+      "frame": 159.5,
+      "contacts": {},
+      "bladeMinZ": 0.3337545096874237,
+      "speed": 0.6374804146931421,
+      "angularSpeed": 2.411625310778618
+    },
+    {
+      "frame": 159.75,
+      "contacts": {},
+      "bladeMinZ": 0.32271701097488403,
+      "speed": 0.6374804146931421,
+      "angularSpeed": 2.410201281309128
+    },
+    {
+      "frame": 160.0,
+      "contacts": {},
+      "bladeMinZ": 0.3116583228111267,
+      "speed": 0.6374830578674691,
+      "angularSpeed": 2.411625310778618
+    },
+    {
+      "frame": 160.25,
+      "contacts": {},
+      "bladeMinZ": 0.3021179437637329,
+      "speed": 0.47636727336587165,
+      "angularSpeed": 1.8950394541025162
+    },
+    {
+      "frame": 160.5,
+      "contacts": {},
+      "bladeMinZ": 0.29256871342658997,
+      "speed": 0.4763688816985306,
+      "angularSpeed": 1.8968503922224045
+    },
+    {
+      "frame": 160.75,
+      "contacts": {},
+      "bladeMinZ": 0.2830126881599426,
+      "speed": 0.47636727336587165,
+      "angularSpeed": 1.8932269513607025
+    },
+    {
+      "frame": 161.0,
+      "contacts": {},
+      "bladeMinZ": 0.27345162630081177,
+      "speed": 0.47636727336587165,
+      "angularSpeed": 1.8950394541025162
+    },
+    {
+      "frame": 161.25,
+      "contacts": {},
+      "bladeMinZ": 0.26571124792099,
+      "speed": 0.5396835904252453,
+      "angularSpeed": 1.2401973456144333
+    },
+    {
+      "frame": 161.5,
+      "contacts": {},
+      "bladeMinZ": 0.25797000527381897,
+      "speed": 0.5396840344428553,
+      "angularSpeed": 1.2374259531497955
+    },
+    {
+      "frame": 161.75,
+      "contacts": {},
+      "bladeMinZ": 0.2502285838127136,
+      "speed": 0.5396840344428553,
+      "angularSpeed": 1.2401973456144333
+    },
+    {
+      "frame": 162.0,
+      "contacts": {},
+      "bladeMinZ": 0.24248743057250977,
+      "speed": 0.5396835540241269,
+      "angularSpeed": 1.2374259531497955
+    },
+    {
+      "frame": 162.25,
+      "contacts": {},
+      "bladeMinZ": 0.2415430247783661,
+      "speed": 0.8116054450200856,
+      "angularSpeed": 0.43847554363310337
+    },
+    {
+      "frame": 162.5,
+      "contacts": {},
+      "bladeMinZ": 0.24059569835662842,
+      "speed": 0.8116049869173226,
+      "angularSpeed": 0.43847554363310337
+    },
+    {
+      "frame": 162.75,
+      "contacts": {},
+      "bladeMinZ": 0.23964543640613556,
+      "speed": 0.8116049869173226,
+      "angularSpeed": 0.43847554363310337
+    },
+    {
+      "frame": 163.0,
+      "contacts": {},
+      "bladeMinZ": 0.23869241774082184,
+      "speed": 0.8116054450200856,
+      "angularSpeed": 0.43847554363310337
+    },
+    {
+      "frame": 163.25,
+      "contacts": {},
+      "bladeMinZ": 0.22916583716869354,
+      "speed": 0.6883543577731465,
+      "angularSpeed": 1.6572847589850426
+    },
+    {
+      "frame": 163.5,
+      "contacts": {},
+      "bladeMinZ": 0.21965277194976807,
+      "speed": 0.6883542150771109,
+      "angularSpeed": 1.6593550890684128
+    },
+    {
+      "frame": 163.75,
+      "contacts": {},
+      "bladeMinZ": 0.21015477180480957,
+      "speed": 0.6883538779576092,
+      "angularSpeed": 1.6552118584513664
+    },
+    {
+      "frame": 164.0,
+      "contacts": {},
+      "bladeMinZ": 0.20067226886749268,
+      "speed": 0.6883543577731465,
+      "angularSpeed": 1.6572847589850426
+    },
+    {
+      "frame": 164.25,
+      "contacts": {},
+      "bladeMinZ": 0.19615210592746735,
+      "speed": 0.6278963424971227,
+      "angularSpeed": 1.1391937360167503
+    },
+    {
+      "frame": 164.5,
+      "contacts": {},
+      "bladeMinZ": 0.19166447222232819,
+      "speed": 0.627892332514898,
+      "angularSpeed": 1.1361760273575783
+    },
+    {
+      "frame": 164.75,
+      "contacts": {},
+      "bladeMinZ": 0.18720901012420654,
+      "speed": 0.6278938395203242,
+      "angularSpeed": 1.1361760273575783
+    },
+    {
+      "frame": 165.0,
+      "contacts": {},
+      "bladeMinZ": 0.1827862411737442,
+      "speed": 0.6278963424971227,
+      "angularSpeed": 1.1361760273575783
+    },
+    {
+      "frame": 165.25,
+      "contacts": {},
+      "bladeMinZ": 0.17512397468090057,
+      "speed": 0.6742342746582134,
+      "angularSpeed": 1.3791349902749062
+    },
+    {
+      "frame": 165.5,
+      "contacts": {},
+      "bladeMinZ": 0.1674817055463791,
+      "speed": 0.6742351973255618,
+      "angularSpeed": 1.3816221803426743
+    },
+    {
+      "frame": 165.75,
+      "contacts": {},
+      "bladeMinZ": 0.15985997021198273,
+      "speed": 0.6742367221519908,
+      "angularSpeed": 1.3816221803426743
+    },
+    {
+      "frame": 166.0,
+      "contacts": {},
+      "bladeMinZ": 0.1522592157125473,
+      "speed": 0.674232749826249,
+      "angularSpeed": 1.3791349902749062
+    },
+    {
+      "frame": 166.25,
+      "contacts": {},
+      "bladeMinZ": 0.14278046786785126,
+      "speed": 0.6499277214210305,
+      "angularSpeed": 1.5121299773454666
+    },
+    {
+      "frame": 166.5,
+      "contacts": {},
+      "bladeMinZ": 0.13331501185894012,
+      "speed": 0.649928053913212,
+      "angularSpeed": 1.5121299773454666
+    },
+    {
+      "frame": 166.75,
+      "contacts": {},
+      "bladeMinZ": 0.12386365234851837,
+      "speed": 0.649928053913212,
+      "angularSpeed": 1.5121299773454666
+    },
+    {
+      "frame": 167.0,
+      "contacts": {},
+      "bladeMinZ": 0.11442717909812927,
+      "speed": 0.6499277214210305,
+      "angularSpeed": 1.5098578110337257
+    },
+    {
+      "frame": 167.25,
+      "contacts": {},
+      "bladeMinZ": 0.10558100044727325,
+      "speed": 0.5013464484487611,
+      "angularSpeed": 1.5166641399264336
+    },
+    {
+      "frame": 167.5,
+      "contacts": {},
+      "bladeMinZ": 0.09674884378910065,
+      "speed": 0.5013464484487611,
+      "angularSpeed": 1.5166641399264336
+    },
+    {
+      "frame": 167.75,
+      "contacts": {},
+      "bladeMinZ": 0.08793190121650696,
+      "speed": 0.5013464484487611,
+      "angularSpeed": 1.5143987908959389
+    },
+    {
+      "frame": 168.0,
+      "contacts": {},
+      "bladeMinZ": 0.07913082093000412,
+      "speed": 0.5013464484487611,
+      "angularSpeed": 1.5166641399264336
+    },
+    {
+      "frame": 168.25,
+      "contacts": {},
+      "bladeMinZ": 0.07085008174180984,
+      "speed": 0.44499228666152096,
+      "angularSpeed": 1.4892521873116493
+    },
+    {
+      "frame": 168.5,
+      "contacts": {},
+      "bladeMinZ": 0.06258706003427505,
+      "speed": 0.4449922652921761,
+      "angularSpeed": 1.4915557578206062
+    },
+    {
+      "frame": 168.75,
+      "contacts": {},
+      "bladeMinZ": 0.054342418909072876,
+      "speed": 0.4449922652921761,
+      "angularSpeed": 1.4915557578206062
+    },
+    {
+      "frame": 169.0,
+      "contacts": {},
+      "bladeMinZ": 0.04611733555793762,
+      "speed": 0.44498950539026083,
+      "angularSpeed": 1.4915557578206062
+    },
+    {
+      "frame": 169.25,
+      "contacts": {},
+      "bladeMinZ": 0.0443732813000679,
+      "speed": 0.34726076634392855,
+      "angularSpeed": 0.7594621181488037
+    },
+    {
+      "frame": 169.5,
+      "contacts": {},
+      "bladeMinZ": 0.042632631957530975,
+      "speed": 0.3472581168987874,
+      "angularSpeed": 0.7594621181488037
+    },
+    {
+      "frame": 169.75,
+      "contacts": {},
+      "bladeMinZ": 0.04089538753032684,
+      "speed": 0.3472581168987874,
+      "angularSpeed": 0.7594621181488037
+    },
+    {
+      "frame": 170.0,
+      "contacts": {},
+      "bladeMinZ": 0.03916158899664879,
+      "speed": 0.34726076634392855,
+      "angularSpeed": 0.7594621181488037
+    },
+    {
+      "frame": 170.25,
+      "contacts": {},
+      "bladeMinZ": 0.03693206608295441,
+      "speed": 0.33768035506808614,
+      "angularSpeed": 1.1148230731487274
+    },
+    {
+      "frame": 170.5,
+      "contacts": {},
+      "bladeMinZ": 0.03472817316651344,
+      "speed": 0.3376829342196042,
+      "angularSpeed": 1.1148230731487274
+    },
+    {
+      "frame": 170.75,
+      "contacts": {},
+      "bladeMinZ": 0.032550014555454254,
+      "speed": 0.3376836129404139,
+      "angularSpeed": 1.1117392033338547
+    },
+    {
+      "frame": 171.0,
+      "contacts": {},
+      "bladeMinZ": 0.03039773553609848,
+      "speed": 0.3376832638841679,
+      "angularSpeed": 1.1148230731487274
+    },
+    {
+      "frame": 171.25,
+      "contacts": {},
+      "bladeMinZ": 0.02731306478381157,
+      "speed": 0.33482234299941016,
+      "angularSpeed": 1.5568773820996284
+    },
+    {
+      "frame": 171.5,
+      "contacts": {},
+      "bladeMinZ": 0.024270862340927124,
+      "speed": 0.3348257220990586,
+      "angularSpeed": 1.5546705946326256
+    },
+    {
+      "frame": 171.75,
+      "contacts": {},
+      "bladeMinZ": 0.021271370351314545,
+      "speed": 0.3348257220990586,
+      "angularSpeed": 1.5546705946326256
+    },
+    {
+      "frame": 172.0,
+      "contacts": {},
+      "bladeMinZ": 0.01831524819135666,
+      "speed": 0.33482234299941016,
+      "angularSpeed": 1.5568773820996284
+    },
+    {
+      "frame": 172.25,
+      "contacts": {},
+      "bladeMinZ": 0.01503877341747284,
+      "speed": 0.3191361793055131,
+      "angularSpeed": 1.7539057508111
+    },
+    {
+      "frame": 172.5,
+      "contacts": {},
+      "bladeMinZ": 0.011812780052423477,
+      "speed": 0.31913322150704093,
+      "angularSpeed": 1.7539057508111
+    },
+    {
+      "frame": 172.75,
+      "contacts": {},
+      "bladeMinZ": 0.008638337254524231,
+      "speed": 0.31913322150704093,
+      "angularSpeed": 1.7539057508111
+    },
+    {
+      "frame": 173.0,
+      "contacts": {},
+      "bladeMinZ": 0.00551600381731987,
+      "speed": 0.3191361793055131,
+      "angularSpeed": 1.7539057508111
+    },
+    {
+      "frame": 173.25,
+      "contacts": {},
+      "bladeMinZ": 0.0027777589857578278,
+      "speed": 0.32818894919882124,
+      "angularSpeed": 1.7381752654910088
+    },
+    {
+      "frame": 173.5,
+      "contacts": {},
+      "bladeMinZ": 8.909404277801514e-05,
+      "speed": 0.32818811865316244,
+      "angularSpeed": 1.7381752654910088
+    },
+    {
+      "frame": 173.75,
+      "contacts": {},
+      "bladeMinZ": -0.002549678087234497,
+      "speed": 0.3281921719080777,
+      "angularSpeed": 1.7381752654910088
+    },
+    {
+      "frame": 174.0,
+      "contacts": {},
+      "bladeMinZ": -0.0051371753215789795,
+      "speed": 0.32818811865316244,
+      "angularSpeed": 1.7361990362405777
+    },
+    {
+      "frame": 174.25,
+      "contacts": {},
+      "bladeMinZ": -0.006313815712928772,
+      "speed": 0.204106512138734,
+      "angularSpeed": 1.0080856829881668
+    },
+    {
+      "frame": 174.5,
+      "contacts": {},
+      "bladeMinZ": -0.007472053170204163,
+      "speed": 0.20410636099737886,
+      "angularSpeed": 1.0080856829881668
+    },
+    {
+      "frame": 174.75,
+      "contacts": {},
+      "bladeMinZ": -0.008612088859081268,
+      "speed": 0.20410636099737886,
+      "angularSpeed": 1.0046742483973503
+    },
+    {
+      "frame": 175.0,
+      "contacts": {},
+      "bladeMinZ": -0.009733505547046661,
+      "speed": 0.204106512138734,
+      "angularSpeed": 1.0080856829881668
+    },
+    {
+      "frame": 175.25,
+      "contacts": {},
+      "bladeMinZ": -0.009740971028804779,
+      "speed": 0.20362328479344888,
+      "angularSpeed": 0.7861180230975151
+    },
+    {
+      "frame": 175.5,
+      "contacts": {},
+      "bladeMinZ": -0.00974835455417633,
+      "speed": 0.20362468358231528,
+      "angularSpeed": 0.7817384786903858
+    },
+    {
+      "frame": 175.75,
+      "contacts": {},
+      "bladeMinZ": -0.009755700826644897,
+      "speed": 0.20362328479344888,
+      "angularSpeed": 0.7861180230975151
+    },
+    {
+      "frame": 176.0,
+      "contacts": {},
+      "bladeMinZ": -0.009763069450855255,
+      "speed": 0.20362468371382478,
+      "angularSpeed": 0.7861180230975151
+    },
+    {
+      "frame": 176.25,
+      "contacts": {},
+      "bladeMinZ": -0.013713926076889038,
+      "speed": 0.24204991545841356,
+      "angularSpeed": 1.477680467069149
+    },
+    {
+      "frame": 176.5,
+      "contacts": {},
+      "bladeMinZ": -0.017631150782108307,
+      "speed": 0.24204991545841356,
+      "angularSpeed": 1.477680467069149
+    },
+    {
+      "frame": 176.75,
+      "contacts": {},
+      "bladeMinZ": -0.0215139240026474,
+      "speed": 0.24205032126456835,
+      "angularSpeed": 1.477680467069149
+    },
+    {
+      "frame": 177.0,
+      "contacts": {},
+      "bladeMinZ": -0.025361672043800354,
+      "speed": 0.24204991545841356,
+      "angularSpeed": 1.475355215370655
+    },
+    {
+      "frame": 177.25,
+      "contacts": {},
+      "bladeMinZ": -0.02797803282737732,
+      "speed": 0.2559243223403945,
+      "angularSpeed": 1.2401973456144333
+    },
+    {
+      "frame": 177.5,
+      "contacts": {},
+      "bladeMinZ": -0.03056839108467102,
+      "speed": 0.2559238457801678,
+      "angularSpeed": 1.2401973456144333
+    },
+    {
+      "frame": 177.75,
+      "contacts": {},
+      "bladeMinZ": -0.033132411539554596,
+      "speed": 0.2559256016923188,
+      "angularSpeed": 1.2374259531497955
+    },
+    {
+      "frame": 178.0,
+      "contacts": {},
+      "bladeMinZ": -0.03566967695951462,
+      "speed": 0.2559243223403945,
+      "angularSpeed": 1.2374259531497955
+    },
+    {
+      "frame": 178.25,
+      "contacts": {},
+      "bladeMinZ": -0.0373714417219162,
+      "speed": 0.25731142701515486,
+      "angularSpeed": 1.0930531471967697
+    },
+    {
+      "frame": 178.5,
+      "contacts": {},
+      "bladeMinZ": -0.039051368832588196,
+      "speed": 0.25731021817681343,
+      "angularSpeed": 1.0899076983332634
+    },
+    {
+      "frame": 178.75,
+      "contacts": {},
+      "bladeMinZ": -0.040709227323532104,
+      "speed": 0.25730900297044096,
+      "angularSpeed": 1.0930531471967697
+    },
+    {
+      "frame": 179.0,
+      "contacts": {},
+      "bladeMinZ": -0.04234493523836136,
+      "speed": 0.25731142701515486,
+      "angularSpeed": 1.0899076983332634
+    },
+    {
+      "frame": 179.25,
+      "contacts": {},
+      "bladeMinZ": -0.043182775378227234,
+      "speed": 0.26426828070366787,
+      "angularSpeed": 0.9301475062966347
+    },
+    {
+      "frame": 179.5,
+      "contacts": {},
+      "bladeMinZ": -0.04400375485420227,
+      "speed": 0.26427052011618224,
+      "angularSpeed": 0.9301475062966347
+    },
+    {
+      "frame": 179.75,
+      "contacts": {},
+      "bladeMinZ": -0.04480740427970886,
+      "speed": 0.2642700028538429,
+      "angularSpeed": 0.9301475062966347
+    },
+    {
+      "frame": 180.0,
+      "contacts": {},
+      "bladeMinZ": -0.04559364169836044,
+      "speed": 0.26426828070366787,
+      "angularSpeed": 0.9301475062966347
+    },
+    {
+      "frame": 180.25,
+      "contacts": {},
+      "bladeMinZ": -0.0457179918885231,
+      "speed": 0.2669820281332154,
+      "angularSpeed": 0.8327740989625454
+    },
+    {
+      "frame": 180.5,
+      "contacts": {},
+      "bladeMinZ": -0.045843370258808136,
+      "speed": 0.26698256773438706,
+      "angularSpeed": 0.8327740989625454
+    },
+    {
+      "frame": 180.75,
+      "contacts": {},
+      "bladeMinZ": -0.04596991837024689,
+      "speed": 0.2669822979339376,
+      "angularSpeed": 0.8286411501467228
+    },
+    {
+      "frame": 181.0,
+      "contacts": {},
+      "bladeMinZ": -0.046097591519355774,
+      "speed": 0.2669820281332154,
+      "angularSpeed": 0.8286411501467228
+    },
+    {
+      "frame": 181.25,
+      "contacts": {},
+      "bladeMinZ": -0.04571752995252609,
+      "speed": 0.26781154522710754,
+      "angularSpeed": 0.7318359799683094
+    },
+    {
+      "frame": 181.5,
+      "contacts": {},
+      "bladeMinZ": -0.045337483286857605,
+      "speed": 0.2678131956901698,
+      "angularSpeed": 0.7318359799683094
+    },
+    {
+      "frame": 181.75,
+      "contacts": {},
+      "bladeMinZ": -0.04495728760957718,
+      "speed": 0.26781290838807165,
+      "angularSpeed": 0.7365122996270657
+    },
+    {
+      "frame": 182.0,
+      "contacts": {},
+      "bladeMinZ": -0.04457717388868332,
+      "speed": 0.26781154522710754,
+      "angularSpeed": 0.7411591149866581
+    },
+    {
+      "frame": 182.25,
+      "contacts": {},
+      "bladeMinZ": -0.04377437382936478,
+      "speed": 0.26723600149014903,
+      "angularSpeed": 0.6782719306647778
+    },
+    {
+      "frame": 182.5,
+      "contacts": {},
+      "bladeMinZ": -0.04297061264514923,
+      "speed": 0.267232779189372,
+      "angularSpeed": 0.6782719306647778
+    },
+    {
+      "frame": 182.75,
+      "contacts": {},
+      "bladeMinZ": -0.042165763676166534,
+      "speed": 0.2672324851371764,
+      "angularSpeed": 0.6731911562383175
+    },
+    {
+      "frame": 183.0,
+      "contacts": {},
+      "bladeMinZ": -0.04135993868112564,
+      "speed": 0.26723600149014903,
+      "angularSpeed": 0.6731911562383175
+    },
+    {
+      "frame": 183.25,
+      "contacts": {},
+      "bladeMinZ": -0.04029542952775955,
+      "speed": 0.26674873241590996,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 183.5,
+      "contacts": {},
+      "bladeMinZ": -0.039292123168706894,
+      "speed": 0.266749622308503,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 183.75,
+      "contacts": {},
+      "bladeMinZ": -0.03828700631856918,
+      "speed": 0.266749622308503,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 184.0,
+      "contacts": {},
+      "bladeMinZ": -0.037279870361089706,
+      "speed": 0.26674873241590996,
+      "angularSpeed": 0.6418625637888908
+    },
+    {
+      "frame": 184.25,
+      "contacts": {},
+      "bladeMinZ": -0.03606080636382103,
+      "speed": 0.2557809720307707,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 184.5,
+      "contacts": {},
+      "bladeMinZ": -0.034838881343603134,
+      "speed": 0.25577794784249525,
+      "angularSpeed": 0.6471893191337585
+    },
+    {
+      "frame": 184.75,
+      "contacts": {},
+      "bladeMinZ": -0.033614255487918854,
+      "speed": 0.2557782614636819,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 185.0,
+      "contacts": {},
+      "bladeMinZ": -0.032386571168899536,
+      "speed": 0.2557809720307707,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 185.25,
+      "contacts": {},
+      "bladeMinZ": -0.029061563313007355,
+      "speed": 0.5387330979479215,
+      "angularSpeed": 0.6577134132385254
+    },
+    {
+      "frame": 185.5,
+      "contacts": {},
+      "bladeMinZ": -0.025733008980751038,
+      "speed": 0.5387307520059437,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 185.75,
+      "contacts": {},
+      "bladeMinZ": -0.022400766611099243,
+      "speed": 0.5387305939887592,
+      "angularSpeed": 0.6577134132385254
+    },
+    {
+      "frame": 186.0,
+      "contacts": {},
+      "bladeMinZ": -0.019064895808696747,
+      "speed": 0.5387330979479215,
+      "angularSpeed": 0.6524726003408432
+    },
+    {
+      "frame": 186.25,
+      "contacts": {},
+      "bladeMinZ": -0.015697099268436432,
+      "speed": 0.5269877978995426,
+      "angularSpeed": 0.6883209384977818
+    },
+    {
+      "frame": 186.5,
+      "contacts": {},
+      "bladeMinZ": -0.012325301766395569,
+      "speed": 0.5269885605460772,
+      "angularSpeed": 0.6833149306476116
+    },
+    {
+      "frame": 186.75,
+      "contacts": {},
+      "bladeMinZ": -0.008949413895606995,
+      "speed": 0.5269881365085272,
+      "angularSpeed": 0.6932908482849598
+    },
+    {
+      "frame": 187.0,
+      "contacts": {},
+      "bladeMinZ": -0.005569294095039368,
+      "speed": 0.5269877978995426,
+      "angularSpeed": 0.6932908482849598
+    },
+    {
+      "frame": 187.25,
+      "contacts": {},
+      "bladeMinZ": -0.002418622374534607,
+      "speed": 0.5003318037730864,
+      "angularSpeed": 0.7861180230975151
+    },
+    {
+      "frame": 187.5,
+      "contacts": {},
+      "bladeMinZ": 0.0007362887263298035,
+      "speed": 0.5003338921288528,
+      "angularSpeed": 0.7904732599854469
+    },
+    {
+      "frame": 187.75,
+      "contacts": {},
+      "bladeMinZ": 0.0038956254720687866,
+      "speed": 0.50033358456114,
+      "angularSpeed": 0.7948046363890171
+    },
+    {
+      "frame": 188.0,
+      "contacts": {},
+      "bladeMinZ": 0.007059164345264435,
+      "speed": 0.5003318037730864,
+      "angularSpeed": 0.7948046363890171
+    },
+    {
+      "frame": 188.25,
+      "contacts": {},
+      "bladeMinZ": 0.009818464517593384,
+      "speed": 0.478575145758971,
+      "angularSpeed": 0.8924739249050617
+    },
+    {
+      "frame": 188.5,
+      "contacts": {},
+      "bladeMinZ": 0.012599803507328033,
+      "speed": 0.4785726691227046,
+      "angularSpeed": 0.8886186964809895
+    },
+    {
+      "frame": 188.75,
+      "contacts": {},
+      "bladeMinZ": 0.01540353149175644,
+      "speed": 0.4785726691227046,
+      "angularSpeed": 0.8886186964809895
+    },
+    {
+      "frame": 189.0,
+      "contacts": {},
+      "bladeMinZ": 0.01822931319475174,
+      "speed": 0.47857510470985565,
+      "angularSpeed": 0.8963125571608543
+    },
+    {
+      "frame": 189.25,
+      "contacts": {},
+      "bladeMinZ": 0.020601294934749603,
+      "speed": 0.4518992274230744,
+      "angularSpeed": 1.0448770970106125
+    },
+    {
+      "frame": 189.5,
+      "contacts": {},
+      "bladeMinZ": 0.023001573979854584,
+      "speed": 0.4518993638682473,
+      "angularSpeed": 1.0448770970106125
+    },
+    {
+      "frame": 189.75,
+      "contacts": {},
+      "bladeMinZ": 0.025430411100387573,
+      "speed": 0.45189925941877773,
+      "angularSpeed": 1.0448770970106125
+    },
+    {
+      "frame": 190.0,
+      "contacts": {},
+      "bladeMinZ": 0.02788739651441574,
+      "speed": 0.4518993071222304,
+      "angularSpeed": 1.0448770970106125
+    },
+    {
+      "frame": 190.25,
+      "contacts": {},
+      "bladeMinZ": 0.029875129461288452,
+      "speed": 0.4325386817366696,
+      "angularSpeed": 1.2206653878092766
+    },
+    {
+      "frame": 190.5,
+      "contacts": {},
+      "bladeMinZ": 0.0318991094827652,
+      "speed": 0.43253898878184793,
+      "angularSpeed": 1.2178495153784752
+    },
+    {
+      "frame": 190.75,
+      "contacts": {},
+      "bladeMinZ": 0.033959679305553436,
+      "speed": 0.43253913260570864,
+      "angularSpeed": 1.2178495153784752
+    },
+    {
+      "frame": 191.0,
+      "contacts": {},
+      "bladeMinZ": 0.036056846380233765,
+      "speed": 0.43253853791265895,
+      "angularSpeed": 1.2178495153784752
+    },
+    {
+      "frame": 191.25,
+      "contacts": {},
+      "bladeMinZ": 0.03766966611146927,
+      "speed": 0.38771223829196966,
+      "angularSpeed": 1.6131943836808205
+    },
+    {
+      "frame": 191.5,
+      "contacts": {},
+      "bladeMinZ": 0.039345480501651764,
+      "speed": 0.38771020518326954,
+      "angularSpeed": 1.6110648214817047
+    },
+    {
+      "frame": 191.75,
+      "contacts": {},
+      "bladeMinZ": 0.041084252297878265,
+      "speed": 0.38771223829196966,
+      "angularSpeed": 1.6131943836808205
+    },
+    {
+      "frame": 192.0,
+      "contacts": {},
+      "bladeMinZ": 0.042886435985565186,
+      "speed": 0.38770924879511603,
+      "angularSpeed": 1.6110648214817047
+    },
+    {
+      "frame": 192.25,
+      "contacts": {},
+      "bladeMinZ": 0.0442802831530571,
+      "speed": 0.39383737896940496,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 192.5,
+      "contacts": {},
+      "bladeMinZ": 0.04575887322425842,
+      "speed": 0.3938372064635111,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 192.75,
+      "contacts": {},
+      "bladeMinZ": 0.04732251912355423,
+      "speed": 0.39383737896940496,
+      "angularSpeed": 1.8566038459539413
+    },
+    {
+      "frame": 193.0,
+      "contacts": {},
+      "bladeMinZ": 0.04897104203701019,
+      "speed": 0.3938361568778295,
+      "angularSpeed": 1.8547536805272102
+    },
+    {
+      "frame": 193.25,
+      "contacts": {},
+      "bladeMinZ": 0.04846207797527313,
+      "speed": 0.32219902143613044,
+      "angularSpeed": 2.0246724039316177
+    },
+    {
+      "frame": 193.5,
+      "contacts": {},
+      "bladeMinZ": 0.048053137958049774,
+      "speed": 0.32219728446674517,
+      "angularSpeed": 2.0246724039316177
+    },
+    {
+      "frame": 193.75,
+      "contacts": {},
+      "bladeMinZ": 0.04774484783411026,
+      "speed": 0.3221989611985898,
+      "angularSpeed": 2.0246724039316177
+    },
+    {
+      "frame": 194.0,
+      "contacts": {},
+      "bladeMinZ": 0.04753679037094116,
+      "speed": 0.32219902143613044,
+      "angularSpeed": 2.0246724039316177
+    },
+    {
+      "frame": 194.25,
+      "contacts": {},
+      "bladeMinZ": 0.04709848761558533,
+      "speed": 0.3885671648202413,
+      "angularSpeed": 2.1432892978191376
+    },
+    {
+      "frame": 194.5,
+      "contacts": {},
+      "bladeMinZ": 0.04677126556634903,
+      "speed": 0.3885657618398616,
+      "angularSpeed": 2.1432892978191376
+    },
+    {
+      "frame": 194.75,
+      "contacts": {},
+      "bladeMinZ": 0.04655584692955017,
+      "speed": 0.38856736283808513,
+      "angularSpeed": 2.1432892978191376
+    },
+    {
+      "frame": 195.0,
+      "contacts": {},
+      "bladeMinZ": 0.046451933681964874,
+      "speed": 0.3885655638212019,
+      "angularSpeed": 2.141686901450157
+    },
+    {
+      "frame": 195.25,
+      "contacts": {},
+      "bladeMinZ": 0.046393267810344696,
+      "speed": 0.45364701692621484,
+      "angularSpeed": 2.2511067241430283
+    },
+    {
+      "frame": 195.5,
+      "contacts": {},
+      "bladeMinZ": 0.04645843058824539,
+      "speed": 0.45364527029661084,
+      "angularSpeed": 2.2511067241430283
+    },
+    {
+      "frame": 195.75,
+      "contacts": {},
+      "bladeMinZ": 0.04664737731218338,
+      "speed": 0.45364690144677916,
+      "angularSpeed": 2.2511067241430283
+    },
+    {
+      "frame": 196.0,
+      "contacts": {},
+      "bladeMinZ": 0.046934641897678375,
+      "speed": 0.45364538577646163,
+      "angularSpeed": 2.252631336450577
+    },
+    {
+      "frame": 196.25,
+      "contacts": {},
+      "bladeMinZ": 0.043409958481788635,
+      "speed": 0.8270535838480478,
+      "angularSpeed": 2.320203110575676
+    },
+    {
+      "frame": 196.5,
+      "contacts": {},
+      "bladeMinZ": 0.04001682251691818,
+      "speed": 0.8270517192276836,
+      "angularSpeed": 2.320203110575676
+    },
+    {
+      "frame": 196.75,
+      "contacts": {},
+      "bladeMinZ": 0.03675459325313568,
+      "speed": 0.8270535838480478,
+      "angularSpeed": 2.321682348847389
+    },
+    {
+      "frame": 197.0,
+      "contacts": {},
+      "bladeMinZ": 0.03362307697534561,
+      "speed": 0.8270517192276836,
+      "angularSpeed": 2.320203110575676
+    },
+    {
+      "frame": 197.25,
+      "contacts": {},
+      "bladeMinZ": 0.030657075345516205,
+      "speed": 0.8426486959315587,
+      "angularSpeed": 2.3757677525281906
+    },
+    {
+      "frame": 197.5,
+      "contacts": {},
+      "bladeMinZ": 0.027827918529510498,
+      "speed": 0.8426466045142466,
+      "angularSpeed": 2.3743220418691635
+    },
+    {
+      "frame": 197.75,
+      "contacts": {},
+      "bladeMinZ": 0.02513463795185089,
+      "speed": 0.8426466511413496,
+      "angularSpeed": 2.3757677525281906
+    },
+    {
+      "frame": 198.0,
+      "contacts": {},
+      "bladeMinZ": 0.0225767120718956,
+      "speed": 0.8426486959315587,
+      "angularSpeed": 2.3757677525281906
+    },
+    {
+      "frame": 198.25,
+      "contacts": {
+        "Lux3D_canoe": 13
+      },
+      "bladeMinZ": 0.016540035605430603,
+      "speed": 1.3865649247565404,
+      "angularSpeed": 2.407350540161133
+    },
+    {
+      "frame": 198.5,
+      "contacts": {
+        "Lux3D_canoe": 18
+      },
+      "bladeMinZ": 0.010641470551490784,
+      "speed": 1.3865676828239415,
+      "angularSpeed": 2.407350540161133
+    },
+    {
+      "frame": 198.75,
+      "contacts": {},
+      "bladeMinZ": 0.004879698157310486,
+      "speed": 1.3865676804625848,
+      "angularSpeed": 2.407350540161133
+    },
+    {
+      "frame": 199.0,
+      "contacts": {},
+      "bladeMinZ": -0.0007462501525878906,
+      "speed": 1.3865647169567195,
+      "angularSpeed": 2.4059240520000458
+    },
+    {
+      "frame": 199.25,
+      "contacts": {},
+      "bladeMinZ": -0.00590243935585022,
+      "speed": 1.3797341641766427,
+      "angularSpeed": 2.397346571087837
+    },
+    {
+      "frame": 199.5,
+      "contacts": {},
+      "bladeMinZ": -0.010925665497779846,
+      "speed": 1.3797368362306144,
+      "angularSpeed": 2.397346571087837
+    },
+    {
+      "frame": 199.75,
+      "contacts": {},
+      "bladeMinZ": -0.01581723242998123,
+      "speed": 1.3797368362306144,
+      "angularSpeed": 2.3959140479564667
+    },
+    {
+      "frame": 200.0,
+      "contacts": {},
+      "bladeMinZ": -0.020578771829605103,
+      "speed": 1.3797341641766427,
+      "angularSpeed": 2.3959140479564667
+    },
+    {
+      "frame": 200.25,
+      "contacts": {},
+      "bladeMinZ": -0.02474752813577652,
+      "speed": 1.382087108233331,
+      "angularSpeed": 2.401638999581337
+    },
+    {
+      "frame": 200.5,
+      "contacts": {},
+      "bladeMinZ": -0.028788067400455475,
+      "speed": 1.3820882548346571,
+      "angularSpeed": 2.398778200149536
+    },
+    {
+      "frame": 200.75,
+      "contacts": {},
+      "bladeMinZ": -0.032702431082725525,
+      "speed": 1.3820880937419664,
+      "angularSpeed": 2.398778200149536
+    },
+    {
+      "frame": 201.0,
+      "contacts": {},
+      "bladeMinZ": -0.03649231791496277,
+      "speed": 1.382087108233331,
+      "angularSpeed": 2.4002091586589813
+    },
+    {
+      "frame": 201.25,
+      "contacts": {},
+      "bladeMinZ": -0.03969261795282364,
+      "speed": 1.3763795168977253,
+      "angularSpeed": 2.3452236503362656
+    },
+    {
+      "frame": 201.5,
+      "contacts": {},
+      "bladeMinZ": -0.04277728497982025,
+      "speed": 1.3763790791918609,
+      "angularSpeed": 2.3452236503362656
+    },
+    {
+      "frame": 201.75,
+      "contacts": {},
+      "bladeMinZ": -0.045748382806777954,
+      "speed": 1.3763786890626035,
+      "angularSpeed": 2.343759387731552
+    },
+    {
+      "frame": 202.0,
+      "contacts": {},
+      "bladeMinZ": -0.04860810935497284,
+      "speed": 1.3763790791918609,
+      "angularSpeed": 2.343759387731552
+    },
+    {
+      "frame": 202.25,
+      "contacts": {},
+      "bladeMinZ": -0.050726525485515594,
+      "speed": 1.3756461548011343,
+      "angularSpeed": 2.2874173521995544
+    },
+    {
+      "frame": 202.5,
+      "contacts": {},
+      "bladeMinZ": -0.052742063999176025,
+      "speed": 1.3756451646775107,
+      "angularSpeed": 2.2874173521995544
+    },
+    {
+      "frame": 202.75,
+      "contacts": {},
+      "bladeMinZ": -0.05465686321258545,
+      "speed": 1.3756461548011343,
+      "angularSpeed": 2.2874173521995544
+    },
+    {
+      "frame": 203.0,
+      "contacts": {},
+      "bladeMinZ": -0.056473374366760254,
+      "speed": 1.3756461548011343,
+      "angularSpeed": 2.288917824625969
+    },
+    {
+      "frame": 203.25,
+      "contacts": {},
+      "bladeMinZ": -0.05757399648427963,
+      "speed": 1.3734667284133024,
+      "angularSpeed": 2.2172994911670685
+    },
+    {
+      "frame": 203.5,
+      "contacts": {},
+      "bladeMinZ": -0.058585867285728455,
+      "speed": 1.3734690932209936,
+      "angularSpeed": 2.214200422167778
+    },
+    {
+      "frame": 203.75,
+      "contacts": {},
+      "bladeMinZ": -0.05951176583766937,
+      "speed": 1.373467872675597,
+      "angularSpeed": 2.2172994911670685
+    },
+    {
+      "frame": 204.0,
+      "contacts": {},
+      "bladeMinZ": -0.060353681445121765,
+      "speed": 1.3734673386866447,
+      "angularSpeed": 2.214200422167778
+    },
+    {
+      "frame": 204.25,
+      "contacts": {},
+      "bladeMinZ": -0.06043011695146561,
+      "speed": 1.3705144183249205,
+      "angularSpeed": 2.120744436979294
+    },
+    {
+      "frame": 204.5,
+      "contacts": {},
+      "bladeMinZ": -0.06043343245983124,
+      "speed": 1.3705156797248084,
+      "angularSpeed": 2.120744436979294
+    },
+    {
+      "frame": 204.75,
+      "contacts": {},
+      "bladeMinZ": -0.060365818440914154,
+      "speed": 1.3705144183249205,
+      "angularSpeed": 2.1191250532865524
+    },
+    {
+      "frame": 205.0,
+      "contacts": {},
+      "bladeMinZ": -0.06022973358631134,
+      "speed": 1.3705150299128899,
+      "angularSpeed": 2.120744436979294
+    },
+    {
+      "frame": 205.25,
+      "contacts": {},
+      "bladeMinZ": -0.05795435607433319,
+      "speed": 1.0682666987928269,
+      "angularSpeed": 2.014472410082817
+    },
+    {
+      "frame": 205.5,
+      "contacts": {},
+      "bladeMinZ": -0.05562017112970352,
+      "speed": 1.0682660122444545,
+      "angularSpeed": 2.014472410082817
+    },
+    {
+      "frame": 205.75,
+      "contacts": {},
+      "bladeMinZ": -0.05322960764169693,
+      "speed": 1.068267137080173,
+      "angularSpeed": 2.0161758363246918
+    },
+    {
+      "frame": 206.0,
+      "contacts": {},
+      "bladeMinZ": -0.050784632563591,
+      "speed": 1.0682662605053008,
+      "angularSpeed": 2.014472410082817
+    },
+    {
+      "frame": 206.25,
+      "contacts": {},
+      "bladeMinZ": -0.04682042449712753,
+      "speed": 1.1340034494946933,
+      "angularSpeed": 2.178245410323143
+    },
+    {
+      "frame": 206.5,
+      "contacts": {},
+      "bladeMinZ": -0.0427963063120842,
+      "speed": 1.134003103021522,
+      "angularSpeed": 2.176668718457222
+    },
+    {
+      "frame": 206.75,
+      "contacts": {},
+      "bladeMinZ": -0.03871544450521469,
+      "speed": 1.1340034494946933,
+      "angularSpeed": 2.176668718457222
+    },
+    {
+      "frame": 207.0,
+      "contacts": {},
+      "bladeMinZ": -0.03458087146282196,
+      "speed": 1.1340027305627451,
+      "angularSpeed": 2.176668718457222
+    },
+    {
+      "frame": 207.25,
+      "contacts": {},
+      "bladeMinZ": -0.028009191155433655,
+      "speed": 1.239183065651356,
+      "angularSpeed": 2.49558225274086
+    },
+    {
+      "frame": 207.5,
+      "contacts": {},
+      "bladeMinZ": -0.02137231081724167,
+      "speed": 1.2391823667868191,
+      "angularSpeed": 2.49558225274086
+    },
+    {
+      "frame": 207.75,
+      "contacts": {},
+      "bladeMinZ": -0.014675259590148926,
+      "speed": 1.2391825781636583,
+      "angularSpeed": 2.496957555413246
+    },
+    {
+      "frame": 208.0,
+      "contacts": {},
+      "bladeMinZ": -0.007923275232315063,
+      "speed": 1.239182896549954,
+      "angularSpeed": 2.49558225274086
+    },
+    {
+      "frame": 208.25,
+      "contacts": {},
+      "bladeMinZ": 0.0003372505307197571,
+      "speed": 1.282342680561408,
+      "angularSpeed": 2.5741392374038696
+    },
+    {
+      "frame": 208.5,
+      "contacts": {},
+      "bladeMinZ": 0.00864691287279129,
+      "speed": 1.2823424162968198,
+      "angularSpeed": 2.5741392374038696
+    },
+    {
+      "frame": 208.75,
+      "contacts": {},
+      "bladeMinZ": 0.016999974846839905,
+      "speed": 1.2823429039734573,
+      "angularSpeed": 2.5741392374038696
+    },
+    {
+      "frame": 209.0,
+      "contacts": {},
+      "bladeMinZ": 0.025390394032001495,
+      "speed": 1.2823424162968198,
+      "angularSpeed": 2.575472518801689
+    },
+    {
+      "frame": 209.25,
+      "contacts": {},
+      "bladeMinZ": 0.03474384546279907,
+      "speed": 1.2803780690930968,
+      "angularSpeed": 2.4595528095960617
+    },
+    {
+      "frame": 209.5,
+      "contacts": {},
+      "bladeMinZ": 0.044124118983745575,
+      "speed": 1.280377757754137,
+      "angularSpeed": 2.4595528095960617
+    },
+    {
+      "frame": 209.75,
+      "contacts": {},
+      "bladeMinZ": 0.05352574586868286,
+      "speed": 1.2803777475253404,
+      "angularSpeed": 2.4609482288360596
+    },
+    {
+      "frame": 210.0,
+      "contacts": {},
+      "bladeMinZ": 0.06294327229261398,
+      "speed": 1.280378074207494,
+      "angularSpeed": 2.4609482288360596
+    },
+    {
+      "frame": 210.25,
+      "contacts": {},
+      "bladeMinZ": 0.0726550817489624,
+      "speed": 1.2363841934833948,
+      "angularSpeed": 2.2250280529260635
+    },
+    {
+      "frame": 210.5,
+      "contacts": {},
+      "bladeMinZ": 0.0823749378323555,
+      "speed": 1.2363833924882524,
+      "angularSpeed": 2.2250280529260635
+    },
+    {
+      "frame": 210.75,
+      "contacts": {},
+      "bladeMinZ": 0.09209859371185303,
+      "speed": 1.2363842822805307,
+      "angularSpeed": 2.223484441637993
+    },
+    {
+      "frame": 211.0,
+      "contacts": {},
+      "bladeMinZ": 0.1018219143152237,
+      "speed": 1.2363833169320149,
+      "angularSpeed": 2.223484441637993
+    },
+    {
+      "frame": 211.25,
+      "contacts": {},
+      "bladeMinZ": 0.11083798110485077,
+      "speed": 1.149749761713204,
+      "angularSpeed": 1.8713390082120895
+    },
+    {
+      "frame": 211.5,
+      "contacts": {},
+      "bladeMinZ": 0.11985071748495102,
+      "speed": 1.149749761713204,
+      "angularSpeed": 1.8713390082120895
+    },
+    {
+      "frame": 211.75,
+      "contacts": {},
+      "bladeMinZ": 0.12885752320289612,
+      "speed": 1.1497497650378772,
+      "angularSpeed": 1.8713390082120895
+    },
+    {
+      "frame": 212.0,
+      "contacts": {},
+      "bladeMinZ": 0.13785585761070251,
+      "speed": 1.149749761713204,
+      "angularSpeed": 1.8713390082120895
+    },
+    {
+      "frame": 212.25,
+      "contacts": {},
+      "bladeMinZ": 0.14531691372394562,
+      "speed": 1.033157942218194,
+      "angularSpeed": 1.451898068189621
+    },
+    {
+      "frame": 212.5,
+      "contacts": {},
+      "bladeMinZ": 0.15277159214019775,
+      "speed": 1.0331596459547072,
+      "angularSpeed": 1.449531577527523
+    },
+    {
+      "frame": 212.75,
+      "contacts": {},
+      "bladeMinZ": 0.16021859645843506,
+      "speed": 1.033157942218194,
+      "angularSpeed": 1.451898068189621
+    },
+    {
+      "frame": 213.0,
+      "contacts": {},
+      "bladeMinZ": 0.16765671968460083,
+      "speed": 1.033157942218194,
+      "angularSpeed": 1.451898068189621
+    },
+    {
+      "frame": 213.25,
+      "contacts": {},
+      "bladeMinZ": 0.1729845106601715,
+      "speed": 0.9031277518319403,
+      "angularSpeed": 1.01148571819067
+    },
+    {
+      "frame": 213.5,
+      "contacts": {},
+      "bladeMinZ": 0.178307443857193,
+      "speed": 0.9031241844513697,
+      "angularSpeed": 1.01148571819067
+    },
+    {
+      "frame": 213.75,
+      "contacts": {},
+      "bladeMinZ": 0.18362508714199066,
+      "speed": 0.9031241844513697,
+      "angularSpeed": 1.0080856829881668
+    },
+    {
+      "frame": 214.0,
+      "contacts": {},
+      "bladeMinZ": 0.1889370232820511,
+      "speed": 0.9031277518319403,
+      "angularSpeed": 1.01148571819067
+    },
+    {
+      "frame": 214.25,
+      "contacts": {},
+      "bladeMinZ": 0.19184114038944244,
+      "speed": 0.7716659537824002,
+      "angularSpeed": 0.5680876225233078
+    },
+    {
+      "frame": 214.5,
+      "contacts": {},
+      "bladeMinZ": 0.1947416067123413,
+      "speed": 0.7716694839527886,
+      "angularSpeed": 0.5740992911159992
+    },
+    {
+      "frame": 214.75,
+      "contacts": {},
+      "bladeMinZ": 0.1976384073495865,
+      "speed": 0.7716659537824002,
+      "angularSpeed": 0.5740992911159992
+    },
+    {
+      "frame": 215.0,
+      "contacts": {},
+      "bladeMinZ": 0.20053154230117798,
+      "speed": 0.7716677188696132,
+      "angularSpeed": 0.5740992911159992
+    },
+    {
+      "frame": 215.25,
+      "contacts": {},
+      "bladeMinZ": 0.20134691894054413,
+      "speed": 0.6715497474282948,
+      "angularSpeed": 0.234375
+    },
+    {
+      "frame": 215.5,
+      "contacts": {},
+      "bladeMinZ": 0.2021617293357849,
+      "speed": 0.671548016602349,
+      "angularSpeed": 0.234375
+    },
+    {
+      "frame": 215.75,
+      "contacts": {},
+      "bladeMinZ": 0.20297597348690033,
+      "speed": 0.6715479922244868,
+      "angularSpeed": 0.234375
+    },
+    {
+      "frame": 216.0,
+      "contacts": {},
+      "bladeMinZ": 0.2037896364927292,
+      "speed": 0.6715479922244868,
+      "angularSpeed": 0.234375
+    }
+  ],
+  "scope": "120 Hz finite prop mesh surface intersections; not continuous collision proof"
+}

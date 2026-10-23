@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Forest Moments · 原面数资产复核</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eee9dd;color:#303c32;font:15px system-ui;display:flex;flex-direction:column;height:100vh}header{padding:12px 18px;background:#faf7ef;display:flex;gap:10px;align-items:center;flex-wrap:wrap}h1{font-size:18px;margin:0 12px 0 0}button,select{padding:8px;border:1px solid #8b9585;border-radius:4px;background:white;color:inherit}button:disabled,select:disabled{opacity:.5}button:focus-visible,select:focus-visible{outline:3px solid #517247}#status,#measurement,#error{padding:6px 18px;margin:0}#measurement{font-size:13px;white-space:pre-wrap;height:58px;flex-shrink:0;overflow:auto}#error{color:#a12020}#stage{flex:1;min-height:200px;position:relative}canvas{display:block;width:100%;height:100%}.note{font-size:12px;padding:6px 18px;margin:0}
+</style></head>
+<body>
+<header><h1>原面数资产复核</h1>
+<label>资产 <select id="asset"><option value="raccoon-mixamo">浣熊 · 保留版（尾巴已确认）</option><option value="raccoon-surface">浣熊 · 分区材质候选</option><option value="raccoon-tail-repair">浣熊 · 尾根局部修整候选</option><option value="raccoon-multiview">浣熊 · 四视图原稿（尾根未通过）</option><option value="raccoon">旧浣熊 · 尾根问题不采用</option><option value="workshop-structure" selected>工坊 · 局部修整版</option><option value="lookout-structure">木塔 · 入口开放版</option><option value="canoe-structure">独木舟 · 船底修整与独立桨</option><option value="workshop">工坊原稿</option><option value="lookout">木塔</option><option value="canoe">独木舟</option><option value="all">原四项同时展示</option></select></label>
+<label>材质 <select id="material"><option value="raw">原稿</option><option value="material-v1">浣熊哑光试稿</option></select></label>
+<label>动作 <select id="animation" disabled><option value="">静止绑定姿势</option></select></label><button id="pause" disabled>暂停动作</button>
+<button data-angle="0">正面</button><button data-angle="1.57079632679">侧面</button><button data-angle="3.14159265359">背面</button><button data-angle="0.65">斜侧</button>
+<button id="measure" disabled>测量 30 秒</button><button id="export" disabled>下载本次数据</button></header>
+<p class="note">本地资产展示台；浣熊按用户意见保留，尾巴不再调整；建筑与船为局部修整版，碰撞、交互与实机表现待验证。切换动作可检查，点击暂停可停帧；不代表完整游戏性能。测量预热 2 秒，切换标签页、尺寸、资产或动作会取消本次测量。资源数量不是显存占用。</p>
+<div id="status" role="status">正在加载…</div><div id="error" role="alert"></div>
+<pre id="measurement" aria-live="polite">尚未测量；没有预填性能结果。</pre>
+<div id="stage"><canvas id="viewport" aria-label="拖动旋转、滚轮缩放模型"></canvas></div>
+<script type="module" src="./review.mjs"></script></body></html>

@@ -1,0 +1,46 @@
+{
+  "source": "existing independent references explicitly selected by user",
+  "order": "front, back, left, right",
+  "inputs": [
+    {
+      "view": "front",
+      "source": "docs/references/player/forest-moments-raccoon-front.png",
+      "path": "assets/lux3d/round-01/raccoon-multiview/inputs/front.png",
+      "sha256": "7a9a4572edb289f54c53822a7ce1a9d9206b948b062a7850a736cae114172db2",
+      "size": [
+        1086,
+        1448
+      ]
+    },
+    {
+      "view": "back",
+      "source": "docs/references/player/forest-moments-raccoon-back.png",
+      "path": "assets/lux3d/round-01/raccoon-multiview/inputs/back.png",
+      "sha256": "9569f7054a2523cc30587c00dacf5c83e240689fe55aaee427b7d2e8b4085ea1",
+      "size": [
+        1086,
+        1448
+      ]
+    },
+    {
+      "view": "left",
+      "source": "docs/references/player/forest-moments-raccoon-left.png",
+      "path": "assets/lux3d/round-01/raccoon-multiview/inputs/left.png",
+      "sha256": "0254426120b38d6cad2b9a67bb4a7d5d5bb9edf088d352c1e8b32cb2744b69a7",
+      "size": [
+        1086,
+        1448
+      ]
+    },
+    {
+      "view": "right",
+      "source": "docs/references/player/forest-moments-raccoon-right.png",
+      "path": "assets/lux3d/round-01/raccoon-multiview/inputs/right.png",
+      "sha256": "ce21d8e46a15dd69875dc28f976c71a454350c88c7dee6f59d0d0eae96656903",
+      "size": [
+        1086,
+        1448
+      ]
+    }
+  ]
+}

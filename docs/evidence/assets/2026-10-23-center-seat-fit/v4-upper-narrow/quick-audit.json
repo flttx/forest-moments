@@ -1,0 +1,224 @@
+{
+  "sampleRate": 30,
+  "sampleCount": 8,
+  "boneOverrides": false,
+  "frames": [
+    {
+      "frame": 0,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 19,
+          "bones": {
+            "mixamorig:LeftToeBase": 19
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 9,
+          "bones": {
+            "mixamorig:RightUpLeg": 1,
+            "mixamorig:LeftLeg": 6,
+            "mixamorig:RightLeg": 2
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.08459673076868057
+    },
+    {
+      "frame": 55,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 289,
+          "bones": {
+            "tail_05": 124,
+            "mixamorig:LeftLeg": 99,
+            "mixamorig:LeftToeBase": 23,
+            "tail_04": 43
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 4,
+          "bones": {
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 1
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.31536103785037994
+    },
+    {
+      "frame": 75,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1907,
+          "bones": {
+            "tail_05": 1399,
+            "mixamorig:LeftLeg": 213,
+            "tail_04": 240,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftFoot": 9
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 4,
+          "bones": {
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 1
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.34416164457798004
+    },
+    {
+      "frame": 100,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 2142,
+          "bones": {
+            "tail_05": 1509,
+            "tail_04": 388,
+            "mixamorig:LeftLeg": 176,
+            "mixamorig:LeftToeBase": 59,
+            "mixamorig:LeftFoot": 10
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 4,
+          "bones": {
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 1
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.12227515876293182
+    },
+    {
+      "frame": 139,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 580,
+          "bones": {
+            "tail_04": 167,
+            "tail_05": 319,
+            "mixamorig:LeftLeg": 71,
+            "mixamorig:LeftToeBase": 23
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 4,
+          "bones": {
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 1
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4937804192304611
+    },
+    {
+      "frame": 163,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 868,
+          "bones": {
+            "tail_05": 559,
+            "tail_04": 225,
+            "mixamorig:LeftLeg": 76,
+            "mixamorig:LeftToeBase": 8
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 4,
+          "bones": {
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 1
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.09997530654072762
+    },
+    {
+      "frame": 190,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 14,
+          "bones": {
+            "mixamorig:LeftToeBase": 10,
+            "mixamorig:LeftLeg": 4
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 4,
+          "bones": {
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 1
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 209
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5879874676465988
+    },
+    {
+      "frame": 216,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 19,
+          "bones": {
+            "mixamorig:LeftToeBase": 19
+          }
+        },
+        "Center_seat_top": {
+          "triangles": 9,
+          "bones": {
+            "mixamorig:RightUpLeg": 1,
+            "mixamorig:LeftLeg": 6,
+            "mixamorig:RightLeg": 2
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.08379404991865158
+    }
+  ],
+  "summary": {
+    "paddleHullFrames": [
+      190
+    ],
+    "paddleSeatFrames": [],
+    "bodyHullFrames": [
+      0,
+      55,
+      75,
+      100,
+      139,
+      163,
+      190,
+      216
+    ],
+    "bodySeatFrames": [
+      0,
+      55,
+      75,
+      100,
+      139,
+      163,
+      190,
+      216
+    ],
+    "paddleHeadFrames": []
+  }
+}

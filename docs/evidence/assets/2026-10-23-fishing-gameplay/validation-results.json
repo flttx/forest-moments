@@ -1,0 +1,245 @@
+{
+  "checkedAtUTC": "2026-10-23T09:06:32.083271+00:00",
+  "lint": "PASS: no warnings",
+  "tests": "PASS: 15/15, 4 files",
+  "build": "PASS: TypeScript/Vite; existing large bundle warning",
+  "browserRuns": {
+    ".": "PASS: casting, early/missed/overload failures, paused timers, tension control, catch once, repeat, cancel, persistence",
+    "production": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+    "rowing-regression": "PASS: keyboard/button boarding, forward/reverse, steering, bank boundary, safe repeat landing, blur and walking"
+  },
+  "imagesDecoded": [
+    {
+      "path": "01-before-fishing.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "02-casting-start.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "03-casting-release.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "04-waiting.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "05-too-early.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "06-bite.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "07-paused.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "08-high-tension.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "09-release-tension.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "10-landing.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "11-caught.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "12-line-overload.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "13-book-after-reload.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "before-layout\\08-high-tension.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "before-layout\\11-caught.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\01-cast.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\02-waiting.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\03-bite.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\04-tension-panel.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\05-visible-catch.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\06-saved-book.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\01-spawn.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\02-dock-before-boarding.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\03-central-seat.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\03b-full-loop.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\04-rowing-away.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\05-turn-left.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\06-shore-limit.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\07-returned-to-dock.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\08-back-on-dock.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "rowing-regression\\09-walking-again.png",
+      "size": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "linksChecked": 13,
+  "sourceSHA256": {
+    "src/game/fishing.ts": "1c776819f9e31f01b65bd0192badc7d4a0542eb863868d914dcec5d0b7b64b2d",
+    "src/game/fishing.test.ts": "3e2648d7335a0711aff902cf7bac589e8f58aa71a29e3953525a8b23fa04a543",
+    "src/game/store.ts": "6a1e4a9cc8397ada313bb66ab8e7c1630e073e24b2c5497799c6814cf24f0f19",
+    "src/world/FishingScene.tsx": "486d4ecc270f3d89573b9b2db1c55c1723045b87f3ceac9cedc723767dcb92bb",
+    "src/world/ModelAsset.tsx": "64b2d624c10f2ca2ef9b8966281468899519884050b2ecd2f3562d09d0541ec8",
+    "src/world/ForestWorld.tsx": "bdeefa5b77eea4330d4864ad28540e954351832b7f7c0c2a58790a0d219bcc6f",
+    "src/FishingHud.tsx": "316ed91a231d4df5ff42fc17764b8099ab05d5c5235a8ceeaf25e96b6b2c9300",
+    "src/App.tsx": "6435c1d36ffba064307093b2dd514d47b815e68bb1a735fa485f503e2d2f9b25",
+    "src/App.css": "3fca126b1d94f1df553a53d71033994118ce22668dc295207e36f51c0aa78b5f",
+    "scripts/aholo/check_fishing_headless.mjs": "accd14e43ca85837b963e7cb0fb91fe5500c35178aa770e3fa647195b2b83d2d",
+    "scripts/aholo/check_fishing_production_headless.mjs": "a51a9c9f17dcc9e4188c4a8a306041c9570fb73201a0986ab45199457e753742"
+  },
+  "limits": "Development full-flow precedes HUD-only position fix. Final production success and rowing regression include it. No final user visual acceptance or public deployment."
+}

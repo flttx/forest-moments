@@ -1,0 +1,47 @@
+{
+  "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+  "outputSha256": "ff86de9a603ea64664de562ff9ccc9023f920239183e1dd2ec2af5e25e522b88",
+  "sourceUnchanged": true,
+  "embeddedTextureBytesIdentical": true,
+  "unchangedRegionPositionPrecision": 1e-05,
+  "sourceUniquePositionsOutsideEditBounds": 131935,
+  "missingOutsidePositions": 307,
+  "addedOutsidePositions": 0,
+  "editBoundsNormalized": {
+    "min": [
+      -0.31,
+      -0.12,
+      1.15
+    ],
+    "max": [
+      0.31,
+      0.35,
+      1.62
+    ]
+  },
+  "glb": {
+    "version": 2,
+    "meshes": 1,
+    "vertices": 238759,
+    "triangles": 289504,
+    "materials": 2,
+    "skins": 0,
+    "animations": 0,
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 4761156
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 3334708
+      }
+    ],
+    "extensionsRequired": []
+  },
+  "bytes": 19205724
+}

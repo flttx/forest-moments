@@ -1,0 +1,27 @@
+{
+  "markdownLinksChecked": 33,
+  "http": [
+    {
+      "path": "scripts/aholo/review.html",
+      "method": "HEAD",
+      "status": 200
+    },
+    {
+      "path": "scripts/aholo/review.mjs",
+      "method": "HEAD",
+      "status": 200
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-raccoon-animation/manifest.json",
+      "method": "HEAD",
+      "status": 200
+    },
+    {
+      "path": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v6.glb",
+      "method": "HEAD",
+      "status": 200
+    }
+  ],
+  "runtimeBrowserVerified": false,
+  "scope": "file/link and HTTP availability only; no UI or performance pass"
+}

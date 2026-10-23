@@ -1,0 +1,43 @@
+{
+  "asset": "canoe",
+  "status": "local-decimation-trial-not-runtime-approved",
+  "blenderVersion": "5.2.1 LTS",
+  "sourceSha256": "d76f1bf7b807e763cbd4b7c0fd42496253b4c9d66a9b25bcb2b1299165876d21",
+  "outputSha256": "0d44028daed551f50391c476e435c5925889d632de26c6aef3f431e76ef3910f",
+  "trianglesBefore": 287052,
+  "targetTriangles": 12000,
+  "trianglesAfter": 12000,
+  "textures": [
+    {
+      "name": "Image_0",
+      "before": [
+        2048,
+        2048
+      ],
+      "after": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Image_1",
+      "before": [
+        2048,
+        2048
+      ],
+      "after": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "bytesBefore": 17276320,
+  "bytesAfter": 2950080,
+  "materialEdits": false,
+  "uvRebake": false,
+  "rigged": false,
+  "sourcePreserved": true,
+  "runtimeBrowserVerified": false,
+  "visualStatus": "rejected",
+  "rejectionEvidence": "../../visual-review.md"
+}

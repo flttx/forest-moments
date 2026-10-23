@@ -1,0 +1,14 @@
+{
+  "asset": "workshop",
+  "source": "structure-v1.blend",
+  "output": "assets/lux3d/round-01/workshop/structure-v2.glb",
+  "outputSha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+  "changes": [
+    "Recess plaster backing behind intact original wall to avoid rectangular overlay"
+  ],
+  "decimationApplied": false,
+  "characterModified": false,
+  "paidApiCalls": 0,
+  "status": "candidate; visual review pending",
+  "browserVerified": false
+}

@@ -1,0 +1,443 @@
+{
+  "date": "2026-10-23T09:26:15.457Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "four assets and real idle clip loaded",
+      "data": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.23759999999403952
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2221355,
+        "calls": 68
+      }
+    },
+    {
+      "name": "walk then idle transition",
+      "data": {
+        "position": [
+          0,
+          0,
+          0.8423799999967215
+        ],
+        "motion": "walk",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "walk",
+          "time": 0.7657999999970194
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2221447,
+        "calls": 70
+      }
+    },
+    {
+      "name": "run then idle transition",
+      "data": {
+        "position": [
+          0,
+          0,
+          2.3092960000157357
+        ],
+        "motion": "run",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "run",
+          "time": 0.33320000000298017
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2221639,
+        "calls": 75
+      }
+    },
+    {
+      "name": "blur clears movement",
+      "data": {
+        "position": [
+          0,
+          0,
+          3.7215200000065574
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.3665999999940396
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2221755,
+        "calls": 79
+      }
+    },
+    {
+      "name": "focused input blocks game movement",
+      "data": {
+        "position": [
+          0,
+          0,
+          3.7215200000065574
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.6149999999999999
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2221755,
+        "calls": 79
+      }
+    },
+    {
+      "name": "workshop blocks movement and returns idle",
+      "data": {
+        "position": [
+          -8.059436000009176,
+          0,
+          5.466339999960661
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 1.066399999991059
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2220935,
+        "calls": 64
+      }
+    },
+    {
+      "name": "pond blocks entry",
+      "data": {
+        "position": [
+          1.6416400000000007,
+          0,
+          -5.040464000030158
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 1.0832000000029798
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2501084,
+        "calls": 73
+      }
+    },
+    {
+      "name": "dock deck supports feet",
+      "data": {
+        "position": [
+          10.36789599996328,
+          0.12,
+          -8.017592000011797
+        ],
+        "motion": "run",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "run",
+          "time": 0.23340008345246135
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": []
+        },
+        "triangles": 2217314,
+        "calls": 71
+      }
+    },
+    {
+      "name": "seedling interaction persists after reload",
+      "data": {
+        "saved": true
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "headless-spawn.png",
+    "headless-walk.png",
+    "headless-run.png",
+    "headless-workshop-collision.png",
+    "headless-pond-collision.png",
+    "headless-dock.png",
+    "headless-seedling.png"
+  ],
+  "status": "PASS: scoped runtime smoke checks; not complete visual or gameplay acceptance",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/155.0.4283.62",
+    "revision": "@aa3a7406ba8c53a83536df539f07124d73c899bd",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+    "jsVersion": "15.5.9.7"
+  },
+  "webgl": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002582) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "drawingBuffer": [
+      1440,
+      900
+    ]
+  },
+  "cadence": {
+    "durationMs": 30015.9,
+    "frames": 1801,
+    "meanFrameMs": 16.66624097723487,
+    "meanFps": 60.00153252109715,
+    "p95FrameMs": 16.799999999999272,
+    "maxFrameMs": 16.900000000001455,
+    "visibility": "visible"
+  }
+}

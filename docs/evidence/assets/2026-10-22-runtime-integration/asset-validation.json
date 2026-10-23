@@ -1,0 +1,341 @@
+{
+  "assets": [
+    {
+      "asset": "raccoon",
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "sourceRuntimeDistIdentical": true,
+      "version": 2,
+      "meshes": 1,
+      "vertices": 248958,
+      "triangles": 290520,
+      "materials": 6,
+      "skins": 1,
+      "animations": 19,
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 4761156
+        }
+      ],
+      "extensionsRequired": [],
+      "clips": [
+        "bench_ready",
+        "bench_sit_down",
+        "bench_sit_idle",
+        "bench_stand_up",
+        "fish_cast",
+        "fish_hold",
+        "fish_land",
+        "fish_reel",
+        "idle",
+        "interact",
+        "paddle",
+        "run",
+        "sit_down_floor_hug",
+        "sit_down_floor_idle",
+        "sit_floor_hug",
+        "sit_floor_idle",
+        "stand_up_floor_hug",
+        "stand_up_floor_idle",
+        "walk"
+      ]
+    },
+    {
+      "asset": "workshop",
+      "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+      "sourceRuntimeDistIdentical": true,
+      "version": 2,
+      "meshes": 4,
+      "vertices": 284531,
+      "triangles": 283794,
+      "materials": 3,
+      "skins": 0,
+      "animations": 0,
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 4787020
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 1593536
+        }
+      ],
+      "extensionsRequired": []
+    },
+    {
+      "asset": "lookout",
+      "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+      "sourceRuntimeDistIdentical": true,
+      "version": 2,
+      "meshes": 4,
+      "vertices": 230676,
+      "triangles": 281574,
+      "materials": 2,
+      "skins": 0,
+      "animations": 0,
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 4362840
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 2178712
+        }
+      ],
+      "extensionsRequired": []
+    },
+    {
+      "asset": "canoe",
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "sourceRuntimeDistIdentical": true,
+      "version": 2,
+      "meshes": 4,
+      "vertices": 253645,
+      "triangles": 296122,
+      "materials": 3,
+      "skins": 0,
+      "animations": 0,
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 4005008
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "format": "PNG",
+          "bytes": 1914628
+        }
+      ],
+      "extensionsRequired": []
+    }
+  ],
+  "images": [
+    {
+      "file": "before-waterline/headless-pond-collision.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "3933a276a9928c6df02a261254e187e48d5bbd9159576c175b2938a183dfcee7"
+    },
+    {
+      "file": "before-waterline/headless-run.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "215175359a26bea58ed1a32ecb91857d659487103bf2765138cd948c27115b21"
+    },
+    {
+      "file": "before-waterline/headless-spawn.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "35cd9a82ab2222c815a6662ea10b5f2752ad54209c02c5c90d9ebee98c142193"
+    },
+    {
+      "file": "before-waterline/headless-walk.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "8def968d1ff5a1e55501416a25b44efcc4080c6e15a6660e6e20b3b59fe95f82"
+    },
+    {
+      "file": "before-waterline/headless-workshop-collision.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "cc4bcc73a97378b4caca7b99dd385ad7998b544e601a92ade6b5114ff3203d61"
+    },
+    {
+      "file": "browser-initial.png",
+      "size": [
+        1906,
+        1025
+      ],
+      "sha256": "f2dfc54fd23912ef662ff3e5f19d05bd9e4e56b46f2e81f6ff9010a7724fa43f"
+    },
+    {
+      "file": "canoe-assembly/paddle-000.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "5c358928cf4afce06fda15b8bb2f079a0fad88b67194a5cf0dc1392f1311c207"
+    },
+    {
+      "file": "canoe-assembly/paddle-054.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "7ff5c3d3a236f0cc539d73e1ce0ebb1318c444686281e21a9133c8b803485b52"
+    },
+    {
+      "file": "canoe-assembly/paddle-108.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "9d4febfbfde269f9ab7b593404e178ae4842cefb13df5067db3ca6f2fde1efc5"
+    },
+    {
+      "file": "canoe-assembly/paddle-162.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "886536ae24e3e3ebc279ac35e473485a418d7d689f275cd08d29b00953fbcf1e"
+    },
+    {
+      "file": "canoe-assembly/paddle-216.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "7736f1401ac8c792aa94245ab7d0df560e6365549e94315599456858809f8ad2"
+    },
+    {
+      "file": "canoe-assembly/side.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "986d6a5cb0d28bae7f1c556988516e96d3b6a43ff1c4f9782014eb931fffaa00"
+    },
+    {
+      "file": "canoe-assembly-v2/paddle-000.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "d0401355c00002f8194a1b698bd40778726c5826990aa648eaf41f4b47550854"
+    },
+    {
+      "file": "canoe-assembly-v2/paddle-054.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "d53f661a15363b51ada25f59be8b6c1e21fbc0355d428a3a8c4adc8f8aefd594"
+    },
+    {
+      "file": "canoe-assembly-v2/paddle-108.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "1f47a9b806b79d5ab0628cb47308a2837d87099a42816c3f722f7bdb0a8c463f"
+    },
+    {
+      "file": "canoe-assembly-v2/paddle-162.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "aa9596c6a2dd138e791ebf749b77ba648a97dbd808796a78a713de730ef964e8"
+    },
+    {
+      "file": "canoe-assembly-v2/paddle-216.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "97e9a18701dee71cbaf03c97325336f815097d0e0c70778b4cbf2e4359ab8649"
+    },
+    {
+      "file": "canoe-assembly-v2/side.png",
+      "size": [
+        1100,
+        900
+      ],
+      "sha256": "339dbc21a83c9d706d3ddcd0864604c5f94dafc625cc195ee562e9307295fb68"
+    },
+    {
+      "file": "headless-dock.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "14077012c46b2a3bbc4978386243beca82672700ba04074b7337bd16dd3e16cc"
+    },
+    {
+      "file": "headless-failure.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "82bb17a4dc067f6fca02dcddce9ee4f3b9c56a0715ec2818754a3ece08972fc9"
+    },
+    {
+      "file": "headless-pond-collision.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "e049b4a3e1cf15bb95ed602d03ace00560624a85086140b04546dad5ad6b889b"
+    },
+    {
+      "file": "headless-run.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c3ef238d79001c28a62cf1245f0652a176147bd2a2dedac45b5b318dc5d8e361"
+    },
+    {
+      "file": "headless-seedling.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "d64e32cb8fba9dbf0e5f32c4d643bdcd7f7c17a49efdab407ef83b0f9885a92a"
+    },
+    {
+      "file": "headless-spawn.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c9e3659ceaddf68145c0ec53352b7c2c10fdbce31bc6d2150cc854ca04f7d824"
+    },
+    {
+      "file": "headless-walk.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1c635e3ce07834aeea51058bf468b97dd05b0c86dceecfff927da397ef94acc7"
+    },
+    {
+      "file": "headless-workshop-collision.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "4f14710f09e6c2f9f20d84c3692c5d2ca875271e757cf5b8e18bf65097bf51a3"
+    }
+  ],
+  "bytes": 78527500,
+  "sourceMeshWeightsClipsModified": false,
+  "paidCalls": 0,
+  "deployed": false
+}

@@ -1,0 +1,124 @@
+{
+  "source": "rig-mixamo-v3.glb",
+  "output": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v5.glb",
+  "outputSha256": "86a66b899db48d9141adc432384063d9bb0250a26b391203925342e14ec3bd8b",
+  "preservedTriangles": 290520,
+  "sourceVertices": 247308,
+  "outputVertices": 247634,
+  "tailOwnedVertices": 54161,
+  "tailVerticesWithLegWeights": 0,
+  "tailRestChainNormalized": [
+    [
+      0,
+      0.07,
+      1.47
+    ],
+    [
+      -0.04,
+      0.22,
+      1.25
+    ],
+    [
+      -0.12,
+      0.36,
+      1.02
+    ],
+    [
+      -0.25,
+      0.47,
+      0.77
+    ],
+    [
+      -0.34,
+      0.53,
+      0.49
+    ],
+    [
+      -0.38,
+      0.56,
+      0.2
+    ]
+  ],
+  "adaptedTailTracks": [
+    {
+      "clip": "bench_ready",
+      "maxRootLiftDegrees": 9.0
+    },
+    {
+      "clip": "bench_sit_down",
+      "maxRootLiftDegrees": 48.0
+    },
+    {
+      "clip": "bench_sit_idle",
+      "maxRootLiftDegrees": 48.0
+    },
+    {
+      "clip": "bench_stand_up",
+      "maxRootLiftDegrees": 49.5
+    },
+    {
+      "clip": "fish_cast",
+      "maxRootLiftDegrees": 31.5
+    },
+    {
+      "clip": "fish_hold",
+      "maxRootLiftDegrees": 10.499999999999998
+    },
+    {
+      "clip": "fish_land",
+      "maxRootLiftDegrees": 24.0
+    },
+    {
+      "clip": "fish_reel",
+      "maxRootLiftDegrees": 20.999999999999996
+    },
+    {
+      "clip": "idle",
+      "maxRootLiftDegrees": 13.5
+    },
+    {
+      "clip": "interact",
+      "maxRootLiftDegrees": 49.5
+    },
+    {
+      "clip": "paddle",
+      "maxRootLiftDegrees": 0.0
+    },
+    {
+      "clip": "run",
+      "maxRootLiftDegrees": 14.999999999999998
+    },
+    {
+      "clip": "sit_down_floor_hug",
+      "maxRootLiftDegrees": 50.99999999999999
+    },
+    {
+      "clip": "sit_down_floor_idle",
+      "maxRootLiftDegrees": 61.49999999999999
+    },
+    {
+      "clip": "sit_floor_hug",
+      "maxRootLiftDegrees": 50.99999999999999
+    },
+    {
+      "clip": "sit_floor_idle",
+      "maxRootLiftDegrees": 61.49999999999999
+    },
+    {
+      "clip": "stand_up_floor_hug",
+      "maxRootLiftDegrees": 50.99999999999999
+    },
+    {
+      "clip": "stand_up_floor_idle",
+      "maxRootLiftDegrees": 61.49999999999999
+    },
+    {
+      "clip": "walk",
+      "maxRootLiftDegrees": 14.999999999999998
+    }
+  ],
+  "tailMotion": "rigid chain clearance candidate; spring damping not yet integrated",
+  "method": "Duplicate tail/body seam vertices without deleting source faces, reweight tail to independent chain",
+  "status": "candidate; semantic seam and seated clearance awaiting visual review",
+  "paidApiCalls": 0
+}

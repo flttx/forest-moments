@@ -1,0 +1,24 @@
+{
+  "asset": "canoe",
+  "source": "assets/lux3d/round-01/canoe/output-1.glb",
+  "sourceSha256": "d76f1bf7b807e763cbd4b7c0fd42496253b4c9d66a9b25bcb2b1299165876d21",
+  "output": "assets/lux3d/round-01/canoe/structure-v1.glb",
+  "outputSha256": "8b442f9fe290767fe1abc5a2edb49a1b44fa156776898db39b66413e19507ee5",
+  "importedOriginalTriangles": 287052,
+  "changes": [
+    {
+      "operation": "local underside recess backing",
+      "samplePitch": 0.035,
+      "recessThreshold": 0.06,
+      "selectedSamples": 264,
+      "addedQuads": 401
+    },
+    "Separate shaft and blade meshes for a resting paddle; grip alignment awaits gameplay integration"
+  ],
+  "decimationApplied": false,
+  "characterModified": false,
+  "paidApiCalls": 0,
+  "originalMeshCoordinatesUnchanged": true,
+  "status": "candidate; exported GLB visual review pending",
+  "browserVerified": false
+}

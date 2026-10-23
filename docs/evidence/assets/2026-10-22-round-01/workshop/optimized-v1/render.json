@@ -1,0 +1,42 @@
+{
+  "asset": "workshop",
+  "blenderVersion": "5.2.1 LTS",
+  "source": "assets/lux3d/round-01/workshop/optimized-v1.glb",
+  "sourceSha256": "032f6325672b26c4cb8cea188ef7840396f061dc1f7c5ea265fef6c4a8126dc2",
+  "meshObjects": 1,
+  "renderEngine": "CYCLES",
+  "resolution": [
+    900,
+    900
+  ],
+  "views": [
+    "front",
+    "three-quarter",
+    "side",
+    "back",
+    "left",
+    "elevated"
+  ],
+  "previewScaleOnly": 0.49798812656292707,
+  "sourceGeometryModified": false,
+  "runtimeBrowserVerified": false,
+  "framingBoundsBlenderXYZ": {
+    "min": [
+      -3.0326688289642334,
+      -2.577364206314087,
+      -2.3027565479278564
+    ],
+    "max": [
+      2.9915711879730225,
+      2.5753700733184814,
+      2.279291868209839
+    ],
+    "size": [
+      6.024240016937256,
+      5.152734279632568,
+      4.582048416137695
+    ]
+  },
+  "framingReference": "variant-own-bounds",
+  "orthographicScale": 4.2
+}

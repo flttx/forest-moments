@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>森林拾光 · 原始划桨动作复核</title>
+<style>body{margin:0;background:#eee9dd;color:#303c32;font:14px system-ui;height:100vh;display:flex;flex-direction:column}header{padding:12px 18px;background:#faf7ef;display:flex;gap:14px;align-items:center;flex-wrap:wrap}h1{font-size:18px;margin:0}button,select{padding:7px}#time{width:250px}#status{margin:8px 18px}canvas{display:block;width:100%;flex:1;min-height:0}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #517247}</style></head>
+<body><header><h1>原始动作与原桨 · 配合复核</h1><button id="play" disabled>播放</button>
+<label>动作时间 <input id="time" type="range" min="0" max="7.2" step="0.008333333" value="0" disabled></label><output id="time-value">0.00 s</output>
+<label>视角 <select id="view"><option value="right">右侧</option><option value="left">左侧</option><option value="front">正面</option><option value="close">握桨近景</option><option value="stern">后舱近景</option></select></label>
+<label><input id="water" type="checkbox">显示水位</label></header>
+<label style="margin:4px 18px"><input id="actor" type="checkbox" checked>显示角色与桨</label>
+<label style="margin:8px 18px;display:block">布局 <select id="layout"><option value="center">中央座位（原动作）</option><option value="baseline">原中间椅子（落座与穿模待修）</option><option value="stern">后移低座试稿（未采用）</option><option value="compact">缩船试稿（已否决）</option><option value="candidate">高座台试稿（未采用）</option></select></label>
+<p id="status" role="status">正在加载浣熊、木船和原始划桨动作。</p>
+<canvas id="viewport" aria-label="可拖动旋转的划桨复核场景"></canvas><script type="module" src="./paddle-review.mjs"></script></body></html>

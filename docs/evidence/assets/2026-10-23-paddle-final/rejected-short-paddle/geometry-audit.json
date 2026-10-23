@@ -1,0 +1,3236 @@
+{
+  "sampleRate": 30,
+  "sampleCount": 217,
+  "boneOverrides": false,
+  "frames": [
+    {
+      "frame": 0,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 25
+      },
+      "handContactTriangles": {
+        "Right": 342,
+        "Left": 303
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.20459666848182678
+    },
+    {
+      "frame": 1,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 12
+      },
+      "handContactTriangles": {
+        "Right": 360,
+        "Left": 322
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.24472734332084656
+    },
+    {
+      "frame": 2,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 7
+      },
+      "handContactTriangles": {
+        "Right": 377,
+        "Left": 323
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.2906930446624756
+    },
+    {
+      "frame": 3,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Right": 381,
+        "Left": 320
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.3398706614971161
+    },
+    {
+      "frame": 4,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Right": 396,
+        "Left": 335
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.38510286808013916
+    },
+    {
+      "frame": 5,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 400,
+        "Left": 320
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4205586612224579
+    },
+    {
+      "frame": 6,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 376,
+        "Left": 324
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.45102658867836
+    },
+    {
+      "frame": 7,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 357,
+        "Left": 327
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.47445905208587646
+    },
+    {
+      "frame": 8,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 346,
+        "Left": 331
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4889807105064392
+    },
+    {
+      "frame": 9,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 321,
+        "Left": 331
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4929172396659851
+    },
+    {
+      "frame": 10,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 311,
+        "Left": 336
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4848833978176117
+    },
+    {
+      "frame": 11,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Right": 321,
+        "Left": 329
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4591330885887146
+    },
+    {
+      "frame": 12,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Right": 290,
+        "Left": 342
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4159494638442993
+    },
+    {
+      "frame": 13,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine": 4,
+        "mixamorig:RightForeArm": 58,
+        "mixamorig:RightArm": 4,
+        "mixamorig:Spine1": 57,
+        "mixamorig:LeftForeArm": 5
+      },
+      "handContactTriangles": {
+        "Right": 348,
+        "Left": 323
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4466060996055603
+    },
+    {
+      "frame": 14,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 388,
+        "mixamorig:RightArm": 127,
+        "mixamorig:Spine1": 63,
+        "mixamorig:Spine": 14,
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Right": 50,
+        "Left": 302
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.47724249958992004
+    },
+    {
+      "frame": 15,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightArm": 298,
+        "mixamorig:RightForeArm": 238,
+        "mixamorig:Spine1": 6,
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Left": 294
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5052423477172852
+    },
+    {
+      "frame": 16,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 18,
+        "mixamorig:RightArm": 88,
+        "mixamorig:LeftForeArm": 4
+      },
+      "handContactTriangles": {
+        "Left": 295
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5288141965866089
+    },
+    {
+      "frame": 17,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Left": 255
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5466744303703308
+    },
+    {
+      "frame": 18,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 11
+      },
+      "handContactTriangles": {
+        "Left": 215
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5593932867050171
+    },
+    {
+      "frame": 19,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 14
+      },
+      "handContactTriangles": {
+        "Left": 181
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5685317516326904
+    },
+    {
+      "frame": 20,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 16
+      },
+      "handContactTriangles": {
+        "Left": 166
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5762530565261841
+    },
+    {
+      "frame": 21,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 7
+      },
+      "handContactTriangles": {
+        "Left": 160
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.585913360118866
+    },
+    {
+      "frame": 22,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 160
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5995299220085144
+    },
+    {
+      "frame": 23,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 162
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6166507005691528
+    },
+    {
+      "frame": 24,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 152
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6348407864570618
+    },
+    {
+      "frame": 25,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 146
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6511180400848389
+    },
+    {
+      "frame": 26,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 153
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6633684039115906
+    },
+    {
+      "frame": 27,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 149
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6712321639060974
+    },
+    {
+      "frame": 28,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 157
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6776850819587708
+    },
+    {
+      "frame": 29,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 153
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6834557056427002
+    },
+    {
+      "frame": 30,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 136
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6890308260917664
+    },
+    {
+      "frame": 31,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 123
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.695267379283905
+    },
+    {
+      "frame": 32,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 114
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.702199399471283
+    },
+    {
+      "frame": 33,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7093554735183716
+    },
+    {
+      "frame": 34,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7160035967826843
+    },
+    {
+      "frame": 35,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 112
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7222920060157776
+    },
+    {
+      "frame": 36,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 118
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7284819483757019
+    },
+    {
+      "frame": 37,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 118
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7346735596656799
+    },
+    {
+      "frame": 38,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 119
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.741148054599762
+    },
+    {
+      "frame": 39,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 123
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.74909508228302
+    },
+    {
+      "frame": 40,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 151
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7562133073806763
+    },
+    {
+      "frame": 41,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 158
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.759171724319458
+    },
+    {
+      "frame": 42,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 157
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.746770441532135
+    },
+    {
+      "frame": 43,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 167
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.717700183391571
+    },
+    {
+      "frame": 44,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 6
+      },
+      "handContactTriangles": {
+        "Left": 197
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6775239706039429
+    },
+    {
+      "frame": 45,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 229
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6315411329269409
+    },
+    {
+      "frame": 46,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 19
+      },
+      "handContactTriangles": {
+        "Left": 300
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5858871936798096
+    },
+    {
+      "frame": 47,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 33
+      },
+      "handContactTriangles": {
+        "Left": 393
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.544550895690918
+    },
+    {
+      "frame": 48,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 28
+      },
+      "handContactTriangles": {
+        "Left": 474
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5117552280426025
+    },
+    {
+      "frame": 49,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 18
+      },
+      "handContactTriangles": {
+        "Left": 482
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4885900616645813
+    },
+    {
+      "frame": 50,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 18
+      },
+      "handContactTriangles": {
+        "Left": 474
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4744112193584442
+    },
+    {
+      "frame": 51,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 20
+      },
+      "handContactTriangles": {
+        "Left": 460
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.46678340435028076
+    },
+    {
+      "frame": 52,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 19
+      },
+      "handContactTriangles": {
+        "Left": 456
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4624468982219696
+    },
+    {
+      "frame": 53,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21
+      },
+      "handContactTriangles": {
+        "Right": 147,
+        "Left": 472
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4578373432159424
+    },
+    {
+      "frame": 54,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 20,
+        "mixamorig:LeftForeArm": 21
+      },
+      "handContactTriangles": {
+        "Right": 404,
+        "Left": 451
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.44962799549102783
+    },
+    {
+      "frame": 55,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 9,
+        "mixamorig:LeftForeArm": 22
+      },
+      "handContactTriangles": {
+        "Left": 438,
+        "Right": 284
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.43535950779914856
+    },
+    {
+      "frame": 56,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 26,
+        "mixamorig:RightForeArm": 10
+      },
+      "handContactTriangles": {
+        "Left": 438,
+        "Right": 233
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.3822579085826874
+    },
+    {
+      "frame": 57,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 30,
+        "mixamorig:RightForeArm": 13
+      },
+      "handContactTriangles": {
+        "Left": 447,
+        "Right": 220
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.3338845670223236
+    },
+    {
+      "frame": 58,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 31,
+        "mixamorig:RightForeArm": 6
+      },
+      "handContactTriangles": {
+        "Left": 422,
+        "Right": 228
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.28962114453315735
+    },
+    {
+      "frame": 59,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 31,
+        "mixamorig:RightForeArm": 7
+      },
+      "handContactTriangles": {
+        "Left": 402,
+        "Right": 248
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.24885621666908264
+    },
+    {
+      "frame": 60,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 23,
+        "mixamorig:RightForeArm": 8
+      },
+      "handContactTriangles": {
+        "Left": 410,
+        "Right": 260
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.21188659965991974
+    },
+    {
+      "frame": 61,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 22,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 418,
+        "Right": 256
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.1777414232492447
+    },
+    {
+      "frame": 62,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 22,
+        "mixamorig:RightForeArm": 8
+      },
+      "handContactTriangles": {
+        "Left": 431,
+        "Right": 265
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.13416758179664612
+    },
+    {
+      "frame": 63,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 429,
+        "Right": 243
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.08800435066223145
+    },
+    {
+      "frame": 64,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21,
+        "mixamorig:RightForeArm": 8
+      },
+      "handContactTriangles": {
+        "Left": 432,
+        "Right": 250
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.045983873307704926
+    },
+    {
+      "frame": 65,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21,
+        "mixamorig:RightForeArm": 10
+      },
+      "handContactTriangles": {
+        "Left": 432,
+        "Right": 237
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.009060658514499664
+    },
+    {
+      "frame": 66,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21,
+        "mixamorig:RightForeArm": 10
+      },
+      "handContactTriangles": {
+        "Left": 432,
+        "Right": 236
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.02198394387960434
+    },
+    {
+      "frame": 67,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21,
+        "mixamorig:RightForeArm": 14
+      },
+      "handContactTriangles": {
+        "Left": 434,
+        "Right": 238
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.05042515695095062
+    },
+    {
+      "frame": 68,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 24,
+        "mixamorig:RightForeArm": 12
+      },
+      "handContactTriangles": {
+        "Left": 434,
+        "Right": 239
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.07660765200853348
+    },
+    {
+      "frame": 69,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 23,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 435,
+        "Right": 229
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.10043088346719742
+    },
+    {
+      "frame": 70,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 25,
+        "mixamorig:RightForeArm": 10
+      },
+      "handContactTriangles": {
+        "Left": 425,
+        "Right": 229
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.12286568433046341
+    },
+    {
+      "frame": 71,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 26,
+        "mixamorig:RightForeArm": 10
+      },
+      "handContactTriangles": {
+        "Left": 418,
+        "Right": 230
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.14405646920204163
+    },
+    {
+      "frame": 72,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 26,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 418,
+        "Right": 231
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.16475562751293182
+    },
+    {
+      "frame": 73,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 26,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 418,
+        "Right": 231
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.18494632840156555
+    },
+    {
+      "frame": 74,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 26,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 432,
+        "Right": 230
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.20484882593154907
+    },
+    {
+      "frame": 75,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 23,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 433,
+        "Right": 236
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.22416459023952484
+    },
+    {
+      "frame": 76,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 22,
+        "mixamorig:RightForeArm": 9
+      },
+      "handContactTriangles": {
+        "Left": 444,
+        "Right": 241
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.23946529626846313
+    },
+    {
+      "frame": 77,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 25,
+        "mixamorig:RightForeArm": 12
+      },
+      "handContactTriangles": {
+        "Left": 439,
+        "Right": 236
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.2565920948982239
+    },
+    {
+      "frame": 78,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 11,
+        "mixamorig:LeftForeArm": 25
+      },
+      "handContactTriangles": {
+        "Right": 233,
+        "Left": 437
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.2747510075569153
+    },
+    {
+      "frame": 79,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 11,
+        "mixamorig:LeftForeArm": 25
+      },
+      "handContactTriangles": {
+        "Right": 225,
+        "Left": 439
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.29363375902175903
+    },
+    {
+      "frame": 80,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 13,
+        "mixamorig:LeftForeArm": 26
+      },
+      "handContactTriangles": {
+        "Right": 221,
+        "Left": 434
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.31277626752853394
+    },
+    {
+      "frame": 81,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 12,
+        "mixamorig:LeftForeArm": 26
+      },
+      "handContactTriangles": {
+        "Right": 229,
+        "Left": 441
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3326934576034546
+    },
+    {
+      "frame": 82,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 12,
+        "mixamorig:LeftForeArm": 27
+      },
+      "handContactTriangles": {
+        "Right": 234,
+        "Left": 443
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3511510491371155
+    },
+    {
+      "frame": 83,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 10,
+        "mixamorig:LeftForeArm": 26
+      },
+      "handContactTriangles": {
+        "Right": 229,
+        "Left": 447
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.36713263392448425
+    },
+    {
+      "frame": 84,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 11,
+        "mixamorig:LeftForeArm": 26
+      },
+      "handContactTriangles": {
+        "Right": 230,
+        "Left": 429
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3797741234302521
+    },
+    {
+      "frame": 85,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 9,
+        "mixamorig:LeftForeArm": 26
+      },
+      "handContactTriangles": {
+        "Right": 236,
+        "Left": 430
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3905535638332367
+    },
+    {
+      "frame": 86,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 10,
+        "mixamorig:LeftForeArm": 25
+      },
+      "handContactTriangles": {
+        "Right": 245,
+        "Left": 420
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3969517946243286
+    },
+    {
+      "frame": 87,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 10,
+        "mixamorig:LeftForeArm": 24
+      },
+      "handContactTriangles": {
+        "Right": 238,
+        "Left": 413
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3982173204421997
+    },
+    {
+      "frame": 88,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 10,
+        "mixamorig:LeftForeArm": 23
+      },
+      "handContactTriangles": {
+        "Right": 245,
+        "Left": 406
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.39461374282836914
+    },
+    {
+      "frame": 89,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 16,
+        "mixamorig:LeftForeArm": 22
+      },
+      "handContactTriangles": {
+        "Right": 242,
+        "Left": 403
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3867627680301666
+    },
+    {
+      "frame": 90,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 18,
+        "mixamorig:RightForeArm": 18
+      },
+      "handContactTriangles": {
+        "Right": 228,
+        "Left": 403
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3758103847503662
+    },
+    {
+      "frame": 91,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 17,
+        "mixamorig:RightForeArm": 22
+      },
+      "handContactTriangles": {
+        "Right": 225,
+        "Left": 392
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3604786992073059
+    },
+    {
+      "frame": 92,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 16,
+        "mixamorig:RightForeArm": 24
+      },
+      "handContactTriangles": {
+        "Right": 238,
+        "Left": 385
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.33755624294281006
+    },
+    {
+      "frame": 93,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 15,
+        "mixamorig:RightForeArm": 25
+      },
+      "handContactTriangles": {
+        "Right": 256,
+        "Left": 385
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.3070121705532074
+    },
+    {
+      "frame": 94,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 25,
+        "mixamorig:RightForeArm": 30
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 384
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.2703007161617279
+    },
+    {
+      "frame": 95,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 30,
+        "mixamorig:Hips": 5,
+        "mixamorig:RightForeArm": 35
+      },
+      "handContactTriangles": {
+        "Left": 393,
+        "Right": 299
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.2295294553041458
+    },
+    {
+      "frame": 96,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 44,
+        "mixamorig:Hips": 5,
+        "mixamorig:RightForeArm": 35
+      },
+      "handContactTriangles": {
+        "Left": 392,
+        "Right": 297
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.1859557032585144
+    },
+    {
+      "frame": 97,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 50,
+        "mixamorig:Hips": 10,
+        "mixamorig:RightForeArm": 28
+      },
+      "handContactTriangles": {
+        "Left": 398,
+        "Right": 316
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.14026400446891785
+    },
+    {
+      "frame": 98,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 58,
+        "mixamorig:Hips": 9,
+        "mixamorig:RightForeArm": 28
+      },
+      "handContactTriangles": {
+        "Left": 395,
+        "Right": 323
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.09512323141098022
+    },
+    {
+      "frame": 99,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 10,
+        "mixamorig:LeftForeArm": 56,
+        "mixamorig:RightForeArm": 31
+      },
+      "handContactTriangles": {
+        "Left": 400,
+        "Right": 333
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.04876125603914261
+    },
+    {
+      "frame": 100,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 9,
+        "mixamorig:LeftForeArm": 58,
+        "mixamorig:RightForeArm": 30
+      },
+      "handContactTriangles": {
+        "Left": 408,
+        "Right": 335
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.0022788234055042267
+    },
+    {
+      "frame": 101,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 9,
+        "mixamorig:LeftForeArm": 64,
+        "mixamorig:RightForeArm": 28
+      },
+      "handContactTriangles": {
+        "Left": 419,
+        "Right": 324
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.04457535594701767
+    },
+    {
+      "frame": 102,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 12,
+        "mixamorig:LeftForeArm": 47,
+        "mixamorig:RightForeArm": 26
+      },
+      "handContactTriangles": {
+        "Left": 403,
+        "Right": 330
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.09442441165447235
+    },
+    {
+      "frame": 103,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 13,
+        "mixamorig:LeftForeArm": 51,
+        "mixamorig:RightForeArm": 29
+      },
+      "handContactTriangles": {
+        "Left": 395,
+        "Right": 323
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.14495721459388733
+    },
+    {
+      "frame": 104,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 20,
+        "mixamorig:LeftForeArm": 56,
+        "mixamorig:RightForeArm": 29
+      },
+      "handContactTriangles": {
+        "Left": 388,
+        "Right": 309
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.19358478486537933
+    },
+    {
+      "frame": 105,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 49,
+        "mixamorig:LeftForeArm": 71,
+        "mixamorig:RightForeArm": 28
+      },
+      "handContactTriangles": {
+        "Right": 294,
+        "Left": 386
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.24209941923618317
+    },
+    {
+      "frame": 106,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 161,
+        "mixamorig:LeftForeArm": 86,
+        "mixamorig:RightForeArm": 30
+      },
+      "handContactTriangles": {
+        "Right": 287,
+        "Left": 385
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.28956684470176697
+    },
+    {
+      "frame": 107,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 232,
+        "mixamorig:LeftForeArm": 99,
+        "mixamorig:RightForeArm": 31
+      },
+      "handContactTriangles": {
+        "Right": 279,
+        "Left": 382
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.33573612570762634
+    },
+    {
+      "frame": 108,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 369,
+        "mixamorig:LeftForeArm": 86,
+        "mixamorig:RightForeArm": 29
+      },
+      "handContactTriangles": {
+        "Right": 281,
+        "Left": 389
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.37764787673950195
+    },
+    {
+      "frame": 109,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 89,
+        "mixamorig:Hips": 385,
+        "mixamorig:RightForeArm": 27
+      },
+      "handContactTriangles": {
+        "Right": 279,
+        "Left": 387
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4077088534832001
+    },
+    {
+      "frame": 110,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 377,
+        "mixamorig:LeftForeArm": 89,
+        "mixamorig:RightForeArm": 27,
+        "mixamorig:Spine": 2
+      },
+      "handContactTriangles": {
+        "Right": 279,
+        "Left": 382
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4345831871032715
+    },
+    {
+      "frame": 111,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 369,
+        "mixamorig:RightForeArm": 26,
+        "mixamorig:LeftForeArm": 96
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 388
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4591934084892273
+    },
+    {
+      "frame": 112,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 355,
+        "mixamorig:RightForeArm": 26,
+        "mixamorig:LeftForeArm": 87,
+        "mixamorig:Spine": 5
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 391
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.47358956933021545
+    },
+    {
+      "frame": 113,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 378,
+        "mixamorig:RightForeArm": 24,
+        "mixamorig:LeftForeArm": 92,
+        "mixamorig:Spine": 6
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 392
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4787207841873169
+    },
+    {
+      "frame": 114,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 352,
+        "mixamorig:RightForeArm": 24,
+        "mixamorig:LeftForeArm": 87
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 393
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.47643575072288513
+    },
+    {
+      "frame": 115,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 267,
+        "mixamorig:RightForeArm": 24,
+        "mixamorig:LeftForeArm": 90,
+        "mixamorig:Spine": 15
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 400
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.4626440107822418
+    },
+    {
+      "frame": 116,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 103,
+        "mixamorig:LeftForeArm": 90,
+        "mixamorig:Spine": 27,
+        "mixamorig:RightForeArm": 26
+      },
+      "handContactTriangles": {
+        "Right": 276,
+        "Left": 407
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.43408337235450745
+    },
+    {
+      "frame": 117,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 23,
+        "mixamorig:LeftForeArm": 84,
+        "mixamorig:RightForeArm": 24
+      },
+      "handContactTriangles": {
+        "Left": 403,
+        "Right": 278
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.37910905480384827
+    },
+    {
+      "frame": 118,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 15,
+        "mixamorig:LeftForeArm": 80,
+        "mixamorig:RightForeArm": 27
+      },
+      "handContactTriangles": {
+        "Left": 395,
+        "Right": 311
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.2830275893211365
+    },
+    {
+      "frame": 119,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 51,
+        "mixamorig:Hips": 11,
+        "mixamorig:RightForeArm": 25
+      },
+      "handContactTriangles": {
+        "Left": 410,
+        "Right": 345
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.17625229060649872
+    },
+    {
+      "frame": 120,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 38,
+        "mixamorig:Hips": 3,
+        "mixamorig:RightForeArm": 30
+      },
+      "handContactTriangles": {
+        "Left": 394,
+        "Right": 331
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.0823877677321434
+    },
+    {
+      "frame": 121,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 36,
+        "mixamorig:Hips": 2,
+        "mixamorig:RightForeArm": 26
+      },
+      "handContactTriangles": {
+        "Left": 383,
+        "Right": 298
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.02286827564239502
+    },
+    {
+      "frame": 122,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 21,
+        "mixamorig:RightForeArm": 23
+      },
+      "handContactTriangles": {
+        "Left": 375,
+        "Right": 291
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.0013073841109871864
+    },
+    {
+      "frame": 123,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 23,
+        "mixamorig:RightForeArm": 23
+      },
+      "handContactTriangles": {
+        "Left": 379,
+        "Right": 288
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.004394929856061935
+    },
+    {
+      "frame": 124,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 50,
+        "mixamorig:RightForeArm": 18
+      },
+      "handContactTriangles": {
+        "Left": 46,
+        "Right": 300
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.05187477171421051
+    },
+    {
+      "frame": 125,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 189,
+        "mixamorig:RightForeArm": 12
+      },
+      "handContactTriangles": {
+        "Right": 308
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.13295169174671173
+    },
+    {
+      "frame": 126,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 174,
+        "mixamorig:RightForeArm": 16
+      },
+      "handContactTriangles": {
+        "Right": 298
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.24071753025054932
+    },
+    {
+      "frame": 127,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 28,
+        "mixamorig:RightForeArm": 3
+      },
+      "handContactTriangles": {
+        "Right": 270
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.3643435835838318
+    },
+    {
+      "frame": 128,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 4
+      },
+      "handContactTriangles": {
+        "Right": 206
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.48973414301872253
+    },
+    {
+      "frame": 129,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 4
+      },
+      "handContactTriangles": {
+        "Right": 217
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6018570065498352
+    },
+    {
+      "frame": 130,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 215
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6858436465263367
+    },
+    {
+      "frame": 131,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 2
+      },
+      "handContactTriangles": {
+        "Right": 198,
+        "Left": 14
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7276493310928345
+    },
+    {
+      "frame": 132,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 14
+      },
+      "handContactTriangles": {
+        "Left": 161,
+        "Right": 171
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7303081750869751
+    },
+    {
+      "frame": 133,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 23,
+        "mixamorig:LeftForeArm": 85
+      },
+      "handContactTriangles": {
+        "Left": 226,
+        "Right": 166
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7057101130485535
+    },
+    {
+      "frame": 134,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 165,
+        "Right": 143
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6687072515487671
+    },
+    {
+      "frame": 135,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 141
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6338953375816345
+    },
+    {
+      "frame": 136,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 134
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6144508123397827
+    },
+    {
+      "frame": 137,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 126
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6144593954086304
+    },
+    {
+      "frame": 138,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 119
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.614561140537262
+    },
+    {
+      "frame": 139,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 117
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6137797832489014
+    },
+    {
+      "frame": 140,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6130232214927673
+    },
+    {
+      "frame": 141,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 115
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6133955121040344
+    },
+    {
+      "frame": 142,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 112
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6161707043647766
+    },
+    {
+      "frame": 143,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6222503185272217
+    },
+    {
+      "frame": 144,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 110
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6322758197784424
+    },
+    {
+      "frame": 145,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 113
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6464312672615051
+    },
+    {
+      "frame": 146,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 116
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6629698276519775
+    },
+    {
+      "frame": 147,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 120
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6790423393249512
+    },
+    {
+      "frame": 148,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 131
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.692280650138855
+    },
+    {
+      "frame": 149,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 126
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7002803087234497
+    },
+    {
+      "frame": 150,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 119
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.7012944221496582
+    },
+    {
+      "frame": 151,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6916008591651917
+    },
+    {
+      "frame": 152,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 106
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6711740493774414
+    },
+    {
+      "frame": 153,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6406486630439758
+    },
+    {
+      "frame": 154,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 95
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.6011272668838501
+    },
+    {
+      "frame": 155,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 194
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5545294880867004
+    },
+    {
+      "frame": 156,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 246
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.5034984350204468
+    },
+    {
+      "frame": 157,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 217
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.45163726806640625
+    },
+    {
+      "frame": 158,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 238
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.40230023860931396
+    },
+    {
+      "frame": 159,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 252
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.3557494282722473
+    },
+    {
+      "frame": 160,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 272
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.3116583228111267
+    },
+    {
+      "frame": 161,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 78
+      },
+      "handContactTriangles": {
+        "Left": 23,
+        "Right": 278
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.27345162630081177
+    },
+    {
+      "frame": 162,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 47
+      },
+      "handContactTriangles": {
+        "Left": 233,
+        "Right": 272
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.24248743057250977
+    },
+    {
+      "frame": 163,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 29
+      },
+      "handContactTriangles": {
+        "Left": 449,
+        "Right": 269
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.23869241774082184
+    },
+    {
+      "frame": 164,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 38
+      },
+      "handContactTriangles": {
+        "Left": 439,
+        "Right": 268
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.20067226886749268
+    },
+    {
+      "frame": 165,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 81
+      },
+      "handContactTriangles": {
+        "Left": 420,
+        "Right": 271
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.1827862411737442
+    },
+    {
+      "frame": 166,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 75
+      },
+      "handContactTriangles": {
+        "Right": 273,
+        "Left": 343
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.1522592157125473
+    },
+    {
+      "frame": 167,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 100
+      },
+      "handContactTriangles": {
+        "Right": 274,
+        "Left": 255
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.11442717909812927
+    },
+    {
+      "frame": 168,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 4,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 4,
+        "mixamorig:LeftForeArm": 81
+      },
+      "handContactTriangles": {
+        "Right": 278,
+        "Left": 163
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.07913082093000412
+    },
+    {
+      "frame": 169,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 22,
+      "paddleOtherBodyContacts": {
+        "mixamorig:RightForeArm": 2,
+        "mixamorig:Head": 22,
+        "mixamorig:LeftForeArm": 23
+      },
+      "handContactTriangles": {
+        "Right": 306,
+        "Left": 166
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.04611733555793762
+    },
+    {
+      "frame": 170,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 23,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 23
+      },
+      "handContactTriangles": {
+        "Right": 282,
+        "Left": 162
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.03916158899664879
+    },
+    {
+      "frame": 171,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 27,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 27,
+        "mixamorig:LeftForeArm": 8
+      },
+      "handContactTriangles": {
+        "Right": 193,
+        "Left": 160
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.03039773553609848
+    },
+    {
+      "frame": 172,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 30,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 30,
+        "mixamorig:LeftForeArm": 16
+      },
+      "handContactTriangles": {
+        "Right": 184,
+        "Left": 133
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.01831524819135666
+    },
+    {
+      "frame": 173,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 28,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 28
+      },
+      "handContactTriangles": {
+        "Right": 179,
+        "Left": 111
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.00551600381731987
+    },
+    {
+      "frame": 174,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 17,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 17
+      },
+      "handContactTriangles": {
+        "Right": 171,
+        "Left": 95
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.0051371753215789795
+    },
+    {
+      "frame": 175,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Right": 143,
+        "Left": 97
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.009733505547046661
+    },
+    {
+      "frame": 176,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 20,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Head": 20
+      },
+      "handContactTriangles": {
+        "Right": 130,
+        "Left": 100
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.009763069450855255
+    },
+    {
+      "frame": 177,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 106,
+        "Right": 148
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.025361672043800354
+    },
+    {
+      "frame": 178,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 104,
+        "Right": 150
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.03566967695951462
+    },
+    {
+      "frame": 179,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 103,
+        "Right": 158
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.04234493523836136
+    },
+    {
+      "frame": 180,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 99,
+        "Right": 158
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.04559364169836044
+    },
+    {
+      "frame": 181,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 97,
+        "Right": 156
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.046097591519355774
+    },
+    {
+      "frame": 182,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 95,
+        "Right": 161
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.04457717388868332
+    },
+    {
+      "frame": 183,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 98,
+        "Right": 159
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.04135993868112564
+    },
+    {
+      "frame": 184,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 95,
+        "Right": 159
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.037279870361089706
+    },
+    {
+      "frame": 185,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 91,
+        "Right": 161
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.032386571168899536
+    },
+    {
+      "frame": 186,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 86,
+        "Right": 157
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.019064895808696747
+    },
+    {
+      "frame": 187,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 81,
+        "Right": 153
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.005569294095039368
+    },
+    {
+      "frame": 188,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 77,
+        "Right": 155
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.007059164345264435
+    },
+    {
+      "frame": 189,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {},
+      "handContactTriangles": {
+        "Left": 77,
+        "Right": 151
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.01822931319475174
+    },
+    {
+      "frame": 190,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 4,
+        "mixamorig:Hips": 4
+      },
+      "handContactTriangles": {
+        "Left": 79,
+        "Right": 156
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.02788739651441574
+    },
+    {
+      "frame": 191,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 9,
+        "mixamorig:Hips": 5
+      },
+      "handContactTriangles": {
+        "Left": 86,
+        "Right": 158
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.036056846380233765
+    },
+    {
+      "frame": 192,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 11,
+        "mixamorig:Hips": 5
+      },
+      "handContactTriangles": {
+        "Left": 91,
+        "Right": 143
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.042886435985565186
+    },
+    {
+      "frame": 193,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 12,
+        "mixamorig:Hips": 4
+      },
+      "handContactTriangles": {
+        "Left": 100,
+        "Right": 146
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.04897104203701019
+    },
+    {
+      "frame": 194,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 12,
+        "mixamorig:Hips": 4
+      },
+      "handContactTriangles": {
+        "Left": 101,
+        "Right": 154
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.04753679037094116
+    },
+    {
+      "frame": 195,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 12,
+        "mixamorig:Hips": 4
+      },
+      "handContactTriangles": {
+        "Left": 116,
+        "Right": 162
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.046451933681964874
+    },
+    {
+      "frame": 196,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 12,
+        "mixamorig:Hips": 4
+      },
+      "handContactTriangles": {
+        "Left": 135,
+        "Right": 167
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.046934641897678375
+    },
+    {
+      "frame": 197,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 12,
+        "mixamorig:Hips": 4
+      },
+      "handContactTriangles": {
+        "Left": 152,
+        "Right": 176
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.03362307697534561
+    },
+    {
+      "frame": 198,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Hips": 4,
+        "mixamorig:LeftForeArm": 12,
+        "mixamorig:Spine1": 48
+      },
+      "handContactTriangles": {
+        "Right": 195,
+        "Left": 165
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.0225767120718956
+    },
+    {
+      "frame": 199,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 10,
+        "mixamorig:Hips": 4,
+        "mixamorig:Spine1": 64
+      },
+      "handContactTriangles": {
+        "Right": 217,
+        "Left": 188
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.0007462501525878906
+    },
+    {
+      "frame": 200,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 74
+      },
+      "handContactTriangles": {
+        "Right": 222,
+        "Left": 190
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.020578771829605103
+    },
+    {
+      "frame": 201,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 92
+      },
+      "handContactTriangles": {
+        "Right": 238,
+        "Left": 196
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.03649231791496277
+    },
+    {
+      "frame": 202,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 99
+      },
+      "handContactTriangles": {
+        "Right": 246,
+        "Left": 190
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.04860810935497284
+    },
+    {
+      "frame": 203,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 99,
+        "mixamorig:LeftForeArm": 21
+      },
+      "handContactTriangles": {
+        "Right": 260,
+        "Left": 187
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.056473374366760254
+    },
+    {
+      "frame": 204,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 94,
+        "mixamorig:LeftForeArm": 47
+      },
+      "handContactTriangles": {
+        "Right": 285,
+        "Left": 187
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.060353681445121765
+    },
+    {
+      "frame": 205,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 93,
+        "mixamorig:LeftForeArm": 83
+      },
+      "handContactTriangles": {
+        "Right": 279,
+        "Left": 211
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.06022973358631134
+    },
+    {
+      "frame": 206,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 90,
+        "mixamorig:LeftForeArm": 83
+      },
+      "handContactTriangles": {
+        "Right": 288,
+        "Left": 224
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.050784632563591
+    },
+    {
+      "frame": 207,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:Spine1": 80,
+        "mixamorig:LeftForeArm": 77
+      },
+      "handContactTriangles": {
+        "Right": 310,
+        "Left": 257
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.03458087146282196
+    },
+    {
+      "frame": 208,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "tail_05": 11,
+        "tail_04": 23,
+        "mixamorig:Spine1": 52,
+        "mixamorig:LeftForeArm": 85
+      },
+      "handContactTriangles": {
+        "Right": 326,
+        "Left": 273
+      },
+      "heldHandContact": true,
+      "bladeMinZ": -0.007923275232315063
+    },
+    {
+      "frame": 209,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "tail_04": 195,
+        "tail_05": 3,
+        "mixamorig:Spine1": 19,
+        "mixamorig:LeftForeArm": 88
+      },
+      "handContactTriangles": {
+        "Right": 340,
+        "Left": 358
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.025390394032001495
+    },
+    {
+      "frame": 210,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "tail_03": 45,
+        "tail_04": 205,
+        "mixamorig:LeftForeArm": 84
+      },
+      "handContactTriangles": {
+        "Right": 345,
+        "Left": 407
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.06294327229261398
+    },
+    {
+      "frame": 211,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "tail_04": 129,
+        "mixamorig:LeftForeArm": 73
+      },
+      "handContactTriangles": {
+        "Right": 346,
+        "Left": 470
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.1018219143152237
+    },
+    {
+      "frame": 212,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 52
+      },
+      "handContactTriangles": {
+        "Right": 352,
+        "Left": 480
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.13785585761070251
+    },
+    {
+      "frame": 213,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 52
+      },
+      "handContactTriangles": {
+        "Right": 346,
+        "Left": 498
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.16765671968460083
+    },
+    {
+      "frame": 214,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 53
+      },
+      "handContactTriangles": {
+        "Right": 342,
+        "Left": 501
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.1889370232820511
+    },
+    {
+      "frame": 215,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 56
+      },
+      "handContactTriangles": {
+        "Right": 349,
+        "Left": 410
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.20053154230117798
+    },
+    {
+      "frame": 216,
+      "bodyContacts": {},
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "paddleOtherBodyContacts": {
+        "mixamorig:LeftForeArm": 24
+      },
+      "handContactTriangles": {
+        "Right": 342,
+        "Left": 304
+      },
+      "heldHandContact": true,
+      "bladeMinZ": 0.2037896364927292
+    }
+  ],
+  "summary": {
+    "paddleHullFrames": [],
+    "paddleSeatFrames": [],
+    "bodyHullFrames": [],
+    "bodySeatFrames": [],
+    "paddleHeadFrames": [
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      176
+    ]
+  },
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v11.glb",
+  "assetSHA256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+  "timelineFPS": 30
+}

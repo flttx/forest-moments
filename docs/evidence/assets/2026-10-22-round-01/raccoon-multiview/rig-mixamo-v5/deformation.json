@@ -1,0 +1,37 @@
+{
+  "sourceSha256": "86a66b899db48d9141adc432384063d9bb0250a26b391203925342e14ec3bd8b",
+  "method": "Imported exported GLB, evaluate every animation frame; edges longer than 0.001 model units",
+  "clips": [
+    {
+      "clip": "walk",
+      "frames": 31,
+      "peakEdgeStretch": 76.02465239297,
+      "peakFrame": 22,
+      "maxEdgesStretchedOver2x": 3572,
+      "minimumHeightNormalized": -0.12248110771179199,
+      "loopMaxVertexDelta": 0.0,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "run",
+      "frames": 22,
+      "peakEdgeStretch": 148.07176796569334,
+      "peakFrame": 5,
+      "maxEdgesStretchedOver2x": 6811,
+      "minimumHeightNormalized": -0.06487882137298584,
+      "loopMaxVertexDelta": 0.0,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "paddle",
+      "frames": 217,
+      "peakEdgeStretch": 225.66521570034297,
+      "peakFrame": 39,
+      "maxEdgesStretchedOver2x": 11077,
+      "minimumHeightNormalized": -0.6396636962890625,
+      "loopMaxVertexDelta": 0.00017765103257261217,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    }
+  ],
+  "browserVerified": false
+}

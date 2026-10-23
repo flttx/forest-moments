@@ -1,0 +1,465 @@
+[
+  {
+    "y": -0.04,
+    "paddleHull": [
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208
+    ],
+    "paddleSeat": [],
+    "body": [
+      {
+        "frame": 0,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 110,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 55,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 114,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 75,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 130,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 100,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 215,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 139,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 160,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 163,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 180,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 190,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 162,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 216,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 110,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      }
+    ]
+  },
+  {
+    "y": -0.08,
+    "paddleHull": [
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      213
+    ],
+    "paddleSeat": [],
+    "body": [
+      {
+        "frame": 0,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 151,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 55,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 219,
+          "Center_seat_support": 63,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 75,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 216,
+          "Center_seat_support": 98,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 100,
+        "contacts": {
+          "Lux3D_canoe": 7,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 322,
+          "Center_seat_support": 71,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 139,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 243,
+          "Center_seat_support": 57,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 163,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 270,
+          "Center_seat_support": 55,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 190,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 214,
+          "Center_seat_support": 9,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 216,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 151,
+          "Center_seat_support": 0,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      }
+    ]
+  },
+  {
+    "y": -0.12,
+    "paddleHull": [
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213
+    ],
+    "paddleSeat": [],
+    "body": [
+      {
+        "frame": 0,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 302,
+          "Center_seat_support": 14,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 55,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 294,
+          "Center_seat_support": 129,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 75,
+        "contacts": {
+          "Lux3D_canoe": 814,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 303,
+          "Center_seat_support": 164,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 100,
+        "contacts": {
+          "Lux3D_canoe": 1518,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 365,
+          "Center_seat_support": 141,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 139,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 325,
+          "Center_seat_support": 145,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 163,
+        "contacts": {
+          "Lux3D_canoe": 99,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 345,
+          "Center_seat_support": 153,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 190,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 312,
+          "Center_seat_support": 145,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      },
+      {
+        "frame": 216,
+        "contacts": {
+          "Lux3D_canoe": 0,
+          "Measured_hull_cavity_caps": 0,
+          "Center_seat_top": 304,
+          "Center_seat_support": 14,
+          "Center_seat_support.001": 0,
+          "Center_seat_lower_cover": 0
+        }
+      }
+    ]
+  }
+]

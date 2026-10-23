@@ -1,0 +1,20 @@
+{
+  "source": "rig-mixamo-v6.glb",
+  "output": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v9.glb",
+  "outputSha256": "f46081c75aa4420d412304f3ab0586468bd68821673d8aee1d41b32a3afbe35c",
+  "correctedVertices": {
+    "garment": 43843,
+    "torso": 0,
+    "leg": 3426,
+    "arm": 0
+  },
+  "triangles": 290520,
+  "actions": 19,
+  "geometryModified": false,
+  "tailTracksModified": false,
+  "bodyTracksModified": false,
+  "smoothingIterations": 24,
+  "paidApiCalls": 0,
+  "status": "REJECTED: garment deformation; user instructed no further garment editing",
+  "selectedForReview": false
+}

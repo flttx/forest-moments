@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-22",
+  "tool": "built-in image_gen.imagegen",
+  "purpose": "Prepare single-object image inputs for official Aholo Lux3D G1; these PNGs are not model renders.",
+  "images": [
+    {
+      "asset": "raccoon",
+      "reference": "docs/references/player/forest-moments-raccoon-design-v2.png",
+      "output": "assets/lux3d/round-01/inputs/raccoon.png",
+      "prompt": "Edit the reference sheet into ONE isolated full-body raccoon character for image-to-3D reconstruction. Use ONLY the FRONT character on the left, preserve exactly its face identity, proportions, moss green short cloak and tunic, cream shirt, brown trousers and simple boots, ringed downward tail. Single near-frontal view with very slight three-quarter angle so tail is visible; full body centered, arms extended down-out in relaxed A pose with clear empty gap between both arms and torso, both feet separate, tail separated from legs. Soft sculpted large fur clumps and painted fur detail, no individual hair strands. Mature cozy storybook style, matte cloth, muted natural palette. Neutral white background, no title, no text, no sheet, no extra views, no props, no ground disc. Keep complete ears, hands, shoes and tail within frame with generous margin. This is a faithful production-input extraction, not a redesign."
+    },
+    {
+      "asset": "workshop",
+      "reference": "docs/references/workshop/forest-moments-workshop-master-v2.png",
+      "output": "assets/lux3d/round-01/inputs/workshop.png",
+      "prompt": "Edit this production reference: remove only all title lettering, words and decorative title graphics from the top. Keep exactly one identical workshop building, same geometry, orientation, colors, materials and framing. Preserve low stone plinth, front double doors, open lean-to workshop on viewer LEFT, no chimney, gray shingles, warm wooden beams and plaster. Neutral white studio backdrop, no text anywhere, no extra objects or scene, entire building in frame with clean margin. Do not redesign architecture."
+    },
+    {
+      "asset": "lookout",
+      "reference": "docs/references/lookout/forest-moments-lookout-master-v2.png",
+      "output": "assets/lux3d/round-01/inputs/lookout.png",
+      "prompt": "Edit this production reference: remove only all title lettering, words and decorative title graphics from the top. Preserve exactly the one open wooden lookout tower including all four main timber posts, independent small stone feet, open ground level, platform, roof, diagonal supports and two-flight switchback exterior stair with landing and handrails on viewer right. Same orientation, silhouette, framing, warm timber, dark gray shingles, amber lamps and handpainted storybook finish. White studio backdrop, no text, no signage, no additional objects or terrain base. Full tower and stair feet in frame with clean margin. Do not redesign architecture."
+    }
+  ],
+  "unchangedCopy": {
+    "asset": "canoe",
+    "source": "docs/references/waterside/forest-moments-canoe.png",
+    "output": "assets/lux3d/round-01/inputs/canoe.png"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "sourceSha256": "a020774d05627412691141d089d12f95d2fd32834470abd8f34ccb41dfdd0423",
+  "method": "Imported exported GLB, evaluate every animation frame; edges longer than 0.001 model units",
+  "clips": [
+    {
+      "clip": "Idle",
+      "frames": 73,
+      "peakEdgeStretch": 19.200194034290508,
+      "peakFrame": 59,
+      "maxEdgesStretchedOver2x": 693,
+      "minimumHeightNormalized": 2.384185791015625e-07,
+      "loopMaxVertexDelta": 0.001629368867725134,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "Walk",
+      "frames": 30,
+      "peakEdgeStretch": 64.69731541811922,
+      "peakFrame": 21,
+      "maxEdgesStretchedOver2x": 2118,
+      "minimumHeightNormalized": -0.0001100301742553711,
+      "loopMaxVertexDelta": 0.007110984064638615,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "Run",
+      "frames": 21,
+      "peakEdgeStretch": 87.28521818618039,
+      "peakFrame": 14,
+      "maxEdgesStretchedOver2x": 2171,
+      "minimumHeightNormalized": -0.0011924505233764648,
+      "loopMaxVertexDelta": 0.0014098063111305237,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "Sit",
+      "frames": 73,
+      "peakEdgeStretch": 159.187626022109,
+      "peakFrame": 22,
+      "maxEdgesStretchedOver2x": 11307,
+      "minimumHeightNormalized": -1.0728836059570312e-06,
+      "loopMaxVertexDelta": 0.09135441482067108,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "Crouch",
+      "frames": 73,
+      "peakEdgeStretch": 168.50220208987403,
+      "peakFrame": 2,
+      "maxEdgesStretchedOver2x": 9225,
+      "minimumHeightNormalized": -9.5367431640625e-07,
+      "loopMaxVertexDelta": 0.029985040426254272,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "Fish",
+      "frames": 73,
+      "peakEdgeStretch": 209.97005388657752,
+      "peakFrame": 55,
+      "maxEdgesStretchedOver2x": 1493,
+      "minimumHeightNormalized": 2.384185791015625e-07,
+      "loopMaxVertexDelta": 0.001629368867725134,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "Paddle",
+      "frames": 49,
+      "peakEdgeStretch": 202.42425165011,
+      "peakFrame": 37,
+      "maxEdgesStretchedOver2x": 10028,
+      "minimumHeightNormalized": -8.344650268554688e-07,
+      "loopMaxVertexDelta": 0.029985055327415466,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    },
+    {
+      "clip": "TailSweep",
+      "frames": 49,
+      "peakEdgeStretch": 90.17396355551861,
+      "peakFrame": 39,
+      "maxEdgesStretchedOver2x": 964,
+      "minimumHeightNormalized": -0.012131690979003906,
+      "loopMaxVertexDelta": 0.01162403542548418,
+      "status": "requires visual acceptance; thresholds are diagnostics, not pass criteria"
+    }
+  ],
+  "browserVerified": false
+}

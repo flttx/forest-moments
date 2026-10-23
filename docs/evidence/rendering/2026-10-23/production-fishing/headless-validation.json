@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-23T09:30:04.115Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "built fishing with real keyboard and DOM meters",
+      "data": {
+        "count": 1,
+        "bestCm": 18,
+        "recent": [
+          {
+            "sizeCm": 18,
+            "at": "2026-10-23T09:30:27.553Z"
+          }
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-cast.png",
+    "02-waiting.png",
+    "03-bite.png",
+    "04-tension-panel.png",
+    "05-visible-catch.png",
+    "06-saved-book.png"
+  ],
+  "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/155.0.4283.62",
+    "revision": "@aa3a7406ba8c53a83536df539f07124d73c899bd",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+    "jsVersion": "15.5.9.7"
+  },
+  "assets": [
+    {
+      "url": "/assets/models/workshop.glb",
+      "bytes": 18892400
+    },
+    {
+      "url": "/assets/models/lookout.glb",
+      "bytes": 17295608
+    },
+    {
+      "url": "/assets/models/canoe-center-seat.glb",
+      "bytes": 17372336
+    },
+    {
+      "url": "/assets/models/raccoon.glb",
+      "bytes": 24777392
+    },
+    {
+      "url": "/assets/models/fishing-rod.glb",
+      "bytes": 6336
+    },
+    {
+      "url": "/assets/models/fish-koi.glb",
+      "bytes": 139172
+    },
+    {
+      "url": "/assets/models/canoe.glb",
+      "bytes": 17562100
+    },
+    {
+      "url": "/assets/models/paddle-track.json",
+      "bytes": 654759
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "status": "rejected: circular neck slot remains unnatural",
+  "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+  "outputSha256": "e14014e4d074e1efcd3800bc2033c2b14f4d538340d18044f6242f8f02bc267d",
+  "sourceModified": false,
+  "paidApiCalls": 0,
+  "decimationApplied": false,
+  "originalVertices": 237762,
+  "originalFaces": 289504,
+  "outputVertices": 140996,
+  "outputPolygons": 287516,
+  "meshValidationCorrectedData": true,
+  "method": "Exact local tapered annular subtraction; preserve central pelvic attachment",
+  "cutterSectionsNormalized": [
+    [
+      -0.045,
+      0.08,
+      0.081
+    ],
+    [
+      0.01,
+      0.085,
+      0.115
+    ],
+    [
+      0.1,
+      0.11,
+      0.14
+    ],
+    [
+      0.18,
+      0.14,
+      0.165
+    ],
+    [
+      0.24,
+      0.175,
+      0.176
+    ]
+  ],
+  "runtimeBrowserVerified": false
+}

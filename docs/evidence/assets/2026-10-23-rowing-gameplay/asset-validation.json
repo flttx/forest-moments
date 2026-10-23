@@ -1,0 +1,35 @@
+{
+  "assets": [
+    {
+      "source": "assets/lux3d/round-01/canoe/center-seat-v11.glb",
+      "runtime": "public/assets/models/canoe-center-seat.glb",
+      "build": "dist/assets/models/canoe-center-seat.glb",
+      "bytes": 17372336,
+      "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+      "identical": true
+    },
+    {
+      "source": "docs/evidence/assets/2026-10-23-paddle-final/prop-track.json",
+      "runtime": "public/assets/models/paddle-track.json",
+      "build": "dist/assets/models/paddle-track.json",
+      "bytes": 654759,
+      "sha256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1",
+      "identical": true
+    },
+    {
+      "runtime": "public/assets/models/raccoon.glb",
+      "bytes": 24777392,
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "originalUnchanged": true
+    },
+    {
+      "runtime": "public/assets/models/canoe.glb",
+      "bytes": 17562100,
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "originalUnchanged": true
+    }
+  ],
+  "publicModelBytes": 96554595,
+  "checks": "all public models byte-identical to build; original actor and paddle donor unchanged",
+  "source": "Lux3D and Mixamo provenance inherited from 2026-10-22-runtime-integration; no new paid generation or commercial-license claim"
+}

@@ -1,0 +1,40 @@
+{
+  "asset": "raccoon",
+  "blenderVersion": "5.2.1 LTS",
+  "source": "assets/lux3d/round-01/raccoon/material-v1.glb",
+  "sourceSha256": "53c1aeab17c5157954793e7c81d9d1ddfa0c47fbdff6bc9d7e5fb7a36a7766a8",
+  "framingBoundsBlenderXYZ": {
+    "min": [
+      -0.33423754572868347,
+      -0.2978529930114746,
+      -0.6000000238418579
+    ],
+    "max": [
+      0.33423754572868347,
+      0.2978529930114746,
+      0.6000000238418579
+    ],
+    "size": [
+      0.6684750914573669,
+      0.5957059860229492,
+      1.2000000476837158
+    ]
+  },
+  "framingReference": "raw-source-bounds",
+  "orthographicScale": 4.199999809265137,
+  "meshObjects": 1,
+  "renderEngine": "CYCLES",
+  "resolution": [
+    900,
+    900
+  ],
+  "views": [
+    "front",
+    "side",
+    "back"
+  ],
+  "previewScaleOnly": 2.4999999006589295,
+  "sourceGeometryModified": false,
+  "runtimeBrowserVerified": false,
+  "clayDiagnostic": false
+}

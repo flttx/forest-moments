@@ -1,0 +1,40 @@
+{
+  "asset": "workshop",
+  "blenderVersion": "5.2.1 LTS",
+  "source": "assets/lux3d/round-01/workshop/structure-v1.glb",
+  "sourceSha256": "53c12208ed7ee301eeec1302e4dfc76524b07ea50064480463575d7a45383a88",
+  "framingBoundsBlenderXYZ": {
+    "min": [
+      -3.0,
+      -2.5684213638305664,
+      -2.2749598026275635
+    ],
+    "max": [
+      3.0,
+      2.5684213638305664,
+      2.2749598026275635
+    ],
+    "size": [
+      6.0,
+      5.136842727661133,
+      4.549919605255127
+    ]
+  },
+  "framingReference": "raw-source-bounds",
+  "orthographicScale": 4.199999809265137,
+  "meshObjects": 4,
+  "renderEngine": "CYCLES",
+  "resolution": [
+    900,
+    900
+  ],
+  "views": [
+    "back",
+    "left"
+  ],
+  "previewScaleOnly": 0.5,
+  "sourceGeometryModified": false,
+  "runtimeBrowserVerified": false,
+  "clayDiagnostic": false,
+  "tailCloseup": false
+}

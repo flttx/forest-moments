@@ -1,0 +1,47 @@
+{
+  "status": "rejected: oversized circular cavity",
+  "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+  "outputSha256": "20ee154b756357cd18f6f80079b4e6cc25117a2af0e524e16bb833c15acfe8c1",
+  "sourceModified": false,
+  "paidApiCalls": 0,
+  "decimationApplied": false,
+  "originalVertices": 237762,
+  "originalFaces": 289504,
+  "outputVertices": 139194,
+  "outputPolygons": 283524,
+  "method": "Exact local tapered annular subtraction; preserve central pelvic attachment",
+  "cutterSectionsNormalized": [
+    [
+      -0.1,
+      0.045,
+      0.048
+    ],
+    [
+      -0.065,
+      0.045,
+      0.115
+    ],
+    [
+      0.015,
+      0.06,
+      0.17
+    ],
+    [
+      0.1,
+      0.085,
+      0.19
+    ],
+    [
+      0.2,
+      0.12,
+      0.195
+    ],
+    [
+      0.31,
+      0.17,
+      0.172
+    ]
+  ],
+  "runtimeBrowserVerified": false,
+  "visualReview": "Oversized circular cavity at the tail root; not suitable for integration."
+}

@@ -1,0 +1,453 @@
+{
+  "date": "2026-10-22",
+  "renderCount": 44,
+  "blenderVersion": "5.2.1 LTS",
+  "assets": [
+    {
+      "asset": "raccoon",
+      "variant": "raw",
+      "sourceSha256": "a180229307b77e032e1deb4ca4d1963086739508c0c60a2010335bb7aa9f6576",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 244306,
+        "triangles": 299138,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 5137160
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 2621436
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/front.png",
+          "sha256": "f91c32dea3911e398023243687e7b09763adc98da6f101a9cb7851aa99359a1f"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/three-quarter.png",
+          "sha256": "1dcc5a49e6706e8b81d88c6ca197625a6109d2c4ba8bb5a8041afcee7327632b"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/side.png",
+          "sha256": "c0fd11c7fa967b3eae2cc46d3c45673faaeb4fa34b5727bbb28628e068c46a4d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/back.png",
+          "sha256": "899bcd749d7902fb1f9c22cb5abf374f0264e67fd2f7e5532e2d99d87ba98ac0"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/left.png",
+          "sha256": "40ca673a9259ed750409930b1cfdc062808cd42c89081b1f3cf0082fe1cebcbb"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/elevated.png",
+          "sha256": "008717364695ec7a2978db2639a3ef7836a146c99c9f3686ee496ca1a64fca5e"
+        }
+      ],
+      "visualStatus": "requires-repair"
+    },
+    {
+      "asset": "workshop",
+      "variant": "raw",
+      "sourceSha256": "79f76e1283c72b6ee8239c66524325d61d12c812554e4823c0ce2db22a33fc14",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 276903,
+        "triangles": 283475,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4787020
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 1593536
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/front.png",
+          "sha256": "7fe8a79d3e78ae28ea3bb8ef7faa26d832eb708f60805797b46d62b2ea269c26"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/three-quarter.png",
+          "sha256": "118472938e7cc644577c9e2063d05335802ebb7e9451169aae2a00fd9ca55313"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/side.png",
+          "sha256": "886a1bffc4efa379f4e9eb4608a318b99255ecbe8d979103d1b311828f0a8c2f"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/back.png",
+          "sha256": "a4eaf7cc75978c4743cb1c0ba9e6b115aa15a9c10123b4aa730530b25c29278a"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/left.png",
+          "sha256": "4b547a44bc741d5b474213d9f560fbb7a7fbef02c26c557c111e82e127b3850a"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/elevated.png",
+          "sha256": "b4a03fbf9e6ebf294b74250d72d7b67fb2e4a4c9280c4bd023e79ffc9ada2e16"
+        }
+      ],
+      "visualStatus": "requires-repair"
+    },
+    {
+      "asset": "workshop",
+      "variant": "optimized-v1",
+      "sourceSha256": "032f6325672b26c4cb8cea188ef7840396f061dc1f7c5ea265fef6c4a8126dc2",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 43666,
+        "triangles": 30000,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 1754690
+          },
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 682252
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v1/front.png",
+          "sha256": "b8ee86abfb155e3e76bcf501e5d2591606cff4d99bc9d718b58cb113243a16c2"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v1/three-quarter.png",
+          "sha256": "fd7bf2b98a687f12882d78db4f569251da3714b17d2d6a2c3e8caddfc661be39"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v1/side.png",
+          "sha256": "0c66a7536cd41461e563cb7dae2491b0f39313f924f8e55bee1c9cb5cd6cb92d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v1/back.png",
+          "sha256": "54fa385e3c330269c6f13d97401035fbc4a5ad94b2cce0b2da2cceb6fb6be046"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v1/left.png",
+          "sha256": "d8ebceff4bfb5cf98afdc9c08d58f6176dfe6778f31fa87070e512391e7c3f5c"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v1/elevated.png",
+          "sha256": "73ea48efa46275829ea4e854311b6716c1f6ebcf2fa59a30e701d9dd6d546ea2"
+        }
+      ],
+      "visualStatus": "rejected"
+    },
+    {
+      "asset": "workshop",
+      "variant": "optimized-v2",
+      "sourceSha256": "2a18195a19e5f5ec4811ad973918a1eae262fcf08cac43c61004f8c5152e8c2b",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 86799,
+        "triangles": 54604,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 1754690
+          },
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 682252
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v2/three-quarter.png",
+          "sha256": "123b4e8fab6a0f2e19aee68fab794ae4f49b5e940d098251429a1dbce5429529"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v2/left.png",
+          "sha256": "8eba2f9d62513f3c2add3f46ea59d84a1105d871d72e4880439bbf4d356f61ce"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/workshop/optimized-v2/elevated.png",
+          "sha256": "5decae23eb6e20c0f4b45d721eb295cf10a2a5d392709b336b77d006da063424"
+        }
+      ],
+      "visualStatus": "rejected"
+    },
+    {
+      "asset": "lookout",
+      "variant": "raw",
+      "sourceSha256": "183120006624644f71289fdd669631123558c96e8fad51548efa3f236545f38c",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 229420,
+        "triangles": 281358,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4362840
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 2178712
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/lookout/front.png",
+          "sha256": "aaca891602306e865af1a114ad42e277592f837d806c35fe21d0088da0c7a823"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/lookout/three-quarter.png",
+          "sha256": "e5d7287a2aa92a2bb98ac2d9191a8183a0f15dd847fb4d974705e7f6ea0903c2"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/lookout/side.png",
+          "sha256": "a4cbe92d91dbe6f9f325c2a11dd4d8121d3819a549fb24db9a33f5d3b0c00e8f"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/lookout/back.png",
+          "sha256": "891a4786db8d77f0b2aae43899d5b55c8e4466f477a88dffd2c0e3a52af749de"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/lookout/left.png",
+          "sha256": "8f1318dc8f03ad5720d4b9664ad261c9987369cf987db763235ecc28566b629f"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/lookout/elevated.png",
+          "sha256": "f453abae0167b08a8fcd32288c71c6a99457e091efcbe7daf62437343752083b"
+        }
+      ],
+      "visualStatus": "requires-repair"
+    },
+    {
+      "asset": "canoe",
+      "variant": "raw",
+      "sourceSha256": "d76f1bf7b807e763cbd4b7c0fd42496253b4c9d66a9b25bcb2b1299165876d21",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 247186,
+        "triangles": 287052,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 4005008
+          },
+          {
+            "width": 2048,
+            "height": 2048,
+            "format": "PNG",
+            "bytes": 1914628
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/front.png",
+          "sha256": "005c1004396ef263c3d83d7f997a62b300e69493e54d7e8b97189d480f8769fb"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/three-quarter.png",
+          "sha256": "90dde4fa8d650672d55a38c488c32051bf3fcd15f69566d307b01c32bb03a167"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/side.png",
+          "sha256": "0f8bcf649341b76b8aef5ab4d8a5dfdb3e7bcbce37dce00cf052a6af5d414b77"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/back.png",
+          "sha256": "15b2ae14589890d864e9703b0741934f3581ba500418531d138c47b1d701c65e"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/left.png",
+          "sha256": "54de88b9f43be647af78fcb8ad410a6714fa8a43e357cb7ae33e52278e6c0d7b"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/elevated.png",
+          "sha256": "0d91afc3df7fdc19045f7ec9eec3ec4aaf63baf1dbb794fd6bdc61268ddd533b"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/bottom.png",
+          "sha256": "05db7c34452e351d084e6fa7961e783a0d52f92d7da6d33bc9dab01df9624a1c"
+        }
+      ],
+      "visualStatus": "requires-repair"
+    },
+    {
+      "asset": "canoe",
+      "variant": "optimized-v1",
+      "sourceSha256": "0d44028daed551f50391c476e435c5925889d632de26c6aef3f431e76ef3910f",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 16473,
+        "triangles": 12000,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 1533204
+          },
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 816203
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v1/front.png",
+          "sha256": "ba60e1dd371630d5d770aaccd66e734ec5a2927b60aa8ac877680ebfb3a08841"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v1/three-quarter.png",
+          "sha256": "41af0b4ec63b83d72cdcf739a7c45909fa38230b45b68b7880a8f6ef56a8d053"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v1/side.png",
+          "sha256": "55cc5da16be6994ae41446768d7b4b8ab4c16380b78b50fcda09ebdbcb6abdb5"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v1/back.png",
+          "sha256": "9d0ca258eea28cde67dcc7a88526e8b49236cb987aedd77d599c15007d284bf4"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v1/left.png",
+          "sha256": "1bc764f38b5520a81653f759c35c11ccfedfd944835db2e82691f3e6dcdf98d4"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v1/elevated.png",
+          "sha256": "fb87bc3fff85e85747b4e0c4b494742990fb1ce68188c9c8dfc239508c2eb61b"
+        }
+      ],
+      "visualStatus": "rejected"
+    },
+    {
+      "asset": "canoe",
+      "variant": "optimized-v2",
+      "sourceSha256": "718076fde61272a3b5ec749533803bd3823173d86f8705b7d65620ee8552a4ce",
+      "glb": {
+        "version": 2,
+        "meshes": 1,
+        "vertices": 52551,
+        "triangles": 34610,
+        "materials": 1,
+        "skins": 0,
+        "animations": 0,
+        "textures": [
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 1533204
+          },
+          {
+            "width": 1024,
+            "height": 1024,
+            "format": "PNG",
+            "bytes": 816203
+          }
+        ],
+        "extensionsRequired": []
+      },
+      "renders": [
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v2/three-quarter.png",
+          "sha256": "d99f94f8c4eac2339daecdbd1af695aa3a9fd0430a00e63c3e1f282f8e878d4d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v2/left.png",
+          "sha256": "799201539e23d7dafb9e77e638861066e3bec87ca08f698a0828c011bd862373"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v2/elevated.png",
+          "sha256": "74ca6cab3dba1c5e45a90d7c4201d490923d50a10920d50127fbf2fc2a437fd8"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-22-round-01/canoe/optimized-v2/bottom.png",
+          "sha256": "5a1d16f5d332dfd282369fbbaaa6aa797c623a8677e1ffb94bbb8aedc8956017"
+        }
+      ],
+      "visualStatus": "rejected"
+    }
+  ],
+  "checks": {
+    "lint": "pass",
+    "test": "3/3 pass",
+    "build": "pass; existing chunk warning",
+    "rawHashesZipCrcAndGlb": "4/4 pass",
+    "runtimeBrowser": "unavailable; not verified"
+  },
+  "startupDiagnosis": {
+    "bundledPythonPlatformSystem": "8s timeout before return",
+    "platformWmiDisabledInChild": "Windows AMD64, exit 0",
+    "blenderWithOptInBootstrap": "BACKGROUND_READY, exit 0",
+    "systemServiceModified": false,
+    "installationModified": false
+  }
+}

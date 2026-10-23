@@ -1,0 +1,156 @@
+{
+  "lint": "pass",
+  "test": "6/6",
+  "build": "pass; existing chunk warning",
+  "pythonSyntax": "pass",
+  "originalModelHashesUnchanged": true,
+  "browserSource": "original rig-mixamo-v6 paddle; no arm overrides",
+  "images": [
+    {
+      "file": "headless-grip-close.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "1c4043951790fd7e5a762ee5a6b0065a763bbecedb1a87a34477fdcc5b7891cc"
+    },
+    {
+      "file": "headless-left-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "419444880ce82bd7d46070fd26169c3b2809eccef0bc9fd5acfb754189315b34"
+    },
+    {
+      "file": "headless-left-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "98121e474e2be405c16f69c135458113fc233f62b833e318c838a6b75f079b85"
+    },
+    {
+      "file": "headless-left-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "20205cbbe6dbcd0b6c888021e447dd14a52c2ebf05dee649617483e99d7c0cf8"
+    },
+    {
+      "file": "headless-left-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "be5577bd45f2fd75e1254b509abd4aaa322871950ab5f5c6d43576bae5ec1ce3"
+    },
+    {
+      "file": "headless-left-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "70d79c3d1a153ffd7bf9462ea6772a7ccf0ae549d98f89d914a6a1fed0f86c51"
+    },
+    {
+      "file": "headless-left-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "92dedc36587d4a627a5dd516ae3b9670768cf2da609e4a4f246a1da1a8c40c6b"
+    },
+    {
+      "file": "headless-left-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "0f812cbf4aa60c7c4abe7f2d39cdd8f5986cd63b235b67ad8c9cd993fde81a38"
+    },
+    {
+      "file": "headless-left-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "393cb9d69419c18c54f642f693752876505f755d02fa7a2a1d545a308c1c5b7e"
+    },
+    {
+      "file": "headless-right-000.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "bd646de884beb080cecef02395551c60a37eaa24d52b5f7bf7e5e8150c76c2b5"
+    },
+    {
+      "file": "headless-right-027.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "dd5337f4e75a94fdbcd8529d197d6f117c69e492a8b40744175614afc4b824c8"
+    },
+    {
+      "file": "headless-right-055.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "bfa87b4bf85a7a1b2af6ce68e1e5b4e59c84b3d8fd83b2df7c643e05f609f7e4"
+    },
+    {
+      "file": "headless-right-075.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "49a99560c431fa37eb23b5c945c67246936fbd903245299f51ab71681948ee6f"
+    },
+    {
+      "file": "headless-right-108.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "5ce198007b16990f25a0c2cdf16d8df6f365402da50cf47092011f289f00d15f"
+    },
+    {
+      "file": "headless-right-139.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "ddb7ec4563bed7af7b5b909539c1c73a264b73744aaec5bb096e908d42509e07"
+    },
+    {
+      "file": "headless-right-163.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "f197749f4c99bec8953a3d44082623b74da242515566842ea85473a121137d98"
+    },
+    {
+      "file": "headless-right-190.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "c540ca9de721e340d87c592784b600cba07a7187513d7899c6d845b6f1769bbb"
+    },
+    {
+      "file": "headless-water-playback.png",
+      "size": [
+        1440,
+        900
+      ],
+      "sha256": "77e88757ce531972d9f9660115deba81a06b1066952ef1834f1c1397282078b1"
+    }
+  ],
+  "ikCandidateStatus": "rejected by user; generation/export disabled",
+  "paddleMatched": false
+}

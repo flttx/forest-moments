@@ -1,0 +1,47 @@
+{
+  "assets": [
+    {
+      "asset": "raccoon-tail-repair",
+      "taskId": 4268120,
+      "operation": "local Blender repair of existing Lux3D output",
+      "variant": "tail-repair-v5",
+      "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+      "paidApiCalls": 0,
+      "decimationApplied": false,
+      "status": "local static seam visible; full asset and animation acceptance pending",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/raccoon-multiview/tail-repair-v5.glb",
+          "bytes": 19294288,
+          "sha256": "b045f79cd7b1f0147dc0823f6ac45df10cba00957f210e29e91c0c8fe6a91136",
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 241145,
+            "triangles": 290520,
+            "materials": 2,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4761156
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 3334708
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "runtimeBrowserVerified": false,
+      "riggingVerified": false
+    }
+  ]
+}

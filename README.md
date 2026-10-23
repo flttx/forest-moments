@@ -4,12 +4,16 @@
 
 ## 当前原型
 
-已有程序几何的树林、工坊、养殖场、池塘、瞭望塔和码头；灰盒浣熊可 WASD/方向键行走、Shift 奔跑，靠近地标后按 F 或点界面按钮互动。树苗种植状态保存到浏览器 localStorage。尚无完整钓鱼、划船、动物、工坊制作或骨骼动画。
+已接入浣熊模型与原骨骼动作、工坊、木塔和木船；支持 WASD/方向键行走、Shift 奔跑、F 互动、树苗存档、池塘钓鱼与鱼簿、上船划行及返回码头。海天、岸线与地表已完成首轮渲染优化。树林与牧场仍含程序占位，树苗成长、动物养殖、工坊制作和登塔尚未实现。
+
+my-blog 树木、草花和路灯迁移及小岛扩建目前仅有[计划](docs/SCENE_UPGRADE_PLAN.md)，尚未实施。当前限制与实际验证见 [PROGRESS.md](PROGRESS.md)。
 
 ## 本地命令（Node.js 24+ / pnpm）
 
 ```powershell
 cd E:\Projects\forest-moments
+git lfs install
+git lfs pull
 pnpm install
 pnpm dev
 pnpm lint
@@ -17,6 +21,10 @@ pnpm test
 pnpm build
 pnpm preview
 ```
+
+运行时模型位于 `public/assets/models/`，GLB 通过 Git LFS 保存；首次克隆必须拉取 LFS 文件，否则模型无法加载。当前运行时模型与轨迹约 92.22 MiB，尚未完成下载体积优化。
+
+仓库包含运行代码、运行时资源、验证/建模脚本和精选证据。`assets/` 下原始下载包、Blender 工作文件及模型候选仅在本地保存；离线建模脚本需要这些源文件及 Blender，不能只凭仓库重做全部历史模型。运行项目和构建不依赖这些本地源文件。批量截图不随提交发布，证据保留范围见 [证据说明](docs/evidence/README.md)。
 
 ## 开发约定
 
@@ -36,4 +44,4 @@ pnpm preview
 
 ## 核心技术
 
-React 19 + TypeScript 6 + Vite 8 + React Three Fiber / Three.js + Zustand。日后逐步引入经过授权的 Lux3D / Blender 模型，逐项替换占位几何并做实机视觉 QA。
+React 19 + TypeScript 6 + Vite 8 + React Three Fiber / Three.js + Zustand。已接入部分 Lux3D / Blender 资产；后续逐项替换占位并复核使用权、性能和实机视觉表现。

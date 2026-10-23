@@ -1,0 +1,29 @@
+{
+  "status": "PARTIAL: central bench candidate; 217-frame body/hull and paddle/seat clear, seat edge and 39 paddle/hull frames unresolved",
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v6.glb",
+  "boatScale": 0.5,
+  "characterShift": [
+    0,
+    0,
+    0.14
+  ],
+  "waterZ": -0.355,
+  "bakedAssemblyCoordinates": true,
+  "interiorBenchFacesRemoved": 16497,
+  "exteriorHullDeformed": false,
+  "seatTopZ": 0.007,
+  "seatBoundsXY": [
+    [
+      -0.06,
+      0.22
+    ],
+    [
+      -0.24,
+      0.24
+    ]
+  ],
+  "outputSHA256": "de2835a87e4970d99c050eac86cf8e0b4c0bd5e861e954da6af716d51bcff4f0",
+  "bytes": 17349944,
+  "sourceActorModified": false,
+  "sourceHullModified": false
+}

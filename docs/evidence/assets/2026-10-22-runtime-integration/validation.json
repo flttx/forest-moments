@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-22",
+  "lint": {
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 0
+  },
+  "test": {
+    "exitCode": 0,
+    "passed": 6
+  },
+  "build": {
+    "exitCode": 0,
+    "mainJsBytes": 1219809,
+    "warning": "chunk exceeds 500 kB"
+  },
+  "headlessChecks": 9,
+  "headlessErrors": 0,
+  "cadence": {
+    "durationMs": 30015.899999999998,
+    "frames": 1801,
+    "meanFrameMs": 16.666240977234867,
+    "meanFps": 60.00153252109716,
+    "p95FrameMs": 16.799999999999272,
+    "maxFrameMs": 17,
+    "visibility": "visible"
+  },
+  "modelCopiesIdentical": true,
+  "productionQaTelemetryRemoved": true,
+  "decodedImages": 26,
+  "pythonSyntaxFiles": 3,
+  "nodeSyntax": "passed",
+  "localDocumentLinks": 46,
+  "gitDiffCheck": "passed",
+  "completeVisualAcceptance": false,
+  "canoeInteractionComplete": false
+}

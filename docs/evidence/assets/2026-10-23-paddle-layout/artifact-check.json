@@ -1,0 +1,20 @@
+{
+  "pythonSyntax": [
+    "fit_paddle_layout.py",
+    "audit_paddle_layout.py",
+    "prepare_paddle_seating.py"
+  ],
+  "jsSyntax": "node --check passed",
+  "pngDecodeCount": 91,
+  "latestScreenshotCount": 25,
+  "sourcePublicDistHashesUnchanged": {
+    "raccoon": true,
+    "canoe": true
+  },
+  "seatGLBBytes": 47164,
+  "seatSha256": "210310e8026d556a6201375503504f1841a4a36b646234a4570294403774164f",
+  "lint": "passed",
+  "test": "6/6",
+  "build": "passed; existing chunk warning",
+  "sourceHandSamples": 651
+}

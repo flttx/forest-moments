@@ -1,0 +1,34 @@
+[
+  {
+    "file": "src/world/ForestWorld.tsx",
+    "sha256": "b8ee7bf8da30003a61ec3b651f6f5861a4f46ca4de5bc777c8ef117d0e3a8b99"
+  },
+  {
+    "file": "src/world/Atmosphere.tsx",
+    "sha256": "6513eaa8d3a210d3076dfe94132c7f03f919da4e3c35d5f880a9454b892ce627"
+  },
+  {
+    "file": "src/world/IslandTerrain.tsx",
+    "sha256": "d2124f2f96c96e25d395fb673f09d81ae7d2d2803009a3474cf2280cea0e712d"
+  },
+  {
+    "file": "src/world/ForestVegetation.tsx",
+    "sha256": "3dde8a41db9f3a92365f2e86d38ccf3f40c6d0d43be3724b2dfe1b63f749123c"
+  },
+  {
+    "file": "src/world/terrain.ts",
+    "sha256": "93cd361a1c8ca784bc16b61fe7090d0fb7353ca5b6226c2d7ecbfbc141886d4f"
+  },
+  {
+    "file": "src/world/terrain.test.ts",
+    "sha256": "1f183302fa637cabfeff077667cc73333996d9281a75bfc31cfbd0a710703d56"
+  },
+  {
+    "file": "src/App.css",
+    "sha256": "cfef19737a5962bf3ba390ef54d60475d453134b3366af0b35520fa7f4519122"
+  },
+  {
+    "file": "scripts/check_rendering_headless.mjs",
+    "sha256": "f3ff6e09e3402e4f43065a2cb888526734811297c374610f9f24a9afd8714c8f"
+  }
+]

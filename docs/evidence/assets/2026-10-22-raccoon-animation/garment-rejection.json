@@ -1,0 +1,24 @@
+{
+  "retainedVariant": "rig-mixamo-v6",
+  "retainedSha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+  "manifestUnchanged": true,
+  "rejectedVariants": [
+    "rig-mixamo-v7",
+    "rig-mixamo-v8",
+    "rig-mixamo-v9"
+  ],
+  "garmentEditingStopped": true,
+  "gameAssetsReplaced": false,
+  "browserVerified": false,
+  "paidApiCalls": 0,
+  "validation": {
+    "lint": "passed",
+    "test": "3/3 passed",
+    "build": "passed; existing >500 kB warning",
+    "pythonSyntax": "passed",
+    "diffCheck": "passed",
+    "localMarkdownLinks": 33,
+    "httpHead200": 4,
+    "visualAcceptance": "not passed; garment experiments rejected"
+  }
+}

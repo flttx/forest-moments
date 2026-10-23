@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-22",
+  "materialGeometryAndTextureBytesIdentical": true,
+  "materialGlb": {
+    "version": 2,
+    "meshes": 1,
+    "vertices": 244306,
+    "triangles": 299138,
+    "materials": 1,
+    "skins": 0,
+    "animations": 0,
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 5137160
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 2621436
+      }
+    ],
+    "extensionsRequired": []
+  },
+  "renderCount": 8,
+  "renders": [
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/material-v1/front.png",
+      "sha256": "3e6f5aace78ffeda379e1eaf53c04b53753302c00ae6b748ee57920e54295e16"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/material-v1/side.png",
+      "sha256": "b19dfcb8b1c19500a888805fb4f36b6d49728086016ea8dc242f873f29916b3d"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon/material-v1/back.png",
+      "sha256": "fb4dd9a0ef6d56b0030b02b5f4f3702ac8e9ee1de593e83977edc4f45bd4103b"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/workshop/clay/back.png",
+      "sha256": "701d07386a82787c54f33af110b576ad3ee2a0249686852d01713135b79a90be"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/workshop/clay/elevated.png",
+      "sha256": "d1e7d34a7e96dddef03c3046f9c10f16607d7a6b674c111827a5ec3e26f09246"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/canoe/clay/back.png",
+      "sha256": "930bde96fb04c0fdbe5d29ba38fc4d20cc6edbcc1ed63eb371cb5c63556c214d"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/canoe/clay/elevated.png",
+      "sha256": "cd1f655c4018d0c2ac64e2f36d0b7d7c4b00865645512904962cd78d7c745cb6"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/canoe/clay/bottom.png",
+      "sha256": "44ce0a27d5c94df0f37724e5dbcbefddb7c82824cc6a157a38245e8ec5c279c4"
+    }
+  ],
+  "browserAvailable": false,
+  "actualFps": null,
+  "actualGpuMemoryBytes": null,
+  "checks": {
+    "lint": "pass",
+    "test": "3/3 pass",
+    "build": "pass; existing main JS warning",
+    "pythonSyntax": "pass",
+    "previewModuleSyntax": "pass",
+    "rawInputOutputHashesAndZipCrc": "4/4 pass",
+    "localLinks": 32,
+    "http": [
+      {
+        "path": "/scripts/aholo/review.html",
+        "status": 200,
+        "bytes": 2604
+      },
+      {
+        "path": "/scripts/aholo/review.mjs",
+        "status": 200,
+        "bytes": 51559
+      },
+      {
+        "path": "/docs/evidence/assets/2026-10-22-round-01/manifest.json",
+        "status": 200,
+        "bytes": 7273
+      },
+      {
+        "path": "/docs/evidence/assets/2026-10-22-round-01/raccoon/material-v1/material-change.json",
+        "status": 200,
+        "bytes": 1743
+      }
+    ],
+    "browser": "unavailable; runtime unverified"
+  }
+}

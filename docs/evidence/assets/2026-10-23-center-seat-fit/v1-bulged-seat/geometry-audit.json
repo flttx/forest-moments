@@ -1,0 +1,4691 @@
+{
+  "sampleRate": 30,
+  "sampleCount": 217,
+  "boneOverrides": false,
+  "frames": [
+    {
+      "frame": 0,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1538,
+          "bones": {
+            "mixamorig:LeftFoot": 720,
+            "mixamorig:LeftToeBase": 30,
+            "mixamorig:RightFoot": 430,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.08459673076868057
+    },
+    {
+      "frame": 1,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1536,
+          "bones": {
+            "mixamorig:LeftFoot": 719,
+            "mixamorig:LeftToeBase": 32,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.12472745217382908
+    },
+    {
+      "frame": 2,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1532,
+          "bones": {
+            "mixamorig:LeftFoot": 713,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.17069311998784542
+    },
+    {
+      "frame": 3,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1526,
+          "bones": {
+            "mixamorig:LeftFoot": 708,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 425,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.21987076103687286
+    },
+    {
+      "frame": 4,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1528,
+          "bones": {
+            "mixamorig:LeftFoot": 709,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 427,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.26510290801525116
+    },
+    {
+      "frame": 5,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1527,
+          "bones": {
+            "mixamorig:LeftFoot": 707,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3005587011575699
+    },
+    {
+      "frame": 6,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1537,
+          "bones": {
+            "mixamorig:LeftFoot": 715,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.331026628613472
+    },
+    {
+      "frame": 7,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1532,
+          "bones": {
+            "mixamorig:LeftFoot": 708,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.35445910692214966
+    },
+    {
+      "frame": 8,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1547,
+          "bones": {
+            "mixamorig:LeftFoot": 714,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:RightFoot": 439,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3689807206392288
+    },
+    {
+      "frame": 9,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1557,
+          "bones": {
+            "mixamorig:LeftFoot": 725,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:RightFoot": 439,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.37291720509529114
+    },
+    {
+      "frame": 10,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1572,
+          "bones": {
+            "mixamorig:LeftFoot": 738,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:RightFoot": 440,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3648834079504013
+    },
+    {
+      "frame": 11,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1572,
+          "bones": {
+            "mixamorig:LeftFoot": 729,
+            "mixamorig:RightFoot": 445,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3391330987215042
+    },
+    {
+      "frame": 12,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1571,
+          "bones": {
+            "mixamorig:LeftFoot": 727,
+            "mixamorig:RightFoot": 450,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.2959495037794113
+    },
+    {
+      "frame": 13,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1580,
+          "bones": {
+            "mixamorig:LeftFoot": 732,
+            "mixamorig:RightFoot": 457,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3266061395406723
+    },
+    {
+      "frame": 14,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1568,
+          "bones": {
+            "mixamorig:LeftFoot": 723,
+            "mixamorig:RightFoot": 458,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 236,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.35724255442619324
+    },
+    {
+      "frame": 15,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1564,
+          "bones": {
+            "mixamorig:LeftFoot": 717,
+            "mixamorig:RightFoot": 458,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.38524237275123596
+    },
+    {
+      "frame": 16,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1566,
+          "bones": {
+            "mixamorig:LeftFoot": 715,
+            "mixamorig:RightFoot": 458,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 85
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4088142067193985
+    },
+    {
+      "frame": 17,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1567,
+          "bones": {
+            "mixamorig:LeftFoot": 720,
+            "mixamorig:RightFoot": 458,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 85
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4266744405031204
+    },
+    {
+      "frame": 18,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1551,
+          "bones": {
+            "mixamorig:LeftFoot": 705,
+            "mixamorig:RightFoot": 457,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4393932670354843
+    },
+    {
+      "frame": 19,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1551,
+          "bones": {
+            "mixamorig:LeftFoot": 706,
+            "mixamorig:RightFoot": 455,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.44853179156780243
+    },
+    {
+      "frame": 20,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1552,
+          "bones": {
+            "mixamorig:LeftFoot": 702,
+            "mixamorig:RightFoot": 453,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.45625318586826324
+    },
+    {
+      "frame": 21,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1534,
+          "bones": {
+            "mixamorig:LeftFoot": 697,
+            "mixamorig:RightFoot": 443,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.46591363847255707
+    },
+    {
+      "frame": 22,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1514,
+          "bones": {
+            "mixamorig:LeftFoot": 686,
+            "mixamorig:RightFoot": 434,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4795302599668503
+    },
+    {
+      "frame": 23,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1494,
+          "bones": {
+            "mixamorig:LeftFoot": 662,
+            "mixamorig:RightFoot": 436,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.49665112793445587
+    },
+    {
+      "frame": 24,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1485,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 436,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 82
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5148408561944962
+    },
+    {
+      "frame": 25,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1475,
+          "bones": {
+            "mixamorig:LeftFoot": 644,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5311180502176285
+    },
+    {
+      "frame": 26,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1467,
+          "bones": {
+            "mixamorig:LeftFoot": 643,
+            "mixamorig:RightFoot": 425,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5433684438467026
+    },
+    {
+      "frame": 27,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1462,
+          "bones": {
+            "mixamorig:LeftFoot": 638,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.551232174038887
+    },
+    {
+      "frame": 28,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1459,
+          "bones": {
+            "mixamorig:LeftFoot": 632,
+            "mixamorig:RightFoot": 427,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5576850920915604
+    },
+    {
+      "frame": 29,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1451,
+          "bones": {
+            "mixamorig:LeftFoot": 627,
+            "mixamorig:RightFoot": 425,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 82
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5634557455778122
+    },
+    {
+      "frame": 30,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1456,
+          "bones": {
+            "mixamorig:LeftFoot": 630,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5690308958292007
+    },
+    {
+      "frame": 31,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1453,
+          "bones": {
+            "mixamorig:LeftFoot": 622,
+            "mixamorig:RightFoot": 430,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5752673894166946
+    },
+    {
+      "frame": 32,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1448,
+          "bones": {
+            "mixamorig:LeftFoot": 626,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5821995288133621
+    },
+    {
+      "frame": 33,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1454,
+          "bones": {
+            "mixamorig:LeftFoot": 629,
+            "mixamorig:RightFoot": 427,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.589355543255806
+    },
+    {
+      "frame": 34,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1454,
+          "bones": {
+            "mixamorig:LeftFoot": 631,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5960036963224411
+    },
+    {
+      "frame": 35,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1451,
+          "bones": {
+            "mixamorig:LeftFoot": 634,
+            "mixamorig:RightFoot": 419,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6022921055555344
+    },
+    {
+      "frame": 36,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1460,
+          "bones": {
+            "mixamorig:LeftFoot": 640,
+            "mixamorig:RightFoot": 419,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6084819883108139
+    },
+    {
+      "frame": 37,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1458,
+          "bones": {
+            "mixamorig:LeftFoot": 641,
+            "mixamorig:RightFoot": 416,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6146736592054367
+    },
+    {
+      "frame": 38,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 640,
+            "mixamorig:RightFoot": 416,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6211481243371964
+    },
+    {
+      "frame": 39,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 643,
+            "mixamorig:RightFoot": 418,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6290951818227768
+    },
+    {
+      "frame": 40,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1458,
+          "bones": {
+            "mixamorig:LeftFoot": 643,
+            "mixamorig:RightFoot": 418,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6362134665250778
+    },
+    {
+      "frame": 41,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1461,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 416,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6391718536615372
+    },
+    {
+      "frame": 42,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1465,
+          "bones": {
+            "mixamorig:LeftFoot": 654,
+            "mixamorig:RightFoot": 416,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.626770630478859
+    },
+    {
+      "frame": 43,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1463,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 416,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5977003425359726
+    },
+    {
+      "frame": 44,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1460,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 417,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5575241595506668
+    },
+    {
+      "frame": 45,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1467,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 40,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 84
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5115413218736649
+    },
+    {
+      "frame": 46,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1463,
+          "bones": {
+            "mixamorig:LeftFoot": 643,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 251,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 82
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.46588756144046783
+    },
+    {
+      "frame": 47,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1451,
+          "bones": {
+            "mixamorig:LeftFoot": 641,
+            "mixamorig:RightFoot": 419,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 82
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.42455144226551056
+    },
+    {
+      "frame": 48,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1454,
+          "bones": {
+            "mixamorig:LeftFoot": 641,
+            "mixamorig:RightFoot": 420,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3917558342218399
+    },
+    {
+      "frame": 49,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1464,
+          "bones": {
+            "mixamorig:LeftFoot": 645,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 252,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.36859095096588135
+    },
+    {
+      "frame": 50,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1459,
+          "bones": {
+            "mixamorig:LeftFoot": 641,
+            "mixamorig:RightFoot": 423,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3544122725725174
+    },
+    {
+      "frame": 51,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1459,
+          "bones": {
+            "mixamorig:LeftFoot": 643,
+            "mixamorig:RightFoot": 423,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.34678448736667633
+    },
+    {
+      "frame": 52,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1464,
+          "bones": {
+            "mixamorig:LeftFoot": 642,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3424479216337204
+    },
+    {
+      "frame": 53,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1453,
+          "bones": {
+            "mixamorig:LeftFoot": 644,
+            "mixamorig:RightFoot": 421,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.33783863484859467
+    },
+    {
+      "frame": 54,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1455,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.329629510641098
+    },
+    {
+      "frame": 55,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1458,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 421,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 82
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.31536103785037994
+    },
+    {
+      "frame": 56,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1456,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 82
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.2622583657503128
+    },
+    {
+      "frame": 57,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1458,
+          "bones": {
+            "mixamorig:LeftFoot": 649,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 78
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.21388566493988037
+    },
+    {
+      "frame": 58,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1454,
+          "bones": {
+            "mixamorig:LeftFoot": 651,
+            "mixamorig:RightFoot": 423,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 236,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 76
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.16962336748838425
+    },
+    {
+      "frame": 59,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1448,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 419,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 235,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 73
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.12885908782482147
+    },
+    {
+      "frame": 60,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1446,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 420,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 233,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 73
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.091889638453722
+    },
+    {
+      "frame": 61,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1449,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 232,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 72
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.05774427205324173
+    },
+    {
+      "frame": 62,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 72
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.014170229434967041
+    },
+    {
+      "frame": 63,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1455,
+          "bones": {
+            "mixamorig:LeftFoot": 654,
+            "mixamorig:RightFoot": 419,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 73
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.03199298679828644
+    },
+    {
+      "frame": 64,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1452,
+          "bones": {
+            "mixamorig:LeftFoot": 644,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 73
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.07401345670223236
+    },
+    {
+      "frame": 65,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1458,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 69
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.11093668639659882
+    },
+    {
+      "frame": 66,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 68
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.14198119938373566
+    },
+    {
+      "frame": 67,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1464,
+          "bones": {
+            "mixamorig:LeftFoot": 651,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 68
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.17042283713817596
+    },
+    {
+      "frame": 68,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1460,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.1966053694486618
+    },
+    {
+      "frame": 69,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1471,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 438,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.22042857110500336
+    },
+    {
+      "frame": 70,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1470,
+          "bones": {
+            "mixamorig:LeftFoot": 655,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.24286328256130219
+    },
+    {
+      "frame": 71,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1471,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.2640538662672043
+    },
+    {
+      "frame": 72,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1465,
+          "bones": {
+            "mixamorig:LeftFoot": 654,
+            "mixamorig:RightFoot": 432,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.28475289046764374
+    },
+    {
+      "frame": 73,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1463,
+          "bones": {
+            "mixamorig:LeftFoot": 651,
+            "mixamorig:RightFoot": 432,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3049435466527939
+    },
+    {
+      "frame": 74,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 649,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.32484589517116547
+    },
+    {
+      "frame": 75,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1461,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.34416164457798004
+    },
+    {
+      "frame": 76,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1461,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3594624847173691
+    },
+    {
+      "frame": 77,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1478,
+          "bones": {
+            "mixamorig:LeftFoot": 662,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 67
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.37658922374248505
+    },
+    {
+      "frame": 78,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1466,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 68
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3947477787733078
+    },
+    {
+      "frame": 79,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1471,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 72
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4136304706335068
+    },
+    {
+      "frame": 80,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1466,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 72
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4327727407217026
+    },
+    {
+      "frame": 81,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1465,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 430,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 73
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.45268987119197845
+    },
+    {
+      "frame": 82,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1453,
+          "bones": {
+            "mixamorig:LeftFoot": 646,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 72
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.47114716470241547
+    },
+    {
+      "frame": 83,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1461,
+          "bones": {
+            "mixamorig:LeftFoot": 644,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 79
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4871285408735275
+    },
+    {
+      "frame": 84,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 79
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4997699111700058
+    },
+    {
+      "frame": 85,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1454,
+          "bones": {
+            "mixamorig:LeftFoot": 645,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 78
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5105487555265427
+    },
+    {
+      "frame": 86,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1465,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 78
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5169465988874435
+    },
+    {
+      "frame": 87,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1468,
+          "bones": {
+            "mixamorig:LeftFoot": 660,
+            "mixamorig:RightFoot": 423,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 78
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5182115882635117
+    },
+    {
+      "frame": 88,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1458,
+          "bones": {
+            "mixamorig:LeftFoot": 654,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 234,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 79
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5146112889051437
+    },
+    {
+      "frame": 89,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1464,
+          "bones": {
+            "mixamorig:LeftFoot": 655,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 236,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 79
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5067596882581711
+    },
+    {
+      "frame": 90,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1457,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 426,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 236,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 79
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.49580661952495575
+    },
+    {
+      "frame": 91,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1450,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 233,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.48047445714473724
+    },
+    {
+      "frame": 92,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1456,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 422,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 236,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 81
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.45755116641521454
+    },
+    {
+      "frame": 93,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1462,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 424,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 236,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 85
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4270065277814865
+    },
+    {
+      "frame": 94,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1467,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 85
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3902948349714279
+    },
+    {
+      "frame": 95,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1466,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 85
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3495236188173294
+    },
+    {
+      "frame": 96,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1482,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 428,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.30595003068447113
+    },
+    {
+      "frame": 97,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1476,
+          "bones": {
+            "mixamorig:LeftFoot": 651,
+            "mixamorig:RightFoot": 427,
+            "mixamorig:LeftToeBase": 40,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.2602586895227432
+    },
+    {
+      "frame": 98,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1479,
+          "bones": {
+            "mixamorig:LeftFoot": 657,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 40,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.21511836349964142
+    },
+    {
+      "frame": 99,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1478,
+          "bones": {
+            "mixamorig:LeftFoot": 659,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.16875706613063812
+    },
+    {
+      "frame": 100,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1482,
+          "bones": {
+            "mixamorig:LeftFoot": 659,
+            "mixamorig:RightFoot": 429,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.12227515876293182
+    },
+    {
+      "frame": 101,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1479,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 430,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.075421541929245
+    },
+    {
+      "frame": 102,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1476,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 430,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.02557291090488434
+    },
+    {
+      "frame": 103,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1477,
+          "bones": {
+            "mixamorig:LeftFoot": 651,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.024959340691566467
+    },
+    {
+      "frame": 104,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1487,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 436,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 94
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.07358639687299728
+    },
+    {
+      "frame": 105,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1485,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 436,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.12210064195096493
+    },
+    {
+      "frame": 106,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1481,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 435,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.16956762224435806
+    },
+    {
+      "frame": 107,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1483,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 435,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.21573656052350998
+    },
+    {
+      "frame": 108,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1481,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 431,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.25764796882867813
+    },
+    {
+      "frame": 109,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1483,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.28770875930786133
+    },
+    {
+      "frame": 110,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1482,
+          "bones": {
+            "mixamorig:LeftFoot": 648,
+            "mixamorig:RightFoot": 437,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3145828992128372
+    },
+    {
+      "frame": 111,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1484,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 436,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3391929566860199
+    },
+    {
+      "frame": 112,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1485,
+          "bones": {
+            "mixamorig:LeftFoot": 649,
+            "mixamorig:RightFoot": 436,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3535890579223633
+    },
+    {
+      "frame": 113,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1487,
+          "bones": {
+            "mixamorig:LeftFoot": 655,
+            "mixamorig:RightFoot": 434,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.35872025787830353
+    },
+    {
+      "frame": 114,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1485,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 435,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.35643522441387177
+    },
+    {
+      "frame": 115,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1480,
+          "bones": {
+            "mixamorig:LeftFoot": 642,
+            "mixamorig:RightFoot": 443,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3426435887813568
+    },
+    {
+      "frame": 116,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1490,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 445,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.31408320367336273
+    },
+    {
+      "frame": 117,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1500,
+          "bones": {
+            "mixamorig:LeftFoot": 646,
+            "mixamorig:RightFoot": 456,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.2591094821691513
+    },
+    {
+      "frame": 118,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1502,
+          "bones": {
+            "mixamorig:LeftFoot": 641,
+            "mixamorig:RightFoot": 460,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.16302913799881935
+    },
+    {
+      "frame": 119,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1498,
+          "bones": {
+            "mixamorig:LeftFoot": 634,
+            "mixamorig:RightFoot": 459,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 94
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.056255340576171875
+    },
+    {
+      "frame": 120,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1499,
+          "bones": {
+            "mixamorig:LeftFoot": 637,
+            "mixamorig:RightFoot": 463,
+            "mixamorig:LeftToeBase": 44,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.03760771453380585
+    },
+    {
+      "frame": 121,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1506,
+          "bones": {
+            "mixamorig:LeftFoot": 642,
+            "mixamorig:RightFoot": 464,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.09713129699230194
+    },
+    {
+      "frame": 122,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1509,
+          "bones": {
+            "mixamorig:LeftFoot": 639,
+            "mixamorig:RightFoot": 470,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.11869214475154877
+    },
+    {
+      "frame": 123,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1511,
+          "bones": {
+            "mixamorig:LeftFoot": 637,
+            "mixamorig:RightFoot": 472,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.1156044453382492
+    },
+    {
+      "frame": 124,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1512,
+          "bones": {
+            "mixamorig:LeftFoot": 637,
+            "mixamorig:RightFoot": 473,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.06812454760074615
+    },
+    {
+      "frame": 125,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1500,
+          "bones": {
+            "mixamorig:LeftFoot": 636,
+            "mixamorig:RightFoot": 470,
+            "mixamorig:LeftToeBase": 45,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.012952253222465515
+    },
+    {
+      "frame": 126,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1508,
+          "bones": {
+            "mixamorig:LeftFoot": 642,
+            "mixamorig:RightFoot": 475,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 237,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.12071813642978668
+    },
+    {
+      "frame": 127,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1522,
+          "bones": {
+            "mixamorig:LeftFoot": 647,
+            "mixamorig:RightFoot": 478,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.24434398859739304
+    },
+    {
+      "frame": 128,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1525,
+          "bones": {
+            "mixamorig:LeftFoot": 649,
+            "mixamorig:RightFoot": 478,
+            "mixamorig:LeftToeBase": 46,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3697344809770584
+    },
+    {
+      "frame": 129,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1527,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 479,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.48185722529888153
+    },
+    {
+      "frame": 130,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1530,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 479,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5658438950777054
+    },
+    {
+      "frame": 131,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1524,
+          "bones": {
+            "mixamorig:LeftFoot": 649,
+            "mixamorig:RightFoot": 478,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6076495200395584
+    },
+    {
+      "frame": 132,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1526,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 480,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 237,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.6103086024522781
+    },
+    {
+      "frame": 133,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1538,
+          "bones": {
+            "mixamorig:LeftFoot": 664,
+            "mixamorig:RightFoot": 479,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5857106596231461
+    },
+    {
+      "frame": 134,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1544,
+          "bones": {
+            "mixamorig:LeftFoot": 672,
+            "mixamorig:RightFoot": 474,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5487078875303268
+    },
+    {
+      "frame": 135,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1535,
+          "bones": {
+            "mixamorig:LeftFoot": 664,
+            "mixamorig:RightFoot": 473,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5138959735631943
+    },
+    {
+      "frame": 136,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1536,
+          "bones": {
+            "mixamorig:LeftFoot": 670,
+            "mixamorig:RightFoot": 470,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.49445150792598724
+    },
+    {
+      "frame": 137,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1542,
+          "bones": {
+            "mixamorig:LeftFoot": 673,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 50,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4944600909948349
+    },
+    {
+      "frame": 138,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1545,
+          "bones": {
+            "mixamorig:LeftFoot": 671,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 50,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.49456174671649933
+    },
+    {
+      "frame": 139,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1545,
+          "bones": {
+            "mixamorig:LeftFoot": 679,
+            "mixamorig:RightFoot": 465,
+            "mixamorig:LeftToeBase": 50,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4937804192304611
+    },
+    {
+      "frame": 140,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1545,
+          "bones": {
+            "mixamorig:LeftFoot": 677,
+            "mixamorig:RightFoot": 465,
+            "mixamorig:LeftToeBase": 50,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4930238872766495
+    },
+    {
+      "frame": 141,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1548,
+          "bones": {
+            "mixamorig:LeftFoot": 674,
+            "mixamorig:RightFoot": 464,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.49339599907398224
+    },
+    {
+      "frame": 142,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1552,
+          "bones": {
+            "mixamorig:LeftFoot": 678,
+            "mixamorig:RightFoot": 463,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 251,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4961712807416916
+    },
+    {
+      "frame": 143,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1566,
+          "bones": {
+            "mixamorig:LeftFoot": 690,
+            "mixamorig:RightFoot": 463,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 253,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5022508054971695
+    },
+    {
+      "frame": 144,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1579,
+          "bones": {
+            "mixamorig:LeftFoot": 698,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 253,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.512276217341423
+    },
+    {
+      "frame": 145,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1566,
+          "bones": {
+            "mixamorig:LeftFoot": 685,
+            "mixamorig:RightFoot": 468,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 253,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5264316350221634
+    },
+    {
+      "frame": 146,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1567,
+          "bones": {
+            "mixamorig:LeftFoot": 683,
+            "mixamorig:RightFoot": 472,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 252,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5429702252149582
+    },
+    {
+      "frame": 147,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1540,
+          "bones": {
+            "mixamorig:LeftFoot": 660,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 251,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5590426474809647
+    },
+    {
+      "frame": 148,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1528,
+          "bones": {
+            "mixamorig:LeftFoot": 652,
+            "mixamorig:RightFoot": 467,
+            "mixamorig:LeftToeBase": 50,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5722808688879013
+    },
+    {
+      "frame": 149,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1531,
+          "bones": {
+            "mixamorig:LeftFoot": 655,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5802804678678513
+    },
+    {
+      "frame": 150,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1526,
+          "bones": {
+            "mixamorig:LeftFoot": 651,
+            "mixamorig:RightFoot": 468,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5812946110963821
+    },
+    {
+      "frame": 151,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1527,
+          "bones": {
+            "mixamorig:LeftFoot": 654,
+            "mixamorig:RightFoot": 468,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5716009885072708
+    },
+    {
+      "frame": 152,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1528,
+          "bones": {
+            "mixamorig:LeftFoot": 656,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 49,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5511743277311325
+    },
+    {
+      "frame": 153,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1522,
+          "bones": {
+            "mixamorig:LeftFoot": 650,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 48,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.5206489711999893
+    },
+    {
+      "frame": 154,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1526,
+          "bones": {
+            "mixamorig:LeftFoot": 653,
+            "mixamorig:RightFoot": 472,
+            "mixamorig:LeftToeBase": 47,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.48112763464450836
+    },
+    {
+      "frame": 155,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1538,
+          "bones": {
+            "mixamorig:LeftFoot": 664,
+            "mixamorig:RightFoot": 472,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.4345299154520035
+    },
+    {
+      "frame": 156,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1540,
+          "bones": {
+            "mixamorig:LeftFoot": 668,
+            "mixamorig:RightFoot": 470,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.3834990859031677
+    },
+    {
+      "frame": 157,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1537,
+          "bones": {
+            "mixamorig:LeftFoot": 665,
+            "mixamorig:RightFoot": 470,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.331637904047966
+    },
+    {
+      "frame": 158,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1536,
+          "bones": {
+            "mixamorig:LeftFoot": 665,
+            "mixamorig:RightFoot": 472,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.2823009788990021
+    },
+    {
+      "frame": 159,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1537,
+          "bones": {
+            "mixamorig:LeftFoot": 667,
+            "mixamorig:RightFoot": 471,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.23575030267238617
+    },
+    {
+      "frame": 160,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1535,
+          "bones": {
+            "mixamorig:LeftFoot": 668,
+            "mixamorig:RightFoot": 469,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.19165930151939392
+    },
+    {
+      "frame": 161,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1535,
+          "bones": {
+            "mixamorig:LeftFoot": 666,
+            "mixamorig:RightFoot": 468,
+            "mixamorig:LeftToeBase": 43,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.15345266461372375
+    },
+    {
+      "frame": 162,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1532,
+          "bones": {
+            "mixamorig:LeftFoot": 666,
+            "mixamorig:RightFoot": 466,
+            "mixamorig:LeftToeBase": 42,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 88
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.12248852849006653
+    },
+    {
+      "frame": 163,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1532,
+          "bones": {
+            "mixamorig:LeftFoot": 668,
+            "mixamorig:RightFoot": 466,
+            "mixamorig:LeftToeBase": 40,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.09997530654072762
+    },
+    {
+      "frame": 164,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1524,
+          "bones": {
+            "mixamorig:LeftFoot": 666,
+            "mixamorig:RightFoot": 465,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.0560784712433815
+    },
+    {
+      "frame": 165,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1527,
+          "bones": {
+            "mixamorig:LeftFoot": 669,
+            "mixamorig:RightFoot": 465,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.008484438061714172
+    },
+    {
+      "frame": 166,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1520,
+          "bones": {
+            "mixamorig:LeftFoot": 665,
+            "mixamorig:RightFoot": 459,
+            "mixamorig:LeftToeBase": 41,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.048454657196998596
+    },
+    {
+      "frame": 167,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1509,
+          "bones": {
+            "mixamorig:LeftFoot": 661,
+            "mixamorig:RightFoot": 456,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.11045090854167938
+    },
+    {
+      "frame": 168,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1508,
+          "bones": {
+            "mixamorig:LeftFoot": 658,
+            "mixamorig:RightFoot": 457,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 86
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 102
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.17067377269268036
+    },
+    {
+      "frame": 169,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1509,
+          "bones": {
+            "mixamorig:LeftFoot": 657,
+            "mixamorig:RightFoot": 457,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 273
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.22896282374858856
+    },
+    {
+      "frame": 170,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1515,
+          "bones": {
+            "mixamorig:LeftFoot": 660,
+            "mixamorig:RightFoot": 459,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 225
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.2868882864713669
+    },
+    {
+      "frame": 171,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1521,
+          "bones": {
+            "mixamorig:LeftFoot": 665,
+            "mixamorig:RightFoot": 459,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 251,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 250
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3465353399515152
+    },
+    {
+      "frame": 172,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1526,
+          "bones": {
+            "mixamorig:LeftFoot": 674,
+            "mixamorig:RightFoot": 459,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 184
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4087418168783188
+    },
+    {
+      "frame": 173,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1529,
+          "bones": {
+            "mixamorig:LeftFoot": 683,
+            "mixamorig:RightFoot": 455,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 217
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4680687040090561
+    },
+    {
+      "frame": 174,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1528,
+          "bones": {
+            "mixamorig:LeftFoot": 683,
+            "mixamorig:RightFoot": 454,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 127
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5184854716062546
+    },
+    {
+      "frame": 175,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1527,
+          "bones": {
+            "mixamorig:LeftFoot": 683,
+            "mixamorig:RightFoot": 453,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 131
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5444248765707016
+    },
+    {
+      "frame": 176,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1533,
+          "bones": {
+            "mixamorig:LeftFoot": 690,
+            "mixamorig:RightFoot": 452,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 87
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 165
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5647844523191452
+    },
+    {
+      "frame": 177,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1539,
+          "bones": {
+            "mixamorig:LeftFoot": 694,
+            "mixamorig:RightFoot": 453,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 278
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.579897865653038
+    },
+    {
+      "frame": 178,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1548,
+          "bones": {
+            "mixamorig:LeftFoot": 694,
+            "mixamorig:RightFoot": 456,
+            "mixamorig:LeftToeBase": 39,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 89
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 430
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5900631994009018
+    },
+    {
+      "frame": 179,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1546,
+          "bones": {
+            "mixamorig:LeftFoot": 697,
+            "mixamorig:RightFoot": 450,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 249,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 401
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5970252603292465
+    },
+    {
+      "frame": 180,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1552,
+          "bones": {
+            "mixamorig:LeftFoot": 696,
+            "mixamorig:RightFoot": 454,
+            "mixamorig:LeftToeBase": 40,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 308
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6013671606779099
+    },
+    {
+      "frame": 181,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1546,
+          "bones": {
+            "mixamorig:LeftFoot": 692,
+            "mixamorig:RightFoot": 451,
+            "mixamorig:LeftToeBase": 40,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 248,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 326
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6035904735326767
+    },
+    {
+      "frame": 182,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1537,
+          "bones": {
+            "mixamorig:LeftFoot": 692,
+            "mixamorig:RightFoot": 450,
+            "mixamorig:LeftToeBase": 36,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 312
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6045940965414047
+    },
+    {
+      "frame": 183,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1535,
+          "bones": {
+            "mixamorig:LeftFoot": 692,
+            "mixamorig:RightFoot": 451,
+            "mixamorig:LeftToeBase": 36,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 324
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6045346111059189
+    },
+    {
+      "frame": 184,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1536,
+          "bones": {
+            "mixamorig:LeftFoot": 692,
+            "mixamorig:RightFoot": 450,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 344
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6036394089460373
+    },
+    {
+      "frame": 185,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1535,
+          "bones": {
+            "mixamorig:LeftFoot": 692,
+            "mixamorig:RightFoot": 449,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 364
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6022235006093979
+    },
+    {
+      "frame": 186,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1537,
+          "bones": {
+            "mixamorig:LeftFoot": 695,
+            "mixamorig:RightFoot": 449,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 344
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.6001764386892319
+    },
+    {
+      "frame": 187,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1535,
+          "bones": {
+            "mixamorig:LeftFoot": 699,
+            "mixamorig:RightFoot": 445,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 339
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5978324264287949
+    },
+    {
+      "frame": 188,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1540,
+          "bones": {
+            "mixamorig:LeftFoot": 699,
+            "mixamorig:RightFoot": 448,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 290
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5950880497694016
+    },
+    {
+      "frame": 189,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1545,
+          "bones": {
+            "mixamorig:LeftFoot": 702,
+            "mixamorig:RightFoot": 450,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 289
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.591811403632164
+    },
+    {
+      "frame": 190,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1544,
+          "bones": {
+            "mixamorig:LeftFoot": 703,
+            "mixamorig:RightFoot": 447,
+            "mixamorig:LeftToeBase": 38,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 300
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5879874676465988
+    },
+    {
+      "frame": 191,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1540,
+          "bones": {
+            "mixamorig:LeftFoot": 706,
+            "mixamorig:RightFoot": 444,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 238,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 278
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5836329907178879
+    },
+    {
+      "frame": 192,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1540,
+          "bones": {
+            "mixamorig:LeftFoot": 702,
+            "mixamorig:RightFoot": 448,
+            "mixamorig:LeftToeBase": 36,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 285
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5780024379491806
+    },
+    {
+      "frame": 193,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1546,
+          "bones": {
+            "mixamorig:LeftFoot": 709,
+            "mixamorig:RightFoot": 450,
+            "mixamorig:LeftToeBase": 34,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 364
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5700160712003708
+    },
+    {
+      "frame": 194,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1544,
+          "bones": {
+            "mixamorig:LeftFoot": 708,
+            "mixamorig:RightFoot": 446,
+            "mixamorig:LeftToeBase": 34,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 300
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.560099646449089
+    },
+    {
+      "frame": 195,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1553,
+          "bones": {
+            "mixamorig:LeftFoot": 704,
+            "mixamorig:RightFoot": 454,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 341
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.5482941716909409
+    },
+    {
+      "frame": 196,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1554,
+          "bones": {
+            "mixamorig:LeftFoot": 709,
+            "mixamorig:RightFoot": 452,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 293
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.533773884177208
+    },
+    {
+      "frame": 197,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1550,
+          "bones": {
+            "mixamorig:LeftFoot": 707,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:RightFoot": 452,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 240,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 275
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.516751691699028
+    },
+    {
+      "frame": 198,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1556,
+          "bones": {
+            "mixamorig:LeftFoot": 708,
+            "mixamorig:LeftToeBase": 37,
+            "mixamorig:RightFoot": 458,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 239,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 251
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4971325844526291
+    },
+    {
+      "frame": 199,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1558,
+          "bones": {
+            "mixamorig:LeftFoot": 704,
+            "mixamorig:LeftToeBase": 35,
+            "mixamorig:RightFoot": 461,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 357
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.47484318912029266
+    },
+    {
+      "frame": 200,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1566,
+          "bones": {
+            "mixamorig:LeftFoot": 709,
+            "mixamorig:LeftToeBase": 35,
+            "mixamorig:RightFoot": 466,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 242,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 352,
+        "Measured_hull_cavity_caps": 33
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4502912610769272
+    },
+    {
+      "frame": 201,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1557,
+          "bones": {
+            "mixamorig:LeftFoot": 707,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 460,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 577
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.4233403652906418
+    },
+    {
+      "frame": 202,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1551,
+          "bones": {
+            "mixamorig:LeftFoot": 706,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 455,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 354
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3949180096387863
+    },
+    {
+      "frame": 203,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1553,
+          "bones": {
+            "mixamorig:LeftFoot": 709,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 453,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 265
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3648636192083359
+    },
+    {
+      "frame": 204,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1550,
+          "bones": {
+            "mixamorig:LeftFoot": 711,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 449,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 336
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.33383695781230927
+    },
+    {
+      "frame": 205,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1552,
+          "bones": {
+            "mixamorig:LeftFoot": 714,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 441,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 250,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 436
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.3021400421857834
+    },
+    {
+      "frame": 206,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1551,
+          "bones": {
+            "mixamorig:LeftFoot": 723,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 434,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {
+        "Lux3D_canoe": 82
+      },
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.27030570805072784
+    },
+    {
+      "frame": 207,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1547,
+          "bones": {
+            "mixamorig:LeftFoot": 721,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftUpLeg": 19,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.23269592225551605
+    },
+    {
+      "frame": 208,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1550,
+          "bones": {
+            "mixamorig:LeftFoot": 717,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 441,
+            "mixamorig:LeftUpLeg": 21,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.18543852865695953
+    },
+    {
+      "frame": 209,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1547,
+          "bones": {
+            "mixamorig:LeftFoot": 713,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 441,
+            "mixamorig:LeftUpLeg": 21,
+            "mixamorig:Hips": 244,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 92
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.13463617861270905
+    },
+    {
+      "frame": 210,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1546,
+          "bones": {
+            "mixamorig:LeftFoot": 708,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 441,
+            "mixamorig:LeftUpLeg": 21,
+            "mixamorig:Hips": 247,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.08342212438583374
+    },
+    {
+      "frame": 211,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1559,
+          "bones": {
+            "mixamorig:LeftFoot": 717,
+            "mixamorig:LeftToeBase": 33,
+            "mixamorig:RightFoot": 440,
+            "mixamorig:LeftUpLeg": 21,
+            "mixamorig:Hips": 252,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 93
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": -0.03474216163158417
+    },
+    {
+      "frame": 212,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1547,
+          "bones": {
+            "mixamorig:LeftFoot": 719,
+            "mixamorig:LeftToeBase": 31,
+            "mixamorig:RightFoot": 438,
+            "mixamorig:LeftUpLeg": 21,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.0075859129428863525
+    },
+    {
+      "frame": 213,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1543,
+          "bones": {
+            "mixamorig:LeftFoot": 720,
+            "mixamorig:LeftToeBase": 31,
+            "mixamorig:RightFoot": 434,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.04105816036462784
+    },
+    {
+      "frame": 214,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1534,
+          "bones": {
+            "mixamorig:LeftFoot": 712,
+            "mixamorig:LeftToeBase": 30,
+            "mixamorig:RightFoot": 433,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.06451863795518875
+    },
+    {
+      "frame": 215,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1542,
+          "bones": {
+            "mixamorig:LeftFoot": 721,
+            "mixamorig:LeftToeBase": 30,
+            "mixamorig:RightFoot": 432,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.07797133550047874
+    },
+    {
+      "frame": 216,
+      "bodyContacts": {
+        "Lux3D_canoe": {
+          "triangles": 1538,
+          "bones": {
+            "mixamorig:LeftFoot": 720,
+            "mixamorig:LeftToeBase": 30,
+            "mixamorig:RightFoot": 430,
+            "mixamorig:LeftUpLeg": 20,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightLeg": 3,
+            "mixamorig:RightUpLeg": 90
+          }
+        }
+      },
+      "paddleContacts": {},
+      "paddleHeadTriangles": 0,
+      "bladeMinZ": 0.08379404991865158
+    }
+  ],
+  "summary": {
+    "paddleHullFrames": [
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206
+    ],
+    "paddleSeatFrames": [],
+    "bodyHullFrames": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120,
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139,
+      140,
+      141,
+      142,
+      143,
+      144,
+      145,
+      146,
+      147,
+      148,
+      149,
+      150,
+      151,
+      152,
+      153,
+      154,
+      155,
+      156,
+      157,
+      158,
+      159,
+      160,
+      161,
+      162,
+      163,
+      164,
+      165,
+      166,
+      167,
+      168,
+      169,
+      170,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215,
+      216
+    ],
+    "bodySeatFrames": [],
+    "paddleHeadFrames": []
+  }
+}

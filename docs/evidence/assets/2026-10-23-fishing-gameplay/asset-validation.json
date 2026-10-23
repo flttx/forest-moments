@@ -1,0 +1,75 @@
+{
+  "assets": [
+    {
+      "source": "E:\\Projects\\my-blog\\public\\assets\\world\\coast\\coast-rod.glb",
+      "runtime": "public\\assets\\models\\fishing-rod.glb",
+      "bytes": 6336,
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc",
+      "triangles": 480,
+      "sourceBuildEntry": {
+        "rod": "Blender-modelled simple bamboo rod (user 2026-10-19); Tripo coast-fishing-rod kept unused",
+        "length_m": 1.1,
+        "grip_from_butt_m": 0.15,
+        "bones": 5,
+        "review": [
+          "assets/blender/coast/derived/review/rod.png"
+        ],
+        "glb": {
+          "path": "assets/blender/coast/derived/coast-rod.glb",
+          "bytes": 6336,
+          "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc",
+          "triangles": 480
+        }
+      },
+      "sourceBuildReport": "E:/Projects/my-blog/assets/blender/coast/derived/coast-build.json",
+      "commercialLicense": "not independently reverified; local prototype reuse only"
+    },
+    {
+      "source": "E:\\Projects\\my-blog\\public\\assets\\world\\coast\\fish-koi.glb",
+      "runtime": "public\\assets\\models\\fish-koi.glb",
+      "bytes": 139172,
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e",
+      "triangles": 4500,
+      "sourceBuildEntry": {
+        "model": {
+          "raw": "assets/tripo/coast/fish-koi/raw/ca298d92-f93b-428c-bc4e-02c27ddc8ff1/model.glb",
+          "source_triangles": 7746,
+          "triangles": 4500,
+          "welded_vertices": 1350,
+          "source_dims": [
+            0.372,
+            0.981,
+            0.462
+          ],
+          "placements": []
+        },
+        "length_m": 1.0,
+        "bones": 6,
+        "head": "Blender -Y (runtime +Z)",
+        "head_end_was_low_y": true,
+        "review": [
+          "assets/blender/coast/derived/review/fish-koi.png"
+        ],
+        "glb": {
+          "path": "assets/blender/coast/derived/fish-koi.glb",
+          "bytes": 139172,
+          "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e",
+          "triangles": 4500
+        }
+      },
+      "sourceBuildReport": "E:/Projects/my-blog/assets/blender/coast/derived/coast-build.json",
+      "commercialLicense": "not independently reverified; local prototype reuse only"
+    }
+  ],
+  "actorUnchangedSHA256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+  "originalFishingClipsSeconds": {
+    "fish_cast": 3.2,
+    "fish_hold": 1.5666666666666667,
+    "fish_land": 1.1666666666666667,
+    "fish_reel": 2.4
+  },
+  "addedBytes": 145508,
+  "totalRuntimeAssetBytes": 96700103,
+  "newPaidTasks": 0,
+  "notes": "No new Blender generation or actor edit. Prop transforms only; original fish/rod files copied verbatim. Runtime float, line, ring are procedural."
+}

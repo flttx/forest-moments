@@ -1,0 +1,131 @@
+{
+  "output": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v2.glb",
+  "outputSha256": "22a431b01c98cd285a534a1672f3050896c7d59d9d144873143a5a49b235e622",
+  "sourceGeometry": "surface-v1.glb",
+  "geometryModified": false,
+  "weights": "smooth anatomical distance fields, graph relaxation on coincident UV vertices, four normalized influences",
+  "animationSource": "Existing user-provided my-blog Mixamo FBXs, read-only reuse; rest-frame rotation retargeting and scaled hip translation",
+  "clips": [
+    {
+      "name": "Idle",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Breathing Idle.fbx",
+      "sourceSha256": "38322ac0204b387547b916891f975a1fe6d0717ce2ab02dcc994c867dd057fb4",
+      "sourceFrames": [
+        1,
+        299
+      ],
+      "frames": 299,
+      "durationSeconds": 9.933333333333334
+    },
+    {
+      "name": "Walk",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Walk.fbx",
+      "sourceSha256": "5a9f28f04cd1e0a7b5e3c459a87a893260f2dac96c23f559e1caffff3fada96f",
+      "sourceFrames": [
+        1,
+        31
+      ],
+      "frames": 31,
+      "durationSeconds": 1.0
+    },
+    {
+      "name": "Run",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Running.fbx",
+      "sourceSha256": "414886b58c538799aea71d2e18231e259fce290ee2f96409e7aeffbd1cfbbe24",
+      "sourceFrames": [
+        1,
+        22
+      ],
+      "frames": 22,
+      "durationSeconds": 0.7
+    },
+    {
+      "name": "SitDown",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Stand To Sit.fbx",
+      "sourceSha256": "e75b693d43521ef0d31c7748996f3aafee7ca8cbbeafe60d1d5f16f64414b05d",
+      "sourceFrames": [
+        1,
+        68
+      ],
+      "frames": 68,
+      "durationSeconds": 2.2333333333333334
+    },
+    {
+      "name": "Sit",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Sitting Idle (1).fbx",
+      "sourceSha256": "bb8590c5ece7239bb404b299011d5f38c04979776b601ff6c78a365adc2e27ab",
+      "sourceFrames": [
+        1,
+        130
+      ],
+      "frames": 130,
+      "durationSeconds": 4.3
+    },
+    {
+      "name": "StandUp",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Sit To Stand.fbx",
+      "sourceSha256": "ca64f440c2e045ca1da9a7a21c7ddd7ca930ed998d7b37362411b4ce63506d7b",
+      "sourceFrames": [
+        1,
+        69
+      ],
+      "frames": 69,
+      "durationSeconds": 2.2666666666666666
+    },
+    {
+      "name": "CrouchReach",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Picking Up.fbx",
+      "sourceSha256": "70f02b6590b3f59cc60558c79bd00c002d95f472bd7ba1fbba936092adf18ddd",
+      "sourceFrames": [
+        1,
+        288
+      ],
+      "frames": 288,
+      "durationSeconds": 9.566666666666666
+    },
+    {
+      "name": "FishCast",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Fishing Cast.fbx",
+      "sourceSha256": "00d288e241949745d3019a90d00228ef4b9f75c381ddccd39b218f7991568eb0",
+      "sourceFrames": [
+        1,
+        264
+      ],
+      "frames": 264,
+      "durationSeconds": 8.766666666666667
+    },
+    {
+      "name": "FishIdle",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Fishing Idle.fbx",
+      "sourceSha256": "4469b387d0e00076cf091ec49fffd35fdb77f3b8323c99fd8fc695021ce76ff9",
+      "sourceFrames": [
+        1,
+        107
+      ],
+      "frames": 107,
+      "durationSeconds": 3.533333333333333
+    },
+    {
+      "name": "Paddle",
+      "sourceFile": "E:\\Projects\\my-blog\\assets\\mixamo\\raw\\v4\\Paddling.fbx",
+      "sourceSha256": "8906637431f8eba5b8a92e269d40717466b1eea5b903f5c1c1a907ca43d88ff9",
+      "sourceFrames": [
+        1,
+        218
+      ],
+      "frames": 218,
+      "durationSeconds": 7.233333333333333
+    }
+  ],
+  "bones": 22,
+  "tailBones": 4,
+  "status": "retargeted candidate, visual and skin acceptance pending",
+  "rawFbxCopied": false,
+  "paidApiCalls": 0,
+  "browserVerified": false,
+  "limitations": [
+    "Tail/leg overlap and seated tail clearance still require diagnostics",
+    "Humanoid clips do not provide tail motion",
+    "Props and runtime transitions not yet aligned"
+  ]
+}

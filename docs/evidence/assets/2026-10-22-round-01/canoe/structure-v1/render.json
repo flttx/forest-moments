@@ -1,0 +1,40 @@
+{
+  "asset": "canoe",
+  "blenderVersion": "5.2.1 LTS",
+  "source": "assets/lux3d/round-01/canoe/structure-v1.glb",
+  "sourceSha256": "8b442f9fe290767fe1abc5a2edb49a1b44fa156776898db39b66413e19507ee5",
+  "framingBoundsBlenderXYZ": {
+    "min": [
+      -2.4000000953674316,
+      -2.406660318374634,
+      -0.7301744818687439
+    ],
+    "max": [
+      2.4000000953674316,
+      2.406660318374634,
+      0.7301744818687439
+    ],
+    "size": [
+      4.800000190734863,
+      4.813320636749268,
+      1.4603489637374878
+    ]
+  },
+  "framingReference": "raw-source-bounds",
+  "orthographicScale": 4.800000190734863,
+  "meshObjects": 4,
+  "renderEngine": "CYCLES",
+  "resolution": [
+    900,
+    900
+  ],
+  "views": [
+    "elevated",
+    "bottom"
+  ],
+  "previewScaleOnly": 0.6232703421200058,
+  "sourceGeometryModified": true,
+  "runtimeBrowserVerified": false,
+  "clayDiagnostic": false,
+  "tailCloseup": false
+}

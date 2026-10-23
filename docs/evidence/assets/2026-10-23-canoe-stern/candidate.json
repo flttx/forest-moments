@@ -1,0 +1,40 @@
+{
+  "status": "not adopted: rearward placement stopped; v3 geometry not audited",
+  "boatScale": 0.425,
+  "characterShift": [
+    -0.6000000238418579,
+    -0.15000000596046448,
+    0.20000000298023224
+  ],
+  "waterZ": -0.3,
+  "asset": "/assets/lux3d/round-01/canoe/stern-seat-v3.glb",
+  "bakedAssemblyCoordinates": true,
+  "changes": [
+    {
+      "mesh": "Lux3D_canoe",
+      "vertices": 247660,
+      "changedVertices": 40049,
+      "maxMoveM": 0.45072705357920734,
+      "polygons": 287052
+    },
+    {
+      "mesh": "Measured_hull_cavity_caps",
+      "vertices": 5709,
+      "changedVertices": 0,
+      "maxMoveM": 0,
+      "polygons": 8846
+    }
+  ],
+  "seatEnvelopeFrames": 217,
+  "seatHeightRange": [
+    -0.17348307371139526,
+    0.11300000548362732
+  ],
+  "sourceSHA256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+  "outputSHA256": "0d9b7c01cdbba4008e4b0f1113d11d1ee4e8d6a1949230831d95964e73778d44",
+  "actorModified": false,
+  "paddleModified": false,
+  "decimation": false,
+  "refinement": "gentle aft-tip rise; seat and support top lowered 22 mm",
+  "changesDescribeVersion": "v2; v3 tip refinement has not been scope-verified"
+}

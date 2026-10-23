@@ -1,0 +1,27 @@
+{
+  "asset": "lookout",
+  "source": "assets/lux3d/round-01/lookout/output-1.glb",
+  "sourceSha256": "183120006624644f71289fdd669631123558c96e8fad51548efa3f236545f38c",
+  "output": "assets/lux3d/round-01/lookout/structure-v1.glb",
+  "outputSha256": "8e6278f98e5715510697f11ab19afcec47ab31ee0f5371bca5d4782bf5506b93",
+  "importedOriginalTriangles": 281358,
+  "changes": [
+    {
+      "operation": "separate and open original entry gate",
+      "selectedFaces": 1480,
+      "hinge": [
+        0.30000001192092896,
+        0.5099999904632568,
+        0.22499999403953552
+      ],
+      "openDegrees": 100,
+      "stairsModified": false
+    }
+  ],
+  "decimationApplied": false,
+  "characterModified": false,
+  "paidApiCalls": 0,
+  "originalMeshCoordinatesUnchanged": "gate moved as a separate object",
+  "status": "candidate; exported GLB visual review pending",
+  "browserVerified": false
+}

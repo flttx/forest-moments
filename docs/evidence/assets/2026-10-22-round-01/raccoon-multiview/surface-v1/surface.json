@@ -1,0 +1,21 @@
+{
+  "source": "assets/lux3d/round-01/raccoon-multiview/tail-repair-v5.glb",
+  "sourceSha256": "b045f79cd7b1f0147dc0823f6ac45df10cba00957f210e29e91c0c8fe6a91136",
+  "output": "assets/lux3d/round-01/raccoon-multiview/surface-v1.glb",
+  "outputSha256": "e01ea0e19879d779339c4d94ab13c812c3463696296a49740cc9d886a692c054",
+  "geometryModified": false,
+  "texturePaintingPerformed": false,
+  "method": "Per-region PBR response; nearest surface color sampled onto new cut faces as vertex colors",
+  "materialFaceCounts": {
+    "Raccoon_Fur": 173672,
+    "Raccoon_Cloth": 69812,
+    "Raccoon_Leather": 42161,
+    "Raccoon_Eyes": 2670,
+    "Raccoon_Buckle": 1032,
+    "Tail_root_sampled_color": 1173
+  },
+  "sourceMetallicRoughnessMapReplacedByParameters": true,
+  "status": "awaiting visual review",
+  "paidApiCalls": 0,
+  "runtimeBrowserVerified": false
+}

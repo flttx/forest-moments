@@ -1,0 +1,381 @@
+{
+  "date": "2026-10-23T08:25:57.134Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "four assets and real idle clip loaded",
+      "data": {
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.11740000000596047
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "triangles": 1716590,
+        "calls": 250
+      }
+    },
+    {
+      "name": "walk then idle transition",
+      "data": {
+        "position": [
+          0,
+          0,
+          0.8248900000065568
+        ],
+        "motion": "walk",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "walk",
+          "time": 0.7331000000089405
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 2277212,
+        "calls": 275
+      }
+    },
+    {
+      "name": "run then idle transition",
+      "data": {
+        "position": [
+          0,
+          0,
+          2.3427140000367177
+        ],
+        "motion": "run",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "run",
+          "time": 0.41650000000000004
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 2277080,
+        "calls": 282
+      }
+    },
+    {
+      "name": "blur clears movement",
+      "data": {
+        "position": [
+          0,
+          0,
+          2.965952000028194
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.3499999999999999
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 2277596,
+        "calls": 297
+      }
+    },
+    {
+      "name": "focused input blocks game movement",
+      "data": {
+        "position": [
+          0,
+          0,
+          2.965952000028194
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.633399999991059
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 2277596,
+        "calls": 297
+      }
+    },
+    {
+      "name": "workshop blocks movement and returns idle",
+      "data": {
+        "position": [
+          -8.05851199997246,
+          0,
+          5.481080000055733
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 1.1004999999999996
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 1996945,
+        "calls": 275
+      }
+    },
+    {
+      "name": "pond blocks entry",
+      "data": {
+        "position": [
+          1.6413320000183595,
+          0,
+          -5.007243999935087
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 1.0666000000089402
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 2276538,
+        "calls": 263
+      }
+    },
+    {
+      "name": "dock deck supports feet",
+      "data": {
+        "position": [
+          10.34387199997246,
+          0.12,
+          -8.085703999935085
+        ],
+        "motion": "run",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "run",
+          "time": 0.19940008345246119
+        },
+        "mode": "walking",
+        "boat": {
+          "x": 8.1,
+          "z": -6.1,
+          "heading": -1.5707963267948966,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "triangles": 1992644,
+        "calls": 258
+      }
+    },
+    {
+      "name": "seedling interaction persists after reload",
+      "data": {
+        "saved": true
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "headless-spawn.png",
+    "headless-walk.png",
+    "headless-run.png",
+    "headless-workshop-collision.png",
+    "headless-pond-collision.png",
+    "headless-dock.png",
+    "headless-seedling.png"
+  ],
+  "status": "PASS: scoped runtime smoke checks; not complete visual or gameplay acceptance",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/155.0.4283.62",
+    "revision": "@aa3a7406ba8c53a83536df539f07124d73c899bd",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0",
+    "jsVersion": "15.5.9.7"
+  },
+  "webgl": {
+    "renderer": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002582) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+    "drawingBuffer": [
+      1440,
+      900
+    ]
+  },
+  "cadence": {
+    "durationMs": 30016,
+    "frames": 1781,
+    "meanFrameMs": 16.853453116226838,
+    "meanFps": 59.33502132196163,
+    "p95FrameMs": 16.80000000000291,
+    "maxFrameMs": 350,
+    "visibility": "visible"
+  }
+}

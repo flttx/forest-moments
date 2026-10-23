@@ -1,44 +1,50 @@
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Suspense, useEffect, useMemo, useRef } from 'react'
+import { Suspense, useCallback, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useForestStore } from '../game/store'
+import { canStandAt, dockDeckHeight, groundHeightAt, moveOnGround } from '../game/movement'
+import { lookoutPosition, workshopPosition } from './assets'
+import { canBoard, canLand, stepBoat } from '../game/rowing'
+import { RowingBoat } from './RowingBoat'
+import { fishingClips } from '../game/fishing'
+import { FishingScene } from './FishingScene'
+import { ModelAsset } from './ModelAsset'
+import type { Locomotion } from './ModelAsset'
+import { Atmosphere } from './Atmosphere'
+import { IslandTerrain } from './IslandTerrain'
+import { ForestVegetation } from './ForestVegetation'
 
-const pinePositions = Array.from({ length: 66 }, (_, i) => {
-  const a = i * 2.3999632
-  const r = 11 + ((i * 29) % 22) * 0.31
-  return { x: Math.sin(a) * r, z: Math.cos(a) * r, scale: 0.78 + (i % 6) * 0.11 }
-}).filter(({ x, z }) => !(x < -5 && z > -10 && z < 6) && !(x > 3 && z > -10 && z < 9))
+const qaEnabled = import.meta.env.DEV && new URLSearchParams(location.search).has('qa')
 
-function Pine({ x, z, scale }: { x: number; z: number; scale: number }) {
-  return <group position={[x, 0, z]} scale={scale}>
-    <mesh castShadow position={[0, .75, 0]}><cylinderGeometry args={[.17, .25, 1.5, 7]} /><meshStandardMaterial color="#735842" /></mesh>
-    {[0, 1, 2].map((i) => <mesh key={i} castShadow position={[0, 1.75 + i * .64, 0]}>
-      <coneGeometry args={[1.08 - i * .18, 1.9, 7]} />
-      <meshStandardMaterial flatShading color={i % 2 ? '#5e816a' : '#416955'} roughness={1} />
-    </mesh>)}
-  </group>
+/** Fixed, opt-in development views for repeatable before/after captures. */
+function ReviewCamera() {
+  const view = new URLSearchParams(location.search).get('view')
+  useFrame(({ camera }) => {
+    if (!qaEnabled || !view) return
+    const views: Record<string, [number[], number[]]> = {
+      overview: [[34, 28, 42], [0, 0, 0]],
+      coast: [[24, 4, 27], [0, 1, 0]],
+      pond: [[14, 6, 4], [6, .4, -5]],
+      workshop: [[-1, 4, 12], [-8, 1.3, 3]],
+      tower: [[1, 5, 2], [-8, 2, -8]],
+      farm: [[15, 4, 13], [8, .6, 6]],
+      player: [[3, 2.5, 5], [0, .8, 0]],
+    }
+    const shot = views[view]
+    if (shot) { camera.position.set(shot[0][0], shot[0][1], shot[0][2]); camera.lookAt(shot[1][0], shot[1][1], shot[1][2]) }
+  }, -1)
+  return null
 }
 
 function Workshop() {
-  return <group position={[-8, 0, 3]}>
-    <mesh castShadow position={[0, 1.3, 0]}><boxGeometry args={[3.5, 2.6, 3]} /><meshStandardMaterial color="#ad8057" /></mesh>
-    <mesh castShadow position={[0, 3, 0]} rotation={[0, Math.PI / 4, 0]}>
-      <coneGeometry args={[2.75, 1.9, 4]} /><meshStandardMaterial flatShading color="#464846" />
-    </mesh>
-    <mesh position={[.5, .97, 1.52]}><boxGeometry args={[.95, 1.9, .1]} /><meshStandardMaterial color="#5c4837" /></mesh>
-    <mesh position={[-.9, 1.75, 1.52]}><boxGeometry args={[.68, .7, .12]} /><meshStandardMaterial color="#f1c784" emissive="#a46e2a" emissiveIntensity={.22} /></mesh>
+  return <group position={[...workshopPosition]}>
+    <Suspense fallback={null}><ModelAsset asset="workshop" /></Suspense>
   </group>
 }
 
 function Tower() {
-  return <group position={[-8, 0, -8]}>
-    {[-1, 1].flatMap((x) => [-1, 1].map((z) => <mesh key={String(x) + ':' + String(z)} castShadow position={[x, 2.05, z]}>
-      <cylinderGeometry args={[.15, .2, 4.1, 6]} /><meshStandardMaterial color="#77563c" />
-    </mesh>))}
-    <mesh castShadow position={[0, 3.95, 0]}><boxGeometry args={[2.8, .3, 2.8]} /><meshStandardMaterial color="#a17a50" /></mesh>
-    <mesh castShadow position={[0, 5.15, 0]} rotation={[0, Math.PI / 4, 0]}>
-      <coneGeometry args={[2.4, 1.8, 4]} /><meshStandardMaterial color="#485147" flatShading />
-    </mesh>
+  return <group position={[...lookoutPosition]}>
+    <Suspense fallback={null}><ModelAsset asset="lookout" /></Suspense>
   </group>
 }
 
@@ -59,14 +65,8 @@ function Farm() {
 
 function Water() {
   return <group>
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[6, .035, -5]}>
-      <circleGeometry args={[4.05, 64]} />
-      <meshStandardMaterial color="#7baab0" roughness={.22} metalness={.08} transparent opacity={.86} />
-    </mesh>
-    <mesh position={[10.15, .22, -8.15]}><boxGeometry args={[2.8, .34, 1.2]} /><meshStandardMaterial color="#967450" /></mesh>
-    <mesh position={[11.1, .32, -6.8]} rotation={[0, -.4, 0]}>
-      <boxGeometry args={[1.65, .35, .85]} /><meshStandardMaterial color="#a2764e" />
-    </mesh>
+    <mesh position={[10.15, dockDeckHeight - .08, -8.15]}><boxGeometry args={[2.8, .16, 1.2]} /><meshStandardMaterial color="#967450" /></mesh>
+    <Suspense fallback={null}><RowingBoat /></Suspense>
   </group>
 }
 
@@ -80,29 +80,34 @@ function Lamp({ x, z }: { x: number; z: number }) {
 
 function Player() {
   const root = useRef<THREE.Group>(null)
-  const tail = useRef<THREE.Group>(null)
+  const motion = useRef<Locomotion>('idle')
+  const ready = useRef(false)
+  const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
-  const walkClock = useRef(0)
   const updatePosition = useForestStore((s) => s.updatePosition)
 
   useEffect(() => {
     function down(e: KeyboardEvent) {
-      if (e.target instanceof HTMLElement && ['INPUT', 'TEXTAREA', 'BUTTON'].includes(e.target.tagName)) return
-      if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) {
+      if (e.target instanceof HTMLElement && (e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName))) return
+      if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || (useForestStore.getState().mode === 'fishing' && ['Space', 'Escape'].includes(e.code))) {
         e.preventDefault()
         pressed.current.add(e.code)
-        if (e.code === 'KeyF' && !e.repeat) useForestStore.getState().interact()
+        if (e.code === 'KeyF' && !e.repeat && ready.current) useForestStore.getState().interact()
+        if (e.code === 'Space') useForestStore.getState().reel(true)
+        if (e.code === 'Escape') useForestStore.getState().cancelFishing()
       }
     }
-    function up(e: KeyboardEvent) { pressed.current.delete(e.code) }
-    function blur() { pressed.current.clear() }
+    function up(e: KeyboardEvent) { pressed.current.delete(e.code); if (e.code === 'Space') useForestStore.getState().reel(false) }
+    function blur() { pressed.current.clear(); useForestStore.getState().pauseFishing() }
     window.addEventListener('keydown', down)
     window.addEventListener('keyup', up)
     window.addEventListener('blur', blur)
+    document.addEventListener('visibilitychange', blur)
     return () => {
       window.removeEventListener('keydown', down)
       window.removeEventListener('keyup', up)
       window.removeEventListener('blur', blur)
+      document.removeEventListener('visibilitychange', blur)
     }
   }, [])
 
@@ -113,37 +118,58 @@ function Player() {
     const keys = pressed.current
     const x = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'))
     const z = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'))
-    const moving = x !== 0 || z !== 0
-    const speed = keys.has('ShiftLeft') || keys.has('ShiftRight') ? 5.1 : 2.8
-    if (moving) {
-      const length = Math.hypot(x, z)
-      const nx = character.position.x + x / length * speed * dt
-      const nz = character.position.z + z / length * speed * dt
-      if (Math.hypot(nx, nz) <= 16.4 && Math.hypot(nx - 6, nz + 5) >= 4.35) {
-        character.position.set(nx, 0, nz)
-      }
-      character.rotation.y = Math.atan2(-x, -z)
+    const running = keys.has('ShiftLeft') || keys.has('ShiftRight')
+    const speed = running ? 3.08 : 1.1
+    motion.current = 'idle'
+    const state = useForestStore.getState()
+    character.visible = state.mode !== 'rowing'
+    // Store position also supplies the safe landing point after leaving the boat.
+    character.position.set(state.position.x, groundHeightAt(state.position.x, state.position.z), state.position.z)
+    if (state.mode === 'rowing') state.updateBoat(stepBoat(state.boat, -z, -x, dt))
+    if (state.mode === 'fishing') {
+      state.tickFishing(dt)
+      const f = useForestStore.getState().fishing
+      if (f) motion.current = fishingClips[f.phase]
+      character.rotation.y = -Math.PI / 2
     }
-    walkClock.current += dt * (moving ? 12 : 2)
-    if (tail.current) tail.current.rotation.x = .3 + Math.sin(walkClock.current) * (moving ? .13 : .035)
-    updatePosition(character.position.x, character.position.z)
-    camera.position.lerp(new THREE.Vector3(character.position.x + 8, 10, character.position.z + 13), 1 - Math.exp(-3 * dt))
-    camera.lookAt(character.position.x, 1.1, character.position.z)
+    if (state.mode === 'walking' && ready.current && (x !== 0 || z !== 0)) {
+      const length = Math.hypot(x, z)
+      const next = moveOnGround(character.position, x / length * speed * dt, z / length * speed * dt)
+      if (Math.hypot(next.x - character.position.x, next.z - character.position.z) > .00001) {
+        character.position.set(next.x, groundHeightAt(next.x, next.z), next.z)
+        motion.current = running ? 'run' : 'walk'
+      }
+      const difference = Math.atan2(-x, -z) - character.rotation.y
+      character.rotation.y += Math.atan2(Math.sin(difference), Math.cos(difference)) * (1 - Math.exp(-12 * dt))
+    }
+    if (state.mode === 'walking') updatePosition(character.position.x, character.position.z)
+    const current = useForestStore.getState()
+    const target = current.mode === 'rowing' ? current.boat : character.position
+    const offset = current.mode === 'fishing' ? new THREE.Vector3(-1.8, 3.2, 5) : current.mode === 'rowing' ? new THREE.Vector3(4.2, 5, 6.2) : new THREE.Vector3(8, 5.8, 8)
+    camera.position.lerp(offset.add(new THREE.Vector3(target.x, 0, target.z)), 1 - Math.exp(-3 * dt))
+    camera.lookAt(target.x + (current.mode === 'fishing' ? 1 : 0), .85, target.z)
+  }, -2)
+
+  useFrame(({ gl, scene }) => {
+    // Opt-in, read-only local QA telemetry; removed from production builds.
+    if (qaEnabled && root.current) {
+      const current = useForestStore.getState()
+      const models = ['raccoon', 'workshop', 'lookout', 'canoe'].filter((name) => scene.getObjectByName(`asset-${name}`))
+      gl.domElement.dataset.forestQa = JSON.stringify({
+        position: root.current.position.toArray(), motion: motion.current, ready: ready.current, models,
+        animation: scene.getObjectByName('asset-raccoon')?.userData.animation,
+        mode: current.mode, boat: current.boat, boatReady: current.boatReady,
+        canBoard: canBoard(current.position.x, current.position.z, current.boat), canLand: canLand(current.boat),
+        boatAnimation: scene.getObjectByName('asset-canoe')?.userData.animation,
+        fishing: current.fishing, fishingReady: current.fishingReady, fishBook: current.fishBook,
+        fishingVisual: scene.getObjectByName('fishing-tools')?.userData.qa,
+        triangles: gl.info.render.triangles, calls: gl.info.render.calls,
+      })
+    }
   })
 
   return <group ref={root}>
-    <mesh castShadow position={[0, .85, 0]}><sphereGeometry args={[.52, 16, 12]} /><meshStandardMaterial color="#9e886e" /></mesh>
-    <mesh castShadow position={[0, 1.5, -.14]}><sphereGeometry args={[.45, 16, 12]} /><meshStandardMaterial color="#a18b73" /></mesh>
-    <mesh position={[0, 1.52, -.48]}><sphereGeometry args={[.35, 16, 12]} /><meshStandardMaterial color="#57504d" /></mesh>
-    {[-.19, .19].map((x) => <mesh key={x} position={[x, 1.59, -.75]}><sphereGeometry args={[.07, 12, 8]} /><meshStandardMaterial color="#f8e4c7" /></mesh>)}
-    {[-.31, .31].map((x) => <mesh key={x} position={[x, 1.88, -.04]}><sphereGeometry args={[.18, 12, 10]} /><meshStandardMaterial color="#514b49" /></mesh>)}
-    {[-.27, .27].map((x) => <mesh key={x} position={[x, .28, -.12]}><sphereGeometry args={[.24, 12, 10]} /><meshStandardMaterial color="#5c524b" /></mesh>)}
-    <group ref={tail} position={[0, .77, .47]}>
-      {[0, 1, 2, 3, 4].map((i) => <mesh key={i} position={[0, -.07 + i * .15, .05 * i]}>
-        <sphereGeometry args={[.23 - i * .022, 12, 10]} />
-        <meshStandardMaterial color={i % 2 ? '#b0a18a' : '#554b46'} />
-      </mesh>)}
-    </group>
+    <Suspense fallback={null}><ModelAsset asset="raccoon" motion={motion} onReadyChange={onReadyChange} /></Suspense>
   </group>
 }
 
@@ -161,18 +187,13 @@ function Scene() {
     const a = i * 2.399
     const r = 9 + ((i * 11) % 17) * .5
     return [Math.sin(a) * r, Math.cos(a) * r] as const
-  }), [])
+  }).filter(([x, z]) => canStandAt(x, z) && groundHeightAt(x, z) === 0), [])
   return <>
-    <color attach="background" args={['#d7e5d7']} />
-    <fog attach="fog" args={['#d7e5d7', 30, 72]} />
-    <ambientLight intensity={1.4} color="#fff2de" />
-    <directionalLight position={[-9, 18, 8]} intensity={2.4} castShadow shadow-mapSize={[2048, 2048]} shadow-camera-left={-26} shadow-camera-right={26} shadow-camera-top={26} shadow-camera-bottom={-26} />
-    <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}><circleGeometry args={[19, 96]} /><meshStandardMaterial color="#779669" roughness={1} /></mesh>
-    <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -.25, 0]}><circleGeometry args={[22, 96]} /><meshStandardMaterial color="#9c8c69" /></mesh>
-    <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={[-2, .012, 0]}><planeGeometry args={[3, 20]} /><meshStandardMaterial color="#b1a084" roughness={1} /></mesh>
-    {pinePositions.map((position, i) => <Pine key={i} {...position} />)}
+    <Atmosphere />
+    <IslandTerrain />
+    <ForestVegetation />
     {stones.map(([x, z], i) => <mesh key={i} position={[x, .13, z]} scale={[1, .44, .8]} rotation={[0, i, 0]}>
-      <dodecahedronGeometry args={[.36, 0]} /><meshStandardMaterial color="#9f9e86" flatShading />
+      <icosahedronGeometry args={[.36, 1]} /><meshStandardMaterial color="#9f9e86" roughness={.95} />
     </mesh>)}
     <Workshop />
     <Tower />
@@ -183,11 +204,13 @@ function Scene() {
     <Lamp x={-3} z={5} />
     <Lamp x={3} z={1} />
     <Player />
+    {import.meta.env.DEV && <ReviewCamera />}
+    <Suspense fallback={null}><FishingScene /></Suspense>
   </>
 }
 
 export function ForestWorld() {
-  return <Canvas shadows dpr={[1, 1.7]} camera={{ position: [8, 10, 13], fov: 46 }} gl={{ antialias: true }} style={{ height: '100%', width: '100%' }}>
+  return <Canvas shadows dpr={[1, 1.7]} camera={{ position: [8, 5.8, 8], fov: 46, far: 600 }} gl={{ antialias: true, toneMapping: THREE.ACESFilmicToneMapping, toneMappingExposure: 1 }} style={{ height: '100%', width: '100%' }}>
     <Suspense fallback={null}><Scene /></Suspense>
   </Canvas>
 }

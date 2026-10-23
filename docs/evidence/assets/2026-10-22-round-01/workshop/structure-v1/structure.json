@@ -1,0 +1,17 @@
+{
+  "asset": "workshop",
+  "source": "assets/lux3d/round-01/workshop/output-1.glb",
+  "sourceSha256": "79f76e1283c72b6ee8239c66524325d61d12c812554e4823c0ce2db22a33fc14",
+  "output": "assets/lux3d/round-01/workshop/structure-v1.glb",
+  "outputSha256": "53c12208ed7ee301eeec1302e4dfc76524b07ea50064480463575d7a45383a88",
+  "importedOriginalTriangles": 283470,
+  "changes": [
+    "Three separate local backing meshes behind attic/eave defects; original workshop faces retained"
+  ],
+  "decimationApplied": false,
+  "characterModified": false,
+  "paidApiCalls": 0,
+  "originalMeshCoordinatesUnchanged": true,
+  "status": "candidate; exported GLB visual review pending",
+  "browserVerified": false
+}

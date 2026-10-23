@@ -1,0 +1,100 @@
+{
+  "assets": [
+    {
+      "asset": "raccoon-multiview",
+      "taskId": 4268120,
+      "createdAt": "2026-10-22T03:35:54.763Z",
+      "endpoint": "https://api.aholo3d.cn",
+      "options": {
+        "version": "G1",
+        "faceCount": 300000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ]
+      },
+      "inputs": [
+        {
+          "view": "front",
+          "source": "docs/references/player/forest-moments-raccoon-front.png",
+          "path": "assets/lux3d/round-01/raccoon-multiview/inputs/front.png",
+          "sha256": "7a9a4572edb289f54c53822a7ce1a9d9206b948b062a7850a736cae114172db2",
+          "size": [
+            1086,
+            1448
+          ]
+        },
+        {
+          "view": "back",
+          "source": "docs/references/player/forest-moments-raccoon-back.png",
+          "path": "assets/lux3d/round-01/raccoon-multiview/inputs/back.png",
+          "sha256": "9569f7054a2523cc30587c00dacf5c83e240689fe55aaee427b7d2e8b4085ea1",
+          "size": [
+            1086,
+            1448
+          ]
+        },
+        {
+          "view": "left",
+          "source": "docs/references/player/forest-moments-raccoon-left.png",
+          "path": "assets/lux3d/round-01/raccoon-multiview/inputs/left.png",
+          "sha256": "0254426120b38d6cad2b9a67bb4a7d5d5bb9edf088d352c1e8b32cb2744b69a7",
+          "size": [
+            1086,
+            1448
+          ]
+        },
+        {
+          "view": "right",
+          "source": "docs/references/player/forest-moments-raccoon-right.png",
+          "path": "assets/lux3d/round-01/raccoon-multiview/inputs/right.png",
+          "sha256": "ce21d8e46a15dd69875dc28f976c71a454350c88c7dee6f59d0d0eae96656903",
+          "size": [
+            1086,
+            1448
+          ]
+        }
+      ],
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/raccoon-multiview/output-0.zip",
+          "sha256": "5838451d6c3b696f44fcdf8d6872a1f21087029cc9c11f1953c6dffaff7e8312",
+          "bytes": 17584143,
+          "archiveEntries": 7
+        },
+        {
+          "path": "assets/lux3d/round-01/raccoon-multiview/output-1.glb",
+          "sha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+          "bytes": 19180376,
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 237762,
+            "triangles": 289504,
+            "materials": 1,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4761156
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 3334708
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "creditsConsumed": null,
+      "commercialLicense": "not_verified",
+      "runtimeBrowserVerified": false
+    }
+  ]
+}

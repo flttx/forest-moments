@@ -1,0 +1,46 @@
+{
+  "asset": "workshop",
+  "status": "local-decimation-trial-not-runtime-approved",
+  "blenderVersion": "5.2.1 LTS",
+  "sourceSha256": "79f76e1283c72b6ee8239c66524325d61d12c812554e4823c0ce2db22a33fc14",
+  "outputSha256": "2a18195a19e5f5ec4811ad973918a1eae262fcf08cac43c61004f8c5152e8c2b",
+  "trianglesBefore": 283462,
+  "targetTriangles": 30000,
+  "variant": "optimized-v2",
+  "verticesBeforeWeld": 276556,
+  "verticesAfterWeld": 133644,
+  "trianglesAfter": 54604,
+  "textures": [
+    {
+      "name": "Image_0",
+      "before": [
+        2048,
+        2048
+      ],
+      "after": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "name": "Image_1",
+      "before": [
+        2048,
+        2048
+      ],
+      "after": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "bytesBefore": 18645196,
+  "bytesAfter": 5871304,
+  "materialEdits": false,
+  "uvRebake": false,
+  "rigged": false,
+  "sourcePreserved": true,
+  "runtimeBrowserVerified": false,
+  "visualStatus": "rejected",
+  "rejectionEvidence": "../../visual-review.md"
+}

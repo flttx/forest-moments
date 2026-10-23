@@ -1,0 +1,52 @@
+{
+  "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+  "outputSha256": "b045f79cd7b1f0147dc0823f6ac45df10cba00957f210e29e91c0c8fe6a91136",
+  "sourceUnchanged": true,
+  "embeddedTextureBytesIdentical": true,
+  "unchangedRegionPositionPrecision": 1e-05,
+  "sourceUniquePositionsOutsideEditBounds": 131935,
+  "missingOutsidePositions": 1,
+  "addedOutsidePositions": 0,
+  "sourceExteriorTriangles": 270178,
+  "missingExteriorTriangles": 0,
+  "addedExteriorTriangles": 0,
+  "exteriorTriangleCoordinatePrecision": 1e-07,
+  "boundaryNote": "Faces touching the edit box are part of the patch; they may contain vertices just outside the box.",
+  "editBoundsNormalized": {
+    "min": [
+      -0.31,
+      -0.12,
+      1.15
+    ],
+    "max": [
+      0.31,
+      0.35,
+      1.62
+    ]
+  },
+  "glb": {
+    "version": 2,
+    "meshes": 1,
+    "vertices": 241145,
+    "triangles": 290520,
+    "materials": 2,
+    "skins": 0,
+    "animations": 0,
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 4761156
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "format": "PNG",
+        "bytes": 3334708
+      }
+    ],
+    "extensionsRequired": []
+  },
+  "bytes": 19294288
+}

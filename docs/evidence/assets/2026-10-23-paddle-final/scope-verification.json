@@ -1,0 +1,26 @@
+{
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v11.glb",
+  "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+  "retainedHullFacesWithPositionsAndUV": 270555,
+  "removedFacesOnlyInsideDeclaredBenchRegion": 16497,
+  "hullTexturePixels": {
+    "Image_0": {
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "b03df9e3ebbdcd6ceb96737705d96c6d487a7f570efab376c1800fcc653b9336"
+    },
+    "Image_1": {
+      "size": [
+        2048,
+        2048
+      ],
+      "sha256": "e8659a37be31c5313cfacc99de8561dc41a7e9f6a220b626d3906459449655de"
+    }
+  },
+  "actorMeshTopologyWeightsPreserved": true,
+  "sourcePaddlePoseSamplesPreserved": 217,
+  "poseDigest": "f105688b977a433b1d8b28f2a44d296e6e7725c27a2c83780144375e64bad5de",
+  "scope": "Blender geometry and original poses; visual and collision acceptance separate"
+}

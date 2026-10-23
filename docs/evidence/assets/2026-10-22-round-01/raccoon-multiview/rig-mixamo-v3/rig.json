@@ -1,0 +1,153 @@
+{
+  "output": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v3.glb",
+  "outputSha256": "7476e2613f56610705493f44a72e4454a0771d82ad79fbe6dac5dd892627ea9a",
+  "sourceRig": "E:\\Projects\\my-blog\\public\\assets\\world\\player\\raccoon-mixamo.meshopt.glb",
+  "sourceRigSha256": "040014b784e477327757132224efda5d6bc24496b1b42354084b7fb82e9e710a",
+  "decodedSourceSha256": "ca8ce43b133fba1e3ca85c642992b46909c6f67bb57273d4739618cffd6f9932",
+  "geometrySource": "surface-v1.glb",
+  "geometrySourceSha256": "e01ea0e19879d779339c4d94ab13c812c3463696296a49740cc9d886a692c054",
+  "bones": 38,
+  "clips": [
+    {
+      "name": "bench_ready",
+      "frameRange": [
+        0.0,
+        29.0
+      ]
+    },
+    {
+      "name": "bench_sit_down",
+      "frameRange": [
+        0.0,
+        67.0
+      ]
+    },
+    {
+      "name": "bench_sit_idle",
+      "frameRange": [
+        0.0,
+        129.0
+      ]
+    },
+    {
+      "name": "bench_stand_up",
+      "frameRange": [
+        0.0,
+        68.0
+      ]
+    },
+    {
+      "name": "fish_cast",
+      "frameRange": [
+        0.0,
+        96.0
+      ]
+    },
+    {
+      "name": "fish_hold",
+      "frameRange": [
+        0.0,
+        47.0
+      ]
+    },
+    {
+      "name": "fish_land",
+      "frameRange": [
+        0.0,
+        35.0
+      ]
+    },
+    {
+      "name": "fish_reel",
+      "frameRange": [
+        0.0,
+        72.0
+      ]
+    },
+    {
+      "name": "idle",
+      "frameRange": [
+        0.0,
+        298.0
+      ]
+    },
+    {
+      "name": "interact",
+      "frameRange": [
+        0.0,
+        122.0
+      ]
+    },
+    {
+      "name": "paddle",
+      "frameRange": [
+        0.0,
+        216.0
+      ]
+    },
+    {
+      "name": "run",
+      "frameRange": [
+        0.0,
+        21.0
+      ]
+    },
+    {
+      "name": "sit_down_floor_hug",
+      "frameRange": [
+        0.0,
+        66.0
+      ]
+    },
+    {
+      "name": "sit_down_floor_idle",
+      "frameRange": [
+        0.0,
+        66.0
+      ]
+    },
+    {
+      "name": "sit_floor_hug",
+      "frameRange": [
+        0.0,
+        120.0
+      ]
+    },
+    {
+      "name": "sit_floor_idle",
+      "frameRange": [
+        0.0,
+        326.0
+      ]
+    },
+    {
+      "name": "stand_up_floor_hug",
+      "frameRange": [
+        0.0,
+        67.0
+      ]
+    },
+    {
+      "name": "stand_up_floor_idle",
+      "frameRange": [
+        0.0,
+        67.0
+      ]
+    },
+    {
+      "name": "walk",
+      "frameRange": [
+        0.0,
+        30.0
+      ]
+    }
+  ],
+  "tailBones": 5,
+  "weightTransfer": "Nearest original skinned surface, barycentric interpolation, normalized four influences",
+  "maxProjectionDistanceSourceMeters": 0.05867157503962517,
+  "meanProjectionDistanceSourceMeters": 0.010949368462550561,
+  "sourceFilesModified": false,
+  "paidApiCalls": 0,
+  "status": "candidate; new mesh deformation and tail clearance not accepted",
+  "runtimeBrowserVerified": false
+}

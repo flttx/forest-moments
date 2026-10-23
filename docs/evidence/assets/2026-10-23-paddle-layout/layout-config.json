@@ -1,0 +1,13 @@
+{
+  "status": "not adopted: high seat appearance and seat/body/paddle intersections unresolved",
+  "boatScale": 0.5,
+  "characterShift": [
+    -0.6000000238418579,
+    -0.20000000298023224,
+    0.4000000059604645
+  ],
+  "waterZ": -0.14,
+  "seatTopZ": 0.31,
+  "seatAsset": "/assets/lux3d/round-01/canoe/layout-seat-review.glb",
+  "sourceTrack": "../2026-10-23-paddle-prop/prop-track.json"
+}

@@ -1,0 +1,222 @@
+{
+  "assets": [
+    {
+      "asset": "workshop-structure",
+      "variant": "structure-v2",
+      "taskId": 4266166,
+      "sourceSha256": "79f76e1283c72b6ee8239c66524325d61d12c812554e4823c0ce2db22a33fc14",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/workshop/structure-v2.glb",
+          "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+          "bytes": 18892400,
+          "glb": {
+            "version": 2,
+            "meshes": 4,
+            "vertices": 284531,
+            "triangles": 283794,
+            "materials": 3,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4787020
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 1593536
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "local structure improvement; runtime validation pending",
+      "originalDecodedTexturesPreserved": true,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "lookout-structure",
+      "variant": "structure-v3",
+      "taskId": 4266456,
+      "sourceSha256": "183120006624644f71289fdd669631123558c96e8fad51548efa3f236545f38c",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/lookout/structure-v3.glb",
+          "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+          "bytes": 17295608,
+          "glb": {
+            "version": 2,
+            "meshes": 4,
+            "vertices": 230676,
+            "triangles": 281574,
+            "materials": 2,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4362840
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 2178712
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "local structure improvement; runtime validation pending",
+      "originalDecodedTexturesPreserved": true,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "canoe-structure",
+      "variant": "structure-v2",
+      "taskId": 4266578,
+      "sourceSha256": "d76f1bf7b807e763cbd4b7c0fd42496253b4c9d66a9b25bcb2b1299165876d21",
+      "files": [
+        {
+          "path": "assets/lux3d/round-01/canoe/structure-v2.glb",
+          "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+          "bytes": 17562100,
+          "glb": {
+            "version": 2,
+            "meshes": 4,
+            "vertices": 253645,
+            "triangles": 296122,
+            "materials": 3,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4005008
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 1914628
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "status": "local structure improvement; runtime validation pending",
+      "originalDecodedTexturesPreserved": true,
+      "commercialLicense": "not_verified"
+    }
+  ],
+  "geometry": [
+    {
+      "asset": "workshop",
+      "variant": "structure-v2",
+      "retainedImportedTriangles": 283470,
+      "retainedTriangleMultisetMatches": true,
+      "coordinateTolerance": 2e-06,
+      "gateOriginalCoordinatesRecovered": false
+    },
+    {
+      "asset": "lookout",
+      "variant": "structure-v3",
+      "retainedImportedTriangles": 281358,
+      "retainedTriangleMultisetMatches": true,
+      "coordinateTolerance": 2e-06,
+      "gateOriginalCoordinatesRecovered": true
+    },
+    {
+      "asset": "canoe",
+      "variant": "structure-v2",
+      "retainedImportedTriangles": 287052,
+      "retainedTriangleMultisetMatches": true,
+      "coordinateTolerance": 2e-06,
+      "gateOriginalCoordinatesRecovered": false
+    }
+  ],
+  "raccoonV6Unchanged": true,
+  "tailDecision": "User accepted current tail and requested moving on; no character edits in this round",
+  "pngs": [
+    "docs/evidence/assets/2026-10-22-round-01/workshop/structure-v1/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/workshop/structure-v1/left.png",
+    "docs/evidence/assets/2026-10-22-round-01/workshop/structure-v2/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/workshop/structure-v2/left.png",
+    "docs/evidence/assets/2026-10-22-round-01/workshop/structure-v2/three-quarter.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v1/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v1/elevated.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v2/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v2/elevated.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v2/side.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v3/back.png",
+    "docs/evidence/assets/2026-10-22-round-01/lookout/structure-v3/elevated.png",
+    "docs/evidence/assets/2026-10-22-round-01/canoe/structure-v1/bottom.png",
+    "docs/evidence/assets/2026-10-22-round-01/canoe/structure-v1/elevated.png",
+    "docs/evidence/assets/2026-10-22-round-01/canoe/structure-v2/bottom.png",
+    "docs/evidence/assets/2026-10-22-round-01/canoe/structure-v2/elevated.png",
+    "docs/evidence/assets/2026-10-22-round-01/canoe/structure-v2/side.png"
+  ],
+  "pngCount": 17,
+  "browserVerified": false,
+  "decimationApplied": false,
+  "paidApiCalls": 0,
+  "limits": [
+    "No runtime collision/stair traversal test",
+    "Interior canoe fit and paddle grip alignment pending",
+    "Workshop door/workbench interaction parts not separated",
+    "Small original eave/cabin defects remain"
+  ],
+  "checks": {
+    "lint": "passed",
+    "test": "3/3 passed",
+    "build": "passed; main JS 1145.60 kB",
+    "pythonSyntax": "passed",
+    "reviewModuleSyntax": "passed",
+    "diffCheck": "passed",
+    "markdownLinks": 50,
+    "http": [
+      {
+        "path": "scripts/aholo/review.html",
+        "status": 200,
+        "method": "HEAD"
+      },
+      {
+        "path": "scripts/aholo/review.mjs",
+        "status": 200,
+        "method": "HEAD"
+      },
+      {
+        "path": "docs/evidence/assets/2026-10-22-structures/manifest.json",
+        "status": 200,
+        "method": "HEAD"
+      },
+      {
+        "path": "assets/lux3d/round-01/workshop/structure-v2.glb",
+        "status": 200,
+        "method": "HEAD"
+      },
+      {
+        "path": "assets/lux3d/round-01/lookout/structure-v3.glb",
+        "status": 200,
+        "method": "HEAD"
+      },
+      {
+        "path": "assets/lux3d/round-01/canoe/structure-v2.glb",
+        "status": 200,
+        "method": "HEAD"
+      }
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "verifiedAt": "2026-10-22T03:47:35.693719+00:00",
+  "taskId": 4268120,
+  "sourceUnchangedAfterRendering": true,
+  "renderImages": [
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/back.png",
+      "sha256": "cb92fba02674428181a188a0648dbf38c73c42fdaf532010343f8ab34bd3e183"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/clay/tail-closeup/back.png",
+      "sha256": "2d8e3adac484eb2f2615217bffe0ced49f7bb16bedb544e42ba85055d980e9ba"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/clay/tail-closeup/elevated.png",
+      "sha256": "77cb53cf9cccffe4afac7162aed64b83b0da62cd487a2b74f9a44f4c879a3a5c"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/elevated.png",
+      "sha256": "9f2a775cf02f6bc116f183f23c82e6a0692262512723a03e359d064a80d7bbd7"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/front.png",
+      "sha256": "5496a4e5fbba411d4c7822a63fa55ce782b4df13c8c433daec375617bf9b1198"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/left.png",
+      "sha256": "3572185b19875831c7e53e8a04a9aea54ac4970ccbf1b740a8b2a280284621ba"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/side.png",
+      "sha256": "c0f0e46d7fc42b8eef333900d3dba70f0d0274a33a839a240a7755e6978f7409"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-closeup/back.png",
+      "sha256": "3fa1d23fc1df8cfa20a805db7f017b33e23b09a34e1d6f73e5b5f87c28724f62"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-closeup/elevated.png",
+      "sha256": "be82f2e1bfb30be455cd41147b67c2caa8e0dc5eb2ade6c572231b24e310dac5"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-closeup/left.png",
+      "sha256": "47242be0387a9320eaa9e1c6bd2e4d836b6cd29e5143df60c6c2ad6452d2b3a7"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/tail-closeup/side.png",
+      "sha256": "13670d0efc4ac48a9ebcca779662fced01ca46454e16aa1144d1df8adbb48904"
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-round-01/raccoon-multiview/three-quarter.png",
+      "sha256": "0a079e50e101ad2ecf709597731cddb9792bd1e5ab1858d6bccbc13420e88d22"
+    }
+  ],
+  "httpHead": [
+    {
+      "path": "scripts/aholo/review.html",
+      "status": 200
+    },
+    {
+      "path": "scripts/aholo/review.mjs",
+      "status": 200
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-22-raccoon-multiview/manifest.json",
+      "status": 200
+    },
+    {
+      "path": "assets/lux3d/round-01/raccoon-multiview/output-1.glb",
+      "status": 200
+    }
+  ],
+  "checks": {
+    "lint": "passed",
+    "tests": "3/3 passed",
+    "build": "passed; existing 1145.60 kB JS warning",
+    "generationGuards": "passed",
+    "javascriptSyntax": "passed",
+    "pythonSyntax": "passed"
+  },
+  "browser": {
+    "availableApps": 0,
+    "availableBrowsers": 0,
+    "visualVerified": false,
+    "performanceMeasured": false
+  },
+  "visualDecision": "tail attachment still blends into clothing edge; not accepted",
+  "localLinksChecked": 31
+}

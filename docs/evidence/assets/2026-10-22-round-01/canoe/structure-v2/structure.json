@@ -1,0 +1,21 @@
+{
+  "asset": "canoe",
+  "source": "structure-v1.blend",
+  "output": "assets/lux3d/round-01/canoe/structure-v2.glb",
+  "outputSha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+  "changes": [
+    {
+      "operation": "local cavity caps fitted from surrounding original hull surface",
+      "regionsMeasured": 42,
+      "regionsCapped": 42,
+      "addedQuads": 4423,
+      "sourceImageSha256": "05db7c34452e351d084e6fa7961e783a0d52f92d7da6d33bc9dab01df9624a1c"
+    },
+    "Tapered independent paddle blade; character grip not yet aligned"
+  ],
+  "decimationApplied": false,
+  "characterModified": false,
+  "paidApiCalls": 0,
+  "status": "candidate; visual review pending",
+  "browserVerified": false
+}

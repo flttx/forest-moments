@@ -1,0 +1,34 @@
+{
+  "status": "candidate; geometry and visual checks pending",
+  "boatScale": 0.425,
+  "characterShift": [
+    -0.6000000238418579,
+    -0.15000000596046448,
+    0.20000000298023224
+  ],
+  "waterZ": -0.3,
+  "asset": "/assets/lux3d/round-01/canoe/stern-seat-v1.glb",
+  "bakedAssemblyCoordinates": true,
+  "changes": [
+    {
+      "mesh": "Lux3D_canoe",
+      "vertices": 247660,
+      "changedVertices": 26274,
+      "maxMoveM": 0.33632063641335724,
+      "polygons": 287052
+    },
+    {
+      "mesh": "Measured_hull_cavity_caps",
+      "vertices": 5709,
+      "changedVertices": 0,
+      "maxMoveM": 0,
+      "polygons": 8846
+    }
+  ],
+  "copiedBenchFaces": 5172,
+  "sourceSHA256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+  "outputSHA256": "0b49403ce9ae99a9501fbef7f75eb75df7f11042d36cd131fee27904fce714eb",
+  "actorModified": false,
+  "paddleModified": false,
+  "decimation": false
+}

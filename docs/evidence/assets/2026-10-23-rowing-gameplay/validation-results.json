@@ -1,0 +1,188 @@
+{
+  "status": "PASS",
+  "lint": "0 errors, 0 warnings; final rerun after removing unused production-check helper",
+  "test": "10/10, 3 files",
+  "build": "TypeScript and Vite passed; existing >500 kB bundle warning",
+  "bundleKB": 1225.52,
+  "gzipKB": 339.21,
+  "imagesDecoded": [
+    {
+      "path": "01-spawn.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "02-dock-before-boarding.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "03-central-seat.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "03b-full-loop.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "04-rowing-away.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "05-turn-left.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "06-shore-limit.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "07-returned-to-dock.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "08-back-on-dock.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "09-walking-again.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "headless-failure.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "dock-limit-script-adjustment\\headless-failure.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\01-built-spawn.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\02-built-rowing-water.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "production\\before-water-feedback.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-dock.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-pond-collision.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-run.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-seedling.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-spawn.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-walk.png",
+      "size": [
+        1440,
+        900
+      ]
+    },
+    {
+      "path": "regression\\headless-workshop-collision.png",
+      "size": [
+        1440,
+        900
+      ]
+    }
+  ],
+  "finalSourceSHA256": {
+    "src/game/rowing.ts": "34a38713012012e76fd0ea87e81f4d5ee8dce11e735489ac232fe9633f7a8796",
+    "src/game/rowing.test.ts": "53640e3e5c70f1b3a23009643d1f3ff9dc4a4af82017f88c6d54d2aac8aa06f0",
+    "src/game/store.ts": "cc1b31c6a0e30e12e47146566729048011009421e7c67cfadc8c4eed89fe2ccd",
+    "src/game/movement.ts": "58162d9132e64200f16de44357e4d38646b32a8ff1cbf5f4daa3d7ab1366f431",
+    "src/game/landmarks.ts": "53bb10a1818e446915c34e943852f3f6a59e7082198bee1c4383076f4ccaed3f",
+    "src/world/RowingBoat.tsx": "cfe1fc14ae84dc43377826a589976283b260e1d1eee78a54070b84fc5a2c6566",
+    "src/world/ForestWorld.tsx": "432eff6446206561e9b8652f764131908e3a0d29f322a07f8d654e1bf164f7fb",
+    "src/App.tsx": "6a3e2ac3acb3e81f7846e4143222b9644351b42dbe7c5f0eb448efb3325ba52d",
+    "src/App.css": "f416a2e1f1a7f7688ded82348a96681f892219b18cb0c87b955dd1f896717694",
+    "scripts/aholo/check_rowing_headless.mjs": "15ab43c053cdfc07a870fa25deb2f21f41679b5d7a85bd7b5482d4e117e00237",
+    "scripts/aholo/check_rowing_production_headless.mjs": "b7b35aaa30ec8e648775eddad07f8a9ec84074fb5fdc1cdf9531b86bd6b04cf7",
+    "scripts/aholo/check_runtime_headless.mjs": "11b4d1c76f85dcf72cef5fcbc8490ae0511de128c601adf332787c8c79e96ad6"
+  },
+  "limits": "Final gameplay run includes water visibility and dock footprint corrections. Walking/planting regression predates those boat-only corrections. No final user visual acceptance or public deployment.",
+  "diffCheck": "passed; existing LF to CRLF notices only",
+  "scriptSyntax": "all three headless entrypoints passed node --check",
+  "evidenceLinksChecked": 19,
+  "checkedAtUTC": "2026-10-23T08:40:50.570084+00:00",
+  "browserRuns": {
+    ".": "PASS: keyboard/button boarding, forward/reverse, steering, bank boundary, safe repeat landing, blur and walking",
+    "regression": "PASS: scoped runtime smoke checks; not complete visual or gameplay acceptance",
+    "production": "PASS: static build load, six model/track resources, boarding/rowing HUD, development telemetry absent"
+  }
+}

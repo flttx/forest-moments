@@ -1,0 +1,248 @@
+{
+  "assets": [
+    {
+      "asset": "raccoon",
+      "taskId": 4266109,
+      "createdAt": "2026-10-22T01:59:16.044Z",
+      "endpoint": "https://api.aholo3d.cn",
+      "options": {
+        "version": "G1",
+        "faceCount": 300000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ]
+      },
+      "inputSha256": "55c73e79fd8294b18bcd5592ccff032625d04eaf84032aead686651e252b21bb",
+      "files": [
+        {
+          "filename": "output-0.zip",
+          "bytes": 17987140,
+          "sha256": "4f12ce0d61d7cf79534718997195a4e1da62b4d0760972328cc8797be9ebe0da",
+          "path": "assets/lux3d/round-01/raccoon/output-0.zip",
+          "archiveEntries": 7
+        },
+        {
+          "filename": "output-1.glb",
+          "bytes": 19168120,
+          "sha256": "a180229307b77e032e1deb4ca4d1963086739508c0c60a2010335bb7aa9f6576",
+          "path": "assets/lux3d/round-01/raccoon/output-1.glb",
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 244306,
+            "triangles": 299138,
+            "materials": 1,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 5137160
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 2621436
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "inputPath": "assets/lux3d/round-01/inputs/raccoon.png",
+      "inputSize": [
+        1024,
+        1536
+      ],
+      "creditsConsumed": null,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "workshop",
+      "taskId": 4266166,
+      "createdAt": "2026-10-22T02:04:02.222Z",
+      "endpoint": "https://api.aholo3d.cn",
+      "options": {
+        "version": "G1",
+        "faceCount": 300000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ]
+      },
+      "inputSha256": "b05f1d159b6878a2a32222be34cf75dd9cdcf11f60aa77580b85ac96ec5bc206",
+      "files": [
+        {
+          "filename": "output-0.zip",
+          "bytes": 15556633,
+          "sha256": "1bb35349b80326f7b287fa11e844c32fdc7a532deb729c6499330778b7eeafc2",
+          "path": "assets/lux3d/round-01/workshop/output-0.zip",
+          "archiveEntries": 7
+        },
+        {
+          "filename": "output-1.glb",
+          "bytes": 18645196,
+          "sha256": "79f76e1283c72b6ee8239c66524325d61d12c812554e4823c0ce2db22a33fc14",
+          "path": "assets/lux3d/round-01/workshop/output-1.glb",
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 276903,
+            "triangles": 283475,
+            "materials": 1,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4787020
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 1593536
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "inputPath": "assets/lux3d/round-01/inputs/workshop.png",
+      "inputSize": [
+        1254,
+        1254
+      ],
+      "creditsConsumed": null,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "lookout",
+      "taskId": 4266456,
+      "createdAt": "2026-10-22T02:12:50.995Z",
+      "endpoint": "https://api.aholo3d.cn",
+      "options": {
+        "version": "G1",
+        "faceCount": 300000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ]
+      },
+      "inputSha256": "127443519f8fb30bd99a403f22dbf953e4a98771cfc5d2bd60cdaa3f39b665e3",
+      "files": [
+        {
+          "filename": "output-0.zip",
+          "bytes": 16324021,
+          "sha256": "7132881606603c8ddf5b34826ba868f0988b71a8ef54f9d441f4b75d82332447",
+          "path": "assets/lux3d/round-01/lookout/output-0.zip",
+          "archiveEntries": 7
+        },
+        {
+          "filename": "output-1.glb",
+          "bytes": 17261336,
+          "sha256": "183120006624644f71289fdd669631123558c96e8fad51548efa3f236545f38c",
+          "path": "assets/lux3d/round-01/lookout/output-1.glb",
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 229420,
+            "triangles": 281358,
+            "materials": 1,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4362840
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 2178712
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "inputPath": "assets/lux3d/round-01/inputs/lookout.png",
+      "inputSize": [
+        1254,
+        1254
+      ],
+      "creditsConsumed": null,
+      "commercialLicense": "not_verified"
+    },
+    {
+      "asset": "canoe",
+      "taskId": 4266578,
+      "createdAt": "2026-10-22T02:28:34.895Z",
+      "endpoint": "https://api.aholo3d.cn",
+      "options": {
+        "version": "G1",
+        "faceCount": 300000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ]
+      },
+      "inputSha256": "b12201215820f1fd05d2bb98e7a176f75370aa2ce9c45cd5d70ea8a69c4fc8d5",
+      "files": [
+        {
+          "filename": "output-0.zip",
+          "bytes": 14284265,
+          "sha256": "b619685dfd89361df159d9a480fce4f1e11504e719d35faeb68dc405f2c02f47",
+          "path": "assets/lux3d/round-01/canoe/output-0.zip",
+          "archiveEntries": 7
+        },
+        {
+          "filename": "output-1.glb",
+          "bytes": 17276320,
+          "sha256": "d76f1bf7b807e763cbd4b7c0fd42496253b4c9d66a9b25bcb2b1299165876d21",
+          "path": "assets/lux3d/round-01/canoe/output-1.glb",
+          "glb": {
+            "version": 2,
+            "meshes": 1,
+            "vertices": 247186,
+            "triangles": 287052,
+            "materials": 1,
+            "skins": 0,
+            "animations": 0,
+            "textures": [
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 4005008
+              },
+              {
+                "width": 2048,
+                "height": 2048,
+                "format": "PNG",
+                "bytes": 1914628
+              }
+            ],
+            "extensionsRequired": []
+          }
+        }
+      ],
+      "inputPath": "assets/lux3d/round-01/inputs/canoe.png",
+      "inputSize": [
+        1024,
+        1024
+      ],
+      "creditsConsumed": null,
+      "commercialLicense": "not_verified"
+    }
+  ]
+}

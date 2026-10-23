@@ -1,0 +1,35 @@
+{
+  "assets": [
+    {
+      "asset": "raccoon",
+      "source": "assets/lux3d/round-01/raccoon-multiview/rig-mixamo-v6.glb",
+      "runtime": "public/assets/models/raccoon.glb",
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "bytes": 24777392
+    },
+    {
+      "asset": "workshop",
+      "source": "assets/lux3d/round-01/workshop/structure-v2.glb",
+      "runtime": "public/assets/models/workshop.glb",
+      "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+      "bytes": 18892400
+    },
+    {
+      "asset": "lookout",
+      "source": "assets/lux3d/round-01/lookout/structure-v3.glb",
+      "runtime": "public/assets/models/lookout.glb",
+      "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+      "bytes": 17295608
+    },
+    {
+      "asset": "canoe",
+      "source": "assets/lux3d/round-01/canoe/structure-v2.glb",
+      "runtime": "public/assets/models/canoe.glb",
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "bytes": 17562100
+    }
+  ],
+  "meshOrWeightsChanged": false,
+  "paidApiCalls": 0,
+  "deployed": false
+}

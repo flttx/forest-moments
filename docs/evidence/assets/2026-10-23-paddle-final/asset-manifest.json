@@ -1,0 +1,84 @@
+[
+  {
+    "path": "public/assets/models/raccoon.glb",
+    "bytes": 24777392,
+    "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+    "triangles": 290520,
+    "animations": [
+      "bench_ready",
+      "bench_sit_down",
+      "bench_sit_idle",
+      "bench_stand_up",
+      "fish_cast",
+      "fish_hold",
+      "fish_land",
+      "fish_reel",
+      "idle",
+      "interact",
+      "paddle",
+      "run",
+      "sit_down_floor_hug",
+      "sit_down_floor_idle",
+      "sit_floor_hug",
+      "sit_floor_idle",
+      "stand_up_floor_hug",
+      "stand_up_floor_idle",
+      "walk"
+    ],
+    "images": [
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "pixelSHA256": "29862ab919321da75e588fa0e40cfff7276c8d35902622afcef39c270567143d"
+      }
+    ]
+  },
+  {
+    "path": "public/assets/models/canoe.glb",
+    "bytes": 17562100,
+    "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+    "triangles": 296122,
+    "animations": [],
+    "images": [
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "pixelSHA256": "7a88262d00c04cd2323875cb06d78dda132249ab9294ae2e550035523bdc8f9c"
+      },
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "pixelSHA256": "245c36fbb7179ac721a448473ad290a3ede82c3f648d468f52ed3f17882eab2a"
+      }
+    ]
+  },
+  {
+    "path": "assets/lux3d/round-01/canoe/center-seat-v11.glb",
+    "bytes": 17372336,
+    "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+    "triangles": 280265,
+    "animations": [],
+    "images": [
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "pixelSHA256": "7a88262d00c04cd2323875cb06d78dda132249ab9294ae2e550035523bdc8f9c"
+      },
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "pixelSHA256": "245c36fbb7179ac721a448473ad290a3ede82c3f648d468f52ed3f17882eab2a"
+      }
+    ]
+  }
+]

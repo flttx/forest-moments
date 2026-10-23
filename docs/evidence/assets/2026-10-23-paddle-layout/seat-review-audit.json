@@ -1,0 +1,1640 @@
+{
+  "scope": "actual skinned body / original hull and caps; surface overlap includes seating contact; 8 poses only",
+  "results": [
+    {
+      "layout": {
+        "boatScale": 0.5,
+        "characterShift": [
+          0,
+          0,
+          0
+        ],
+        "name": "baseline"
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 6906,
+          "dominantBone": {
+            "mixamorig:RightFoot": 720,
+            "mixamorig:RightLeg": 703,
+            "mixamorig:LeftLeg": 787,
+            "mixamorig:LeftUpLeg": 47,
+            "mixamorig:Hips": 234,
+            "tail_05": 979,
+            "mixamorig:RightToeBase": 862,
+            "mixamorig:RightUpLeg": 74,
+            "mixamorig:LeftFoot": 1233,
+            "mixamorig:LeftToeBase": 1267
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 6306,
+          "dominantBone": {
+            "mixamorig:RightFoot": 479,
+            "tail_05": 1252,
+            "mixamorig:RightLeg": 545,
+            "mixamorig:LeftLeg": 811,
+            "mixamorig:LeftToeBase": 1177,
+            "mixamorig:LeftUpLeg": 30,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightToeBase": 621,
+            "mixamorig:RightUpLeg": 66,
+            "mixamorig:LeftFoot": 1082
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 6246,
+          "dominantBone": {
+            "mixamorig:RightFoot": 555,
+            "mixamorig:RightLeg": 539,
+            "mixamorig:LeftLeg": 894,
+            "mixamorig:LeftToeBase": 1163,
+            "mixamorig:LeftUpLeg": 30,
+            "mixamorig:Hips": 224,
+            "tail_05": 977,
+            "mixamorig:RightToeBase": 718,
+            "mixamorig:RightUpLeg": 64,
+            "mixamorig:LeftFoot": 1082
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 6575,
+          "dominantBone": {
+            "mixamorig:RightFoot": 590,
+            "tail_05": 1251,
+            "mixamorig:RightLeg": 469,
+            "mixamorig:LeftLeg": 890,
+            "mixamorig:LeftToeBase": 1169,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 246,
+            "mixamorig:RightToeBase": 753,
+            "mixamorig:RightUpLeg": 68,
+            "mixamorig:LeftFoot": 1121
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 6251,
+          "dominantBone": {
+            "mixamorig:RightFoot": 493,
+            "tail_05": 1063,
+            "mixamorig:RightLeg": 570,
+            "mixamorig:LeftLeg": 782,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 245,
+            "mixamorig:RightToeBase": 722,
+            "mixamorig:LeftFoot": 1147,
+            "mixamorig:RightUpLeg": 70,
+            "mixamorig:LeftToeBase": 1141
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 6590,
+          "dominantBone": {
+            "mixamorig:RightFoot": 528,
+            "tail_05": 1317,
+            "mixamorig:RightLeg": 505,
+            "mixamorig:LeftLeg": 773,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 243,
+            "mixamorig:RightToeBase": 826,
+            "mixamorig:RightUpLeg": 70,
+            "mixamorig:LeftToeBase": 1166,
+            "mixamorig:LeftFoot": 1144
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 6923,
+          "dominantBone": {
+            "mixamorig:RightFoot": 598,
+            "tail_05": 1356,
+            "mixamorig:RightLeg": 578,
+            "mixamorig:LeftLeg": 781,
+            "mixamorig:LeftUpLeg": 18,
+            "mixamorig:Hips": 241,
+            "mixamorig:RightToeBase": 870,
+            "mixamorig:RightUpLeg": 75,
+            "mixamorig:LeftFoot": 1206,
+            "mixamorig:LeftToeBase": 1200
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 6905,
+          "dominantBone": {
+            "mixamorig:RightFoot": 720,
+            "mixamorig:RightLeg": 703,
+            "mixamorig:LeftLeg": 786,
+            "mixamorig:LeftUpLeg": 47,
+            "mixamorig:Hips": 234,
+            "tail_05": 979,
+            "mixamorig:RightToeBase": 862,
+            "mixamorig:RightUpLeg": 74,
+            "mixamorig:LeftFoot": 1233,
+            "mixamorig:LeftToeBase": 1267
+          },
+          "seatContactTriangles": 0,
+          "seatContactBones": {}
+        }
+      ],
+      "allHitTriangles": 52702
+    },
+    {
+      "layout": {
+        "status": "review only; inspect added seat and collision audit",
+        "boatScale": 0.5,
+        "characterShift": [
+          -0.6000000238418579,
+          -0.20000000298023224,
+          0.4000000059604645
+        ],
+        "waterZ": -0.14,
+        "seatTopZ": 0.31,
+        "seatAsset": "/assets/lux3d/round-01/canoe/layout-seat-review.glb",
+        "sourceTrack": "../2026-10-23-paddle-prop/prop-track.json"
+      },
+      "samples": [
+        {
+          "frame": 0,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 716,
+          "seatContactBones": {
+            "mixamorig:Hips": 251,
+            "mixamorig:LeftUpLeg": 197,
+            "mixamorig:RightUpLeg": 152,
+            "mixamorig:RightLeg": 116
+          }
+        },
+        {
+          "frame": 55,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 620,
+          "seatContactBones": {
+            "mixamorig:Hips": 236,
+            "mixamorig:RightUpLeg": 128,
+            "mixamorig:LeftUpLeg": 207,
+            "mixamorig:RightLeg": 6,
+            "mixamorig:LeftLeg": 43
+          }
+        },
+        {
+          "frame": 75,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 725,
+          "seatContactBones": {
+            "mixamorig:Hips": 240,
+            "mixamorig:RightUpLeg": 117,
+            "mixamorig:LeftUpLeg": 229,
+            "mixamorig:LeftLeg": 136,
+            "mixamorig:RightLeg": 3
+          }
+        },
+        {
+          "frame": 100,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 813,
+          "seatContactBones": {
+            "mixamorig:Hips": 239,
+            "mixamorig:RightUpLeg": 161,
+            "mixamorig:LeftUpLeg": 202,
+            "mixamorig:LeftLeg": 208,
+            "mixamorig:RightLeg": 3
+          }
+        },
+        {
+          "frame": 139,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 715,
+          "seatContactBones": {
+            "mixamorig:Hips": 261,
+            "mixamorig:RightUpLeg": 152,
+            "mixamorig:LeftUpLeg": 205,
+            "mixamorig:LeftLeg": 94,
+            "mixamorig:RightLeg": 3
+          }
+        },
+        {
+          "frame": 163,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 727,
+          "seatContactBones": {
+            "mixamorig:Hips": 270,
+            "mixamorig:RightUpLeg": 155,
+            "mixamorig:LeftUpLeg": 202,
+            "mixamorig:LeftLeg": 97,
+            "mixamorig:RightLeg": 3
+          }
+        },
+        {
+          "frame": 190,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 661,
+          "seatContactBones": {
+            "mixamorig:Hips": 272,
+            "mixamorig:RightUpLeg": 149,
+            "mixamorig:LeftUpLeg": 193,
+            "mixamorig:RightLeg": 19,
+            "mixamorig:LeftLeg": 28
+          }
+        },
+        {
+          "frame": 216,
+          "intersectingBodyTriangles": 0,
+          "dominantBone": {},
+          "seatContactTriangles": 716,
+          "seatContactBones": {
+            "mixamorig:Hips": 251,
+            "mixamorig:LeftUpLeg": 197,
+            "mixamorig:RightUpLeg": 152,
+            "mixamorig:RightLeg": 116
+          }
+        }
+      ],
+      "allHitTriangles": 0
+    }
+  ],
+  "paddle": [
+    {
+      "frame": 0,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3445967361330986
+    },
+    {
+      "frame": 1,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3847274575382471
+    },
+    {
+      "frame": 2,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.43069312535226345
+    },
+    {
+      "frame": 3,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4798707664012909
+    },
+    {
+      "frame": 4,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5251029133796692
+    },
+    {
+      "frame": 5,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5605587065219879
+    },
+    {
+      "frame": 6,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.59102663397789
+    },
+    {
+      "frame": 7,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6144591122865677
+    },
+    {
+      "frame": 8,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6289807260036469
+    },
+    {
+      "frame": 9,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6329172104597092
+    },
+    {
+      "frame": 10,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6248834133148193
+    },
+    {
+      "frame": 11,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5991331040859222
+    },
+    {
+      "frame": 12,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5559495091438293
+    },
+    {
+      "frame": 13,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5866061449050903
+    },
+    {
+      "frame": 14,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6172425597906113
+    },
+    {
+      "frame": 15,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.645242378115654
+    },
+    {
+      "frame": 16,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6688142120838165
+    },
+    {
+      "frame": 17,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6866744458675385
+    },
+    {
+      "frame": 18,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6993932723999023
+    },
+    {
+      "frame": 19,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7085317969322205
+    },
+    {
+      "frame": 20,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7162531912326813
+    },
+    {
+      "frame": 21,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7259136438369751
+    },
+    {
+      "frame": 22,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7395302653312683
+    },
+    {
+      "frame": 23,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7566511332988739
+    },
+    {
+      "frame": 24,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7748408615589142
+    },
+    {
+      "frame": 25,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7911180555820465
+    },
+    {
+      "frame": 26,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8033684492111206
+    },
+    {
+      "frame": 27,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.811232179403305
+    },
+    {
+      "frame": 28,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8176850974559784
+    },
+    {
+      "frame": 29,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8234557509422302
+    },
+    {
+      "frame": 30,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8290309011936188
+    },
+    {
+      "frame": 31,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8352673947811127
+    },
+    {
+      "frame": 32,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8421995341777802
+    },
+    {
+      "frame": 33,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.849355548620224
+    },
+    {
+      "frame": 34,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8560037016868591
+    },
+    {
+      "frame": 35,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8622921109199524
+    },
+    {
+      "frame": 36,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8684819936752319
+    },
+    {
+      "frame": 37,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8746736645698547
+    },
+    {
+      "frame": 38,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8811481297016144
+    },
+    {
+      "frame": 39,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8890951871871948
+    },
+    {
+      "frame": 40,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8962134718894958
+    },
+    {
+      "frame": 41,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8991718590259552
+    },
+    {
+      "frame": 42,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.886770635843277
+    },
+    {
+      "frame": 43,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8577003479003906
+    },
+    {
+      "frame": 44,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8175241649150848
+    },
+    {
+      "frame": 45,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7715413272380829
+    },
+    {
+      "frame": 46,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7258875668048859
+    },
+    {
+      "frame": 47,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6845514476299286
+    },
+    {
+      "frame": 48,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6517558395862579
+    },
+    {
+      "frame": 49,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6285909563302994
+    },
+    {
+      "frame": 50,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6144122779369354
+    },
+    {
+      "frame": 51,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6067844927310944
+    },
+    {
+      "frame": 52,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6024479269981384
+    },
+    {
+      "frame": 53,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5978386402130127
+    },
+    {
+      "frame": 54,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.589629516005516
+    },
+    {
+      "frame": 55,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.575361043214798
+    },
+    {
+      "frame": 56,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5222583711147308
+    },
+    {
+      "frame": 57,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4738856703042984
+    },
+    {
+      "frame": 58,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4296233728528023
+    },
+    {
+      "frame": 59,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3888590931892395
+    },
+    {
+      "frame": 60,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.35188964381814003
+    },
+    {
+      "frame": 61,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.31774427741765976
+    },
+    {
+      "frame": 62,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.27417023479938507
+    },
+    {
+      "frame": 63,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.2280070185661316
+    },
+    {
+      "frame": 64,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.18598654866218567
+    },
+    {
+      "frame": 65,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.1490633189678192
+    },
+    {
+      "frame": 66,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.11801880598068237
+    },
+    {
+      "frame": 67,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.08957716822624207
+    },
+    {
+      "frame": 68,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.06339463591575623
+    },
+    {
+      "frame": 69,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.03957143425941467
+    },
+    {
+      "frame": 70,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.017136722803115845
+    },
+    {
+      "frame": 71,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.004053860902786255
+    },
+    {
+      "frame": 72,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.024752885103225708
+    },
+    {
+      "frame": 73,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.044943541288375854
+    },
+    {
+      "frame": 74,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.06484588980674744
+    },
+    {
+      "frame": 75,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.08416163921356201
+    },
+    {
+      "frame": 76,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.09946247935295105
+    },
+    {
+      "frame": 77,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.11658921837806702
+    },
+    {
+      "frame": 78,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.13474777340888977
+    },
+    {
+      "frame": 79,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.15363046526908875
+    },
+    {
+      "frame": 80,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.17277273535728455
+    },
+    {
+      "frame": 81,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.19268986582756042
+    },
+    {
+      "frame": 82,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.21114715933799744
+    },
+    {
+      "frame": 83,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.2271285355091095
+    },
+    {
+      "frame": 84,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.23976990580558777
+    },
+    {
+      "frame": 85,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.25054875016212463
+    },
+    {
+      "frame": 86,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.2569465935230255
+    },
+    {
+      "frame": 87,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.25821158289909363
+    },
+    {
+      "frame": 88,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.2546112835407257
+    },
+    {
+      "frame": 89,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.24675968289375305
+    },
+    {
+      "frame": 90,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.23580661416053772
+    },
+    {
+      "frame": 91,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.2204744517803192
+    },
+    {
+      "frame": 92,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.1975511610507965
+    },
+    {
+      "frame": 93,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.16700652241706848
+    },
+    {
+      "frame": 94,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.1302948296070099
+    },
+    {
+      "frame": 95,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.08952361345291138
+    },
+    {
+      "frame": 96,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.0459500253200531
+    },
+    {
+      "frame": 97,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.0002586841583251953
+    },
+    {
+      "frame": 98,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.04488164186477661
+    },
+    {
+      "frame": 99,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.09124293923377991
+    },
+    {
+      "frame": 100,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.1377248466014862
+    },
+    {
+      "frame": 101,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.18457846343517303
+    },
+    {
+      "frame": 102,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.2344270944595337
+    },
+    {
+      "frame": 103,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.2849593460559845
+    },
+    {
+      "frame": 104,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3335864022374153
+    },
+    {
+      "frame": 105,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.38210064731538296
+    },
+    {
+      "frame": 106,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4295676276087761
+    },
+    {
+      "frame": 107,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.475736565887928
+    },
+    {
+      "frame": 108,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5176479741930962
+    },
+    {
+      "frame": 109,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5477087646722794
+    },
+    {
+      "frame": 110,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5745829045772552
+    },
+    {
+      "frame": 111,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5991929620504379
+    },
+    {
+      "frame": 112,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6135890632867813
+    },
+    {
+      "frame": 113,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6187202632427216
+    },
+    {
+      "frame": 114,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6164352297782898
+    },
+    {
+      "frame": 115,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6026435941457748
+    },
+    {
+      "frame": 116,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5740832090377808
+    },
+    {
+      "frame": 117,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5191094875335693
+    },
+    {
+      "frame": 118,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4230291433632374
+    },
+    {
+      "frame": 119,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3162553459405899
+    },
+    {
+      "frame": 120,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.22239229083061218
+    },
+    {
+      "frame": 121,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.1628687083721161
+    },
+    {
+      "frame": 122,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.14130786061286926
+    },
+    {
+      "frame": 123,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.14439556002616882
+    },
+    {
+      "frame": 124,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.19187545776367188
+    },
+    {
+      "frame": 125,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.27295225858688354
+    },
+    {
+      "frame": 126,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3807181417942047
+    },
+    {
+      "frame": 127,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5043439939618111
+    },
+    {
+      "frame": 128,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6297344863414764
+    },
+    {
+      "frame": 129,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7418572306632996
+    },
+    {
+      "frame": 130,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8258439004421234
+    },
+    {
+      "frame": 131,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8676495254039764
+    },
+    {
+      "frame": 132,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8703086078166962
+    },
+    {
+      "frame": 133,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8457106649875641
+    },
+    {
+      "frame": 134,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8087078928947449
+    },
+    {
+      "frame": 135,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7738959789276123
+    },
+    {
+      "frame": 136,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7544515132904053
+    },
+    {
+      "frame": 137,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7544600963592529
+    },
+    {
+      "frame": 138,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7545617520809174
+    },
+    {
+      "frame": 139,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7537804245948792
+    },
+    {
+      "frame": 140,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7530238926410675
+    },
+    {
+      "frame": 141,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7533960044384003
+    },
+    {
+      "frame": 142,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7561712861061096
+    },
+    {
+      "frame": 143,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7622508108615875
+    },
+    {
+      "frame": 144,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7722762227058411
+    },
+    {
+      "frame": 145,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7864316403865814
+    },
+    {
+      "frame": 146,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8029702305793762
+    },
+    {
+      "frame": 147,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8190426528453827
+    },
+    {
+      "frame": 148,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8322808742523193
+    },
+    {
+      "frame": 149,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8402804732322693
+    },
+    {
+      "frame": 150,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8412946164608002
+    },
+    {
+      "frame": 151,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8316009938716888
+    },
+    {
+      "frame": 152,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.8111743330955505
+    },
+    {
+      "frame": 153,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7806489765644073
+    },
+    {
+      "frame": 154,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.7411276400089264
+    },
+    {
+      "frame": 155,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6945299208164215
+    },
+    {
+      "frame": 156,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.6434990912675858
+    },
+    {
+      "frame": 157,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.591637909412384
+    },
+    {
+      "frame": 158,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.5423009842634201
+    },
+    {
+      "frame": 159,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4957503080368042
+    },
+    {
+      "frame": 160,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.45165930688381195
+    },
+    {
+      "frame": 161,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.4134526699781418
+    },
+    {
+      "frame": 162,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.38248853385448456
+    },
+    {
+      "frame": 163,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.35997531190514565
+    },
+    {
+      "frame": 164,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.31607847660779953
+    },
+    {
+      "frame": 165,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.2684844434261322
+    },
+    {
+      "frame": 166,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.21154534816741943
+    },
+    {
+      "frame": 167,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.14954909682273865
+    },
+    {
+      "frame": 168,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.08932623267173767
+    },
+    {
+      "frame": 169,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.031037181615829468
+    },
+    {
+      "frame": 170,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.026888281106948853
+    },
+    {
+      "frame": 171,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.08653533458709717
+    },
+    {
+      "frame": 172,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.14874181151390076
+    },
+    {
+      "frame": 173,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.20806869864463806
+    },
+    {
+      "frame": 174,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.25848546624183655
+    },
+    {
+      "frame": 175,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.28442487120628357
+    },
+    {
+      "frame": 176,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3047844469547272
+    },
+    {
+      "frame": 177,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.31989786028862
+    },
+    {
+      "frame": 178,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.33006319403648376
+    },
+    {
+      "frame": 179,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3370252549648285
+    },
+    {
+      "frame": 180,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3413671553134918
+    },
+    {
+      "frame": 181,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.34359046816825867
+    },
+    {
+      "frame": 182,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3445940911769867
+    },
+    {
+      "frame": 183,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.34453460574150085
+    },
+    {
+      "frame": 184,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.34363940358161926
+    },
+    {
+      "frame": 185,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.34222349524497986
+    },
+    {
+      "frame": 186,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.34017643332481384
+    },
+    {
+      "frame": 187,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.33783242106437683
+    },
+    {
+      "frame": 188,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3350880444049835
+    },
+    {
+      "frame": 189,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.33181139826774597
+    },
+    {
+      "frame": 190,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3279874622821808
+    },
+    {
+      "frame": 191,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.32363298535346985
+    },
+    {
+      "frame": 192,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.3180024325847626
+    },
+    {
+      "frame": 193,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.31001606583595276
+    },
+    {
+      "frame": 194,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.300099641084671
+    },
+    {
+      "frame": 195,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.2882941663265228
+    },
+    {
+      "frame": 196,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.2737738788127899
+    },
+    {
+      "frame": 197,
+      "hull": 0,
+      "seat": 22,
+      "bladeMinZ": -0.25675168633461
+    },
+    {
+      "frame": 198,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.23713257908821106
+    },
+    {
+      "frame": 199,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.21484318375587463
+    },
+    {
+      "frame": 200,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.19029125571250916
+    },
+    {
+      "frame": 201,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.16334035992622375
+    },
+    {
+      "frame": 202,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.1349180042743683
+    },
+    {
+      "frame": 203,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.10486361384391785
+    },
+    {
+      "frame": 204,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.07383695244789124
+    },
+    {
+      "frame": 205,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.042140036821365356
+    },
+    {
+      "frame": 206,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": -0.010305702686309814
+    },
+    {
+      "frame": 207,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.027304083108901978
+    },
+    {
+      "frame": 208,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.0745614767074585
+    },
+    {
+      "frame": 209,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.12536382675170898
+    },
+    {
+      "frame": 210,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.1765778809785843
+    },
+    {
+      "frame": 211,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.22525784373283386
+    },
+    {
+      "frame": 212,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.2675859183073044
+    },
+    {
+      "frame": 213,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.30105816572904587
+    },
+    {
+      "frame": 214,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3245186433196068
+    },
+    {
+      "frame": 215,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3379713408648968
+    },
+    {
+      "frame": 216,
+      "hull": 0,
+      "seat": 0,
+      "bladeMinZ": 0.3437940552830696
+    }
+  ],
+  "summary": {
+    "hullHitFrames": 0,
+    "seatHitFrames": 1,
+    "wetLeftFrames": [
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93
+    ],
+    "wetRightFrames": [
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      179,
+      180,
+      181,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      188,
+      189,
+      190,
+      191,
+      192,
+      193,
+      194,
+      195,
+      196,
+      197,
+      198,
+      199,
+      200,
+      201
+    ]
+  }
+}

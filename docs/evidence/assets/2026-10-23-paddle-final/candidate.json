@@ -1,0 +1,32 @@
+{
+  "status": "Validated sampled central-seat assembly; full rowing gameplay not integrated",
+  "asset": "/assets/lux3d/round-01/canoe/center-seat-v11.glb",
+  "boatScale": 0.5,
+  "characterShift": [
+    0,
+    0,
+    0.26
+  ],
+  "waterZ": -0.355,
+  "bakedAssemblyCoordinates": true,
+  "interiorBenchFacesRemoved": 16497,
+  "exteriorHullDeformed": false,
+  "seatTopZ": 0.145,
+  "seatBoundsXY": [
+    [
+      -0.13,
+      0.2
+    ],
+    [
+      -0.24,
+      0.24
+    ]
+  ],
+  "outputSHA256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+  "bytes": 17372336,
+  "sourceActorModified": false,
+  "sourceHullModified": false,
+  "propTrack": "docs/evidence/assets/2026-10-23-paddle-final/prop-track.json",
+  "propTrackSHA256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1",
+  "verification": "docs/evidence/assets/2026-10-23-paddle-final/evidence.md"
+}

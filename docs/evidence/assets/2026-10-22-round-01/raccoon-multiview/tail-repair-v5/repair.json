@@ -1,0 +1,60 @@
+{
+  "status": "local static seam visible; full asset and animation acceptance pending",
+  "sourceSha256": "5acfd21e2dff79849019455606d5f97cf55ddc8311da5faed38f889e2db3fb34",
+  "outputSha256": "b045f79cd7b1f0147dc0823f6ac45df10cba00957f210e29e91c0c8fe6a91136",
+  "sourceModified": false,
+  "paidApiCalls": 0,
+  "decimationApplied": false,
+  "originalVertices": 237762,
+  "originalFaces": 289504,
+  "outputVertices": 378829,
+  "outputPolygons": 288764,
+  "meshValidationCorrectedData": true,
+  "preservedSourceExteriorTriangles": 270178,
+  "method": "Two narrow V-shaped hem clearances; preserve central attachment",
+  "runtimeBrowserVerified": false,
+  "cutterRowsNormalized": [
+    [
+      1.505,
+      -0.0172,
+      0.0517,
+      0.001
+    ],
+    [
+      1.452,
+      -0.0431,
+      0.0689,
+      0.01
+    ],
+    [
+      1.401,
+      -0.0775,
+      0.0896,
+      0.012
+    ],
+    [
+      1.35,
+      -0.1171,
+      0.1033,
+      0.012
+    ],
+    [
+      1.299,
+      -0.1619,
+      0.1171,
+      0.012
+    ],
+    [
+      1.248,
+      -0.2153,
+      0.1171,
+      0.012
+    ],
+    [
+      1.215,
+      -0.249,
+      0.1171,
+      0.001
+    ]
+  ]
+}

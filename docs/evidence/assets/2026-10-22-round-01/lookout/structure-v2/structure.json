@@ -1,0 +1,14 @@
+{
+  "asset": "lookout",
+  "source": "structure-v1.blend",
+  "output": "assets/lux3d/round-01/lookout/structure-v2.glb",
+  "outputSha256": "f90555c57a512681570f60429164e9581f5f8a989940e735ac8e986ba4b90082",
+  "changes": [
+    "Set explicit XYZ rotation mode so the separated 1480-face gate actually opens 100 degrees"
+  ],
+  "decimationApplied": false,
+  "characterModified": false,
+  "paidApiCalls": 0,
+  "status": "candidate; visual review pending",
+  "browserVerified": false
+}

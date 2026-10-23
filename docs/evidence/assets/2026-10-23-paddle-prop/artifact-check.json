@@ -1,0 +1,12 @@
+{
+  "pngDecodeCount": 44,
+  "publicDistSourceHashesMatch": {
+    "raccoon": true,
+    "canoe": true
+  },
+  "raccoonAnimationCount": 19,
+  "lint": "passed",
+  "test": "6/6",
+  "build": "passed; existing chunk warning",
+  "pythonAndJsSyntax": "passed"
+}

@@ -1,0 +1,69 @@
+{
+  "asset": "raccoon",
+  "variant": "material-v1",
+  "status": "pending-visual-review",
+  "sourceSha256": "a180229307b77e032e1deb4ca4d1963086739508c0c60a2010335bb7aa9f6576",
+  "outputSha256": "53c1aeab17c5157954793e7c81d9d1ddfa0c47fbdff6bc9d7e5fb7a36a7766a8",
+  "outputBytes": 19168072,
+  "binaryChunksSha256": "4df3252a395a757428c7d0e26609bd49d3da08d45e972a355bae79bff0156073",
+  "binaryChunksIdentical": true,
+  "geometryModified": false,
+  "materialBefore": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metallicFactor": 1.0,
+        "roughnessFactor": 1.0,
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1,
+          "texCoord": 0
+        }
+      },
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false,
+      "name": "Designer_Logic_PBR"
+    }
+  ],
+  "materialAfter": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.68,
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        }
+      },
+      "emissiveFactor": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "alphaMode": "OPAQUE",
+      "doubleSided": false,
+      "name": "Designer_Logic_PBR"
+    }
+  ],
+  "note": "Uniform roughness trial; existing packed texture remains embedded but unused. No texture compression.",
+  "runtimeBrowserVerified": false
+}
