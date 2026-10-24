@@ -1,3 +1,4 @@
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js'
@@ -86,9 +87,9 @@ function show(t) {
 slider.addEventListener('input',()=>{playing=false;button.textContent='播放';show(Number(slider.value))})
 button.addEventListener('click',()=>{playing=!playing;button.textContent=playing?'暂停':'播放'})
 try {
-  const loader=new GLTFLoader()
+  const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder)
   const [gltf,boat,trackResponse,layoutResponse,compactResponse,sternResponse]=await Promise.all([
-    loader.loadAsync('/assets/models/raccoon.glb'),loader.loadAsync('/assets/models/canoe.glb'),
+    loader.loadAsync('/assets/models/raccoon.glb'),loader.loadAsync('/assets/runtime-encoding/before/canoe.glb'),
     fetch('/docs/evidence/assets/2026-10-23-paddle-prop/prop-track.json'),
     fetch('/docs/evidence/assets/2026-10-23-paddle-layout/layout-config.json'),
     fetch('/docs/evidence/assets/2026-10-23-paddle-layout/compact-rejected/layout-search.json'),

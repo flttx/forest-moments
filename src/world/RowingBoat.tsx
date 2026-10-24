@@ -4,7 +4,9 @@ import { useGLTF } from '@react-three/drei'
 import { AnimationMixer, FileLoader, Group, Mesh, Quaternion, Vector3 } from 'three'
 import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { useForestStore } from '../game/store'
-import { pond } from '../game/rowing'
+import {boatSurfacePose} from '../game/boatPresentation'
+import {BoatWaterFeedback} from './BoatWaterFeedback'
+import {seaLevel} from './worldConfig'
 import { modelAssets } from './assets'
 
 interface PropTrack {
@@ -16,13 +18,16 @@ interface PropTrack {
 /** Same assembly transforms and prop samples as the validated center-seat-v11 review. */
 export function RowingBoat() {
   const boatGltf = useGLTF('/assets/models/canoe-center-seat.glb')
-  const sourceBoat = useGLTF(modelAssets.canoe.url)
+  const sourceBoat = useGLTF('/assets/models/paddle.glb')
   const actorGltf = useGLTF(modelAssets.raccoon.url)
   const trackFile = useLoader(FileLoader, '/assets/models/paddle-track.json')
   const track = useMemo(() => JSON.parse(String(trackFile)) as PropTrack, [trackFile])
   const root = useRef<Group>(null)
-  const wake = useRef<Group>(null)
-  const reducedMotion = useMemo(() => matchMedia('(prefers-reduced-motion: reduce)').matches, [])
+  const reducedMotion=useRef(false),surfaceTime=useRef(0)
+  useEffect(()=>{
+    const media=matchMedia('(prefers-reduced-motion: reduce)'),update=()=>{reducedMotion.current=media.matches}
+    update();media.addEventListener('change',update);return()=>media.removeEventListener('change',update)
+  },[])
   const assembly = useMemo(() => {
     const hull = clone(boatGltf.scene)
     const actor = clone(actorGltf.scene)
@@ -50,7 +55,9 @@ export function RowingBoat() {
     for (const object of [hull, character, paddle]) object.traverse((o) => {
       if (o instanceof Mesh) { o.castShadow = true; o.receiveShadow = true }
     })
-    return { hull, character, paddle, mixer, action, nextPosition: new Vector3(), nextRotation: new Quaternion() }
+    const blade=parts.find(p=>p.name.startsWith('Paddle_blade'))
+    if(!blade)throw new Error('Original paddle blade is missing')
+    return { hull, character, paddle,blade, mixer, action, nextPosition: new Vector3(), nextRotation: new Quaternion() }
   }, [actorGltf, boatGltf.scene, sourceBoat.scene, track.scale])
   const runtime = useRef(assembly)
   useEffect(() => {
@@ -59,12 +66,15 @@ export function RowingBoat() {
     useForestStore.getState().setBoatReady(true)
     return () => { useForestStore.getState().setBoatReady(false); assembly.mixer.stopAllAction() }
   }, [assembly])
-  useFrame(({ clock }) => {
+  useFrame((_,delta) => {
     if (!root.current) return
     const assembly = runtime.current
     const { boat, mode } = useForestStore.getState()
-    root.current.position.set(boat.x, pond.waterY + .355, boat.z)
-    root.current.rotation.y = boat.heading
+    surfaceTime.current+=Math.min(delta,.05)
+    const surface=boatSurfacePose(boat,surfaceTime.current,reducedMotion.current)
+    root.current.position.set(boat.x, seaLevel + .355+surface.heave, boat.z)
+    root.current.rotation.order='YXZ'
+    root.current.rotation.set(surface.roll,boat.heading,surface.pitch)
     assembly.character.visible = mode === 'rowing'
     assembly.paddle.visible = mode === 'rowing'
     assembly.mixer.setTime(boat.phase)
@@ -74,27 +84,12 @@ export function RowingBoat() {
     assembly.paddle.position.fromArray(a.position).lerp(assembly.nextPosition.fromArray(b.position), u)
     assembly.paddle.position.y += .26
     assembly.paddle.quaternion.fromArray(a.quaternion).slerp(assembly.nextRotation.fromArray(b.quaternion), u)
-    if (wake.current) {
-      wake.current.visible = mode === 'rowing' && boat.effort > .08 && !reducedMotion
-      wake.current.children.forEach((ripple, i) => {
-        const age = (clock.elapsedTime * .55 + i / 4) % 1
-        ripple.position.set(-1.6 - age * .35, -.351, 0)
-        ripple.scale.set(.5 + age * .7, .3 + age * .4, 1)
-        const x = boat.x + ripple.position.x * Math.cos(boat.heading)
-        const z = boat.z - ripple.position.x * Math.sin(boat.heading)
-        ripple.visible = Math.hypot(x - pond.x, z - pond.z) + .68 * ripple.scale.x < pond.radius
-      })
-    }
+    if(import.meta.env.DEV)root.current.userData.surface=surface
     if (import.meta.env.DEV) root.current.userData.animation = { clip: 'paddle', time: assembly.action.time, phase: boat.phase, original: true }
   }, -1)
-  return <group ref={root} name="asset-canoe">
+  return <><group ref={root} name="asset-canoe">
     <primitive object={assembly.hull} dispose={null} />
     <primitive object={assembly.character} dispose={null} />
     <primitive object={assembly.paddle} dispose={null} />
-    <group ref={wake}>
-      {[0, 1, 2, 3].map((i) => <mesh key={i} rotation={[-Math.PI / 2, 0, 0]} renderOrder={1}>
-        <ringGeometry args={[.65, .68, 36]} /><meshBasicMaterial color="#d4e5da" transparent opacity={.32} depthWrite={false} />
-      </mesh>)}
-    </group>
-  </group>
+  </group><BoatWaterFeedback blade={assembly.blade} reducedMotion={reducedMotion}/></>
 }

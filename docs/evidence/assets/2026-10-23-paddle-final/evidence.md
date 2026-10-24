@@ -8,20 +8,20 @@
 - 独立核对 270555 个保留船体面的坐标、UV 和材质分配；移除的 16497 面均位于原中央座位区域。两张 2048×2048 船贴图的实际 GLB 解码像素与原文件一致。这是内部结构替换，不是减面优化。
 - 浣熊仍为原 rig-mixamo-v6：38 骨、19 动作、衣服、尾巴、网格、权重未改。`public/assets/models/raccoon.glb` SHA-256 为 `f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41`；原船为 `0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9`。
 - 桨直接取自原船的 `Paddle_shaft`、`Paddle_blade`，统一比例 0.5；仅改变独立道具的位置、旋转和握位。双手划水时按实际手套表面保持接触，回桨时由一只手支撑；右侧收桨将支撑握位移向柄端，避免伸出的桨柄扫过松开的上臂。没有 IK、角色骨骼覆盖或角色动画重烘焙。
-- 最终轨迹 [prop-track.json](prop-track.json)，865 个关键点，120 Hz，7.2 s。SHA-256：`268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1`。派生船 SHA-256：`ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e`。
+- 最终轨迹 prop-track.json（本地原始记录：`prop-track.json`），865 个关键点，120 Hz，7.2 s。SHA-256：`268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1`。派生船 SHA-256：`ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e`。
 - 来源沿用 Lux3D 船任务 4266578、既有角色和既有 Mixamo 动作。新增木座由 Blender 本地制作；本轮没有付费 API、提交、推送或部署，没有新增商业许可声明。
 
 ## 验证结果
 
 | 检查 | 实际结果 | 证据 |
 | --- | --- | --- |
-| 全周期身体/船壳、身体/座位 | 120 Hz / 865 样本，相交样本均为 0 | [geometry-dense-audit.json](geometry-dense-audit.json) |
+| 全周期身体/船壳、身体/座位 | 120 Hz / 865 样本，相交样本均为 0 | geometry-dense-audit.json（本地原始记录：`geometry-dense-audit.json`） |
 | 全周期桨/船壳、桨/座位、桨/头颈及受检身体 | 865 样本，相交样本均为 0 | 同上 |
 | 实际蒙皮手套接触 | 支撑手缺失 0；双手握持阶段第二只手缺失 0 | 同上，独立于轨迹中的参考握点 |
 | 座位支撑间隙 | 每个样本均找到臀腿下方的座板支撑射线，最近间隙约 9.98–17.77 mm | 同上；为衣料/动画留量，不是刚体接触模拟 |
-| 桨插值、循环与水位 | 865 样本桨/船及座位相交 0；循环位置差 0.353 mm；左右水线下桨叶样本 107 / 79 | [interpolation-audit.json](interpolation-audit.json) |
+| 桨插值、循环与水位 | 865 样本桨/船及座位相交 0；循环位置差 0.353 mm；左右水线下桨叶样本 107 / 79 | interpolation-audit.json（本地原始记录：`interpolation-audit.json`） |
 | 源模型与原动作 | 原网格/权重、217 帧骨骼局部矩阵、保留船体面及纹理核对通过 | [scope-verification.json](scope-verification.json)、[asset-manifest.json](asset-manifest.json) |
-| 无头 Edge | 155.0.4283.62，1440×900；两布局 434 原手位样本、两个真实播放循环、0 控制台异常；38 PNG | [headless-validation.json](headless-validation.json) |
+| 无头 Edge | 155.0.4283.62，1440×900；两布局 434 原手位样本、两个真实播放循环、0 控制台异常；38 PNG | headless-validation.json（本地原始记录：`headless-validation.json`） |
 | 工程检查 | lint 通过，test 6/6，build 通过，脚本语法及 diff 检查通过 | [validation-results.json](validation-results.json) |
 
 检查范围：角色对船体/座位使用完整蒙皮表面；桨对身体允许手套以及距原手中心 9 cm 内的前臂握持区域接触，其他身体面均检查，原始接触计数也完整保留。**这些结果不等于全身绝对零接触、连续时间碰撞证明、物理划船模拟或用户最终视觉验收。** 浏览器中的源手位最大坐标误差约 0.0044 mm；支撑参考握点误差小于 0.007 mm。参考握点数值校验和实际手套表面接触检查是两项独立证据。

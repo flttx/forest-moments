@@ -1,6 +1,6 @@
-export const pond = { x: 6, z: -5, radius: 4.05, waterY: .035 }
-export const mooring = { x: 8.1, z: -6.1, heading: -Math.PI / 2 }
-export const landing = { x: 9.3, z: -8.15 }
+import {coastalDock,landing,mooring,seaLevel,seaRangeRadius,oceanNavigation} from '../world/worldConfig'
+import {terrainHeight} from '../world/terrain'
+export {pond,mooring,landing} from '../world/worldConfig'
 export const paddleDuration = 7.2
 
 export interface BoatState {
@@ -13,7 +13,12 @@ export interface BoatState {
 }
 export const initialBoat: BoatState = { ...mooring, speed: 0, phase: 0, effort: 0 }
 
-/** Conservative hull rectangle, including the bow/stern; the paddle may reach the bank. */
+export function seaBoundaryClearance(x:number,z:number){return seaRangeRadius(Math.atan2(z,x))-Math.hypot(x,z)-1.8}
+export function isNavigableSea(x:number,z:number){
+  return Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth
+}
+
+/** Sample the hull perimeter and centre against coastal depth and the island-following outer limit. */
 export function boatFits(x: number, z: number, heading: number): boolean {
   if (![x, z, heading].every(Number.isFinite)) return false
   const c = Math.cos(heading), s = Math.sin(heading)
@@ -21,20 +26,20 @@ export function boatFits(x: number, z: number, heading: number): boolean {
   // world box keeps the hull clear of the deck during near-shore turns.
   const halfX = 1.7 * Math.abs(c) + .57 * Math.abs(s)
   const halfZ = 1.7 * Math.abs(s) + .57 * Math.abs(c)
-  if (x + halfX > 8.75 && x - halfX < 11.55 && z + halfZ > -8.75 && z - halfZ < -7.55) return false
-  return [-1.7, 1.7].every((along) => [-.57, .57].every((across) =>
-    Math.hypot(x + along * c + across * s - pond.x, z - along * s + across * c - pond.z) <= pond.radius - .04))
+  if (x + halfX > coastalDock.minX && x - halfX < coastalDock.maxX && z + halfZ > coastalDock.minZ && z - halfZ < coastalDock.maxZ) return false
+  return [-1.7,0,1.7].every((along) => [-.57,0,.57].every((across) =>
+    isNavigableSea(x+along*c+across*s,z-along*s+across*c)))
 }
 
 export function canLand(boat: BoatState): boolean {
-  return Math.hypot(boat.x - mooring.x, boat.z - mooring.z) < .7 && Math.abs(boat.speed) < .18
+  return Math.hypot(boat.x - mooring.x, boat.z - mooring.z) < .85 && Math.abs(boat.speed) < .18 && Math.abs(Math.sin(boat.heading))<.35
 }
 
 export function canBoard(x: number, z: number, boat: BoatState): boolean {
   return Math.hypot(x - landing.x, z - landing.z) < .8 && canLand(boat)
 }
 
-/** Kinematic pond controller: short steps protect the hull, no rigid-body simulation. */
+/** Coastal kinematic controller: short steps protect the hull, no rigid-body simulation. */
 export function stepBoat(boat: BoatState, forward: number, turn: number, delta: number): BoatState {
   if (![forward, turn, delta].every(Number.isFinite)) return boat
   const dt = Math.max(0, Math.min(delta, .05))

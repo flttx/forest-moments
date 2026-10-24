@@ -1,0 +1,7 @@
+{
+  "status": "REJECTED",
+  "asset": "raccoon",
+  "cause": "NodeIO writer omitted near-identity node transform components. Strict semantic equality failed; original files unchanged.",
+  "candidate": "assets/runtime-encoding/serialization-v1/raccoon.glb",
+  "resolution": "Restore original raw node transform JSON before accepting the encoded GLB."
+}

@@ -1,3 +1,4 @@
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js'
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -46,7 +47,7 @@ async function main() {
   const controls = new OrbitControls(camera, canvas);
   // Immediate controls avoid a residual damping movement during fixed-view sampling.
   controls.enableDamping = false;
-  const loader = new GLTFLoader();
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const response = await fetch('/docs/evidence/assets/2026-10-22-round-01/manifest.json');
   if (!response.ok) throw new Error(`清单读取失败：HTTP ${response.status}`);
   const manifest = await response.json();

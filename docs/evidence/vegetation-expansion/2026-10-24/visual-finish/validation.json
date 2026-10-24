@@ -1,0 +1,659 @@
+{
+  "verifiedAt": "2026-10-24T02:42:41.238170+00:00",
+  "status": "PASS: scoped visual finish and affected interactions",
+  "staticChecks": {
+    "lint": "PASS, zero warnings",
+    "unitTests": "26/26 in 8 files",
+    "build": "PASS; existing >500 kB warning",
+    "diff": "PASS"
+  },
+  "browserSuites": [
+    {
+      "suite": "visual-finish-final",
+      "status": "PASS: captures and scoped render checks; visual assessment recorded separately",
+      "report": "docs\\evidence\\vegetation-expansion\\2026-10-24\\visual-finish-final\\headless-validation.json",
+      "sha256": "235db6dd14eb5483a69990bb5887c63abcc82d3685b8e0cf1e7fde8a558792ad",
+      "screenshots": [
+        {
+          "path": "day-default.png",
+          "sha256": "79eb9ddc946e036567913abfb08e046b229af91fb85eaf177f8cb917ff8dfaee",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-overview.png",
+          "sha256": "bdaaca54b0acf0ec138a0996ef6d1993e5ca3a600235a7479462eaab5e68d6d9",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-coast.png",
+          "sha256": "3a2bd252e3466e9a84519919f8c9ac9295754444347b52eeb15dc0bbcfbbac81",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-pond.png",
+          "sha256": "00697f1b9b647c7f34d3f86a68715bede7a0f582bc729fea05121e3cc15b4b73",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-workshop.png",
+          "sha256": "eeb049f9523031cbe675fa2edaae8b0d9d0aaf1076915a6bfe0bb3db176c13a8",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-tower.png",
+          "sha256": "814bc9f881c713ddb9af0cc30734f6d4c9300f8f7fc427d04cf2bb83f8a0f950",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-farm.png",
+          "sha256": "0c55c917beb12245c016e90b2ba365826c067b7acabf5ed04e08edc1be554bcc",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-player.png",
+          "sha256": "0a6ecfd26730c92d00a76661b801fe7dfe1a0bd064fd50a997994ee662e1afbb",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-fullIsland.png",
+          "sha256": "79ebc91126b043551240307efa63d53c81c83cfdc93ba4d437ddef5329ac5de3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-flowers.png",
+          "sha256": "f33c4bceeeb02db1fcde6ac19f4d19d91e77cbc7cce74a25abb2511fb6c16d22",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-lamp.png",
+          "sha256": "c4b89f629c71f332839b13be884d80bff5930e85c1b425ea4f815e01cec6f002",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-trail.png",
+          "sha256": "a058f0533d12d2da4fb8d5420558c6af78c814fb897b3391e4f17f50081155c9",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-beach.png",
+          "sha256": "5d55de6fbe8bfa163144bfebbdc3ca921135155a6fbf1f2b3d9462816853aa56",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "day-dock.png",
+          "sha256": "3b924d9866c2bd34a941b2fb0c146d38d01c093ab291cd3172b3ad7fa32941ad",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-default.png",
+          "sha256": "a14256d6960daf61e7d44efbc28e801683eb8a3bedb7cc7925a81b760a7a890c",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-overview.png",
+          "sha256": "a0a79a6059797c6832ec20988ed53ddfdfb22a8cba0a939af6620bdce38af6cb",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-coast.png",
+          "sha256": "b24256a7fa42748c539b308cd152be6ef8597745b4ad05735f1e6a4298a4cbb4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-pond.png",
+          "sha256": "d8096caf11fe07997a2b1a67ee36f4b7f1e5cd4e777380f7ff3d1fb5bfc6a14b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-workshop.png",
+          "sha256": "ceded761c33f6d7b86208114c507eb1645ea62a1741f1e59f8aaa449dfc084f1",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-tower.png",
+          "sha256": "b2a969dc7b2676841fee8b3045afc0c0eb64555a5651f6311fbc88377fbd8292",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-farm.png",
+          "sha256": "5c36837af07fc9dad9009954bbb01d384a1779c7f5de4b3682fc49d192730583",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-player.png",
+          "sha256": "660cb044c3084774e0c9257d256c46f1b254ca08ffa7221c252cc14e6dfedb70",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-fullIsland.png",
+          "sha256": "150b4526a75b20de7bc9c4e940b0bc5be19a73832bb100f7bd02a7529e129ae8",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-flowers.png",
+          "sha256": "cc6761d3f0a6622ca64e291196cb08cedab9232d17906066b62a0cae06c7a8d6",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-lamp.png",
+          "sha256": "a6131f2c9f24ca11cae42c840d0deb9671c619afc2dc6fc65bc804ea5e91cd44",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-trail.png",
+          "sha256": "8887e03878576a5f579ca161e3aded962ee63a5a62119854788f7d1fd0af4e21",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-beach.png",
+          "sha256": "2c18688787144be02ebc223ac41e134304e34afb7836b62fd00eda8252748633",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "dusk-dock.png",
+          "sha256": "590c3c09f86b72725e7df5fad768cc6e35ec12503d7408c91929c54bbe2adb27",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-default.png",
+          "sha256": "1096d5e997f0f04b665353b9cef6036f5d8a26f8f3be3085f5103309a6fdf264",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-overview.png",
+          "sha256": "f8da3c3aa0b7a74cffabbf678ca6e3f35d686cc02e42c44382fdde6c2bd5be24",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-coast.png",
+          "sha256": "82a8b326bf9baba3af0cc13de59955be4523406f9fc8b22337b3a091f9ca0890",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-pond.png",
+          "sha256": "f3792b0ce65fbde6636d0ea6cbc28b84431ed71791eddbfbdca7c62a5f5baed9",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-workshop.png",
+          "sha256": "62934895270f274ebd4244d89049ac67e39e578ae44cf3414234ae892a0d8e20",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-tower.png",
+          "sha256": "0125a5e73d5b5b074308e599ee21e0ff657f1ebc3d80cc1c2c88dd44633eb6ae",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-farm.png",
+          "sha256": "293927b3bbd254964537d00bed795ba9ee70345af12cbada085e338943f38161",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-player.png",
+          "sha256": "67ff75222fecee02103e648f1cd6b79c1800bc58a84e3552357cc659fec40640",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-fullIsland.png",
+          "sha256": "926cd791474a0a818741870dac37d685c3fc7bd10a38ac3a6501cfe16024a23b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-flowers.png",
+          "sha256": "2c5422db46ed2af3e5bbbb8241ccb2fbee4fb2a304f1c48595bd535089ae963a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-lamp.png",
+          "sha256": "2d144fddb317eff23a49cf9127631ec07cdff03a3db890a142f481c49f0038e2",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-trail.png",
+          "sha256": "776e594679dc40bd720ea3583402fc8e5011491852c9e53ac0e04cab1e8254a6",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-beach.png",
+          "sha256": "76307d285c2c82106ecc80ce1c10fd35cbbde64306b26534c47c465924fdf621",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "night-dock.png",
+          "sha256": "56ad7c0283500fac9ab9ea3c10b8d73352519326c9f1a2ddfd1c7c6de47495d7",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "layout-1920x1080.png",
+          "sha256": "bf1316eadfda70ea9ce0468e8efc101d770952e799a2438f246a3df22a8faeb0",
+          "dimensions": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "path": "layout-390x844.png",
+          "sha256": "822e385e0d4ef4890dc2f391ac75ec160bced7fb3311d41ad2c4b783a53a4db4",
+          "dimensions": [
+            390,
+            844
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "suite": "visual-finish-route-final",
+      "status": "PASS",
+      "report": "docs\\evidence\\vegetation-expansion\\2026-10-24\\visual-finish-route-final\\headless-validation.json",
+      "sha256": "f95f5dba3ae4a65398145dd169bf78d52daee3c28edec3df8354b061d11da054",
+      "screenshots": [
+        {
+          "path": "loop-0.png",
+          "sha256": "82f6bce176f0272e65c7df31093e8c6465f719a401067d77a873f1d6e9366d4b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "loop-24.png",
+          "sha256": "9feac5debad5329cb87ffed09dad54fe36e902d6255b43c0ea382baf7ae8f5c2",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "loop-48.png",
+          "sha256": "0909cb4e1b3b530eca84deec8bffe5c9143101490848e53c5dbf2ca87f8c6a20",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "loop-72.png",
+          "sha256": "79bad5162b9c101876d20cfa8f94ba625b8619e615e30c74b81b49a32220a524",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "loop-96.png",
+          "sha256": "66f0cee3070b3d277ef8fbc94d05d05f861eb23821588a3951d91077a11b362f",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "returned-to-spawn.png",
+          "sha256": "ca4e271896720ef8bcc7ad7b19f3ee3c7a89f21ef168171cdbbfb4a2a0c60819",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "suite": "regression-visual-finish-final-fishing",
+      "status": "PASS: casting, early/missed/overload failures, paused timers, tension control, catch once, repeat, cancel, persistence",
+      "report": "docs\\evidence\\vegetation-expansion\\2026-10-24\\regression-visual-finish-final-fishing\\headless-validation.json",
+      "sha256": "10bc687b3b694a66c370e891d651e4724c4463a23aa841cb8cf7f58dadc2e47a",
+      "screenshots": [
+        {
+          "path": "01-before-fishing.png",
+          "sha256": "6eaa063b0b3721eaff7b8361f86eb90b7bd38650cf43f65e734a5ab90dcf9441",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "02-casting-start.png",
+          "sha256": "03796c7f437621130dcff95fc6b2905e3e647528c90deeef8a2847c2b6fd43ba",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "03-casting-release.png",
+          "sha256": "710bd09dfbfaba68bb8e3fe11e4a6d0e6f91c880921cdae57d83ac8886c27c55",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "04-waiting.png",
+          "sha256": "eaf59bde680253d52f2f4cbd0f09119d9708666f7654b15b5b8c8b79123b6b96",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "05-too-early.png",
+          "sha256": "e9d72b08c1d362b8b8736e4db9e23b4af8b95dd2a70216ffeef077ff81edba56",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "06-bite.png",
+          "sha256": "c4833bbbafc9c562e72fa28a3417ef1641a29a7735c98d8d91d3094c365a1008",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "07-paused.png",
+          "sha256": "744716f22777d3a9653f1a6e86e316a8d4d50abcbeaebc446bd9f07cc184aa9b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "08-high-tension.png",
+          "sha256": "0d08578721174ef637de2a131d2187e87046a3a776accbd6a054c9eeacf0c1cb",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "09-release-tension.png",
+          "sha256": "e4c0fea850f97db9bcf438ec0e6be4b49b5558cacae79e41330ec7ade88058ce",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "10-landing.png",
+          "sha256": "4cdf8639a1830b83a8240a9587e0bea5e38739133273f054afc71b7e2526a635",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "11-caught.png",
+          "sha256": "d2011a604a3e0c62b0b3de2a119c49a1bb05f14afd0daa2f3ee7c118b9f201e1",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "12-line-overload.png",
+          "sha256": "d917c51d5a59a5e78ba5033f4425652bb73459e674e86b1f153dddd41c37c410",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "13-book-after-reload.png",
+          "sha256": "8bfbccb8193de849b069fcb5018291d81a421549b4636ea99da7237deea0c9c2",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "suite": "regression-visual-finish-release-fishing_production",
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "report": "docs\\evidence\\vegetation-expansion\\2026-10-24\\regression-visual-finish-release-fishing_production\\headless-validation.json",
+      "sha256": "256cdf365ef1866a63d295be251f2e7d7211ee5faf04e7ba5a58b5218d27030e",
+      "screenshots": [
+        {
+          "path": "01-cast.png",
+          "sha256": "adb9a1260b67817863fb626be12abb34eca4206f1487b19996aaf6e0db11ec1c",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "02-waiting.png",
+          "sha256": "5b524f2834ee4b00766e72f618f5d6ea5d3dad64e36d7f5def11c9d5b6fd3bee",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "03-bite.png",
+          "sha256": "ce392ab0a569f3514efbc6edf74a98dc0a8ea3c75f7335c1acb474491f4859c1",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "04-tension-panel.png",
+          "sha256": "f64f63272c14f1664b3e450970ddd7e0ad8f77f3ef5e83bd3fb29b2ad3337129",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "05-visible-catch.png",
+          "sha256": "bdb16df29655df4b41ce85aa15dc7e5d0564aeb94483d666cb2cab15594808be",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "06-saved-book.png",
+          "sha256": "210a2e9602ac21ed45f29ec8f78aef27f01d95c9665a550f13b7b2849e0ed669",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "suite": "visual-finish-production-final",
+      "status": "PASS: static build load, nine model/track resources, boarding/rowing HUD, development telemetry absent",
+      "report": "docs\\evidence\\vegetation-expansion\\2026-10-24\\visual-finish-production-final\\headless-validation.json",
+      "sha256": "7c39b0953b25aecd628daaa0b067dc0b9a8179caccc519de0e6b82783b0ddbb0",
+      "screenshots": [
+        {
+          "path": "01-built-spawn.png",
+          "sha256": "49a21caf99826ad456376efaa2feda607ea4a34d2a83f30071808d7e89a69714",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "02-built-rowing-water.png",
+          "sha256": "6980eaebe7530068eec7a834e5670243588312fa172beed086f91a911b2dc4eb",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "03-built-landed.png",
+          "sha256": "11bb331ed02a73bb297360f55311593af329869ecb92c6df525ecc2888716b6b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "screenshotCount": 72,
+  "resourcesSha256": "cbdb9f2edf37ca3f2baa5ba56b0e12ee0421769331bb738601ae6762d753fec0",
+  "scripts": {
+    "scripts\\check_vegetation_headless.mjs": "88627078cdab50d195248dec09073b695944bb439f18c3ba0051187ad49fbf65",
+    "scripts\\check_vegetation_route.mjs": "3f7de96cbba7ce92b0f9f0af5aa90f82253a7e19192ac82444313b6561b59665",
+    "scripts\\check_vegetation_regressions.mjs": "0694d85fcda383c662dceaeef9b67422af8fec61280cd04419ddea6b6b09e63d",
+    "scripts\\check_coastal_production.mjs": "476726dfe3f6dd64b628ad82fb31e3a6fd99d40c28f45358002cfba1fb13933d",
+    "scripts\\audit_dock_supports.py": "fa53dc718d84e7dbc3229a344b25505c7c888e21eb83a8547fd969faae34913d"
+  },
+  "preservedFailures": [
+    "visual-finish-production",
+    "regression-visual-finish-fishing"
+  ],
+  "limits": [
+    "Local headless Edge only; not cross-device approval",
+    "Uncapped RAF plus gl.finish is not display FPS",
+    "Sea circuit and recovery suites were not rerun in this milestone",
+    "No new AHOLO call, model file change, commit, push or deployment"
+  ],
+  "documentChecks": {
+    "localLinks": 120,
+    "embeddedPngs": 25,
+    "status": "PASS",
+    "mainReport": "docs/report/PROJECT_REPORT.md",
+    "version": "0.31"
+  }
+}

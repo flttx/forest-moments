@@ -1,0 +1,18 @@
+{
+  "tool": "built-in imagegen",
+  "reference": "docs/references/environment/forest-moments-tree-growth-v2.png",
+  "prompts": [
+    {
+      "stage": "seedling",
+      "prompt": "Use case: stylized-concept. Create ONE isolated full-tree single-view 3D asset reference for Forest Moments. The attached image is STYLE AND SPECIES reference only, not a layout to reproduce. Warm storybook oak, matte hand-painted olive/sage foliage, warm brown gently faceted bark, broad lobed oak leaves, coherent branch structure, charming but restrained mature art direction. Three-quarter orthographic view, soft neutral studio light, plain off-white background. Tree fully visible with generous margins. NO labels, text, panels, other trees, pot, platform, soil mound, grass, rocks, fruit, flowers, props, face or scenery. Trunk ends at a clean grounded root flare. Attractive detailed silhouette, readable connected solid leaf clusters suitable for 3D reconstruction; no transparent cards or thin disconnected fragments. NEWLY PLANTED stage, approximately 0.45m tall: short slim curved woody stem with 3 small branches and 7-10 substantial individual lobed leaves forming a sparse open crown. Delicate but clearly woody, not a cone or flower."
+    },
+    {
+      "stage": "young",
+      "prompt": "Use case: stylized-concept. Create ONE isolated full-tree single-view 3D asset reference for Forest Moments. The attached image is STYLE AND SPECIES reference only, not a layout to reproduce. Warm storybook oak, matte hand-painted olive/sage foliage, warm brown gently faceted bark, broad lobed oak leaves, coherent branch structure, charming but restrained mature art direction. Three-quarter orthographic view, soft neutral studio light, plain off-white background. Tree fully visible with generous margins. NO labels, text, panels, other trees, pot, platform, soil mound, grass, rocks, fruit, flowers, props, face or scenery. Trunk ends at a clean grounded root flare. Attractive detailed silhouette, readable connected solid leaf clusters suitable for 3D reconstruction; no transparent cards or thin disconnected fragments. YOUNG stage, approximately 1.5m tall: slender trunk visibly branching into a compact asymmetrical crown with 4-5 separated but connected lobed-leaf clusters. Open branch gaps, modest rounded crown, same species as attached middle tree, no oversized swollen foliage balls."
+    },
+    {
+      "stage": "mature",
+      "prompt": "Use case: stylized-concept. Create ONE isolated full-tree single-view 3D asset reference for Forest Moments. The attached image is STYLE AND SPECIES reference only, not a layout to reproduce. Warm storybook oak, matte hand-painted olive/sage foliage, warm brown gently faceted bark, broad lobed oak leaves, coherent branch structure, charming but restrained mature art direction. Three-quarter orthographic view, soft neutral studio light, plain off-white background. Tree fully visible with generous margins. NO labels, text, panels, other trees, pot, platform, soil mound, grass, rocks, fruit, flowers, props, face or scenery. Trunk ends at a clean grounded root flare. Attractive detailed silhouette, readable connected solid leaf clusters suitable for 3D reconstruction; no transparent cards or thin disconnected fragments. MATURE stage, approximately 3m tall: sturdy tapering forked trunk, gracefully spreading branches supporting 6-8 overlapping rounded clusters of lobed oak foliage. Asymmetrical wide rounded crown, connected branches visible between clusters, same species as attached right tree. Keep main branches substantial, reduce tiny twig clutter."
+    }
+  ]
+}

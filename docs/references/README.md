@@ -1,6 +1,23 @@
 # 森林拾光参考图索引
 
-更新：2026-10-21。先整理参考图，再按海上小岛设计统一结构、风格和交互尺度。
+更新：2026-10-24。先整理参考图，再按海上小岛设计统一结构、风格和交互尺度。
+
+## 最新四阶段树木参考
+
+按用户追加「更小、尚未分叉的第一阶段」制作以下四张单体参考，覆盖旧三阶段板的阶段划分；裂叶、暖木与手绘配色保持一致。四图由 imagegen 先生成，再逐件提交 AHOLO G1，已接入并完成限定浏览器验证；图像本身仍是参考插画。
+
+| 阶段 | 参考图 | AHOLO 任务 |
+| --- | --- | --- |
+| 单茎初生小苗，0.22 m | [sprout v1](growth/forest-moments-sprout-v1.png) | 4323002 |
+| 分叉树苗，0.55 m | [seedling v1](growth/forest-moments-seedling-v1.png) | 4322894 |
+| 幼树，1.5 m | [young v1](growth/forest-moments-young-v1.png) | 4322899 |
+| 成树，3 m | [mature v1](growth/forest-moments-mature-v1.png) | 4322904 |
+
+完整提示词、顶芽修复、材质修订及实机对比见[报告 5.28](../report/PROJECT_REPORT.md)和[本轮证据](../evidence/assets/2026-10-24-tree-growth/evidence.md)。下方 2026-10-21 的九张专题图及其待确认状态保留为历史记录，不覆盖本轮资产验收状态。
+
+## 最新海边码头参考
+
+[海边栈桥 v1](waterside/forest-moments-seaside-jetty-v1.png)：按用户最新要求先由 imagegen 生成并查看，再作为 AHOLO G1 任务 **4321451** 的单体输入。已完成 Blender 校准与运行时接入，验证见 [海岸记录](../evidence/assets/2026-10-24-coastal-layout/plan.md)。此图覆盖下方早期“池塘码头组装关系”的码头设计；池塘保留钓鱼，船移入海中。参考图不等同实机截图。
 
 ## 当前参考的使用顺序
 
@@ -87,6 +104,8 @@
 | [style-final](../../docs/references/style/forest-moments-environment-board-v2.png) | 已替代：总板重新出现烟囱、船身误为纯木色。 |
 
 ## 文件与验收说明
+
+2026-10-24 牧场复用补充：沿用动物 v3 总板比较风格，另只读复制 my-blog 既有模型的历史输入图：[鸡](farm/reused-animal-chicken.png)、[羊](farm/reused-animal-sheep.png)、[鸡舍](farm/reused-ranch-coop.png)。这三张不是本轮新生成，未计入下方 2026-10-21 的 13 张生成统计；来源与哈希见[牧场证据](../evidence/assets/2026-10-24-farm/source-provenance.json)。本轮模型复用和进食校准的实际画面在报告 5.30，不用参考图替代实机验证。
 
 - 原始参考图实际存在 35 张；单独的角色外观基线图此前已缺失，清单保留 unavailable_images 记录。
 - 本轮共生成 13 张，9 张为当前专题参考、4 张保留为迭代记录；整体概念 v1/v2 为此前产物。

@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "before",
+      "watch": {},
+      "events": [
+        {
+          "rawBytes": 0,
+          "exportPresent": false
+        },
+        {
+          "rawBytes": 38,
+          "exportPresent": true
+        }
+      ]
+    },
+    {
+      "name": "after",
+      "watch": {
+        "awaitWriteFinish": {
+          "stabilityThreshold": 300,
+          "pollInterval": 50
+        }
+      },
+      "events": [
+        {
+          "rawBytes": 38,
+          "exportPresent": true
+        }
+      ]
+    }
+  ],
+  "status": "PASS"
+}

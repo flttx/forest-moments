@@ -1,37 +1,69 @@
 import { MathUtils } from 'three'
-import { pond } from '../game/rowing'
-
-export const seaLevel = -.85
-
-/** Keep the existing walkable plateau intact; shape only the inaccessible coast. */
-export function coastRadius(angle: number) {
-  return 20.8 + .85 * Math.sin(angle * 3 + .4) + .55 * Math.sin(angle * 5 - .8) + .25 * Math.cos(angle * 9)
+import {modelAssets,workshopSize,workshopPathOffset} from './assets'
+import {islandShape,coastRadius,workshopPosition,lookoutPosition} from './worldConfig'
+import {pondEdgeDistance,pondDepth,pondBankWidth} from './pondShape'
+export {seaLevel,islandShape,coastRadius,shoreWaterFraction} from './worldConfig'
+export function terrainHeight(x:number,z:number) {
+  const shore=MathUtils.smoothstep(Math.hypot(x,z),islandShape.plateauRadius,coastRadius(Math.atan2(z,x))+islandShape.shoreExtension)
+  const basin=1-MathUtils.smoothstep(pondEdgeDistance(x,z),-pondBankWidth,0)
+  return -islandShape.shoreDepth*shore-pondDepth*basin+pathRelief(x,z)
 }
-
-export function terrainHeight(x: number, z: number) {
-  const radius = Math.hypot(x, z)
-  const coast = coastRadius(Math.atan2(z, x))
-  const shore = MathUtils.smoothstep(radius, 17, coast + 1.8)
-  const basin = 1 - MathUtils.smoothstep(Math.hypot(x - pond.x, z - pond.z), pond.radius - .65, pond.radius)
-  return -2.3 * shore - .7 * basin
+export function loopRadius(angle:number){return islandShape.loopRadius+.65*Math.sin(angle*3+.3)}
+export function workshopPathZ(x:number,offset=workshopPathOffset){return 10.8+Math.sin(x*.35)*.6+offset*(1-MathUtils.smoothstep(x,-8,-5))}
+export function pathDistance(x:number,z:number,workshopOffset=workshopPathOffset) {
+  const main=Math.abs(x+1.7-Math.sin(z*.23)*1.15)
+  const wx=MathUtils.clamp(x,-12,-1.5),ex=MathUtils.clamp(x,-1.7,23),tz=MathUtils.clamp(z,-4.7,1.7)
+  const workshop=Math.hypot(x-wx,z-workshopPathZ(wx,workshopOffset))
+  const eastZ=1.4*(1-MathUtils.smoothstep(ex,12,23))-Math.sin(ex*.4)*.55*(1-MathUtils.smoothstep(ex,16,23))
+  const east=Math.hypot(x-ex,z-eastZ)
+  const tower=Math.hypot(x-13,z-tz)
+  const loop=Math.abs(Math.hypot(x,z)-loopRadius(Math.atan2(z,x)))
+  return Math.min(main,workshop,east,tower,loop)
 }
-
-export function pathDistance(x: number, z: number) {
-  const main = Math.abs(x + 1.7 - Math.sin(z * .23) * 1.15)
-  const workshop = x < -1.5 && x > -8.8 ? Math.abs(z - 5.8 - Math.sin(x * .7) * .22) : 100
-  const east = x > -1.7 && x < 10.8 ? Math.abs(z - 1.4 + Math.sin(x * .4) * .55) : 100
-  const dock = x > 10.2 && z < 1.7 && z > -9.7 ? Math.abs(x - 11.4) : 100
-  return Math.min(main, workshop, east, dock)
+export function groundNoise(x:number,z:number) {
+  const hash=(a:number,b:number)=>{const n=Math.sin(a*127.1+b*311.7)*43758.5453;return n-Math.floor(n)}
+  const ix=Math.floor(x),iz=Math.floor(z),fx=x-ix,fz=z-iz,u=fx*fx*(3-2*fx),v=fz*fz*(3-2*fz)
+  return MathUtils.lerp(MathUtils.lerp(hash(ix,iz),hash(ix+1,iz),u),MathUtils.lerp(hash(ix,iz+1),hash(ix+1,iz+1),u),v)
 }
-
-export const noiseGLSL = /* glsl */ `
-float hash21(vec2 p) { return fract(sin(dot(p, vec2(127.1,311.7))) * 43758.5453); }
-float noise21(vec2 p) {
-  vec2 i=floor(p), f=fract(p); f=f*f*(3.0-2.0*f);
-  return mix(mix(hash21(i),hash21(i+vec2(1,0)),f.x),mix(hash21(i+vec2(0,1)),hash21(i+1.0),f.x),f.y);
+/** Shared worn verge, in metres: negative is dirt, positive is the grassy shoulder. */
+export function pathEdgeDistance(x:number,z:number) {
+  const width=.78+.17*Math.sin(x*.53+z*.37)+.14*(groundNoise(x*.7+4,z*.7)-.5)
+  return pathDistance(x,z)-width+(groundNoise(x*3.1,z*3.1)-.5)*.28+(groundNoise(x*9.7,z*9.7)-.5)*.10
 }
-float coastAt(vec2 p) {
-  float a=atan(p.y,p.x);
-  return 20.8+.85*sin(a*3.0+.4)+.55*sin(a*5.0-.8)+.25*cos(a*9.0);
+/** Small real undulations, faded out at foundations, interaction pads and the shore. */
+export function pathRelief(x:number,z:number) {
+  const track=pathDistance(x,z)
+  if(track>=1.45||Math.hypot(x,z)>=23)return 0
+  let pad=1
+  for(const [px,pz,r] of [[0,0,1.2],[workshopPosition[0],workshopPosition[2],Math.hypot(workshopSize.halfX,workshopSize.halfZ)*modelAssets.workshop.scale+.6],[lookoutPosition[0],lookoutPosition[2],3.7],[8,6,4.8],[6,-5,5.3],[23,0,3],[0,8,1.4]])
+    pad*=MathUtils.smoothstep(Math.hypot(x-px,z-pz),r,r+.8)
+  const envelope=(1-MathUtils.smoothstep(track,.7,1.45))*(1-MathUtils.smoothstep(Math.hypot(x,z),22,23))*pad
+  if(envelope===0)return 0
+  return envelope*(.075*Math.sin(x*.91+z*.37)*Math.cos(z*.72-x*.21)+.025*Math.sin(x*2.1-z*1.6)-.025*Math.exp(-track*track*5))
+}
+export const noiseGLSL=/* glsl */ `
+float hash21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise21(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(hash21(i),hash21(i+vec2(1,0)),f.x),mix(hash21(i+vec2(0,1)),hash21(i+1.0),f.x),f.y);}
+float coastAt(vec2 p){float a=atan(p.y,p.x);return ${islandShape.coastRadius.toFixed(1)}+.85*sin(a*3.0+.4)+.55*sin(a*5.0-.8)+.25*cos(a*9.0);}
+`
+export const pathGLSL=/* glsl */ `
+float pathAt(vec2 p){
+ float track=abs(p.x+1.7-sin(p.y*.23)*1.15);
+ float wx=clamp(p.x,-12.0,-1.5),ex=clamp(p.x,-1.7,23.0),tz=clamp(p.y,-4.7,1.7);
+ track=min(track,length(vec2(p.x-wx,p.y-10.8-sin(wx*.35)*.6-${workshopPathOffset.toFixed(8)}*(1.0-smoothstep(-8.0,-5.0,wx)))));
+ float eastZ=1.4*(1.0-smoothstep(12.0,23.0,ex))-sin(ex*.4)*.55*(1.0-smoothstep(16.0,23.0,ex));
+ track=min(track,length(vec2(p.x-ex,p.y-eastZ)));
+ track=min(track,length(vec2(p.x-13.0,p.y-tz)));
+ return min(track,abs(length(p)-(${islandShape.loopRadius.toFixed(1)}+.65*sin(atan(p.y,p.x)*3.0+.3))));
+}
+float pathEdgeAt(vec2 p){
+ float width=.78+.17*sin(p.x*.53+p.y*.37)+.14*(noise21(p*.7+vec2(4.0,0.0))-.5);
+ return pathAt(p)-width+(noise21(p*3.1)-.5)*.28+(noise21(p*9.7)-.5)*.10;
+}
+`
+export const groundColourGLSL=/* glsl */ `
+vec3 groundColour(vec2 p){
+ float broad=noise21(p*.38),fleck=noise21(p*14.0);
+ return mix(vec3(.105,.175,.065),vec3(.29,.36,.13),broad)*(.92+fleck*.16);
 }
 `

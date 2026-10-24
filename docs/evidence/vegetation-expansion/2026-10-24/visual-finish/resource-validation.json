@@ -1,0 +1,115 @@
+{
+  "verifiedAt": "2026-10-24T02:29:29.504504+00:00",
+  "status": "PASS",
+  "assets": [
+    {
+      "path": "assets\\models\\canoe-center-seat.glb",
+      "bytes": 17372336,
+      "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e"
+    },
+    {
+      "path": "assets\\models\\canoe.glb",
+      "bytes": 17562100,
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9"
+    },
+    {
+      "path": "assets\\models\\coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "assets\\models\\fish-koi.glb",
+      "bytes": 139172,
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e"
+    },
+    {
+      "path": "assets\\models\\fishing-rod.glb",
+      "bytes": 6336,
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc"
+    },
+    {
+      "path": "assets\\models\\lookout.glb",
+      "bytes": 17295608,
+      "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5"
+    },
+    {
+      "path": "assets\\models\\paddle-track.json",
+      "bytes": 654759,
+      "sha256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1"
+    },
+    {
+      "path": "assets\\models\\raccoon.glb",
+      "bytes": 24777392,
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41"
+    },
+    {
+      "path": "assets\\models\\workshop.glb",
+      "bytes": 18892400,
+      "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d"
+    },
+    {
+      "path": "assets\\vegetation\\forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7"
+    },
+    {
+      "path": "assets\\vegetation\\forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c"
+    },
+    {
+      "path": "assets\\vegetation\\lantern-glow.webp",
+      "bytes": 9134,
+      "sha256": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6"
+    }
+  ],
+  "modelAndVegetationBytes": 100326865,
+  "myBlogConsumedSourceUnchanged": true,
+  "vegetationSourcePublicDistUnchanged": true,
+  "productionTelemetryAbsent": true,
+  "runtimeSourceHashes": {
+    "src\\game\\fishing.test.ts": "44b0c0def7de21483d565f8a5279cec73dc88d7cb09f4cebc0eaa2aa1fa2b460",
+    "src\\game\\fishing.ts": "0323284b183d8cc745b9c4d2861ee7b5bdd4573903d76c4efb074c4585725c39",
+    "src\\game\\landmarks.test.ts": "2d9120cb81c338d9fafcf6173bf71176ab55058a6af6229b74fc870c8d438b20",
+    "src\\game\\landmarks.ts": "bdd28b95d20088747fa535800f3194fcce1113cef902321f5d5d5c5ab136ad4e",
+    "src\\game\\movement.test.ts": "33863c998e304d913106d23b37f36b15dc6c4fe4b866612da1f35da8a38313b3",
+    "src\\game\\movement.ts": "418896dd31e138529ce706d262c51126f7e86b892076d58dfdf45e80af6a485c",
+    "src\\game\\rowing.test.ts": "14c6911e0c68a45186295f6af8735b0a5604078edde234a921b16e844ba1db4f",
+    "src\\game\\rowing.ts": "f33e0513ecb569b233845304818eef275334e9a71a316af1c1e19fc25dbfc983",
+    "src\\game\\store.ts": "ef89425986fc84d5fc351f4b1be70ed762d75d240c10b02243f3a801b953778f",
+    "src\\world\\assets.ts": "c6cbc91d28937aaefa923750497d33ff0a135c7e98a03a9bfe1abbf23876cbd3",
+    "src\\world\\foliageMaterial.ts": "ca8064f44d326bf2f03ebdeb5a031cefe66495db89e2e5162270b07a7c78f1e7",
+    "src\\world\\foliageOcclusion.test.ts": "f033fd020b6d72ea6b7f6834eaedf5d928395c8bcf3f0635a23b155f1e85ab1d",
+    "src\\world\\foliageOcclusion.ts": "c135811b90c24ded18eed6e870beb3ee86a8a3de79caed2af6985fc45c699f54",
+    "src\\world\\lampAnchors.ts": "aaa32e6b0ff8a44be0ea7ebbb432e2b71cd1aedc64b6802d513384470acd1824",
+    "src\\world\\pondShape.ts": "54e8f47112a7e15396caa63bfd1940f5f59d3ea97feee5835b49ed567ad4cef0",
+    "src\\world\\terrain.test.ts": "1558709f18dfcdd90cf0106628ff5a94e9724e0caae89014d93ab98b16e1c58f",
+    "src\\world\\terrain.ts": "c946a5ab49a716a77f419d5febe93ad057234e15c9567cecbe09f3bb0e2fb8b8",
+    "src\\world\\terrainGeometry.test.ts": "74054f4094dafdbd7f32eeab605d30dbf580ef0d367c3323f8c599878d264652",
+    "src\\world\\terrainGeometry.ts": "934c323556c09caf0c51834d5d6eb95630bb5fc201fed0475cecccd833d8ad3b",
+    "src\\world\\transformedGeometry.ts": "181f2a0c655a7454e31e239f194405c80368e2b2939bc532d5888a16aefd2c6a",
+    "src\\world\\vegetation.test.ts": "8e4988d251dc64747127ad3d206fa64312b94f84c255eb77e835d7dda9d79be3",
+    "src\\world\\vegetationLayout.ts": "6df0e4736632eb74f42d4efcbd37a4400247ea4dfd006c785f278935d7d3b804",
+    "src\\world\\worldConfig.ts": "9e5fbb7c58e1578b21f14c0d981f04c3be94f3807c380453faa9f723a43b8466",
+    "src\\App.tsx": "8f79c8e0fb74a7160f0403edef99abce78fbe54350ff49b6cd248d6d058a7a43",
+    "src\\FishingHud.tsx": "cd8f918e1298e4449dbc0a592c1575857e10663ddd6d009bfee05f06b19ca7bb",
+    "src\\main.tsx": "484f93f3048565a86a47e308f5a12ee27aa12f5291f3b52a4bb5dc03d887dbc7",
+    "src\\world\\Atmosphere.tsx": "97179f344d36b6dacd5c7362d7f7d5ac4c47acb2e6fa2719fce5fd00eff9509f",
+    "src\\world\\CoastalRocks.tsx": "f95cffbb9c25a63b291d89ccf208daed6874b54272fb848512a2225c480ba582",
+    "src\\world\\FishingScene.tsx": "a20c38d58c315feedf92a38b6845c3a80055d0d6589cabb5ff0d5dbdd5268750",
+    "src\\world\\ForestKit.tsx": "ca987d572fc701466d2da223958e02bf54cd7ca5fcf90668855faf4902f6b483",
+    "src\\world\\ForestVegetation.tsx": "0d19c89351f0c832a1260736524abb4ac04b20cfb34743978707b3356e1aa4fe",
+    "src\\world\\ForestWorld.tsx": "9b09ae92b2b897d52674c9bf92d36d5c43a69effe15e5f2d5f5bb8b25b35ce6a",
+    "src\\world\\GroundCover.tsx": "e79a847d6e95287c7a6b7b012a973a2738ea9e4a4f67c641c6d0c3f4b0f35fae",
+    "src\\world\\IslandTerrain.tsx": "bc97b6b4e90d7be5e3633547070819f4f832624087066f003c08ae064c853fbb",
+    "src\\world\\ModelAsset.tsx": "030fe24ad594c1d7ca8252895255d62c721397e7886501bff91cf2db55304b5d",
+    "src\\world\\OceanBoundary.tsx": "ed4e3d190fc6433f8816fc528776e503aacb6003bf5b509e300ebb2d2986b27f",
+    "src\\world\\PathDetails.tsx": "1607618e8d8cdf63ab4324948ce30ed120fc561a56f2ffd98cb7c2f552edc785",
+    "src\\world\\RowingBoat.tsx": "0f9feca22d2388d3275c76529875510c0007ee7eaea3ffea0ce5e072503c3884",
+    "src\\world\\SeasideDock.tsx": "ab68a55af9af140297c8823a48143e3ff080fd0fb57e18a2c7e87bbbc33629c4"
+  },
+  "bundleHashes": {
+    "dist\\assets\\index-DZMHIHWi.js": "a6b7276b003163576c967feeebca0784a0a86e9ff4d4d87a1823e3bee21d2d3f"
+  },
+  "allEightRuntimeGlbsUnchangedFromCoastalMilestone": true
+}

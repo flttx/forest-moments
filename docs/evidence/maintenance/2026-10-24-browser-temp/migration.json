@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-24",
+  "archivedProfiles": 75,
+  "remainingCProfiles": 0,
+  "remainingNames": [],
+  "cFreeGiB": 40.95,
+  "archivePath": "F:\\Projects\\forest-moments\\.tmp\\legacy-browser-profiles",
+  "method": "PowerShell Move-Item, exact parent paths verified, active browser profiles skipped, files preserved"
+}

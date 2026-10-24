@@ -2,7 +2,8 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 import { pond } from '../game/rowing'
-import { noiseGLSL, seaLevel } from './terrain'
+import { noiseGLSL, seaLevel, islandShape, shoreWaterFraction } from './terrain'
+import {pondRadiusAt,pondGLSL,pondWaterInset} from './pondShape'
 
 const palettes = {
   day: { top: '#6e9cb2', horizon: '#c4d6d6', sun: '#fff0ce', light: '#ffe4b8', sea: '#286879', power: 2.5, fill: 1.1, environment: .55, sunPosition: [-28, 30, -26] as [number, number, number] },
@@ -40,18 +41,28 @@ function skyTexture() {
 
 function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; fresh?: boolean }) {
   const uniforms=useMemo(()=>({waterTime:time, fresh:{value:fresh ? 1 : 0}, shallow:{value:new THREE.Color(fresh ? '#74977c' : '#73a99c')}}),[fresh,time])
+  const geometry=useMemo(()=>{
+    if(!fresh)return new THREE.PlaneGeometry(1200,1200)
+    const g=new THREE.CircleGeometry(1,192),p=g.getAttribute('position')
+    for(let i=1;i<p.count;i++){
+      const x=p.getX(i),y=p.getY(i),r=pondRadiusAt(Math.atan2(-y,x))
+      p.setXY(i,x*r,y*r)
+    }
+    return g
+  },[fresh])
+  useEffect(()=>()=>geometry.dispose(),[geometry])
   return <mesh name={fresh ? 'fresh-water' : 'ocean'} rotation={[-Math.PI/2,0,0]} position={fresh ? [pond.x,pond.waterY,pond.z] : [0,seaLevel,0]} receiveShadow>
-    {fresh ? <circleGeometry args={[pond.radius,128]} /> : <planeGeometry args={[1200,1200]} />}
+    <primitive object={geometry} attach="geometry"/>
     <meshPhysicalMaterial color={fresh ? '#3d746d' : palette.sea} roughness={fresh ? .36 : .32} metalness={0} specularIntensity={.28} envMapIntensity={.7}
       onBeforeCompile={(shader)=>{
         Object.assign(shader.uniforms,uniforms)
         shader.vertexShader='varying vec3 vWater;\n'+shader.vertexShader
         shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvWater=(modelMatrix*vec4(position,1.0)).xyz;')
-        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; varying vec3 vWater;\n${noiseGLSL}\n`+shader.fragmentShader
+        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n`+shader.fragmentShader
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
-          float shore=fresh>.5 ? 4.05-length(p-vec2(6,-5)) : length(p)-mix(17.0,coastAt(p)+1.8,.414);
+          float shore=fresh>.5 ? -pondEdgeAt(p)-${pondWaterInset.toFixed(9)} : length(p)-mix(${islandShape.plateauRadius.toFixed(1)},coastAt(p)+${islandShape.shoreExtension.toFixed(1)},${shoreWaterFraction.toFixed(9)});
           float shallows=1.0-smoothstep(.0,fresh>.5?1.2:5.0,shore);
           diffuseColor.rgb=mix(diffuseColor.rgb,shallow,shallows*.65);
           float ripples=sin(p.x*2.4+p.y*1.1-waterTime*.8)*sin(p.y*3.2-p.x*.6+waterTime*.5);
@@ -102,7 +113,7 @@ export function Atmosphere() {
     <fog attach="fog" args={[palette.horizon,65,270]} />
     <hemisphereLight args={['#c4deed','#6b6245',palette.fill]} />
     <directionalLight position={palette.sunPosition} color={palette.light} intensity={palette.power} castShadow
-      shadow-mapSize={[2048,2048]} shadow-camera-left={-27} shadow-camera-right={27} shadow-camera-top={27} shadow-camera-bottom={-27}
+      shadow-mapSize={[2048,2048]} shadow-camera-left={-36} shadow-camera-right={36} shadow-camera-top={36} shadow-camera-bottom={-36}
       shadow-camera-near={1} shadow-camera-far={110} shadow-bias={-.00025} shadow-normalBias={.025} />
     <mesh ref={sky} name="painted-sky" renderOrder={-100} frustumCulled={false}>
       <sphereGeometry args={[450,32,16]} />

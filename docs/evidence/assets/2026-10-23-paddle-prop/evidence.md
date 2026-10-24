@@ -15,8 +15,8 @@
 脚本 scripts/aholo/attach_original_paddle.py 让前方手在换边时支撑桨，延后双手握合，换手期间滑向柄端并让桨朝前，降低柄端伸入脸部的风险。道具整体实例比例 0.38；船仍为 0.5、角色位置/比例不变。换手释放手最大离轴约 18.35 cm，不声称全程双手握持。
 
 - 上轮轨迹：../2026-10-22-paddle-prop/prop-track.json，217 帧中头颈相交 45 帧、船体 77 帧。
-- 本轮中间候选：[before/prop-track.json](before/prop-track.json)，头颈相交 33 帧；同机位截图与浏览器结果保存在 before/。
-- 当前轨迹：[prop-track.json](prop-track.json)，头颈表面相交 0/217，船体/船体补片相交 77/217（72–102、164–209）。这是实际网格 BVH 离散采样，不是帧间、全身或全部接触的零碰撞证明。
+- 本轮中间候选：before/prop-track.json（本地原始记录：`before/prop-track.json`），头颈相交 33 帧；同机位截图与浏览器结果保存在 before/。
+- 当前轨迹：prop-track.json（本地原始记录：`prop-track.json`），头颈表面相交 0/217，船体/船体补片相交 77/217（72–102、164–209）。这是实际网格 BVH 离散采样，不是帧间、全身或全部接触的零碰撞证明。
 - 换手对比：[第 43 帧之前](before/headless-right-043.png) → [当前](headless-right-043.png)；[第 139 帧之前](before/headless-left-139.png) → [当前](headless-left-139.png)。当前柄端不再明显穿过嘴侧。
 - 未通过项：[第 190 帧](headless-right-190.png) 桨明显穿过船舷；不能因为握点误差很小就标为可用动作。
 - layout-scan.json 只诊断杆中心线与缩放/移位组合，没有应用；零命中候选需要把船缩小约 55%–60%，未验证人物容纳，也未采用。
@@ -24,7 +24,7 @@
 ## 实际验证
 
 - 独立无头 Edge，1440×900；没有连接用户现有浏览器，没有桌面鼠标输入。
-- [headless-validation.json](headless-validation.json)：217 个源手位对照样本，最大误差 0.0044 mm；支撑手误差 0.0069 mm；非换手段双手离轴最大误差 0.0048 mm。15 秒播放跨越两次循环，0 控制台异常，22 张最新截图。
+- headless-validation.json（本地原始记录：`headless-validation.json`）：217 个源手位对照样本，最大误差 0.0044 mm；支撑手误差 0.0069 mm；非换手段双手离轴最大误差 0.0048 mm。15 秒播放跨越两次循环，0 控制台异常，22 张最新截图。
 - 两侧 0/27/43/55/75/108/139/151/163/190 帧、190 帧近景及水位播放截图均来自真实页面。人工查看 43、139 同机位前后图及 190 穿舷图；没有宣称每帧皮肤质量或全部视角通过。
 - pnpm lint、pnpm test（6/6）、pnpm build、Python AST、两个 JS node --check 通过。主 JS 1219.80 kB / gzip 336.74 kB；既有 >500 kB 告警保留。
 

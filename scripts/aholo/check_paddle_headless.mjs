@@ -1,16 +1,14 @@
 // Dedicated headless Edge instance; never attach to the user's browser or desktop.
 import assert from 'node:assert/strict'
-import { spawn } from 'node:child_process'
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import { tmpdir } from 'node:os'
+import { createHeadlessBrowser } from '../browser-session.mjs'
 import { createHash } from 'node:crypto'
 const out=resolve('docs/evidence/assets/2026-10-23-paddle-final')
 const fit=JSON.parse(await readFile(resolve('docs/evidence/assets/2026-10-22-paddle-original/original-poses.json'),'utf8'))
-const profile=await mkdtemp(resolve(tmpdir(),'forest-paddle-headless-'))
-const edge=spawn(process.env.EDGE_PATH??'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',[
-  '--headless=new','--remote-debugging-port=0',`--user-data-dir=${profile}`,'--no-first-run','--no-default-browser-check','about:blank',
-],{windowsHide:true,stdio:'ignore'})
+const { profile, cleanup } = await createHeadlessBrowser([
+  '--headless=new','--remote-debugging-port=0','--no-first-run','--no-default-browser-check','about:blank',
+])
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms))
 let socket,sequence=0
 const pending=new Map()
@@ -139,7 +137,11 @@ try {
   report.status='PASS: original pose, prop attachment and two playback loops; geometry and visual review recorded separately'
 }catch(error){report.status='FAIL';report.failure=String(error);process.exitCode=1}
 finally {
-  await writeFile(`${out}/headless-validation.json`,JSON.stringify(report,null,2)+'\n')
-  if(socket?.readyState===1){try{await cmd('Browser.close')}catch{/* Browser may close before acknowledging. */}socket.close()}
-  edge.kill();console.log(JSON.stringify({status:report.status,failure:report.failure,maxExportedHandError:report.maxExportedHandError,loopWraps:report.loopWraps}))
+  try {
+    await writeFile(`${out}/headless-validation.json`,JSON.stringify(report,null,2)+'\n')
+    if(socket?.readyState===1){try{await cmd('Browser.close')}catch{/* Browser may close before acknowledging. */}socket.close()}
+    console.log(JSON.stringify({status:report.status,failure:report.failure,maxExportedHandError:report.maxExportedHandError,loopWraps:report.loopWraps}))
+  } finally {
+    await cleanup()
+  }
 }

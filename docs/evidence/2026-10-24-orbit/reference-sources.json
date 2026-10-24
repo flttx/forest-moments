@@ -1,0 +1,22 @@
+[
+  {
+    "path": "F:\\Projects\\my-blog\\src\\world\\player\\PlayerController.ts",
+    "sha256": "a13ad73af2612231b52dc97552498c2c94e9f1c75a0dbf7ebbb3b6d130065c27"
+  },
+  {
+    "path": "F:\\Projects\\my-blog\\src\\world\\player\\Player.tsx",
+    "sha256": "19494e2dec54023bf07390a0256588807fb8144ae5ad85a43f60560991be51d1"
+  },
+  {
+    "path": "F:\\Projects\\my-blog\\src\\world\\camera\\CameraHeading.ts",
+    "sha256": "d47f5e61397195ebe3a740350a3af846f2f455ff38f19567f8f315656c2fed4b"
+  },
+  {
+    "path": "F:\\Projects\\my-blog\\src\\world\\camera\\FollowCamera.tsx",
+    "sha256": "5844210be529be07243cd670668fd2bbf670fd6a628be7172f10824b685a8056"
+  },
+  {
+    "path": "F:\\Projects\\my-blog\\src\\world\\WorldCanvas.tsx",
+    "sha256": "91d440887664ddfad20bd4f2e1a41cb44efdb0657c2e5d5793b800f8d47bd34c"
+  }
+]

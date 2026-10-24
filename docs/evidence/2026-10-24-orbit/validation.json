@@ -1,0 +1,203 @@
+{
+  "date": "2026-10-24T12:26:59.650285+00:00",
+  "status": "PASS",
+  "static": {
+    "lint": "PASS, no warnings",
+    "tests": "70/70 in 17 files",
+    "build": "PASS; existing chunk warning"
+  },
+  "suites": [
+    {
+      "path": "docs/evidence/2026-10-24-orbit/controls/headless-validation.json",
+      "status": "PASS",
+      "screenshots": 26,
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Edg/156.0.4314.42",
+        "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+        "jsVersion": "15.6.12.6"
+      }
+    },
+    {
+      "path": "docs/evidence/2026-10-24-orbit/edges-verified/headless-validation.json",
+      "status": "PASS",
+      "screenshots": 7,
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Edg/156.0.4314.42",
+        "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+        "jsVersion": "15.6.12.6"
+      }
+    },
+    {
+      "path": "docs/evidence/2026-10-24-orbit/navigation/headless-validation.json",
+      "status": "PASS",
+      "screenshots": 6,
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Edg/156.0.4314.42",
+        "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+        "jsVersion": "15.6.12.6"
+      }
+    },
+    {
+      "path": "docs/evidence/2026-10-24-orbit/production/headless-validation.json",
+      "status": "PASS",
+      "screenshots": 4,
+      "browser": {
+        "protocolVersion": "1.3",
+        "product": "Edg/156.0.4314.42",
+        "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+        "jsVersion": "15.6.12.6"
+      }
+    }
+  ],
+  "finalScreenshots": 43,
+  "minimumCameraDirectionAlignment": 0.9999999999999999,
+  "unchangedRuntimeAssets": [
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "bytes": 10776108,
+      "sha256": "358af8019c854f4276380ae1e438fa2baf3b5a58f16227dbf56d536717229c9a"
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/farm-hen.glb",
+      "bytes": 201264,
+      "sha256": "27abf9855800f3235ba0c3107ff026a5cc99a04db51a8f0c4b03ae38a1630180"
+    },
+    {
+      "path": "public/assets/models/farm-ranch.glb",
+      "bytes": 541496,
+      "sha256": "164d15814b5a6b097c8cc46708608b7425ecf48517d7494c7c44aa769c0ae83f"
+    },
+    {
+      "path": "public/assets/models/farm-sheep.glb",
+      "bytes": 170224,
+      "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6"
+    },
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "bytes": 139172,
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e"
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "bytes": 6336,
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc"
+    },
+    {
+      "path": "public/assets/models/lookout.glb",
+      "bytes": 10884832,
+      "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a"
+    },
+    {
+      "path": "public/assets/models/paddle-track.json",
+      "bytes": 654759,
+      "sha256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1"
+    },
+    {
+      "path": "public/assets/models/paddle.glb",
+      "bytes": 9536,
+      "sha256": "0f1bdc10a8cacf391c40d4a06eb941218101db47d6cbace598d4d54acbb76fd7"
+    },
+    {
+      "path": "public/assets/models/raccoon.glb",
+      "bytes": 12763552,
+      "sha256": "49995845d5646252054a8afcf602decf85798a1ec5c3e78affb72d714f85709c"
+    },
+    {
+      "path": "public/assets/models/tree-mature.glb",
+      "bytes": 1489516,
+      "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52"
+    },
+    {
+      "path": "public/assets/models/tree-seedling.glb",
+      "bytes": 318368,
+      "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213"
+    },
+    {
+      "path": "public/assets/models/tree-sprout.glb",
+      "bytes": 182300,
+      "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c"
+    },
+    {
+      "path": "public/assets/models/tree-young.glb",
+      "bytes": 722564,
+      "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8"
+    },
+    {
+      "path": "public/assets/models/workshop.glb",
+      "bytes": 11852244,
+      "sha256": "e32c9e161d8860b0c0c41df8c3075f0e2eba2a7d663ddf04c2b98685c97d66ad"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c"
+    },
+    {
+      "path": "public/assets/vegetation/lantern-glow.webp",
+      "bytes": 9134,
+      "sha256": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6"
+    },
+    {
+      "path": "public/assets/interiors/workshop-light-day.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-light-day.webp",
+      "bytes": 123300,
+      "sha256": "844891dc7f46951f6112201e09cabe28aeddc6e912a88dc103e339665b121466"
+    },
+    {
+      "path": "public/assets/interiors/workshop-light-night.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-light-night.webp",
+      "bytes": 70970,
+      "sha256": "203e2bebabdb8c5dd0e13415171d3fdca1808ac41178ef947583515cf826179c"
+    },
+    {
+      "path": "public/assets/interiors/workshop-stove-light-day.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-stove-light-day.webp",
+      "bytes": 20638,
+      "sha256": "60b316c2528fcb8fac2d6f3b53001bde52bd99ce61edff2654c310efa6ff7cdf"
+    },
+    {
+      "path": "public/assets/interiors/workshop-stove-light-night.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-stove-light-night.webp",
+      "bytes": 27166,
+      "sha256": "49b435f6ce84c7c9bec282543f45445b6915d410a08358645fae668796d31adc"
+    },
+    {
+      "path": "public/assets/interiors/workshop-workbench-light-day.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-workbench-light-day.webp",
+      "bytes": 22894,
+      "sha256": "819610e5a087b520162846b6610184d17440134d02864128e516c208975fdd64"
+    },
+    {
+      "path": "public/assets/interiors/workshop-workbench-light-night.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-workbench-light-night.webp",
+      "bytes": 25584,
+      "sha256": "df599960b804ad1002bf60c96d692fa000eaaf6060985f6210aab1ad08884b0d"
+    },
+    {
+      "path": "public/assets/interiors/workshop.glb",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop.glb",
+      "bytes": 1396104,
+      "sha256": "cce551aa8b8b39b5e398d6c13ba72cb3c3d199b8157813e89af856b38e61fbf2"
+    }
+  ],
+  "totalRuntimeBytes": 56025689,
+  "reportLinks": 6,
+  "scope": "Independent orbit drives walking every frame, right drag/pitch/zoom/QE; room walls, navigation, production visual smoke; historical gameplay macros not all rerun"
+}

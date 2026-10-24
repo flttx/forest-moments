@@ -1,0 +1,623 @@
+{
+  "date": "2026-10-24T03:46:36.269608+00:00",
+  "status": "PASS",
+  "staticChecks": {
+    "lint": "PASS, no warnings",
+    "tests": "32/32, 10 files",
+    "build": "PASS, existing >500 kB chunk warning"
+  },
+  "browser": "Edge 156.0.4314.42, isolated headless, Windows, RTX 5060 Ti, 1440x900",
+  "suites": [
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/headless-validation.json",
+        "bytes": 5629,
+        "sha256": "dfa58784e78284ccc3620cbc2aecc28ff417639ec67378d7e09781e1450ff25d"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/01-empty-plot.png",
+          "bytes": 1536841,
+          "sha256": "1935178c45f2b3a3f8a5c75a8c96a241d0f7e562ef13b4d07f0c26a663f5d437",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/02-sprout-inspection.png",
+          "bytes": 781673,
+          "sha256": "fdd4d30f683be7d4851bac5010189e024d00b97e68a85161f5fbfeb3f1fcc926",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/03-sprout-walking.png",
+          "bytes": 1158268,
+          "sha256": "9488a327bf0893efd336958274961368dcf9eae61e29fc5ceecc70f354ae10ba",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/04-stage-1.png",
+          "bytes": 1104481,
+          "sha256": "c008bde71cfea253e30690017e41bdf324c0454ee4de90688abd521f25421552",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/05-seedling-after-reload.png",
+          "bytes": 1071503,
+          "sha256": "98307ba54c6f352d5a1d75d027f9fee443931ce470053ff5ffbb256817c35e8a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/04-stage-2.png",
+          "bytes": 1229016,
+          "sha256": "3dc4394c6836738ccffe8c060016c03d1a950b1436c41c07c136c99cb9364791",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/04-stage-3.png",
+          "bytes": 1479041,
+          "sha256": "867fd9bd92b647f1f7cadeb700b11758b9365fe5494f8064f00427ef3946c36e",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/06-mature-collision.png",
+          "bytes": 1517891,
+          "sha256": "4980add8b953bdd8cf5dc7c92a5d7bc9b3bddf39a3cbaa18fe854d99a0d764f3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/07-legacy-migration.png",
+          "bytes": 1068772,
+          "sha256": "645873b16033f32c04a9e7ab48e8bd3d20b1de70faf32827565b074e7d7242c1",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-development/08-storage-denied.png",
+          "bytes": 779853,
+          "sha256": "713914e90ffcaef90816bd3b13df4ec8d198eb1b128f45f8fe28313c72442ebf",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/headless-validation.json",
+        "bytes": 16207,
+        "sha256": "8e63c00195824b5fd004589e1bfcca944b75c2ee8cb62bd935e77983a9f37e63"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-stage-0.png",
+          "bytes": 1448523,
+          "sha256": "e63a73def9610ea41f89a32eb5983cb1ccc5a90468072465cc38acb514ff7393",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-stage-1.png",
+          "bytes": 1452973,
+          "sha256": "b47f35ac9c187b58a890ba3897f4777ff8c7d66dc7d43cf44b9ad78d52f31516",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-stage-2.png",
+          "bytes": 1469884,
+          "sha256": "7f618f8d8b267ab17fc92e1b397d83795c6a3359a4958e160d7118fbb4995834",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-stage-3.png",
+          "bytes": 1500807,
+          "sha256": "89921318133183b128d34bb7bf71b6a4da1c187301b3a37938e33c0b768f7564",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-stage-0.png",
+          "bytes": 1303456,
+          "sha256": "f3c222258b7b823be000d1fc004d5521396ce707ff1c3d4ea0757dc193eb91dc",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-stage-1.png",
+          "bytes": 1303976,
+          "sha256": "22040d56dbe151f3740df3bab6610ace5e0a2f502c74fd6459da85c3d4dcf42f",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-stage-2.png",
+          "bytes": 1310674,
+          "sha256": "18df0d08ee762b1f113f64af2bfe90110298b4863e73ac8d84e892e9d95db532",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-stage-3.png",
+          "bytes": 1326116,
+          "sha256": "fad5184f6d7f0422a0ed9acb387553777ddba1bc6483dc5fc8a014127c875d47",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-stage-0.png",
+          "bytes": 1202105,
+          "sha256": "b81384387d180be47e08fbe69cb5bff7754f07d877ffe7d2aaa347c0d23009b3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-stage-1.png",
+          "bytes": 1202969,
+          "sha256": "5868ddfaf840e70a01176b1854db0265f9beb3aca8b0fc33d5a7939893509aff",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-stage-2.png",
+          "bytes": 1213058,
+          "sha256": "42a1f5ba7db72f87b66ce77f73c97a17884879db6dd1119ff630de618fe280a7",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-stage-3.png",
+          "bytes": 1228112,
+          "sha256": "6eb5cd380b420fbb1f3bd3ce9ab3c9dbf3d8d9dad241f576f655ad633ae44c05",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-default.png",
+          "bytes": 1573928,
+          "sha256": "f0ed9f3949210abb4e34c606fab0368c139404a821132491a83a4cca6453e28c",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-overview.png",
+          "bytes": 1383928,
+          "sha256": "80d1b5301077dfdf7eadb1f31c9efb73cf34c9717c889bba1452a278b0cf34cc",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-pond.png",
+          "bytes": 1493952,
+          "sha256": "d4572190587b68eaf8c7f059d7f3e3315dc19887af72ca163f8e9162c0856cb2",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-workshop.png",
+          "bytes": 1345594,
+          "sha256": "cd11cbc40e8c98ad4b84b2b7664dd05c36203cec59800deebf747d429ae4164d",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-tower.png",
+          "bytes": 1422924,
+          "sha256": "fa23bf9c21695d125aebff6a7bc08d1f68a3e6432e06588d8b499377df12b1d8",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-farm.png",
+          "bytes": 1405692,
+          "sha256": "50b9fdd69855c82888b302d87fee13321bc2e68b3b1d7d0acfdea66d76cafc0e",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-player.png",
+          "bytes": 1446958,
+          "sha256": "c012476274c209c4ca6073c274478167a3f63e17e44265691b507117d6b19a4b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-default.png",
+          "bytes": 1438080,
+          "sha256": "6f1e006b05c5a3f75f7db099c62e440eed3e15b74d0ab0d51928f81b806b03a5",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-overview.png",
+          "bytes": 1299356,
+          "sha256": "959dcb9ac61e7e4c836487b9ca797b4b0b9c085b1216fc3a06610a10bafc50ec",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-pond.png",
+          "bytes": 1330761,
+          "sha256": "995e98bc0d6ca45765c2ab54ea97fae27ec6969bf6955a3e450d65562beb244a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-workshop.png",
+          "bytes": 1247615,
+          "sha256": "c4d28defab0a0777a178f9a05f0a559ed1449c8830acb57dab7a9bd9b4894731",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-tower.png",
+          "bytes": 1282090,
+          "sha256": "579c4fded9b5a377b293cf2e908ea8e97227c30c56dc02f3cbb0a9f3269d2742",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-farm.png",
+          "bytes": 1343215,
+          "sha256": "ae6274ccb81e4043f2747b0ebcc65e06c6521741a69d7838eaf58172544cabf4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/dusk-player.png",
+          "bytes": 1317301,
+          "sha256": "278dae5dae1de98baa201213b3c532d9a1de518342befdb75866e0c7ce1d3af4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-default.png",
+          "bytes": 1305754,
+          "sha256": "c9c84733211867259bfbbfec2acc9138fb6a363c4f220a9cbff44a48a432fe26",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-overview.png",
+          "bytes": 1033485,
+          "sha256": "44f75ca512dbe96a18b2142ee21233fe3da005f9e39b6c3dbddd9596dad5f3e1",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-pond.png",
+          "bytes": 1225615,
+          "sha256": "c5cc7f2548813ecb174ad1e5e98adc478f51152aac7984064f76eea164b59dbc",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-workshop.png",
+          "bytes": 1075187,
+          "sha256": "84f3919fc2e1b014f74af92c14f6c932b52aeb9803ffe6c8be55968ac81cfe77",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-tower.png",
+          "bytes": 1141713,
+          "sha256": "7f841e93b03f21b7234e4130544878f512365d06f11ee14bf46d40515e282d96",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-farm.png",
+          "bytes": 1171703,
+          "sha256": "93a6779800615dae33a0389c4a2f951e647374d652e1ecbf03e4d24a2fe1d141",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/night-player.png",
+          "bytes": 1185828,
+          "sha256": "c8d7f73b78041e096a5b83edb2bd0d1fe7d0a784c462747fbc4c3b4d11e72896",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/reduced-motion-mature.png",
+          "bytes": 1187858,
+          "sha256": "2625d218eebb4ea05527936efb6daaf1dd28654be1405425975de62a1e944273",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-production-final/headless-validation.json",
+        "bytes": 1378,
+        "sha256": "2baff894e6d94c25417d8ee010016f2a4aad38276a6b66e4bb2eceef8140e0ed"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-production-final/01-production-sprout.png",
+          "bytes": 791231,
+          "sha256": "2020c48d6e564d1e062395a7a89aced65b0888e52b88fe709cbbceb3ddc5428d",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-production-final/02-production-seedling.png",
+          "bytes": 1073194,
+          "sha256": "8d6f0a95e3303cf52131b864fd2bd7d1dad0a162e1050e44d21afc2b4fc54d81",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-production-final/03-production-reload.png",
+          "bytes": 1052828,
+          "sha256": "b9bbd6a8c3446b92fc7bfaf990f97743625ba85cae064bbdc9cf7e7c37c13257",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-production-final/04-production-offline-mature.png",
+          "bytes": 1468094,
+          "sha256": "fee16046bedf473b3361cef5e55ee77680d70e225f3854ef58b22f613075f6db",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-tree-growth/rowing-production/headless-validation.json",
+        "bytes": 1968,
+        "sha256": "e4b1d49dba1e5cb1544ed605917051b1d8588749b8765235993ecde9225c75ac"
+      },
+      "status": "PASS: static build load, thirteen model/track resources, boarding/rowing HUD, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/rowing-production/01-built-spawn.png",
+          "bytes": 1564495,
+          "sha256": "3b52f192a59c8c718cdba46e1660c6533c3bc376ee57a6cfe5797d6ae143b8b3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/rowing-production/02-built-rowing-water.png",
+          "bytes": 820416,
+          "sha256": "5cab61a5ee1da41b124c0b2c9033fd519f414115cd8d98757cd5937041cfd8f1",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-tree-growth/rowing-production/03-built-landed.png",
+          "bytes": 1070756,
+          "sha256": "01b4bd45aee7092203f641cafd4586fab886254f50dec551caaa85aba5c5fe85",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/headless-validation.json",
+        "bytes": 2119,
+        "sha256": "0839ffd093779b9ac5206d71d92be5d1dbe156446eac61ade54e6a1d6b2148b8"
+      },
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/01-cast.png",
+          "bytes": 1154315,
+          "sha256": "699f4f0107ccc4f6f924a30604f558c4375747c89075f97284ee2cbaf75df055",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/02-waiting.png",
+          "bytes": 1155013,
+          "sha256": "a1d620ec92536a2784ee121b812cd20193d5c669b8492d71bbfb7e6532d4d467",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/03-bite.png",
+          "bytes": 1162988,
+          "sha256": "cd99433dfbd0b0ae3f809747451d927167aac0947bb00521c64e7dd1be227eb0",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/04-tension-panel.png",
+          "bytes": 1147172,
+          "sha256": "9f987dd77247c0f852a1ab5ab669180b5ba2b36a36097c4e3a8055624a59376c",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/05-visible-catch.png",
+          "bytes": 1144662,
+          "sha256": "e33026c8bc4b509e837fa186c569837355a4846d5544f127e3e842a0a7f18af5",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-tree-growth-fishing_production/06-saved-book.png",
+          "bytes": 1544188,
+          "sha256": "2cf9df5c94ae9729571de8bcc4913ccdd3a5dc7c997a648c8451bce7ce8385b0",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/vegetation-expansion/2026-10-24/tree-growth-recovery/headless-validation.json",
+        "bytes": 1558,
+        "sha256": "df698c6a216d9d19bcda2914476be2838619e3a430da062c3d6749bc38688a39"
+      },
+      "status": "PASS: production asset error, visible reload action, recovered render, no QA telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/tree-growth-recovery/load-error.png",
+          "bytes": 10728,
+          "sha256": "33cf9bdb89e6a8e70e7e12db371169c6d4051b686664a070dc8b4d36b4b8d0ef",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/tree-growth-recovery/reload-recovered.png",
+          "bytes": 1564441,
+          "sha256": "96da0c46c3443348ce3ad74f18d7b5dd2df67d5f235b23fae498351460a64c02",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "screenshots": 59,
+  "notes": [
+    "Four-minute real-time development gameplay was captured before the final material-only revision.",
+    "Final visual stage/light coverage uses saved-stage fixtures; final production waits the first 45-second growth.",
+    "Load recovery deliberately aborts tree-sprout.glb; expected injected errors remain in its report.",
+    "Initial failed production run is retained separately in browser-production; it is not counted as passing evidence.",
+    "No new 30-second performance baseline or cross-device verification claimed."
+  ],
+  "localLinksChecked": 242,
+  "brokenLinks": [],
+  "resourcesBytes": 103039613,
+  "growthBytes": 2712748,
+  "mainJsKB": 1273.76,
+  "mainJsGzipKB": 358.18
+}

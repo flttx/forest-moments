@@ -1,0 +1,37 @@
+[
+  {
+    "path": "public/assets/models/canoe-center-seat.glb",
+    "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+    "matchesTrackedLfs": true
+  },
+  {
+    "path": "public/assets/models/canoe.glb",
+    "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+    "matchesTrackedLfs": true
+  },
+  {
+    "path": "public/assets/models/fish-koi.glb",
+    "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e",
+    "matchesTrackedLfs": true
+  },
+  {
+    "path": "public/assets/models/fishing-rod.glb",
+    "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc",
+    "matchesTrackedLfs": true
+  },
+  {
+    "path": "public/assets/models/lookout.glb",
+    "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+    "matchesTrackedLfs": true
+  },
+  {
+    "path": "public/assets/models/raccoon.glb",
+    "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+    "matchesTrackedLfs": true
+  },
+  {
+    "path": "public/assets/models/workshop.glb",
+    "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+    "matchesTrackedLfs": true
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "kind": "workbench",
+    "reference": "docs/references/workshop/reused-workbench.png",
+    "referenceSha256": "95dfd84d1d1615a5fdd24954894416ff0057a626d1204127878a985396bbb2e7",
+    "historicalTask": "d2be6ab3-584c-42c9-aefb-4cfd8a22020b",
+    "historicalProvider": "Tripo",
+    "newGeneration": false,
+    "license": "Historical source record; no new commercial-license assertion."
+  },
+  {
+    "kind": "stool",
+    "reference": "docs/references/workshop/reused-stool.png",
+    "referenceSha256": "6f532cd7780b3311b7e5cab2ce8cb7a143f3b6e47011b94c91a17436b1e40820",
+    "historicalTask": "6c583045-49f2-4c68-a68b-82a5837bd189",
+    "historicalProvider": "Tripo",
+    "newGeneration": false,
+    "license": "Historical source record; no new commercial-license assertion."
+  }
+]

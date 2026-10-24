@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "zipCRC": true,
+  "runtimeArchivePublicDistMatch": true,
+  "files": [
+    {
+      "path": "assets/lux3d/coastal-jetty-v1/output-0.zip",
+      "bytes": 12619725,
+      "sha256": "748fe7c7ce4b95d0c735c1e7afeab775cb243bc92675d459f27faf36832364a7"
+    },
+    {
+      "path": "assets/lux3d/coastal-jetty-v1/output-1.glb",
+      "bytes": 15438588,
+      "sha256": "1da25469798414ba1ba7378300962773ccbdfbcce1e52f2bec1a5ebb865a3e53"
+    },
+    {
+      "path": "assets/lux3d/coastal-jetty-v1/runtime.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "dist/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    }
+  ]
+}

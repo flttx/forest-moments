@@ -29,14 +29,14 @@
 - `compact-rejected/`：476 个扫描组合与缩船截图；不能以桨零相交掩盖穿脚问题。
 - `stern-low-rejected/`：164 个组合与低后舱试稿。
 - `stern-high-diagnostic/`：119 个组合与未加支撑时的高位图，仅诊断，不代表完成。
-- [layout-search.json](layout-search.json)：最终补充的 360 个组合；阶段扫描有重叠，不把合计当独立样本数。
+- layout-search.json（本地原始记录：`layout-search.json`）：最终补充的 360 个组合；阶段扫描有重叠，不把合计当独立样本数。
 - [body-layout-audit.json](body-layout-audit.json)：8 姿势筛查记录，包含原中央低座位；收窄旧记录中“中央座位可容纳”的结论。
 - [layout-config.json](layout-config.json)：高座台配置，船比例仍 0.5；角色整体移位 (-0.6,-0.2,+0.4) m（Blender Z-up）。
-- [seat-review-audit.json](seat-review-audit.json)：实际高座台检查，左右入水帧分别 79–93、172–201；水位设为 -0.14 m，仅为水线试稿，没有浮力/水体舱内遮罩验收。
+- seat-review-audit.json（本地原始记录：`seat-review-audit.json`）：实际高座台检查，左右入水帧分别 79–93、172–201；水位设为 -0.14 m，仅为水线试稿，没有浮力/水体舱内遮罩验收。
 
 ## 浏览器与静态验证
 
-[headless-validation.json](headless-validation.json)：1440×900 独立 headless Edge，三布局各 217 个手位样本，共 651；扣除整体位移后与原动作对照误差上限约 0.0044 mm。握点检查通过，两个播放循环、0 控制台异常；25 张最新截图。没有使用桌面鼠标或用户已打开的浏览器。状态明确为 PARTIAL，不代表划船或蒙皮整体通过。
+headless-validation.json（本地原始记录：`headless-validation.json`）：1440×900 独立 headless Edge，三布局各 217 个手位样本，共 651；扣除整体位移后与原动作对照误差上限约 0.0044 mm。握点检查通过，两个播放循环、0 控制台异常；25 张最新截图。没有使用桌面鼠标或用户已打开的浏览器。状态明确为 PARTIAL，不代表划船或蒙皮整体通过。
 
 人工查看了原布局、缩船和高座台的右侧第 190 帧及左侧起始姿势：缩船穿脚、未加座台的悬空、高座台造型均有实际图像依据。未逐帧检查整个蒙皮，没有做连续碰撞证明。旧失败图留在各子目录，不混充本轮最终图。
 

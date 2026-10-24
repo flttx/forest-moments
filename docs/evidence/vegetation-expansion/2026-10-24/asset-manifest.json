@@ -1,0 +1,363 @@
+{
+  "date": "2026-10-24",
+  "sourceRoot": "F:\\Projects\\my-blog",
+  "sourceCommit": "14d4c1d1621f5e4528e82c25ef54fb7d7c1ff22c",
+  "authorization": "User authorized local reuse; commercial license not independently confirmed. No generation or paid calls.",
+  "files": [
+    {
+      "source": "F:\\Projects\\my-blog\\public\\assets\\world\\ecology\\forest-island-ecology-v3.glb",
+      "sourceBytes": 1643648,
+      "sourceSHA256": "fdaca4a82e89aad091cef1deeb28ea70b6121aa99902f3440b15829fbc4b8204",
+      "output": "public\\assets\\vegetation\\forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c",
+      "decodedAttributesPreserved": true,
+      "textures": [
+        {
+          "name": "NormalGL_0e3f4a57-9e13-4039-8485-66721f9fa328",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 14984,
+          "sha256": "85b93ad6f20da4b0bab49b36bd70b50878c1a1a11997603a7194683684673a14"
+        },
+        {
+          "name": "Color_0e3f4a57-9e13-4039-8485-66721f9fa328",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 8998,
+          "sha256": "3217554627a196ae2efe557d5deaf3f225fd37163487f13f62e15dba7d4eb0a5"
+        },
+        {
+          "name": "ORM_0e3f4a57-9e13-4039-8485-66721f9fa328",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 73768,
+          "sha256": "e9968e4aa577f38489dac871a044e7d50ade299ac74632619015407b6101ec08"
+        },
+        {
+          "name": "NormalGL_ea8af877-d0a9-4e80-9038-91be8b77cbb0",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 15546,
+          "sha256": "e73243b25e347de792a1fd6912bf44d55223abae01b789030dd6f9c4c2e4cb9f"
+        },
+        {
+          "name": "Color_ea8af877-d0a9-4e80-9038-91be8b77cbb0",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 36362,
+          "sha256": "1ed8759531b0be957fffba0c3d09418eee221571249c25c9cf64cccb05cd88bb"
+        },
+        {
+          "name": "ORM_ea8af877-d0a9-4e80-9038-91be8b77cbb0",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 26482,
+          "sha256": "1baa921fc32b9764b71a14559799c867497a60e376b9d652a12a4435a86cfa3c"
+        },
+        {
+          "name": "NormalGL_8684206e-34f3-419e-991b-55187f6b350e",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 4738,
+          "sha256": "3ab1e116760e558a4f0115d0972d0f3ebf66430e253add3bba21e1b4fedbfd09"
+        },
+        {
+          "name": "Color_8684206e-34f3-419e-991b-55187f6b350e",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 29180,
+          "sha256": "03503a5aa61f152eb676b243827dc850b63d1e7896c8fd1bf990e244db9c12ca"
+        },
+        {
+          "name": "ORM_8684206e-34f3-419e-991b-55187f6b350e",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 6668,
+          "sha256": "a33864314a31cbcad81367d32c63ac8a5cd86dfaa493b58d5c2ed739625d7d7c"
+        },
+        {
+          "name": "NormalGL_211e0651-2256-43c9-8041-ccd9fa437fcd",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 12238,
+          "sha256": "0a74c4a63f5e3c60d47a59441c24b69a16341c32dcf9066d1462e8a831f84896"
+        },
+        {
+          "name": "Color_211e0651-2256-43c9-8041-ccd9fa437fcd",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 31338,
+          "sha256": "54c9c35def6414b188ceb30ef0255bc66ce7b42491eac4d4c7dcdaf90ba459a0"
+        },
+        {
+          "name": "ORM_211e0651-2256-43c9-8041-ccd9fa437fcd",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 69792,
+          "sha256": "8d18af06d9111a93149bc36bb7e21133c1c3e03adb909c58f8d2fe49183239d4"
+        },
+        {
+          "name": "NormalGL_17d47e53-3fec-454d-816c-e30218428550",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 4724,
+          "sha256": "c01fd0878a2a4e533d7a9e8f12c46b652d41e135435e18d6ffe78469b772e874"
+        },
+        {
+          "name": "Color_17d47e53-3fec-454d-816c-e30218428550",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 25238,
+          "sha256": "27b12e3b124a08a8e0190e80b0968bef90403075220a13440af4eced2369d2a9"
+        },
+        {
+          "name": "ORM_17d47e53-3fec-454d-816c-e30218428550",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 31064,
+          "sha256": "93fb7cd14604ecae903c254837e862a65c0e406416bb44b9ea5f167841e3cb1a"
+        },
+        {
+          "name": "NormalGL_5e86688e-5bc1-4fa6-9867-f5ed67a48fe4",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 4656,
+          "sha256": "5a03b248518bafbb86b83ba9d0f9dcf1040f4fc34b25ffeb7ce24ddf020f1bbc"
+        },
+        {
+          "name": "Color_5e86688e-5bc1-4fa6-9867-f5ed67a48fe4",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 38474,
+          "sha256": "16b9130dba2216be91dcc58551410bad13e99d9ba76e0efef9da4be244d6c5bd"
+        },
+        {
+          "name": "ORM_5e86688e-5bc1-4fa6-9867-f5ed67a48fe4",
+          "size": [
+            512,
+            512
+          ],
+          "bytes": 12348,
+          "sha256": "0520ac3add06c35db91da3b76645fd192e31b26895b171288022ad79d1f63b55"
+        }
+      ]
+    },
+    {
+      "source": "F:\\Projects\\my-blog\\public\\assets\\world\\ecology\\ecology-lod.glb",
+      "sourceBytes": 188968,
+      "sourceSHA256": "351c00b88e28d53282150e077acb2f7d3c857adc0372e0c9af62300634e974b0",
+      "output": "public\\assets\\vegetation\\forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7",
+      "decodedAttributesPreserved": true,
+      "textures": []
+    },
+    {
+      "source": "F:\\Projects\\my-blog\\public\\assets\\world\\ecology\\lantern-glow.webp",
+      "output": "public/assets/vegetation/lantern-glow.webp",
+      "bytes": 9134,
+      "sha256": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6",
+      "sourceSHA256": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6"
+    }
+  ],
+  "templates": {
+    "bush-a": {
+      "frame": {
+        "center": [
+          0.00487,
+          0.55142,
+          0.00059
+        ],
+        "half": 0.91273
+      },
+      "colliders": [
+        [
+          0.005,
+          0.001,
+          0.547
+        ]
+      ],
+      "triangles": 2470,
+      "sourceTask": "0e3f4a57-9e13-4039-8485-66721f9fa328",
+      "sourceProduction": "assets/blender/environment-kit/export/bush-a.glb",
+      "attributes": [
+        {
+          "NORMAL": "fa9bd268a8fda9bcdb1a9aee5f13f8d380f87290e7190fb1c7c6c3ed5bb68d01",
+          "POSITION": "2a92fb2521b03091e652e3ab11b98799cd35fa3b13835e559ba57c5016e08403",
+          "TEXCOORD_0": "e6ea6ec73cfc3c2db0108b87ea3b78c11c1568ad54339bdbed5450e494d0df36"
+        }
+      ]
+    },
+    "lantern": {
+      "frame": {
+        "center": [
+          0,
+          0.7250000238418579,
+          0
+        ],
+        "half": 0.7250000238418579
+      },
+      "colliders": [
+        [
+          0,
+          0.206,
+          0.14
+        ]
+      ],
+      "triangles": 5046,
+      "sourceTask": "ea8af877-d0a9-4e80-9038-91be8b77cbb0",
+      "sourceProduction": "assets/blender/environment-kit/export/batch2/lantern.glb",
+      "attributes": [
+        {
+          "NORMAL": "ac85e87ac479aaefe94afa6d690920623f59d85140fd565b57428e8d7f4f9604",
+          "POSITION": "af9bf372577baff05605642011fb2b2dfbf68df37d5df76759012b3be06443f8",
+          "TEXCOORD_0": "3d978fb0b3345342005da605f4d582c8031c517c15571fc27d63fd06ae6dc527"
+        }
+      ]
+    },
+    "normal-pine-b": {
+      "frame": {
+        "center": [
+          0,
+          3,
+          0
+        ],
+        "half": 3
+      },
+      "colliders": [
+        [
+          0.012,
+          -0.006,
+          0.385
+        ]
+      ],
+      "triangles": 4965,
+      "sourceTask": "8684206e-34f3-419e-991b-55187f6b350e",
+      "sourceProduction": "assets/blender/environment-kit/export/normal-pine-b.glb",
+      "attributes": [
+        {
+          "NORMAL": "d8b4a05522835cabd3cfea4821aa7a316e1db0ba19d6f702902b59e99856d15e",
+          "POSITION": "da52756a7425453e3ce12d02bb6f39dca9104d68eca20f6bb75e119cbcf239aa",
+          "TEXCOORD_0": "6db53bbe9e522dfe4abf9428a18c7ff328c416668bb4042a047298384cbdb3f6"
+        }
+      ]
+    },
+    "round-tree-a": {
+      "frame": {
+        "center": [
+          0,
+          2.75,
+          0
+        ],
+        "half": 2.75
+      },
+      "colliders": [
+        [
+          0.129,
+          0.016,
+          0.306
+        ]
+      ],
+      "triangles": 5938,
+      "sourceTask": "211e0651-2256-43c9-8041-ccd9fa437fcd",
+      "sourceProduction": "assets/blender/environment-kit/export/round-tree-a.glb",
+      "attributes": [
+        {
+          "NORMAL": "5a4ca9ba4684f9ec11c5dc961847e4ccbf06e7ad0133b467fc377f8edfe76830",
+          "POSITION": "82a51fe4fb6c718f1da657ec664d22e88e7dddbb41f9df3e5d2b4999385a6f52",
+          "TEXCOORD_0": "85add03fcd9293bd0e28fb47da0f29fbfa3b0d3d4bb630bce7821e9b137cd28a"
+        }
+      ]
+    },
+    "tall-pine-a": {
+      "frame": {
+        "center": [
+          0,
+          4,
+          0
+        ],
+        "half": 4
+      },
+      "colliders": [
+        [
+          -0.055,
+          0.039,
+          0.363
+        ]
+      ],
+      "triangles": 4725,
+      "sourceTask": "17d47e53-3fec-454d-816c-e30218428550",
+      "sourceProduction": "assets/blender/environment-kit/export/tall-pine-a.glb",
+      "attributes": [
+        {
+          "NORMAL": "7cdcc5b9d363395b9c43297eb9eef3fbf077ac3a2f17e4cfe66140c35b0f37e7",
+          "POSITION": "a5a470458ca99b166db9ab47d2c881ae927e457faf996a6eb899e870ee0192f0",
+          "TEXCOORD_0": "f2f9a42093c452a0c88dff7d4327c9a62dda2cc12b9704aa44db784a79215668"
+        }
+      ]
+    },
+    "young-tree-b": {
+      "frame": {
+        "center": [
+          0,
+          2,
+          0
+        ],
+        "half": 2
+      },
+      "colliders": [
+        [
+          0.051,
+          0.004,
+          0.14
+        ]
+      ],
+      "triangles": 5088,
+      "sourceTask": "5e86688e-5bc1-4fa6-9867-f5ed67a48fe4",
+      "sourceProduction": "assets/blender/environment-kit/export/batch2/young-tree-b.glb",
+      "attributes": [
+        {
+          "NORMAL": "2bfebe6d4a8948e1cec7ea3b8515c1a81f0c492cf49b79085449cc9786e56f04",
+          "POSITION": "04df4ab5924303710a4781c9bac8e9a297e85d076964a5175eca2ad3d772ad73",
+          "TEXCOORD_0": "35dc4ebef8dbf9ddc6021cd1b99c674ee691177a9ff5f991d778563df62dad1e"
+        }
+      ]
+    }
+  },
+  "totalBytes": 1179638
+}

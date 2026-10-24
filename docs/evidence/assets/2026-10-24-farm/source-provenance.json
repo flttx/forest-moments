@@ -1,0 +1,245 @@
+{
+  "operation": "farm Blender source regeneration and sheep animation; no provider tasks created",
+  "assets": [
+    {
+      "asset_id": "animal-chicken",
+      "ledger": "assets/tripo/farm/animal-chicken/ledger.json",
+      "task_id": "85a7067b-c4b2-4509-947b-409ba4cc75cb",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "3f51cd6e79fc0f2f80f26983cec9fbf8681baf7b8e199ba47f6b29d7137365b8",
+      "reference": {
+        "path": "docs/references/world/farm/animal-chicken/working/animal-chicken.png",
+        "sha256": "2883fb58c9e9619593151d7c53932c69e72e59c473546a8e5ee5f5ae3639b4b7"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/animal-chicken/raw/85a7067b-c4b2-4509-947b-409ba4cc75cb/model.glb",
+      "source_bytes": 4167136,
+      "source_sha256": "9e53c4d3cddb2e0395ff4c671f1b6997d5e2fb6dea5ea463f4aa685383a9ae19",
+      "provider_credits_balance_delta": 240
+    },
+    {
+      "asset_id": "animal-sheep",
+      "ledger": "assets/tripo/farm/animal-sheep/ledger.json",
+      "task_id": "43d2e553-109b-4d36-a3ea-08a7b5949f0a",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "c362266266ddcaa0833aec53e6ba890f0700ec41952070446d787a8396acb08c",
+      "reference": {
+        "path": "docs/references/world/farm/animal-sheep/working/animal-sheep.png",
+        "sha256": "a1fb110d6e79ca085016040cf405c112741b211bd23ce1e63443de15296a8d15"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/animal-sheep/raw/43d2e553-109b-4d36-a3ea-08a7b5949f0a/model.glb",
+      "source_bytes": 2083256,
+      "source_sha256": "148c7b3bfa736c38e00f09b1b7e340b87eeb5694dfc9d9506b2b295bf288b8c7",
+      "provider_credits_balance_delta": 180
+    },
+    {
+      "asset_id": "crop-carrot",
+      "ledger": "assets/tripo/farm/crop-carrot/ledger.json",
+      "task_id": "24a8ba9a-1c7a-4da7-98e4-5867cf9a21ce",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "43e1a2ae55145530b2a09843a172c26521b48ebf28004d964e20636e7fc44ffc",
+      "reference": {
+        "path": "docs/references/world/farm/crop-carrot/working/crop-carrot.png",
+        "sha256": "5c476465faac6ca98e2fef3f670ac58079702f93d409a8f71b4ee4856a040714"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/crop-carrot/raw/24a8ba9a-1c7a-4da7-98e4-5867cf9a21ce/model.glb",
+      "source_bytes": 3804316,
+      "source_sha256": "67378f656c2a98622d7e15fc1cb04a6bab5c7e507eb1a716d9b24f7e96deafb1",
+      "provider_credits_balance_delta": 600
+    },
+    {
+      "asset_id": "crop-pumpkin",
+      "ledger": "assets/tripo/farm/crop-pumpkin/ledger.json",
+      "task_id": "a133b120-db9d-4232-957c-357820c12cc4",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "e494b59cac5b47aefccce2dff6eca30fbba8f751c9d9d02f69d479d8188c8bf8",
+      "reference": {
+        "path": "docs/references/world/farm/crop-pumpkin/working/crop-pumpkin.png",
+        "sha256": "72258939ee32eabcf3d92756b1637483c40ca0be13233855cf09b247424ba517"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/crop-pumpkin/raw/a133b120-db9d-4232-957c-357820c12cc4/model.glb",
+      "source_bytes": 2856520,
+      "source_sha256": "7f5c1d6dacf6a698d611f2c25b01e61062e8c33fdb0d4bd043fa1c6a2a4bd018",
+      "provider_credits_balance_delta": 540
+    },
+    {
+      "asset_id": "crop-strawberry",
+      "ledger": "assets/tripo/farm/crop-strawberry/ledger.json",
+      "task_id": "79aab80e-997f-417d-bbd6-ffdbf4597f7b",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "dc7478435016d37f41cba03175563276b4dfa960b539c0c2c1aa0bf50f8c8953",
+      "reference": {
+        "path": "docs/references/world/farm/crop-strawberry/working/crop-strawberry.png",
+        "sha256": "9e7b7fea01575d89eef7f5b38d1e9ad1480719bb94ecb83296e2995a19fa801d"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/crop-strawberry/raw/79aab80e-997f-417d-bbd6-ffdbf4597f7b/model.glb",
+      "source_bytes": 2828184,
+      "source_sha256": "50cfa8f9b7491d3976273a588da4f797dc5b5731bcdd7fbe403722fa141ce8f7",
+      "provider_credits_balance_delta": 540
+    },
+    {
+      "asset_id": "crop-tomato",
+      "ledger": "assets/tripo/farm/crop-tomato/ledger.json",
+      "task_id": "332724ef-80d1-43af-abee-186c7155582f",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "d425f2fde8cb0b8335a1670fe74d514e8590e622318615ec5710abb538843a13",
+      "reference": {
+        "path": "docs/references/world/farm/crop-tomato/working/crop-tomato.png",
+        "sha256": "db1d8a50d7f80880a2edad8ed83928efdd750299b4c78031dc26c2b8e63c7b28"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/crop-tomato/raw/332724ef-80d1-43af-abee-186c7155582f/model.glb",
+      "source_bytes": 3403756,
+      "source_sha256": "106e89b6a3595fa99f642aab7e36ea28d84bf5e8f6f72275bbe72dcb495b9361",
+      "provider_credits_balance_delta": 60
+    },
+    {
+      "asset_id": "islet-shed",
+      "ledger": "assets/tripo/farm/islet-shed/ledger.json",
+      "task_id": "bae71427-4f19-468f-ac54-8179dd7f896e",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "92f571fc04fbfb76ae00e5ea414de1d74cc196e2e04891b9baff8dd4e16632ff",
+      "reference": {
+        "path": "docs/references/world/farm/islet-shed/working/islet-shed.png",
+        "sha256": "42f4f5edffb308ed30887b059a4dfeccb1f8502c16f273292706df211e08cff7"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/islet-shed/raw/bae71427-4f19-468f-ac54-8179dd7f896e/model.glb",
+      "source_bytes": 4864464,
+      "source_sha256": "a799d44f87b5e2ff329bf71e940b895a2c7c14d099a8307beeda83f08d13c92c",
+      "provider_credits_balance_delta": 360
+    },
+    {
+      "asset_id": "islet-well",
+      "ledger": "assets/tripo/farm/islet-well/ledger.json",
+      "task_id": "a659eaff-31c3-4d8b-bbd0-cf4e8f517d5a",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "29ce5c8ae09d6e6140c662ec9026aa4fb6c13b775d9417a039cbdc3162ae2d99",
+      "reference": {
+        "path": "docs/references/world/farm/islet-well/working/islet-well.png",
+        "sha256": "0d18e739f1d184d04f9159ba6875f1d8e162ee1730e4a73acd5136891cc47cf7"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/islet-well/raw/a659eaff-31c3-4d8b-bbd0-cf4e8f517d5a/model.glb",
+      "source_bytes": 4477228,
+      "source_sha256": "df1e57985a7a457107c5e6655f78fcfc32b1f31a6ddfb13c937aeac7a73af51a",
+      "provider_credits_balance_delta": 300
+    },
+    {
+      "asset_id": "ranch-coop",
+      "ledger": "assets/tripo/farm/ranch-coop/ledger.json",
+      "task_id": "4615d6e8-a2e2-4bfe-b14f-d7398217a6f4",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "61729d414fb903e90b84fefc18055fe15dd6e062aabe0ae8903ffed5342b54be",
+      "reference": {
+        "path": "docs/references/world/farm/ranch-coop/working/ranch-coop.png",
+        "sha256": "141ef9eda2ba7c77447f084df6fefa5ee1590e0bf49503a7f6f3bbcd360e22a8"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/ranch-coop/raw/4615d6e8-a2e2-4bfe-b14f-d7398217a6f4/model.glb",
+      "source_bytes": 3906688,
+      "source_sha256": "40feddb636d968b3034b96addd0a3471d1dada20fcb30180196acf4e0d4b6ce4",
+      "provider_credits_balance_delta": 120
+    },
+    {
+      "asset_id": "ranch-scarecrow",
+      "ledger": "assets/tripo/farm/ranch-scarecrow/ledger.json",
+      "task_id": "014190f3-169e-4e3e-bc51-d739739334c8",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "79e553f6959228abf68c910b088c751586ced348e74241e1c41ede5d1907efea",
+      "reference": {
+        "path": "docs/references/world/farm/ranch-scarecrow/working/ranch-scarecrow.png",
+        "sha256": "7168c02a11f74019a706c9925d147fb61372b3e50b84a4256da7624097f9be44"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/ranch-scarecrow/raw/014190f3-169e-4e3e-bc51-d739739334c8/model.glb",
+      "source_bytes": 4694056,
+      "source_sha256": "fadc5b73f7b24eab03b455e0a33c8d11e7c4a794faf7425c3ee38ff8c1700705",
+      "provider_credits_balance_delta": 60
+    },
+    {
+      "asset_id": "tree-apple",
+      "ledger": "assets/tripo/farm/tree-apple/ledger.json",
+      "task_id": "3e5e5584-de2d-4380-9903-0ba967f63ea7",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "31ebe83211b34eb3d85b35280f6e62d94aa7142aa0ca4492aaf0651ce2d6dd80",
+      "reference": {
+        "path": "docs/references/world/farm/tree-apple/working/tree-apple.png",
+        "sha256": "53d3610f8f70521b56fc7bbaff1d603c32e70fb25dbbea3a9d3cadc8629eb24c"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/tree-apple/raw/3e5e5584-de2d-4380-9903-0ba967f63ea7/model.glb",
+      "source_bytes": 3156876,
+      "source_sha256": "22e7ebaf0b5131c365c774079b847dcdab7e8adcc79ea26937785eae91a47181",
+      "provider_credits_balance_delta": 480
+    },
+    {
+      "asset_id": "tree-peach",
+      "ledger": "assets/tripo/farm/tree-peach/ledger.json",
+      "task_id": "1cca9469-2744-4b02-9c6a-e7af87e0a892",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "60228b3f80f93799d2dff2e8bcc901e944f99ff2009a7319510f0cf7a4b078ef",
+      "reference": {
+        "path": "docs/references/world/farm/tree-peach/working/tree-peach.png",
+        "sha256": "19f061978b155b01488d2515a69087e718bf88ce405f4b016cb4e783d2612048"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/farm/tree-peach/raw/1cca9469-2744-4b02-9c6a-e7af87e0a892/model.glb",
+      "source_bytes": 3291488,
+      "source_sha256": "8d556f702e6ef114e05e0e98a3496578c241da6a339f39fc46ef6f5f77affca3",
+      "provider_credits_balance_delta": 420
+    },
+    {
+      "asset_id": "coast-dock-pier",
+      "ledger": "assets/tripo/coast/coast-dock-pier/ledger.json",
+      "task_id": "44cca0f3-db36-4c01-ac9e-0f46719c377b",
+      "model_version": "v3.1-20260211",
+      "api_version": "not recorded in source ledger",
+      "prompt_version": "not recorded in source ledger",
+      "prompt_sha256": "2c06a9e3a84c879dae1e18f256e41659be5ea35ec22a1c8f738e551d556fd272",
+      "reference": {
+        "path": "docs/references/world/coast/coast-dock-pier/working/coast-dock-pier.png",
+        "sha256": "4f77e25d58d9fce59d866c50fd01340c07e2935a5c02abc29b33ef4c16137385"
+      },
+      "reference_sha256_verified": true,
+      "source": "assets/tripo/coast/coast-dock-pier/raw/44cca0f3-db36-4c01-ac9e-0f46719c377b/model.glb",
+      "source_bytes": 5146172,
+      "source_sha256": "a6e63a8872cb88f510199a740511f601be7d6790c8be690d09489bebc8d6764c",
+      "provider_credits_balance_delta": 180
+    }
+  ],
+  "sheep_derived": {
+    "path": "assets/blender/farm/derived/animal-sheep.glb",
+    "bytes": 170224,
+    "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6"
+  },
+  "provider_new_credits": 0
+}

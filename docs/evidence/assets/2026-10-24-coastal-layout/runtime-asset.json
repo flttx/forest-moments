@@ -1,0 +1,26 @@
+{
+  "output": "public/assets/models/coastal-jetty.glb",
+  "bytes": 2447124,
+  "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666",
+  "triangles": 299741,
+  "decimated": false,
+  "textureQuality": 92,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp",
+      "bytes": 241220
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp",
+      "bytes": 265034
+    }
+  ]
+}

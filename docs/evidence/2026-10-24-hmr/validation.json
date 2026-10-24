@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "static": {
+    "lint": "PASS, no warnings",
+    "tests": "60/60 in 15 files",
+    "build": "PASS; existing chunk warning"
+  },
+  "browserScreenshots": 3,
+  "writeStability": {
+    "cases": [
+      {
+        "name": "before",
+        "watch": {},
+        "events": [
+          {
+            "rawBytes": 0,
+            "exportPresent": false
+          },
+          {
+            "rawBytes": 38,
+            "exportPresent": true
+          }
+        ]
+      },
+      {
+        "name": "after",
+        "watch": {
+          "awaitWriteFinish": {
+            "stabilityThreshold": 300,
+            "pollInterval": 50
+          }
+        },
+        "events": [
+          {
+            "rawBytes": 38,
+            "exportPresent": true
+          }
+        ]
+      }
+    ],
+    "status": "PASS"
+  },
+  "unchangedRuntimeAssetCount": 26,
+  "scope": "Reproduced partial-write module hazard on disposable fixture; original user browser cache state was not captured"
+}

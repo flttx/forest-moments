@@ -1,0 +1,88 @@
+{
+  "verifiedAt": "2026-10-24T01:59:50.077007+00:00",
+  "status": "PASS: scoped local scene and gameplay checks",
+  "staticChecks": {
+    "lint": "PASS: zero warnings",
+    "unitTests": "22/22 in 6 files",
+    "build": "PASS, existing >500kB JS chunk warning",
+    "diffWhitespace": "PASS"
+  },
+  "browserSuites": [
+    {
+      "suite": "coastal-final",
+      "status": "PASS: captures and scoped render checks; visual assessment recorded separately",
+      "screenshots": 44,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/coastal-final/headless-validation.json",
+      "sha256": "6f0a957a1e36fbb1f90e7bd05b1975ba4a3182a55aef5226f528131027459fd5"
+    },
+    {
+      "suite": "coastal-final-gameplay",
+      "status": "PASS",
+      "screenshots": 13,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/coastal-final-gameplay/headless-validation.json",
+      "sha256": "c03473925c6007e05b7ea36515b23437b36f87fc65c5d6140c0580e2370a2f2b"
+    },
+    {
+      "suite": "coastal-ground-route",
+      "status": "PASS",
+      "screenshots": 6,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/coastal-ground-route/headless-validation.json",
+      "sha256": "0ad30e86970814fc09d97baca15873309c951682c629f367cc130ace5bbe47db"
+    },
+    {
+      "suite": "coastal-production-final",
+      "status": "PASS: static build load, nine model/track resources, boarding/rowing HUD, development telemetry absent",
+      "screenshots": 3,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/coastal-production-final/headless-validation.json",
+      "sha256": "6d34e79e3a93cbf80dc4b32e2711cd9ab5951a30e94a4efe7cc427ab0a2963dd"
+    },
+    {
+      "suite": "regression-coastal-fishing",
+      "status": "PASS: casting, early/missed/overload failures, paused timers, tension control, catch once, repeat, cancel, persistence",
+      "screenshots": 13,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/regression-coastal-fishing/headless-validation.json",
+      "sha256": "bd4d73b899fd00f1a598905b0636e28865b7d5e01647cee99ee82ac1ee67d26e"
+    },
+    {
+      "suite": "regression-coastal-fishing_production",
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "screenshots": 6,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/regression-coastal-fishing_production/headless-validation.json",
+      "sha256": "81dc7a606395b90fe26241cdde4eff23af77ece91339985f9da7d09152f9af50"
+    },
+    {
+      "suite": "coastal-recovery",
+      "status": "PASS: production asset error, visible reload action, recovered render, no QA telemetry",
+      "screenshots": 2,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/coastal-recovery/headless-validation.json",
+      "sha256": "31e340e742d7dd70f78356076e3c7e737c720eb431068eb3e7cbae6a85e4354d"
+    },
+    {
+      "suite": "coastal-dock-recovery",
+      "status": "PASS: production asset error, visible reload action, recovered render, no QA telemetry",
+      "screenshots": 2,
+      "unexpectedErrors": 0,
+      "report": "docs/evidence/vegetation-expansion/2026-10-24/coastal-dock-recovery/headless-validation.json",
+      "sha256": "1d2d4495c567595d21afcb6d0687bcc4be81dcd75319d3c54211f6832bdedb70"
+    }
+  ],
+  "screenshotCount": 89,
+  "renderer": "Edge 156 / ANGLE D3D11 / RTX 5060 Ti",
+  "viewport": [
+    1440,
+    900
+  ],
+  "limits": [
+    "Uncapped headless RAF is not display FPS or cross-device acceptance",
+    "Foliage occlusion cutout has visible circular edges at some outer-loop angles",
+    "Whole model/track/vegetation download remains 95.68 MiB",
+    "AHOLO task 4321451 actual charge not verified"
+  ]
+}

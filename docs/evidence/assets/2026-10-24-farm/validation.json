@@ -1,0 +1,620 @@
+{
+  "date": "2026-10-24T05:42:32.596840+00:00",
+  "status": "PASS",
+  "static": {
+    "lint": "PASS, no warnings",
+    "tests": "40/40 in 12 files",
+    "build": "PASS; existing chunk-size warning"
+  },
+  "suites": [
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/headless-validation.json",
+        "bytes": 8842,
+        "sha256": "49f40087326534d32d1d1e14921e16040f4221e962d0701bc7c069381444f20e"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/01-entered-through-gate.png",
+          "bytes": 1351147,
+          "sha256": "8dd5da65a99d71abb6920fb6fa825b2f4c23853774161f7781598136b653344d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/02a-grain-release.png",
+          "bytes": 1441414,
+          "sha256": "e336daa1ff43ca301934b2769d986b0cea0dd0d5f13836509f72f5a66b5030aa"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/02-food-added.png",
+          "bytes": 1426975,
+          "sha256": "0a2516df050d5d6cf47895288f7ffb57e0df3bfb37fcf1dda88f0d72db01f9e7"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/03-eating.png",
+          "bytes": 1433514,
+          "sha256": "c96eaff62f3592eb529907c5a8bec5c3358083abbbbb31ae0d62b36b842b30b5"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/03a-both-eating.png",
+          "bytes": 1127543,
+          "sha256": "ccca66b64afbbc20b9ec166341ff70490dcefd6e2bcbb888b75635791373e93c"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/03b-eating-cycle.png",
+          "bytes": 1127279,
+          "sha256": "3983a7bb1fb24fef1ec0436ecc3105e0045badeb7c5619fcd204de2fa94ecd01"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/04-finished.png",
+          "bytes": 1421769,
+          "sha256": "debca93bab7eeaa25cecc5ca54cc1ba851a414283e40e64e121377508e41c696"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/05-reduced-motion.png",
+          "bytes": 1418967,
+          "sha256": "5c0c966b16794ca2cdcd35f0eb4ca01d8c2c989ef1748c95697f0422c90c6684"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/gameplay-final/06-storage-denied.png",
+          "bytes": 1416600,
+          "sha256": "3de592e4dc2075e8b5dce978cf0dede660b8ed1187ed19fdb06e2b317e179a01"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-farm/views-final/headless-validation.json",
+        "bytes": 83094,
+        "sha256": "171b66245abed8eab86bfb3e60d8b99d14d4842a98d14973a5674f38a83ddba2"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-farm.png",
+          "bytes": 1518845,
+          "sha256": "83c77b648cc168d7e163872d8fcb7e142ebd04d2400d0ef0fc0f178a5bd12a9e"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-farmFront.png",
+          "bytes": 1521324,
+          "sha256": "43bf4e233274b5de0af29ed41da4c225108fb9053c28646349341586399fd2f5"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-farmFeed.png",
+          "bytes": 1087097,
+          "sha256": "517fb5c8f7ce4c7de33b7a66b0fcd09d3d5c6a8c20bab75fe658be62e3411be7"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-overview.png",
+          "bytes": 1392373,
+          "sha256": "a569309151328b1514e2e0055e4288053502d5f547b0f5094b6a08de7a135dbf"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-pond.png",
+          "bytes": 1493449,
+          "sha256": "a308109c32f11f08e60977419feb5a561cd399685a47e657468841105ede165f"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-workshop.png",
+          "bytes": 1346074,
+          "sha256": "2979817cef546cedb49d16dc118a78480a31641e29364fd6c885332bc5256a3d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-tower.png",
+          "bytes": 1420869,
+          "sha256": "1509dbb676a9e21d348e12ad2f0c023ced4b629a318cf253d676fa1c9b260fbc"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-player.png",
+          "bytes": 1446101,
+          "sha256": "66a1fb75d23b57b0f8d76758ac3dfe3d4bcc795e49b3228e676c826289112741"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-dock.png",
+          "bytes": 995648,
+          "sha256": "6d5839a7ab1552e86e38807533be45f5cfe7e192f74c6ffca76d9d3804814202"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/day-grove.png",
+          "bytes": 1445494,
+          "sha256": "e60498ed94624f5fed3c89992a253b01e74793a9cf143accd45526584dd73647"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-farm.png",
+          "bytes": 1405431,
+          "sha256": "fede00b2d4125f986fe8d905e8eadf6a3f8dfd836e96ee2105a0e4635247c375"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-farmFront.png",
+          "bytes": 1348545,
+          "sha256": "029d855d79e59db9655c2f3cf9ff455f64c60c497355d37d20eb80622f3691c4"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-farmFeed.png",
+          "bytes": 918729,
+          "sha256": "d2fc4d5a728943c873ab1f5b2c42395a8a7caededeaf8e238a82596dba08f7d4"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-overview.png",
+          "bytes": 1305330,
+          "sha256": "2f6e7d5710c3ea1c8e005620da9f1f1e9696b3dce426872302c62dba46e3fd1c"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-pond.png",
+          "bytes": 1328059,
+          "sha256": "911f2dab7e12f92051b22ae81b64063feaf46311a60e563046588e207f7dba18"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-workshop.png",
+          "bytes": 1248453,
+          "sha256": "cc4f4264b873889fa584f7952fad72a5b8c8a06f88cbce7b99cdbf21982cb082"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-tower.png",
+          "bytes": 1280574,
+          "sha256": "f42b504e3e8449b4c4291534d0f511111ce39c3bd646b3b083efa5ab43077239"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-player.png",
+          "bytes": 1316783,
+          "sha256": "54be9c91d1a17f697496b26d0e7046ebd162bfee8353c99d53cde41cc15576fb"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-dock.png",
+          "bytes": 877181,
+          "sha256": "67b676fca8913bf7dfcb99e9b5f8bbe62b461f11387842b748c9fddbb94eeb0d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/dusk-grove.png",
+          "bytes": 1299535,
+          "sha256": "f2c19313df2e3a00716d0a7aa32bd64c78c3906c92dec1dd46b375f4e7ee2daa"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-farm.png",
+          "bytes": 1230808,
+          "sha256": "cb925507bcb440ba61a2134eb23a7618ab8cd4dee67e6998bc3a4fb90a6efe84"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-farmFront.png",
+          "bytes": 1238110,
+          "sha256": "684177e42a141f80845910ad7a548174542230a840aa643f4a0cdee6edcce911"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-farmFeed.png",
+          "bytes": 849965,
+          "sha256": "027047e24a8cee2e4c2f83ea82b29bec2c1938584cd79372ef67422f77380f17"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-overview.png",
+          "bytes": 1039171,
+          "sha256": "248465b9eda142347f1e51a9a46e4ae0e2d2e079bfef352118751954d9fe0f9b"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-pond.png",
+          "bytes": 1220593,
+          "sha256": "98c232657f73adf61239223b738c53af54f25b396867429b232594183f67ed65"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-workshop.png",
+          "bytes": 1075822,
+          "sha256": "147196cd42527e77394ce248e337f257708f615b741357bb41a074b97dcfe771"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-tower.png",
+          "bytes": 1141130,
+          "sha256": "8637648561e575bcf9c3cff0216b0b135952d4fe5000e0407639be6b97f37aeb"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-player.png",
+          "bytes": 1185754,
+          "sha256": "0c16a2a05df38d2fbc61eb3cbc9d006215fe8b3f29e9ca776dc05cfdaa611008"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-dock.png",
+          "bytes": 777824,
+          "sha256": "9b00126bc9587c6a2672757a7c2157694c1afb1121a92893268af80f1b741bc6"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/views-final/night-grove.png",
+          "bytes": 1198254,
+          "sha256": "539246dee8f7535445fee1e465309e4583496b427f0c838c4ac7f402d9eef98f"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-farm/production-final/headless-validation.json",
+        "bytes": 2394,
+        "sha256": "cbc7703a13c1a9fb9eb8be7394d17279555950921a58b65d22e4e95b697f7899"
+      },
+      "status": "PASS: static build load, sixteen model/track resources, farm feeding and reload, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/production-final/01-built-spawn.png",
+          "bytes": 1566499,
+          "sha256": "7ec2e195d06c96e8b476c1215daeed8700e7d2f96342d80e96ac5fc9ba067d50"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/production-final/02-built-farm.png",
+          "bytes": 1359546,
+          "sha256": "04056e4a0e290cdfbe9ccefe6ddf7974c8c54ddae0950074e4c4927d92385cdc"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/production-final/03-built-fed.png",
+          "bytes": 1418369,
+          "sha256": "674d30873f7df1aa9c95567bda4b3e7532879a7a3673509ccc12e3f1a9d75afc"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/production-final/04-built-reload.png",
+          "bytes": 1360221,
+          "sha256": "09123dfa77d3ada79aae567b96d39f5a64efd57900d238872a1c16559019c61c"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-farm/rowing-production/headless-validation.json",
+        "bytes": 2208,
+        "sha256": "d982e4415d2409f90130e455eea99118b05b11574cac547ff7db934f589c5c24"
+      },
+      "status": "PASS: static build load, sixteen model/track resources, boarding/rowing HUD, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/rowing-production/01-built-spawn.png",
+          "bytes": 1566197,
+          "sha256": "eee93611bcdfc8ffdba3ba5cb39898381a35c14dac9dd5e468c8b51e5f7af9fc"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/rowing-production/02-built-rowing-water.png",
+          "bytes": 814450,
+          "sha256": "26cf7b85fe44cef46a0fa2bfaf966d117b8304e275b38ba1c4d7474bcb2986be"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/rowing-production/03-built-landed.png",
+          "bytes": 1081578,
+          "sha256": "4621f56471836c5a5987c43fcc4ff267c0568a0fe15d1711635625f9743c3da5"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-farm/growth-production/headless-validation.json",
+        "bytes": 1487,
+        "sha256": "7b5951d32e182ca1de285b3e1a999ed6a16ce17e6f1233068d5d405c8085b5e9"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/growth-production/01-production-sprout.png",
+          "bytes": 812731,
+          "sha256": "6ac18c20718831e2a7b8de19a0c2d56c8bf9c7b334ea36b3efa2a411030c454a"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/growth-production/02-production-seedling.png",
+          "bytes": 1091672,
+          "sha256": "270e722a4372a5d290189dd6cf7eb22f669b52f0a92c6e18dea13f05213a88dc"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/growth-production/03-production-reload.png",
+          "bytes": 1069447,
+          "sha256": "5bfd39c5c2a7b013336b100b81622bcae6004e88aef94478135b862c78d6e74e"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-farm/growth-production/04-production-offline-mature.png",
+          "bytes": 1468057,
+          "sha256": "0497dd07dada8a06fad0942409dcc05de8db0d1b8da10cbe9632914c33f8de8a"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/headless-validation.json",
+        "bytes": 2360,
+        "sha256": "707f28cabbb56132c820b1743459ce5dc85465635117622bef0908def55bc3b0"
+      },
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/01-cast.png",
+          "bytes": 1155811,
+          "sha256": "6a30f53492cb2054b774baf5759d28a9c425a19a715b5baae9e79b053c22da52"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/02-waiting.png",
+          "bytes": 1153993,
+          "sha256": "914784c8ef4f6e2a4a6bd330cbd9d5fc845490448e8c40c6d536f0683143a687"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/03-bite.png",
+          "bytes": 1161713,
+          "sha256": "28d6e662d1e5b81d2aafa68afe0438052d920b68fff761304f1f19de3ae215fa"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/04-tension-panel.png",
+          "bytes": 1147032,
+          "sha256": "40d5ebcbb01ead3f8ab4de619f75d322c4714dd17e168520467fdc7db5aea644"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/05-visible-catch.png",
+          "bytes": 1149210,
+          "sha256": "a51aba492fc1997b8245cfecfe0a9f0dbfaaff5172c180c5f9b6190ada59948b"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-farm-final-fishing_production/06-saved-book.png",
+          "bytes": 1548075,
+          "sha256": "97fb98de97cca5f765c51b147069bc2705da7a17efa0c75d9f7fe70842b9bf43"
+        }
+      ]
+    }
+  ],
+  "screenshots": 56,
+  "localLinks": 176,
+  "retainedTwelveModelsUnchanged": [
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/canoe.glb",
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/lookout.glb",
+      "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/raccoon.glb",
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/workshop.glb",
+      "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/tree-sprout.glb",
+      "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c"
+    },
+    {
+      "path": "public/assets/models/tree-seedling.glb",
+      "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213"
+    },
+    {
+      "path": "public/assets/models/tree-young.glb",
+      "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8"
+    },
+    {
+      "path": "public/assets/models/tree-mature.glb",
+      "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52"
+    }
+  ],
+  "assets": [
+    {
+      "name": "hen",
+      "source": "F:/Projects/my-blog/public/assets/world/farm/animal-hen.glb",
+      "output": "public/assets/models/farm-hen.glb",
+      "bytes": 201264,
+      "sha256": "27abf9855800f3235ba0c3107ff026a5cc99a04db51a8f0c4b03ae38a1630180",
+      "triangles": 4500,
+      "animations": [
+        "idle",
+        "peck",
+        "sit",
+        "walk"
+      ],
+      "bones": [
+        7
+      ],
+      "textures": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "mime": "image/webp"
+        }
+      ],
+      "newGeneration": false
+    },
+    {
+      "name": "sheep",
+      "source": "F:/Projects/my-blog/public/assets/world/farm/animal-sheep.glb",
+      "output": "public/assets/models/farm-sheep.glb",
+      "bytes": 170224,
+      "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6",
+      "triangles": 9000,
+      "animations": [
+        "graze",
+        "idle",
+        "sit",
+        "walk"
+      ],
+      "bones": [
+        12
+      ],
+      "textures": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "mime": "image/webp"
+        }
+      ],
+      "newGeneration": false
+    },
+    {
+      "name": "ranch",
+      "source": "assets/farm/ranch-grounded.glb",
+      "output": "public/assets/models/farm-ranch.glb",
+      "bytes": 541496,
+      "sha256": "164d15814b5a6b097c8cc46708608b7425ecf48517d7494c7c44aa769c0ae83f",
+      "triangles": 15108,
+      "animations": [],
+      "bones": [],
+      "textures": [
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "mime": "image/webp"
+        },
+        {
+          "size": [
+            1024,
+            1024
+          ],
+          "mime": "image/webp"
+        }
+      ],
+      "newGeneration": false
+    }
+  ],
+  "references": [
+    {
+      "path": "docs/references/farm/reused-animal-chicken.png",
+      "bytes": 939626,
+      "sha256": "2883fb58c9e9619593151d7c53932c69e72e59c473546a8e5ee5f5ae3639b4b7"
+    },
+    {
+      "path": "docs/references/farm/reused-animal-sheep.png",
+      "bytes": 874667,
+      "sha256": "a1fb110d6e79ca085016040cf405c112741b211bd23ce1e63443de15296a8d15"
+    },
+    {
+      "path": "docs/references/farm/reused-ranch-coop.png",
+      "bytes": 1248589,
+      "sha256": "141ef9eda2ba7c77447f084df6fefa5ee1590e0bf49503a7f6f3bbcd360e22a8"
+    }
+  ],
+  "publicDistMatch": true,
+  "modelTrackVegetationBytes": 103952597,
+  "mainJs": {
+    "path": "dist/assets/index-DXKMrB3-.js",
+    "bytes": 1284829,
+    "sha256": "990c48f628fcaa056e100e0cbe961c19d13504fbddc07c16cafdd675287b8bdd",
+    "gzipLevel6Bytes": 362406
+  },
+  "code": [
+    {
+      "path": "src/game/farm.ts",
+      "bytes": 2571,
+      "sha256": "d2099821c93f8199d2c55bc06d1c9569ebc6500530e73e211df221b8579dbd54"
+    },
+    {
+      "path": "src/game/farm-colliders.json",
+      "bytes": 1552,
+      "sha256": "5e37f51a59cc7a64ca28fa8c9723e43755e75dd342ae34bc41a5a4f88db91e85"
+    },
+    {
+      "path": "src/game/store.ts",
+      "bytes": 10080,
+      "sha256": "5446a31c944305f11279ab02a3eed68126e93b8ddda102bf1d406e266007afde"
+    },
+    {
+      "path": "src/game/movement.ts",
+      "bytes": 2598,
+      "sha256": "8d05b75089113578d32bdf2d310a7c8d467a33fa904413cda43cace0a4c64717"
+    },
+    {
+      "path": "src/world/FarmScene.tsx",
+      "bytes": 5559,
+      "sha256": "c076e3d7e18d74de8b601145b51a643433bbff0ec70527203465d791a8b6562a"
+    },
+    {
+      "path": "src/world/ForestWorld.tsx",
+      "bytes": 12441,
+      "sha256": "d5fc488f70a072a96940301a6b34f9bc65eec77710bdf5e8ae16ce1c6be10bc1"
+    },
+    {
+      "path": "src/world/ModelAsset.tsx",
+      "bytes": 3843,
+      "sha256": "190d4ec726b4d822d78b41ec08f10d42494a8419efc0ad0862c425e6ec65fd6f"
+    },
+    {
+      "path": "src/world/terrain.ts",
+      "bytes": 4095,
+      "sha256": "0bfbcdad595ca5b64c32dfadda4ced71953195565db585eefb77834341a4a537"
+    },
+    {
+      "path": "src/world/GroundCover.tsx",
+      "bytes": 12940,
+      "sha256": "ce0d4f8844e9aa664be42df02858a137ff49f0da6b6ce60bff61005ff326a664"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 5318,
+      "sha256": "352f45d36433cfbe1b76188bdc3ff42684246cbe82fff3de368138f7bd1ac493"
+    },
+    {
+      "path": "scripts/check_farm_headless.mjs",
+      "bytes": 8377,
+      "sha256": "aa828b5b56a7462e3fce11f29e3c10b24d8a7c72d6f49ebe4ed7a988a6ebd7d0"
+    },
+    {
+      "path": "scripts/check_farm_production.mjs",
+      "bytes": 7554,
+      "sha256": "e55069cc42660f64694301185592669c281bb97af60c9d0d480553959f544818"
+    },
+    {
+      "path": "scripts/check_farm_views.mjs",
+      "bytes": 5064,
+      "sha256": "e5f32f1768e8563c1280cc1daf035136f0f99af6487b83afccdbf1be683d66e3"
+    },
+    {
+      "path": "scripts/prepare_farm.py",
+      "bytes": 5689,
+      "sha256": "6afa2bdf517da304ed5ac271a581cd47d5b0d8e6c80f36707e3b5d926a382b58"
+    },
+    {
+      "path": "scripts/compress_farm.cjs",
+      "bytes": 2254,
+      "sha256": "5c7dca0fd0441fe7b26e164f498204c0effa7aa70a198e716ddd11d3c2939a56"
+    },
+    {
+      "path": "scripts/audit_farm_pose.py",
+      "bytes": 1705,
+      "sha256": "f9529add1083f752559ea9b797e3ab0e0e7762310c35c4fd074724febdab170d"
+    },
+    {
+      "path": "scripts/fit_farm_mouth.py",
+      "bytes": 1439,
+      "sha256": "ded36491cdb5fc7fa32f63ac5fe6d1107991c4fea5ab106596f83159616a521c"
+    }
+  ],
+  "performance": {
+    "seconds": 30.0005,
+    "frames": 24312,
+    "fps": 810.3864935584407,
+    "p95ms": 2.399999999999636,
+    "jsHeapBytes": 255253417
+  },
+  "limits": [
+    "One hen and one sheep; no breeding, products, hunger, night routines or inventory.",
+    "Only completed meals persist; reload discards pending food.",
+    "Reused interaction animation with scoped hand-bone grain release; no bespoke feed-bag action.",
+    "Mouth fit is sampled and visually reviewed, not full contact physics.",
+    "Uncapped headless RAF is not presented FPS; JS heap is not GPU memory.",
+    "Historical Tripo source assets; no new generation or payment; commercial license scope not independently verified."
+  ]
+}

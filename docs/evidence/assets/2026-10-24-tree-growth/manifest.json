@@ -1,0 +1,270 @@
+{
+  "date": "2026-10-24T03:46:36.187089+00:00",
+  "assets": [
+    {
+      "stage": "sprout",
+      "taskId": 4323002,
+      "createdAt": "2026-10-24T03:15:00.966Z",
+      "provider": "AHOLO Lux3D G1",
+      "status": 3,
+      "parameters": {
+        "version": "G1",
+        "faceCount": 10000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ],
+        "aiPredictSize": false
+      },
+      "reference": {
+        "path": "docs/references/growth/forest-moments-sprout-v1.png",
+        "bytes": 1595818,
+        "sha256": "a72a0c8d2eae71e296d6a36dad3f2ec3f7a5a1d96f5468644db7ac6ceab0f13d"
+      },
+      "originals": [
+        {
+          "path": "assets/lux3d/growth-sprout-v1/output-0.zip",
+          "bytes": 7847809,
+          "sha256": "b555c00bd59f76026dc5df17aef60c434a89a9bd142a937c5b940b57f55cf1cc"
+        },
+        {
+          "path": "assets/lux3d/growth-sprout-v1/output-1.glb",
+          "bytes": 4886656,
+          "sha256": "5598bdfb54474f5b23414419741bc145d9354124df68460f4036475af2b3031d"
+        }
+      ],
+      "runtime": {
+        "stage": "sprout",
+        "output": "public/assets/models/tree-sprout.glb",
+        "bytes": 182300,
+        "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c",
+        "triangles": 9758,
+        "decimated": false,
+        "textureQuality": 92,
+        "textures": [
+          {
+            "size": [
+              1024,
+              1024
+            ],
+            "mime": "image/webp"
+          }
+        ]
+      },
+      "distMatchesPublic": true,
+      "audit": "sprout-audit.json",
+      "actualCharge": null,
+      "commercialLicenseNewlyVerified": false
+    },
+    {
+      "stage": "seedling",
+      "taskId": 4322894,
+      "createdAt": "2026-10-24T03:13:18.102Z",
+      "provider": "AHOLO Lux3D G1",
+      "status": 3,
+      "parameters": {
+        "version": "G1",
+        "faceCount": 15000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ],
+        "aiPredictSize": false
+      },
+      "reference": {
+        "path": "docs/references/growth/forest-moments-seedling-v1.png",
+        "bytes": 1695691,
+        "sha256": "931d1595b83c4ac640bcbd70771379c2ed1e69999657117abbc077cc1023271a"
+      },
+      "originals": [
+        {
+          "path": "assets/lux3d/growth-seedling-v1/output-0.zip",
+          "bytes": 8929517,
+          "sha256": "07f9a8050987977e982dd108699c6dccce6a4983204de6093abbbffa0b128f23"
+        },
+        {
+          "path": "assets/lux3d/growth-seedling-v1/output-1.glb",
+          "bytes": 6462904,
+          "sha256": "65a63d45bc56c0775627aa9e4a04ead73f1c311384df9116231a43c67b329d96"
+        }
+      ],
+      "runtime": {
+        "stage": "seedling",
+        "output": "public/assets/models/tree-seedling.glb",
+        "bytes": 318368,
+        "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213",
+        "triangles": 14194,
+        "decimated": false,
+        "textureQuality": 92,
+        "textures": [
+          {
+            "size": [
+              1024,
+              1024
+            ],
+            "mime": "image/webp"
+          }
+        ]
+      },
+      "distMatchesPublic": true,
+      "audit": "seedling-audit.json",
+      "actualCharge": null,
+      "commercialLicenseNewlyVerified": false
+    },
+    {
+      "stage": "young",
+      "taskId": 4322899,
+      "createdAt": "2026-10-24T03:13:21.449Z",
+      "provider": "AHOLO Lux3D G1",
+      "status": 3,
+      "parameters": {
+        "version": "G1",
+        "faceCount": 40000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ],
+        "aiPredictSize": false
+      },
+      "reference": {
+        "path": "docs/references/growth/forest-moments-young-v1.png",
+        "bytes": 1540032,
+        "sha256": "8fa32d2224b581fd989d75f96662a2ca5164337d3f66088698a0f01d1f41d743"
+      },
+      "originals": [
+        {
+          "path": "assets/lux3d/growth-young-v1/output-0.zip",
+          "bytes": 10231131,
+          "sha256": "b59195a97276b5b42eab7d40850307f6457b61e8f433714bf816f249ae995dfa"
+        },
+        {
+          "path": "assets/lux3d/growth-young-v1/output-1.glb",
+          "bytes": 9044388,
+          "sha256": "5844e63d45c089c627ddbb204babedceba7bdc8b10e89221b5b8264148ee21b7"
+        }
+      ],
+      "runtime": {
+        "stage": "young",
+        "output": "public/assets/models/tree-young.glb",
+        "bytes": 722564,
+        "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8",
+        "triangles": 39715,
+        "decimated": false,
+        "textureQuality": 92,
+        "textures": [
+          {
+            "size": [
+              1024,
+              1024
+            ],
+            "mime": "image/webp"
+          }
+        ]
+      },
+      "distMatchesPublic": true,
+      "audit": "young-audit.json",
+      "actualCharge": null,
+      "commercialLicenseNewlyVerified": false
+    },
+    {
+      "stage": "mature",
+      "taskId": 4322904,
+      "createdAt": "2026-10-24T03:13:24.330Z",
+      "provider": "AHOLO Lux3D G1",
+      "status": 3,
+      "parameters": {
+        "version": "G1",
+        "faceCount": 80000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ],
+        "aiPredictSize": false
+      },
+      "reference": {
+        "path": "docs/references/growth/forest-moments-mature-v1.png",
+        "bytes": 1843155,
+        "sha256": "226443a5fc39ae973376630a3f490760de32f6c3efad3ccc4e260b6eb0dd556d"
+      },
+      "originals": [
+        {
+          "path": "assets/lux3d/growth-mature-v1/output-0.zip",
+          "bytes": 14374665,
+          "sha256": "a9d5cdb913bb3c46449e52fef61090fd49e586c9ebad6f63f123af45bad5bf80"
+        },
+        {
+          "path": "assets/lux3d/growth-mature-v1/output-1.glb",
+          "bytes": 13112180,
+          "sha256": "e65d9ced6f866f0280a95ce31cdfecbf753e1f63f14cbb7264a4b6b28d910f81"
+        }
+      ],
+      "runtime": {
+        "stage": "mature",
+        "output": "public/assets/models/tree-mature.glb",
+        "bytes": 1489516,
+        "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52",
+        "triangles": 77992,
+        "decimated": false,
+        "textureQuality": 92,
+        "textures": [
+          {
+            "size": [
+              1024,
+              1024
+            ],
+            "mime": "image/webp"
+          }
+        ]
+      },
+      "distMatchesPublic": true,
+      "audit": "mature-audit.json",
+      "actualCharge": null,
+      "commercialLicenseNewlyVerified": false
+    }
+  ],
+  "growthBytes": 2712748,
+  "allModelTrackVegetationBytes": 103039613,
+  "retainedEightModelsUnchanged": [
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/canoe.glb",
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/lookout.glb",
+      "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/raccoon.glb",
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/workshop.glb",
+      "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    }
+  ],
+  "vegetationAndReadOnlyMyBlogSourcesUnchanged": true,
+  "secretPolicy": "No environment keys, upload URLs or signed output URLs copied into this manifest."
+}

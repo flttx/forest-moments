@@ -8,7 +8,7 @@ import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { modelAssets } from './assets'
 import { useForestStore } from '../game/store'
 
-export type Locomotion = 'idle' | 'walk' | 'run' | 'fish_cast' | 'fish_hold' | 'fish_reel' | 'fish_land'
+export type Locomotion = 'idle' | 'walk' | 'run' | 'interact' | 'fish_cast' | 'fish_hold' | 'fish_reel' | 'fish_land'
 
 export function ModelAsset({ asset, motion, onReadyChange }: {
   asset: keyof typeof modelAssets
@@ -48,6 +48,7 @@ export function ModelAsset({ asset, motion, onReadyChange }: {
       active.current = next
     }
     mixer.update(Math.min(delta, .05))
+    if(next==='interact'&&actions.interact){const s=useForestStore.getState();const time=s.mode==='feeding'?s.feedingElapsed:s.mode==='gathering'?s.gatheringElapsed:s.mode==='crafting'?.45+(.95-(s.craft?.stroke??0))*.8:s.plantingElapsed;actions.interact.time=Math.min(actions.interact.getClip().duration-.001,time);mixer.update(0)}
     const fishing = useForestStore.getState().fishing
     if (fishing && next.startsWith('fish_') && actions[next]) {
       const duration = actions[next].getClip().duration

@@ -1,0 +1,285 @@
+{
+  "source": "Historical my-blog Tripo props + Blender authored room; original files reused unchanged",
+  "newGeneration": false,
+  "newCharges": false,
+  "files": [
+    {
+      "path": "public/assets/interiors/workshop-light-day.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-light-day.webp",
+      "bytes": 123300,
+      "sha256": "844891dc7f46951f6112201e09cabe28aeddc6e912a88dc103e339665b121466"
+    },
+    {
+      "path": "public/assets/interiors/workshop-light-night.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-light-night.webp",
+      "bytes": 70970,
+      "sha256": "203e2bebabdb8c5dd0e13415171d3fdca1808ac41178ef947583515cf826179c"
+    },
+    {
+      "path": "public/assets/interiors/workshop-stove-light-day.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-stove-light-day.webp",
+      "bytes": 20638,
+      "sha256": "60b316c2528fcb8fac2d6f3b53001bde52bd99ce61edff2654c310efa6ff7cdf"
+    },
+    {
+      "path": "public/assets/interiors/workshop-stove-light-night.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-stove-light-night.webp",
+      "bytes": 27166,
+      "sha256": "49b435f6ce84c7c9bec282543f45445b6915d410a08358645fae668796d31adc"
+    },
+    {
+      "path": "public/assets/interiors/workshop-workbench-light-day.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-workbench-light-day.webp",
+      "bytes": 22894,
+      "sha256": "819610e5a087b520162846b6610184d17440134d02864128e516c208975fdd64"
+    },
+    {
+      "path": "public/assets/interiors/workshop-workbench-light-night.webp",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop-workbench-light-night.webp",
+      "bytes": 25584,
+      "sha256": "df599960b804ad1002bf60c96d692fa000eaaf6060985f6210aab1ad08884b0d"
+    },
+    {
+      "path": "public/assets/interiors/workshop.glb",
+      "source": "F:/Projects/my-blog/public/assets/world/interiors/workshop.glb",
+      "bytes": 1396104,
+      "sha256": "cce551aa8b8b39b5e398d6c13ba72cb3c3d199b8157813e89af856b38e61fbf2"
+    }
+  ],
+  "totalBytes": 1686656,
+  "meshes": [
+    {
+      "name": "Cube.008",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.005",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.002",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.011",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.013",
+      "triangles": 12
+    },
+    {
+      "name": "Cube",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.009",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.004",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.003",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.014",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.012",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.010",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.001",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.007",
+      "triangles": 12
+    },
+    {
+      "name": "Cube.006",
+      "triangles": 12
+    },
+    {
+      "name": "Plane",
+      "triangles": 2
+    },
+    {
+      "name": "Hero_workshop-stove",
+      "triangles": 8000
+    },
+    {
+      "name": "Hero_workshop-workbench",
+      "triangles": 7999
+    },
+    {
+      "name": "Interior_glass",
+      "triangles": 48
+    },
+    {
+      "name": "Interior_glow",
+      "triangles": 400
+    },
+    {
+      "name": "Prop_workshop-barrel",
+      "triangles": 3500
+    },
+    {
+      "name": "Prop_workshop-crate-mushrooms",
+      "triangles": 3500
+    },
+    {
+      "name": "Prop_workshop-crate-twigs",
+      "triangles": 3498
+    },
+    {
+      "name": "Prop_workshop-firewood",
+      "triangles": 3500
+    },
+    {
+      "name": "Prop_workshop-herbs",
+      "triangles": 2441
+    },
+    {
+      "name": "Prop_workshop-lantern",
+      "triangles": 2592
+    },
+    {
+      "name": "Prop_workshop-sack",
+      "triangles": 2921
+    },
+    {
+      "name": "Prop_workshop-stool",
+      "triangles": 2900
+    },
+    {
+      "name": "Prop_workshop-tool-rack",
+      "triangles": 3500
+    },
+    {
+      "name": "Prop_workshop-wall-shelf",
+      "triangles": 3499
+    },
+    {
+      "name": "Room_Baked",
+      "triangles": 4704
+    }
+  ],
+  "textures": [
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        1024,
+        1024
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        512,
+        512
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "historicalTasks": [
+    "f75e6eb8-f762-4df1-8120-a03d7587d155",
+    "d2be6ab3-584c-42c9-aefb-4cfd8a22020b",
+    "6ef40a12-df32-4944-845f-0e9b05c92559",
+    "34193d7b-8a43-4a2f-a78d-63d6e311d8f9",
+    "ca4d90a3-644a-4d6f-907e-82ad2c109414",
+    "02fa2a9b-9942-42b1-9b4e-d0f6f1f9e22c",
+    "65fe3fbf-7278-4e50-853d-bddae669f6b3",
+    "f5509497-49d9-46e4-b31f-c21bd2bf2824",
+    "2ae2b072-1074-4afc-9f0b-d7fdf2fab0cf",
+    "6c583045-49f2-4c68-a68b-82a5837bd189",
+    "1f3d05da-88c5-4ccd-9b5e-75b2d795b7b7",
+    "48d5cdc8-a8fb-4b27-9a11-9135a6afe2b6"
+  ],
+  "sourceBlender": "F:/Projects/my-blog/assets/blender/interiors/derived/workshop-interior.blend",
+  "colliderExport": "src/game/workshopColliders.json"
+}

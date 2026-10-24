@@ -9,6 +9,7 @@
 - 美术：成熟克制的温暖童话森林，针叶树主、少量阔叶，暖木、暖灰岩石、琥珀灯光、自然路径，避免塑料感和密集建筑。
 - 阶段状态必须精准区分：计划 / 占位 / 实现待验证 / 已验证；切勿把灰盒场景、占位动作说成完整玩法。
 - 重要用户体验：浣熊动作流畅、尾巴自然；钓鱼/种树/划船拥有真实可感知的交互闭环，而非提示文字模拟。
+- 2026-10-24 用户修订：资源体积为可调整的参考指标，不以固定 MB 数阻塞下一阶段；优先画面、动作与实际加载体验，优化依据真实测量，不为数字强制减面或降贴图。
 
 ## 每轮开发操作
 
@@ -25,6 +26,12 @@
 - .agents/skills/forest-asset-pipeline/SKILL.md：Lux3D、Blender、GLB 资产流程
 - .agents/skills/living-project-report/SKILL.md：每轮持续更新报告
 - .agents/skills/ms-hub/SKILL.md 与 ms-studio-deploy：官方魔搭流程（若实际安装到此目录）
+
+## 测试临时目录（2026-10-24）
+
+- 浏览器测试统一使用 `scripts/browser-session.mjs` 的 `createHeadlessBrowser`，临时配置、缓存和浏览器进程 TEMP/TMP 位于项目 `.tmp/`；禁止直接调用系统 `tmpdir()` 创建测试配置。
+- 每个测试在最外层 `finally` 中 `await cleanup()`，报告写入失败也必须执行清理。辅助测试使用 `createProjectTempDirectory`，并在结束后删除自己的临时目录。
+- `.tmp/legacy-browser-profiles/` 是从 C 盘迁回的历史目录，保留备查，不用于新测试。强制结束进程或断电仍可能在项目 `.tmp/` 留下目录。
 
 ## 国际站部署
 

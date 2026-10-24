@@ -1,0 +1,42 @@
+{
+  "blender": "5.2.1 LTS",
+  "sourceSha256": "25599be7a1ebfa398e7ec10c9d647698af538790f27526afc276be904dfd345a",
+  "assets": [
+    {
+      "kind": "workbench",
+      "sourceObject": "Hero_workshop-workbench",
+      "source": "F:\\Projects\\my-blog\\assets\\blender\\interiors\\derived\\workshop-interior.blend",
+      "dimensions": [
+        2.500000476837158,
+        1.0000004768371582,
+        0.9500000476837158
+      ],
+      "trianglesBeforeValidation": 8000,
+      "validatedRepair": true,
+      "triangles": 7999,
+      "materials": [
+        "tripo_material_d2be6ab3-584c-42c9-aefb-4cfd8a22020b"
+      ],
+      "output": "assets/workshop/workbench.glb",
+      "newGeometry": false
+    },
+    {
+      "kind": "stool",
+      "sourceObject": "Prop_workshop-stool",
+      "source": "F:\\Projects\\my-blog\\assets\\blender\\interiors\\derived\\workshop-interior.blend",
+      "dimensions": [
+        1.0272082835435867,
+        1.0267155170440674,
+        0.4599999785423279
+      ],
+      "trianglesBeforeValidation": 2900,
+      "validatedRepair": false,
+      "triangles": 2900,
+      "materials": [
+        "tripo_material_6c583045-49f2-4c68-a68b-82a5837bd189"
+      ],
+      "output": "assets/workshop/stool.glb",
+      "newGeometry": false
+    }
+  ]
+}

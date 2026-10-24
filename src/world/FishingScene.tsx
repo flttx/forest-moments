@@ -82,6 +82,7 @@ export function FishingScene() {
     p.ring.position.set(p.end.x, pond.waterY + .008, p.end.z)
     p.ring.scale.setScalar(f.phase === 'bite' ? 1 + .25 * Math.sin(f.elapsed * 12) : .7)
     p.fish.visible = ['landing', 'caught'].includes(f.phase)
+    // Evaluated skeleton length is 1 m; the raw decoded mesh spans 2 m.
     p.fish.scale.setScalar(f.sizeCm / 100)
     p.fish.position.copy(p.end).y -= f.sizeCm / 200
     p.fish.rotation.set(-Math.PI / 2, 0, .08 * Math.sin(f.elapsed * 8))

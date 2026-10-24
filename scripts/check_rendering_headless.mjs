@@ -1,18 +1,15 @@
 // Isolated headless Edge only. CDP pattern reused from my-blog/scripts/t10-gait-check.mjs.
 import assert from 'node:assert/strict'
-import { spawn } from 'node:child_process'
-import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import { tmpdir } from 'node:os'
+import { createHeadlessBrowser } from './browser-session.mjs'
 
 const stage = process.env.FOREST_RENDER_STAGE ?? 'after'
 const out = resolve(`docs/evidence/rendering/2026-10-23/${stage}`)
 await mkdir(out, { recursive: true })
-const profile = await mkdtemp(resolve(tmpdir(), 'forest-moments-headless-'))
-const edge = spawn(process.env.EDGE_PATH ?? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', [
-  '--headless=new', '--remote-debugging-port=0', `--user-data-dir=${profile}`,
-  '--no-first-run', '--no-default-browser-check', 'about:blank',
-], { windowsHide: true, stdio: 'ignore' })
+const { profile, cleanup } = await createHeadlessBrowser([
+  '--headless=new', '--remote-debugging-port=0', '--no-first-run', '--no-default-browser-check', 'about:blank',
+])
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 const report = { date: new Date().toISOString(), mode: 'isolated headless Edge', viewport: [1440, 900], checks: [], errors: [], screenshots: [], status: 'RUNNING' }
 let socket, sequence = 0
@@ -102,8 +99,11 @@ try {
   report.status = 'FAIL'; report.failure = String(error); process.exitCode = 1
   if (socket?.readyState === 1) { try { await shot('headless-failure') } catch { /* Original error stays in report. */ } }
 } finally {
-  await writeFile(`${out}/headless-validation.json`, JSON.stringify(report, null, 2) + '\n')
-  if (socket?.readyState === 1) { try { await cmd('Browser.close') } catch { /* Closing the socket can precede the response. */ } socket.close() }
-  edge.kill()
-  console.log(report.status)
+  try {
+    await writeFile(`${out}/headless-validation.json`, JSON.stringify(report, null, 2) + '\n')
+    if (socket?.readyState === 1) { try { await cmd('Browser.close') } catch { /* Closing the socket can precede the response. */ } socket.close() }
+    console.log(report.status)
+  } finally {
+    await cleanup()
+  }
 }

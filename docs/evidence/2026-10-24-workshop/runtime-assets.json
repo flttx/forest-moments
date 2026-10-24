@@ -1,0 +1,42 @@
+[
+  {
+    "kind": "workbench",
+    "source": "assets/workshop/workbench.glb",
+    "output": "assets/workshop/rejected-outdoor-runtime/craft-workbench.glb",
+    "bytes": 2733520,
+    "sha256": "00c0c270fb19f81ab6d315dda31a680571107dfd9a690057dddb9bf622cfcace",
+    "sourceSha256": "425ed70f8b9e7797e08ac495d922c789c904698d575deecbb8b9f5e4fb0c7d98",
+    "triangles": 7999,
+    "textures": [
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "mime": "image/webp"
+      }
+    ],
+    "newGeneration": false,
+    "decimated": false
+  },
+  {
+    "kind": "stool",
+    "source": "assets/workshop/stool.glb",
+    "output": "assets/workshop/rejected-outdoor-runtime/craft-stool.glb",
+    "bytes": 2261192,
+    "sha256": "11dd64d48341bfdb5c46da72a4357eaa8eb40cf29eb96f57eded368af9a29345",
+    "sourceSha256": "a2baab30b7cde51db46462c4862604f8bcf0a17bf3e25e2ff5fcc4c338a7515c",
+    "triangles": 2900,
+    "textures": [
+      {
+        "size": [
+          2048,
+          2048
+        ],
+        "mime": "image/webp"
+      }
+    ],
+    "newGeneration": false,
+    "decimated": false
+  }
+]

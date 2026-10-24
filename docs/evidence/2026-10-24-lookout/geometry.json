@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "asset": "public/assets/models/lookout.glb",
+  "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a",
+  "eye": [
+    13,
+    4.9,
+    -8
+  ],
+  "deckY": 3.6380052328074504,
+  "roofUndersideY": 5.762022861364375,
+  "nearestTriangleDistance": 0.31695306628424064,
+  "newModel": false
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "name": "raccoon",
+    "original": "assets/runtime-encoding/before/raccoon.glb",
+    "target": "assets/runtime-encoding/candidate/raccoon.glb",
+    "originalBytes": 24777392,
+    "bytes": 12763552,
+    "originalSha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+    "sha256": "49995845d5646252054a8afcf602decf85798a1ec5c3e78affb72d714f85709c",
+    "losslessSemantic": true,
+    "visiblePixelsExact": true,
+    "semanticHash": "133c5fb0c6a2ba9bdd0cd5cfebf6c0094cba785aab2da4d26ac0daafcea166d7",
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "29862ab919321da75e588fa0e40cfff7276c8d35902622afcef39c270567143d"
+      }
+    ],
+    "triangles": 290520,
+    "animationClips": [
+      "bench_ready",
+      "bench_sit_down",
+      "bench_sit_idle",
+      "bench_stand_up",
+      "fish_cast",
+      "fish_hold",
+      "fish_land",
+      "fish_reel",
+      "idle",
+      "interact",
+      "paddle",
+      "run",
+      "sit_down_floor_hug",
+      "sit_down_floor_idle",
+      "sit_floor_hug",
+      "sit_floor_idle",
+      "stand_up_floor_hug",
+      "stand_up_floor_idle",
+      "walk"
+    ],
+    "decimated": false,
+    "quantized": false,
+    "textureResized": false
+  },
+  {
+    "name": "workshop",
+    "original": "assets/runtime-encoding/before/workshop.glb",
+    "target": "assets/runtime-encoding/candidate/workshop.glb",
+    "originalBytes": 18892400,
+    "bytes": 11852244,
+    "originalSha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+    "sha256": "e32c9e161d8860b0c0c41df8c3075f0e2eba2a7d663ddf04c2b98685c97d66ad",
+    "losslessSemantic": true,
+    "visiblePixelsExact": true,
+    "semanticHash": "e989f5df901ef9fd06e86e1cd4d3ef018840bd41cd9f4095fd759e375f1b9c16",
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "26597fa360738fd9777fc561fe36cbf4852631073a5906aea88e4219b4305e8d"
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "f87a1bf241ac9bc86ce8f8896e29cef1113a5593b8fca7aa14ab502cfd6b9591"
+      }
+    ],
+    "triangles": 283794,
+    "animationClips": [],
+    "decimated": false,
+    "quantized": false,
+    "textureResized": false
+  },
+  {
+    "name": "lookout",
+    "original": "assets/runtime-encoding/before/lookout.glb",
+    "target": "assets/runtime-encoding/candidate/lookout.glb",
+    "originalBytes": 17295608,
+    "bytes": 10884832,
+    "originalSha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+    "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a",
+    "losslessSemantic": true,
+    "visiblePixelsExact": true,
+    "semanticHash": "8a6f14f9344cc62796c56b7016f2131796ce92b403dbbfc4e82c8b6ad72a517f",
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "810ef596b198d1e91e4e14b3f8b261adfef5f9b48e1be6508e02baae6a20d32c"
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "dbc6febc30be2f78881a70df97fead3890651bae6b202be76b4579247919c732"
+      }
+    ],
+    "triangles": 281574,
+    "animationClips": [],
+    "decimated": false,
+    "quantized": false,
+    "textureResized": false
+  },
+  {
+    "name": "canoe-center-seat",
+    "original": "assets/runtime-encoding/before/canoe-center-seat.glb",
+    "target": "assets/runtime-encoding/candidate/canoe-center-seat.glb",
+    "originalBytes": 17372336,
+    "bytes": 10776108,
+    "originalSha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+    "sha256": "358af8019c854f4276380ae1e438fa2baf3b5a58f16227dbf56d536717229c9a",
+    "losslessSemantic": true,
+    "visiblePixelsExact": true,
+    "semanticHash": "5114fdec2d99431ec148227ba614b8be9300e308cb3ea8cd08ae859beb28106d",
+    "textures": [
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "7a88262d00c04cd2323875cb06d78dda132249ab9294ae2e550035523bdc8f9c"
+      },
+      {
+        "width": 2048,
+        "height": 2048,
+        "channels": 4,
+        "rgbaHash": "245c36fbb7179ac721a448473ad290a3ede82c3f648d468f52ed3f17882eab2a"
+      }
+    ],
+    "triangles": 280265,
+    "animationClips": [],
+    "decimated": false,
+    "quantized": false,
+    "textureResized": false
+  },
+  {
+    "name": "canoe",
+    "original": "assets/runtime-encoding/before/canoe.glb",
+    "target": "assets/runtime-encoding/candidate/paddle.glb",
+    "originalBytes": 17562100,
+    "bytes": 9536,
+    "originalSha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+    "sha256": "0f1bdc10a8cacf391c40d4a06eb941218101db47d6cbace598d4d54acbb76fd7",
+    "losslessSemantic": true,
+    "visiblePixelsExact": true,
+    "semanticHash": "2e908f1434b1d8cfe165882aadf14863bfc6b10bc41424a16a7d465f5b5f6a2b",
+    "textures": [],
+    "triangles": 224,
+    "animationClips": [],
+    "decimated": false,
+    "quantized": false,
+    "textureResized": false
+  }
+]

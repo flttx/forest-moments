@@ -1,0 +1,657 @@
+{
+  "date": "2026-10-24T07:35:11.497266+00:00",
+  "status": "PASS",
+  "static": {
+    "lint": "PASS, no warnings",
+    "tests": "44/44 in 13 files",
+    "build": "PASS; existing chunk-size warning"
+  },
+  "geometry": {
+    "status": "PASS",
+    "asset": "public/assets/models/lookout.glb",
+    "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a",
+    "eye": [
+      13,
+      4.9,
+      -8
+    ],
+    "deckY": 3.6380052328074504,
+    "roofUndersideY": 5.762022861364375,
+    "nearestTriangleDistance": 0.31695306628424064,
+    "newModel": false
+  },
+  "allRuntimeAssetsUnchanged": [
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "bytes": 10776108,
+      "sha256": "358af8019c854f4276380ae1e438fa2baf3b5a58f16227dbf56d536717229c9a"
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/farm-hen.glb",
+      "bytes": 201264,
+      "sha256": "27abf9855800f3235ba0c3107ff026a5cc99a04db51a8f0c4b03ae38a1630180"
+    },
+    {
+      "path": "public/assets/models/farm-ranch.glb",
+      "bytes": 541496,
+      "sha256": "164d15814b5a6b097c8cc46708608b7425ecf48517d7494c7c44aa769c0ae83f"
+    },
+    {
+      "path": "public/assets/models/farm-sheep.glb",
+      "bytes": 170224,
+      "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6"
+    },
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "bytes": 139172,
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e"
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "bytes": 6336,
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc"
+    },
+    {
+      "path": "public/assets/models/lookout.glb",
+      "bytes": 10884832,
+      "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a"
+    },
+    {
+      "path": "public/assets/models/paddle-track.json",
+      "bytes": 654759,
+      "sha256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1"
+    },
+    {
+      "path": "public/assets/models/paddle.glb",
+      "bytes": 9536,
+      "sha256": "0f1bdc10a8cacf391c40d4a06eb941218101db47d6cbace598d4d54acbb76fd7"
+    },
+    {
+      "path": "public/assets/models/raccoon.glb",
+      "bytes": 12763552,
+      "sha256": "49995845d5646252054a8afcf602decf85798a1ec5c3e78affb72d714f85709c"
+    },
+    {
+      "path": "public/assets/models/tree-mature.glb",
+      "bytes": 1489516,
+      "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52"
+    },
+    {
+      "path": "public/assets/models/tree-seedling.glb",
+      "bytes": 318368,
+      "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213"
+    },
+    {
+      "path": "public/assets/models/tree-sprout.glb",
+      "bytes": 182300,
+      "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c"
+    },
+    {
+      "path": "public/assets/models/tree-young.glb",
+      "bytes": 722564,
+      "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8"
+    },
+    {
+      "path": "public/assets/models/workshop.glb",
+      "bytes": 11852244,
+      "sha256": "e32c9e161d8860b0c0c41df8c3075f0e2eba2a7d663ddf04c2b98685c97d66ad"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c"
+    },
+    {
+      "path": "public/assets/vegetation/lantern-glow.webp",
+      "bytes": 9134,
+      "sha256": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6"
+    }
+  ],
+  "publicDistMatch": true,
+  "modelTrackVegetationBytes": 54339033,
+  "suites": [
+    {
+      "report": {
+        "path": "docs/evidence/2026-10-24-lookout/development-final/headless-validation.json",
+        "bytes": 20916,
+        "sha256": "887b91cf017ad5babb71958dc7c156159c1755e722e2e47a5197b521ffea98ff"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/day-entry.png",
+          "bytes": 1435846,
+          "sha256": "0c52224fa656fc10459ac291a7ab51fddcc1887bd69cc47c84979d3c216d2373"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/day-island.png",
+          "bytes": 1252087,
+          "sha256": "f60fe62602d8abaa29e6f44ccc73fd5edb198965660ac19bf0acd82411132326"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/day-sea.png",
+          "bytes": 1058957,
+          "sha256": "083228952ebd3dda6162eec1f318044e2f75baf82a65617bcbb0587cc40317c3"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/day-upper-limit.png",
+          "bytes": 615343,
+          "sha256": "bbe9b527618b655521057e973e8b8aa0945e37ed7a79ba0b8e1962488d730902"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/day-lower-limit.png",
+          "bytes": 1228257,
+          "sha256": "352be0c6c724f1b8417dfd81fe166ad9f0c6dec291b816e08394d3422aae1a17"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/day-returned.png",
+          "bytes": 1459683,
+          "sha256": "baa9a3fa37338d46b62a1bb8ea6b30adb16a74420a919def9169e4dc1dc70778"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/dusk-entry.png",
+          "bytes": 1289128,
+          "sha256": "b16032017ebb0238f9ed7a1626920582ee2e622a9ef7547bd80fb61d33c781c1"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/dusk-island.png",
+          "bytes": 1138362,
+          "sha256": "669724e4c4f5711b784ca8dc1bfc9b4015241c67569702019428d680f47729d2"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/dusk-sea.png",
+          "bytes": 940266,
+          "sha256": "7195bf69d8f5b531a00334504397e029e8f01d8229bde097fbda3e3b611f06f5"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/dusk-upper-limit.png",
+          "bytes": 544770,
+          "sha256": "a373ee7196b1a143d55340a2ed53b1a671260224036c5935187995cfae498b7c"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/dusk-lower-limit.png",
+          "bytes": 1052908,
+          "sha256": "3bbc96262addb74327b995aaf86cc91aa8c9a699f20f09f4d867771b241463dd"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/dusk-returned.png",
+          "bytes": 1309130,
+          "sha256": "4eaae983d40add61e49861d392b91e3edb5cc75dc751cd6b0aaf0322d68cf830"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/night-entry.png",
+          "bytes": 1163573,
+          "sha256": "806fcf039bd0e02a64093b18212ad5a917f3c4a7e7204109364aae111c49acc4"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/night-island.png",
+          "bytes": 969676,
+          "sha256": "fd324b60b0c39af6d5014d9c8f3694b1932499c7f944537cce590eee25e1fc3c"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/night-sea.png",
+          "bytes": 767680,
+          "sha256": "b44032fe011f13e15efb7a7bb93da93ca6a48a19cb7a173e441f3f7c0ef8dc8c"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/night-upper-limit.png",
+          "bytes": 382716,
+          "sha256": "1285712f95d63b35f76460b98034298f5f2dec99cc28388474ec6549c178fdc9"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/night-lower-limit.png",
+          "bytes": 903072,
+          "sha256": "3cfe5061c0385a8ef2a3a348c226616dde1441a536af1e0183e22c5016dcfd5e"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/development-final/night-returned.png",
+          "bytes": 1183490,
+          "sha256": "9e8bcb4cf48d940aa49ec94265068a27026360037ec2176061089a66585d74e6"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/2026-10-24-lookout/views-final/headless-validation.json",
+        "bytes": 72749,
+        "sha256": "f98fdac4cf51a5fe97f626d230e3fde2d9f92ba93ef2e8e565bac493aee2ed02"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-overview.png",
+          "bytes": 1392222,
+          "sha256": "fd7438c499b28789bb93d685b5419128c0fd5153e66598b95419f29548c51d9e"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-workshop.png",
+          "bytes": 1345937,
+          "sha256": "ea316d0403856a898a271a5cd951f645c6a5d930a7de6abc95e57ca7991c2cf2"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-tower.png",
+          "bytes": 1422281,
+          "sha256": "985d44ffed073adc190cab3eaa1f603fb5be5b6a12b4e2ceceb5fcfeada6af99"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-player.png",
+          "bytes": 1446040,
+          "sha256": "83cca66fad4cf6a5a61d3144d6b841406a1baf6cc19273d94bd4dddd42f53be0"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-dock.png",
+          "bytes": 995948,
+          "sha256": "4927e3175b897041418fbc99967af292048bf1cbeabc3db401e950a8dfe75175"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-farm.png",
+          "bytes": 1518617,
+          "sha256": "322deeafb7ea9c5c42d49d4036e854f6c25a48ecba6ef129f4a3783c6d2c761b"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-pond.png",
+          "bytes": 1494051,
+          "sha256": "aa72954ca82e21afc8762d5da5f94d3257ab0357cd7cbcb75818d27464281ba9"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/day-grove.png",
+          "bytes": 1445602,
+          "sha256": "890ea084c8ff08d4d8a1d6d3368594aeac796ba95c8397db38c972de4a29ea99"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-overview.png",
+          "bytes": 1305860,
+          "sha256": "3e1ebd0b5e1a3f772134716979f379e1e0d1ae9464af6a44474a574ca28e09f3"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-workshop.png",
+          "bytes": 1247914,
+          "sha256": "f90b2b5b17f02d56cf39375f3f0d450834423f6b44fd59579767526f5e2b4b6f"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-tower.png",
+          "bytes": 1280572,
+          "sha256": "04cafe3a9a0925671677264a115c49de0c4f51a929c053d04116e1dbc27ed03a"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-player.png",
+          "bytes": 1317144,
+          "sha256": "1c12cbfd603d65a2adbeaa74303d65bdbda8786bc36fbd09d21900fcb0d8baf2"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-dock.png",
+          "bytes": 876861,
+          "sha256": "2b51659ceaa30d07c45894bbe65653356af4e1e40970715acb8830ae4f8b960e"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-farm.png",
+          "bytes": 1405809,
+          "sha256": "0d141cc4af242f6626f322825ef692b5fba1c0575fb56214b774c5384c402bcd"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-pond.png",
+          "bytes": 1328399,
+          "sha256": "e35226488668242e4fa9102b27ce0e86acef55c60593d8f9fb3f32b4dd41af39"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/dusk-grove.png",
+          "bytes": 1299763,
+          "sha256": "fc3a489a83b2370b50f99a1fb302264bb127a7fad72fcd3519b64f8cdf7be1a2"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-overview.png",
+          "bytes": 1039006,
+          "sha256": "3025616ede5a34750fb1d4f93015fcaf407ed0c0e0e81e08cf4577aca1e0478e"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-workshop.png",
+          "bytes": 1075960,
+          "sha256": "9fec14a0c09f779edf2bdb98cfd6bbc78d8c9458149d4faf46e38be23bc8ddfc"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-tower.png",
+          "bytes": 1141144,
+          "sha256": "e581b4cfba7559d41cc144cc416ba8cd52359d73e64fd557f6391e8a8c61d51c"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-player.png",
+          "bytes": 1186309,
+          "sha256": "6caa5d6f2cdbe19bab60453e969b3a67db2371e437820c01dfbc5397fdae2f8f"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-dock.png",
+          "bytes": 777895,
+          "sha256": "0ed5555715fd59f7e8ea84858f49aa77951c52dc2ef2a05fe937cfc04dbd2ccc"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-farm.png",
+          "bytes": 1230965,
+          "sha256": "379240374ada06a79d6162d9cc8a0e656555328849085b887b4ce2fb9fcfefb0"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-pond.png",
+          "bytes": 1220169,
+          "sha256": "5f354658e07c102444ef8b61effe168d0e871bd802c76064a255adf299c29420"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/views-final/night-grove.png",
+          "bytes": 1198414,
+          "sha256": "1108b2369cbefa98e5d47c7ee32978a95147f83858ef1eb973d73da679fb4645"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/2026-10-24-lookout/production-final/headless-validation.json",
+        "bytes": 2269,
+        "sha256": "ff362c4d1d78d31be67bf6fd2368b843180dd04e614cc8f5c0be8c3611c94b2a"
+      },
+      "status": "PASS: production tower route and viewing loop, no development telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/2026-10-24-lookout/production-final/01-built-spawn.png",
+          "bytes": 1565345,
+          "sha256": "68daa33909fff04f4ce462563e8468143fb7ed34d9cddc40ff1f3cf1e6ef11e6"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/production-final/02-entry.png",
+          "bytes": 1458865,
+          "sha256": "609e4bbd43c90841a327d1f70cc90bc3c9c814f75aa674dc055a8ffe22442ff5"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/production-final/03-island.png",
+          "bytes": 1254278,
+          "sha256": "c8504ce670c69a0f9f24383c0260f1988edc2196789414ec7b4c5479f1c0de50"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/production-final/04-sea.png",
+          "bytes": 1060382,
+          "sha256": "235afe42bf0226ab5bbfe88e3b1014a1aeccbc726e1d441d3f145289d985dfc2"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/production-final/05-returned.png",
+          "bytes": 1459373,
+          "sha256": "724860d3ef4fb58f3a9f8b2e13df8f992623c3b62a4b334c20ab75ac38c71f54"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/production-final/06-reload.png",
+          "bytes": 1561426,
+          "sha256": "232ef2402b3487884336d9a0edd280ba81f6541a9da8400effe751b9bb80c704"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/2026-10-24-lookout/rowing-production/headless-validation.json",
+        "bytes": 2236,
+        "sha256": "de682a172b521b9b985d5d0957b6715949f5caf7d91b9d14892caa09fef9c8d1"
+      },
+      "status": "PASS: static build load, sixteen model/track resources, boarding/rowing HUD, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/2026-10-24-lookout/rowing-production/01-built-spawn.png",
+          "bytes": 1001081,
+          "sha256": "429d4e879fbe379e6d6966069c5269d460251b42187c287107f83ed0374295c4"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/rowing-production/02-built-rowing-water.png",
+          "bytes": 813087,
+          "sha256": "9277c5596a9ba39f4d9c5eade237fb9cf5cc26f835c0e954795fa9e2a7a72298"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/rowing-production/03-built-landed.png",
+          "bytes": 1082681,
+          "sha256": "81e26cff5eda1cdb6764b13105d04d2e9a57694642df0a65aac43933f674df14"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/2026-10-24-lookout/growth-production/headless-validation.json",
+        "bytes": 1488,
+        "sha256": "c0f6469ccf64c3643b712ef5dc59a6627a9417feb34b8bdb5e63e882d8f25086"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/2026-10-24-lookout/growth-production/01-production-sprout.png",
+          "bytes": 796277,
+          "sha256": "3fbe75b2b8c72ac245f09ffa247675edfd3833579194765d0393c50971440014"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/growth-production/02-production-seedling.png",
+          "bytes": 1077252,
+          "sha256": "31832b9f1d2ac318396ac91fa188f79a2982e3e462ab92d94b9ff338467ec5dd"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/growth-production/03-production-reload.png",
+          "bytes": 1076897,
+          "sha256": "dba5cf5d1c5483fabe48e96211204eadba4f14de1dae95eb8fa4ca8a97e775c6"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/growth-production/04-production-offline-mature.png",
+          "bytes": 1469015,
+          "sha256": "658ed06e141b40227f76e0c39dacafcaa48b67ebdb1a4b063df0f6a1f48c025a"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/2026-10-24-lookout/farm-production/headless-validation.json",
+        "bytes": 2403,
+        "sha256": "e87f9acdefb63f0388cd4a21fd561eeb47a1c2903592626d108ec468b7e90863"
+      },
+      "status": "PASS: static build load, sixteen model/track resources, farm feeding and reload, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/2026-10-24-lookout/farm-production/01-built-spawn.png",
+          "bytes": 1565320,
+          "sha256": "97150c841d361ea6f5b67cd4d5a49b275cdd7d9b08f3a92937f86c1f257f7407"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/farm-production/02-built-farm.png",
+          "bytes": 1354232,
+          "sha256": "29b47d36031a97103e2827ffa026941cae828578ffadcfd949dcabe16aaf292f"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/farm-production/03-built-fed.png",
+          "bytes": 1421191,
+          "sha256": "1ad6154c5b71bbc03bd2cce4bbda429bb91ecd14910ff31fe5918616b2676984"
+        },
+        {
+          "path": "docs/evidence/2026-10-24-lookout/farm-production/04-built-reload.png",
+          "bytes": 1346896,
+          "sha256": "0cad79b23cdff71d4243e8e809a1bb79c4bf3ec9c2039f4b1b6a9669f7fdc0e4"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/headless-validation.json",
+        "bytes": 2357,
+        "sha256": "bc013d88699ed5ae2c1bb1ba85a5228c08fcd226859ca1246b71d4851882fa2a"
+      },
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/01-cast.png",
+          "bytes": 1155542,
+          "sha256": "011d4ab5f271607cc0f203b678f383b8c016f62294178764a724cdcdd04db203"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/02-waiting.png",
+          "bytes": 1154799,
+          "sha256": "13f54334df11ad9d1576707dec813d2ab4c46cc49ea2c26ff19bdbff2ebce355"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/03-bite.png",
+          "bytes": 1161471,
+          "sha256": "24ef99b19dd190c1a786f044d084297f2a06eb7c5f8ed43c2262b483dcf0e089"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/04-tension-panel.png",
+          "bytes": 1149716,
+          "sha256": "51f00dc505ba6776ea6cc6c20469db8dc8b331cc3f127e72fb0800d20f0e3df6"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/05-visible-catch.png",
+          "bytes": 1149713,
+          "sha256": "e85a3295ff06b9d1d9433d24b53e9e2ca0209fb11ca52c63eabac7310422e266"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-lookout-final-fishing_production/06-saved-book.png",
+          "bytes": 1562516,
+          "sha256": "89ff9296f1745479306e864626d6e94c31cef1a11bc7662c78e38ebc810ae4ec"
+        }
+      ]
+    }
+  ],
+  "postChangeScreenshots": 65,
+  "before": {
+    "report": {
+      "path": "docs/evidence/2026-10-24-lookout/before/headless-validation.json",
+      "bytes": 17015,
+      "sha256": "f2dd19ce241dd316e9edc320be927b697fa3122b0e38bd1cff07f13c38aed2ed"
+    },
+    "status": "PASS",
+    "screenshots": [
+      {
+        "path": "docs/evidence/2026-10-24-lookout/before/day-overview.png",
+        "bytes": 1392709,
+        "sha256": "bfd60ecabaea2c062508fadb1cba69d2bd84bf61c42acac05d17ed8e102c1bfd"
+      },
+      {
+        "path": "docs/evidence/2026-10-24-lookout/before/day-workshop.png",
+        "bytes": 1345989,
+        "sha256": "d704f7fefa640673b095f45e7aba508a2a3c697cd99fdc8085ab1c407b1335d0"
+      },
+      {
+        "path": "docs/evidence/2026-10-24-lookout/before/day-tower.png",
+        "bytes": 1421623,
+        "sha256": "d8acb406e781b207f2a70351eb41e452a31ebc5dedf224ae89a55d020e27ab42"
+      },
+      {
+        "path": "docs/evidence/2026-10-24-lookout/before/day-player.png",
+        "bytes": 1446361,
+        "sha256": "cf287bf6aef6194d3cdb5569bc6989adaf91ea5589b8022a08875b6adc90b34f"
+      },
+      {
+        "path": "docs/evidence/2026-10-24-lookout/before/day-dock.png",
+        "bytes": 995973,
+        "sha256": "390adec472bf22c937e654e6d6d1f846239df4638a2536c35317a098ca4d4180"
+      },
+      {
+        "path": "docs/evidence/2026-10-24-lookout/before/day-farm.png",
+        "bytes": 1518794,
+        "sha256": "dc02e6b5a96e234e9c6cda45f2f3e7c616f8bf0a77b648b896d7cf13941c1bb2"
+      }
+    ]
+  },
+  "localLinks": 211,
+  "mainJs": {
+    "path": "dist/assets/index-FUTEoASP.js",
+    "bytes": 1288270,
+    "sha256": "19310dc500e32372b1384090a5b8275da6cb5de74a0554766b9b799ac29700c4",
+    "gzipLevel6Bytes": 363394
+  },
+  "code": [
+    {
+      "path": "src/game/lookout.ts",
+      "bytes": 915,
+      "sha256": "2f8e50b2c476ba54fa5a21e1b9ffe08e2b13108e3fafa13cb88cf462c2db7ec4"
+    },
+    {
+      "path": "src/game/lookout.test.ts",
+      "bytes": 3074,
+      "sha256": "52c196c625597df718537a667feb09b1152fd18d13d57218f57678854ca4c7a9"
+    },
+    {
+      "path": "src/game/store.ts",
+      "bytes": 11782,
+      "sha256": "7954eb32b9d41100dcef79581032918edc15d6115fc91dce92d37b4e306a0089"
+    },
+    {
+      "path": "src/game/landmarks.ts",
+      "bytes": 1409,
+      "sha256": "b54815c8e6eb48597dc932f0354d0ef940f609e81a3e4f069f79c4c9ede94a41"
+    },
+    {
+      "path": "src/world/ForestWorld.tsx",
+      "bytes": 13408,
+      "sha256": "6f9d53397a66a70e5da79b04a03e19df246284c8cdabded079ce1d0df6efda84"
+    },
+    {
+      "path": "src/world/ForestKit.tsx",
+      "bytes": 8896,
+      "sha256": "1f9ab4cd4e3926faa834591c397c9a5d3b20e69bb06d2eb5b46cba41c1d0a9fd"
+    },
+    {
+      "path": "src/BoatTransferOverlay.tsx",
+      "bytes": 525,
+      "sha256": "eee53074110701d182f1bd0a9f2b6c07b02dde13bc06e30b28bd497c44a97813"
+    },
+    {
+      "path": "src/LookoutHud.tsx",
+      "bytes": 749,
+      "sha256": "4ee7b7354ffef8a6c977ee9ecc24ce72974be0b9a9ed7b2ebd79cde3378badc8"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 6196,
+      "sha256": "b773f54e14745906f84bec4aa1c460ec85e744b3d90caedbf71cc3cab1a0a517"
+    },
+    {
+      "path": "src/App.css",
+      "bytes": 5565,
+      "sha256": "5d8459f42b42a4a5e83c87d5771936ec658dc93a5aee65d1faeb6ccdce4a929e"
+    },
+    {
+      "path": "scripts/check_lookout_headless.mjs",
+      "bytes": 8047,
+      "sha256": "1632c71b109952687c32587cc98da833fc9a005dff65404ec7752667dca15ad7"
+    },
+    {
+      "path": "scripts/check_lookout_production.mjs",
+      "bytes": 8206,
+      "sha256": "651d910ae4077b96e164581194463e8d214ce6698ee04337c1fe8ddc2962c4f8"
+    },
+    {
+      "path": "scripts/check_lookout_views.mjs",
+      "bytes": 5071,
+      "sha256": "2265a6c4c51d58fdf2a0f3ba8c36ec3d17e21eb8a4811e0b625aa10f82d99b9c"
+    },
+    {
+      "path": "scripts/audit_lookout_geometry.cjs",
+      "bytes": 2531,
+      "sha256": "f009126f3d65ec60d303c6b1e96ba48c111fbdebf0f1c056b56b5310a5c6cfd5"
+    },
+    {
+      "path": "scripts/audit_lookout.py",
+      "bytes": 4471,
+      "sha256": "8024b1935ccdc3117ae73410929aae955fd4eb2f70de147eeb6ed1f4b7c9ced5"
+    }
+  ],
+  "limits": [
+    "First-person observation camera, not free stair climbing or climbing animation.",
+    "Ground position is retained; view is not saved across reload.",
+    "Development start positions are fixtures; production travels using real keyboard input.",
+    "No new assets, generation, fees or deployment.",
+    "Download size is advisory per latest user instruction; cross-device performance remains unverified."
+  ],
+  "failuresPreserved": [
+    "development-v1/headless-validation.json",
+    "development-v2/headless-validation.json",
+    "development-hmr/headless-validation.json",
+    "production-lamp-blocked/headless-validation.json"
+  ]
+}

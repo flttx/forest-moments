@@ -20,11 +20,11 @@
 
 执行入口：`node scripts/aholo/check_runtime_headless.mjs`，开发服务 `http://127.0.0.1:5176/?qa`。`?qa` 只在开发环境提供只读位置/动作遥测，生产构建移除。脚本使用浏览器键盘事件实际驱动角色，读取真实 mixer 动作与位置，失败退出非零。
 
-环境：Edge 155.0.4283.62，WebGL2，ANGLE / NVIDIA GeForce RTX 3050 / D3D11，1440×900、DPR 1。验证范围包括四模型就绪、idle/walk/run、碰撞后待机、blur 清按键、输入框排除、工坊阻挡、池塘阻挡、码头脚底与栽苗后刷新存档。最新结果以 [机器记录](headless-validation.json) 为准。
+环境：Edge 155.0.4283.62，WebGL2，ANGLE / NVIDIA GeForce RTX 3050 / D3D11，1440×900、DPR 1。验证范围包括四模型就绪、idle/walk/run、碰撞后待机、blur 清按键、输入框排除、工坊阻挡、池塘阻挡、码头脚底与栽苗后刷新存档。最新结果以 机器记录（本地原始记录：`headless-validation.json`） 为准。
 
 固定池塘机位预热 2 秒、RAF 采样 30 秒约 60 FPS，P95 约 16.8 ms；没有把帧间隔当作 GPU 耗时或全场景/全设备验收，也未测峰值内存和真实公网冷加载。约 230 万绘制三角面含阴影等绘制通道，不等于资产几何面数翻倍。
 
-过程中预览服务曾停止，导致加载检查超时；保留 [失败记录](service-stopped-validation.json) 和 headless-failure.png。恢复 5176 服务后复测；失败没有被解释为模型缺失或静默删除。
+过程中预览服务曾停止，导致加载检查超时；保留 失败记录（本地原始记录：`service-stopped-validation.json`） 和 headless-failure.png。恢复 5176 服务后复测；失败没有被解释为模型缺失或静默删除。
 
 截图：[出生点](headless-spawn.png)、[走路](headless-walk.png)、[跑步](headless-run.png)、[工坊碰撞](headless-workshop-collision.png)、[池塘](headless-pond-collision.png)、[码头](headless-dock.png)、[树苗](headless-seedling.png)。初版船舱水面穿入图保存在 before-waterline/，均为真实浏览器截图。
 
@@ -34,7 +34,7 @@ Blender 5.2.1 LTS / Cycles，1100×900，使用同一角色和船源文件，场
 
 v1 用错桨的指向，[帧 162](canoe-assembly/paddle-162.png) 桨叶朝上，不采用。v2 反转握持方向并用实际桨杆轴线对齐双手骨中心：[起始姿势](canoe-assembly-v2/paddle-000.png)、[中段](canoe-assembly-v2/paddle-108.png)、[划桨姿势](canoe-assembly-v2/paddle-162.png)、[侧面](canoe-assembly-v2/side.png)。两版各 6 张真实渲染，独立保存 assembly-review.blend / assembly-review-v2.blend；未导出覆盖角色或运行时文件。
 
-**组合尚未通过连续碰撞验证。** 217 个动作帧逐帧检查中，76 帧的桨杆中心线与原船体相交；[完整坐标与命中帧](canoe-assembly-v2/alignment.json) 已保留。双手骨中心对齐不是手掌握实的证明；桨叶厚度、身体/尾巴与船的完整接触尚未认证。静态尺寸可容纳角色，但目前不能直接作为正式划船动作接入。下一步应调整船桨相对握点与船内布局/动作使用方式，保持用户接受的角色文件不变。
+**组合尚未通过连续碰撞验证。** 217 个动作帧逐帧检查中，76 帧的桨杆中心线与原船体相交；完整坐标与命中帧（本地原始记录：`canoe-assembly-v2/alignment.json`） 已保留。双手骨中心对齐不是手掌握实的证明；桨叶厚度、身体/尾巴与船的完整接触尚未认证。静态尺寸可容纳角色，但目前不能直接作为正式划船动作接入。下一步应调整船桨相对握点与船内布局/动作使用方式，保持用户接受的角色文件不变。
 
 ## 证据与限制
 

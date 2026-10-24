@@ -1,0 +1,880 @@
+{
+  "date": "2026-10-24T04:58:06.868497+00:00",
+  "status": "PASS",
+  "static": {
+    "lint": "PASS, no warnings",
+    "tests": "34/34 in 10 files",
+    "build": "PASS with existing >500 kB chunk warning"
+  },
+  "suites": [
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/development/headless-validation.json",
+        "bytes": 213340,
+        "sha256": "0ebe0948ef0ca1dbd0ef2293196ec69375d5dd1b43b1f832af0aa3738ae77509"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/01-before-boarding.png",
+          "bytes": 1080937,
+          "sha256": "eb25c603639843ddaa4c38fd8fb37fe93adc987868f33c8b7effe32bdfda7028",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/02-boarding-shade.png",
+          "bytes": 502467,
+          "sha256": "84a3e4b0a503d77b04608874db92e4e65b5bfbfbaeb5fb1ce0e072ca702b02ee",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/03-seated.png",
+          "bytes": 845351,
+          "sha256": "f9089b17a278f4662a95da08c6908e2613babff12f2561cd0eb88e63d6b75153",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/04-moving-water.png",
+          "bytes": 750338,
+          "sha256": "64104bd5dd2e796b1795e79111fc7119a16be905150acaaed1af8acbb0dc2c9b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/05-reduced-motion.png",
+          "bytes": 767694,
+          "sha256": "27eae3861d1b3370e8732bf9ffb356250b3367334717d9002cf31b560bd90a97",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/06-stroke-25.png",
+          "bytes": 746140,
+          "sha256": "27ca4833aca3d8edcaf22fb984b199c0c241edcdcd320671315bfae2737be34a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/06-stroke-55.png",
+          "bytes": 740299,
+          "sha256": "a536842a1d9e289b0cc1338798b9d16c22245bfd7dcfd0ea83d50b4f099d692a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/07-settled-water.png",
+          "bytes": 743972,
+          "sha256": "fbe758012d014a35280776b01fc7554586508f9669cff36329328cd94290079c",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/08-returned.png",
+          "bytes": 869616,
+          "sha256": "486bad3f244580c65fc50dd2ebd38ef9f4c7545ebc303998c75c82adc6431c0c",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/09-landed.png",
+          "bytes": 1086596,
+          "sha256": "673d21f829883aef628c6975b8b3814edb66bb974025d05cffb759fc2ea3db9b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/development/10-back-on-island.png",
+          "bytes": 1406139,
+          "sha256": "c06c2ef2dd21f4a8128d995fd0e20669342c9c3fc529c7b1869b37fdc3f1a694",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/headless-validation.json",
+        "bytes": 326483,
+        "sha256": "1d117243971ccba13a7eafd4afd10c3242dbc85727bb632262a39c6470f6f1b7"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/01-before-boarding.png",
+          "bytes": 926117,
+          "sha256": "66ccf09a32b45ad94da320510b20ca01872d46a9e1e741147345689630872b11",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/02-boarding-shade.png",
+          "bytes": 171620,
+          "sha256": "12b8fce963c1fcb11e4ece44a2eb34c257b062580d521c73eed888e90afd6bb4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/03-seated.png",
+          "bytes": 716694,
+          "sha256": "eda09dab4ace82c9910268b8f7d9fe3d4786431aed4efcb68fff6239a4901fe4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/04-moving-water.png",
+          "bytes": 594883,
+          "sha256": "152d1d70dbef53300a0df230a4c9585ced4b1bac6743043b77f3232adfae2802",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/05-reduced-motion.png",
+          "bytes": 585753,
+          "sha256": "fa0b6d59b56de20a460906b1506a753a55ed8ac6b3628ce1c59dc9496bb4e97b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/06-stroke-25.png",
+          "bytes": 581503,
+          "sha256": "2bd69ec309e7a27d122e7ef58996369860dc51845e03e6cfeda1653f16302086",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/06-stroke-55.png",
+          "bytes": 571305,
+          "sha256": "57dca8c9d7f4fbc87d4fc1e3224d648b618f5260286303601c2d3206a6ac63d4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/07-settled-water.png",
+          "bytes": 570402,
+          "sha256": "ef60f6c80b5f5d865233e2c9575085d03a3d5cae99feb0f852fd96134f441b20",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/08-returned.png",
+          "bytes": 728071,
+          "sha256": "010025bbfc558d65d34c02bbe2b38bf6643a013741d4605d472f543f933bd5cd",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/09-landed.png",
+          "bytes": 931459,
+          "sha256": "fb993c98486890ef5cf30b75a44ad022d877b8f53a3bf8526f5a47373613fced",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/10-back-on-island.png",
+          "bytes": 1275261,
+          "sha256": "7e55f6f836f2f614a0f7f79db8325e7fae3ad0b1a35220639815ef1fb501395d",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/night-final/headless-validation.json",
+        "bytes": 323871,
+        "sha256": "12c0ea096d60b0c3a21a70b84d3556841864a06201c36336aeea7cf86a3d5ad0"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/01-before-boarding.png",
+          "bytes": 868366,
+          "sha256": "73072e092d0b6e1798910830e5762537d91ea9e31061e55e855e895a2c6a8897",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/02-boarding-shade.png",
+          "bytes": 369014,
+          "sha256": "6b9b89f444a1db3a6062de0372e89f0e066e09ab01e2c5393b091e0766f502f3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/03-seated.png",
+          "bytes": 663879,
+          "sha256": "73634ae486a83534eb00ebdd447ef2c6ae0cc218ac6e2a237a6d755b59dc6a8a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/04-moving-water.png",
+          "bytes": 524015,
+          "sha256": "66e24979cc9dff4e53407bdfff557cdf1d05117479d022743385e5b2085b17a3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/05-reduced-motion.png",
+          "bytes": 530940,
+          "sha256": "5a3e1610a9ef843bfbb1468f7bd0eee74b83a62518a25063f806024e860717c7",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/06-stroke-25.png",
+          "bytes": 523669,
+          "sha256": "207035477f7bd53d3475d73e7b6f668b5a552bac498f50eb6958d9894eafe3fd",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/06-stroke-55.png",
+          "bytes": 534231,
+          "sha256": "e9f2e2170f2d391bb634c45569b496a66dcb44f3f9fb54c80599477d8b0d7069",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/07-settled-water.png",
+          "bytes": 542797,
+          "sha256": "7f1e992f0e2ed7d670cefae4b1e8e52880f4e57186fd06975d98c277fa7a4422",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/08-returned.png",
+          "bytes": 671368,
+          "sha256": "71e49110c0a1274d15aa89dbad561cf3e6228a2345a074930e42b32ce89568ac",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/09-landed.png",
+          "bytes": 857292,
+          "sha256": "948debc16f1b5ef6ee49ec6763422201972f03e7c43880cb0697f27c85fc0d6d",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/night-final/10-back-on-island.png",
+          "bytes": 1177159,
+          "sha256": "434735e6ee27b8e5249cd603dfa472a60d1de14cf3cd0412a3833364f4719400",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/views-final/headless-validation.json",
+        "bytes": 1098,
+        "sha256": "c5658a745208d5d0a7d620dee488bb794f33f391856e2898585eb85fa84522b2"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-default.png",
+          "bytes": 1565710,
+          "sha256": "3743e3ce330bd166343526cbf49c1858e52f463f3c9a63ce56cb6264b46276a6",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-overview.png",
+          "bytes": 1383803,
+          "sha256": "34072e031484900da20d763566f93fe3bd887c799a13c0ed3419f71cb89addd5",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-pond.png",
+          "bytes": 1494398,
+          "sha256": "c86235ee3a33e9698d029709a36be0e2af50cad9ac7bb9e6f66ba8987ed1c040",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-workshop.png",
+          "bytes": 1344896,
+          "sha256": "7b5f8c45a79b7251b0b45482a998685af40901bdd45a1005c84c7a765e33c1c3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-tower.png",
+          "bytes": 1422552,
+          "sha256": "da31d4e1fc7783c367605c8a169686e29e2450859c736bc5457833e44f084586",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-farm.png",
+          "bytes": 1404427,
+          "sha256": "48391393b8c9e2747baadff13dcb6a0785314be166225ba79593e75657d1e2f2",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-player.png",
+          "bytes": 1445396,
+          "sha256": "b9f168fe811a3280dd51aa84b545f8a6f054ab1f340ad675ab8e8348717f3491",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/day-dock.png",
+          "bytes": 995368,
+          "sha256": "91a79008af9f35bce2385aa934a102615a69f8fcdfeac5578330f8b76578de83",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-default.png",
+          "bytes": 1431682,
+          "sha256": "db202d023223129055acbce6cb4f98b7789e8f8962d8415539b483c261e21d1a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-overview.png",
+          "bytes": 1298804,
+          "sha256": "64a5b729affcb7472432e6ef8f40cf89f022de67fd81b1dfe3939965da83ff76",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-pond.png",
+          "bytes": 1331293,
+          "sha256": "0b9c5ca35d61e51d67689ca354d231e021f287853320ec576783b3a77dbb15ee",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-workshop.png",
+          "bytes": 1247120,
+          "sha256": "7a748a8d29eb10b0e4e181db7378f1bf4540df649b66c827a83a1e60ebb48a3d",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-tower.png",
+          "bytes": 1280604,
+          "sha256": "183ba0ee63fa5100413562011cd4f6f160a2e604232827d4e1de1de774016104",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-farm.png",
+          "bytes": 1340283,
+          "sha256": "f085bdc36e8c77209e849ef8b92ea4f80d43ebfa91b096dc3bb8023ba4c4835f",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-player.png",
+          "bytes": 1315983,
+          "sha256": "7628d36ca60bfebfae92a0d5b95be0c4245dfd50672a70626d291edeff9cd022",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/dusk-dock.png",
+          "bytes": 876682,
+          "sha256": "4a8532a6f120ce0b8c0e669e6004699222ef19ed717ed2f389f7aaf52cd0c72e",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-default.png",
+          "bytes": 1299827,
+          "sha256": "2d1dee98ee0bb98496cdf9342f17889a7b1d87f48909fea00d3536316f4be811",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-overview.png",
+          "bytes": 1032978,
+          "sha256": "ca6be54dd07f2c4d84827850c99744fafedd69dc0aeeb6dd51dd1d09f184164f",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-pond.png",
+          "bytes": 1222865,
+          "sha256": "d9007578dcf77de187d7f881bf1113dc06045e2bfa4b03dd29839e595945d256",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-workshop.png",
+          "bytes": 1075179,
+          "sha256": "ec4467ec112c25c8ee3a5afc6069e294c0e0c341919f1f9553db895579ba4fb2",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-tower.png",
+          "bytes": 1142198,
+          "sha256": "937cd54d2cae3264a73af16230708feda00694a5d423673d5dcbc0a5267d4c3a",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-farm.png",
+          "bytes": 1169550,
+          "sha256": "cce38c8b9386bd9d0b66aae868b3bbe201334e9bbad6a2f5020c25d88d01772b",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-player.png",
+          "bytes": 1185089,
+          "sha256": "333227c5b3930da63bb926b07f2c3c98a2b8f1c7bf70d739471ea6e3e0ae022f",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/night-dock.png",
+          "bytes": 776769,
+          "sha256": "ab3dbc668254c736352bc3658bb39668da85548ffcb44749b3ce2ecfe6eb69fd",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/views-final/reduced-motion-dock.png",
+          "bytes": 779297,
+          "sha256": "eeb24f15d62af5c4f67bb21b8501a22fe127f73abab7cc6af25aca91032dd6c4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/production/headless-validation.json",
+        "bytes": 1968,
+        "sha256": "f729d1cd19a6268935f9bcb3a155eb3a0e6329e11b4736ccca5fa28478f20708"
+      },
+      "status": "PASS: static build load, thirteen model/track resources, boarding/rowing HUD, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/production/01-built-spawn.png",
+          "bytes": 1564787,
+          "sha256": "e977592b5b0efd1e01319d388b8600a11da1fbaeb7634767ff83a9795c383314",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/production/02-built-rowing-water.png",
+          "bytes": 818016,
+          "sha256": "ecd7dd37f1e1c139d21d76a296756d51675579b113ec0dcbe27d99bebb0484d4",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/production/03-built-landed.png",
+          "bytes": 1081680,
+          "sha256": "1ce39da72f71d45f1194fa9300c62c3648156f9c641b2f2b735cbe2ff7fa7ed3",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/growth-production/headless-validation.json",
+        "bytes": 1378,
+        "sha256": "f3d21af042c6f64e9161f90c2d7445ea41c12197b68d2bc8a767b42605ef3b57"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/growth-production/01-production-sprout.png",
+          "bytes": 780636,
+          "sha256": "a5d4f27fb03f5e7d0d0c1a9b74af7d50d7fe1db372fa3f5d76c4e61e4eb5dcbc",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/growth-production/02-production-seedling.png",
+          "bytes": 1065523,
+          "sha256": "6a0f0f61c2b9d7058a48821fb1d4cdbfdfeab48c42d8740fa3d77e02210e4274",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/growth-production/03-production-reload.png",
+          "bytes": 1051947,
+          "sha256": "69624ecac0bc027df3be1bbab081899690d75a7cb03aae183930c995a0dc8a36",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/growth-production/04-production-offline-mature.png",
+          "bytes": 1465052,
+          "sha256": "8fefba8ce2dd579c558493fafee3e78106b2d0294d3d814eca8da80467e9dddf",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "report": {
+        "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/headless-validation.json",
+        "bytes": 2119,
+        "sha256": "7ddac34e1b843d29310bb0525b6c4581058655afa538a2f3dd24bd115705220f"
+      },
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/01-cast.png",
+          "bytes": 1155969,
+          "sha256": "2f6ef86168ae2199937640a4ba1dfd4ceeb027ad4dae6db292c237aaadd1b5d8",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/02-waiting.png",
+          "bytes": 1156171,
+          "sha256": "19d08e671687a037fd487ffb284e17feb5c669d3bdfe598602fa3c5a564c46a9",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/03-bite.png",
+          "bytes": 1163463,
+          "sha256": "6a7e60d95db6dfc7c91cbf99b97de566c9023c908445cbda8dee6956f1bc1f31",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/04-tension-panel.png",
+          "bytes": 1148137,
+          "sha256": "526f2a11158e2b5754ac978aba2bb93c0006f297c6e045c86f2fd392a56c062f",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/05-visible-catch.png",
+          "bytes": 1146103,
+          "sha256": "1903d600960f2616131a0ed76ba514e13ea389efa609a2b99ce4b727c2b6636d",
+          "dimensions": [
+            1440,
+            900
+          ]
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-rowing-polish-final-fishing_production/06-saved-book.png",
+          "bytes": 1561431,
+          "sha256": "773056ab54dd9661adf23869f90bb47d799e998bead71cc4449316b823a6bc45",
+          "dimensions": [
+            1440,
+            900
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ],
+  "screenshots": 71,
+  "localLinks": 171,
+  "modelsUnchanged": [
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "sha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/canoe.glb",
+      "sha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/lookout.glb",
+      "sha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/raccoon.glb",
+      "sha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/workshop.glb",
+      "sha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+      "matchesTrackedLfs": true
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/tree-sprout.glb",
+      "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c"
+    },
+    {
+      "path": "public/assets/models/tree-seedling.glb",
+      "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213"
+    },
+    {
+      "path": "public/assets/models/tree-young.glb",
+      "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8"
+    },
+    {
+      "path": "public/assets/models/tree-mature.glb",
+      "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52"
+    }
+  ],
+  "paddleTrack": {
+    "path": "public/assets/models/paddle-track.json",
+    "bytes": 654759,
+    "sha256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1"
+  },
+  "vegetationUnchanged": true,
+  "modelTrackVegetationBytes": 103039613,
+  "mainJs": {
+    "path": "dist/assets/index-CyPdLpaL.js",
+    "bytes": 1277347,
+    "sha256": "735946e304f39c688bfaf9a71277c0ae8b38b0d426d1b2e40de188092fe4ab29",
+    "gzipLevel": 6,
+    "gzipBytes": 359436
+  },
+  "code": [
+    {
+      "path": "src/game/boatPresentation.ts",
+      "bytes": 1030,
+      "sha256": "3d0de7748dc185edefcba62cd47dd270b62801ea156869b82d3b3cfcd19e48f7"
+    },
+    {
+      "path": "src/game/store.ts",
+      "bytes": 8129,
+      "sha256": "2a5ec68b494caded63cb839c395d576bf1f020a28a00dfbf42210d7c8ff9cfc0"
+    },
+    {
+      "path": "src/game/rowing.test.ts",
+      "bytes": 5256,
+      "sha256": "87ad5142162412b2bd1de4291042354355f26c45781d05460055ef6a3125dc39"
+    },
+    {
+      "path": "src/world/ForestWorld.tsx",
+      "bytes": 12543,
+      "sha256": "9edb233de473dbd96016f3e6b0bd257908fbfb5885f75207c752bcd8b318796e"
+    },
+    {
+      "path": "src/world/RowingBoat.tsx",
+      "bytes": 5014,
+      "sha256": "3224e8b882f841c107b83ca3c0ce4accc083e37398f558041b4915a15fe27315"
+    },
+    {
+      "path": "src/world/BoatWaterFeedback.tsx",
+      "bytes": 3805,
+      "sha256": "af7851a89185f1afa72c96b1bc8473186c53ee7e9ccc37e689b594ada8e332b7"
+    },
+    {
+      "path": "src/BoatTransferOverlay.tsx",
+      "bytes": 480,
+      "sha256": "f0c0008c495d8bf85bd09cd9dccd8bbcba59e739fe35339467660d3b4ddb0339"
+    },
+    {
+      "path": "src/App.tsx",
+      "bytes": 4738,
+      "sha256": "040009eade4c1441aae8bfc3a3293fd7405ce38c731c17f155582e080f0d226f"
+    },
+    {
+      "path": "src/App.css",
+      "bytes": 5383,
+      "sha256": "3ea73d7a173d0df83eabff7aefa0f3f93876f9a4cf5d7e1c7b049bbc6ed9ca30"
+    },
+    {
+      "path": "scripts/check_rowing_polish.mjs",
+      "bytes": 9672,
+      "sha256": "b596cf516dcaa54129a02582c954f32ddfdb79805a6649bf5d3408feb882c5d6"
+    },
+    {
+      "path": "scripts/check_rowing_views.mjs",
+      "bytes": 5059,
+      "sha256": "3b73120026a59a40cb6050d5171ad79d0c4e29bd848ed98718a749a787ad241c"
+    },
+    {
+      "path": "scripts/check_coastal_production.mjs",
+      "bytes": 7604,
+      "sha256": "283be5fffd5ff75474ae558e97bdef83e83d74731696535c150bc4428c4e6d12"
+    },
+    {
+      "path": "scripts/browser-session.mjs",
+      "bytes": 3785,
+      "sha256": "b541adebbc23f9165e74dca3227ae46c429a980f043d2844a1bf0b37e5fd603b"
+    },
+    {
+      "path": "scripts/check_vegetation_regressions.mjs",
+      "bytes": 2746,
+      "sha256": "e0158b0d8e4a383ccc9938677f19906e466b80caa528fc02aab16ef5864714bc"
+    }
+  ],
+  "failureNotes": [
+    "Initial exact-zero test failed on signed negative zero; corrected to an explicit neutral pose.",
+    "Initial mutable useMemo pool triggered two lint warnings; replaced with a ref.",
+    "Concurrent heavy browser runs encountered texture/shader failures, a screenshot timeout and local dev-server exit. Cause not conclusively established.",
+    "Retained failed runs: views, dusk, night and regression-rowing-polish-fishing_production. Restarted local dev server and reran these suites sequentially into final folders.",
+    "After browser-temp migration the generated fishing runner retained an invalid relative import. Fixed to a module URL and project-local temporary script cleanup; production fishing and cleanup then passed."
+  ],
+  "scope": "Local isolated headless Edge 156, 1440x900, RTX 5060 Ti. No rigid-body buoyancy, dedicated boarding animation, cross-device or public-network performance approval."
+}

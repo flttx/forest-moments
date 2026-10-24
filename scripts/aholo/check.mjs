@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
-import { tmpdir } from 'node:os';
+import { readFile, rm } from 'node:fs/promises';
+import { createProjectTempDirectory } from '../browser-session.mjs';
 import { join } from 'node:path';
 import { createHash } from 'node:crypto';
 import { reserve, createOnce, unwrap, missingBlocks, assertUploadResume, assertMultiResume } from './aholo.mjs';
 
-const directory = await mkdtemp(join(tmpdir(), 'aholo-check-'));
+const directory = await createProjectTempDirectory('aholo-check-');
 try {
   const ledger = join(directory, 'ledger.json');
   await reserve(ledger, { original: true });

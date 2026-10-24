@@ -1,0 +1,46 @@
+{
+  "wood": [
+    {
+      "key": "a",
+      "distance": 6.75
+    },
+    {
+      "key": "s",
+      "distance": 9.75
+    },
+    {
+      "key": "a",
+      "distance": 0.25
+    },
+    {
+      "key": "s",
+      "distance": 0.25
+    },
+    {
+      "key": "a",
+      "distance": 0.5
+    },
+    {
+      "key": "s",
+      "distance": 0.25
+    }
+  ],
+  "door": [
+    {
+      "key": "a",
+      "distance": 0.25
+    },
+    {
+      "key": "s",
+      "distance": 1.25
+    },
+    {
+      "key": "a",
+      "distance": 4.25
+    },
+    {
+      "key": "s",
+      "distance": 0.5
+    }
+  ]
+}

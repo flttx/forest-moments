@@ -51,7 +51,7 @@ export async function reserve(path, value) {
   await writeFile(path, JSON.stringify(value, null, 2) + '\n', { flag: 'wx' });
 }
 
-async function upload(bytes, filename) {
+export async function upload(bytes, filename) {
   const token = await request(`${baseUrl}/asset/v1/token`, { Authorization: key() });
   const domain = new URL(token.globalDomain);
   if (domain.protocol !== 'https:' || !token.ousToken || !(token.blockSize > 0)) throw new Error('Invalid upload token response');

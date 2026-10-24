@@ -1,0 +1,61 @@
+{
+  "stage": "mature",
+  "height": 3,
+  "sourceSha256": "e65d9ced6f866f0280a95ce31cdfecbf753e1f63f14cbb7264a4b6b28d910f81",
+  "rawBoundsBlenderXYZ": [
+    [
+      -0.3775644302368164,
+      -0.4858628213405609,
+      -0.5009481906890869
+    ],
+    [
+      0.36952096223831177,
+      0.49001264572143555,
+      0.49672940373420715
+    ]
+  ],
+  "normalizationScale": 3.0069834350987357,
+  "rootCenter": [
+    -0.0004953365136075635,
+    0.008746244707139512,
+    -0.5009481906890869
+  ],
+  "triangles": 77992,
+  "topologyPreserved": true,
+  "uvLayers": [
+    1
+  ],
+  "finiteNormals": true,
+  "materials": 1,
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "orientationCorrectionDegrees": 90,
+  "runtimeTriangles": 77992,
+  "roughnessTextureRemoved": true,
+  "runtimeBoundsBlenderXYZ": [
+    [
+      -1.4471601247787476,
+      -1.1338404417037964,
+      0.0
+    ],
+    [
+      1.487281322479248,
+      1.1126329898834229,
+      3.0
+    ]
+  ]
+}

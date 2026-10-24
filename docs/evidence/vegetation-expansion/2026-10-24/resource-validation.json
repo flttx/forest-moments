@@ -1,0 +1,77 @@
+{
+  "sourcePublicDist": [
+    {
+      "assets\\vegetation\\forest-kit.glb": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c",
+      "public\\assets\\vegetation\\forest-kit.glb": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c",
+      "dist\\assets\\vegetation\\forest-kit.glb": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c"
+    },
+    {
+      "assets\\vegetation\\forest-kit-lod.glb": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7",
+      "public\\assets\\vegetation\\forest-kit-lod.glb": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7",
+      "dist\\assets\\vegetation\\forest-kit-lod.glb": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7"
+    },
+    {
+      "assets\\vegetation\\lantern-glow.webp": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6",
+      "public\\assets\\vegetation\\lantern-glow.webp": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6",
+      "dist\\assets\\vegetation\\lantern-glow.webp": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6"
+    }
+  ],
+  "readOnlySourceCode": {
+    "F:\\Projects\\my-blog\\src\\world\\scene\\GroundCover.tsx": "061567b1745a4618e4eb23d6d6ecfbc9574d4e49309e10938c0e526f37fe33fd",
+    "F:\\Projects\\my-blog\\src\\world\\scene\\FoliageFade.tsx": "566cd04bfb6521517785f694b6a9a83a82d0669f60829b8e5d15ae4d53694700",
+    "F:\\Projects\\my-blog\\src\\world\\scene\\NightLights.tsx": "f9fde31022eb1f265865e55b6ccf76805774f3ea2d9f91f2f6f17b616b962892",
+    "F:\\Projects\\my-blog\\src\\world\\scene\\lampAnchors.ts": "aaa32e6b0ff8a44be0ea7ebbb432e2b71cd1aedc64b6802d513384470acd1824",
+    "F:\\Projects\\my-blog\\src\\world\\scene\\instanceChunks.ts": "feebfbee6d7b6e6844a1e9ae787e36f018b5504d33cabee83b812cedb985bafa",
+    "F:\\Projects\\my-blog\\src\\world\\scene\\EcologyLod.tsx": "938b7d46da10423f37f16b23832bce9fdedfaccceea476533079e577c75c6373"
+  },
+  "myBlogGitStatus": "M PROGRESS.md\n?? docs/audits/raccoon-scene-recording-2026-10-24.json\n?? scripts/record-world-scenes.mjs",
+  "productionTelemetryAbsent": true,
+  "texturePixels": 4718592,
+  "newRuntimeBytes": 1179638,
+  "sourceStatusNote": "All consumed source hashes unchanged. A separate untracked scripts/record-world-scenes.mjs appeared during review; left untouched.",
+  "verifiedAt": "2026-10-24T01:59:07.336191+00:00",
+  "forestBaseCommit": "fa32f123b9d2583b93e3060a9c5a11d766e742b5",
+  "runtimeSourceHashes": {
+    "src/App.css": "cfef19737a5962bf3ba390ef54d60475d453134b3366af0b35520fa7f4519122",
+    "src/App.tsx": "8f79c8e0fb74a7160f0403edef99abce78fbe54350ff49b6cd248d6d058a7a43",
+    "src/FishingHud.tsx": "cd8f918e1298e4449dbc0a592c1575857e10663ddd6d009bfee05f06b19ca7bb",
+    "src/game/fishing.test.ts": "44b0c0def7de21483d565f8a5279cec73dc88d7cb09f4cebc0eaa2aa1fa2b460",
+    "src/game/fishing.ts": "0323284b183d8cc745b9c4d2861ee7b5bdd4573903d76c4efb074c4585725c39",
+    "src/game/landmarks.test.ts": "2d9120cb81c338d9fafcf6173bf71176ab55058a6af6229b74fc870c8d438b20",
+    "src/game/landmarks.ts": "bdd28b95d20088747fa535800f3194fcce1113cef902321f5d5d5c5ab136ad4e",
+    "src/game/movement.test.ts": "33863c998e304d913106d23b37f36b15dc6c4fe4b866612da1f35da8a38313b3",
+    "src/game/movement.ts": "998b3b1faa09515360c2183801d2dcb03d157aeef8603b8919f515c0262da5e6",
+    "src/game/rowing.test.ts": "14c6911e0c68a45186295f6af8735b0a5604078edde234a921b16e844ba1db4f",
+    "src/game/rowing.ts": "f33e0513ecb569b233845304818eef275334e9a71a316af1c1e19fc25dbfc983",
+    "src/game/store.ts": "ef89425986fc84d5fc351f4b1be70ed762d75d240c10b02243f3a801b953778f",
+    "src/index.css": "458512c91697594860bd2e698073a504758467877dddf0e31b2fb5b3d48bf230",
+    "src/main.tsx": "484f93f3048565a86a47e308f5a12ee27aa12f5291f3b52a4bb5dc03d887dbc7",
+    "src/world/assets.ts": "c6cbc91d28937aaefa923750497d33ff0a135c7e98a03a9bfe1abbf23876cbd3",
+    "src/world/Atmosphere.tsx": "d6d23f38d31f74510bcddd9c0aeed8be1fb7e93d6575f291cdb974dc4e6382f6",
+    "src/world/CoastalRocks.tsx": "f95cffbb9c25a63b291d89ccf208daed6874b54272fb848512a2225c480ba582",
+    "src/world/FishingScene.tsx": "a20c38d58c315feedf92a38b6845c3a80055d0d6589cabb5ff0d5dbdd5268750",
+    "src/world/foliageMaterial.ts": "41c0758af2eb2acef405ecfaf3de9dd3db3275ca6425dc3560ac275ba887fac7",
+    "src/world/ForestKit.tsx": "4098fb0aabb2131ae84b4d599cc2a7a18496f7054a67447e97ee1802ade4d0ba",
+    "src/world/ForestVegetation.tsx": "0d19c89351f0c832a1260736524abb4ac04b20cfb34743978707b3356e1aa4fe",
+    "src/world/ForestWorld.tsx": "9b09ae92b2b897d52674c9bf92d36d5c43a69effe15e5f2d5f5bb8b25b35ce6a",
+    "src/world/GroundCover.tsx": "e79a847d6e95287c7a6b7b012a973a2738ea9e4a4f67c641c6d0c3f4b0f35fae",
+    "src/world/IslandTerrain.tsx": "ebba9ab9ddf12507013ded8b2108c7e75ca10fc9918ce619105397ab8762bdaa",
+    "src/world/lampAnchors.ts": "aaa32e6b0ff8a44be0ea7ebbb432e2b71cd1aedc64b6802d513384470acd1824",
+    "src/world/ModelAsset.tsx": "030fe24ad594c1d7ca8252895255d62c721397e7886501bff91cf2db55304b5d",
+    "src/world/OceanBoundary.tsx": "ed4e3d190fc6433f8816fc528776e503aacb6003bf5b509e300ebb2d2986b27f",
+    "src/world/PathDetails.tsx": "1607618e8d8cdf63ab4324948ce30ed120fc561a56f2ffd98cb7c2f552edc785",
+    "src/world/RowingBoat.tsx": "0f9feca22d2388d3275c76529875510c0007ee7eaea3ffea0ce5e072503c3884",
+    "src/world/SeasideDock.tsx": "ca12598dda46b99b4fbd77a683ad2701a412ad92eeff107ac66d841e304ad9d1",
+    "src/world/terrain.test.ts": "7712d6b91c09120455e3c9c8ddbb5e96230485b41c0b580a77d5d330d89553bc",
+    "src/world/terrain.ts": "7f944475dca40e3091dd520c59e40d9a3abcef4d51b65fe361d1c3ec28243bc9",
+    "src/world/transformedGeometry.ts": "181f2a0c655a7454e31e239f194405c80368e2b2939bc532d5888a16aefd2c6a",
+    "src/world/vegetation-templates.json": "7f6a189d8552a9e3e6ce81bc11aa041219a6e3c5e90f6369633270daa0070fb1",
+    "src/world/vegetation.test.ts": "8e4988d251dc64747127ad3d206fa64312b94f84c255eb77e835d7dda9d79be3",
+    "src/world/vegetationLayout.ts": "6df0e4736632eb74f42d4efcbd37a4400247ea4dfd006c785f278935d7d3b804",
+    "src/world/worldConfig.ts": "8dac10e3306a0bc75a0f66dd0163444044db4508008f031cd8e5ac747bcfa52d"
+  },
+  "bundleHashes": {
+    "dist/assets/index-fHWchQMp.js": "b2ffada046d3114f7e055b67cddf71cf5bb85a0f7ebfd2c304e9841f276d34c8"
+  },
+  "modelAndVegetationBytes": 100326865
+}

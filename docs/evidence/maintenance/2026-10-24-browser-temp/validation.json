@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-24",
+  "status": "PASS",
+  "projectTempRoot": "F:\\Projects\\forest-moments\\.tmp",
+  "browserScriptsMigrated": 18,
+  "auxiliaryScriptsMigrated": 1,
+  "browser": "Edg/156.0.4314.42",
+  "checks": [
+    "outside-project cwd uses project-local profile",
+    "two concurrent profiles remain isolated",
+    "cleanup is idempotent",
+    "failed report write still disposes browser and profile",
+    "invalid browser executable leaves no profile",
+    "19 migrated scripts pass node --check",
+    "AHOLO helper check passes",
+    "pnpm test: 34/34 pass",
+    "pnpm build: pass",
+    "pnpm lint: exit 0 with one pre-existing unused check function warning",
+    "git diff --check: pass"
+  ],
+  "limits": [
+    "64 MiB setting bounds HTTP disk cache, not total browser profile size",
+    "force-killing the host or power loss can leave project-local temporary files",
+    "historical profiles are preserved under .tmp/legacy-browser-profiles"
+  ]
+}

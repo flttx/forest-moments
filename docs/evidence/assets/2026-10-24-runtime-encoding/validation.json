@@ -1,0 +1,809 @@
+{
+  "date": "2026-10-24T07:03:44.645742+00:00",
+  "status": "PASS",
+  "static": {
+    "lint": "PASS, no warnings",
+    "tests": "40/40 in 12 files",
+    "build": "PASS; existing chunk-size warning"
+  },
+  "encoding": [
+    {
+      "name": "raccoon",
+      "original": "assets/runtime-encoding/before/raccoon.glb",
+      "target": "assets/runtime-encoding/candidate/raccoon.glb",
+      "originalBytes": 24777392,
+      "bytes": 12763552,
+      "originalSha256": "f35123a06d790a6802d20f278c4d2c23997ccf16c49dfd56923e6d8acf8a2a41",
+      "sha256": "49995845d5646252054a8afcf602decf85798a1ec5c3e78affb72d714f85709c",
+      "losslessSemantic": true,
+      "visiblePixelsExact": true,
+      "semanticHash": "133c5fb0c6a2ba9bdd0cd5cfebf6c0094cba785aab2da4d26ac0daafcea166d7",
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "29862ab919321da75e588fa0e40cfff7276c8d35902622afcef39c270567143d"
+        }
+      ],
+      "triangles": 290520,
+      "animationClips": [
+        "bench_ready",
+        "bench_sit_down",
+        "bench_sit_idle",
+        "bench_stand_up",
+        "fish_cast",
+        "fish_hold",
+        "fish_land",
+        "fish_reel",
+        "idle",
+        "interact",
+        "paddle",
+        "run",
+        "sit_down_floor_hug",
+        "sit_down_floor_idle",
+        "sit_floor_hug",
+        "sit_floor_idle",
+        "stand_up_floor_hug",
+        "stand_up_floor_idle",
+        "walk"
+      ],
+      "decimated": false,
+      "quantized": false,
+      "textureResized": false
+    },
+    {
+      "name": "workshop",
+      "original": "assets/runtime-encoding/before/workshop.glb",
+      "target": "assets/runtime-encoding/candidate/workshop.glb",
+      "originalBytes": 18892400,
+      "bytes": 11852244,
+      "originalSha256": "8a105dc57f1314eb3fb975d26a04584a278277e7ac5ed3140cba71393aafb43d",
+      "sha256": "e32c9e161d8860b0c0c41df8c3075f0e2eba2a7d663ddf04c2b98685c97d66ad",
+      "losslessSemantic": true,
+      "visiblePixelsExact": true,
+      "semanticHash": "e989f5df901ef9fd06e86e1cd4d3ef018840bd41cd9f4095fd759e375f1b9c16",
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "26597fa360738fd9777fc561fe36cbf4852631073a5906aea88e4219b4305e8d"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "f87a1bf241ac9bc86ce8f8896e29cef1113a5593b8fca7aa14ab502cfd6b9591"
+        }
+      ],
+      "triangles": 283794,
+      "animationClips": [],
+      "decimated": false,
+      "quantized": false,
+      "textureResized": false
+    },
+    {
+      "name": "lookout",
+      "original": "assets/runtime-encoding/before/lookout.glb",
+      "target": "assets/runtime-encoding/candidate/lookout.glb",
+      "originalBytes": 17295608,
+      "bytes": 10884832,
+      "originalSha256": "7775967911e30b0090e0c14d91ade25d4f76e2187405c2b8d96d833250aba1b5",
+      "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a",
+      "losslessSemantic": true,
+      "visiblePixelsExact": true,
+      "semanticHash": "8a6f14f9344cc62796c56b7016f2131796ce92b403dbbfc4e82c8b6ad72a517f",
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "810ef596b198d1e91e4e14b3f8b261adfef5f9b48e1be6508e02baae6a20d32c"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "dbc6febc30be2f78881a70df97fead3890651bae6b202be76b4579247919c732"
+        }
+      ],
+      "triangles": 281574,
+      "animationClips": [],
+      "decimated": false,
+      "quantized": false,
+      "textureResized": false
+    },
+    {
+      "name": "canoe-center-seat",
+      "original": "assets/runtime-encoding/before/canoe-center-seat.glb",
+      "target": "assets/runtime-encoding/candidate/canoe-center-seat.glb",
+      "originalBytes": 17372336,
+      "bytes": 10776108,
+      "originalSha256": "ce0c34a2686c3344abf98be816b1bf2f45164f8eedd446340be2959ce5005d1e",
+      "sha256": "358af8019c854f4276380ae1e438fa2baf3b5a58f16227dbf56d536717229c9a",
+      "losslessSemantic": true,
+      "visiblePixelsExact": true,
+      "semanticHash": "5114fdec2d99431ec148227ba614b8be9300e308cb3ea8cd08ae859beb28106d",
+      "textures": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "7a88262d00c04cd2323875cb06d78dda132249ab9294ae2e550035523bdc8f9c"
+        },
+        {
+          "width": 2048,
+          "height": 2048,
+          "channels": 4,
+          "rgbaHash": "245c36fbb7179ac721a448473ad290a3ede82c3f648d468f52ed3f17882eab2a"
+        }
+      ],
+      "triangles": 280265,
+      "animationClips": [],
+      "decimated": false,
+      "quantized": false,
+      "textureResized": false
+    },
+    {
+      "name": "canoe",
+      "original": "assets/runtime-encoding/before/canoe.glb",
+      "target": "assets/runtime-encoding/candidate/paddle.glb",
+      "originalBytes": 17562100,
+      "bytes": 9536,
+      "originalSha256": "0adaf76fee4d01db337c7499760396fd9642159756b95551c092080fc9eb6ec9",
+      "sha256": "0f1bdc10a8cacf391c40d4a06eb941218101db47d6cbace598d4d54acbb76fd7",
+      "losslessSemantic": true,
+      "visiblePixelsExact": true,
+      "semanticHash": "2e908f1434b1d8cfe165882aadf14863bfc6b10bc41424a16a7d465f5b5f6a2b",
+      "textures": [],
+      "triangles": 224,
+      "animationClips": [],
+      "decimated": false,
+      "quantized": false,
+      "textureResized": false
+    }
+  ],
+  "unchangedTenModels": [
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "bytes": 139172,
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e"
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "bytes": 6336,
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc"
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/tree-sprout.glb",
+      "bytes": 182300,
+      "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c"
+    },
+    {
+      "path": "public/assets/models/tree-seedling.glb",
+      "bytes": 318368,
+      "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213"
+    },
+    {
+      "path": "public/assets/models/tree-young.glb",
+      "bytes": 722564,
+      "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8"
+    },
+    {
+      "path": "public/assets/models/tree-mature.glb",
+      "bytes": 1489516,
+      "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52"
+    },
+    {
+      "path": "public/assets/models/farm-hen.glb",
+      "bytes": 201264,
+      "sha256": "27abf9855800f3235ba0c3107ff026a5cc99a04db51a8f0c4b03ae38a1630180"
+    },
+    {
+      "path": "public/assets/models/farm-sheep.glb",
+      "bytes": 170224,
+      "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6"
+    },
+    {
+      "path": "public/assets/models/farm-ranch.glb",
+      "bytes": 541496,
+      "sha256": "164d15814b5a6b097c8cc46708608b7425ecf48517d7494c7c44aa769c0ae83f"
+    }
+  ],
+  "publicDistMatch": true,
+  "runtimeFiles": [
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "bytes": 10776108,
+      "sha256": "358af8019c854f4276380ae1e438fa2baf3b5a58f16227dbf56d536717229c9a"
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/farm-hen.glb",
+      "bytes": 201264,
+      "sha256": "27abf9855800f3235ba0c3107ff026a5cc99a04db51a8f0c4b03ae38a1630180"
+    },
+    {
+      "path": "public/assets/models/farm-ranch.glb",
+      "bytes": 541496,
+      "sha256": "164d15814b5a6b097c8cc46708608b7425ecf48517d7494c7c44aa769c0ae83f"
+    },
+    {
+      "path": "public/assets/models/farm-sheep.glb",
+      "bytes": 170224,
+      "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6"
+    },
+    {
+      "path": "public/assets/models/fish-koi.glb",
+      "bytes": 139172,
+      "sha256": "95d1f192f3c24e244f806ea56fc13bf2c78811ddcb2ba86f65ac510adc2c8a8e"
+    },
+    {
+      "path": "public/assets/models/fishing-rod.glb",
+      "bytes": 6336,
+      "sha256": "89005dd67e818fe6fefa0bb510ad439de82969b202891f709050d88cb4ed31bc"
+    },
+    {
+      "path": "public/assets/models/lookout.glb",
+      "bytes": 10884832,
+      "sha256": "e838c54247b87c8b5ee9f5aa7fea2e27e16dd826224c61f01b2a83f2aa9a4d3a"
+    },
+    {
+      "path": "public/assets/models/paddle-track.json",
+      "bytes": 654759,
+      "sha256": "268db90b6394087902ab1a97c541f1d21ee0c245261c94aaea7e98ead23091b1"
+    },
+    {
+      "path": "public/assets/models/paddle.glb",
+      "bytes": 9536,
+      "sha256": "0f1bdc10a8cacf391c40d4a06eb941218101db47d6cbace598d4d54acbb76fd7"
+    },
+    {
+      "path": "public/assets/models/raccoon.glb",
+      "bytes": 12763552,
+      "sha256": "49995845d5646252054a8afcf602decf85798a1ec5c3e78affb72d714f85709c"
+    },
+    {
+      "path": "public/assets/models/tree-mature.glb",
+      "bytes": 1489516,
+      "sha256": "d287d02b03f134ce2bfc7ee32154303915ba43d31de92b7055cee24f8a677c52"
+    },
+    {
+      "path": "public/assets/models/tree-seedling.glb",
+      "bytes": 318368,
+      "sha256": "3a9911aeb9c88cd9000ef858e3e0a74a48868164e1c6a80265ac51d8d62a4213"
+    },
+    {
+      "path": "public/assets/models/tree-sprout.glb",
+      "bytes": 182300,
+      "sha256": "69323d437fb39a47abcfc21666d4975193179776f825ce9b0df213d396892e6c"
+    },
+    {
+      "path": "public/assets/models/tree-young.glb",
+      "bytes": 722564,
+      "sha256": "e8a03718cdb90776906d1722ca33de0915c92f7adcb7b5b01fedd9d8a2c4a7b8"
+    },
+    {
+      "path": "public/assets/models/workshop.glb",
+      "bytes": 11852244,
+      "sha256": "e32c9e161d8860b0c0c41df8c3075f0e2eba2a7d663ddf04c2b98685c97d66ad"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c"
+    },
+    {
+      "path": "public/assets/vegetation/lantern-glow.webp",
+      "bytes": 9134,
+      "sha256": "df02ad8cb601f78990921c6783082d70a76d1e2643b46ab31f732658eb9372b6"
+    }
+  ],
+  "productionModelTrackRequests": [
+    {
+      "url": "/assets/models/workshop.glb",
+      "bytes": 11852244
+    },
+    {
+      "url": "/assets/models/lookout.glb",
+      "bytes": 10884832
+    },
+    {
+      "url": "/assets/models/farm-ranch.glb",
+      "bytes": 541496
+    },
+    {
+      "url": "/assets/models/farm-hen.glb",
+      "bytes": 201264
+    },
+    {
+      "url": "/assets/models/farm-sheep.glb",
+      "bytes": 170224
+    },
+    {
+      "url": "/assets/models/coastal-jetty.glb",
+      "bytes": 2447124
+    },
+    {
+      "url": "/assets/models/canoe-center-seat.glb",
+      "bytes": 10776108
+    },
+    {
+      "url": "/assets/models/tree-sprout.glb",
+      "bytes": 182300
+    },
+    {
+      "url": "/assets/models/tree-seedling.glb",
+      "bytes": 318368
+    },
+    {
+      "url": "/assets/models/tree-young.glb",
+      "bytes": 722564
+    },
+    {
+      "url": "/assets/models/tree-mature.glb",
+      "bytes": 1489516
+    },
+    {
+      "url": "/assets/models/raccoon.glb",
+      "bytes": 12763552
+    },
+    {
+      "url": "/assets/models/fishing-rod.glb",
+      "bytes": 6336
+    },
+    {
+      "url": "/assets/models/fish-koi.glb",
+      "bytes": 139172
+    },
+    {
+      "url": "/assets/models/paddle.glb",
+      "bytes": 9536
+    },
+    {
+      "url": "/assets/models/paddle-track.json",
+      "bytes": 654759
+    }
+  ],
+  "previousModelTrackVegetationBytes": 103952597,
+  "modelTrackVegetationBytes": 54339033,
+  "savedBytes": 49613564,
+  "suites": [
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/headless-validation.json",
+        "bytes": 50071,
+        "sha256": "e5154cb0ede09e7ff3a61ebf149cd1bab3f95243206f0cd18061b665e1781ad9"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/day-overview.png",
+          "bytes": 1392372,
+          "sha256": "0196849fddb785db8c1cb2481461160d36ae2e3274c2f07d6fa6bb3165683e8d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/day-workshop.png",
+          "bytes": 1345987,
+          "sha256": "00bdcc88cd847a50998952e53b73f334f94d3484bf8503ce80ffa0c7e4b819fb"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/day-tower.png",
+          "bytes": 1421929,
+          "sha256": "4430ed49d308313530516c895f3db82f415e2cf85be688b9f6a3f19c82840de2"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/day-player.png",
+          "bytes": 1446126,
+          "sha256": "5251a197f9d96e0d731642eba396d0cb14942a80f2fa4c107a3f86f082cbbd43"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/day-dock.png",
+          "bytes": 995665,
+          "sha256": "5f7580be583551b821438970c63ba52b9b8d6c4151f29479793ff6ce528251c0"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/day-farm.png",
+          "bytes": 1518494,
+          "sha256": "911e529f0fecde413ecad0b7f7f018f2f4ff91acfe934e09797e1f4718004cd7"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/dusk-overview.png",
+          "bytes": 1305583,
+          "sha256": "6501ad1bf4197302ced2975be3a8474506f3b42f7121c152ac856ba8adade4f4"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/dusk-workshop.png",
+          "bytes": 1247688,
+          "sha256": "111eabb9f682d4cc776affa0c5c9385eb44698321599fdb22736352617bfb82d"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/dusk-tower.png",
+          "bytes": 1280446,
+          "sha256": "db2321e35cf24287edb094ebbe5f51846258454c4ea1496ca4506b2dbe27adb7"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/dusk-player.png",
+          "bytes": 1316973,
+          "sha256": "a0cac6c06392c0eb2fae98ed8d681cee42f84e51f89c2a465edf2df2d4092306"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/dusk-dock.png",
+          "bytes": 877236,
+          "sha256": "e6c869569316afac323eabfa844f7376bd9c9248fe7516104a3a1fdfdae9e902"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/dusk-farm.png",
+          "bytes": 1405415,
+          "sha256": "549667af1e9ab26db4485c27bb365b9bcb0d0c278bf8eea2552be71569d82f12"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/night-overview.png",
+          "bytes": 1039297,
+          "sha256": "63ab5685d472a10292b3e93764fe99310cd37727a031d2081a60dac73443e59a"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/night-workshop.png",
+          "bytes": 1076442,
+          "sha256": "1bae6bfc83b4a771f165f848ea054343cc29f02297119d8561b60c678a5045a2"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/night-tower.png",
+          "bytes": 1141321,
+          "sha256": "2ccdb1a85f3cc4723aa0dfa6a715aa73ae62a83c6201b18d9fc3970653d87b96"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/night-player.png",
+          "bytes": 1186290,
+          "sha256": "2c07cedcd8a9eab256dd57140d2375c98cb2267bd74a3ccc0304df3f1639f3ce"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/night-dock.png",
+          "bytes": 778326,
+          "sha256": "c74be9c1eb87822ec96f7feaaf7507e79fc2f013288a05aace524a351eacc0e8"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/after/night-farm.png",
+          "bytes": 1231045,
+          "sha256": "d168f00813241c3bd1f8b81e55eda94e5b5bf9e4bf751f41915641bdc199aba2"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/headless-validation.json",
+        "bytes": 226744,
+        "sha256": "a114ac96f0d4119a577c2f7c9dbd2e10a0bf8022efa914c4006d5d79af52876b"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/01-before-boarding.png",
+          "bytes": 1091471,
+          "sha256": "5a8648cb1bf115a2d52ec93e843fd19bd41fbac4f2ab048ed263ce95d9a262c0"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/02-boarding-shade.png",
+          "bytes": 253855,
+          "sha256": "5d415c9666bb83ed2bf7fd0611d3616b8ba28ef96316fd720f8e64187a090d8b"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/03-seated.png",
+          "bytes": 848559,
+          "sha256": "76b504cf8eda4937f6a14a339c6ab2983aac4f8a30e882b7ba3b6304e71c5a63"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/04-moving-water.png",
+          "bytes": 742829,
+          "sha256": "713632036e5f04c34dd13d8ce0a8edc4453163a02ba4d684ea42517b3a4afb4d"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/05-reduced-motion.png",
+          "bytes": 742895,
+          "sha256": "d138fe4aba63ee220e3e1766542922905c11cca65f930ebd168c1683fc53c93a"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/06-stroke-25.png",
+          "bytes": 747004,
+          "sha256": "7692fb4e6bb069b73f9bb2131720d0a881fa30bb5895c6849d23309e0acc3224"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/06-stroke-55.png",
+          "bytes": 749958,
+          "sha256": "37617a393a7a68dc2306b16e5b8b733b4159e0af0824e3dc5fd173b853f15c0d"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/07-settled-water.png",
+          "bytes": 752769,
+          "sha256": "fb7d96230ef3b28d7926021df927ad5ede09ee2f0d33f376b323da316136a8d8"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/08-returned.png",
+          "bytes": 871129,
+          "sha256": "f26195324b7bf14ea8cd01a7791ad3e80471418ac544b01491b686ba023a3625"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/09-landed.png",
+          "bytes": 1081246,
+          "sha256": "11b7ab1debcefd83c8443048815ab902616e0e021ce0ae9f538cf08c7ec4b9e9"
+        },
+        {
+          "path": "docs/evidence/rowing-polish/2026-10-24/runtime-encoding/10-back-on-island.png",
+          "bytes": 1398361,
+          "sha256": "020951d2e29591daf0eba3874e726b1a31ad5314872339b156b0b6b4a8c7bf30"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/rowing-production/headless-validation.json",
+        "bytes": 2236,
+        "sha256": "17363d469c5ce9788b00b5201448b13ba8216361c7fb5013a835ff7b93be56e5"
+      },
+      "status": "PASS: static build load, sixteen model/track resources, boarding/rowing HUD, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/rowing-production/01-built-spawn.png",
+          "bytes": 1565476,
+          "sha256": "311b2dc4aff9bdbd789b01fd8920cc6ba2f1b7679637a3d5864a902c8a491cf2"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/rowing-production/02-built-rowing-water.png",
+          "bytes": 815887,
+          "sha256": "ebda06219755933dd878382e78ffe0579d918c3beb57f36abc7c35edef46a5ab"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/rowing-production/03-built-landed.png",
+          "bytes": 1082878,
+          "sha256": "2dc5b39314d83c5b50c7e6178af07721c48429d1a02d3499cb9e603cd475dc61"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/growth-production/headless-validation.json",
+        "bytes": 1488,
+        "sha256": "b2ba8d475f6d91135e43b6921905a5d96b70ca3e16f488ab5cbfba25ca5cd3c2"
+      },
+      "status": "PASS",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/growth-production/01-production-sprout.png",
+          "bytes": 816006,
+          "sha256": "1f7b168977a7ade7c8797eeb6bc732d944a577aea540867171699db9136d7048"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/growth-production/02-production-seedling.png",
+          "bytes": 1092325,
+          "sha256": "78fec90b99b812bfde698a9e29b92ca303d12e53ab81cee358ff4ef5078c73af"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/growth-production/03-production-reload.png",
+          "bytes": 1082951,
+          "sha256": "38a823d739a5a400ce8f87c45b2ace507895f235a904cd1f4c7bacd0c45eaee1"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/growth-production/04-production-offline-mature.png",
+          "bytes": 1468241,
+          "sha256": "d28398d862eace680f3a54c9de4d633173eabe42562aa63f3e2c9ce9212a33da"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/farm-production/headless-validation.json",
+        "bytes": 2403,
+        "sha256": "19d857b093ea11688ed827ed2e76629369f048603c4a96e4f606fe30b5aae691"
+      },
+      "status": "PASS: static build load, sixteen model/track resources, farm feeding and reload, development telemetry absent",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/farm-production/01-built-spawn.png",
+          "bytes": 1566416,
+          "sha256": "0da7b7a76f2e8714aef46971c6fe9dd44048e24ef309c9797769bbaef08f9f54"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/farm-production/02-built-farm.png",
+          "bytes": 1355278,
+          "sha256": "dd5a6f148db6b901e42a32ab410b18b2d8b6e0a76aefd3c964b646d1144bbd46"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/farm-production/03-built-fed.png",
+          "bytes": 1420900,
+          "sha256": "c2000ca89752fc55e37b09e3177a8e3a2aefefdbf9042d49412cda2cce326378"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/farm-production/04-built-reload.png",
+          "bytes": 1366416,
+          "sha256": "54f92a42c60793020a72c6a70c43517fcef9d8a42016248829e42c05bdb3d906"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/headless-validation.json",
+        "bytes": 2357,
+        "sha256": "8e860fc913fb77b7d426b9d0261f96af82557bbd108a6f8056b362318cb8ef06"
+      },
+      "status": "PASS: built casting, bite, DOM-meter tension control, visible catch, saved book, no development telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/01-cast.png",
+          "bytes": 1155806,
+          "sha256": "0f8fb1cb5f17ec8abaf23a1aa2217005aadf7c059c032c47d12ba8a6785f37b9"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/02-waiting.png",
+          "bytes": 1156021,
+          "sha256": "dccc139cca8bc7f1e6799a8c6779e5c4ff7c6a8c231a02fd1b08c1faa1c9c015"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/03-bite.png",
+          "bytes": 1161536,
+          "sha256": "a88b6aaf8e88ea579bf4104c3b5b72875ad6a509bb75a1045d9a39bd9ceb1493"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/04-tension-panel.png",
+          "bytes": 1148305,
+          "sha256": "2e27756269111d72b3762caa7466241cc71082756cb8cdb2c9d24a623378f794"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/05-visible-catch.png",
+          "bytes": 1148241,
+          "sha256": "7c614f7f35a29592991c49eb94cfe8b47f884f32b4f557d90e3c371f56d757c6"
+        },
+        {
+          "path": "docs/evidence/vegetation-expansion/2026-10-24/regression-runtime-encoding-fishing_production/06-saved-book.png",
+          "bytes": 1560860,
+          "sha256": "e0c1ef35e23ac0f9b42921094b8a04475bfa75dc66f4024832d3c76314bdc921"
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/paddle-recovery/headless-validation.json",
+        "bytes": 1548,
+        "sha256": "5436d6cc8f02ef11143f8f0ab53f9b26886f64592d694a22f483a26b95bd8d16"
+      },
+      "status": "PASS: production asset error, visible reload action, recovered render, no QA telemetry",
+      "screenshots": [
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/paddle-recovery/load-error.png",
+          "bytes": 10728,
+          "sha256": "33cf9bdb89e6a8e70e7e12db371169c6d4051b686664a070dc8b4d36b4b8d0ef"
+        },
+        {
+          "path": "docs/evidence/assets/2026-10-24-runtime-encoding/paddle-recovery/reload-recovered.png",
+          "bytes": 1567412,
+          "sha256": "f69efa2ad4c53a2bf7385b51937df66efaf9d474026601e547c9e37ab8203411"
+        }
+      ]
+    }
+  ],
+  "postChangeScreenshots": 48,
+  "before": {
+    "report": {
+      "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/headless-validation.json",
+      "bytes": 17031,
+      "sha256": "74f699a569898e92dc24e09157cff4cf79818d261c9cd5b705afcfe9b2bccecf"
+    },
+    "status": "PASS",
+    "screenshots": [
+      {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/day-overview.png",
+        "bytes": 1392198,
+        "sha256": "04c9982a8f3361424c7636eb7b2a6e13dd2776cc71e6a2a189b74f895954768d"
+      },
+      {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/day-workshop.png",
+        "bytes": 1345917,
+        "sha256": "58d907290801b4c33b945fdd894522a20649fe0e35b35c97ae74ceb97dab1607"
+      },
+      {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/day-tower.png",
+        "bytes": 1421951,
+        "sha256": "396be879e9b4ee9ccba23fbf77708946fd5d6cda3703baaba16c4fc84034e3ae"
+      },
+      {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/day-player.png",
+        "bytes": 1446308,
+        "sha256": "ddeb7c89159aea5c3baf8cf2d8e0c2a1124817da7abc98a064ffcd04a22cfd4a"
+      },
+      {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/day-dock.png",
+        "bytes": 996031,
+        "sha256": "72432618ee14236399232e434c0969e3623fe04524c0607fdb9264aed6da8608"
+      },
+      {
+        "path": "docs/evidence/assets/2026-10-24-runtime-encoding/before/day-farm.png",
+        "bytes": 1518477,
+        "sha256": "4a5d77a91a57a7bb8a63a5096d1cee8ef797da0a564a4124302e5150a207afed"
+      }
+    ]
+  },
+  "localLinks": 195,
+  "failuresPreserved": [
+    "serialization-v1-failure.json",
+    "farm-production-blocked/headless-validation.json"
+  ],
+  "mainJs": {
+    "path": "dist/assets/index-BHaoV-HU.js",
+    "bytes": 1284856,
+    "sha256": "8f108b4c0b7e194d73e033b44861caa4003e4626548060bc816cdbe1fab2187b",
+    "gzipLevel6Bytes": 362411
+  },
+  "code": [
+    {
+      "path": "scripts/encode_runtime.cjs",
+      "bytes": 7694,
+      "sha256": "b06cdcaf00004a9f020a2fd4336a70b47f8588886a99af71ff869a5635cbef35"
+    },
+    {
+      "path": "scripts/audit_runtime_encoding.py",
+      "bytes": 5901,
+      "sha256": "3ed707cf080efe0e39c1f7a768916bcb34030182de2eb120e4c661cfdf1941e1"
+    },
+    {
+      "path": "scripts/check_encoding_views.mjs",
+      "bytes": 5067,
+      "sha256": "519f5de217dbce86a4ffe0028499cdd88a046a713899df6da212bc2ad197392c"
+    },
+    {
+      "path": "scripts/check_encoding_recovery.mjs",
+      "bytes": 5732,
+      "sha256": "e7b8e88fd3376b7ded701d3380e9024ec3237925f7a96295686f3a8b82d08e68"
+    },
+    {
+      "path": "scripts/check_coastal_production.mjs",
+      "bytes": 8051,
+      "sha256": "44937b2229e08f1e8fdec0f6a2b7cc2711547c8362be678aa7733618cd7da02f"
+    },
+    {
+      "path": "scripts/check_farm_production.mjs",
+      "bytes": 7555,
+      "sha256": "46487e66fca1cb464609f8e3a0fbd003c3e774da5bb262d95f2b881154330c7f"
+    },
+    {
+      "path": "scripts/aholo/review.mjs",
+      "bytes": 13380,
+      "sha256": "9911a05236c5f1659422027d7cdd47b9d6d9ab7b392f400f615fce1326c26c2d"
+    },
+    {
+      "path": "scripts/aholo/paddle-review.mjs",
+      "bytes": 10462,
+      "sha256": "7532c6fb4dd420cfac74135d6d611c5a53e4fba407ed0c2e9c46f1ce5be10c84"
+    },
+    {
+      "path": "src/world/RowingBoat.tsx",
+      "bytes": 5020,
+      "sha256": "8bf361ddc5c25621b11b33519fcb609e9fe089866ea33b46cd40dc0be522e4df"
+    },
+    {
+      "path": "src/world/assets.ts",
+      "bytes": 837,
+      "sha256": "70963e832d78cc1f3b77aedb6030ebc003f4ccf50a01ac9ea73a27d754a95f56"
+    }
+  ],
+  "limits": [
+    "Download bytes reduced; geometry and GPU workload are not reduced.",
+    "Still exceeds 25 MiB full-download target.",
+    "No new model generation, fees, deployment or license claim.",
+    "Local encoding tool depends on existing my-blog dependencies and archived original GLBs.",
+    "Injected recovery errors are recorded separately from unexpected errors."
+  ]
+}

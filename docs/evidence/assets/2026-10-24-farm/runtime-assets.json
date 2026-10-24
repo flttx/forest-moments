@@ -1,0 +1,83 @@
+[
+  {
+    "name": "hen",
+    "source": "F:/Projects/my-blog/public/assets/world/farm/animal-hen.glb",
+    "output": "public/assets/models/farm-hen.glb",
+    "bytes": 201264,
+    "sha256": "27abf9855800f3235ba0c3107ff026a5cc99a04db51a8f0c4b03ae38a1630180",
+    "triangles": 4500,
+    "animations": [
+      "idle",
+      "peck",
+      "sit",
+      "walk"
+    ],
+    "bones": [
+      7
+    ],
+    "textures": [
+      {
+        "size": [
+          1024,
+          1024
+        ],
+        "mime": "image/webp"
+      }
+    ],
+    "newGeneration": false
+  },
+  {
+    "name": "sheep",
+    "source": "F:/Projects/my-blog/public/assets/world/farm/animal-sheep.glb",
+    "output": "public/assets/models/farm-sheep.glb",
+    "bytes": 170224,
+    "sha256": "ae5ab9c539bf0e372a976d3c7131f869017275137dd55fd35ed264d96da8f2b6",
+    "triangles": 9000,
+    "animations": [
+      "graze",
+      "idle",
+      "sit",
+      "walk"
+    ],
+    "bones": [
+      12
+    ],
+    "textures": [
+      {
+        "size": [
+          1024,
+          1024
+        ],
+        "mime": "image/webp"
+      }
+    ],
+    "newGeneration": false
+  },
+  {
+    "name": "ranch",
+    "source": "assets/farm/ranch-grounded.glb",
+    "output": "public/assets/models/farm-ranch.glb",
+    "bytes": 541496,
+    "sha256": "164d15814b5a6b097c8cc46708608b7425ecf48517d7494c7c44aa769c0ae83f",
+    "triangles": 15108,
+    "animations": [],
+    "bones": [],
+    "textures": [
+      {
+        "size": [
+          1024,
+          1024
+        ],
+        "mime": "image/webp"
+      },
+      {
+        "size": [
+          1024,
+          1024
+        ],
+        "mime": "image/webp"
+      }
+    ],
+    "newGeneration": false
+  }
+]

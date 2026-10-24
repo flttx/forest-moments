@@ -1,0 +1,62 @@
+{
+  "wood": [
+    {
+      "key": "a",
+      "distance": 6
+    },
+    {
+      "key": "s",
+      "distance": 7
+    },
+    {
+      "key": "a",
+      "distance": 0.25
+    },
+    {
+      "key": "s",
+      "distance": 0.25
+    },
+    {
+      "key": "a",
+      "distance": 0.5
+    },
+    {
+      "key": "s",
+      "distance": 2.5
+    },
+    {
+      "key": "a",
+      "distance": 0.25
+    },
+    {
+      "key": "s",
+      "distance": 0.25
+    },
+    {
+      "key": "a",
+      "distance": 0.5
+    },
+    {
+      "key": "s",
+      "distance": 0.25
+    }
+  ],
+  "door": [
+    {
+      "key": "a",
+      "distance": 1.5
+    },
+    {
+      "key": "s",
+      "distance": 0.25
+    },
+    {
+      "key": "a",
+      "distance": 3
+    },
+    {
+      "key": "s",
+      "distance": 0.5
+    }
+  ]
+}
