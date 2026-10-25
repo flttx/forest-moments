@@ -11,6 +11,9 @@ import { maskedCentroid, nearestAnchors } from './lampAnchors'
 import { transformedGeometry } from './transformedGeometry'
 import { useForestStore } from '../game/store'
 
+// Pane glow peaks above the bloom threshold at night so only the lantern glass halos.
+const lanternGlow=4.4
+
 export function ForestKit() {
   const high=useGLTF('/assets/vegetation/forest-kit.glb',true,true)
   const low=useGLTF('/assets/vegetation/forest-kit-lod.glb',true,true)
@@ -42,7 +45,7 @@ export function ForestKit() {
       const material=(source.material as THREE.MeshStandardMaterial).clone();materials.push(material)
       const all=kit==='lantern'?lampPositions:vegetationPositions.filter(p=>p.kit===kit)
       if(kit==='lantern') {
-        material.emissive.set('#ffb15c');material.emissiveMap=glow;material.emissiveIntensity=3.2*power
+        material.emissive.set('#ffb15c');material.emissiveMap=glow;material.emissiveIntensity=lanternGlow*power
         const mesh=new THREE.InstancedMesh(geometry,material,all.length);mesh.name='wooden-lanterns';place(mesh,all);mesh.castShadow=true;root.add(mesh)
         const p=geometry.getAttribute('position'),uv=geometry.getAttribute('uv'),positions:number[]=[],uvs:number[]=[]
         for(let i=0;i<p.count;i++)positions.push(p.getX(i),p.getY(i),p.getZ(i))
@@ -77,7 +80,7 @@ export function ForestKit() {
   useFrame(({camera,gl},dt)=>{
     const field=runtime.current
     field.power=lanternPower(daylightAt(useForestStore.getState()))
-    for(const m of field.materials)if(m instanceof THREE.MeshStandardMaterial&&m.emissiveMap===field.glow)m.emissiveIntensity=3.2*field.power
+    for(const m of field.materials)if(m instanceof THREE.MeshStandardMaterial&&m.emissiveMap===field.glow)m.emissiveIntensity=lanternGlow*field.power
     const state=useForestStore.getState(),p=state.position
     for(const c of field.chunks) {
       const d=c.center.distanceTo(camera.position)

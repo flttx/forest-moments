@@ -77,3 +77,8 @@ export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale}))
 }
 export const vegetationColliders=[...vegetationPositions,...lampPositions].flatMap(instanceCircles)
+
+// Approximate foliage volumes in kit space (template heights 4-8 m); bushes sit below the camera arm.
+const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4}}
+/** Crown spheres used only to keep the camera out of leaves; rendering and collisions are unaffected. */
+export const canopySpheres=vegetationPositions.flatMap(p=>{const c=crownShape[p.kit];return c?[{x:p.x,y:terrainHeight(p.x,p.z)+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]})

@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { noiseGLSL, islandShape, pathGLSL, groundColourGLSL } from './terrain'
+import { noiseGLSL, islandShape, pathGLSL, groundColourGLSL, seaLevel } from './terrain'
 import {pondGLSL} from './pondShape'
 import {createTerrainGeometry} from './terrainGeometry'
 
@@ -50,6 +50,9 @@ ${groundColourGLSL}\n` + shader.fragmentShader
         float southBeach=smoothstep(22.0,30.0,p.y)*smoothstep(14.0,29.0,length(p))*(1.0-smoothstep(1.0,2.5,vGround.y));
         sand=max(sand,max(beach,southBeach));
         colour=mix(colour,vec3(.52,.43,.28)*( .92+fleck*.12),sand);
+        // Darker, cooler wet sand just above the tide line, with a ragged upper edge.
+        float wet=(1.0-smoothstep(${(seaLevel+.3).toFixed(2)},${(seaLevel+.48).toFixed(2)},vGround.y+(broad-.5)*.18))*sand;
+        colour=mix(colour,vec3(.27,.23,.17)*(.92+fleck*.1),wet*.8);
         vec3 groundNormal=normalize(vTerrainNormal);
         float cliff=smoothstep(.32,.7,1.0-abs(groundNormal.y))*smoothstep(.2,1.2,vGround.y);
         // Broken, broad mineral patches replace the evenly repeating horizontal bands.

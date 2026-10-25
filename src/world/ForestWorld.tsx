@@ -2,13 +2,16 @@ import {sleepCamera} from '../game/dayCycle'
 import {Bedroom,ExpansionExterior} from './ExpansionScene'
 import {moveInBedroom,seats} from '../game/expansion'
 import {cameraRelativeMovement} from '../game/movementInput'
-import {createOrbit,rotateOrbit,stepOrbit,orbitConfig} from '../game/orbitCamera'
+import {createOrbit,rotateOrbit,stepOrbit,orbitConfig,spawnYaw} from '../game/orbitCamera'
 import {useOrbitInput} from './useOrbitInput'
 import {ScaleReview} from './ScaleReview'
+import {PostEffects} from './PostEffects'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Suspense, useCallback, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useForestStore } from '../game/store'
+import {useUiStore,gameplayPaused} from '../game/uiStore'
+import {promptFor} from '../game/prompt'
 import { canStandAt, groundHeightAt, moveOnGround } from '../game/movement'
 import { lookoutPosition, workshopPosition } from './assets'
 import { canBoard, canLand, stepBoat } from '../game/rowing'
@@ -36,7 +39,8 @@ import {WorkshopCraft} from './WorkshopCraft'
 import {woodSpot,workpieceSpot} from '../game/workshop'
 
 import {moveInWorkshop} from '../game/workshopInterior'
-import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
+import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
+import {canopySpheres} from './vegetationLayout'
 
 const qaEnabled = import.meta.env.DEV && new URLSearchParams(location.search).has('qa')
 
@@ -109,7 +113,7 @@ function Water() {
 function Player() {
   const root = useRef<THREE.Group>(null)
   const motion = useRef<Locomotion>('idle')
-  const orbit=useRef(createOrbit()),dragging=useRef(false)
+  const orbit=useRef(createOrbit(spawnYaw)),dragging=useRef(false)
   useOrbitInput(orbit,dragging)
   const motionPreference=useMemo(()=>window.matchMedia('(prefers-reduced-motion: reduce)'),[])
   const ready = useRef(false)
@@ -117,27 +121,39 @@ function Player() {
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
   const movementIntent=useRef<ReturnType<typeof cameraRelativeMovement>>(null)
-  const movementHeading=useRef(0)
+  const movementHeading=useRef(spawnYaw)
+  // Face away from the opening camera so the first frame shows the raccoon's back, not its face.
+  useEffect(()=>{if(root.current)root.current.rotation.y=spawnYaw},[])
   const updatePosition = useForestStore((s) => s.updatePosition)
 
   useEffect(() => {
     function down(e: KeyboardEvent) {
       if (e.target instanceof HTMLElement && (e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName))) return
+      // An open panel owns the keyboard: Esc closes only the top panel, nothing reaches the scene.
+      const ui=useUiStore.getState()
+      if (ui.panel) { if (e.code === 'Escape') { e.preventDefault(); ui.closePanel() } return }
+      if (useForestStore.getState().aquariumOpen) {
+        if (e.code === 'Escape' || (e.code === 'KeyF' && !e.repeat)) { e.preventDefault(); useForestStore.setState({ aquariumOpen: false }) }
+        return
+      }
       if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyQ', 'KeyE', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || e.code==='Escape' || (['fishing','planting','feeding','lookout','gathering','crafting','sitting','sleeping'].includes(useForestStore.getState().mode) && ['Space', 'Escape'].includes(e.code))) {
         e.preventDefault()
         pressed.current.add(e.code)
-        if (e.code === 'KeyF' && !e.repeat && ready.current) useForestStore.getState().interact()
+        // Where the prompt only points the way, F stays quiet instead of repeating the same hint as a notice.
+        if (e.code === 'KeyF' && !e.repeat && ready.current) { const prompt = promptFor(useForestStore.getState()); if (!prompt || prompt.action) useForestStore.getState().interact() }
         if (e.code === 'Space') useForestStore.getState().reel(true)
         if (e.code === 'Escape') {useForestStore.getState().leaveSeat();useForestStore.getState().wakeUp();useForestStore.setState({aquariumOpen:false});useForestStore.getState().cancelFishing();useForestStore.getState().cancelPlanting();useForestStore.getState().cancelFeeding();useForestStore.getState().leaveLookout();useForestStore.getState().cancelWorkshop()}
       }
     }
     function up(e: KeyboardEvent) { pressed.current.delete(e.code); if(!['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight'].some(k=>pressed.current.has(k)))movementIntent.current=null; if (e.code === 'Space') useForestStore.getState().reel(false) }
     function blur() { pressed.current.clear();movementIntent.current=null; useForestStore.getState().pauseFishing();useForestStore.getState().cancelPlanting();useForestStore.getState().cancelFeeding();useForestStore.getState().cancelWorkshop() }
+    const unsubscribe = useUiStore.subscribe(s => { if (s.panel) { pressed.current.clear(); movementIntent.current = null } })
     window.addEventListener('keydown', down)
     window.addEventListener('keyup', up)
     window.addEventListener('blur', blur)
     document.addEventListener('visibilitychange', blur)
     return () => {
+      unsubscribe()
       window.removeEventListener('keydown', down)
       window.removeEventListener('keyup', up)
       window.removeEventListener('blur', blur)
@@ -158,7 +174,9 @@ function Player() {
     const sleeping=useForestStore.getState().mode==='sleeping',returnedFromSleep=wasSleeping.current&&!sleeping
     if(sleeping!==wasSleeping.current){pressed.current.clear();movementIntent.current=null}
     wasSleeping.current=sleeping
-    const keys = pressed.current
+    // While a panel is open the raccoon and boat hold still; scenery keeps animating.
+    const hold = gameplayPaused(useForestStore.getState())
+    const keys = hold ? new Set<string>() : pressed.current
     const x = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'))
     const z = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'))
     const running = keys.has('ShiftLeft') || keys.has('ShiftRight')
@@ -200,7 +218,7 @@ function Player() {
       if(state.mode==='crafting')character.position.z=-1.1
       motion.current=state.mode==='gathering'?'interact':'woodwork'
     }
-    if (state.mode === 'rowing'&&!transferring) state.updateBoat(stepBoat(state.boat, -z, -x, dt))
+    if (state.mode === 'rowing'&&!transferring&&!hold) state.updateBoat(stepBoat(state.boat, -z, -x, dt))
     if (state.mode === 'fishing') {
       state.tickFishing(dt)
       const f = useForestStore.getState().fishing
@@ -258,11 +276,14 @@ function Player() {
     if(current.mode!=='rowing'&&current.mode!=='fishing'){
       const inside=current.location!=='island'
       const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,orbit.current,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
-      const next=new THREE.Vector3(eye.x,eye.y,eye.z)
+      // Outdoors, a camera that would sit inside a tree crown slides along the arm to just outside it.
+      const clear=inside?eye:clearCanopy(target,eye,canopySpheres)
+      const next=new THREE.Vector3(clear.x,clear.y,clear.z)
       if(returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(next)
       else camera.position.lerp(next,1-Math.exp(-7*dt))
       // Position interpolation can cut a corner; constrain the interpolated arm too.
       const safe=clipCameraArm(target,camera.position,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
+      if(!inside)Object.assign(safe,clearCanopy(target,safe,canopySpheres))
       if(inside){safe.x=THREE.MathUtils.clamp(safe.x,-3.72,3.72);safe.z=THREE.MathUtils.clamp(safe.z,-2.72,2.72);if(Math.hypot(safe.x-target.x,safe.z-target.z)<1.35)safe.y=3.05}
       else if(Math.hypot(safe.x-target.x,safe.z-target.z)<1.35)safe.y=character.position.y+3.2
       safe.y=inside?Math.min(3.05,safe.y):Math.max(safe.y,groundHeightAt(safe.x,safe.z)+.25)
@@ -340,6 +361,7 @@ function Scene() {
     <Suspense fallback={null}><WorkshopCraft/></Suspense>
     <Suspense fallback={null}><Bedroom/></Suspense>
     <Player />
+    <PostEffects />
     {import.meta.env.DEV && <><ReviewCamera /><ScaleReview/></>}
   </>
 }

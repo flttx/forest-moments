@@ -8,7 +8,7 @@ export function useOrbitInput(orbit:RefObject<Orbit>,dragging:RefObject<boolean>
  useEffect(()=>{
   const canvas=gl.domElement
   let pointer:number|null=null,last:{x:number;y:number}|null=null
-  const enabled=()=>{const s=useForestStore.getState();return !s.homeTransfer&&!s.aquariumOpen&&!s.boatTransfer&&!s.workshopTransfer&&!s.lookoutTransfer&&!s.inspectingTree&&['walking','rowing','lookout','sitting'].includes(s.mode)}
+  const enabled=()=>{const s=useForestStore.getState();return !s.menuPaused&&!s.homeTransfer&&!s.aquariumOpen&&!s.boatTransfer&&!s.workshopTransfer&&!s.lookoutTransfer&&!s.inspectingTree&&['walking','rowing','lookout','sitting'].includes(s.mode)}
   const stop=()=>{const id=pointer;pointer=null;last=null;dragging.current=false;if(id!==null&&canvas.hasPointerCapture(id))canvas.releasePointerCapture(id)}
   const clear=()=>{stop();cancelOrbit(orbit.current)}
   const down=(e:PointerEvent)=>{

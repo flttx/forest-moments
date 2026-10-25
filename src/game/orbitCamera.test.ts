@@ -61,3 +61,10 @@ it('keeps the previous close view and indoor zoom limit',()=>{
  const s=createOrbit();for(let i=0;i<20;i++)zoomOrbit(s,300,orbitConfig.indoorMaxZoom)
  expect(s.targetZoom).toBe(1.6)
 })
+
+it('starts low enough for the horizon to sit inside the default 46 degree view',()=>{
+ const s=createOrbit(),halfFov=46/2*Math.PI/180
+ expect(s.pitch).toBeGreaterThan(orbitConfig.minPitch);expect(s.pitch).toBeLessThan(orbitConfig.maxPitch)
+ // Horizon screen height above centre is tan(pitch)/tan(halfFov); keep at least the top 10% for sky.
+ expect(Math.tan(s.pitch)/Math.tan(halfFov)).toBeLessThan(.8)
+})

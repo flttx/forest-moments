@@ -72,7 +72,7 @@ export function ModelAsset({ asset, motion, onReadyChange }: {
 
 export function AssetLoadingNotice() {
   const active = useProgress((s) => s.active)
-  return active ? <div className="asset-loading" role="status">正在载入森林模型，首次打开可能需要一些时间…</div> : null
+  return active ? <div className="asset-loading" role="status">正在进入小岛…</div> : null
 }
 
 export class WorldErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {

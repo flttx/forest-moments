@@ -7,10 +7,32 @@ import {cabin,camp,bridge,seats,reefs} from '../game/expansion'
 import {createCreekGeometry} from './creekGeometry'
 import {useForestStore} from '../game/store'
 import {terrainHeight} from './terrain'
+import {daylightAt,lanternPower} from '../game/dayCycle'
 
-export function ExpansionModel({id,position=[0,0,0],rotation=0,scale=1}:{id:string;position?:[number,number,number];rotation?:number;scale?:number}){
+/** Night glow shared by cabin panes and resting embers; follows the same curve as the path lanterns. */
+const nightGlow={value:0}
+function NightGlowClock(){useFrame(()=>{nightGlow.value=lanternPower(daylightAt(useForestStore.getState()))});return null}
+
+/**
+ * The cabin atlas paints its panes as the only bright, saturated amber; darker wood and pale plaster stay unlit.
+ * A roughness floor keeps the glossy slate from flaring into a white bloom at grazing sun angles.
+ */
+function withWindowGlow(material:THREE.Material){
+ if(!(material instanceof THREE.MeshStandardMaterial))return material
+ const lit=material.clone()
+ lit.onBeforeCompile=s=>{
+  s.uniforms.windowGlow=nightGlow
+  s.fragmentShader='uniform float windowGlow;\n'+s.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\n   roughnessFactor=max(roughnessFactor,.6);').replace('#include <emissivemap_fragment>',`#include <emissivemap_fragment>
+   vec3 pane=diffuseColor.rgb;float hi=max(pane.r,max(pane.g,pane.b)),lo=min(pane.r,min(pane.g,pane.b));
+   float amber=smoothstep(.5,.72,hi)*smoothstep(.72,.9,(hi-lo)/max(hi,1e-3))*step(pane.b,pane.g)*step(pane.g*1.4,pane.r);
+   totalEmissiveRadiance+=vec3(1.0,.58,.24)*amber*windowGlow*3.4;`)
+ }
+ return lit
+}
+
+export function ExpansionModel({id,position=[0,0,0],rotation=0,scale=1,windows=false}:{id:string;position?:[number,number,number];rotation?:number;scale?:number;windows?:boolean}){
  const gltf=useGLTF(`/assets/expansion/${id}.glb`)
- const model=useMemo(()=>{const s=gltf.scene.clone(true);s.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true}});return s},[gltf.scene])
+ const model=useMemo(()=>{const s=gltf.scene.clone(true);s.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true;if(windows)o.material=withWindowGlow(o.material)}});return s},[gltf.scene,windows])
  return <group name={`expansion-${id}`} position={position} rotation={[0,rotation,0]} scale={scale}><primitive object={model} dispose={null}/></group>
 }
 
@@ -35,19 +57,31 @@ function Creek(){
  }}/></mesh>
 }
 
+// HDR flame colours so the bloom pass catches the fire without lifting the surrounding scene.
+const flameColours=[new THREE.Color('#ed7226').multiplyScalar(4),new THREE.Color('#ffb845').multiplyScalar(4)]
+
+/** A few coals keep a faint glow after dusk even when the fire is out; brighter under live flames. */
+function Embers({lit}:{lit:boolean}){
+ const coals=useRef<THREE.Group>(null)
+ useFrame(()=>{const glow=lit?2.4:nightGlow.value*1.4;coals.current?.children.forEach(o=>{if(o instanceof THREE.Mesh&&o.material instanceof THREE.MeshStandardMaterial)o.material.emissiveIntensity=glow})})
+ return <group ref={coals} name="campfire-embers">{Array.from({length:6},(_,i)=><mesh key={i} position={[Math.sin(i*1.9)*.13,.14,Math.cos(i*1.9)*.13]} rotation={[i,i*2,0]} scale={[.07,.045,.06]}><icosahedronGeometry args={[1,0]}/><meshStandardMaterial color="#2a1a12" roughness={.9} emissive="#ff5a1f" emissiveIntensity={0}/></mesh>)}</group>
+}
+
 function Campfire(){
  const fire=useRef<THREE.Group>(null),light=useRef<THREE.PointLight>(null),time=useRef(0)
  const lit=useForestStore(s=>s.homeBook.fireLit)
  useFrame((_,dt)=>{time.current+=Math.min(dt,.05);const t=time.current,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(fire.current)fire.current.children.forEach((o,i)=>{o.scale.y=reduced?.8:.6+.35*(.5+.5*Math.sin(t*(3+i%3)+i));o.rotation.y=t*.2+i;if(o.name==='ember'){o.position.y=.4+(t*.25+i*.2)%1.4;o.visible=!reduced}});if(light.current)light.current.intensity=lit?(reduced?7:7+Math.sin(t*9)*.6):0})
  return <group position={[camp.x,0,camp.z]} name="campfire">
   <ExpansionModel id="firepit"/>
-  <group ref={fire} visible={lit}>{Array.from({length:7},(_,i)=><mesh key={i} position={[Math.sin(i*2.4)*.23,.28,Math.cos(i*2.4)*.23]} scale={[.7,1,.7]}><latheGeometry args={[[new THREE.Vector2(0,0),new THREE.Vector2(.16,.08),new THREE.Vector2(.20,.22),new THREE.Vector2(.12,.42),new THREE.Vector2(.07,.62),new THREE.Vector2(0,.8)],10]}/><meshBasicMaterial color={i%2?'#ffb845':'#ed7226'} transparent opacity={.8} depthWrite={false}/></mesh>)}{Array.from({length:8},(_,i)=><mesh key={`e${i}`} name="ember" position={[Math.sin(i)*.3,.5,Math.cos(i)*.3]}><sphereGeometry args={[.013,5,4]}/><meshBasicMaterial color="#ffd27b"/></mesh>)}</group>
+  <group ref={fire} visible={lit}>{Array.from({length:7},(_,i)=><mesh key={i} position={[Math.sin(i*2.4)*.23,.28,Math.cos(i*2.4)*.23]} scale={[.7,1,.7]}><latheGeometry args={[[new THREE.Vector2(0,0),new THREE.Vector2(.16,.08),new THREE.Vector2(.20,.22),new THREE.Vector2(.12,.42),new THREE.Vector2(.07,.62),new THREE.Vector2(0,.8)],10]}/><meshBasicMaterial color={flameColours[i%2]} transparent opacity={.8} depthWrite={false}/></mesh>)}{Array.from({length:8},(_,i)=><mesh key={`e${i}`} name="ember" position={[Math.sin(i)*.3,.5,Math.cos(i)*.3]}><sphereGeometry args={[.013,5,4]}/><meshBasicMaterial color="#ffd27b"/></mesh>)}</group>
   <pointLight ref={light} position={[0,.8,0]} color="#ffad55" intensity={lit?7:0} distance={9} decay={2}/>
+  <Embers lit={lit}/>
  </group>
 }
 
 export function ExpansionExterior(){return <group name="expansion-exterior">
- <ExpansionModel id="cabin" position={[cabin.x,7.3,cabin.z]}/>
+ <NightGlowClock/>
+ <ExpansionModel id="cabin" position={[cabin.x,7.3,cabin.z]} windows/>
  <Creek/>
  <ExpansionModel id="bridge" position={[bridge.x,6,bridge.z]}/>
  <Campfire/>

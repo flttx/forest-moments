@@ -1,8 +1,11 @@
 // Interaction constants follow my-blog's CameraHeading / FollowCamera.
 // Our yaw uses the actor convention: forward = (-sin yaw, -cos yaw).
-export const orbitConfig={yawPerPixel:.004,pitchPerPixel:.003,minPitch:Math.PI/18,maxPitch:Math.PI*.36,minZoom:.55,maxZoom:14,indoorMaxZoom:1.6,keySpeed:1.8} as const
+export const orbitConfig={yawPerPixel:.004,pitchPerPixel:.003,minPitch:Math.PI/18,maxPitch:Math.PI*.36,minZoom:.55,maxZoom:14,indoorMaxZoom:1.6,keySpeed:1.8,defaultPitch:.31} as const
 export const wrapAngle=(a:number)=>Math.atan2(Math.sin(a),Math.cos(a))
-export function createOrbit(yaw=Math.PI/4){return{yaw,targetYaw:yaw,pitch:Math.atan2(5,9),targetPitch:Math.atan2(5,9),zoom:1,targetZoom:1,idle:Infinity}}
+// Opening view looks south-west past the pond to the workshop, with open sea and sky behind it.
+export const spawnYaw=Math.PI*3/4
+// About 18 degrees down: the upper frame keeps a band of sky and sea behind the raccoon.
+export function createOrbit(yaw=Math.PI/4){const pitch:number=orbitConfig.defaultPitch;return{yaw,targetYaw:yaw,pitch,targetPitch:pitch,zoom:1,targetZoom:1,idle:Infinity}}
 export type Orbit=ReturnType<typeof createOrbit>
 export function rotateOrbit(s:Orbit,dx:number,dy:number){
  if(!Number.isFinite(dx)||!Number.isFinite(dy))return

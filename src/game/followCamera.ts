@@ -63,6 +63,30 @@ export function clipCameraArm(target:CameraPoint,eye:CameraPoint,boxes:readonly 
  return{x:target.x+(eye.x-target.x)*fraction,y:target.y+(eye.y-target.y)*fraction,z:target.z+(eye.z-target.z)*fraction}
 }
 
+export type CameraSphere={x:number;y:number;z:number;r:number}
+/**
+ * Pull the eye toward the focus until it is no longer inside a tree crown. Crowns that only cross
+ * the middle of the arm are left alone, so passing trees do not make the camera pump in and out.
+ */
+export function clearCanopy(target:CameraPoint,eye:CameraPoint,crowns:readonly CameraSphere[],padding=.45):CameraPoint{
+ let current=eye
+ for(let pass=0;pass<4;pass++){
+  let fraction=1
+  const dx=current.x-target.x,dy=current.y-target.y,dz=current.z-target.z,a=dx*dx+dy*dy+dz*dz
+  if(a<1e-8)return current
+  for(const c of crowns){
+   const r=c.r+padding,fx=target.x-c.x,fy=target.y-c.y,fz=target.z-c.z,base=fx*fx+fy*fy+fz*fz-r*r
+   // Skip crowns that do not hold the eye, and ones that also hold the focus (nothing to pull toward).
+   if(base<=0||(current.x-c.x)**2+(current.y-c.y)**2+(current.z-c.z)**2>=r*r)continue
+   const b=2*(fx*dx+fy*dy+fz*dz),disc=b*b-4*a*base
+   if(disc>=0)fraction=Math.min(fraction,Math.max(0,(-b-Math.sqrt(disc))/(2*a)))
+  }
+  if(fraction>=1)return current
+  current={x:target.x+dx*fraction,y:target.y+dy*fraction,z:target.z+dz*fraction}
+ }
+ return current
+}
+
 /** Keep close orbit centred on the player; wide orbit frames the whole island. */
 export function outdoorOrbitFocus(position:CameraPoint,zoom:number,pitch:number){
  const t=Math.max(0,Math.min(1,(zoom-2.5)/7.5)),wide=t*t*(3-2*t)
