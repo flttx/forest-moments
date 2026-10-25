@@ -47,8 +47,9 @@ export async function runOrbitCases({cmd,evaluate,snapshot,key,shot,sleep,wait,r
  await reset();const start=await snapshot();await hold('d',3000);const end=await snapshot(),f0=direction(start),v=[end.position[0]-start.position[0],end.position[2]-start.position[2]]
  assert(Math.hypot(...v)>3.1);assert(Math.abs(v[0]*f0[0]+v[1]*f0[1])<.02);assert(Math.abs(angle(end.orbit.yaw,start.orbit.yaw))<.001)
  await shot('long-d-straight');check('held D remains straight without automatic orbit feedback',{start,end})
- await reset();await hold('q',350);const q=await snapshot();await hold('e',350);await sleep(700);const e=await snapshot()
- assert(q.orbit.yaw>Math.PI/4+.3);assert(Math.abs(e.orbit.yaw-Math.PI/4)<.1);check('Q/E orbit keyboard alternative',{q,e})
+ // Relative to the reset heading, so the case does not depend on the spawn camera yaw.
+ await reset();const home=await snapshot();await hold('q',350);const q=await snapshot();await hold('e',350);await sleep(700);const e=await snapshot()
+ assert(angle(q.orbit.yaw,home.orbit.yaw)>.3);assert(Math.abs(angle(e.orbit.yaw,home.orbit.yaw))<.1);check('Q/E orbit keyboard alternative',{q,e})
  await drag(0,-2000);await sleep(600);const high=await snapshot();assert(Math.abs(high.orbit.pitch-Math.PI*.36)<.01);await shot('high-pitch')
  await drag(0,2000);await sleep(600);const low=await snapshot();assert(Math.abs(low.orbit.pitch-Math.PI/18)<.01);await shot('low-pitch')
  const wheel=dy=>cmd('Input.dispatchMouseEvent',{type:'mouseWheel',x:700,y:450,deltaX:0,deltaY:dy})

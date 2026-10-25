@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-25",
+  "stage": "V2 sea, horizon, shore + canopy camera clearance",
+  "browser": "Edg/156.0.4314.42 headless",
+  "viewport": [
+    1440,
+    900
+  ],
+  "lint": "pass, 0 warnings",
+  "unit": "84/84",
+  "build": {
+    "mainJsKb": 1584.7,
+    "gzipKb": 485.58
+  },
+  "browserRegression": {
+    "check_tree_visibility": "PASS",
+    "check_wide_zoom": "PASS",
+    "check_expansion_navigation": "PASS",
+    "check_sleep_cycle": "PASS",
+    "check_coast_polish": "PASS (exit 0)",
+    "boardAndRow": "PASS day/dusk: boarded via F, W 3.5 s moved 3.64/3.64 m (scratch script, screenshots in rowing/)"
+  },
+  "preexistingFailures": {
+    "check_coastal_gameplay": "original HEAD script at original spawn yaw also blocked at workshop front",
+    "check_rowing_polish": "original HEAD script at original spawn yaw also fails canBoard assertion",
+    "check_rowing_views": "CDP Runtime.evaluate timeout; not investigated"
+  },
+  "scriptAdjustments": [
+    "check_coastal_gameplay / check_rowing_polish walk(): rotate world offset into camera-relative input with live orbit yaw"
+  ],
+  "perf": {
+    "v1": {
+      "day-idle": {
+        "frames": 4425,
+        "meanMs": 2.26,
+        "p95Ms": 3.9,
+        "maxMs": 36.9
+      },
+      "day-walk": {
+        "frames": 4721,
+        "meanMs": 2.12,
+        "p95Ms": 3.7,
+        "maxMs": 36.7
+      },
+      "day-wide": {
+        "frames": 4916,
+        "meanMs": 2.03,
+        "p95Ms": 3.2,
+        "maxMs": 11.5
+      },
+      "night-idle": {
+        "frames": 4209,
+        "meanMs": 2.38,
+        "p95Ms": 4.1,
+        "maxMs": 36.2
+      },
+      "night-walk": {
+        "frames": 4370,
+        "meanMs": 2.29,
+        "p95Ms": 4.1,
+        "maxMs": 11.9
+      },
+      "night-wide": {
+        "frames": 4896,
+        "meanMs": 2.04,
+        "p95Ms": 3.2,
+        "maxMs": 13.8
+      }
+    },
+    "v2": {
+      "day-idle": {
+        "frames": 4164,
+        "meanMs": 2.4,
+        "p95Ms": 4.4,
+        "maxMs": 53.8,
+        "over33": 1
+      },
+      "day-walk": {
+        "frames": 4469,
+        "meanMs": 2.24,
+        "p95Ms": 4.2,
+        "maxMs": 55.1,
+        "over33": 1
+      },
+      "day-wide": {
+        "frames": 4648,
+        "meanMs": 2.15,
+        "p95Ms": 3.7,
+        "maxMs": 17,
+        "over33": 0
+      },
+      "night-idle": {
+        "frames": 4064,
+        "meanMs": 2.46,
+        "p95Ms": 4.6,
+        "maxMs": 54.3,
+        "over33": 1
+      },
+      "night-walk": {
+        "frames": 4397,
+        "meanMs": 2.27,
+        "p95Ms": 4.3,
+        "maxMs": 10.1,
+        "over33": 0
+      },
+      "night-wide": {
+        "frames": 4738,
+        "meanMs": 2.11,
+        "p95Ms": 3.5,
+        "maxMs": 9.4,
+        "over33": 0
+      }
+    }
+  }
+}

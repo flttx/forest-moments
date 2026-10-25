@@ -70,7 +70,9 @@ try {
     const start=Date.now()
     for(;;){const s=await snapshot(),dx=x-s.position[0],dz=z-s.position[2];if(Math.hypot(dx,dz)<.16)break;
       if(Date.now()-start>35000)throw Error('Walking blocked '+label+' '+JSON.stringify(s.position));
-      await key('d',dx>.08);await key('a',dx<-.08);await key('s',dz>.08);await key('w',dz<-.08);await sleep(45)}
+      // Movement is camera-relative: rotate the world offset into input space with the live orbit yaw.
+      const y=s.orbit?.yaw??0,c=Math.cos(y),n=Math.sin(y),ix=dx*c-dz*n,iz=dx*n+dz*c
+      await key('d',ix>.08);await key('a',ix<-.08);await key('s',iz>.08);await key('w',iz<-.08);await sleep(45)}
     await stop()
   }
   await key('Shift',true)

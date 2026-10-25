@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-25",
+  "stage": "U: UI upgrade per UI_UPGRADE_PLAN.md",
+  "browser": "Edg/156.0.4314.42",
+  "lint": "pass, 0 warnings",
+  "unit": "88/88 (20 files; new ui.test.ts 4 cases)",
+  "build": {
+    "mainJsKb": 1587.3,
+    "gzipKb": 486.91,
+    "cssKb": 7.72
+  },
+  "uiAcceptance": {
+    "interaction": {
+      "status": "PASS",
+      "checks": [
+        "first-run guide shows once and folds away",
+        "held W + menu: pause, focus trap target, Esc restores focus without resuming movement",
+        "fish book empty state and help panel",
+        "fishing prompt, bite paused behind help, Esc closes only the top panel",
+        "aquarium and menu are mutually exclusive",
+        "notice lifetime: info fades, error stays until closed",
+        "sleep panel shows only title and skip; menu hidden"
+      ],
+      "errors": 0
+    },
+    "layout": {
+      "status": "PASS",
+      "errors": 0,
+      "layouts": {
+        "1920x1080-day": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1920x1080-dusk": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1920x1080-night": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1920x1080-panel": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1920x1080-fishing": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1280x720-day": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1280x720-dusk": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1280x720-night": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1280x720-panel": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1280x720-fishing": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1024x768-day": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1024x768-dusk": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1024x768-night": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1024x768-panel": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "1024x768-fishing": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 3
+        },
+        "overview": {
+          "issues": [],
+          "small": 0,
+          "tiny": [],
+          "count": 2
+        }
+      }
+    }
+  },
+  "browserRegression": {
+    "check_wide_zoom": "PASS",
+    "check_sleep_cycle": "PASS",
+    "check_expansion_navigation": "PASS",
+    "check_tree_visibility": "PASS",
+    "check_expansion_production": "PASS"
+  },
+  "preexistingFailures": {
+    "check_workshop_headless": "HEAD script at original spawn yaw also fails \"Reach collectible with real keyboard\" (route keys assume camera yaw 0)",
+    "check_farm_headless": "Travel blocked (world-axis key walking)",
+    "check_growth_headless": "Travel blocked (world-axis key walking)",
+    "check_lookout_headless": "fixed entry point 15.45,-9.65 is no longer near the relocated tower (nearby null)"
+  },
+  "scriptAdjustments": [
+    "check_expansion_production: standing key bar -> open Help panel and read it",
+    "check_wide_zoom: .landmarks -> .brand hidden in overview"
+  ],
+  "incident": "check_workshop_headless also writes docs/evidence/2026-10-24-workshop/keyboard-route.json unless FOREST_WORKSHOP_ROUTE is set; an accidental overwrite was restored with git restore",
+  "perfFinding": "paper-in entrance animation over the WebGL canvas produced 140-212 ms frames; with animation disabled max returned to ~55 ms; animation removed",
+  "perf": {
+    "day-idle": {
+      "frames": 4202,
+      "meanMs": 2.38,
+      "p95Ms": 4.4,
+      "maxMs": 55.2,
+      "over33": 2
+    },
+    "day-walk": {
+      "frames": 4604,
+      "meanMs": 2.17,
+      "p95Ms": 4.1,
+      "maxMs": 36,
+      "over33": 1
+    },
+    "day-wide": {
+      "frames": 4744,
+      "meanMs": 2.11,
+      "p95Ms": 3.6,
+      "maxMs": 60.1,
+      "over33": 1
+    },
+    "night-idle": {
+      "frames": 4036,
+      "meanMs": 2.48,
+      "p95Ms": 4.5,
+      "maxMs": 10.3,
+      "over33": 0
+    },
+    "night-walk": {
+      "frames": 4208,
+      "meanMs": 2.38,
+      "p95Ms": 4.4,
+      "maxMs": 54.5,
+      "over33": 1
+    },
+    "night-wide": {
+      "frames": 4761,
+      "meanMs": 2.1,
+      "p95Ms": 3.7,
+      "maxMs": 12,
+      "over33": 0
+    }
+  }
+}

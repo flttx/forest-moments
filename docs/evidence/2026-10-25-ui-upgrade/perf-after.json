@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-25T11:25:41.936Z",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 5060 Ti (0x00002D04) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "runs": {
+    "day-idle": {
+      "frames": 4202,
+      "meanMs": 2.38,
+      "p95Ms": 4.4,
+      "maxMs": 55.2,
+      "over33": 2
+    },
+    "day-walk": {
+      "frames": 4604,
+      "meanMs": 2.17,
+      "p95Ms": 4.1,
+      "maxMs": 36,
+      "over33": 1
+    },
+    "day-wide": {
+      "frames": 4744,
+      "meanMs": 2.11,
+      "p95Ms": 3.6,
+      "maxMs": 60.1,
+      "over33": 1
+    },
+    "night-idle": {
+      "frames": 4036,
+      "meanMs": 2.48,
+      "p95Ms": 4.5,
+      "maxMs": 10.3,
+      "over33": 0
+    },
+    "night-walk": {
+      "frames": 4208,
+      "meanMs": 2.38,
+      "p95Ms": 4.4,
+      "maxMs": 54.5,
+      "over33": 1
+    },
+    "night-wide": {
+      "frames": 4761,
+      "meanMs": 2.1,
+      "p95Ms": 3.7,
+      "maxMs": 12,
+      "over33": 0
+    }
+  },
+  "errors": []
+}

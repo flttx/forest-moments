@@ -77,7 +77,7 @@ try {
       const q=await qa(),e=await env()
       if(q.mode!=='sleeping')break
       assert.equal(q.playerVisible,false)
-      assert(Math.abs(e.renderedNight-e.moonPower/.65)<.000001,'rendered night uniform matches lighting')
+      assert(Math.abs(e.renderedNight-e.moonPower/.95)<.000001,'rendered night uniform matches lighting') // moonPower = .95 * night (Atmosphere)
       if(e.sunPosition[1]<-1.8)assert.equal(e.renderedDisc,0,'sun disc disappears below the horizon')
       assert(q.cameraPosition[1]>50)
       startPosition??=q.cameraPosition
@@ -102,7 +102,7 @@ try {
   await fixture('night');await key('KeyF','f');await waitFor("forestStore.getState().sleepElapsed>8")
   const reduced=await env();assert(reduced.reduced);assert(reduced.daylight>0&&reduced.daylight<1);await shot('reduced-motion');report.checks.push({name:'reduced-motion',env:reduced})
   await evaluate("document.querySelector('.sleep-panel button').click()");await sleep(200);assert.equal((await qa()).timeOfDay,'day')
-  await fixture('day');await key('KeyF','f');await waitFor("forestStore.getState().mode==='sleeping'");await key('Escape','Escape');await cmd('Page.reload');await sleep(4500)
+  await fixture('day');await key('KeyF','f');await waitFor("forestStore.getState().mode==='sleeping'");await key('Escape','Escape');await cmd('Page.reload');await sleep(1000);await waitFor("!!document.querySelector('canvas')?.dataset.forestQa")
   assert.equal((await qa()).timeOfDay,'night');report.checks.push({name:'persist-reload',qa:await qa()})
   assert.equal(report.errors.length,0,report.errors.join('\n'));report.status='PASS'
 }finally{try{await writeFile(`${out}/headless-validation.json`,JSON.stringify(report,null,2))}finally{socket?.close();await cleanup()}}

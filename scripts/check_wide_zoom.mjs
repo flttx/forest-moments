@@ -73,7 +73,7 @@ try {
   for(let i=0;i<20;i++)await wheel(300)
   await sleep(1600);await shot('02-max-distance');report.checks.push({name:'wheel-max',qa:await qa()})
   assert(Math.abs((await qa()).orbit.zoom-14)<.01)
-  assert(await evaluate("getComputedStyle(document.querySelector('.landmarks')).display==='none'"))
+  assert(await evaluate("getComputedStyle(document.querySelector('.brand')).display==='none'"))
   const key=async(code,key)=>{await cmd('Input.dispatchKeyEvent',{type:'keyDown',code,key});await cmd('Input.dispatchKeyEvent',{type:'keyUp',code,key})}
   const waitFor=async(expression)=>{for(let i=0;i<150;i++){if(await evaluate(expression))return;await sleep(100)}throw Error('Condition timed out: '+expression)}
   for(const light of ['dusk','night']){await evaluate(`forestStore.setState({timeOfDay:'${light}'})`);await shot(`03-${light}-wide`)}
@@ -85,7 +85,7 @@ try {
   await cmd('Emulation.setDeviceMetricsOverride',{width:1024,height:768,deviceScaleFactor:1,mobile:false});await shot('06-four-three-wide')
   await cmd('Emulation.setDeviceMetricsOverride',{width:1440,height:900,deviceScaleFactor:1,mobile:false})
   for(let i=0;i<20;i++)await wheel(-300)
-  await sleep(1000);assert(Math.abs((await qa()).orbit.zoom-.55)<.01);await shot('07-close-restored');assert(await evaluate("getComputedStyle(document.querySelector('.landmarks')).display!=='none'"))
+  await sleep(1000);assert(Math.abs((await qa()).orbit.zoom-.55)<.01);await shot('07-close-restored');assert(await evaluate("getComputedStyle(document.querySelector('.brand')).display!=='none'"))
   await evaluate("forestStore.setState({position:{x:-15,z:-24.5},nearby:'bedroom'})");await key('KeyF','f');await waitFor("forestStore.getState().location==='bedroom'&&!forestStore.getState().homeTransfer")
   for(let i=0;i<20;i++)await wheel(300)
   await sleep(1000);const room=await qa();assert(Math.abs(room.orbit.zoom-1.6)<.01);assert(room.cameraPosition[1]<=3.05);await shot('08-indoor-limit');report.checks.push({name:'indoor',qa:room})

@@ -74,9 +74,11 @@ try {
     const resource=path=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===path).name;
     const {vegetationPositions,instanceCircles}=await import(resource('/src/world/vegetationLayout.ts'));
     const {canStandAt}=await import(resource('/src/game/movement.ts'));
+    // Approach along camera-forward: W moves away from the camera, so start behind the trunk on the camera side.
+    const yaw=JSON.parse(document.querySelector('canvas').dataset.forestQa).orbit.yaw,bx=Math.sin(yaw),bz=Math.cos(yaw);
     for(const p of [...vegetationPositions].filter(p=>p.kit==='normal-pine-b').sort((a,b)=>Math.hypot(a.x,a.z)-Math.hypot(b.x,b.z))){
-      const c=instanceCircles(p)[0],start={x:c.x+3/Math.sqrt(2),z:c.z+3/Math.sqrt(2)};
-      if(canStandAt(start.x,start.z)&&canStandAt(c.x+1.5/Math.sqrt(2),c.z+1.5/Math.sqrt(2))){window.treeFixture={p,c,start};forestStore.setState({position:start,mode:'walking',location:'island',timeOfDay:'day'});return window.treeFixture}
+      const c=instanceCircles(p)[0],start={x:c.x+3*bx,z:c.z+3*bz};
+      if(canStandAt(start.x,start.z)&&canStandAt(c.x+1.5*bx,c.z+1.5*bz)){window.treeFixture={p,c,start};forestStore.setState({position:start,mode:'walking',location:'island',timeOfDay:'day'});return window.treeFixture}
     }throw Error('No clear tree approach');
   })()`);
   report.fixture=fixture;await sleep(1800);await shot('01-approach');

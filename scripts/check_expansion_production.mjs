@@ -73,10 +73,12 @@ try {
   await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',button:'right',buttons:0,x:950,y:350,clickCount:1})
   await sleep(400);await key('w',false);await sleep(800);await shot('03-orbit-and-w')
   await cmd('Input.dispatchMouseEvent',{type:'mouseWheel',x:700,y:450,deltaX:0,deltaY:-200});await sleep(1000);await shot('04-wheel-zoom')
-  assert(await evaluate("document.querySelector('.controls')?.textContent.includes('右键拖动视角')"))
-  assert(await evaluate("document.querySelector('.controls')?.textContent.includes('按视角移动')"))
+  // Key help moved from the standing bar into the Help panel (UI upgrade); open it, read it, close it with Esc.
+  await evaluate("[...document.querySelectorAll('.menu button')].find(b=>b.textContent==='帮助').click()");await sleep(300)
+  assert(await evaluate("['右键拖动','转动视角','W','Esc'].every(t=>document.querySelector('#menu-panel')?.textContent.includes(t))"))
+  await key('Escape',true);await key('Escape',false);await sleep(200);assert(await evaluate("!document.querySelector('#menu-panel')"))
   assert.equal(await snapshot(),null)
-  check('production load, directional keys, updated hint and no development telemetry',{note:'Movement screenshots visually reviewed; vector assertions run in the development harness'})
+  check('production load, directional keys, help panel and no development telemetry',{note:'Movement screenshots visually reviewed; vector assertions run in the development harness'})
   assert.equal(report.errors.length,0,report.errors.join('\n'));report.status='PASS'
 } catch (error) {
   report.status = 'FAIL'; report.failure = String(error); process.exitCode = 1

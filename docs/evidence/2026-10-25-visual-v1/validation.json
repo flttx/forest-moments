@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-25",
+  "stage": "V1 lighting and post-processing",
+  "browser": "Edg/156.0.4314.42 headless",
+  "gpu": "RTX 5060 Ti (ANGLE D3D11)",
+  "viewport": [
+    1440,
+    900
+  ],
+  "lint": "pass, 0 warnings",
+  "unit": "83/83",
+  "build": {
+    "mainJsKb": 1582.06,
+    "gzipKb": 484.48,
+    "previousMainJsKb": 1335.75,
+    "previousGzipKb": 379.14
+  },
+  "audit": "pnpm audit --prod (registry.npmjs.org): no known vulnerabilities",
+  "dependencies": {
+    "@react-three/postprocessing": "3.1.3",
+    "postprocessing": "6.39.5"
+  },
+  "browserRegression": {
+    "check_wide_zoom": "PASS (exit 0)",
+    "check_tree_visibility": "PASS",
+    "check_sleep_cycle": "PASS",
+    "check_expansion_navigation": "PASS (exit 0)",
+    "check_expansion_production": "PASS"
+  },
+  "preexistingFailures": {
+    "check_camera_headless": "reads removed followYaw field",
+    "check_orbit_controls": "asserts maxZoom 1.6; raised to 14 on 2026-10-25 before this stage"
+  },
+  "notRun": [
+    "check_controls_navigation",
+    "check_heading_navigation (fixed output paths would overwrite history)"
+  ],
+  "perf": {
+    "before": {
+      "day-idle": {
+        "frames": 6796,
+        "meanMs": 1.47,
+        "p95Ms": 2.8,
+        "maxMs": 36.6
+      },
+      "day-walk": {
+        "frames": 7255,
+        "meanMs": 1.38,
+        "p95Ms": 2.6,
+        "maxMs": 36.9
+      },
+      "day-wide": {
+        "frames": 7257,
+        "meanMs": 1.38,
+        "p95Ms": 2.5,
+        "maxMs": 12.4
+      },
+      "night-idle": {
+        "frames": 6365,
+        "meanMs": 1.57,
+        "p95Ms": 2.9,
+        "maxMs": 36.1
+      },
+      "night-walk": {
+        "frames": 6624,
+        "meanMs": 1.51,
+        "p95Ms": 2.7,
+        "maxMs": 14.8
+      },
+      "night-wide": {
+        "frames": 7445,
+        "meanMs": 1.34,
+        "p95Ms": 2.2,
+        "maxMs": 8.3
+      }
+    },
+    "after": {
+      "day-idle": {
+        "frames": 4425,
+        "meanMs": 2.26,
+        "p95Ms": 3.9,
+        "maxMs": 36.9
+      },
+      "day-walk": {
+        "frames": 4721,
+        "meanMs": 2.12,
+        "p95Ms": 3.7,
+        "maxMs": 36.7
+      },
+      "day-wide": {
+        "frames": 4916,
+        "meanMs": 2.03,
+        "p95Ms": 3.2,
+        "maxMs": 11.5
+      },
+      "night-idle": {
+        "frames": 4209,
+        "meanMs": 2.38,
+        "p95Ms": 4.1,
+        "maxMs": 36.2
+      },
+      "night-walk": {
+        "frames": 4370,
+        "meanMs": 2.29,
+        "p95Ms": 4.1,
+        "maxMs": 11.9
+      },
+      "night-wide": {
+        "frames": 4896,
+        "meanMs": 2.04,
+        "p95Ms": 3.2,
+        "maxMs": 13.8
+      }
+    },
+    "afterLow": {
+      "day-idle": {
+        "frames": 7011,
+        "meanMs": 1.43,
+        "p95Ms": 2.2,
+        "maxMs": 19.2
+      },
+      "day-walk": {
+        "frames": 6879,
+        "meanMs": 1.45,
+        "p95Ms": 2.1,
+        "maxMs": 18.9
+      },
+      "day-wide": {
+        "frames": 7217,
+        "meanMs": 1.39,
+        "p95Ms": 2.3,
+        "maxMs": 9.8
+      },
+      "night-idle": {
+        "frames": 6729,
+        "meanMs": 1.49,
+        "p95Ms": 2.5,
+        "maxMs": 36.8
+      },
+      "night-walk": {
+        "frames": 6869,
+        "meanMs": 1.46,
+        "p95Ms": 2.4,
+        "maxMs": 10.1
+      },
+      "night-wide": {
+        "frames": 7930,
+        "meanMs": 1.26,
+        "p95Ms": 1.8,
+        "maxMs": 16.8
+      }
+    }
+  }
+}
