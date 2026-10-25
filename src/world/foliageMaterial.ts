@@ -1,24 +1,14 @@
-// Whole-instance coverage transition; no circular holes through stacked leaf shells.
+// Stable tree colour variation without proximity or camera-dependent fading.
 import * as THREE from 'three'
 import { noiseGLSL } from './terrain'
-const FADE_FRAGMENT = /* glsl */ `
-  if (vFoliageVisibility < 0.001) discard;
-  // Identical screen-space samples across layers avoid showing grey inner shells.
-  float coverage = fract(52.9829189 * fract(dot(floor(gl_FragCoord.xy), vec2(.06711056, .00583715))));
-  if (vFoliageVisibility < .999 && coverage > vFoliageVisibility) discard;
-`;
-
 // P14 C5: neighbouring groves lean yellow-green or blue-green and each tree is a little lighter or darker, so one pine
 // kit no longer reads as a uniform carpet. Keyed on the instance's world position (stable across chunks and the LOD
 // twin, which share these materials); only leaf colours are tinted, not trunks or bark.
 const VARIATION_VERTEX_PARS = /* glsl */ `
   varying vec3 vFoliageTint;
-  attribute float foliageVisibility;
-  varying float vFoliageVisibility;
   ${noiseGLSL}
 `;
 const VARIATION_VERTEX = /* glsl */ `
-  vFoliageVisibility = foliageVisibility;
   #ifdef USE_INSTANCING
     vec3 foliageRoot = (modelMatrix * instanceMatrix * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
   #else
@@ -41,10 +31,9 @@ export function patchFoliageMaterial(material: THREE.Material) {
       .replace('#include <common>', `#include <common>\n${VARIATION_VERTEX_PARS}`)
       .replace('#include <begin_vertex>', `#include <begin_vertex>\n${VARIATION_VERTEX}`);
     shader.fragmentShader = shader.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying float vFoliageVisibility;\nvarying vec3 vFoliageTint;')
-      .replace('#include <map_fragment>', `#include <map_fragment>\n${VARIATION_FRAGMENT}`)
-      .replace('#include <alphatest_fragment>', `${FADE_FRAGMENT}\n#include <alphatest_fragment>`);
+      .replace('#include <common>', '#include <common>\nvarying vec3 vFoliageTint;')
+      .replace('#include <map_fragment>', `#include <map_fragment>\n${VARIATION_FRAGMENT}`);
   };
-  material.customProgramCacheKey=()=> 'whole-crown-coverage-v1';
+  material.customProgramCacheKey=()=> 'opaque-foliage-tint-v1';
   material.needsUpdate = true;
 }

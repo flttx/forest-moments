@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-25",
+  "status": "PASS for persistent tree visibility and collision; canopy camera avoidance not implemented",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": {
+    "lint": "PASS, no warnings",
+    "test": "82/82, 19 files; removed 2 obsolete fade tests",
+    "build": "PASS, existing chunk-size warning",
+    "mainJsKB": 1335.75,
+    "mainJsGzipKB": 379.14
+  },
+  "batches": {
+    "before": {
+      "status": "PASS",
+      "screenshots": 6,
+      "errors": [],
+      "rawRecord": "before/headless-validation.json (local ignored)"
+    },
+    "after": {
+      "status": "PASS",
+      "screenshots": 6,
+      "errors": [],
+      "rawRecord": "after/headless-validation.json (local ignored)"
+    },
+    "views": {
+      "status": "PASS",
+      "screenshots": 21,
+      "errors": [],
+      "rawRecord": "views/headless-validation.json (local ignored)"
+    },
+    "production": {
+      "status": "PASS",
+      "screenshots": 4,
+      "errors": [],
+      "rawRecord": "production/headless-validation.json (local ignored)"
+    }
+  },
+  "collision": {
+    "movement": 0,
+    "distance": 0.6052186980356414
+  },
+  "rendering": [
+    {
+      "name": "actual-W-trunk-collision",
+      "stats": {
+        "missingChunks": 0,
+        "duplicateChunks": 0,
+        "visibleInstances": 162,
+        "coverageAttributes": 0
+      }
+    },
+    {
+      "name": "dusk",
+      "stats": {
+        "missingChunks": 0,
+        "duplicateChunks": 0,
+        "visibleInstances": 162,
+        "coverageAttributes": 0
+      }
+    },
+    {
+      "name": "night",
+      "stats": {
+        "missingChunks": 0,
+        "duplicateChunks": 0,
+        "visibleInstances": 162,
+        "coverageAttributes": 0
+      }
+    },
+    {
+      "name": "orbit",
+      "stats": {
+        "missingChunks": 0,
+        "duplicateChunks": 0,
+        "visibleInstances": 162,
+        "coverageAttributes": 0
+      }
+    },
+    {
+      "name": "wide-LOD",
+      "stats": {
+        "missingChunks": 0,
+        "duplicateChunks": 0,
+        "visibleInstances": 162,
+        "coverageAttributes": 0
+      }
+    }
+  ],
+  "sourceSHA256": {
+    "src/world/ForestKit.tsx": "f9a3206fafe533ae207850c8446b2b1755e089b68c8091cf0512a757fd9411b8",
+    "src/world/foliageMaterial.ts": "21e70ef88164ac641ffa44d80e93d6f210dbe3adc5e10c4c55f79af88f37e692",
+    "src/world/vegetationLayout.ts": "b4b4fb02cfb2d9a473464acbab63dad6c577173437ce89ee3f8be41bc8e877dc",
+    "src/game/movement.ts": "7aa595ebd71723766862c0126ce71c25662c642c3704e3314854eafb1938e8d7",
+    "scripts/check_tree_visibility.mjs": "211ce81006f4ec9f857b0814a0c4d5d85133fbbd9d2ac9ae0c85be7d0ace4f65"
+  },
+  "limitations": [
+    "Close orbit can enter a canopy and obscure the screen; adjust angle or zoom out.",
+    "Local browser verification only; no cross-device performance or deployment."
+  ],
+  "assets": "No runtime assets generated or modified in this change",
+  "captureToolNote": "Contact-sheet Python attempt lacked PIL; used built-in Windows System.Drawing instead. Original captures unchanged."
+}

@@ -10,8 +10,6 @@ import { patchFoliageMaterial } from './foliageMaterial'
 import { maskedCentroid, nearestAnchors } from './lampAnchors'
 import { transformedGeometry } from './transformedGeometry'
 import { useForestStore } from '../game/store'
-import { updateFoliageOcclusion } from './foliageOcclusion'
-import type { FoliageOccluder } from './foliageOcclusion'
 
 export function ForestKit() {
   const high=useGLTF('/assets/vegetation/forest-kit.glb',true,true)
@@ -19,9 +17,8 @@ export function ForestKit() {
   const mask=useTexture('/assets/vegetation/lantern-glow.webp')
   const field=useMemo(()=>{
     const root=new THREE.Group();root.name='forest-kit'
-    const focus={value:new THREE.Vector3()}
     const materials:THREE.Material[]=[],geometries:THREE.BufferGeometry[]=[]
-    const chunks:{hi:THREE.InstancedMesh;lo:THREE.InstancedMesh;center:THREE.Vector3;far:boolean;visibility:THREE.InstancedBufferAttribute;occluders:FoliageOccluder[]}[]=[]
+    const chunks:{hi:THREE.InstancedMesh;lo:THREE.InstancedMesh;center:THREE.Vector3;far:boolean}[]=[]
     const anchors:number[]=[]
     const image=mask.image as HTMLImageElement
     const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height
@@ -57,33 +54,20 @@ export function ForestKit() {
         continue
       }
       patchFoliageMaterial(material)
-      geometry.computeBoundingBox()
-      const bounds=geometry.boundingBox!,height=bounds.max.y-bounds.min.y
-      const width=Math.max(bounds.max.x-bounds.min.x,bounds.max.z-bounds.min.z)
       const lod=low.scene.getObjectByName('LOD_Eco_'+kit) as THREE.Mesh
       const lodGeometry=transformedGeometry(lod.geometry,lod.matrixWorld);geometries.push(lodGeometry)
       const groups=new Map<string,VegetationInstance[]>()
       for(const p of all){const key=`${Math.floor(p.x/8)},${Math.floor(p.z/8)}`;groups.set(key,[...(groups.get(key)??[]),p])}
       for(const [key,items] of groups) {
-        const visibility=new THREE.InstancedBufferAttribute(new Float32Array(items.length).fill(1),1)
-        visibility.setUsage(THREE.DynamicDrawUsage)
-        // Share mesh buffers between chunks, but keep each chunk's coverage attribute independent.
-        const withCoverage=(source:THREE.BufferGeometry)=>{
-          const g=new THREE.BufferGeometry();g.setIndex(source.index)
-          for(const [name,attribute] of Object.entries(source.attributes))g.setAttribute(name,attribute)
-          g.setAttribute('foliageVisibility',visibility);geometries.push(g);return g
-        }
-        const hi=new THREE.InstancedMesh(withCoverage(geometry),material,items.length),lo=new THREE.InstancedMesh(withCoverage(lodGeometry),material,items.length)
-        // Include a shoulder-width margin so needles beside the focus point do not cover the actor.
-        const margin=kit==='bush-a'?.2:.55
-        const occluders=items.map(p=>({center:{x:p.x,y:terrainHeight(p.x,p.z)+(bounds.min.y+height*.55)*p.scale,z:p.z},radius:{x:width*.55*p.scale+margin,y:height*.55*p.scale+.25,z:width*.55*p.scale+margin},hidden:false,visibility:1}))
+        // Keep every tree opaque at every distance; LOD swaps only its mesh detail.
+        const hi=new THREE.InstancedMesh(geometry,material,items.length),lo=new THREE.InstancedMesh(lodGeometry,material,items.length)
         hi.name=`${kit}-${key}`;lo.name=`lod-${kit}-${key}`;place(hi,items);place(lo,items)
         hi.castShadow=true;lo.castShadow=true;lo.visible=false
-        root.add(hi,lo);chunks.push({hi,lo,center:hi.boundingSphere!.center.clone(),far:false,visibility,occluders})
+        root.add(hi,lo);chunks.push({hi,lo,center:hi.boundingSphere!.center.clone(),far:false})
       }
     }
     const lights=Array.from({length:4},()=>{const l=new THREE.PointLight('#ffbd79',0,9,2);root.add(l);return {light:l,index:-1}})
-    return {root,focus,chunks,materials,geometries,anchors,lights,glow,power,picked:[] as number[]}
+    return {root,chunks,materials,geometries,anchors,lights,glow,power,picked:[] as number[]}
   },[high.scene,low.scene,mask])
   const runtime=useRef(field)
   useEffect(()=>()=>{
@@ -95,17 +79,9 @@ export function ForestKit() {
     field.power=lanternPower(daylightAt(useForestStore.getState()))
     for(const m of field.materials)if(m instanceof THREE.MeshStandardMaterial&&m.emissiveMap===field.glow)m.emissiveIntensity=3.2*field.power
     const state=useForestStore.getState(),p=state.position
-    if(state.mode==='lookout')field.focus.value.copy(camera.position)
-    else field.focus.value.set(p.x,terrainHeight(p.x,p.z)+.9,p.z)
     for(const c of field.chunks) {
       const d=c.center.distanceTo(camera.position)
       c.far=c.far?d>27:d>31;c.hi.visible=!c.far;c.lo.visible=c.far
-      let changed=false
-      c.occluders.forEach((tree,i)=>{
-        updateFoliageOcclusion(tree,camera.position,field.focus.value,dt)
-        if(Math.abs(c.visibility.getX(i)-tree.visibility)>1e-6){c.visibility.setX(i,tree.visibility);changed=true}
-      })
-      if(changed)c.visibility.needsUpdate=true
     }
     nearestAnchors(field.anchors,p.x,p.z,5,40,field.picked)
     const wanted=field.picked.slice(0,4)
@@ -122,7 +98,7 @@ export function ForestKit() {
       const target=wanted.includes(slot.index)?3.5*field.power*THREE.MathUtils.clamp((boundary-d)/4,0,1):0
       slot.light.intensity=THREE.MathUtils.damp(slot.light.intensity,target,8,Math.min(dt,.05))
     }
-    if(import.meta.env.DEV&&new URLSearchParams(location.search).has('qa'))gl.domElement.dataset.vegetationQa=JSON.stringify({plants:vegetationPositions.length,lamps:lampPositions.length,lodChunks:field.chunks.filter(c=>c.far).length,occlusion:{hidden:field.chunks.reduce((n,c)=>n+c.occluders.filter(t=>t.visibility===0).length,0),transitioning:field.chunks.reduce((n,c)=>n+c.occluders.filter(t=>t.visibility>0&&t.visibility<1).length,0)},anchors:field.anchors,lights:field.lights.map(s=>({index:s.index,intensity:s.light.intensity,assignmentIntensity:s.light.userData.assignmentIntensity??0,position:s.light.position.toArray()}))})
+    if(import.meta.env.DEV&&new URLSearchParams(location.search).has('qa'))gl.domElement.dataset.vegetationQa=JSON.stringify({plants:vegetationPositions.length,lamps:lampPositions.length,lodChunks:field.chunks.filter(c=>c.far).length,rendering:{missingChunks:field.chunks.filter(c=>!c.hi.visible&&!c.lo.visible).length,duplicateChunks:field.chunks.filter(c=>c.hi.visible&&c.lo.visible).length,visibleInstances:field.chunks.reduce((n,c)=>n+(c.hi.visible?c.hi.count:0)+(c.lo.visible?c.lo.count:0),0),coverageAttributes:field.chunks.filter(c=>c.hi.geometry.hasAttribute('foliageVisibility')||c.lo.geometry.hasAttribute('foliageVisibility')).length},anchors:field.anchors,lights:field.lights.map(s=>({index:s.index,intensity:s.light.intensity,assignmentIntensity:s.light.userData.assignmentIntensity??0,position:s.light.position.toArray()}))})
   })
   return <primitive object={field.root} dispose={null}/>
 }
