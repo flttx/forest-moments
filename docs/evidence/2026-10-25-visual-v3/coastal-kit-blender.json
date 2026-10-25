@@ -1,0 +1,61 @@
+{
+  "blender": "5.2.1 LTS",
+  "output": "public/assets/expansion/coastal-kit.glb",
+  "bytes": 97244,
+  "modules": [
+    {
+      "name": "Rock_Slab",
+      "triangles": 550,
+      "size_m": [
+        2.453,
+        1.972,
+        1.666
+      ]
+    },
+    {
+      "name": "Rock_Tall",
+      "triangles": 586,
+      "size_m": [
+        1.757,
+        1.494,
+        2.918
+      ]
+    },
+    {
+      "name": "Rock_Boulder",
+      "triangles": 276,
+      "size_m": [
+        1.893,
+        1.661,
+        1.282
+      ]
+    },
+    {
+      "name": "Rock_Cobbles",
+      "triangles": 694,
+      "size_m": [
+        1.467,
+        1.071,
+        0.466
+      ]
+    },
+    {
+      "name": "Driftwood_Long",
+      "triangles": 456,
+      "size_m": [
+        2.411,
+        0.47,
+        0.395
+      ]
+    },
+    {
+      "name": "Driftwood_Short",
+      "triangles": 432,
+      "size_m": [
+        1.414,
+        0.24,
+        0.245
+      ]
+    }
+  ]
+}
