@@ -1,0 +1,27 @@
+{
+  "kind": "tank",
+  "source": "assets/expansion/tank.glb",
+  "output": "public/assets/expansion/tank.glb",
+  "bytes": 6632776,
+  "sha256": "a57ee41cdbb1ec3613218bbf782dc85cb250893b58df6b984f9430a48ddaaf24",
+  "sourceSha256": "f8256b770c072a85d58ac4abbaab7bc9281e53f50c1a21143fac6b7580885596",
+  "triangles": 99517,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "newGeneration": true,
+  "decimated": false
+}

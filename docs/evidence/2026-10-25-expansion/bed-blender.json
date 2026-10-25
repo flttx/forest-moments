@@ -1,0 +1,48 @@
+{
+  "asset": "bed",
+  "source": "assets\\lux3d\\expansion-bed-v1\\output-1.glb",
+  "sourceBounds": [
+    [
+      -0.3295474052429199,
+      -0.5020744800567627,
+      -0.24270300567150116
+    ],
+    [
+      0.32870545983314514,
+      0.5016754865646362,
+      0.2434159815311432
+    ]
+  ],
+  "targetBlenderXYZ": [
+    1.65,
+    2.7,
+    1.05
+  ],
+  "rotateZ90": false,
+  "triangles": 76274,
+  "blender": "5.2.1 LTS",
+  "textures": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Render Result",
+      "size": [
+        0,
+        0
+      ]
+    }
+  ],
+  "topologyPreserved": true
+}

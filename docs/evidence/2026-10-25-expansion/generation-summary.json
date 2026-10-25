@@ -1,0 +1,205 @@
+[
+  {
+    "asset": "expansion-bed-v1",
+    "taskId": 4351845,
+    "phase": "succeeded",
+    "imageSha256": "17f77848d71283235df251006dfeb1f6dc53c92a8e5943d786407a1b0113a744",
+    "options": {
+      "version": "G1",
+      "faceCount": 80000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 6988411,
+        "sha256": "c55e0f8db431232b021dc0e3bf2be9f416d89e0990fc784207622a4e03921c79"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 7181880,
+        "sha256": "d26f1021d3fe74e5302d9955ca006c7c0400432286d3a26350cf8ce5f6230a64"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  },
+  {
+    "asset": "expansion-bridge-v1",
+    "taskId": 4351848,
+    "phase": "succeeded",
+    "imageSha256": "77ccc7376fe136a687e6045f62fad89a47cccec923541e8e96640d3eab3231fe",
+    "options": {
+      "version": "G1",
+      "faceCount": 100000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 7868415,
+        "sha256": "65b142e9ce8c8d86f85bdc96b7b8d2370a08db82a5abc80d963286bc5fd73266"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 7806660,
+        "sha256": "c5590377cecc53765b745d3503e3d16983ada3a2791c0ff4faf9dc675cbe83fb"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  },
+  {
+    "asset": "expansion-cabin-v1",
+    "taskId": 4351842,
+    "phase": "succeeded",
+    "imageSha256": "49138d620e138d905b012dc303b826549d7c5687208251ec55569abc12388b34",
+    "options": {
+      "version": "G1",
+      "faceCount": 180000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 13641432,
+        "sha256": "e3d453f05502de03200500f5ca3561db88e9e6ad42951a94116e1fd1debe231b"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 13368648,
+        "sha256": "ee1351c285f3aaa2dca69ee90d90b80dd174074b94f104e2d0618a4019c5c98a"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  },
+  {
+    "asset": "expansion-firepit-v1",
+    "taskId": 4352048,
+    "phase": "succeeded",
+    "imageSha256": "ca2a4adfc218443bece355fb0bd1498f773dfdb8f5ff145b90f18912f2e8e9ac",
+    "options": {
+      "version": "G1",
+      "faceCount": 60000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 10357946,
+        "sha256": "4cf305d8bec5d45e208a8ef10d97bd5d43173cc55f4e02cf62ef5a8d4e71299d"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 8986812,
+        "sha256": "34f89c75d341479fe8e5105eb7e443ccae338111dd4e09e8ba479799b4a28069"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  },
+  {
+    "asset": "expansion-plane-v1",
+    "taskId": 4351839,
+    "phase": "succeeded",
+    "imageSha256": "eeb4c323ab00206b18cdc513f25643b6db8e33b031d43be9c48a5f113e2b1b79",
+    "options": {
+      "version": "G1",
+      "faceCount": 30000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 5235081,
+        "sha256": "00200a60ef764db04d0962632d809a14fb08992f84aa1349d83b1db75867fe64"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 5562804,
+        "sha256": "f008945948e10e64bb679443b2f4a6caafc34b232bf2059e2cbdc4a49f7f8129"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  },
+  {
+    "asset": "expansion-reef-v1",
+    "taskId": 4351851,
+    "phase": "succeeded",
+    "imageSha256": "0946c5eacfd80201f29939deb914c14e8f64f9356384c4b3ac7b9dc4e324f5da",
+    "options": {
+      "version": "G1",
+      "faceCount": 100000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 11340232,
+        "sha256": "ca3420a838657be341f289d3d3b3517faa447df7249cd0844a03cf0314c353b1"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 11034852,
+        "sha256": "6df91279ce8380e20e8b24b291a244251f7a6b01a6ff2f459ee25889bd114723"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  },
+  {
+    "asset": "expansion-tank-v1",
+    "taskId": 4352051,
+    "phase": "succeeded",
+    "imageSha256": "004e3261184c38fecaf05ff9fdd912c19c6970c3f1973cabd8375517c36c5290",
+    "options": {
+      "version": "G1",
+      "faceCount": 100000,
+      "outputFormat": [
+        "zip",
+        "glb"
+      ],
+      "aiPredictSize": false
+    },
+    "files": [
+      {
+        "filename": "output-0.zip",
+        "bytes": 12038372,
+        "sha256": "44eb184589a94eac905f6e014c7bed138337e6cf08ea3cd0762c92cecec8af24"
+      },
+      {
+        "filename": "output-1.glb",
+        "bytes": 10010596,
+        "sha256": "32cf08910994d54b14cd423026625e1c10a4a0b5464d06f9053b4d004f119dd2"
+      }
+    ],
+    "estimatedCredits": null,
+    "actualCredits": "not verified"
+  }
+]

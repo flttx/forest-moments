@@ -1,0 +1,27 @@
+{
+  "kind": "cabin",
+  "source": "assets/expansion/cabin.glb",
+  "output": "public/assets/expansion/cabin.glb",
+  "bytes": 8527992,
+  "sha256": "7ebd0ed26d53a41b6553fffcad9953c2294faf351232c0307fbc3e90d20f61bf",
+  "sourceSha256": "43c71394f692dd3dd45c5f4a551a9a523257c8e49cf4fc860f4345bd19a2e803",
+  "triangles": 171761,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "newGeneration": true,
+  "decimated": false
+}

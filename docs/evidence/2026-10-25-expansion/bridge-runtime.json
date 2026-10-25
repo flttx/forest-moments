@@ -1,0 +1,27 @@
+{
+  "kind": "bridge",
+  "source": "assets/expansion/bridge.glb",
+  "output": "public/assets/expansion/bridge.glb",
+  "bytes": 4788460,
+  "sha256": "9f52bdc75983e35aafd14ece20742e1b76dd84c5fc15df49b7889295f8825424",
+  "sourceSha256": "5f40ade6df386799ae037915a9bc7d6961f59482faaa82bcd84f1a51896c749a",
+  "triangles": 97008,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "newGeneration": true,
+  "decimated": false
+}

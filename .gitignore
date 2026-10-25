@@ -101,3 +101,43 @@ __pycache__/
 /docs/evidence/**/support-envelope.json
 /docs/evidence/**/topology-inspection.json
 /docs/evidence/**/v5-contact-locations.json
+
+# Expansion report figures reviewed on 2026-10-25; other capture batches stay local.
+!/docs/evidence/2026-10-25-expansion/before/fullIsland.png
+!/docs/evidence/2026-10-25-expansion/plane-normalized.png
+!/docs/evidence/2026-10-25-expansion/bridge-normalized.png
+!/docs/evidence/2026-10-25-expansion/implementation-v1/bedroom.png
+!/docs/evidence/2026-10-25-expansion/polish/day-fullIsland.png
+!/docs/evidence/2026-10-25-expansion/polish/day-beach.png
+!/docs/evidence/2026-10-25-expansion/polish/day-bedroom.png
+!/docs/evidence/2026-10-25-expansion/navigation-v2/01-crossing-bridge.png
+!/docs/evidence/2026-10-25-expansion/navigation-v2/08-actual-catch-in-aquarium.png
+!/docs/evidence/2026-10-25-expansion/final-v2/woodworking-contact.png
+!/docs/evidence/2026-10-25-expansion/final-v2/finished-stool.png
+!/docs/evidence/2026-10-25-expansion/final-v2/night-camp.png
+
+# Sleep-cycle report figures, 2026-10-25. Other captures remain local.
+!/docs/evidence/2026-10-25-sleep-cycle/initial/day-3.png
+!/docs/evidence/2026-10-25-sleep-cycle/final-v2/day-3.png
+!/docs/evidence/2026-10-25-sleep-cycle/final-v2/day-4.png
+!/docs/evidence/2026-10-25-sleep-cycle/horizon/sunrise-horizon.png
+!/docs/evidence/2026-10-25-sleep-cycle/final-v2/night-returned.png
+
+# Coast polish report figures, 2026-10-25.
+!/docs/evidence/2026-10-25-coast-polish/before/day-seaCliff.png
+!/docs/evidence/2026-10-25-coast-polish/final-v2/day-seaCliff.png
+!/docs/evidence/2026-10-25-coast-polish/before/day-creekMouth.png
+!/docs/evidence/2026-10-25-coast-polish/final-v2/day-creekMouth.png
+!/docs/evidence/2026-10-25-coast-polish/final-v2/day-stream.png
+!/docs/evidence/2026-10-25-coast-polish/panorama/sunrise-horizon.png
+
+# Wide mouse-wheel zoom report figures, 2026-10-25.
+!/docs/evidence/2026-10-25-wide-zoom/before/02-max-distance.png
+!/docs/evidence/2026-10-25-wide-zoom/final-v2/02-max-distance.png
+!/docs/evidence/2026-10-25-wide-zoom/final-v2/06-four-three-wide.png
+!/docs/evidence/2026-10-25-wide-zoom/final-v2/09-boat-wide.png
+
+# Persistent tree visibility report figures, 2026-10-25.
+!/docs/evidence/2026-10-25-tree-visibility/before/02-at-trunk.png
+!/docs/evidence/2026-10-25-tree-visibility/after/02-at-trunk.png
+!/docs/evidence/2026-10-25-tree-visibility/after/05-whole-island.png

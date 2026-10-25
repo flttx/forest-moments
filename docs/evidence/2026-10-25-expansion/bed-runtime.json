@@ -1,0 +1,27 @@
+{
+  "kind": "bed",
+  "source": "assets/expansion/bed.glb",
+  "output": "public/assets/expansion/bed.glb",
+  "bytes": 4470112,
+  "sha256": "346006ac829c50c04bd126e752e25ac1ed8bc1551f5dd6e6fa0457f8195ed32d",
+  "sourceSha256": "9457322a6b082ce3bee81ba862372878eba6c928508fe7c00c242ddaa2b3d393",
+  "triangles": 76274,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "newGeneration": true,
+  "decimated": false
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "plane",
+  "source": "assets/expansion/plane.glb",
+  "output": "public/assets/expansion/plane.glb",
+  "bytes": 3679064,
+  "sha256": "9c0fcd58d816804ceb12e48d22e054bcd5ff1f41aa1fb2829fb54d739ab55863",
+  "sourceSha256": "c239c07d0e2a29076a0e8f8016bdb6a5160bec58946d06d555ecad0fc87268ba",
+  "triangles": 29822,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "newGeneration": true,
+  "decimated": false
+}

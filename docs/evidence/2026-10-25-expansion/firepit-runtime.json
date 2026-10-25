@@ -1,0 +1,27 @@
+{
+  "kind": "firepit",
+  "source": "assets/expansion/firepit.glb",
+  "output": "public/assets/expansion/firepit.glb",
+  "bytes": 5847572,
+  "sha256": "9568bf809c53fe7e54eca6ae110976869b335cc4eee1230d8ff4644f90601e06",
+  "sourceSha256": "0f62233556e75e4615e0b31a26b2ffc07748dabdd1d06ab6ab574b5037ad7ad3",
+  "triangles": 58302,
+  "textures": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "mime": "image/webp"
+    }
+  ],
+  "newGeneration": true,
+  "decimated": false
+}
