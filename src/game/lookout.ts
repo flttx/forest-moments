@@ -2,7 +2,7 @@ import {lookoutPosition} from '../world/worldConfig'
 
 // Entry beside the original stair foot; camera above the sampled 3.638 m deck.
 export const lookoutEntry={x:lookoutPosition[0]+2.45,z:lookoutPosition[2]-1.65}
-export const lookoutEye={x:lookoutPosition[0],y:4.9,z:lookoutPosition[2]}
+export const lookoutEye={x:lookoutPosition[0],y:lookoutPosition[1]+4.9,z:lookoutPosition[2]}
 export const initialLookoutView={yaw:-1.05,pitch:-.22}
 export type LookoutView=typeof initialLookoutView
 export type LookoutTransfer={direction:'enter'|'exit';elapsed:number;committed:boolean}

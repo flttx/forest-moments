@@ -14,6 +14,6 @@ it('resolves the actual mesh waterline within 5 mm without refining the whole is
     expect(hit).toBeDefined()
     expect(Math.abs(hit.point.y-pond.waterY)).toBeLessThan(.005)
   }
-  expect(geometry.index!.count/3).toBeLessThan(160000)
+  expect(geometry.index!.count/3).toBeLessThan(270000)
   geometry.dispose();material.dispose()
 })

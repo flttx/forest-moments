@@ -1,3 +1,5 @@
+import {daylightAt,lanternPower} from '../game/dayCycle'
+import {terrainHeight} from './terrain'
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture } from '@react-three/drei'
@@ -33,7 +35,7 @@ export function ForestKit() {
     high.scene.updateMatrixWorld(true);low.scene.updateMatrixWorld(true)
     const dummy=new THREE.Object3D()
     const place=(mesh:THREE.InstancedMesh,items:VegetationInstance[])=>{
-      items.forEach((p,i)=>{dummy.position.set(p.x,0,p.z);dummy.rotation.set(0,p.yaw,0);dummy.scale.setScalar(p.scale);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix)})
+      items.forEach((p,i)=>{dummy.position.set(p.x,terrainHeight(p.x,p.z),p.z);dummy.rotation.set(0,p.yaw,0);dummy.scale.setScalar(p.scale);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix)})
       mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingSphere();mesh.receiveShadow=true
     }
     for(const kit of ['tall-pine-a','normal-pine-b','round-tree-a','young-tree-b','bush-a','lantern'] as PlantKit[]) {
@@ -74,7 +76,7 @@ export function ForestKit() {
         const hi=new THREE.InstancedMesh(withCoverage(geometry),material,items.length),lo=new THREE.InstancedMesh(withCoverage(lodGeometry),material,items.length)
         // Include a shoulder-width margin so needles beside the focus point do not cover the actor.
         const margin=kit==='bush-a'?.2:.55
-        const occluders=items.map(p=>({center:{x:p.x,y:(bounds.min.y+height*.55)*p.scale,z:p.z},radius:{x:width*.55*p.scale+margin,y:height*.55*p.scale+.25,z:width*.55*p.scale+margin},hidden:false,visibility:1}))
+        const occluders=items.map(p=>({center:{x:p.x,y:terrainHeight(p.x,p.z)+(bounds.min.y+height*.55)*p.scale,z:p.z},radius:{x:width*.55*p.scale+margin,y:height*.55*p.scale+.25,z:width*.55*p.scale+margin},hidden:false,visibility:1}))
         hi.name=`${kit}-${key}`;lo.name=`lod-${kit}-${key}`;place(hi,items);place(lo,items)
         hi.castShadow=true;lo.castShadow=true;lo.visible=false
         root.add(hi,lo);chunks.push({hi,lo,center:hi.boundingSphere!.center.clone(),far:false,visibility,occluders})
@@ -90,9 +92,11 @@ export function ForestKit() {
   },[field])
   useFrame(({camera,gl},dt)=>{
     const field=runtime.current
+    field.power=lanternPower(daylightAt(useForestStore.getState()))
+    for(const m of field.materials)if(m instanceof THREE.MeshStandardMaterial&&m.emissiveMap===field.glow)m.emissiveIntensity=3.2*field.power
     const state=useForestStore.getState(),p=state.position
     if(state.mode==='lookout')field.focus.value.copy(camera.position)
-    else field.focus.value.set(p.x,.9,p.z)
+    else field.focus.value.set(p.x,terrainHeight(p.x,p.z)+.9,p.z)
     for(const c of field.chunks) {
       const d=c.center.distanceTo(camera.position)
       c.far=c.far?d>27:d>31;c.hi.visible=!c.far;c.lo.visible=c.far

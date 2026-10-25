@@ -1,14 +1,14 @@
 import {useEffect,type RefObject} from 'react'
 import {useThree} from '@react-three/fiber'
 import {useForestStore} from '../game/store'
-import {cancelOrbit,rotateOrbit,zoomOrbit,type Orbit} from '../game/orbitCamera'
+import {cancelOrbit,rotateOrbit,zoomOrbit,orbitConfig,type Orbit} from '../game/orbitCamera'
 
 export function useOrbitInput(orbit:RefObject<Orbit>,dragging:RefObject<boolean>){
  const gl=useThree(s=>s.gl)
  useEffect(()=>{
   const canvas=gl.domElement
   let pointer:number|null=null,last:{x:number;y:number}|null=null
-  const enabled=()=>{const s=useForestStore.getState();return !s.boatTransfer&&!s.workshopTransfer&&!s.lookoutTransfer&&!s.inspectingTree&&['walking','rowing','lookout'].includes(s.mode)}
+  const enabled=()=>{const s=useForestStore.getState();return !s.homeTransfer&&!s.aquariumOpen&&!s.boatTransfer&&!s.workshopTransfer&&!s.lookoutTransfer&&!s.inspectingTree&&['walking','rowing','lookout','sitting'].includes(s.mode)}
   const stop=()=>{const id=pointer;pointer=null;last=null;dragging.current=false;if(id!==null&&canvas.hasPointerCapture(id))canvas.releasePointerCapture(id)}
   const clear=()=>{stop();cancelOrbit(orbit.current)}
   const down=(e:PointerEvent)=>{
@@ -28,7 +28,7 @@ export function useOrbitInput(orbit:RefObject<Orbit>,dragging:RefObject<boolean>
   const menu=(e:MouseEvent)=>e.preventDefault()
   const wheel=(e:WheelEvent)=>{
    if(!enabled()||useForestStore.getState().mode==='lookout')return
-   e.preventDefault();zoomOrbit(orbit.current,e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1))
+   e.preventDefault();zoomOrbit(orbit.current,e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1),useForestStore.getState().location==='island'?orbitConfig.maxZoom:orbitConfig.indoorMaxZoom)
   }
   const visibility=()=>{if(document.visibilityState!=='visible')clear()}
   const unsubscribe=useForestStore.subscribe(()=>{if(!enabled())clear()})

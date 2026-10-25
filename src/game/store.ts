@@ -1,3 +1,5 @@
+import {beginSleepJourney,sleepDuration,lightingStorageKey,type TimeOfDay,type SleepJourney} from './dayCycle'
+import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,expansionStorageKey,addCatch,catchId,type HomeBook,type SeatSession,type SeatId} from './expansion'
 import { create } from 'zustand'
 import { findNearestLandmark, landmarks, type LandmarkId } from './landmarks'
 import { canBoard, canLand, initialBoat, landing, type BoatState } from './rowing'
@@ -8,6 +10,7 @@ import {decodeFarm,farmStorageKey,feedSpot,type FarmBook} from './farm'
 import {canViewLookout,initialLookoutView,turnLookout,type LookoutView,type LookoutTransfer} from './lookout'
 import {decodeWorkshop,workshopDoor,workshopStorageKey,workshopAction,strikeCraft,type WorkshopBook,type CraftSession,craftSpot,indoorSpawn,type WorkshopTransfer} from './workshop'
 
+function saveHome(home:HomeBook){try{window.localStorage.setItem(expansionStorageKey,JSON.stringify(home));return true}catch{return false}}
 function saveWorkshop(book:WorkshopBook){try{window.localStorage.setItem(workshopStorageKey,JSON.stringify(book));return true}catch{return false}}
 
 function saveTree(tree:PlantedTree){try{window.localStorage.setItem(growthStorageKey,JSON.stringify(tree));return true}catch{return false}}
@@ -15,8 +18,25 @@ function loadTree(){try{const tree=decodeTree(window.localStorage.getItem(growth
 const initialTree=typeof window!=='undefined'?loadTree():null
 
 type ForestState = {
-  mode: 'walking' | 'rowing' | 'fishing' | 'planting' | 'feeding' | 'lookout' | 'gathering' | 'crafting'
-  location: 'island'|'workshop'
+  mode: 'walking' | 'rowing' | 'fishing' | 'planting' | 'feeding' | 'lookout' | 'gathering' | 'crafting' | 'sitting' | 'sleeping'
+  location: 'island'|'workshop'|'bedroom'
+  islandOverview:boolean
+  homeBook:HomeBook
+  homeReady:boolean
+  homeTransfer:WorkshopTransfer|null
+  homeReturn:{x:number;z:number}
+  sitting:SeatSession|null
+  sleepElapsed:number
+  sleepJourney:SleepJourney|null
+  sunRising:boolean
+  aquariumOpen:boolean
+  timeOfDay:TimeOfDay
+  tickHome:(delta:number)=>boolean
+  leaveSeat:()=>void
+  sit:(id:SeatId)=>void
+  keepFish:(id:string)=>void
+  releaseFish:(id:string)=>void
+  wakeUp:()=>void
   workshopTransfer:WorkshopTransfer|null
   workshopReturn:{x:number;z:number}
   tickWorkshopTransfer:(delta:number)=>boolean
@@ -73,6 +93,33 @@ type ForestState = {
 
 export const useForestStore = create<ForestState>((set, get) => ({
   mode: 'walking',
+  islandOverview:false,
+  homeBook:(()=>{try{return decodeHome(window.localStorage.getItem(expansionStorageKey))}catch{return decodeHome(null)}})(),
+  homeReady:false,homeTransfer:null,homeReturn:{x:cabin.x,z:cabin.doorZ},sitting:null,sleepElapsed:0,sleepJourney:null,sunRising:false,aquariumOpen:false,
+  timeOfDay:(()=>{if(typeof window==='undefined')return'day';const t=new URLSearchParams(window.location?.search??'').get('light');if(t==='day'||t==='night'||t==='dusk')return t;try{const saved=window.localStorage.getItem(lightingStorageKey);return saved==='night'?'night':'day'}catch{return'day'}})(),
+  sit:id=>{
+    const s=get();if(s.mode!=='walking'||s.homeTransfer||s.workshopTransfer||s.boatTransfer||s.lookoutTransfer)return
+    const seat=seats.find(v=>v.id===id),position=id==='stool'?{x:-.6+.254*7/3,z:-1.6}:seat?seatOrigin(seat):null
+    if(!position||id==='stool'&&(s.location!=='workshop'||s.workshopBook.phase!=='finished')||id!=='stool'&&s.location!=='island'||Math.hypot(s.position.x-position.x,s.position.z-position.z)>1.5)return
+    set({mode:'sitting',position,sitting:{id,phase:'down',elapsed:0,returnPosition:{...s.position}},message:'',inspectingTree:false})
+  },
+  leaveSeat:()=>{const sitting=get().sitting;if(sitting&&sitting.phase==='idle')set({sitting:{...sitting,phase:'up',elapsed:0}})},
+  wakeUp:()=>{
+    const s=get();if(s.mode!=='sleeping'||!s.sleepJourney)return
+    const timeOfDay=s.sleepJourney.target,homeBook={...s.homeBook,nights:s.homeBook.nights+1};let saved=saveHome(homeBook)
+    try{window.localStorage.setItem(lightingStorageKey,timeOfDay)}catch{saved=false}
+    set({mode:'walking',position:{...bedSpot},sleepElapsed:0,sleepJourney:null,homeBook,timeOfDay,message:(timeOfDay==='day'?'晨光照亮了小岛。':'小岛的灯火亮起来了。')+(saved?'':'无法保存，仅本次有效。')})
+  },
+  keepFish:id=>{const s=get();if(s.location!=='bedroom'||!s.aquariumOpen||s.mode!=='walking')return;const fish=s.fishBook.recent.find(f=>catchId(f)===id);if(!fish)return;const homeBook=addCatch(s.homeBook,fish);if(homeBook===s.homeBook)return;const saved=saveHome(homeBook);set({homeBook,message:saved?'锦鲤已经游进鱼缸，养鱼记录已保存。':'锦鲤已放入鱼缸；无法保存，仅在本次会话保留。'})},
+  releaseFish:id=>{const s=get();if(s.location!=='bedroom'||!s.aquariumOpen||s.mode!=='walking'||!s.homeBook.fish.some(f=>f.id===id))return;const homeBook={...s.homeBook,fish:s.homeBook.fish.filter(f=>f.id!==id)};const saved=saveHome(homeBook);set({homeBook,message:saved?'锦鲤已放归池塘。':'已放归；无法保存，仅在本次会话保留。'})},
+  tickHome:delta=>{
+    if(!Number.isFinite(delta))return false
+    const dt=Math.min(Math.max(delta,0),.05),s=get(),t=s.homeTransfer
+    if(t){const elapsed=t.elapsed+dt,commit=!t.committed&&elapsed>=transferCommit;if(commit)set({location:t.direction==='enter'?'bedroom':'island',position:t.direction==='enter'?{...bedroomSpawn}:{...s.homeReturn},nearby:'bedroom',message:'',aquariumOpen:false,mode:'walking'});set({homeTransfer:elapsed>=transferDuration?null:{...t,elapsed,committed:t.committed||commit}});return commit}
+    if(s.mode==='sitting'&&s.sitting){const sitting={...s.sitting,elapsed:s.sitting.elapsed+dt};if(sitting.phase==='down'&&sitting.elapsed>=2.234){sitting.phase='idle';sitting.elapsed=0}if(sitting.phase==='up'&&sitting.elapsed>=2.267)set({mode:'walking',position:sitting.returnPosition,sitting:null});else set({sitting})}
+    if(s.mode==='sleeping'){const elapsed=s.sleepElapsed+dt;if(elapsed>=sleepDuration)get().wakeUp();else set({sleepElapsed:elapsed})}
+    return false
+  },
   location:'island',workshopTransfer:null,workshopReturn:{...workshopDoor},
   tickWorkshopTransfer:delta=>{
     const previous=get().workshopTransfer
@@ -190,13 +237,15 @@ export const useForestStore = create<ForestState>((set, get) => ({
   planted:!!initialTree,
   message: '',
   updatePosition: (x, z) => {
-    const nearby = get().location==='workshop'?'workshop':findNearestLandmark(x, z)
+    const nearby = get().location==='bedroom'?'bedroom':get().location==='workshop'?'workshop':findNearestLandmark(x, z)
     const previous = get()
     if (x !== previous.position.x || z !== previous.position.z || nearby !== previous.nearby) set({ nearby, position: { x, z } })
   },
   interact: () => {
     const { nearby, planted, mode, position, boat, boatReady } = get()
-    if(mode==='planting'||mode==='feeding'||mode==='gathering'||get().boatTransfer||get().lookoutTransfer||get().workshopTransfer)return
+    if(mode==='planting'||mode==='feeding'||mode==='gathering'||get().boatTransfer||get().lookoutTransfer||get().workshopTransfer||get().homeTransfer)return
+    if(mode==='sitting'){get().leaveSeat();return}
+    if(mode==='sleeping'){get().wakeUp();return}
     if(mode==='crafting'){const c=get().craft;if(c)set({craft:strikeCraft(c)});return}
     if(mode==='lookout'){get().leaveLookout();return}
     if (mode === 'fishing') {
@@ -209,14 +258,26 @@ export const useForestStore = create<ForestState>((set, get) => ({
       set({boatTransfer:{direction:'land',elapsed:0,committed:false},message:''})
       return
     }
+    if(get().location==='bedroom'){
+      if(Math.hypot(position.x,position.z-2.5)<.9){set({homeTransfer:{direction:'exit',elapsed:0,committed:false},aquariumOpen:false});return}
+      if(Math.hypot(position.x-bedSpot.x,position.z-bedSpot.z)<1){set({mode:'sleeping',sleepElapsed:0,sleepJourney:beginSleepJourney(get().timeOfDay),sunRising:get().timeOfDay==='night',aquariumOpen:false,message:''});return}
+      if(Math.hypot(position.x-tankSpot.x,position.z-tankSpot.z)<1.15){set({aquariumOpen:!get().aquariumOpen,message:''});return}
+      return
+    }
+    if(get().location==='island'){
+      const seat=seats.find(v=>Math.hypot(position.x-seatOrigin(v).x,position.z-seatOrigin(v).z)<1.3)
+      if(seat){get().sit(seat.id);return}
+      if(Math.hypot(position.x-camp.x,position.z-camp.z)<2.1){const homeBook={...get().homeBook,fireLit:!get().homeBook.fireLit},saved=saveHome(homeBook);set({homeBook,message:(homeBook.fireLit?'篝火点燃了。':'篝火熄灭了。')+(saved?'':'无法保存，仅本次有效。')});return}
+      if(Math.hypot(position.x-cabin.x,position.z-cabin.doorZ)<1.2){if(get().homeReady)set({homeReturn:{...position},homeTransfer:{direction:'enter',elapsed:0,committed:false},message:''});else set({message:'卧室正在准备，请稍候。'});return}
+    }
     if (!nearby) return
     if(nearby==='workshop'){
       if(!get().workshopReady){set({message:'木工台正在准备，请稍候。'});return}
-      const book=get().workshopBook,action=workshopAction(position,book,get().location)
+      const book=get().workshopBook,action=workshopAction(position,book,get().location==='workshop'?'workshop':'island')
       if(action==='enter'){set({workshopReturn:{...position},workshopTransfer:{direction:'enter',elapsed:0,committed:false},message:''});return}
       if(action==='exit'){set({workshopTransfer:{direction:'exit',elapsed:0,committed:false},message:''});return}
       if(action==='collect'){set({mode:'gathering',gatheringElapsed:0,inspectingTree:false,message:''});return}
-      if(action==='inspect'){set({message:'你修整的木墩凳已经留在工坊室内。'});return}
+      if(action==='inspect'){get().sit('stool');return}
       if(action==='craft'&&book.phase==='carrying'){set({mode:'crafting',position:{...craftSpot},craft:{elapsed:0,steps:0,stroke:0,feedback:'指针进入浅绿区域时按 F 打磨。'},inspectingTree:false,message:''});return}
       set({message:get().location==='island'?'走到工坊正门，按 F 进入；旧木墩在东侧路边。':book.phase==='available'?'从身后的门回小岛，沿工坊东侧小路找到旧木墩。':'走近北侧木工台前的木墩位置，按 F 修整。'});return
     }

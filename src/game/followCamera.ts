@@ -1,13 +1,21 @@
 import roomBoxes from './workshopColliders.json'
 import {farmColliders} from './farm'
 import {modelAssets,workshopPosition,lookoutPosition,workshopSize} from '../world/assets'
+import {cabin} from './expansion'
+import {orbitConfig} from './orbitCamera'
 
 export type CameraPoint={x:number;y:number;z:number}
 export type CameraBox={minX:number;maxX:number;minY:number;maxY:number;minZ:number;maxZ:number}
 export const indoorCameraBoxes:CameraBox[]=roomBoxes.filter(b=>b.name!=='Collider_Stool').map(b=>({...b,minY:0,maxY:/North|South|East$|West$|Door/.test(b.name)?3.6:/Shelf|ToolRack/.test(b.name)?2.5:b.name==='Collider_Stove'?2.1:1.15}))
+export const bedroomCameraBoxes:CameraBox[]=[
+ {minX:-4.1,maxX:-3.8,minZ:-3,maxZ:3,minY:0,maxY:3.6},{minX:3.8,maxX:4.1,minZ:-3,maxZ:3,minY:0,maxY:3.6},
+ {minX:-4,maxX:4,minZ:-3.1,maxZ:-2.8,minY:0,maxY:3.6},{minX:-4,maxX:4,minZ:2.8,maxZ:3.1,minY:0,maxY:3.6},
+ {minX:-3.03,maxX:-1.37,minZ:-2,maxZ:.7,minY:0,maxY:.8},{minX:1.58,maxX:3.02,minZ:-1.61,maxZ:-.99,minY:0,maxY:1.3},
+]
 export const outdoorCameraBoxes:CameraBox[]=[
- ...[{x:workshopPosition[0],z:workshopPosition[2],hx:workshopSize.halfX*modelAssets.workshop.scale,hz:workshopSize.halfZ*modelAssets.workshop.scale,height:workshopSize.height*modelAssets.workshop.scale},
- {x:lookoutPosition[0],z:lookoutPosition[2],hx:1.618776*modelAssets.lookout.scale,hz:2.14244*modelAssets.lookout.scale,height:6.8}].map(b=>({minX:b.x-b.hx,maxX:b.x+b.hx,minZ:b.z-b.hz,maxZ:b.z+b.hz,minY:0,maxY:b.height})),
+ ...[{x:workshopPosition[0],y:0,z:workshopPosition[2],hx:workshopSize.halfX*modelAssets.workshop.scale,hz:workshopSize.halfZ*modelAssets.workshop.scale,height:workshopSize.height*modelAssets.workshop.scale},
+ {x:cabin.x,y:7.3,z:cabin.z,hx:cabin.halfX,hz:cabin.halfZ,height:4.8},
+ {x:lookoutPosition[0],y:lookoutPosition[1],z:lookoutPosition[2],hx:1.618776*modelAssets.lookout.scale,hz:2.14244*modelAssets.lookout.scale,height:6.8}].map(b=>({minX:b.x-b.hx,maxX:b.x+b.hx,minZ:b.z-b.hz,maxZ:b.z+b.hz,minY:b.y,maxY:b.y+b.height})),
  ...farmColliders.map(b=>({minX:b.x-b.halfX,maxX:b.x+b.halfX,minZ:b.z-b.halfZ,maxZ:b.z+b.halfZ,minY:0,maxY:1.6})),
 ]
 export type FollowTurn={yaw:number;velocity:number;target:number;candidate:number;intentTime:number}
@@ -55,12 +63,18 @@ export function clipCameraArm(target:CameraPoint,eye:CameraPoint,boxes:readonly 
  return{x:target.x+(eye.x-target.x)*fraction,y:target.y+(eye.y-target.y)*fraction,z:target.z+(eye.z-target.z)*fraction}
 }
 
-export function walkingCamera(position:CameraPoint,yaw:number,inside:boolean,orbit?:{pitch:number;zoom:number}){
- const target={x:position.x,y:position.y+.8,z:position.z}
+/** Keep close orbit centred on the player; wide orbit frames the whole island. */
+export function outdoorOrbitFocus(position:CameraPoint,zoom:number,pitch:number){
+ const t=Math.max(0,Math.min(1,(zoom-2.5)/7.5)),wide=t*t*(3-2*t)
+ return{target:{x:position.x*(1-wide),y:(position.y+.8)*(1-wide)+4*wide,z:position.z*(1-wide)},pitch:Math.max(pitch,.58*wide)}
+}
+export function walkingCamera(position:CameraPoint,yaw:number,inside:boolean,orbit?:{pitch:number;zoom:number},boxes=inside?indoorCameraBoxes:outdoorCameraBoxes){
  const distance=inside?3.4:9,height=inside?2.65:5.8
- const radius=Math.hypot(distance,height-.8)*(orbit?.zoom??1),pitch=orbit?.pitch??Math.atan2(height-.8,distance)
- let eye={x:position.x+Math.sin(yaw)*Math.cos(pitch)*radius,y:Math.min(inside?3.05:Infinity,target.y+Math.sin(pitch)*radius),z:position.z+Math.cos(yaw)*Math.cos(pitch)*radius}
- eye=clipCameraArm(target,eye,inside?indoorCameraBoxes:outdoorCameraBoxes)
+ const zoom=Math.min(orbit?.zoom??1,inside?orbitConfig.indoorMaxZoom:orbitConfig.maxZoom),angle=orbit?.pitch??Math.atan2(height-.8,distance)
+ const {target,pitch}=inside?{target:{x:position.x,y:position.y+.8,z:position.z},pitch:angle}:outdoorOrbitFocus(position,zoom,angle)
+ const radius=Math.hypot(distance,height-.8)*zoom
+ let eye={x:target.x+Math.sin(yaw)*Math.cos(pitch)*radius,y:Math.min(inside?3.05:Infinity,target.y+Math.sin(pitch)*radius),z:target.z+Math.cos(yaw)*Math.cos(pitch)*radius}
+ eye=clipCameraArm(target,eye,boxes)
  if(!inside&&Math.hypot(eye.x-target.x,eye.z-target.z)<1.35)eye.y=position.y+3.2
  if(inside){
   // At the wall, lift above the character instead of pushing the camera into its head.

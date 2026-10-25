@@ -46,7 +46,7 @@ describe('coastal rowing', () => {
   })
 
   it('pins the boat at its berth and limits offshore presentation movement without altering navigation',()=>{
-    const offshore={...initialBoat,x:35}
+    const offshore={...initialBoat,x:47}
     for(let time=0;time<30;time+=.1){
       expect(boatSurfacePose(initialBoat,time,false)).toEqual({heave:0,pitch:0,roll:0})
       expect(boatSurfacePose(offshore,time,true)).toEqual({heave:0,pitch:0,roll:0})

@@ -6,7 +6,7 @@ import {terrainHeight} from './terrain'
  * The refinement boundary sits on the flat fishing clearing, so shared edges remain watertight.
  */
 export function createTerrainGeometry(){
-  const size=islandShape.meshSize,coarse=240,step=size/coarse,sub=5
+  const size=islandShape.meshSize,coarse=320,step=size/coarse,sub=5
   const positions:number[]=[],indices:number[]=[],vertices=new Map<string,number>()
   const vertex=(ix:number,iz:number)=>{
     const key=`${ix},${iz}`,existing=vertices.get(key)

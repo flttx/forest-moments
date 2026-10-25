@@ -1,3 +1,4 @@
+import {onBridge} from '../game/expansion'
 // Grass geometry, rosette heads and wind shader adapted from my-blog GroundCover.tsx.
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
@@ -173,7 +174,7 @@ export function GroundCover() {
     const uniforms:GrassUniforms={grassTime:{value:0},grassPlayer:{value:new THREE.Vector3()}}
     const material=createGrassMaterial(uniforms)
     const chunks:{x:number;z:number;mesh:THREE.InstancedMesh|null;built:boolean}[]=[]
-    for(let x=-24;x<24;x+=8)for(let z=-24;z<24;z+=8)chunks.push({x,z,mesh:null,built:false})
+    for(let x=-40;x<40;x+=8)for(let z=-40;z<40;z+=8)chunks.push({x,z,mesh:null,built:false})
     return {root,geometry,material,uniforms,chunks,reduced:false,time:0}
   },[])
   const runtime=useRef(field)
@@ -197,7 +198,7 @@ export function GroundCover() {
       for(let i=0;i<24;i++)for(let j=0;j<24;j++) {
         const cx=c.x+i/3,cz=c.z+j/3,x=cx+hash(cx,cz,1)/3,z=cz+hash(cx,cz,2)/3
         const edge=pathEdgeDistance(x,z)
-        if(!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||Math.hypot(x,z)>22.5||Math.hypot(x,z-8)<1.3||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
+        if(onBridge(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||Math.hypot(x,z)>34.5||(z>25&&Math.hypot(x,z)>23)||Math.hypot(x,z-8)<1.3||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
         const forest=vegetationPositions.some(p=>p.kit!=='bush-a'&&Math.hypot(x-p.x,z-p.z)<2.2)
         const drift=.55+.45*Math.sin(x*.31+Math.sin(z*.23)*2.1)*Math.cos(z*.27-Math.sin(x*.19)*1.7)
         const weight=THREE.MathUtils.smoothstep(edge,-.18,1.25)*(forest?.48:1)

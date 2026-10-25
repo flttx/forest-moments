@@ -1,3 +1,5 @@
+import {ExpansionModel} from './ExpansionScene'
+import {woodworkPose} from '../game/woodworkPose'
 import {useEffect,useMemo,useRef} from 'react'
 import {useFrame,useLoader} from '@react-three/fiber'
 import {useGLTF} from '@react-three/drei'
@@ -9,13 +11,13 @@ import {groundHeightAt} from '../game/movement'
 const base='/assets/interiors/'
 const bakedNames=['Room_Baked','Hero_workshop-workbench','Hero_workshop-stove']
 const bakeFiles=['workshop-light','workshop-workbench-light','workshop-stove-light']
-const light=new URLSearchParams(location.search).get('light')
-const day=light==='night'?0:light==='dusk'?.35:1
 
 /** Reuse the complete authored room, its atlas UVs and original day/night irradiance maps. */
 export function WorkshopCraft(){
+ const light=useForestStore(s=>s.timeOfDay),day=light==='night'?0:light==='dusk'?.35:1
  const gltf=useGLTF(base+'workshop.glb')
  const textures=useLoader(TextureLoader,bakeFiles.flatMap(f=>[base+f+'-day.webp',base+f+'-night.webp']))
+ const tool=useRef<Group>(null)
  const root=useRef<Group>(null),interior=useRef<Group>(null),dust=useRef<Group>(null)
  const assets=useMemo(()=>{
    const room=gltf.scene.clone(true)
@@ -49,18 +51,20 @@ export function WorkshopCraft(){
    raw.traverse(o=>{if(o instanceof Mesh){o.material=(o.material as MeshStandardMaterial).clone();o.material.color.multiplyScalar(.7);o.material.roughness=1;materials.push(o.material)}})
    raw.position.set(woodSpot.x,groundHeightAt(woodSpot.x,woodSpot.z)+.23,woodSpot.z)
    return{room,raw,piece,materials}
- },[gltf.scene,textures])
+ },[gltf.scene,textures,day,light])
  const runtime=useRef(assets)
+ useEffect(()=>{runtime.current=assets},[assets])
  useEffect(()=>{useForestStore.setState({workshopReady:true});return()=>{useForestStore.setState({workshopReady:false})}},[])
  useEffect(()=>()=>assets.materials.forEach(m=>m.dispose()),[assets])
  useFrame(()=>{
    const assets=runtime.current,s=useForestStore.getState(),inside=s.location==='workshop'
+   if(tool.current){const p=woodworkPose(s.craft?.stroke??0);tool.current.visible=inside&&s.mode==='crafting';tool.current.position.set(p.x,p.y,p.z)}
    if(interior.current)interior.current.visible=inside
    assets.raw.visible=!inside&&s.workshopBook.phase==='available'
    assets.piece.visible=s.mode==='crafting'||s.workshopBook.phase==='finished'
    if(dust.current)dust.current.children.forEach((o,i)=>{
      const stroke=s.craft?.stroke??0,t=(.95-stroke)/.95
-     o.visible=inside&&s.mode==='crafting'&&stroke>0&&t>.18&&t<.8
+     o.visible=inside&&s.mode==='crafting'&&woodworkPose(stroke).contact
      o.position.set(workpieceSpot.x+Math.sin(i*2.4)*t*.35,.46+Math.sin(t*Math.PI)*.12-i*.002,workpieceSpot.z+Math.cos(i*2.4)*t*.35)
    })
    if(import.meta.env.DEV&&root.current)root.current.userData.qa={inside,rawVisible:assets.raw.visible,pieceVisible:inside&&assets.piece.visible,dust:dust.current?.children.filter(o=>o.visible).length}
@@ -74,6 +78,7 @@ export function WorkshopCraft(){
      <pointLight position={[-2,2.8,-1.4]} color="#ffd8aa" intensity={5} distance={5}/>
      <pointLight position={[3,.5,-1.45]} color="#ff8840" intensity={3} distance={3}/>
      <pointLight position={[-3.2,1.7,1.3]} color="#c7dcff" intensity={day*4} distance={5}/>
+     <group ref={tool} visible={false} name="woodworking-plane"><ExpansionModel id="plane"/></group>
      <group ref={dust}>{Array.from({length:16},(_,i)=><mesh key={i} visible={false}><boxGeometry args={[.014,.007,.022]}/><meshStandardMaterial color="#b58b58" roughness={1}/></mesh>)}</group>
    </group>
  </group>

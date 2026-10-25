@@ -1,3 +1,5 @@
+import {HomeHud} from './HomeHud'
+import {seats,seatOrigin} from './game/expansion'
 import { useForestStore } from './game/store'
 import { landmarks } from './game/landmarks'
 import { ForestWorld } from './world/ForestWorld'
@@ -12,7 +14,9 @@ import {canViewLookout} from './game/lookout'
 import './App.css'
 
 function App() {
-  const inside=useForestStore(s=>s.location==='workshop')
+  const inside=useForestStore(s=>s.location!=='island')
+  const islandOverview=useForestStore(s=>s.islandOverview)
+  const homeUi=useForestStore(s=>s.location==='bedroom'||s.mode==='sitting'||s.mode==='sleeping'||!!s.homeTransfer||s.nearby==='bedroom'||s.nearby==='campfire'||s.location==='island'&&s.mode==='walking'&&seats.some(v=>Math.hypot(s.position.x-seatOrigin(v).x,s.position.z-seatOrigin(v).z)<1.3))
   const nearby = useForestStore((s) => s.nearby)
   const planted = useForestStore((s) => s.planted)
   const inspectingTree=useForestStore(s=>s.inspectingTree)
@@ -31,7 +35,7 @@ function App() {
   const landable = useForestStore((s) => canLand(s.boat))
   const nearSeaBoundary=useForestStore(s=>seaBoundaryClearance(s.boat.x,s.boat.z)<2)
 
-  return <main className={`app-shell${mode==='lookout'||inside?' viewing-lookout':''}`}>
+  return <main className={`app-shell${islandOverview?' island-overview':''}${mode==='sleeping'?' sleeping':''}${mode==='lookout'||inside?' viewing-lookout':''}`}>
     <div className="world"><WorldErrorBoundary><ForestWorld /></WorldErrorBoundary></div>
     <AssetLoadingNotice />
     <BoatTransferOverlay/>
@@ -52,8 +56,8 @@ function App() {
       <FishBook />
     </aside>
     <footer className="controls">
-      <strong>{mode==='crafting'?'木作修整':mode==='gathering'?'收集木料':lookoutTransfer?'切换观景视角':mode==='lookout'?'塔上观景':transferDirection?transferDirection==='board'?'正在上船':'正在下船':mode==='feeding'?'照顾小动物':mode==='planting'?'栽种小苗':mode === 'fishing' ? '池边垂钓' : mode === 'rowing' ? '沿岛泛舟' : inside?'工坊室内':'漫步森林'}</strong>
-      {mode==='gathering'?<span><kbd>Esc</kbd> 暂停收集</span>:mode==='crafting'?<span><kbd>F</kbd> 打磨 · <kbd>Esc</kbd> 暂停</span>:transferDirection||lookoutTransfer?<span>请稍候…</span>:mode==='lookout'?<><span><kbd>A</kbd><kbd>D</kbd> 环顾</span><span><kbd>W</kbd><kbd>S</kbd> 俯仰</span><span><kbd>F</kbd> / <kbd>Esc</kbd> 返回</span></>:mode==='feeding'?<span><kbd>Esc</kbd> 取消添料</span>:mode==='planting'?<span><kbd>Esc</kbd> 取消栽种</span>:mode === 'fishing' ? <><span><kbd>F</kbd> 提竿</span><span><kbd>Space</kbd> 按住收线，松开放线</span><span><kbd>Esc</kbd> 收起</span></> : mode === 'rowing' ? <>
+      <strong>{mode==='sitting'?'林间小憩':mode==='sleeping'?'小岛时光':mode==='crafting'?'木作修整':mode==='gathering'?'收集木料':lookoutTransfer?'切换观景视角':mode==='lookout'?'塔上观景':transferDirection?transferDirection==='board'?'正在上船':'正在下船':mode==='feeding'?'照顾小动物':mode==='planting'?'栽种小苗':mode === 'fishing' ? '池边垂钓' : mode === 'rowing' ? '沿岛泛舟' : inside?'室内漫步':'漫步森林'}</strong>
+      {mode==='sleeping'?<span><kbd>F</kbd> / <kbd>Esc</kbd> 跳过过渡</span>:mode==='sitting'?<span><kbd>F</kbd> / <kbd>Esc</kbd> 起身</span>:mode==='gathering'?<span><kbd>Esc</kbd> 暂停收集</span>:mode==='crafting'?<span><kbd>F</kbd> 打磨 · <kbd>Esc</kbd> 暂停</span>:transferDirection||lookoutTransfer?<span>请稍候…</span>:mode==='lookout'?<><span><kbd>A</kbd><kbd>D</kbd> 环顾</span><span><kbd>W</kbd><kbd>S</kbd> 俯仰</span><span><kbd>F</kbd> / <kbd>Esc</kbd> 返回</span></>:mode==='feeding'?<span><kbd>Esc</kbd> 取消添料</span>:mode==='planting'?<span><kbd>Esc</kbd> 取消栽种</span>:mode === 'fishing' ? <><span><kbd>F</kbd> 提竿</span><span><kbd>Space</kbd> 按住收线，松开放线</span><span><kbd>Esc</kbd> 收起</span></> : mode === 'rowing' ? <>
         <span><kbd>W</kbd> 前划 <kbd>S</kbd> 后划</span>
         <span><kbd>A</kbd><kbd>D</kbd> 转向 · 松开停船</span>
         <span><kbd>F</kbd> 靠码头下船</span>
@@ -65,7 +69,7 @@ function App() {
       </>}
       {(mode==='rowing'||mode==='lookout')&&!transferDirection&&!lookoutTransfer&&<span>右键拖动视角{mode==='rowing'?' · 滚轮远近':''}</span>}
     </footer>
-    {lookoutTransfer?<div className="interaction" role="status" data-lookout-transfer={lookoutTransfer}><span>{lookoutTransfer==='enter'?'正在进入观景视角':'正在返回塔脚'}</span><button disabled>请稍候…</button></div>:mode==='lookout'?<LookoutHud/>:transferDirection?<div className="interaction" role="status" data-boat-transfer={transferDirection}><span>{transferDirection==='board'?'坐稳后就可以出发':'正在回到码头'}</span><button disabled>{transferDirection==='board'?'上船中':'下船中'}</button></div>:mode === 'fishing' ? <FishingHud /> : mode === 'rowing' ? <div className="interaction" aria-live="polite">
+    {homeUi?<HomeHud/>:lookoutTransfer?<div className="interaction" role="status" data-lookout-transfer={lookoutTransfer}><span>{lookoutTransfer==='enter'?'正在进入观景视角':'正在返回塔脚'}</span><button disabled>请稍候…</button></div>:mode==='lookout'?<LookoutHud/>:transferDirection?<div className="interaction" role="status" data-boat-transfer={transferDirection}><span>{transferDirection==='board'?'坐稳后就可以出发':'正在回到码头'}</span><button disabled>{transferDirection==='board'?'上船中':'下船中'}</button></div>:mode === 'fishing' ? <FishingHud /> : mode === 'rowing' ? <div className="interaction" aria-live="polite">
       <span>{landable ? '已靠近海边泊位' : nearSeaBoundary ? '前方是远海边界，请沿岸航行' : '返回东岸码头，船身沿码头停稳后下船'}</span>
       <button type="button" onClick={interact} disabled={!landable}>下船 <kbd>F</kbd></button>
     </div> : nearby==='workshop'?<WorkshopHud/>:current && <div className="interaction" aria-live="polite">

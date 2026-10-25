@@ -1,3 +1,6 @@
+import {sleepCamera} from '../game/dayCycle'
+import {Bedroom,ExpansionExterior} from './ExpansionScene'
+import {moveInBedroom,seats} from '../game/expansion'
 import {cameraRelativeMovement} from '../game/movementInput'
 import {createOrbit,rotateOrbit,stepOrbit,orbitConfig} from '../game/orbitCamera'
 import {useOrbitInput} from './useOrbitInput'
@@ -33,7 +36,7 @@ import {WorkshopCraft} from './WorkshopCraft'
 import {woodSpot,workpieceSpot} from '../game/workshop'
 
 import {moveInWorkshop} from '../game/workshopInterior'
-import {movementYaw,walkingCamera,clipCameraArm,indoorCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
+import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
 
 const qaEnabled = import.meta.env.DEV && new URLSearchParams(location.search).has('qa')
 
@@ -41,29 +44,38 @@ const qaEnabled = import.meta.env.DEV && new URLSearchParams(location.search).ha
 function ReviewCamera() {
   useFrame(({ camera }) => {
     const view = new URLSearchParams(location.search).get('view')
-    if (!qaEnabled || !view) return
+    if (!qaEnabled || !view || useForestStore.getState().mode==='sleeping') return
     const views: Record<string, [number[], number[]]> = {
       scaleFish: [[4,2,0],[2,1,-5]],
       scaleWorkshop: [[-12,3.6,24],[-12,2.2,8]],
       scaleLamp: [[.5,2.1,3],[-3.8,1,-2.5]],
-      fullIsland: [[47, 40, 55], [0, 0, 0]],
+      fullIsland: [[68, 58, 80], [0, 0, 0]],
       flowers: [[-1, 1.1, 3], [-4, .2, 1]],
       trail: [[-2.8, 1.35, 16], [-.9, .05, 11]],
       lamp: [[-1.7, 2.2, 1], [-4.1, 1.2, -2.5]],
-      beach: [[36, 7, 12], [26, -.2, 0]],
-      dock: [[36, 3.5, 8], [29, -.1, .4]],
+      beach: [[27,5,40],[10,0,31]],
+      dock: [[48,3.5,8],[41,-.1,.4]],
       overview: [[34, 28, 42], [0, 0, 0]],
       coast: [[24, 4, 27], [0, 1, 0]],
       pond: [[14, 6, 4], [6, .4, -5]],
       workshop: [[-4, 5, 17], [-12, 1.3, 8]],
-      tower: [[20, 5, 2], [13, 2, -8]],
+      tower: [[24,13,-16],[13,10.5,-26]],
       farm: [[15, 4, 13], [8, .6, 6]],
       farmFront:[[14,5,-1],[8,.5,6]],
       farmFeed:[[11,2.5,1.8],[9.1,.3,4.7]],
       player: [[3, 2.5, 5], [0, .8, 0]],
       grove: [[4.5, 3, 13], [0, 1, 8]],
       sprout: [[.8, .48, 9], [0, .12, 8]],
+      bedroom: [[3.2,2.8,2.6],[-.2,1,-.8]],
+      tank: [[3.2,1.7,1.5],[2.3,.95,-1.3]],
+      cabin: [[-6,12,-18],[-15,9,-28]],
+      stream: [[-6,10,-13],[-17,5,-20]],
+      creekMouth: [[-43,7,-10],[-34,1,-18]],
+      seaCliff: [[-44,18,-49],[-18,5,-31]],
+      camp: [[28,5,31],[20,.6,23]],
+      reef: [[35,3,-5],[34,0,-16]],
       craft: [[1.5,2.2,1.8],[-.4,.7,-1.8]],
+      craftContact: [[1.0,1.1,-.5],[-.6,.55,-1.45]],
       interior: [[0,2.6,2.7],[0,1,-1.3]],
       wood: [[-5.5,1.8,11.4],[-7.5,.3,9.2]],
     }
@@ -101,6 +113,7 @@ function Player() {
   useOrbitInput(orbit,dragging)
   const motionPreference=useMemo(()=>window.matchMedia('(prefers-reduced-motion: reduce)'),[])
   const ready = useRef(false)
+  const wasSleeping=useRef(false)
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
   const movementIntent=useRef<ReturnType<typeof cameraRelativeMovement>>(null)
@@ -110,12 +123,12 @@ function Player() {
   useEffect(() => {
     function down(e: KeyboardEvent) {
       if (e.target instanceof HTMLElement && (e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName))) return
-      if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyQ', 'KeyE', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || (['fishing','planting','feeding','lookout','gathering','crafting'].includes(useForestStore.getState().mode) && ['Space', 'Escape'].includes(e.code))) {
+      if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyQ', 'KeyE', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || e.code==='Escape' || (['fishing','planting','feeding','lookout','gathering','crafting','sitting','sleeping'].includes(useForestStore.getState().mode) && ['Space', 'Escape'].includes(e.code))) {
         e.preventDefault()
         pressed.current.add(e.code)
         if (e.code === 'KeyF' && !e.repeat && ready.current) useForestStore.getState().interact()
         if (e.code === 'Space') useForestStore.getState().reel(true)
-        if (e.code === 'Escape') {useForestStore.getState().cancelFishing();useForestStore.getState().cancelPlanting();useForestStore.getState().cancelFeeding();useForestStore.getState().leaveLookout();useForestStore.getState().cancelWorkshop()}
+        if (e.code === 'Escape') {useForestStore.getState().leaveSeat();useForestStore.getState().wakeUp();useForestStore.setState({aquariumOpen:false});useForestStore.getState().cancelFishing();useForestStore.getState().cancelPlanting();useForestStore.getState().cancelFeeding();useForestStore.getState().leaveLookout();useForestStore.getState().cancelWorkshop()}
       }
     }
     function up(e: KeyboardEvent) { pressed.current.delete(e.code); if(!['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight'].some(k=>pressed.current.has(k)))movementIntent.current=null; if (e.code === 'Space') useForestStore.getState().reel(false) }
@@ -136,11 +149,15 @@ function Player() {
     const character = root.current
     if (!character) return
     const dt = Math.min(delta, .05)
-    const transferring=!!(useForestStore.getState().boatTransfer||useForestStore.getState().lookoutTransfer||useForestStore.getState().workshopTransfer)
+    const transferring=!!(useForestStore.getState().boatTransfer||useForestStore.getState().lookoutTransfer||useForestStore.getState().workshopTransfer||useForestStore.getState().homeTransfer)
     if(transferring)pressed.current.clear()
     const transferCommitted=useForestStore.getState().tickBoatTransfer(dt)
+    const homeCommitted=useForestStore.getState().tickHome(dt)
     const workshopCommitted=useForestStore.getState().tickWorkshopTransfer(dt)
     const lookoutCommitted=useForestStore.getState().tickLookoutTransfer(dt)
+    const sleeping=useForestStore.getState().mode==='sleeping',returnedFromSleep=wasSleeping.current&&!sleeping
+    if(sleeping!==wasSleeping.current){pressed.current.clear();movementIntent.current=null}
+    wasSleeping.current=sleeping
     const keys = pressed.current
     const x = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'))
     const z = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'))
@@ -148,29 +165,40 @@ function Player() {
     const speed = running ? 3.08 : 1.1
     motion.current = 'idle'
     const state = useForestStore.getState()
-    if(camera instanceof THREE.PerspectiveCamera){const fov=state.location==='workshop'?62:46;if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix()}}
+    const islandOverview=state.location==='island'&&['walking','rowing','sitting'].includes(state.mode)&&orbit.current.zoom>5
+    if(state.islandOverview!==islandOverview)useForestStore.setState({islandOverview})
+    if(camera instanceof THREE.PerspectiveCamera){const fov=state.mode==='sleeping'?55:state.location!=='island'?62:46;if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix()}}
     if(workshopCommitted&&state.location==='workshop')character.rotation.y=0
-    if(workshopCommitted||lookoutCommitted||transferCommitted){Object.assign(orbit.current,createOrbit(character.rotation.y));movementHeading.current=character.rotation.y;movementIntent.current=null}
-    if(!transferring&&!state.inspectingTree&&(state.mode==='walking'||state.mode==='rowing')){
+    if(homeCommitted||workshopCommitted||lookoutCommitted||transferCommitted){Object.assign(orbit.current,createOrbit(character.rotation.y));movementHeading.current=character.rotation.y;movementIntent.current=null}
+    if(!transferring&&!state.inspectingTree&&(state.mode==='walking'||state.mode==='rowing'||state.mode==='sitting')){
       const turn=Number(keys.has('KeyQ'))-Number(keys.has('KeyE'))
       rotateOrbit(orbit.current,turn*orbitConfig.keySpeed*dt/orbitConfig.yawPerPixel,0)
       if(dragging.current)orbit.current.idle=0
       stepOrbit(orbit.current,dt,motionPreference.matches,state.mode==='rowing'?state.boat.heading-Math.PI/2:undefined)
     }
-    character.visible = state.mode !== 'rowing' && state.mode !== 'lookout'
+    character.rotation.x=0;character.rotation.z=0
+    character.visible = state.mode !== 'rowing' && state.mode !== 'lookout' && state.mode !== 'sleeping'
     // Store position also supplies the safe landing point after leaving the boat.
-    character.position.set(state.position.x, state.location==='workshop'?0:groundHeightAt(state.position.x, state.position.z), state.position.z)
+    character.position.set(state.position.x, state.location!=='island'?0:groundHeightAt(state.position.x, state.position.z), state.position.z)
     if(state.location==='island'&&state.tree&&state.mode==='walking'){
       const r=[.34,.39,.47,.60][state.tree.stage],dx=character.position.x-plantingSpot.x,dz=character.position.z-plantingSpot.z,d=Math.hypot(dx,dz)
       if(d<r){character.position.x=plantingSpot.x+(d?dx/d:0)*(r+.01);character.position.z=plantingSpot.z+(d?dz/d:1)*(r+.01)}
     }
+    if(state.mode==='sitting'&&state.sitting){
+      const seat=seats.find(v=>v.id===state.sitting?.id);character.rotation.y=seat?.yaw??-Math.PI/2
+      if(state.sitting.id==='stool')character.position.y=.12
+      motion.current=state.sitting.phase==='down'?'bench_sit_down':state.sitting.phase==='up'?'bench_stand_up':'bench_sit_idle'
+      if((x||z)&&state.sitting.phase==='idle')state.leaveSeat()
+    }
+
     if(state.mode==='feeding'){state.tickFeeding(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-(feedSpot.x+1),character.position.z-feedSpot.z)}
     if(state.mode==='planting'){state.tickPlanting(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-plantingSpot.x,character.position.z-plantingSpot.z)}
     if(state.mode==='gathering'||state.mode==='crafting'){
       state.tickWorkshop(dt)
       const target=state.mode==='gathering'?woodSpot:workpieceSpot
       character.rotation.y=Math.atan2(character.position.x-target.x,character.position.z-target.z)
-      if(state.mode==='gathering'||(state.craft?.stroke??0)>0)motion.current='interact'
+      if(state.mode==='crafting')character.position.z=-1.1
+      motion.current=state.mode==='gathering'?'interact':'woodwork'
     }
     if (state.mode === 'rowing'&&!transferring) state.updateBoat(stepBoat(state.boat, -z, -x, dt))
     if (state.mode === 'fishing') {
@@ -182,13 +210,13 @@ function Player() {
     if(state.mode!=='walking'){movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(transferring||(x===0&&z===0))movementIntent.current=null
     if (state.mode === 'walking' && !transferring && ready.current && (x !== 0 || z !== 0)) {
-      if(state.inspectingTree)useForestStore.setState({inspectingTree:false})
+      if(state.inspectingTree||state.aquariumOpen)useForestStore.setState({inspectingTree:false,aquariumOpen:false})
       const intent=cameraRelativeMovement(x,z,orbit.current.yaw)!
       movementIntent.current=intent
-      const next = state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,state.tree?[.06,.11,.19,.32][state.tree.stage]:0,state.workshopBook.phase)
+      const next = state.location==='bedroom'?moveInBedroom(character.position,intent.x*speed*dt,intent.z*speed*dt):state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,state.tree?[.06,.11,.19,.32][state.tree.stage]:0,state.workshopBook.phase)
       if (Math.hypot(next.x - character.position.x, next.z - character.position.z) > .00001) {
         movementHeading.current=movementYaw(next.x-character.position.x,next.z-character.position.z,movementHeading.current)
-        character.position.set(next.x,state.location==='workshop'?0:groundHeightAt(next.x, next.z), next.z)
+        character.position.set(next.x,state.location!=='island'?0:groundHeightAt(next.x, next.z), next.z)
         motion.current = running ? 'run' : 'walk'
       }
     }
@@ -224,14 +252,17 @@ function Player() {
       camera.lookAt(p.x*.5,.55,Math.min(p.z-1,1.3))
       return
     }
+    if(current.mode==='sleeping'&&current.sleepJourney){
+      const shot=sleepCamera(current.sleepJourney.target);camera.position.set(...shot.position);camera.lookAt(...shot.target);return
+    }
     if(current.mode!=='rowing'&&current.mode!=='fishing'){
-      const inside=current.location==='workshop'
-      const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,orbit.current)
+      const inside=current.location!=='island'
+      const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,orbit.current,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
       const next=new THREE.Vector3(eye.x,eye.y,eye.z)
-      if(transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(next)
+      if(returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(next)
       else camera.position.lerp(next,1-Math.exp(-7*dt))
       // Position interpolation can cut a corner; constrain the interpolated arm too.
-      const safe=clipCameraArm(target,camera.position,inside?indoorCameraBoxes:outdoorCameraBoxes)
+      const safe=clipCameraArm(target,camera.position,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
       if(inside){safe.x=THREE.MathUtils.clamp(safe.x,-3.72,3.72);safe.z=THREE.MathUtils.clamp(safe.z,-2.72,2.72);if(Math.hypot(safe.x-target.x,safe.z-target.z)<1.35)safe.y=3.05}
       else if(Math.hypot(safe.x-target.x,safe.z-target.z)<1.35)safe.y=character.position.y+3.2
       safe.y=inside?Math.min(3.05,safe.y):Math.max(safe.y,groundHeightAt(safe.x,safe.z)+.25)
@@ -240,13 +271,14 @@ function Player() {
       return
     }
     const target = current.mode === 'rowing' ? current.boat : character.position
-    const radius=8.7*orbit.current.zoom,horizontal=radius*Math.cos(orbit.current.pitch)
-    const offset = current.mode === 'fishing' ? new THREE.Vector3(-1.8, 3.2, 5) : new THREE.Vector3(Math.sin(orbit.current.yaw)*horizontal,.85+radius*Math.sin(orbit.current.pitch),Math.cos(orbit.current.yaw)*horizontal)
     const surface=current.mode==='rowing'?seaLevel:character.position.y
-    const cameraTarget=offset.add(new THREE.Vector3(target.x, surface, target.z))
-    if(transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(cameraTarget)
+    const focus=outdoorOrbitFocus({x:target.x,y:surface+.05,z:target.z},orbit.current.zoom,orbit.current.pitch)
+    const radius=8.7*orbit.current.zoom,horizontal=radius*Math.cos(focus.pitch)
+    const cameraTarget=current.mode==='fishing'?new THREE.Vector3(target.x-1.8,surface+3.2,target.z+5):new THREE.Vector3(focus.target.x+Math.sin(orbit.current.yaw)*horizontal,focus.target.y+radius*Math.sin(focus.pitch),focus.target.z+Math.cos(orbit.current.yaw)*horizontal)
+    if(homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(cameraTarget)
     else camera.position.lerp(cameraTarget, 1 - Math.exp(-3 * dt))
-    camera.lookAt(target.x + (current.mode === 'fishing' ? 1 : 0), surface+.85, target.z)
+    if(current.mode==='fishing')camera.lookAt(target.x+1,surface+.85,target.z)
+    else camera.lookAt(focus.target.x,focus.target.y,focus.target.z)
   }, -2)
 
   useFrame(({ gl, scene, camera }) => {
@@ -256,8 +288,8 @@ function Player() {
       const models = ['raccoon', 'workshop', 'lookout', 'canoe'].filter((name) => scene.getObjectByName(`asset-${name}`))
       gl.domElement.dataset.forestQa = JSON.stringify({
         position: root.current.position.toArray(), motion: motion.current, ready: ready.current, models,
-        animation: scene.getObjectByName('asset-raccoon')?.userData.animation,
-        mode: current.mode, boatTransfer:current.boatTransfer,boat: current.boat, boatReady: current.boatReady, dockReady: !!scene.getObjectByName('asset-coastal-jetty'),
+        animation: scene.getObjectByName('asset-raccoon')?.userData.animation,woodwork:scene.getObjectByName('asset-raccoon')?.userData.woodwork,
+        homeBook:current.homeBook,homeReady:current.homeReady,homeTransfer:current.homeTransfer,sitting:current.sitting,sleepElapsed:current.sleepElapsed,sleepJourney:current.sleepJourney,timeOfDay:current.timeOfDay,mode: current.mode, boatTransfer:current.boatTransfer,boat: current.boat, boatReady: current.boatReady, dockReady: !!scene.getObjectByName('asset-coastal-jetty'),
         lookoutReady:current.lookoutReady,lookoutTransfer:current.lookoutTransfer,lookoutView:current.lookoutView,cameraPosition:camera.position.toArray(),orbit:orbit.current,orbitDragging:dragging.current,movementHeading:movementHeading.current,inputDirection:movementIntent.current,characterYaw:root.current.rotation.y,playerVisible:root.current.visible,
         canBoard: canBoard(current.position.x, current.position.z, current.boat), canLand: canLand(current.boat),
         boatAnimation: scene.getObjectByName('asset-canoe')?.userData.animation,
@@ -279,7 +311,7 @@ function Player() {
 }
 
 function Scene() {
-  const inside=useForestStore(s=>s.location==='workshop')
+  const inside=useForestStore(s=>s.location!=='island'&&s.mode!=='sleeping')
   const stones = useMemo(() => Array.from({ length: 36 }, (_, i) => {
     const a = i * 2.399
     const r = 9 + ((i * 11) % 17) * .5
@@ -301,10 +333,12 @@ function Scene() {
     <Tower />
     <Suspense fallback={null}><FarmScene /></Suspense>
     <Water />
+    <Suspense fallback={null}><ExpansionExterior/></Suspense>
     <Suspense fallback={null}><GrowingTree /></Suspense>
     <Suspense fallback={null}><FishingScene /></Suspense>
     </group>
     <Suspense fallback={null}><WorkshopCraft/></Suspense>
+    <Suspense fallback={null}><Bedroom/></Suspense>
     <Player />
     {import.meta.env.DEV && <><ReviewCamera /><ScaleReview/></>}
   </>

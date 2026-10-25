@@ -6,7 +6,7 @@ export function BoatTransferOverlay(){
  const ref=useRef<HTMLDivElement>(null)
  useEffect(()=>useForestStore.subscribe(state=>{
   if(!ref.current)return
-  const transition=state.boatTransfer??state.lookoutTransfer??state.workshopTransfer
+  const transition=state.boatTransfer??state.lookoutTransfer??state.workshopTransfer??state.homeTransfer
   ref.current.style.opacity=String(transition?transferOpacity(transition.elapsed):0)
  }),[])
  return <div ref={ref} className="boat-transfer-shade" aria-hidden="true"/>

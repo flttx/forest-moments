@@ -1,3 +1,4 @@
+import {onBridge} from '../game/expansion'
 import { useEffect, useMemo } from 'react'
 import * as THREE from 'three'
 import { canStandAt, groundHeightAt, dockDeckHeight } from '../game/movement'
@@ -13,9 +14,9 @@ export function PathDetails() {
   const field=useMemo(()=>{
     const random=makeRandom()
     const points:number[][]=[]
-    for(let i=0;i<7200;i++) {
-      const x=(random()-.5)*44,z=(random()-.5)*44,edge=pathEdgeDistance(x,z)
-      if(edge<-.65||edge>.48||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight)continue
+    for(let i=0;i<14000;i++) {
+      const x=(random()-.5)*68,z=(random()-.5)*68,edge=pathEdgeDistance(x,z)
+      if(edge<-.65||edge>.48||onBridge(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight)continue
       if(Math.hypot(x,z)<1||Math.hypot(x-1.5,z+5)<1||Math.hypot(x,z-8)<1.2)continue
       if(random()>.25+.55*groundNoise(x*.9,z*.9))continue
       points.push([x,z,.035+random()*.095,random()*Math.PI,random()])

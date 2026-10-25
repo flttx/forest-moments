@@ -1,6 +1,7 @@
+import {cabin,camp,seats,creekDistance} from '../game/expansion'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
 import templates from './vegetation-templates.json'
-import { pathDistance, islandShape } from './terrain'
+import { pathDistance, islandShape, terrainHeight } from './terrain'
 import {workshopPosition,lookoutPosition,isBeachApproach} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
@@ -10,12 +11,21 @@ const originalLampPositions: VegetationInstance[] = [
   ...[-2.8,-1.9,-1,.25,.9,1.8,2.7].map(a=>[Math.cos(a)*22.1,Math.sin(a)*22.1,-a]),
 ].map(([x,z,yaw])=>({kit:'lantern',x,z,yaw,scale:1.3}))
 
-export const lampPositions=originalLampPositions.map(p=>p.x===-8.6?{...p,z:13.6}:p)
+export const lampPositions=originalLampPositions.map(p=>{
+ const start=p.x===-8.6?{...p,z:13.6}:p
+ for(let radius=0;radius<5;radius+=.25)for(let a=0;a<Math.PI*2;a+=Math.PI/12){
+  const candidate={...start,x:start.x+Math.cos(a)*radius,z:start.z+Math.sin(a)*radius}
+  if(instanceCircles(candidate).every(c=>pathDistance(c.x,c.z)-c.r>1.3)&&creekDistance(candidate.x,candidate.z)>3)return candidate
+ }
+ return start
+})
 
 /** Generous canopy buffers around gameplay and entrances, in metres. */
 export function clearForVegetation(x:number,z:number,margin=0,pathOffset=workshopPathOffset) {
   if(Math.hypot(x,z)>islandShape.walkRadius-.3-margin) return false
-  if(isBeachApproach(x,z))return false
+  if(x>19&&Math.abs(z-1.4)<1.5+margin)return false
+  if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.7)return false
+  if(isBeachApproach(x,z)||creekDistance(x,z)<2.8+margin||Math.hypot(x-cabin.x,z-cabin.z)<5.4+margin||Math.hypot(x-camp.x,z-camp.z)<5+margin||seats.some(s=>Math.hypot(x-s.x,z-s.z)<3+margin))return false
   if(pathDistance(x,z,pathOffset)<1.5+margin) return false
   const exclusions=[[workshopPosition[0],workshopPosition[2],4.9],[lookoutPosition[0],lookoutPosition[2],4.7],[8,6,4.4],[6,-5,6.1],[0,8,2.8],[0,0,3.2],[1.5,-5,2.4],[8,8,2.8]]
   return exclusions.every(([cx,cz,r])=>Math.hypot(x-cx,z-cz)>r+margin)
@@ -40,7 +50,7 @@ function makeLayout() {
       added++
     }
   }
-  // Keep the pond/boarding and farm approach sightlines open before relying on material clipping.
+  // Keep the pond/boarding and farm approach sightlines open with permanently visible trees.
   // Filter after sampling so thinning a foreground tree never relocates another trunk onto an existing route.
   const sightlines=[[15,13,8,6],[14,4,6,-5],[-4,17,-12,8]]
   return plants.filter(p=>{
@@ -54,7 +64,14 @@ function makeLayout() {
     return Math.hypot(p.x-ax-dx*t,p.z-az-dz*t)>2.2
   }))
 }
-export const vegetationPositions=makeLayout()
+const originalPlants=makeLayout()
+const outerPlants:VegetationInstance[]=[]
+for(let i=0;i<700;i++){
+ const a=i*2.399963,r=24+(i*17%100)/10,x=Math.cos(a)*r,z=Math.sin(a)*r
+ if(!clearForVegetation(x,z,.6)||outerPlants.some(p=>Math.hypot(x-p.x,z-p.z)<3.6))continue
+ outerPlants.push({kit:i%7===0?'round-tree-a':'normal-pine-b',x,z,yaw:a,scale:.85+(i%4)*.09})
+}
+export const vegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2)
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale}))

@@ -3,7 +3,7 @@ import {craftCursor,workshopAction} from './game/workshop'
 
 export function WorkshopHud(){
  const mode=useForestStore(s=>s.mode),book=useForestStore(s=>s.workshopBook),craft=useForestStore(s=>s.craft)
- const action=useForestStore(s=>workshopAction(s.position,s.workshopBook,s.location)),ready=useForestStore(s=>s.workshopReady)
+ const action=useForestStore(s=>workshopAction(s.position,s.workshopBook,s.location==='workshop'?'workshop':'island')),ready=useForestStore(s=>s.workshopReady)
  const interact=useForestStore(s=>s.interact),cancel=useForestStore(s=>s.cancelWorkshop)
  const inside=useForestStore(s=>s.location==='workshop'),transfer=useForestStore(s=>s.workshopTransfer)
  if(mode==='crafting'&&craft)return <section className="craft-hud" aria-label="木墩修整">
@@ -13,6 +13,6 @@ export function WorkshopHud(){
    <small role="status">{craft.feedback}</small>
    <button onClick={interact} disabled={craft.stroke>0||craft.steps===3}>打磨 <kbd>F</kbd></button><button onClick={cancel}>暂停 <kbd>Esc</kbd></button>
  </section>
- const label=transfer?'正在通过门口':action==='enter'?'进入工坊':action==='exit'?'回到小岛':mode==='gathering'?'正在收好木墩':action==='collect'?'收好旧木墩':action==='inspect'?'看看木墩凳':book.phase==='available'?(inside?'出门寻找旧木墩':'走到工坊正门'):action==='craft'?'开始修整':'走到木工台前'
+ const label=transfer?'正在通过门口':action==='enter'?'进入工坊':action==='exit'?'回到小岛':mode==='gathering'?'正在收好木墩':action==='collect'?'收好旧木墩':action==='inspect'?'坐在木墩凳上':book.phase==='available'?(inside?'出门寻找旧木墩':'走到工坊正门'):action==='craft'?'开始修整':'走到木工台前'
  return <div className="interaction" aria-live="polite"><span>{book.phase==='finished'?'木墩凳 · 已完成':book.phase==='carrying'?'材料 · 旧木墩 1 / 1':'材料 · 旧木墩 0 / 1'}</span><button onClick={interact} disabled={!ready||mode==='gathering'||!!transfer}>{label} <kbd>F</kbd></button></div>
 }

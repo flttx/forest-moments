@@ -1,3 +1,4 @@
+import {onBridge,bridgeHeight} from '../game/expansion'
 import { expect, it } from 'vitest'
 import { canStandAt, groundHeightAt, dockDeckHeight } from '../game/movement'
 import { pond } from '../game/rowing'
@@ -28,7 +29,7 @@ it('keeps the irregular pond waterline on its bank and the west fishing spot acc
 
 it('matches walkable relief and preserves the dock while placing the coast and basin below water',()=>{
   for(let x=-23;x<=23;x+=.2) for(let z=-23;z<=23;z+=.2) {
-    if(canStandAt(x,z)&&groundHeightAt(x,z)!==dockDeckHeight)expect(groundHeightAt(x,z)).toBe(terrainHeight(x,z))
+    if(canStandAt(x,z)&&groundHeightAt(x,z)!==dockDeckHeight)expect(groundHeightAt(x,z)).toBe(onBridge(x,z)?bridgeHeight(z):terrainHeight(x,z))
   }
   expect(terrainHeight(pond.x,pond.z)).toBeLessThan(pond.waterY-.5)
   for(let a=0;a<Math.PI*2;a+=.1) {

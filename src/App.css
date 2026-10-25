@@ -48,3 +48,10 @@ kbd{display:inline-block;font:700 .72rem system-ui,sans-serif;color:#56654c;back
 .fish-book{margin-top:12px;padding-top:10px;border-top:1px solid #d2d8c8;font-size:.8rem;color:#536248}
 .fish-book summary{cursor:pointer;font-weight:700}.fish-book p{line-height:1.5}.fish-book ol{padding-left:18px}
 @media(max-width:700px){.fishing-hud{left:10px;transform:none;width:calc(100% - 210px);min-width:180px;padding:10px}.fishing-notice{bottom:380px}}
+
+.home-panel{position:absolute;right:24px;top:24px;width:min(310px,calc(100vw - 48px));max-height:70vh;overflow:auto;padding:22px;background:rgba(247,238,214,.96);color:#3c382a;border:1px solid #b7ab8d;border-radius:12px;box-shadow:0 12px 36px #13271d33;display:grid;gap:12px}.home-panel p{margin:0;line-height:1.6}.home-panel button{padding:8px 12px;border:1px solid #a69f7a;background:#e7e2c7;color:#384733;border-radius:6px;cursor:pointer}.home-panel button:disabled{opacity:.5}.fish-choice{display:flex;align-items:center;justify-content:space-between;gap:8px}.home-panel progress{width:100%;accent-color:#788e66}
+
+.sleeping .hero-panel,.sleeping .landmarks,.sleeping .controls,.sleeping .draft-flag{display:none}
+.island-overview .hero-panel,.island-overview .landmarks{display:none}
+.sleep-panel{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);width:min(380px,calc(100% - 48px));padding:18px 24px;background:rgba(250,246,227,.9);color:#3c4935;border-radius:14px;box-shadow:0 5px 28px #16232b25;text-align:center;backdrop-filter:blur(12px)}
+.sleep-panel strong{font-size:20px;letter-spacing:.12em}.sleep-panel p{font-size:13px;margin:10px 0}.sleep-panel progress{display:block;width:100%;height:4px;accent-color:#8c9b73;margin:12px 0}.sleep-panel button{border:0;background:transparent;color:inherit;font-size:12px;cursor:pointer;padding:5px 12px}
