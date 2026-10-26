@@ -25,6 +25,7 @@ import { IslandTerrain } from './IslandTerrain'
 import { ForestKit } from './ForestKit'
 import { GroundCover } from './GroundCover'
 import { PondLife } from './PondLife'
+import { SoundDirector } from './SoundDirector'
 import { Stockpiles } from './Stockpiles'
 import { AmbientLife } from './AmbientLife'
 import { CoastalRocks } from './CoastalRocks'
@@ -366,6 +367,7 @@ function Scene() {
     <Suspense fallback={null}><WorkshopCraft/></Suspense>
     <Suspense fallback={null}><Bedroom/></Suspense>
     <Player />
+    <SoundDirector />
     <PostEffects />
     {import.meta.env.DEV && <><ReviewCamera /><ScaleReview/></>}
   </>

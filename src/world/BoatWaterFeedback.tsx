@@ -3,6 +3,7 @@ import {useFrame} from '@react-three/fiber'
 import {Group,Mesh,MeshBasicMaterial,Vector3} from 'three'
 import type {RefObject} from 'react'
 import {useForestStore} from '../game/store'
+import {playSound} from '../audio/audioStore'
 import {isNavigableSea} from '../game/rowing'
 import {isDockSurface,seaLevel} from './worldConfig'
 
@@ -14,7 +15,7 @@ function waterPatch(x:number,z:number,radius:number){
 /** Finite pool of world-space marks. Marks do not travel or rotate with the hull. */
 export function BoatWaterFeedback({blade,reducedMotion}:{blade:Mesh;reducedMotion:RefObject<boolean>}){
  const root=useRef<Group>(null)
- const state=useRef({cursor:0,wakeDistance:0,paddleCooldown:0,lastX:NaN,lastZ:NaN,emittedWake:0,emittedPaddle:0})
+ const state=useRef({cursor:0,wakeDistance:0,paddleCooldown:0,lastX:NaN,lastZ:NaN,emittedWake:0,emittedPaddle:0,bladeIn:false})
  const pool=useRef<Ripple[]>(Array.from({length:capacity},()=>({x:0,z:0,age:99,life:1,size:1,heading:0,kind:'wake'})))
  const samples=useMemo(()=>{
   const vertices=blade.geometry.getAttribute('position'),points:Vector3[]=[]
@@ -34,19 +35,24 @@ export function BoatWaterFeedback({blade,reducedMotion}:{blade:Mesh;reducedMotio
    s.cursor=(s.cursor+1)%capacity
    if(kind==='paddle')s.emittedPaddle++;else s.emittedWake++
   }
+  const rowing=mode==='rowing'&&!boatTransfer
+  // The oar is heard entering the water even when reduced motion hides the ripples.
+  if(rowing&&boat.effort>.08){
+   blade.updateWorldMatrix(true,false)
+   let low=Infinity,x=0,z=0
+   for(const sample of samples){point.copy(sample).applyMatrix4(blade.matrixWorld);if(point.y<low){low=point.y;x=point.x;z=point.z}}
+   const inWater=low<seaLevel+.015
+   if(inWater&&!s.bladeIn)playSound('paddle',{volume:.75,rate:.9+Math.random()*.2,at:{x,y:seaLevel,z}})
+   s.bladeIn=inWater
+   if(inWater&&!reducedMotion.current&&s.paddleCooldown===0){emit(x,z,'paddle');s.paddleCooldown=.22}
+  }else s.bladeIn=false
   if(reducedMotion.current){for(const r of ripples)r.age=r.life;s.wakeDistance=0}
-  else if(mode==='rowing'&&!boatTransfer){
+  else if(rowing){
    s.wakeDistance+=distance
    if(s.wakeDistance>.28&&Math.abs(boat.speed)>.1){
     const direction=boat.speed<0?-1:1
     emit(boat.x-Math.cos(boat.heading)*1.65*direction,boat.z+Math.sin(boat.heading)*1.65*direction,'wake')
     s.wakeDistance=0
-   }
-   if(boat.effort>.08&&s.paddleCooldown===0){
-    blade.updateWorldMatrix(true,false)
-    let low=Infinity,x=0,z=0
-    for(const sample of samples){point.copy(sample).applyMatrix4(blade.matrixWorld);if(point.y<low){low=point.y;x=point.x;z=point.z}}
-    if(low<seaLevel+.015){emit(x,z,'paddle');s.paddleCooldown=.22}
    }
   }else s.wakeDistance=0
   ripples.forEach((r,i)=>{

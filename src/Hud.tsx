@@ -3,6 +3,10 @@ import {useDialogFocus} from './useDialogFocus'
 import {useProgress} from '@react-three/drei'
 import {useShallow} from 'zustand/react/shallow'
 import {useForestStore} from './game/store'
+import {SoundControl} from './SoundControl'
+import {JournalPanel} from './JournalPanel'
+import {useJournalStore} from './game/journalStore'
+import {useAudioStore} from './audio/audioStore'
 import {useUiStore,noticeLifetime,guideLifetime,type MenuPanel,type ModeHint} from './game/uiStore'
 import {promptFor} from './game/prompt'
 import {landmarks,type LandmarkId} from './game/landmarks'
@@ -15,7 +19,7 @@ import {WorkshopHud} from './WorkshopHud'
 import {LookoutHud} from './LookoutHud'
 import {GrowthStatus} from './GrowthStatus'
 
-const menuItems:[MenuPanel,Key][]=[['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
+const menuItems:[MenuPanel,Key][]=[['journal','menu.journal'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
 const inTransfer=(s:ReturnType<typeof useForestStore.getState>)=>!!(s.boatTransfer||s.lookoutTransfer||s.workshopTransfer||s.homeTransfer)
 
 /** Two-way switch: both languages stay visible, the current one is set in ink. */
@@ -24,6 +28,12 @@ function LanguageSwitch(){
  return <button type="button" className="tool-button lang-switch" aria-label={t('menu.lang')} onClick={()=>setLang(lang==='zh'?'en':'zh')}>
   <Icon name="language"/><span className={lang==='zh'?'current':undefined}>中</span><span className="slash" aria-hidden="true">/</span><span className={lang==='en'?'current':undefined}>EN</span>
  </button>
+}
+
+/** This page's progress beside the journal button: quiet, no badge colour or motion to nag. */
+function JournalCount(){
+ const t=useT(),tasks=useJournalStore(s=>s.book.page.tasks),done=tasks.filter(task=>task.doneAt).length
+ return <span className="tool-count" aria-label={t('journal.countLabel',{done,total:tasks.length})}>{done}/{tasks.length}</span>
 }
 
 /** Title set in the display face straight on the scene, and one paper toolbar; both step aside during transfers and sleep. */
@@ -35,9 +45,10 @@ function TopBar(){
  return <>
   <div className="brand">{t('brand')}</div>
   <nav className="menu" aria-label={t('menu.label')}>
-   {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span></button>)}
+   {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
    <span className="tool-divider" aria-hidden="true"/>
    <LanguageSwitch/>
+   <SoundControl/>
    <button type="button" className="tool-button icon-only" aria-label={t('menu.hide')} title={`${t('menu.hide')} (H)`} onClick={toggleHud}><Icon name="hide"/></button>
   </nav>
  </>
@@ -52,7 +63,7 @@ function MenuPanelView(){
  return <section id="menu-panel" ref={ref} className="paper-panel menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-panel-title"
   onKeyDown={e=>{trap(e);if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closePanel()}}} onWheel={e=>e.stopPropagation()}>
   <header><h2 id="menu-panel-title">{title}</h2><button type="button" className="close-button" onClick={closePanel} aria-label={t('panel.close')}><Icon name="close"/></button></header>
-  <div className="panel-body">{panel==='places'?<Places/>:panel==='fishbook'?<FishBook/>:<Help/>}</div>
+  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<FishBook/>:<Help/>}</div>
  </section>
 }
 
@@ -78,7 +89,7 @@ function FishBook(){
 }
 
 const helpRows:[Key,(Key|string)[]][]=[
- ['help.move',['W','A','S','D']],['help.run',['Shift']],['help.look',['key.rightDrag']],['help.orbit',['Q','E']],['help.zoom',['key.wheel']],['help.interact',['F']],['help.back',['Esc']],['help.hide',['H']],
+ ['help.move',['W','A','S','D']],['help.run',['Shift']],['help.look',['key.rightDrag']],['help.orbit',['Q','E']],['help.zoom',['key.wheel']],['help.interact',['F']],['help.back',['Esc']],['help.hide',['H']],['help.mute',['M']],
  ['help.strike',['F']],['help.reel',['key.holdSpace']],['help.row',['W','S']],['help.steer',['A','D']],['help.tower',['A','D','W','S']],
 ]
 function Help(){
@@ -155,10 +166,25 @@ function useHideShortcut(){
  },[toggleHud])
 }
 
+/** M toggles mute anywhere except while typing (range sliders included in the sound panel still allow it). */
+function useMuteShortcut(){
+ const toggleMute=useAudioStore(s=>s.toggleMute)
+ useEffect(()=>{
+  const down=(e:KeyboardEvent)=>{
+   if(e.code!=='KeyM'||e.repeat||e.ctrlKey||e.metaKey||e.altKey)return
+   if(e.target instanceof HTMLElement&&e.target.closest('input:not([type=range]):not([type=checkbox]),textarea,[contenteditable]'))return
+   toggleMute()
+  }
+  window.addEventListener('keydown',down)
+  return()=>window.removeEventListener('keydown',down)
+ },[toggleMute])
+}
+
 /** All on-screen interface above the scene, in one place. */
 export function Hud(){
  const t=useT()
  useHideShortcut()
+ useMuteShortcut()
  const mode=useForestStore(s=>s.mode),paused=useForestStore(s=>s.menuPaused)
  const hudHidden=useUiStore(s=>s.hudHidden),toggleHud=useUiStore(s=>s.toggleHud)
  // A running game keeps its own card even in the photo view, so a hidden HUD never strands the player mid-task.

@@ -146,3 +146,34 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 /* No entrance animation on overlays: an animated layer above the WebGL canvas stalled frames for 140-210 ms. Only small hover/press transitions remain. */
 @media(max-width:760px){.brand{display:none}.menu{right:12px;top:12px}.tool-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.hud .tool-button{padding:0 10px}.hud .show-hud{right:12px;top:12px}.paper-panel{right:12px;top:60px;width:calc(100% - 24px)}.guide{top:62px}.paper-card{left:12px;bottom:84px;width:calc(100% - 24px)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Sound: a toolbar button and its small panel of volumes */
+.sound-control{position:relative;display:flex}
+.sound-panel{position:absolute;top:calc(100% + 12px);right:-4px;width:232px;display:flex;flex-direction:column;gap:12px;padding:14px 16px;background:var(--paper-solid);font-size:14px;z-index:2}
+.sound-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sound-slider{display:flex;flex-direction:column;gap:4px}
+.sound-slider>span{display:flex;justify-content:space-between;color:var(--ink-soft)}
+.sound-slider .value{font-variant-numeric:tabular-nums}
+.sound-panel input{accent-color:var(--moss)}
+.sound-panel input:disabled{opacity:.5}
+.sound-panel input:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.sound-note{margin:0;font-size:12px;line-height:1.5;color:var(--ink-soft)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* Journal: three small things per page, a stamp once full */
+.hud .tool-count{margin-left:2px;font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.journal-page{font-size:15px;color:var(--ink-soft);letter-spacing:.1em}
+.journal-page:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.journal-tasks{margin:0 0 12px;padding:0;list-style:none}
+.journal-tasks li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line-soft)}
+.journal-tasks li .icon{color:var(--ink-soft)}
+.journal-tasks li.done .icon{color:var(--moss)}
+.journal-tasks li.done span{color:var(--ink-soft)}
+.journal-tasks small{font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.journal-full{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
+.journal-full>span:not(.stamp){flex:1;color:var(--amber-ink)}
+.stamp{display:inline-flex;align-items:center;justify-content:center;padding:5px;border:2px solid #b4553f;border-radius:50%;color:#b4553f;transform:rotate(-8deg);opacity:.9}
+.journal-stamps h3{margin:0 0 6px;font-size:14px;font-weight:500;color:var(--ink-soft)}
+.stamp-row{display:flex;flex-wrap:wrap;gap:8px}
+.stamp-row .stamp{padding:3px;border-width:1.5px}
+.stamp-row .stamp:nth-child(2n){transform:rotate(6deg)}

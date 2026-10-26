@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-26T13:37:01.177Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.42",
+    "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.6"
+  },
+  "checks": [
+    {
+      "name": "locked before any input",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "running after the first real key press, even if a modifier came first",
+      "ok": true,
+      "detail": {
+        "afterShift": "suspended",
+        "state": "running",
+        "rate": 48000
+      }
+    },
+    {
+      "name": "all sounds decode",
+      "ok": true,
+      "detail": {
+        "total": 46,
+        "ok": 46,
+        "bad": []
+      }
+    },
+    {
+      "name": "footsteps on grass while walking",
+      "ok": true,
+      "detail": {
+        "steps": 4
+      }
+    },
+    {
+      "name": "fishing: cast, landing, bite, strike, reel",
+      "ok": true,
+      "detail": [
+        "cast",
+        "hen-2",
+        "splash-tiny",
+        "bite",
+        "splash",
+        "reel",
+        "reel",
+        "sheep-1",
+        "hen-1",
+        "reel"
+      ]
+    },
+    {
+      "name": "workshop door opens and closes",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "wooden footsteps indoors",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "menu panels open, page and close",
+      "ok": true,
+      "detail": [
+        "ui-open",
+        "page",
+        "ui-close"
+      ]
+    },
+    {
+      "name": "M toggles mute",
+      "ok": true,
+      "detail": {
+        "muted": true,
+        "unmuted": true
+      }
+    },
+    {
+      "name": "sound panel has mute and four volumes",
+      "ok": true,
+      "detail": {
+        "sliders": 4,
+        "focused": "checkbox"
+      }
+    },
+    {
+      "name": "Escape closes the sound panel",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "hens and sheep call near the farm",
+      "ok": true,
+      "detail": [
+        "hen-2",
+        "hen-2",
+        "hen-1",
+        "sheep-1",
+        "hen-1"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "sound-panel.png"
+  ],
+  "note": "Archived existing audio-stage results on 2026-10-26; not rerun during checkpoint; predates journal UI."
+}

@@ -1,0 +1,380 @@
+{
+ "version": 1,
+ "rate": 32000,
+ "total_bytes": 1056222,
+ "sounds": {
+  "amb-birds": {
+   "source": "amb-birds",
+   "kind": "ambience",
+   "from_s": 39,
+   "file": "/assets/audio/amb-birds.mp3",
+   "seconds": 24,
+   "bytes": 120465,
+   "sha256": "545a901db61fe5663846bfd18050e141dbfd4de37f3f4006a7929cb425baa94c"
+  },
+  "amb-crickets": {
+   "source": "amb-crickets",
+   "kind": "ambience",
+   "from_s": 12,
+   "file": "/assets/audio/amb-crickets.mp3",
+   "seconds": 18,
+   "bytes": 90405,
+   "sha256": "6638a79609f3fbfb5afc66747d53613100ecdfc533d40a4345f64df35ca08ea4"
+  },
+  "amb-sea": {
+   "source": "amb-sea",
+   "kind": "ambience",
+   "from_s": 65,
+   "file": "/assets/audio/amb-sea.mp3",
+   "seconds": 24,
+   "bytes": 120465,
+   "sha256": "581dc505197377a9a94da25c0b16f5d5abc3a1a2c8c11690dc109caaac67ecf4"
+  },
+  "music-day": {
+   "source": "music-day",
+   "kind": "music",
+   "from_s": 12.25,
+   "file": "/assets/audio/music-day.mp3",
+   "seconds": 38,
+   "bytes": 228573,
+   "sha256": "658456c7d18759f84f8add56eef98e07c8fd836681ef1268acfdebf75bfaac43"
+  },
+  "music-night": {
+   "source": "music-night",
+   "kind": "music",
+   "from_s": 0,
+   "file": "/assets/audio/music-night.mp3",
+   "seconds": 52,
+   "bytes": 312597,
+   "sha256": "838d8a481fa811c156e77b775ed93d47855857691f727604e74bdb09dd8c4ff3"
+  },
+  "hen-1": {
+   "source": "hen",
+   "kind": "sfx",
+   "file": "/assets/audio/hen-1.mp3",
+   "seconds": 2.2,
+   "bytes": 13869,
+   "sha256": "9b2d9c6f6a34c35c0130501cfa0fbcb9ecc463ce18e3598313c2128ce5f1f81e"
+  },
+  "hen-2": {
+   "source": "hen-2",
+   "kind": "sfx",
+   "file": "/assets/audio/hen-2.mp3",
+   "seconds": 1.6,
+   "bytes": 10197,
+   "sha256": "6806f6e705322fa6addd2e90864481265736a1b99f65318e18ca02bd43cc7fd0"
+  },
+  "sheep-1": {
+   "source": "sheep",
+   "kind": "sfx",
+   "file": "/assets/audio/sheep-1.mp3",
+   "seconds": 0.749,
+   "bytes": 5013,
+   "sha256": "80bd2aa7eb0fadb2bf4f8c0e16d06cacfbad96fc8ab28a36eea6c7dee331dac4"
+  },
+  "sheep-2": {
+   "source": "sheep-2",
+   "kind": "sfx",
+   "file": "/assets/audio/sheep-2.mp3",
+   "seconds": 1.112,
+   "bytes": 7173,
+   "sha256": "5a1903b959818a20067b9f4fb85d28471c3644d84751fcab3ae851c789e99590"
+  },
+  "gull-1": {
+   "source": "gull",
+   "kind": "sfx",
+   "file": "/assets/audio/gull-1.mp3",
+   "seconds": 2.5,
+   "bytes": 15597,
+   "sha256": "2b9bffd581ca65d738b8dc6a0e2163e4fb258992abe27295f90282338dba9e01"
+  },
+  "gull-2": {
+   "source": "gull-2",
+   "kind": "sfx",
+   "file": "/assets/audio/gull-2.mp3",
+   "seconds": 1.792,
+   "bytes": 11277,
+   "sha256": "a9413275006de9d1d27c545e465fbc7daa01612b0b411dea7c929c82f3bc6a8c"
+  },
+  "splash-tiny": {
+   "source": "splash-tiny",
+   "kind": "sfx",
+   "file": "/assets/audio/splash-tiny.mp3",
+   "seconds": 1.2,
+   "bytes": 7821,
+   "sha256": "2fd598c828894ac00239a321da557adf8459d1420df4995b40806746537fac7c"
+  },
+  "splash": {
+   "source": "splash",
+   "kind": "sfx",
+   "file": "/assets/audio/splash.mp3",
+   "seconds": 1.278,
+   "bytes": 8253,
+   "sha256": "9fc7fd91eaf6eb622b849e96ee962c10805d4216a8b84e3975349069138e0c4d"
+  },
+  "paddle": {
+   "source": "splash-paddle",
+   "kind": "sfx",
+   "file": "/assets/audio/paddle.mp3",
+   "seconds": 1.1,
+   "bytes": 7173,
+   "sha256": "dc3e1ad58922e179c221fe5af62dfa6b4448ad19f3e3965d6ec3120dcbc68060"
+  },
+  "reel": {
+   "source": "reel",
+   "kind": "sfx",
+   "file": "/assets/audio/reel.mp3",
+   "seconds": 2.4,
+   "bytes": 14949,
+   "sha256": "04a9406146bf477466d52ec588b5a5e68c468096a64794e885cc06c0f76cc209"
+  },
+  "cast": {
+   "source": "cast",
+   "kind": "sfx",
+   "file": "/assets/audio/cast.mp3",
+   "seconds": 1.6,
+   "bytes": 10197,
+   "sha256": "6fc899f8c4e2d6ec8564a7a1bafb45aa2573832352ee2af10db9ded9419ca323"
+  },
+  "pour": {
+   "source": "pour",
+   "kind": "sfx",
+   "file": "/assets/audio/pour.mp3",
+   "seconds": 1.8,
+   "bytes": 11277,
+   "sha256": "fbc925acfebb31120d11d8fdde7702ff19ceba4a8816c48c7c0260dbe2bf2344"
+  },
+  "scissors": {
+   "source": "scissors",
+   "kind": "sfx",
+   "file": "/assets/audio/scissors.mp3",
+   "seconds": 0.255,
+   "bytes": 2205,
+   "sha256": "e524d87fe293033930c2fc80c814f873060474effa6f0dd8847ffc99f3e87dff"
+  },
+  "rustle": {
+   "source": "rustle",
+   "kind": "sfx",
+   "file": "/assets/audio/rustle.mp3",
+   "seconds": 0.596,
+   "bytes": 4149,
+   "sha256": "e577b9a09cfab4fa9bcd1786bf01ba0c3d7104507fb70420233c914a178417e2"
+  },
+  "pluck": {
+   "source": "pluck",
+   "kind": "sfx",
+   "file": "/assets/audio/pluck.mp3",
+   "seconds": 0.472,
+   "bytes": 3501,
+   "sha256": "de03397c7fd5eb48dbab9346d32aa40f6242e21f2124c1979e83d941855ce892"
+  },
+  "step-grass-0": {
+   "source": "kenney:impact-sounds/footstep_grass_000",
+   "kind": "sfx",
+   "file": "/assets/audio/step-grass-0.mp3",
+   "seconds": 0.146,
+   "bytes": 1557,
+   "sha256": "18e2122adb0024805bbffc1f7d951e53bfbaedabdf03c169cae155180f674c81"
+  },
+  "step-grass-1": {
+   "source": "kenney:impact-sounds/footstep_grass_001",
+   "kind": "sfx",
+   "file": "/assets/audio/step-grass-1.mp3",
+   "seconds": 0.164,
+   "bytes": 1557,
+   "sha256": "0e28baee466fac078e6281b133b951e2f09024b5c10f7f3ab7c3baf1b7bc99d5"
+  },
+  "step-grass-2": {
+   "source": "kenney:impact-sounds/footstep_grass_002",
+   "kind": "sfx",
+   "file": "/assets/audio/step-grass-2.mp3",
+   "seconds": 0.169,
+   "bytes": 1557,
+   "sha256": "ea4e92aa9087b7c2a52d3532162dfd496db18f04a9a62450a1ab905dcbbec775"
+  },
+  "step-grass-3": {
+   "source": "kenney:impact-sounds/footstep_grass_003",
+   "kind": "sfx",
+   "file": "/assets/audio/step-grass-3.mp3",
+   "seconds": 0.132,
+   "bytes": 1341,
+   "sha256": "67ca7350f9c86f4fa30f005bb6a8beafdb5fb3ec43e6d3cd75a3054effe5b365"
+  },
+  "step-grass-4": {
+   "source": "kenney:impact-sounds/footstep_grass_004",
+   "kind": "sfx",
+   "file": "/assets/audio/step-grass-4.mp3",
+   "seconds": 0.132,
+   "bytes": 1341,
+   "sha256": "b7ae7046d665b6cabca021f974e815fda234c00bb1be948775922c15a5e498ed"
+  },
+  "step-wood-0": {
+   "source": "kenney:impact-sounds/footstep_wood_000",
+   "kind": "sfx",
+   "file": "/assets/audio/step-wood-0.mp3",
+   "seconds": 0.271,
+   "bytes": 2205,
+   "sha256": "e234417c6f0ebd2e2cf38b20b51dd37450b32b55548a35e5e9e8bb4cf2363798"
+  },
+  "step-wood-1": {
+   "source": "kenney:impact-sounds/footstep_wood_001",
+   "kind": "sfx",
+   "file": "/assets/audio/step-wood-1.mp3",
+   "seconds": 0.104,
+   "bytes": 1125,
+   "sha256": "3efc7185be058faabc0881e8ab8f2fb2cfd0cae71ddf473e1dbf07eb5fbd45bb"
+  },
+  "step-wood-2": {
+   "source": "kenney:impact-sounds/footstep_wood_002",
+   "kind": "sfx",
+   "file": "/assets/audio/step-wood-2.mp3",
+   "seconds": 0.248,
+   "bytes": 1989,
+   "sha256": "8800bf28c0ea8a14084495fa1a1332a5f00c739e34d1c98013e96bed4fb62139"
+  },
+  "step-wood-3": {
+   "source": "kenney:impact-sounds/footstep_wood_003",
+   "kind": "sfx",
+   "file": "/assets/audio/step-wood-3.mp3",
+   "seconds": 0.249,
+   "bytes": 1989,
+   "sha256": "dd9af5dbae7d7f68aa143fe3193189e3d74ccff08bda7482ded309e6dde6cbf0"
+  },
+  "step-wood-4": {
+   "source": "kenney:impact-sounds/footstep_wood_004",
+   "kind": "sfx",
+   "file": "/assets/audio/step-wood-4.mp3",
+   "seconds": 0.245,
+   "bytes": 1989,
+   "sha256": "0c6426d6a2225c7027bc312efc2448c3bf8d11c76d45a33e366914e46c9292db"
+  },
+  "step-stone-0": {
+   "source": "kenney:impact-sounds/footstep_concrete_000",
+   "kind": "sfx",
+   "file": "/assets/audio/step-stone-0.mp3",
+   "seconds": 0.103,
+   "bytes": 1125,
+   "sha256": "fc4909eec15f3551bfc8bbe6d96e5a313c8fbcc030ba60e745770494b2c153d4"
+  },
+  "step-stone-1": {
+   "source": "kenney:impact-sounds/footstep_concrete_001",
+   "kind": "sfx",
+   "file": "/assets/audio/step-stone-1.mp3",
+   "seconds": 0.105,
+   "bytes": 1125,
+   "sha256": "e73b69b0b641c0c5350724d30d4ee7f7121deb65ba12b3508f5e0e025e1295be"
+  },
+  "step-stone-2": {
+   "source": "kenney:impact-sounds/footstep_concrete_002",
+   "kind": "sfx",
+   "file": "/assets/audio/step-stone-2.mp3",
+   "seconds": 0.11,
+   "bytes": 1341,
+   "sha256": "dfab9266d866360d5a73e57b968b5c3f3ac48510a9c5d7c4fed2d07caec0ac95"
+  },
+  "step-stone-3": {
+   "source": "kenney:impact-sounds/footstep_concrete_003",
+   "kind": "sfx",
+   "file": "/assets/audio/step-stone-3.mp3",
+   "seconds": 0.108,
+   "bytes": 1125,
+   "sha256": "2acaf7ea7bc3c2726a1a8d40233caf871db0257af55aa31938f13e70ae17463d"
+  },
+  "step-stone-4": {
+   "source": "kenney:impact-sounds/footstep_concrete_004",
+   "kind": "sfx",
+   "file": "/assets/audio/step-stone-4.mp3",
+   "seconds": 0.111,
+   "bytes": 1341,
+   "sha256": "942e54892c554a9445827717a8e2e704bf8cc351464f65e34f7cd899729b32d8"
+  },
+  "door-open": {
+   "source": "kenney:rpg-audio/doorOpen_1",
+   "kind": "sfx",
+   "file": "/assets/audio/door-open.mp3",
+   "seconds": 0.904,
+   "bytes": 6093,
+   "sha256": "3c69f9c7a4822991a35d2d4cf138eb105a605b11d2fd084b04f80ae6b75d9e27"
+  },
+  "door-close": {
+   "source": "kenney:rpg-audio/doorClose_1",
+   "kind": "sfx",
+   "file": "/assets/audio/door-close.mp3",
+   "seconds": 0.461,
+   "bytes": 3285,
+   "sha256": "06fb67f25d13c47439deaa63f739d4a77130f4b69cc860206340c50e332440f4"
+  },
+  "pickup": {
+   "source": "kenney:rpg-audio/handleSmallLeather",
+   "kind": "sfx",
+   "file": "/assets/audio/pickup.mp3",
+   "seconds": 0.222,
+   "bytes": 1989,
+   "sha256": "a79580f7e3a84a1397e019fd74e4204650f701bdee2f693d6b42d7afcbc7f149"
+  },
+  "craft": {
+   "source": "kenney:impact-sounds/impactPlank_medium_000",
+   "kind": "sfx",
+   "file": "/assets/audio/craft.mp3",
+   "seconds": 0.201,
+   "bytes": 1773,
+   "sha256": "ba11b9091309ba8f8b5e5e327a817fa22679c4841e5cf933caf24d9e60a94f6a"
+  },
+  "page": {
+   "source": "kenney:rpg-audio/bookFlip2",
+   "kind": "sfx",
+   "file": "/assets/audio/page.mp3",
+   "seconds": 0.412,
+   "bytes": 3069,
+   "sha256": "85020f21968eb584f0ef75a232f92d8f710910430e74fbab09beb58e6820bcfb"
+  },
+  "cloth": {
+   "source": "kenney:rpg-audio/cloth2",
+   "kind": "sfx",
+   "file": "/assets/audio/cloth.mp3",
+   "seconds": 0.351,
+   "bytes": 2637,
+   "sha256": "875c6c1772c6d562d6bdc3819b747e5e5124039653646b63dcd241850cea2c80"
+  },
+  "drop": {
+   "source": "kenney:interface-sounds/drop_002",
+   "kind": "sfx",
+   "file": "/assets/audio/drop.mp3",
+   "seconds": 0.116,
+   "bytes": 1341,
+   "sha256": "3a453c3c667e301ee5db2be85ad3e2d4cdb53dd8cd26a3368283a7c54818e490"
+  },
+  "ui-open": {
+   "source": "kenney:interface-sounds/click_002",
+   "kind": "sfx",
+   "file": "/assets/audio/ui-open.mp3",
+   "seconds": 0.012,
+   "bytes": 693,
+   "sha256": "6d955ffe65bcb3022da9d4f37e637147478f0408f23db20511483f106e170181"
+  },
+  "ui-close": {
+   "source": "kenney:interface-sounds/close_002",
+   "kind": "sfx",
+   "file": "/assets/audio/ui-close.mp3",
+   "seconds": 0.314,
+   "bytes": 2421,
+   "sha256": "04306487b110bb4c9b8189f14e7555d22d133b3bb32a3232038f7ae28f46c0d2"
+  },
+  "task-done": {
+   "source": "kenney:interface-sounds/confirmation_002",
+   "kind": "sfx",
+   "file": "/assets/audio/task-done.mp3",
+   "seconds": 0.539,
+   "bytes": 3717,
+   "sha256": "eabc95939bef93051fae3cfdbd9a87613028c8059bae29963b8e3ff794dd0991"
+  },
+  "bite": {
+   "source": "kenney:interface-sounds/bong_001",
+   "kind": "sfx",
+   "file": "/assets/audio/bite.mp3",
+   "seconds": 0.12,
+   "bytes": 1341,
+   "sha256": "ea7d37d2e73f66b5d9e7256ca8d540433e1ecfc3104b1e7ad2c7aaf89a9a6495"
+  }
+ }
+}

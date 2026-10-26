@@ -1,7 +1,7 @@
 import {create} from 'zustand'
 import {useForestStore} from './store'
 
-export type MenuPanel='places'|'fishbook'|'help'
+export type MenuPanel='journal'|'places'|'fishbook'|'help'
 /** Modes whose controls are explained once, the first time the player enters them. */
 export type ModeHint='rowing'|'lookout'|'sitting'
 export const guideStorageKey='forest-moments:guide:v1'

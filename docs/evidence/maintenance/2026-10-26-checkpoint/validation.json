@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-26",
+  "branch": "fix/camera-collision-fishing",
+  "scope": "Existing audio and journal WIP checkpoint; documentation only changes in this task",
+  "checks": {
+    "pnpm lint": {
+      "exitCode": 0
+    },
+    "pnpm test": {
+      "exitCode": 0,
+      "files": 26,
+      "passed": 111,
+      "failed": 0
+    },
+    "pnpm build": {
+      "exitCode": 0,
+      "mainJsKB": 1666.13,
+      "mainJsGzipKB": 510.2,
+      "warning": "Existing chunk size >500 kB"
+    }
+  },
+  "browserRerun": false,
+  "newScreenshots": false,
+  "audioListeningReview": false,
+  "journalStatus": "Initial implementation; browser acceptance and plan gaps remain",
+  "remotePush": false,
+  "deployment": false
+}
