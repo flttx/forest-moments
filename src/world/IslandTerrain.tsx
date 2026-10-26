@@ -2,18 +2,22 @@ import { useEffect, useMemo } from 'react'
 import { noiseGLSL, islandShape, pathGLSL, groundColourGLSL, seaLevel } from './terrain'
 import {pondGLSL} from './pondShape'
 import {createTerrainGeometry} from './terrainGeometry'
+import {canopyTexture} from './canopyMap'
+import {trampleGLSL} from './settlement'
 
 export function IslandTerrain() {
   const geometry = useMemo(()=>createTerrainGeometry(), [])
   useEffect(() => () => geometry.dispose(), [geometry])
   return <mesh name="island-terrain" geometry={geometry} receiveShadow>
     <meshStandardMaterial color="white" roughness={.96} onBeforeCompile={(shader) => {
+      shader.uniforms.canopyMap={value:canopyTexture()}
       shader.vertexShader = 'varying vec3 vGround;varying vec3 vTerrainNormal;\n' + shader.vertexShader
       shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvGround=position;vTerrainNormal=normal;')
       shader.fragmentShader = `varying vec3 vGround;varying vec3 vTerrainNormal;\n${noiseGLSL}
 ${pathGLSL}
 ${pondGLSL}
-${groundColourGLSL}\n` + shader.fragmentShader
+${groundColourGLSL}
+${trampleGLSL}\n` + shader.fragmentShader
       shader.fragmentShader=`
         float stoneHash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
         float stoneNoise(vec3 p){
@@ -26,6 +30,7 @@ ${groundColourGLSL}\n` + shader.fragmentShader
         vec2 p=vGround.xz;
         float broad=noise21(p*.38), fleck=noise21(p*14.0);
         vec3 grass=groundColour(p);
+        grass*=1.0+(noise21(p*48.0)-.5)*.2*(1.0-smoothstep(6.0,18.0,length(vViewPosition)));
         float track=pathAt(p);
         float edge=pathEdgeAt(p);
         float path=1.0-smoothstep(-.09,.20,edge);
@@ -34,12 +39,16 @@ ${groundColourGLSL}\n` + shader.fragmentShader
         float earth=noise21(soilWarp*2.6),grain=noise21(p*32.0);
         vec3 soil=mix(vec3(.19,.125,.072),vec3(.34,.245,.145),earth*.7+noise21(p*.55)*.3);
         soil*=.83+grain*.27;
+        // Fine grit only close up, where the broad soil noise used to go soft.
+        soil*=1.0+(noise21(p*90.0)-.5)*.34*(1.0-smoothstep(7.0,20.0,length(vViewPosition)));
         // Exposed compacted earth and irregular mossy shoulders, without a uniform painted border.
         soil+=vec3(.023,.018,.010)*(1.0-smoothstep(.0,.65,track));
         float crumbs=smoothstep(.66,.83,noise21(soilWarp*14.0));
         soil=mix(soil,vec3(.38,.32,.23),crumbs*.32);
         soil=mix(soil,grass*.8,smoothstep(-.35,.22,edge)*noise21(p*5.0)*.55);
         vec3 colour=mix(grass,soil,path);
+        // A damp, darker lip where the worn track meets the turf.
+        colour*=1.0-.22*smoothstep(-.3,-.04,edge)*(1.0-smoothstep(-.04,.2,edge));
         float stream=1.0-smoothstep(.7,2.2,length(vec2(max(-44.0-p.x,max(0.0,p.x+10.0)),p.y+18.0-2.0*sin(clamp(p.x,-44.0,-10.0)*.1))));
         colour=mix(colour,soil*.8,stream);
         float bank=1.0-smoothstep(-.05,.4,pondEdgeAt(p)+(noise21(p*3.0)-.5)*.12);
@@ -55,6 +64,7 @@ ${groundColourGLSL}\n` + shader.fragmentShader
         // Darker, cooler wet sand just above the tide line, with a ragged upper edge.
         float wet=(1.0-smoothstep(${(seaLevel+.3).toFixed(2)},${(seaLevel+.48).toFixed(2)},vGround.y+(broad-.5)*.18))*sand;
         colour=mix(colour,vec3(.27,.23,.17)*(.92+fleck*.1),wet*.8);
+        colour=mix(colour,soil*.9,trampleAt(p)*.78);
         vec3 groundNormal=normalize(vTerrainNormal);
         // Steep faces stay rock right down to the waterline instead of a strip of sand under the cliff.
         float cliff=smoothstep(.32,.7,1.0-abs(groundNormal.y))*smoothstep(${(seaLevel-.1).toFixed(2)},${(seaLevel+.4).toFixed(2)},vGround.y);

@@ -4,6 +4,13 @@ export const islandShape={coastRadius:41,walkRadius:35,plateauRadius:35.5,meshSi
 export const workshopPosition=[-12,0,8] as const
 export const lookoutPosition=[13,7.8,-26] as const
 export const pond={x:6,z:-5,radius:4.05,waterY:-.08} as const
+/** V4 meadow clearings: no trees inside `r`, grass and flowers gather here; two of them open toward the sea corridors. */
+export const clearings=[{x:-20,z:19,r:5.5},{x:26,z:14,r:5},{x:-8,z:-4,r:4.5}] as const
+export function meadowWeight(x:number,z:number){
+ let m=0
+ for(const c of clearings)m=Math.max(m,1-smoothRange(Math.hypot(x-c.x,z-c.z),c.r*.55,c.r*1.25))
+ return m
+}
 export const coastalDock={minX:35,maxX:44.2,minZ:-1.1,maxZ:1.1,deckY:.12} as const
 export const landing={x:42.6,z:.8} as const
 export const mooring={x:42.6,z:2.15,heading:0} as const

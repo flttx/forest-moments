@@ -6,8 +6,8 @@ import * as THREE from 'three'
 import { useForestStore } from '../game/store'
 import { canStandAt, groundHeightAt, dockDeckHeight } from '../game/movement'
 import { pathEdgeDistance, noiseGLSL, groundColourGLSL } from './terrain'
-import { vegetationPositions } from './vegetationLayout'
-import {isBeachApproach} from './worldConfig'
+import {isBeachApproach,meadowWeight} from './worldConfig'
+import {canopyDensityAt,canopyTexture} from './canopyMap'
 const BLADES_PER_CLUMP=6, FLOWER_HEADS=2, PLAYER_RADIUS=.85, FADE_START=22, FADE_END=34
 function hash(x: number, z: number, seed: number): number {
   const value = Math.sin(x * 127.1 + z * 311.7 + seed * 74.7) * 43758.5453;
@@ -128,8 +128,9 @@ const GRASS_VERTEX = /* glsl */ `
   vGrassHeight = uv.y;
   // flowers gather in drifts a few metres across, on full-height clumps only (not trimmed path edges or the forest
   // floor); each drift keeps one muted colour: warm yellow, dusty lilac or soft pink, a little darker at the centre
-  float flowerDrift = smoothstep(0.66, 0.8, noise21(grassRoot.xz * 0.16 + 13.0));
-  float flowerOn = flowerDrift * step(0.7, hash21(grassRoot.xz * 3.1 + 0.7)) * step(0.8, sqrt(grassScale2));
+  float flowerMeadow = meadowAt(grassRoot.xz);
+  float flowerDrift = max(smoothstep(0.66, 0.8, noise21(grassRoot.xz * 0.16 + 13.0)), flowerMeadow * smoothstep(0.42, 0.6, noise21(grassRoot.xz * 0.3 + 5.0)));
+  float flowerOn = flowerDrift * step(mix(0.7, 0.5, flowerMeadow), hash21(grassRoot.xz * 3.1 + 0.7)) * step(0.8, sqrt(grassScale2));
   vec3 flowerRight = vec3(viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0]);
   vec3 flowerUp = vec3(viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1]);
   // a little shorter than wide, as if the flower tipped up toward the sky
@@ -145,6 +146,7 @@ const GRASS_VERTEX = /* glsl */ `
 interface GrassUniforms {
   grassTime: { value: number };
   grassPlayer: { value: THREE.Vector3 };
+  canopyMap: { value: THREE.Texture };
 }
 
 function createGrassMaterial(uniforms: GrassUniforms) {
@@ -171,7 +173,7 @@ export function GroundCover() {
   const field=useMemo(()=>{
     const root=new THREE.Group();root.name='GroundCover'
     const geometry=createClumpGeometry()
-    const uniforms:GrassUniforms={grassTime:{value:0},grassPlayer:{value:new THREE.Vector3()}}
+    const uniforms:GrassUniforms={grassTime:{value:0},grassPlayer:{value:new THREE.Vector3()},canopyMap:{value:canopyTexture()}}
     const material=createGrassMaterial(uniforms)
     const chunks:{x:number;z:number;mesh:THREE.InstancedMesh|null;built:boolean}[]=[]
     for(let x=-40;x<40;x+=8)for(let z=-40;z<40;z+=8)chunks.push({x,z,mesh:null,built:false})
@@ -199,12 +201,13 @@ export function GroundCover() {
         const cx=c.x+i/3,cz=c.z+j/3,x=cx+hash(cx,cz,1)/3,z=cz+hash(cx,cz,2)/3
         const edge=pathEdgeDistance(x,z)
         if(onBridge(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||Math.hypot(x,z)>34.5||(z>25&&Math.hypot(x,z)>23)||Math.hypot(x,z-8)<1.3||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
-        const forest=vegetationPositions.some(p=>p.kit!=='bush-a'&&Math.hypot(x-p.x,z-p.z)<2.2)
+        // meadows grow continuous turf, crown shade thins it out, and the verge tapers toward the track
+        const shade=canopyDensityAt(x,z),meadow=meadowWeight(x,z)
         const drift=.55+.45*Math.sin(x*.31+Math.sin(z*.23)*2.1)*Math.cos(z*.27-Math.sin(x*.19)*1.7)
-        const weight=THREE.MathUtils.smoothstep(edge,-.18,1.25)*(forest?.48:1)
-        if(hash(cx,cz,3)>weight*Math.min(1,drift+.25))continue
+        const weight=THREE.MathUtils.smoothstep(edge,-.18,1.25-.5*meadow)*(1-.72*shade)
+        if(hash(cx,cz,3)>weight*Math.min(1,drift+.25+.75*meadow))continue
         dummy.position.set(x,groundHeightAt(x,z)-.015,z);dummy.rotation.set(0,hash(cx,cz,4)*Math.PI*2,0)
-        dummy.scale.setScalar((.75+hash(cx,cz,5)*.5)*(.8+.35*drift)*(.5+.5*weight))
+        dummy.scale.setScalar((.75+hash(cx,cz,5)*.5)*(.8+.35*drift+.15*meadow)*(.5+.5*weight))
         dummy.updateMatrix();matrices.push(...dummy.matrix.elements)
       }
       if(matrices.length) {

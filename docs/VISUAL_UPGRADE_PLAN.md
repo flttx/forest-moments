@@ -2,7 +2,7 @@
 
 日期：2026-10-25
 
-状态：**计划已确认；V1、V2、U 已经用户查看通过；V3 已接入场景并完成本机限定验证、待用户查看（2026-10-26）；V4–V5 尚未实施**。阶段记录见 [V1](evidence/2026-10-25-visual-v1/evidence.md)、[V2](evidence/2026-10-25-visual-v2/evidence.md)、[U](evidence/2026-10-25-ui-upgrade/evidence.md)、[V3 进度](evidence/2026-10-25-visual-v3/evidence.md)。
+状态：**计划已确认；V1、V2、U 已经用户查看通过；V3 已接入场景并完成本机限定验证、待用户查看（2026-10-26）；V4–V5 已实现并完成本机限定验证、待用户查看（2026-10-26，见 [V4/V5 证据](evidence/2026-10-26-visual-v4/evidence.md)；阔叶树近景与车辙未做）**。阶段记录见 [V1](evidence/2026-10-25-visual-v1/evidence.md)、[V2](evidence/2026-10-25-visual-v2/evidence.md)、[U](evidence/2026-10-25-ui-upgrade/evidence.md)、[V3 进度](evidence/2026-10-25-visual-v3/evidence.md)。
 
 ## 1. 审查方法
 

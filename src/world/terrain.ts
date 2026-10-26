@@ -1,7 +1,7 @@
 import {creekDistance,creekWaterY} from '../game/expansion'
 import { MathUtils } from 'three'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
-import {islandShape,workshopPosition,lookoutPosition,landformHeight} from './worldConfig'
+import {islandShape,workshopPosition,lookoutPosition,landformHeight,clearings} from './worldConfig'
 import {pondEdgeDistance,pondDepth,pondBankWidth} from './pondShape'
 export {seaLevel,islandShape,coastRadius,shoreWaterFraction} from './worldConfig'
 export function terrainHeight(x:number,z:number) {
@@ -75,9 +75,23 @@ float pathEdgeAt(vec2 p){
  return pathAt(p)-width+(noise21(p*3.1)-.5)*.28+(noise21(p*9.7)-.5)*.10;
 }
 `
+export const canopyMapExtent=80
 export const groundColourGLSL=/* glsl */ `
+uniform sampler2D canopyMap;
+float meadowAt(vec2 p){
+ float m=0.0;
+ ${clearings.map(c=>`m=max(m,1.0-smoothstep(${(c.r*.55).toFixed(2)},${(c.r*1.25).toFixed(2)},length(p-vec2(${c.x.toFixed(1)},${c.z.toFixed(1)}))));`).join(' ')}
+ return max(m,.45*smoothstep(.6,.78,noise21(p*.05+7.0)));
+}
+float canopyAt(vec2 p){return texture2D(canopyMap,p/${canopyMapExtent.toFixed(1)}+.5).r;}
 vec3 groundColour(vec2 p){
  float broad=noise21(p*.38),fleck=noise21(p*14.0);
- return mix(vec3(.105,.175,.065),vec3(.29,.36,.13),broad)*(.92+fleck*.16);
+ vec3 base=mix(vec3(.105,.175,.065),vec3(.29,.36,.13),broad)*(.92+fleck*.16);
+ // open meadows run warmer and lighter; under crowns the floor is cooler and darker with a brown needle litter
+ base=mix(base,vec3(.36,.43,.15)*(.9+fleck*.14),meadowAt(p)*.7);
+ float shade=canopyAt(p);
+ base=mix(base,vec3(.06,.11,.06)*(.9+fleck*.2),shade*.55);
+ float litter=shade*smoothstep(.42,.7,noise21(p*7.0+vec2(3.0,1.0)));
+ return mix(base,vec3(.25,.16,.085)*(.7+fleck*.6),litter*.7);
 }
 `

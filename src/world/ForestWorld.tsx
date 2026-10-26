@@ -24,6 +24,9 @@ import { Atmosphere } from './Atmosphere'
 import { IslandTerrain } from './IslandTerrain'
 import { ForestKit } from './ForestKit'
 import { GroundCover } from './GroundCover'
+import { PondLife } from './PondLife'
+import { Stockpiles } from './Stockpiles'
+import { AmbientLife } from './AmbientLife'
 import { CoastalRocks } from './CoastalRocks'
 import { PathDetails } from './PathDetails'
 import { pathEdgeDistance } from './terrain'
@@ -345,6 +348,9 @@ function Scene() {
     <ForestKit />
     <GroundCover />
     <PathDetails />
+    <PondLife />
+    <Stockpiles />
+    <AmbientLife />
     <Suspense fallback={null}><CoastalRocks /></Suspense>
     <OceanBoundary />
     {stones.map(([x, z], i) => <mesh key={i} position={[x, .13, z]} scale={[1, .44, .8]} rotation={[0, i, 0]}>

@@ -2,7 +2,7 @@ import {cabin,camp,seats,creekDistance} from '../game/expansion'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
 import templates from './vegetation-templates.json'
 import { pathDistance, islandShape, terrainHeight } from './terrain'
-import {workshopPosition,lookoutPosition,isBeachApproach} from './worldConfig'
+import {workshopPosition,lookoutPosition,isBeachApproach,clearings} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
 export interface VegetationInstance { kit: PlantKit; x: number; z: number; scale: number; yaw: number }
@@ -71,7 +71,9 @@ for(let i=0;i<700;i++){
  if(!clearForVegetation(x,z,.6)||outerPlants.some(p=>Math.hypot(x-p.x,z-p.z)<3.6))continue
  outerPlants.push({kit:i%7===0?'round-tree-a':'normal-pine-b',x,z,yaw:a,scale:.85+(i%4)*.09})
 }
-export const vegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2)
+// Meadow clearings: trees stay out entirely, bushes only keep to the outer ring so the edge reads as a shrubby fringe.
+const inClearing=(p:VegetationInstance)=>clearings.some(c=>Math.hypot(p.x-c.x,p.z-c.z)<c.r*(p.kit==='bush-a'?.7:1))
+export const vegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2&&!inClearing(p))
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale}))

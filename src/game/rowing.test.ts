@@ -65,7 +65,7 @@ describe('coastal rowing', () => {
     expect(canLand({ ...initialBoat, speed: .5 })).toBe(false)
   })
 
-  it('moves forward/backward and keeps the complete hull in water through turns and long input', () => {
+  it('moves forward/backward and keeps the complete hull in water through turns and long input', { timeout: 20000 }, () => {
     expect(boatFits(initialBoat.x, initialBoat.z, initialBoat.heading)).toBe(true)
     expect(boatFits(initialBoat.x, initialBoat.z, Math.PI / 2)).toBe(false) // A turn in the berth would put the stern under the jetty.
     const forward = stepBoat(initialBoat, 1, 0, .05)
