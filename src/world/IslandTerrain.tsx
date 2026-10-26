@@ -48,18 +48,21 @@ ${groundColourGLSL}\n` + shader.fragmentShader
         float sand=smoothstep(${(islandShape.plateauRadius+.2).toFixed(1)},${(islandShape.plateauRadius+1.5).toFixed(1)}+(coastAt(p)-${islandShape.coastRadius.toFixed(1)})*.4,length(p)+(broad-.5)*.7);
         float beach=(1.0-smoothstep(6.0,10.5,abs(p.y)))*smoothstep(31.0,35.0,p.x+(broad-.5)*.8);
         float southBeach=smoothstep(22.0,30.0,p.y)*smoothstep(14.0,29.0,length(p))*(1.0-smoothstep(1.0,2.5,vGround.y));
+        // Coastal sand only on low ground: cliff tops keep a grass turf right up to the edge.
+        sand*=1.0-smoothstep(.6,1.6,vGround.y+(broad-.5)*.5);
         sand=max(sand,max(beach,southBeach));
         colour=mix(colour,vec3(.52,.43,.28)*( .92+fleck*.12),sand);
         // Darker, cooler wet sand just above the tide line, with a ragged upper edge.
         float wet=(1.0-smoothstep(${(seaLevel+.3).toFixed(2)},${(seaLevel+.48).toFixed(2)},vGround.y+(broad-.5)*.18))*sand;
         colour=mix(colour,vec3(.27,.23,.17)*(.92+fleck*.1),wet*.8);
         vec3 groundNormal=normalize(vTerrainNormal);
-        float cliff=smoothstep(.32,.7,1.0-abs(groundNormal.y))*smoothstep(.2,1.2,vGround.y);
+        // Steep faces stay rock right down to the waterline instead of a strip of sand under the cliff.
+        float cliff=smoothstep(.32,.7,1.0-abs(groundNormal.y))*smoothstep(${(seaLevel-.1).toFixed(2)},${(seaLevel+.4).toFixed(2)},vGround.y);
         // Broken, broad mineral patches replace the evenly repeating horizontal bands.
         float stoneWarp=stoneNoise(vGround*.31);
         float mineral=stoneNoise(vGround*.63+stoneWarp*1.8);
         float fineStone=stoneNoise(vGround*7.0+stoneWarp);
-        vec3 rock=mix(vec3(.24,.225,.19),vec3(.36,.335,.28),smoothstep(.15,.85,mineral));
+        vec3 rock=mix(vec3(.13,.125,.11),vec3(.2,.19,.16),smoothstep(.15,.85,mineral));
         float fissure=1.0-smoothstep(.015,.055,abs(stoneNoise(vGround*vec3(1.1,.22,1.1)+stoneWarp*.6)-.5));
         rock*=.94+fineStone*.09-fissure*.075;
         float moss=smoothstep(.38,.72,groundNormal.y)*smoothstep(.4,.7,noise21(p*.9+vGround.y*.2));

@@ -30,9 +30,21 @@ function withWindowGlow(material:THREE.Material){
  return lit
 }
 
-export function ExpansionModel({id,position=[0,0,0],rotation=0,scale=1,windows=false}:{id:string;position?:[number,number,number];rotation?:number;scale?:number;windows?:boolean}){
+/** The AHOLO reef scan keeps its photo colour and contrast; pull it toward the coastal kit's warm grey so it sits with the hand-made rocks. */
+function withCoastStone(material:THREE.Material){
+ if(!(material instanceof THREE.MeshStandardMaterial))return material
+ const stone=material.clone()
+ stone.onBeforeCompile=s=>{
+  s.fragmentShader=s.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
+   float stoneLuma=mix(dot(diffuseColor.rgb,vec3(.299,.587,.114)),.2,.35);
+   diffuseColor.rgb=mix(diffuseColor.rgb,stoneLuma*vec3(1.1,1.02,.84),.75);`)
+ }
+ return stone
+}
+
+export function ExpansionModel({id,position=[0,0,0],rotation=0,scale=1,windows=false,stone=false}:{id:string;position?:[number,number,number];rotation?:number;scale?:number;windows?:boolean;stone?:boolean}){
  const gltf=useGLTF(`/assets/expansion/${id}.glb`)
- const model=useMemo(()=>{const s=gltf.scene.clone(true);s.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true;if(windows)o.material=withWindowGlow(o.material)}});return s},[gltf.scene,windows])
+ const model=useMemo(()=>{const s=gltf.scene.clone(true);s.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true;if(windows)o.material=withWindowGlow(o.material);if(stone)o.material=withCoastStone(o.material)}});return s},[gltf.scene,windows,stone])
  return <group name={`expansion-${id}`} position={position} rotation={[0,rotation,0]} scale={scale}><primitive object={model} dispose={null}/></group>
 }
 
@@ -86,7 +98,7 @@ export function ExpansionExterior(){return <group name="expansion-exterior">
  <ExpansionModel id="bridge" position={[bridge.x,6,bridge.z]}/>
  <Campfire/>
  {seats.map(s=><ExpansionModel key={s.id} id="low-bench" position={[s.x,terrainHeight(s.x,s.z),s.z]} rotation={s.yaw+Math.PI/2} scale={7/3}/>)}
- {reefs.map((r,i)=><ExpansionModel key={i} id="reef" position={[r.x,terrainHeight(r.x,r.z)-.15,r.z]} rotation={r.yaw} scale={r.scale}/>)}
+ {reefs.map((r,i)=><ExpansionModel key={i} id="reef" stone position={[r.x,terrainHeight(r.x,r.z)-.15,r.z]} rotation={r.yaw} scale={r.scale}/>)}
  </group>}
 
 function TankResidents(){

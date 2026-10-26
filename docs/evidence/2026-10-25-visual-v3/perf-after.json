@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-26T07:42:15.951Z",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "webgl": "ANGLE (NVIDIA, NVIDIA GeForce RTX 3050 (0x00002582) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "runs": {
+    "day-idle": {
+      "frames": 2503,
+      "meanMs": 4,
+      "p95Ms": 5.3,
+      "maxMs": 28.8,
+      "over33": 0
+    },
+    "day-walk": {
+      "frames": 2180,
+      "meanMs": 4.59,
+      "p95Ms": 6.8,
+      "maxMs": 34.7,
+      "over33": 1
+    },
+    "day-wide": {
+      "frames": 1077,
+      "meanMs": 9.29,
+      "p95Ms": 25.1,
+      "maxMs": 87.7,
+      "over33": 19
+    },
+    "night-idle": {
+      "frames": 1611,
+      "meanMs": 6.21,
+      "p95Ms": 11.2,
+      "maxMs": 92.9,
+      "over33": 3
+    },
+    "night-walk": {
+      "frames": 1645,
+      "meanMs": 6.08,
+      "p95Ms": 11.3,
+      "maxMs": 128.5,
+      "over33": 1
+    },
+    "night-wide": {
+      "frames": 1901,
+      "meanMs": 5.26,
+      "p95Ms": 8.5,
+      "maxMs": 18.2,
+      "over33": 0
+    }
+  },
+  "errors": []
+}

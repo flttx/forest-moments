@@ -345,7 +345,7 @@ function Scene() {
     <ForestKit />
     <GroundCover />
     <PathDetails />
-    <CoastalRocks />
+    <Suspense fallback={null}><CoastalRocks /></Suspense>
     <OceanBoundary />
     {stones.map(([x, z], i) => <mesh key={i} position={[x, .13, z]} scale={[1, .44, .8]} rotation={[0, i, 0]}>
       <icosahedronGeometry args={[.36, 1]} /><meshStandardMaterial color="#9f9e86" roughness={.95} />

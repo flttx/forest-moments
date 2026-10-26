@@ -13,6 +13,7 @@ export const coastKits:Record<CoastKit,{height:number;half:number}>={
 // Sea the boat may use: same rule as rowing.isNavigableSea, kept here to avoid importing the game loop.
 const navigable=(x:number,z:number)=>Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth
 const nearReef=(x:number,z:number,r:number)=>reefs.some(f=>Math.hypot(x-f.x,z-f.z)<2.6*f.scale+r)
+const terrainSlope=(x:number,z:number)=>Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3
 function random(seed:number){let s=seed;return()=>{s=s*16807%2147483647;return s/2147483647}}
 
 /** Radius along a ray from the island centre where the ground falls through height y (ground falls outward). */
@@ -21,10 +22,10 @@ function radiusAtHeight(angle:number,y:number,inner:number,outer:number){
  for(let i=0;i<24;i++){const r=(lo+hi)/2;if(terrainHeight(c*r,s*r)>y)lo=r;else hi=r}
  return(lo+hi)/2
 }
-/** Footprint samples on the seaward half of a piece: none may overlap water the boat can reach. */
+/** Footprint samples around a piece: none may overlap water the boat can reach (the creek mouth opens sideways, not only seaward). */
 export function seawardClear(p:CoastPiece){
- const half=coastKits[p.kit].half*p.scale*.75,a=Math.atan2(p.z,p.x)
- return[-1,-.5,0,.5,1].every(t=>{const b=a+t*.9;return!navigable(p.x+Math.cos(b)*half,p.z+Math.sin(b)*half)})&&!navigable(p.x,p.z)
+ const half=coastKits[p.kit].half*p.scale*.75
+ return!navigable(p.x,p.z)&&Array.from({length:8},(_,i)=>i*Math.PI/4).every(b=>!navigable(p.x+Math.cos(b)*half,p.z+Math.sin(b)*half))
 }
 function pullInland(p:CoastPiece){
  const a=Math.atan2(p.z,p.x)
@@ -32,37 +33,44 @@ function pullInland(p:CoastPiece){
  return p
 }
 
-/** Stacked rock columns over every steep sea cliff, sized to the local drop. */
+/** Rock courses over every steep sea cliff, sized to the local drop; alternate courses are offset like masonry so no wall shows through. */
 function cliffPieces(rand:()=>number){
- const pieces:CoastPiece[]=[]
- for(let a=0;a<Math.PI*2;a+=.052){
+ const pieces:CoastPiece[]=[],step=.04
+ for(let a=0;a<Math.PI*2;a+=step){
   const crest=coastRadius(a)-2.8,cx=Math.cos(a)*crest,cz=Math.sin(a)*crest,top=terrainHeight(cx,cz)
-  if(top<1.6||isBeachApproach(cx,cz)||creekDistance(cx,cz)<4)continue
-  const shore=shorelineRadius(a),drop=top-seaLevel,rows=Math.max(1,Math.round(drop/2.2))
+  if(top<1.6||isBeachApproach(cx,cz)||creekDistance(cx,cz)<2.2)continue
+  const shore=shorelineRadius(a),drop=top-seaLevel,rows=Math.max(1,Math.round(drop/1.7))
   for(let k=0;k<rows;k++){
-   const crown=k===rows-1,target=seaLevel+drop*Math.min(.86,(k+.55)/rows)
-   const kit:CoastKit=crown?(rand()<.55?'Rock_Slab':'Rock_Boulder'):drop>5&&rand()<.55?'Rock_Tall':'Rock_Slab'
-   const scale=Math.min(1.7,Math.max(.7,drop/rows/coastKits[kit].height*(1.05+rand()*.3)))
-   const b=a+(rand()-.5)*.03,r=radiusAtHeight(b,target,crest-1,shore+1)+.35
-   pieces.push(pullInland({kit,x:Math.cos(b)*r,y:target-coastKits[kit].height*scale*.55,z:Math.sin(b)*r,yaw:rand()*Math.PI*2,scale,role:'cliff'}))
+   const crown=k===rows-1,target=seaLevel+drop*Math.min(.86,(k+.5)/rows)
+   // Tall stacks only as occasional buttresses at the foot; slabs carry the face.
+   const kit:CoastKit=crown?(rand()<.6?'Rock_Slab':'Rock_Boulder'):k===0&&drop>5&&rand()<.3?'Rock_Tall':rand()<.75?'Rock_Slab':'Rock_Boulder'
+   const scale=Math.min(1.7,Math.max(.9,drop/rows/coastKits[kit].height*(1.15+rand()*.3)))
+   const b=a+(k%2?step/2:0)+(rand()-.5)*.02,r=radiusAtHeight(b,target,crest-1,shore+1)+.35
+   const piece=pullInland({kit,x:Math.cos(b)*r,y:target-coastKits[kit].height*scale*.55,z:Math.sin(b)*r,yaw:rand()*Math.PI*2,scale,role:'cliff'})
+   // Low courses near the mouth slide down toward the creek; the creek walls get their own pieces.
+   if(creekDistance(piece.x,piece.z)>=1.5)pieces.push(piece)
   }
  }
  return pieces
 }
 
-/** The creek cuts a gorge to the sea: line both walls with boulders stepping down to the mouth. */
+/** The creek cuts a gorge to the sea: line both walls with boulders stepping up the face, fitted across the gorge rather than toward the island centre. */
 function creekPieces(rand:()=>number){
  const pieces:CoastPiece[]=[]
- for(let x=-45;x<=-33;x+=1.25)for(const side of [-1,1]){
-  const z=creekZ(x)+side*(2.05+rand()*.4),water=creekWaterY(x),wall=terrainHeight(x,creekZ(x)+side*3.2)
-  if(Math.hypot(x,z)<35.5)continue
-  const drop=Math.max(.6,wall-water),rows=Math.max(1,Math.round(drop/1.8))
+ for(let x=-40;x<=-19;x+=1.25)for(const side of [-1,1]){
+  const cz=creekZ(x),water=creekWaterY(x),top=Math.max(...[2,3,4,5,6,7].map(d=>terrainHeight(x,cz+side*d))),drop=top-water
+  if(drop<1)continue
+  const rows=Math.max(1,Math.round(drop/1.8))
   for(let k=0;k<rows;k++){
    const kit:CoastKit=k===0?'Rock_Boulder':rand()<.5?'Rock_Slab':'Rock_Boulder'
    const scale=Math.min(1.4,Math.max(.55,drop/rows/coastKits[kit].height*(1+rand()*.3)))
-   const y=water+drop*Math.min(.85,k/rows)-.25
-   const reach=2.05+k*.28+rand()*.3,pz=creekZ(x)+side*reach
-   pieces.push(pullInland({kit,x:x+(rand()-.5)*.4,y,z:pz,yaw:rand()*Math.PI*2,scale,role:'creek'}))
+   const target=water+drop*Math.min(.85,(k+.35)/rows)
+   // Walk out from the creek bed to where the wall first passes the row height (the headland falls away again behind it), then sit the rock slightly into it.
+   let lo=1.3;while(lo<7&&terrainHeight(x,cz+side*lo)<target)lo+=.1
+   if(lo>=7)continue
+   const piece:CoastPiece={kit,x:x+(rand()-.5)*.4,y:target-coastKits[kit].height*scale*.5,z:cz+side*(lo+.25),yaw:rand()*Math.PI*2,scale,role:'creek'}
+   for(let i=0;i<10&&!seawardClear(piece);i++)piece.z+=side*.15
+   if(seawardClear(piece)&&terrainSlope(piece.x,piece.z)>.85)pieces.push(piece)
   }
  }
  return pieces
@@ -71,7 +79,7 @@ function creekPieces(rand:()=>number){
 /** Cobbles and driftwood in the wash: too low to stand on, too shallow to row through. */
 function tidelinePieces(rand:()=>number){
  const pieces:CoastPiece[]=[]
- for(let i=0;i<70;i++){
+ for(let i=0;i<100;i++){
   const a=i*2.39996+rand()*.2,shore=shorelineRadius(a)
   const r=radiusAtHeight(a,seaLevel+.05,shore-6,shore+1),x=Math.cos(a)*r,z=Math.sin(a)*r
   if(isBeachApproach(x,z)||isDockSurface(x,z,-2)||creekDistance(x,z)<3||nearReef(x,z,.5))continue
@@ -79,7 +87,10 @@ function tidelinePieces(rand:()=>number){
   const scale=wood?.85+rand()*.3:kit==='Rock_Boulder'?.32+rand()*.25:.55+rand()*.45
   // Driftwood lies along the shore; stones keep a random turn.
   const yaw=wood?-a+Math.PI/2+(rand()-.5)*.6:rand()*Math.PI*2
-  const piece=pullInland({kit,x,y:terrainHeight(x,z)-coastKits[kit].height*scale*(wood?.35:.45),z,yaw,scale,role:'tideline'})
+  const piece=pullInland({kit,x,y:0,z,yaw,scale,role:'tideline'})
+  // Pulled up onto walkable sand: skip rather than add an obstacle the raccoon would clip through.
+  if(terrainHeight(piece.x,piece.z)>=seaLevel+.16)continue
+  piece.y=terrainHeight(piece.x,piece.z)-coastKits[kit].height*scale*(wood?.35:.45)
   pieces.push(piece)
  }
  return pieces

@@ -1,0 +1,48 @@
+{
+  "stage": "V3 coastal cliffs and creek mouth — layout wired into the scene",
+  "date": "2026-10-26",
+  "status": "implemented, local-machine verification only; awaiting user review",
+  "environment": {
+    "browser": "Edge 156.0.4314.42 headless",
+    "viewport": [1440, 900],
+    "devServer": "http://127.0.0.1:5176/ (Vite dev)",
+    "note": "Machine was under unusual load during this session (process queries timed out); frame timings are noisy."
+  },
+  "layout": {
+    "source": "src/world/coastalLayout.ts",
+    "pieces": { "total": 398, "cliff": 282, "creek": 75, "tideline": 41 },
+    "byKit": { "Rock_Slab": 222, "Rock_Boulder": 132, "Rock_Tall": 14, "Rock_Cobbles": 28, "Driftwood_Short": 2, "Driftwood_Long": 0 },
+    "trianglesPerPass": { "coastalKit": 187032, "replacedIcosahedronRocks": 4320 },
+    "drawCalls": "5 instanced meshes replace 1 (plus their shadow passes)",
+    "cliffPiecesCentredOnWalkableGround": 0,
+    "cliffPiecesWithWalkableGroundWithin0_6m": 1
+  },
+  "unitTests": {
+    "command": "pnpm test",
+    "result": "90/91",
+    "coastalLayout.test.ts": "3/3 pass",
+    "failure": "src/game/rowing.test.ts 'moves forward/backward and keeps the complete hull in water…' times out at the 5 s default; the same test also times out at HEAD with these changes stashed, and passes 7/7 with --testTimeout=120000 (about 5.8 s). Not caused by V3."
+  },
+  "lint": "pnpm lint (oxlint) exit 0",
+  "build": { "result": "pass", "mainJs": "1590.65 kB", "mainJsGzip": "488.21 kB", "note": "existing large-chunk warning kept" },
+  "visualReview": {
+    "command": "LIGHTS=day,dusk,night node scripts/check_visual_review.mjs .tmp/v3-final",
+    "screenshots": 68,
+    "consoleErrors": 0,
+    "archived": "after/ (8 images, same camera poses as baseline/), iterations/ (6 images)"
+  },
+  "regression": {
+    "check_expansion_navigation": "6/6 PASS (FOREST_QA_OUT=.tmp/v3-nav): camera-relative walk across the bridge to the bedroom, bedroom navigation and early waking, dock boarding/rowing/return, catch to aquarium, aquarium survives reload"
+  },
+  "frameTiming": {
+    "script": "scripts/check_visual_perf.mjs (uncapped headless, same-machine comparison only)",
+    "files": ["perf-before.json", "perf-after.json", "perf-before-run1.json", "perf-after-run1.json"],
+    "conclusion": "Two before/after pairs; the same segment varied between about 4.0 and 9.3 ms mean across runs. No stable difference could be resolved; the first 'before' run was disturbed by Vite recompiling after git stash."
+  },
+  "notDone": [
+    "day-reef: the smooth face left of the reef is mostly the walkable highland ramp; covering it is left to V4 ground work",
+    "Creek mouth: a small pale sliver remains at the tip of the south headland",
+    "Only 2 short driftwood pieces survive the 'not walkable, not rowable' rule",
+    "Path-side gravel (PathDetails/Scene stones) is not unified with the kit yet"
+  ]
+}
