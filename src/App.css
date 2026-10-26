@@ -9,11 +9,22 @@
 .boat-transfer-shade{position:absolute;inset:0;z-index:2;background:#273f36;opacity:0;pointer-events:none}
 .icon{flex:none;display:block}
 
-/* Loading and error screens: the loading line sits on the scene without a card. */
-.asset-loading{position:absolute;z-index:5;left:50%;top:48%;transform:translate(-50%,-50%);max-width:85vw;color:var(--ink);font-size:19px;font-weight:500;letter-spacing:.12em;text-shadow:0 1px 10px #f8f2e4;pointer-events:none}
-.world-error{position:absolute;z-index:6;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#e6e4d4;color:var(--ink);font-size:17px}
+/* Loading and error screens: my-blog's twill and patch, lit here by a warm lantern glow at the centre. */
+.twill{background-color:#28453a;background-image:radial-gradient(ellipse 60% 55% at 50% 46%,#d6934f1f,transparent 70%),radial-gradient(ellipse 120% 100% at 50% 50%,transparent 55%,#14231c99),repeating-linear-gradient(135deg,transparent 0 3px,#2f4f43cc 3px 4px)}
+.asset-loading{position:absolute;z-index:5;inset:0;display:flex;align-items:center;justify-content:center;padding:0 24px;color:#e7d8b9}
+.loading-card{display:flex;flex-direction:column;align-items:center;width:min(360px,100%);text-align:center}
+.loading-patch{width:128px;height:128px;filter:drop-shadow(0 6px 10px #080c0a80)}
+@media(max-width:760px){.loading-patch{width:112px;height:112px}}
+.asset-loading h1{margin:24px 0 0;font-size:29px;font-weight:500;letter-spacing:.14em;line-height:1.3}
+html[lang=en] .asset-loading h1{letter-spacing:.03em}
+/* The bar is a seam: a dashed cream stitch for the track, an amber thread sewn along it. */
+.loading-bar{position:relative;width:100%;height:4px;margin-top:26px;background-image:repeating-linear-gradient(90deg,#e7d8b966 0 7px,transparent 7px 11px)}
+.loading-bar i{position:absolute;left:0;top:0;height:100%;border-radius:2px;background:#d6934f;box-shadow:0 0 8px #d6934f66;transition:width .3s ease-out}
+.asset-loading p{margin:12px 0 0;font-size:14px;color:#bfb59b;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.world-error{position:absolute;z-index:6;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:0 24px;color:#e7d8b9;font-size:20px;font-weight:500;letter-spacing:.06em;text-align:center}
 .world-error p{margin:0}
-.world-error button{min-height:40px;padding:0 20px;border:1px solid var(--moss);border-radius:var(--paper-radius);background:var(--moss);color:var(--cream)}
+.world-error button{min-height:40px;padding:0 22px;border:1px solid #d6934f;border-radius:var(--paper-radius);background:#d6934f;color:#2a231c;font-weight:500}
+.world-error button:hover{background:#e0a565}
 
 /* HUD shell: only its own controls take pointer input, the scene stays reachable around them. */
 .hud{position:absolute;inset:0;z-index:3;pointer-events:none;color:var(--ink);font-size:15px}
@@ -130,6 +141,7 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .hud .sleep-panel button:hover{background:var(--hover)}
 
 .hud :focus-visible,.world-error button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.world-error button:focus-visible{outline-color:#e7d8b9}
 .hud :focus:not(:focus-visible){outline:none}
 /* No entrance animation on overlays: an animated layer above the WebGL canvas stalled frames for 140-210 ms. Only small hover/press transitions remain. */
 @media(max-width:760px){.brand{display:none}.menu{right:12px;top:12px}.tool-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.hud .tool-button{padding:0 10px}.hud .show-hud{right:12px;top:12px}.paper-panel{right:12px;top:60px;width:calc(100% - 24px)}.guide{top:62px}.paper-card{left:12px;bottom:84px;width:calc(100% - 24px)}}

@@ -7,7 +7,9 @@ export const langStorageKey='forest-moments:lang:v1'
 const zh={
  'app.title':'森林拾光 · Forest Moments',
  'brand':'森林拾光',
- 'loading':'正在进入小岛…',
+ 'loading':'正在走进森林',
+ 'loading.label':'森林加载进度',
+ 'loading.preparing':'正在准备…',
  'error.world':'森林暂时没有加载成功，请重新载入。',
  'error.reload':'重新载入',
 
@@ -245,7 +247,9 @@ export type Key=keyof typeof zh
 const en:Record<Key,string>={
  'app.title':'Forest Moments · 森林拾光',
  'brand':'Forest Moments',
- 'loading':'Arriving on the island…',
+ 'loading':'Walking into the forest',
+ 'loading.label':'Forest loading progress',
+ 'loading.preparing':'Getting ready…',
  'error.world':'The forest didn’t load this time. Please reload.',
  'error.reload':'Reload',
 

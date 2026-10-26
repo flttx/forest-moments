@@ -28,6 +28,8 @@ const ready = "!!document.querySelector('canvas')&&!document.querySelector('.ass
 const shot = async (name) => {
   let stable = 0
   for (let i = 0; i < 200 && stable < 10; i++) { stable = (await evaluate(ready)) ? stable + 1 : 0; await sleep(100) }
+  // HIDE_HUD=1: scene-only images (the in-game photo view would still leave its restore button).
+  if (process.env.HIDE_HUD) await evaluate("document.getElementById('qa-hide-hud')||document.head.append(Object.assign(document.createElement('style'),{id:'qa-hide-hud',textContent:'.hud{display:none!important}'}))")
   await cmd('Page.captureScreenshot', { format: 'png' }); await sleep(250)
   const r = await cmd('Page.captureScreenshot', { format: 'png' })
   await writeFile(`${out}/${name}.png`, Buffer.from(r.data, 'base64'))

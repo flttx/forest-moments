@@ -2,13 +2,14 @@ import {solveWoodwork} from './woodworkRig'
 import { Component, useEffect, useMemo, useRef } from 'react'
 import type { ReactNode, RefObject } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { useGLTF, useProgress } from '@react-three/drei'
+import { useGLTF } from '@react-three/drei'
 import { AnimationMixer, Mesh } from 'three'
 import type { Group } from 'three'
 import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { modelAssets } from './assets'
 import { useForestStore } from '../game/store'
-import { t, useT } from '../i18n'
+import { t } from '../i18n'
+import { RaccoonPatch } from '../Patch'
 
 export type Locomotion = 'idle' | 'walk' | 'run' | 'interact' | 'fish_cast' | 'fish_hold' | 'fish_reel' | 'fish_land' | 'woodwork' | 'bench_sit_down' | 'bench_sit_idle' | 'bench_stand_up'
 
@@ -71,17 +72,12 @@ export function ModelAsset({ asset, motion, onReadyChange }: {
   </group>
 }
 
-export function AssetLoadingNotice() {
-  const t = useT()
-  const active = useProgress((s) => s.active)
-  return active ? <div className="asset-loading" role="status">{t('loading')}</div> : null
-}
-
 export class WorldErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false }
   static getDerivedStateFromError() { return { failed: true } }
   render() {
-    if (this.state.failed) return <div className="world-error" role="alert">
+    if (this.state.failed) return <div className="world-error twill" role="alert">
+      <RaccoonPatch arc="FOREST MOMENTS" className="loading-patch" />
       <p>{t('error.world')}</p>
       <button type="button" onClick={() => window.location.reload()}>{t('error.reload')}</button>
     </div>
