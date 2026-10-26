@@ -1,0 +1,1445 @@
+{
+  "date": "2026-10-26T13:16:49.762Z",
+  "mode": "isolated headless Edge",
+  "audits": {
+    "island": {
+      "bounds": [
+        -46,
+        46,
+        -46,
+        46
+      ],
+      "cell": 0.1,
+      "triangles": 1219502,
+      "samples": 14232391,
+      "labels": 148,
+      "penetration": [
+        {
+          "label": "forest-kit › bush-a--1,1",
+          "cells": 169,
+          "deepM2": 0.68,
+          "brushM2": 1.01,
+          "closest": 0,
+          "at": [
+            [
+              -0.05,
+              12.95
+            ],
+            [
+              -0.85,
+              14.55
+            ],
+            [
+              -4.05,
+              15.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-1,0",
+          "cells": 104,
+          "deepM2": 0.46,
+          "brushM2": 0.58,
+          "closest": 0,
+          "at": [
+            [
+              13.45,
+              3.95
+            ],
+            [
+              14.65,
+              5.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-2,-2",
+          "cells": 122,
+          "deepM2": 0.42,
+          "brushM2": 0.8,
+          "closest": 0,
+          "at": [
+            [
+              18.75,
+              -14.25
+            ],
+            [
+              24.65,
+              -9.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-2,-2",
+          "cells": 76,
+          "deepM2": 0.34,
+          "brushM2": 0.42,
+          "closest": 0,
+          "at": [
+            [
+              22.95,
+              -10.75
+            ],
+            [
+              21.55,
+              -9.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--1,-2",
+          "cells": 70,
+          "deepM2": 0.31,
+          "brushM2": 0.39,
+          "closest": 0,
+          "at": [
+            [
+              -4.95,
+              -9.15
+            ],
+            [
+              -5.25,
+              -7.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--4,-1",
+          "cells": 91,
+          "deepM2": 0.24,
+          "brushM2": 0.67,
+          "closest": 0.1,
+          "at": [
+            [
+              -30.55,
+              -6.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-0,-2",
+          "cells": 76,
+          "deepM2": 0.24,
+          "brushM2": 0.52,
+          "closest": 0,
+          "at": [
+            [
+              5.85,
+              -17.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--3,-1",
+          "cells": 73,
+          "deepM2": 0.24,
+          "brushM2": 0.49,
+          "closest": 0,
+          "at": [
+            [
+              -20.35,
+              -4.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-0,-2",
+          "cells": 79,
+          "deepM2": 0.23,
+          "brushM2": 0.56,
+          "closest": 0,
+          "at": [
+            [
+              8.05,
+              -15.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-2,-3",
+          "cells": 81,
+          "deepM2": 0.22,
+          "brushM2": 0.59,
+          "closest": 0,
+          "at": [
+            [
+              20.25,
+              -21.75
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-2,1",
+          "cells": 73,
+          "deepM2": 0.21,
+          "brushM2": 0.52,
+          "closest": 0,
+          "at": [
+            [
+              23.15,
+              7.75
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b--1,-3",
+          "cells": 53,
+          "deepM2": 0.21,
+          "brushM2": 0.32,
+          "closest": 0,
+          "at": [
+            [
+              -4.65,
+              -23.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-0,1",
+          "cells": 68,
+          "deepM2": 0.2,
+          "brushM2": 0.48,
+          "closest": 0,
+          "at": [
+            [
+              4.25,
+              10.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--1,-4",
+          "cells": 82,
+          "deepM2": 0.18,
+          "brushM2": 0.64,
+          "closest": 0,
+          "at": [
+            [
+              -0.75,
+              -32.95
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b--3,0",
+          "cells": 66,
+          "deepM2": 0.18,
+          "brushM2": 0.48,
+          "closest": 0,
+          "at": [
+            [
+              -22.15,
+              1.75
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--5,-2",
+          "cells": 42,
+          "deepM2": 0.18,
+          "brushM2": 0.24,
+          "closest": 0,
+          "at": [
+            [
+              -32.95,
+              -10.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b--2,0",
+          "cells": 45,
+          "deepM2": 0.17,
+          "brushM2": 0.28,
+          "closest": 0,
+          "at": [
+            [
+              -15.55,
+              1.25
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-1,-2",
+          "cells": 61,
+          "deepM2": 0.16,
+          "brushM2": 0.45,
+          "closest": 0.1,
+          "at": [
+            [
+              14.45,
+              -8.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--2,-2",
+          "cells": 36,
+          "deepM2": 0.15,
+          "brushM2": 0.21,
+          "closest": 0,
+          "at": [
+            [
+              -13.05,
+              -10.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--4,1",
+          "cells": 82,
+          "deepM2": 0.14,
+          "brushM2": 0.68,
+          "closest": 0.1,
+          "at": [
+            [
+              -29.45,
+              10.75
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-0,2",
+          "cells": 52,
+          "deepM2": 0.14,
+          "brushM2": 0.38,
+          "closest": 0,
+          "at": [
+            [
+              4.35,
+              19.35
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b-0,2",
+          "cells": 40,
+          "deepM2": 0.14,
+          "brushM2": 0.26,
+          "closest": 0,
+          "at": [
+            [
+              5.85,
+              19.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--4,-2",
+          "cells": 53,
+          "deepM2": 0.13,
+          "brushM2": 0.4,
+          "closest": 0.1,
+          "at": [
+            [
+              -29.55,
+              -15.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-2,-1",
+          "cells": 60,
+          "deepM2": 0.12,
+          "brushM2": 0.48,
+          "closest": 0,
+          "at": [
+            [
+              22.35,
+              -7.75
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--2,2",
+          "cells": 49,
+          "deepM2": 0.12,
+          "brushM2": 0.37,
+          "closest": 0.1,
+          "at": [
+            [
+              -12.75,
+              19.75
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--2,-1",
+          "cells": 48,
+          "deepM2": 0.12,
+          "brushM2": 0.36,
+          "closest": 0,
+          "at": [
+            [
+              -15.25,
+              -7.95
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--3,1",
+          "cells": 63,
+          "deepM2": 0.11,
+          "brushM2": 0.52,
+          "closest": 0.1,
+          "at": [
+            [
+              -18.45,
+              11.15
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--3,-4",
+          "cells": 45,
+          "deepM2": 0.11,
+          "brushM2": 0.34,
+          "closest": 0.1,
+          "at": [
+            [
+              -20.15,
+              -27.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--2,-1",
+          "cells": 55,
+          "deepM2": 0.1,
+          "brushM2": 0.45,
+          "closest": 0.1,
+          "at": [
+            [
+              -13.35,
+              -7.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-1,-3",
+          "cells": 49,
+          "deepM2": 0.1,
+          "brushM2": 0.39,
+          "closest": 0.1,
+          "at": [
+            [
+              13.05,
+              -20.95
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-2,0",
+          "cells": 43,
+          "deepM2": 0.1,
+          "brushM2": 0.33,
+          "closest": 0.1,
+          "at": [
+            [
+              22.55,
+              6.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-3,-3",
+          "cells": 35,
+          "deepM2": 0.1,
+          "brushM2": 0.25,
+          "closest": 0.1,
+          "at": [
+            [
+              28.65,
+              -18.65
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-1,-2",
+          "cells": 36,
+          "deepM2": 0.09,
+          "brushM2": 0.27,
+          "closest": 0.1,
+          "at": [
+            [
+              10.75,
+              -13.15
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-1,-3",
+          "cells": 29,
+          "deepM2": 0.09,
+          "brushM2": 0.2,
+          "closest": 0,
+          "at": [
+            [
+              9.85,
+              -23.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a-1,-1",
+          "cells": 46,
+          "deepM2": 0.08,
+          "brushM2": 0.38,
+          "closest": 0.1,
+          "at": [
+            [
+              11.85,
+              -7.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--3,-2",
+          "cells": 39,
+          "deepM2": 0.08,
+          "brushM2": 0.31,
+          "closest": 0.1,
+          "at": [
+            [
+              -21.95,
+              -9.25
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-0,-4",
+          "cells": 37,
+          "deepM2": 0.08,
+          "brushM2": 0.29,
+          "closest": 0.1,
+          "at": [
+            [
+              6.15,
+              -27.15
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--1,-2",
+          "cells": 37,
+          "deepM2": 0.08,
+          "brushM2": 0.29,
+          "closest": 0.1,
+          "at": [
+            [
+              -8.35,
+              -10.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-1,2",
+          "cells": 37,
+          "deepM2": 0.07,
+          "brushM2": 0.3,
+          "closest": 0.1,
+          "at": [
+            [
+              7.45,
+              19.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--3,-1",
+          "cells": 22,
+          "deepM2": 0.07,
+          "brushM2": 0.15,
+          "closest": 0.1,
+          "at": [
+            [
+              -22.65,
+              -1.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-farm › Ranch_Lantern",
+          "cells": 21,
+          "deepM2": 0.07,
+          "brushM2": 0.14,
+          "closest": 0.1,
+          "at": [
+            [
+              8.45,
+              2.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--3,-2",
+          "cells": 57,
+          "deepM2": 0.06,
+          "brushM2": 0.51,
+          "closest": 0.1,
+          "at": [
+            [
+              -20.15,
+              -17.15
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--2,2",
+          "cells": 48,
+          "deepM2": 0.06,
+          "brushM2": 0.42,
+          "closest": 0.1,
+          "at": [
+            [
+              -15.75,
+              15.05
+            ]
+          ]
+        },
+        {
+          "label": "coastal-kit › coastal-Rock_Boulder",
+          "cells": 15,
+          "deepM2": 0.06,
+          "brushM2": 0.09,
+          "closest": 0,
+          "at": [
+            [
+              35.55,
+              -12.65
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b--2,2",
+          "cells": 23,
+          "deepM2": 0.05,
+          "brushM2": 0.18,
+          "closest": 0.1,
+          "at": [
+            [
+              -14.05,
+              16.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--1,2",
+          "cells": 22,
+          "deepM2": 0.05,
+          "brushM2": 0.17,
+          "closest": 0.1,
+          "at": [
+            [
+              1.05,
+              20.55
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b--3,1",
+          "cells": 19,
+          "deepM2": 0.05,
+          "brushM2": 0.14,
+          "closest": 0.1,
+          "at": [
+            [
+              -17.95,
+              12.25
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-0,-3",
+          "cells": 16,
+          "deepM2": 0.05,
+          "brushM2": 0.11,
+          "closest": 0.1,
+          "at": [
+            [
+              6.65,
+              -22.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-1,1",
+          "cells": 12,
+          "deepM2": 0.05,
+          "brushM2": 0.07,
+          "closest": 0,
+          "at": [
+            [
+              8.25,
+              10.95
+            ]
+          ]
+        },
+        {
+          "label": "expansion-exterior › geometry_0 @-14,-20 BufferGeometry",
+          "cells": 11,
+          "deepM2": 0.05,
+          "brushM2": 0.06,
+          "closest": 0,
+          "at": [
+            [
+              -13.45,
+              -17.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-0,1",
+          "cells": 26,
+          "deepM2": 0.04,
+          "brushM2": 0.22,
+          "closest": 0.1,
+          "at": [
+            [
+              5.25,
+              14.35
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--1,-3",
+          "cells": 22,
+          "deepM2": 0.04,
+          "brushM2": 0.18,
+          "closest": 0.1,
+          "at": [
+            [
+              -3.75,
+              -18.15
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b--3,-1",
+          "cells": 18,
+          "deepM2": 0.04,
+          "brushM2": 0.14,
+          "closest": 0.1,
+          "at": [
+            [
+              -23.75,
+              -2.95
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--2,0",
+          "cells": 18,
+          "deepM2": 0.03,
+          "brushM2": 0.15,
+          "closest": 0.1,
+          "at": [
+            [
+              -13.15,
+              2.15
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--1,1",
+          "cells": 18,
+          "deepM2": 0.03,
+          "brushM2": 0.15,
+          "closest": 0.1,
+          "at": [
+            [
+              -7.15,
+              9.65
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-2,1",
+          "cells": 15,
+          "deepM2": 0.03,
+          "brushM2": 0.12,
+          "closest": 0.1,
+          "at": [
+            [
+              20.75,
+              11.95
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--3,3",
+          "cells": 12,
+          "deepM2": 0.03,
+          "brushM2": 0.09,
+          "closest": 0.1,
+          "at": [
+            [
+              -17.75,
+              27.25
+            ]
+          ]
+        },
+        {
+          "label": "expansion-exterior › geometry_0 @20,23 BufferGeometry",
+          "cells": 58,
+          "deepM2": 0.02,
+          "brushM2": 0.56,
+          "closest": 0.1,
+          "at": [
+            [
+              20.45,
+              22.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › round-tree-a-1,-2",
+          "cells": 20,
+          "deepM2": 0.02,
+          "brushM2": 0.18,
+          "closest": 0.1,
+          "at": [
+            [
+              8.95,
+              -13.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › young-tree-b-0,1",
+          "cells": 18,
+          "deepM2": 0.02,
+          "brushM2": 0.16,
+          "closest": 0.1,
+          "at": [
+            [
+              0.55,
+              11.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-2,-4",
+          "cells": 13,
+          "deepM2": 0.02,
+          "brushM2": 0.11,
+          "closest": 0.1,
+          "at": [
+            [
+              19.65,
+              -27.35
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-3,-1",
+          "cells": 13,
+          "deepM2": 0.02,
+          "brushM2": 0.11,
+          "closest": 0.1,
+          "at": [
+            [
+              29.95,
+              -2.25
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-0,3",
+          "cells": 10,
+          "deepM2": 0.02,
+          "brushM2": 0.08,
+          "closest": 0.1,
+          "at": [
+            [
+              2.25,
+              27.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--3,1",
+          "cells": 9,
+          "deepM2": 0.02,
+          "brushM2": 0.07,
+          "closest": 0.1,
+          "at": [
+            [
+              -21.55,
+              10.05
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--4,0",
+          "cells": 17,
+          "deepM2": 0.01,
+          "brushM2": 0.16,
+          "closest": 0.1,
+          "at": [
+            [
+              -22.35,
+              6.25
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › bush-a--2,0",
+          "cells": 16,
+          "deepM2": 0.01,
+          "brushM2": 0.15,
+          "closest": 0.1,
+          "at": [
+            [
+              -13.45,
+              0.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-3,0",
+          "cells": 14,
+          "deepM2": 0.01,
+          "brushM2": 0.13,
+          "closest": 0.1,
+          "at": [
+            [
+              22.65,
+              4.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-0,-5",
+          "cells": 12,
+          "deepM2": 0.01,
+          "brushM2": 0.11,
+          "closest": 0.1,
+          "at": [
+            [
+              2.65,
+              -33.65
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--5,0",
+          "cells": 12,
+          "deepM2": 0.01,
+          "brushM2": 0.11,
+          "closest": 0.1,
+          "at": [
+            [
+              -31.25,
+              0.85
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b--4,2",
+          "cells": 7,
+          "deepM2": 0.01,
+          "brushM2": 0.06,
+          "closest": 0.1,
+          "at": [
+            [
+              -24.05,
+              18.45
+            ]
+          ]
+        },
+        {
+          "label": "forest-kit › normal-pine-b-2,2",
+          "cells": 6,
+          "deepM2": 0.01,
+          "brushM2": 0.05,
+          "closest": 0.1,
+          "at": [
+            [
+              16.15,
+              16.95
+            ]
+          ]
+        },
+        {
+          "label": "expansion-exterior › ENV_Prop_LowBench",
+          "cells": 183,
+          "deepM2": 0,
+          "brushM2": 1.83,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-farm › Ranch_Fence",
+          "cells": 157,
+          "deepM2": 0,
+          "brushM2": 1.57,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-kit › normal-pine-b-2,-1",
+          "cells": 11,
+          "deepM2": 0,
+          "brushM2": 0.11,
+          "closest": 0.14,
+          "at": []
+        },
+        {
+          "label": "forest-kit › wooden-lanterns",
+          "cells": 9,
+          "deepM2": 0,
+          "brushM2": 0.09,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-kit › tall-pine-a-1,-3",
+          "cells": 6,
+          "deepM2": 0,
+          "brushM2": 0.06,
+          "closest": 0.14,
+          "at": []
+        },
+        {
+          "label": "asset-coastal-jetty › geometry_0 @40,0 BufferGeometry",
+          "cells": 6,
+          "deepM2": 0,
+          "brushM2": 0.06,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "expansion-exterior › geometry_0 @31,25 BufferGeometry",
+          "cells": 5,
+          "deepM2": 0,
+          "brushM2": 0.05,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "expansion-exterior › geometry_0 @-15,-28 BufferGeometry",
+          "cells": 4,
+          "deepM2": 0,
+          "brushM2": 0.04,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-kit › round-tree-a-3,-3",
+          "cells": 4,
+          "deepM2": 0,
+          "brushM2": 0.04,
+          "closest": 0.14,
+          "at": []
+        },
+        {
+          "label": "forest-kit › round-tree-a-0,-2",
+          "cells": 4,
+          "deepM2": 0,
+          "brushM2": 0.04,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-kit › normal-pine-b-1,3",
+          "cells": 4,
+          "deepM2": 0,
+          "brushM2": 0.04,
+          "closest": 0.14,
+          "at": []
+        },
+        {
+          "label": "forest-kit › normal-pine-b--1,3",
+          "cells": 4,
+          "deepM2": 0,
+          "brushM2": 0.04,
+          "closest": 0.14,
+          "at": []
+        },
+        {
+          "label": "forest-kit › round-tree-a-0,-3",
+          "cells": 2,
+          "deepM2": 0,
+          "brushM2": 0.02,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "coastal-kit › coastal-Rock_Slab",
+          "cells": 2,
+          "deepM2": 0,
+          "brushM2": 0.02,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-kit › tall-pine-a-2,-2",
+          "cells": 1,
+          "deepM2": 0,
+          "brushM2": 0.01,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "(unnamed) @-3,12 IcosahedronGeometry",
+          "cells": 1,
+          "deepM2": 0,
+          "brushM2": 0.01,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "forest-kit › tall-pine-a--1,2",
+          "cells": 1,
+          "deepM2": 0,
+          "brushM2": 0.01,
+          "closest": 0.2,
+          "at": []
+        }
+      ],
+      "invisibleWalls": [
+        {
+          "rule": "plant:normal-pine-b",
+          "cells": 2355,
+          "edgeM": 235.5,
+          "at": [
+            [
+              7.05,
+              -34.15
+            ],
+            [
+              2.15,
+              -33.15
+            ],
+            [
+              -1.55,
+              -32.25
+            ],
+            [
+              -1.85,
+              -31.65
+            ],
+            [
+              4.95,
+              -31.15
+            ],
+            [
+              1.25,
+              -30.65
+            ]
+          ]
+        },
+        {
+          "rule": "coast rock",
+          "cells": 151,
+          "edgeM": 15.1,
+          "at": [
+            [
+              5.45,
+              -38.15
+            ],
+            [
+              30.85,
+              -21.55
+            ],
+            [
+              31.95,
+              -19.15
+            ],
+            [
+              -26.75,
+              -16.45
+            ],
+            [
+              -23.35,
+              -16.15
+            ],
+            [
+              -33.65,
+              -14.35
+            ]
+          ]
+        },
+        {
+          "rule": "box:lookout",
+          "cells": 125,
+          "edgeM": 12.5,
+          "at": [
+            [
+              11.05,
+              -28.65
+            ],
+            [
+              10.95,
+              -27.85
+            ],
+            [
+              15.05,
+              -26.05
+            ],
+            [
+              10.95,
+              -24.75
+            ],
+            [
+              11.35,
+              -23.35
+            ]
+          ]
+        },
+        {
+          "rule": "plant:round-tree-a",
+          "cells": 62,
+          "edgeM": 6.2,
+          "at": [
+            [
+              9.85,
+              -15.95
+            ],
+            [
+              10.25,
+              -14.65
+            ],
+            [
+              0.65,
+              -13.05
+            ]
+          ]
+        },
+        {
+          "rule": "animal",
+          "cells": 51,
+          "edgeM": 5.1,
+          "at": [
+            [
+              8.25,
+              5.25
+            ],
+            [
+              9.45,
+              6.45
+            ],
+            [
+              9.55,
+              7.75
+            ]
+          ]
+        },
+        {
+          "rule": "bench",
+          "cells": 12,
+          "edgeM": 1.2,
+          "at": [
+            [
+              29.25,
+              -13.15
+            ]
+          ]
+        },
+        {
+          "rule": "pond stone",
+          "cells": 9,
+          "edgeM": 0.9,
+          "at": [
+            [
+              2.15,
+              -7.95
+            ]
+          ]
+        },
+        {
+          "rule": "driftwood",
+          "cells": 8,
+          "edgeM": 0.8,
+          "at": [
+            [
+              11.35,
+              35.65
+            ]
+          ]
+        },
+        {
+          "rule": "box:cabin",
+          "cells": 7,
+          "edgeM": 0.7,
+          "at": [
+            [
+              -16.35,
+              -30.95
+            ]
+          ]
+        },
+        {
+          "rule": "plant:young-tree-b",
+          "cells": 7,
+          "edgeM": 0.7,
+          "at": [
+            [
+              -3.85,
+              -22.05
+            ]
+          ]
+        },
+        {
+          "rule": "old stump",
+          "cells": 6,
+          "edgeM": 0.6,
+          "at": [
+            [
+              -7.95,
+              8.95
+            ]
+          ]
+        },
+        {
+          "rule": "box:bridge railing",
+          "cells": 3,
+          "edgeM": 0.3,
+          "at": [
+            [
+              -15.35,
+              -23.25
+            ]
+          ]
+        },
+        {
+          "rule": "reef",
+          "cells": 3,
+          "edgeM": 0.3,
+          "at": [
+            [
+              -37.35,
+              -7.05
+            ]
+          ]
+        },
+        {
+          "rule": "box:RanchCollider_Coop",
+          "cells": 2,
+          "edgeM": 0.2,
+          "at": [
+            [
+              6.45,
+              6.75
+            ]
+          ]
+        },
+        {
+          "rule": "box:workshop",
+          "cells": 1,
+          "edgeM": 0.1,
+          "at": [
+            [
+              -9.05,
+              11.35
+            ]
+          ]
+        }
+      ],
+      "seconds": 8.759
+    },
+    "workshop": {
+      "bounds": [
+        -4.6,
+        4.6,
+        -3.6,
+        3.6
+      ],
+      "cell": 0.05,
+      "triangles": 51109,
+      "samples": 9445943,
+      "labels": 23,
+      "penetration": [
+        {
+          "label": "Scene › Prop_workshop-firewood",
+          "cells": 24,
+          "deepM2": 0,
+          "brushM2": 0.06,
+          "closest": 0.15,
+          "at": []
+        },
+        {
+          "label": "Scene › Prop_workshop-wall-shelf",
+          "cells": 10,
+          "deepM2": 0,
+          "brushM2": 0.03,
+          "closest": 0.15,
+          "at": []
+        },
+        {
+          "label": "Scene › Room_Baked",
+          "cells": 8,
+          "deepM2": 0,
+          "brushM2": 0.02,
+          "closest": 0.2,
+          "at": []
+        }
+      ],
+      "invisibleWalls": [
+        {
+          "rule": "Collider_EastShelf",
+          "cells": 4,
+          "edgeM": 0.2,
+          "at": [
+            [
+              3.03,
+              -0.98
+            ]
+          ]
+        }
+      ],
+      "seconds": 0.084
+    },
+    "bedroom": {
+      "bounds": [
+        -4.2,
+        4.2,
+        -3.2,
+        3.2
+      ],
+      "cell": 0.05,
+      "triangles": 186635,
+      "samples": 17204538,
+      "labels": 139,
+      "penetration": [
+        {
+          "label": "expansion-bedroom-shell › Cross_beam003",
+          "cells": 146,
+          "deepM2": 0,
+          "brushM2": 0.37,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "expansion-bedroom-shell › Cross_beam",
+          "cells": 146,
+          "deepM2": 0,
+          "brushM2": 0.37,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "expansion-bedroom-shell › Side_beam",
+          "cells": 106,
+          "deepM2": 0,
+          "brushM2": 0.27,
+          "closest": 0.2,
+          "at": []
+        },
+        {
+          "label": "expansion-bedroom-shell › Side_beam002",
+          "cells": 106,
+          "deepM2": 0,
+          "brushM2": 0.27,
+          "closest": 0.2,
+          "at": []
+        }
+      ],
+      "invisibleWalls": [],
+      "seconds": 0.132
+    }
+  },
+  "errors": [],
+  "status": "DONE"
+}
