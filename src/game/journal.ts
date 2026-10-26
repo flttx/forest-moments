@@ -10,7 +10,8 @@ export type TaskId=typeof taskIds[number]
 export const stampIds=['pine','koi','flame','feather','boat','moon'] as const
 export type StampId=typeof stampIds[number]
 export interface JournalTask{id:TaskId;progress:number;doneAt:string|null}
-export interface JournalBook{version:1;page:{number:number;tasks:JournalTask[]};stamps:{page:number;stamp:StampId;doneAt:string}[]}
+export interface JournalStamp{page:number;stamp:StampId;doneAt:string;tasks?:JournalTask[]}
+export interface JournalBook{version:1;page:{number:number;tasks:JournalTask[]};stamps:JournalStamp[]}
 
 /** How much of each thing completes it: seconds by the fire, metres rowed, otherwise once. */
 export const taskTarget:Record<TaskId,number>={catch:1,bigCatch:1,keep:1,feed:1,fireside:8,seaside:1,lookout:1,row:40,sleep:1,photo:1,nightPhoto:1,tree:1}
@@ -21,9 +22,11 @@ export const photoModeReady=false
 export type JournalEvent=
  {type:'catch';sizeCm:number}|{type:'keep'}|{type:'feed'}|{type:'fireside';seconds:number}|{type:'seaside'}
  |{type:'lookout'}|{type:'row';meters:number}|{type:'sleep'}|{type:'photo';night:boolean}|{type:'tree'}
+ |{type:'reset';task:'row'|'fireside'}
 
 type State=ReturnType<typeof useForestStore.getState>
 const campSeats=['camp-west','camp-south','camp-east'],seaSeats=['coast','reef']
+const atFire=(s:State)=>s.mode==='sitting'&&s.sitting?.phase==='idle'&&campSeats.includes(s.sitting.id)&&s.homeBook.fireLit
 
 /** Things worth writing down in a change of the game state (prev → next). */
 export function journalEvents(prev:State,next:State):JournalEvent[]{
@@ -32,12 +35,15 @@ export function journalEvents(prev:State,next:State):JournalEvent[]{
  if(next.homeBook.fish.length>prev.homeBook.fish.length)events.push({type:'keep'})
  if(next.farmBook.meals>prev.farmBook.meals)events.push({type:'feed'})
  const seat=next.sitting
- if(seat?.phase==='idle'&&prev.sitting?.phase==='idle'&&prev.sitting.id===seat.id&&campSeats.includes(seat.id)&&next.homeBook.fireLit&&seat.elapsed>prev.sitting.elapsed)
+ const sameFire=atFire(prev)&&atFire(next)&&prev.sitting?.id===seat?.id
+ if(atFire(prev)&&!sameFire)events.push({type:'reset',task:'fireside'})
+ if(sameFire&&seat&&prev.sitting&&!next.menuPaused&&seat.elapsed>prev.sitting.elapsed)
   events.push({type:'fireside',seconds:seat.elapsed-prev.sitting.elapsed})
  if(seat?.phase==='idle'&&prev.sitting?.phase!=='idle'&&seaSeats.includes(seat.id))events.push({type:'seaside'})
  if(next.mode==='lookout'&&prev.mode!=='lookout')events.push({type:'lookout'})
  // Boat steps are a few centimetres a frame; a larger jump is a reset (landing, mooring), not rowing.
- if(next.mode==='rowing'&&prev.mode==='rowing'){const meters=Math.hypot(next.boat.x-prev.boat.x,next.boat.z-prev.boat.z);if(meters>0&&meters<1)events.push({type:'row',meters})}
+ if(prev.mode==='rowing'&&next.mode!=='rowing')events.push({type:'reset',task:'row'})
+ if(next.mode==='rowing'&&prev.mode==='rowing'&&!next.menuPaused&&!next.boatTransfer){const meters=Math.hypot(next.boat.x-prev.boat.x,next.boat.z-prev.boat.z);if(meters>0&&meters<1)events.push({type:'row',meters})}
  if(next.homeBook.nights>prev.homeBook.nights)events.push({type:'sleep'})
  if((next.planted&&!prev.planted)||(next.inspectingTree&&!prev.inspectingTree))events.push({type:'tree'})
  return events
@@ -84,17 +90,18 @@ export function recordEvents(book:JournalBook,events:readonly JournalEvent[],now
  let changed=false
  const tasks=book.page.tasks.map(t=>{
   if(t.doneAt)return t
-  const step=events.reduce((n,e)=>n+taskStep(t.id,e),0)
-  if(step<=0)return t
+  // Resets end only unfinished attempts; a completed task remains on the page.
+  const progress=events.reduce((n,e)=>e.type==='reset'&&e.task===t.id?0:Math.min(taskTarget[t.id],n+taskStep(t.id,e)),t.progress)
+  if(progress===t.progress)return t
   changed=true
-  const progress=Math.min(taskTarget[t.id],t.progress+step),done=progress>=taskTarget[t.id]
+  const done=progress>=taskTarget[t.id]
   if(done)finished.push(t.id)
   return{...t,progress,doneAt:done?now:null}
  })
  if(!changed)return{book,finished}
  const page={...book.page,tasks}
  // The stamp goes on as soon as the last task is done; turning the page is the player's choice.
- const stamps=pageDone(page)?[...book.stamps,{page:page.number,stamp:stampFor(page.number),doneAt:now}]:book.stamps
+ const stamps=pageDone(page)?[...book.stamps,{page:page.number,stamp:stampFor(page.number),doneAt:now,tasks:tasks.map(t=>({...t}))}]:book.stamps
  return{book:{...book,page,stamps},finished}
 }
 
@@ -107,12 +114,18 @@ export function decodeJournal(raw:string|null):JournalBook|null{
  try{
   const b=JSON.parse(raw??'null')
   if(b?.version!==1||!Number.isSafeInteger(b.page?.number)||b.page.number<1||!Array.isArray(b.page.tasks)||b.page.tasks.length!==tasksPerPage||!Array.isArray(b.stamps))return null
-  const ids=new Set<string>()
-  for(const t of b.page.tasks){
-   if(!taskIds.includes(t?.id)||ids.has(t.id)||!Number.isFinite(t.progress)||t.progress<0||t.progress>taskTarget[t.id as TaskId]||(t.doneAt!==null&&typeof t.doneAt!=='string'))return null
-   ids.add(t.id)
-  }
-  if(b.stamps.some((s:{page:unknown;stamp:unknown;doneAt:unknown})=>!Number.isSafeInteger(s?.page)||!stampIds.includes(s.stamp as StampId)||typeof s.doneAt!=='string'))return null
-  return{version:1,page:{number:b.page.number,tasks:b.page.tasks.map((t:JournalTask)=>({id:t.id,progress:t.progress,doneAt:t.doneAt}))},stamps:b.stamps}
+  const validDate=(s:unknown)=>typeof s==='string'&&Number.isFinite(Date.parse(s))
+  const validTasks=(tasks:JournalTask[])=>Array.isArray(tasks)&&tasks.length===tasksPerPage&&new Set(tasks.map(t=>t?.id)).size===tasksPerPage&&tasks.every(t=>
+   t&&taskIds.includes(t.id)&&Number.isFinite(t.progress)&&t.progress>=0&&t.progress<=taskTarget[t.id]&&(t.doneAt===null?t.progress<taskTarget[t.id]:validDate(t.doneAt)&&t.progress===taskTarget[t.id]))
+  if(!validTasks(b.page.tasks))return null
+  const stamps:JournalStamp[]=b.stamps
+  if(stamps.some((s,i)=>!s||!Number.isSafeInteger(s.page)||s.page!==i+1||s.page>b.page.number||s.stamp!==stampFor(s.page)||!validDate(s.doneAt)||
+   (s.tasks!==undefined&&(!validTasks(s.tasks)||s.tasks.some(t=>t.doneAt===null)))))return null
+  const full=pageDone(b.page)
+  if(stamps.length!==b.page.number-(full?0:1))return null
+  const tasks=b.page.tasks.map((t:JournalTask)=>({id:t.id,progress:!t.doneAt&&(t.id==='row'||t.id==='fireside')?0:t.progress,doneAt:t.doneAt}))
+  // Old v1 saves only retained stamps. Preserve those; recover details only for the current page we still have.
+  return{version:1,page:{number:b.page.number,tasks},stamps:stamps.map(s=>({page:s.page,stamp:s.stamp,doneAt:s.doneAt,
+   ...(s.tasks?{tasks:s.tasks.map(t=>({...t}))}:s.page===b.page.number&&full?{tasks:tasks.map((t:JournalTask)=>({...t}))}:{})}))}
  }catch{return null}
 }

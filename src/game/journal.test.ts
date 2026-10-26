@@ -27,7 +27,7 @@ it('moves only matching tasks, accumulates metres and seconds, and stamps a page
  expect(b.page.tasks[1]).toEqual({id:'row',progress:taskTarget.row,doneAt:'t3'});expect(r.finished).toEqual(['row'])
  r=recordEvents(b,[{type:'fireside',seconds:6},{type:'catch',sizeCm:31}],'t4');b=r.book
  expect(r.finished.sort()).toEqual(['bigCatch','fireside']);expect(pageDone(b.page)).toBe(true)
- expect(b.stamps).toEqual([{page:1,stamp:stampFor(1),doneAt:'t4'}])
+ expect(b.stamps).toEqual([{page:1,stamp:stampFor(1),doneAt:'t4',tasks:b.page.tasks}])
  // A full page records nothing more until it is turned, and only then.
  expect(recordEvents(b,[{type:'catch',sizeCm:40}],'t5').book).toBe(b)
  expect(turnPage(book(['catch','feed','sleep']),roomy)).toEqual(book(['catch','feed','sleep']))
@@ -62,4 +62,78 @@ it('restores a valid save and starts afresh from a broken one; a blocked save ke
  j.getState().record([{type:'feed'}])
  expect(j.getState().book.page.tasks[1].doneAt).not.toBeNull();expect(s.getState().messageKind).toBe('error')
  expect(taskIds).toHaveLength(12)
+})
+
+const now='2026-10-26T14:00:00Z'
+it('starts a new outing or fireside attempt without erasing completed tasks',async()=>{
+ const {useForestStore:s}=await import('./store'),base=s.getState()
+ const rowing={...base,mode:'rowing' as const}
+ const camp={...base,mode:'sitting' as const,homeBook:{...base.homeBook,fireLit:true},sitting:{id:'camp-west' as const,phase:'idle' as const,elapsed:4,returnPosition:{x:0,z:0}}}
+ let b=recordEvents(book(['row','fireside','tree']),[{type:'row',meters:25},{type:'fireside',seconds:4}],now).book
+ const leftBoat=journalEvents(rowing,base),leftFire=journalEvents(camp,{...camp,sitting:{...camp.sitting,phase:'up'}})
+ expect(leftBoat).toContainEqual({type:'reset',task:'row'})
+ expect(leftFire).toContainEqual({type:'reset',task:'fireside'})
+ expect(journalEvents(camp,{...camp,homeBook:{...camp.homeBook,fireLit:false}})).toContainEqual({type:'reset',task:'fireside'})
+ expect(journalEvents(camp,{...camp,sitting:{...camp.sitting,id:'camp-east'}})).toContainEqual({type:'reset',task:'fireside'})
+ b=recordEvents(b,[...leftBoat,...leftFire],now).book
+ expect(b.page.tasks.map(t=>t.progress)).toEqual([0,0,0])
+ b=recordEvents(b,[{type:'row',meters:20},{type:'fireside',seconds:4}],now).book
+ expect(b.page.tasks.every(t=>!t.doneAt)).toBe(true)
+ expect(journalEvents(camp,{...camp,menuPaused:true,sitting:{...camp.sitting,elapsed:6}})).toEqual([])
+ expect(journalEvents(rowing,{...rowing,menuPaused:true,boat:{...rowing.boat,x:rowing.boat.x+.1}})).toEqual([])
+ b=recordEvents(b,[{type:'row',meters:20},{type:'fireside',seconds:4}],now).book
+ const done=recordEvents(b,[...leftBoat,...leftFire],now)
+ expect(done.book).toBe(b)
+ expect(done.finished).toEqual([])
+})
+it('keeps full historical pages through turns and reloads; preserves legacy stamps without inventing tasks',()=>{
+ const filled=recordEvents(book(['tree','lookout','feed']),[{type:'tree'},{type:'lookout'},{type:'feed'}],now).book
+ const next=turnPage(filled,roomy,()=>.5),saved=decodeJournal(JSON.stringify(next))!
+ expect(saved.stamps[0].tasks).toEqual(filled.page.tasks)
+ expect(saved.page.number).toBe(2)
+ expect(saved.page.tasks.every(t=>!t.doneAt)).toBe(true)
+ const old={...next,stamps:[{page:1,stamp:stampFor(1),doneAt:now}]}
+ expect(decodeJournal(JSON.stringify(old))!.stamps[0].tasks).toBeUndefined()
+ const oldCurrent={...filled,stamps:old.stamps}
+ expect(decodeJournal(JSON.stringify(oldCurrent))!.stamps[0].tasks).toEqual(filled.page.tasks)
+ for(const stamps of [[...next.stamps,...next.stamps],[{...next.stamps[0],page:-1}],[{...next.stamps[0],doneAt:'bad'}],[{...next.stamps[0],tasks:book(['tree','lookout','feed']).page.tasks}]])
+  expect(decodeJournal(JSON.stringify({...next,stamps}))).toBeNull()
+})
+it('resets unfinished session counters on reload but keeps completed tasks',()=>{
+ let b=recordEvents(book(['row','fireside','tree']),[{type:'row',meters:12},{type:'fireside',seconds:4},{type:'tree'}],now).book
+ expect(decodeJournal(JSON.stringify(b))!.page.tasks.map(t=>t.progress)).toEqual([0,0,1])
+ b=recordEvents(b,[{type:'row',meters:28}],now).book
+ expect(decodeJournal(JSON.stringify(b))!.page.tasks.map(t=>t.progress)).toEqual([40,0,1])
+})
+it('saves the initial page, achievements and page turns, with no per-frame writes',async()=>{
+ memory.set(journalStorageKey,JSON.stringify(book(['row','fireside','tree'])))
+ const {useJournalStore:j,installJournal}=await import('./journalStore')
+ const write=vi.spyOn(window.localStorage,'setItem')
+ const stop=installJournal()
+ try{
+  expect(write.mock.calls.filter(c=>c[0]===journalStorageKey)).toHaveLength(1)
+  for(let i=0;i<100;i++)j.getState().record([{type:'row',meters:.1},{type:'fireside',seconds:.02}])
+  expect(write.mock.calls.filter(c=>c[0]===journalStorageKey)).toHaveLength(1)
+  j.getState().record([{type:'tree'}])
+  expect(write.mock.calls.filter(c=>c[0]===journalStorageKey)).toHaveLength(2)
+  expect(decodeJournal(memory.get(journalStorageKey)!)!.page.tasks.map(t=>t.progress)).toEqual([0,0,1])
+  j.getState().record([{type:'row',meters:40},{type:'fireside',seconds:8}])
+  expect(write.mock.calls.filter(c=>c[0]===journalStorageKey)).toHaveLength(3)
+  j.getState().turn()
+  expect(write.mock.calls.filter(c=>c[0]===journalStorageKey)).toHaveLength(4)
+  expect(decodeJournal(memory.get(journalStorageKey)!)!.page.number).toBe(2)
+ }finally{stop()}
+})
+it('credits every available task from the corresponding event and protects unrelated tasks',()=>{
+ const cases:[TaskId,Parameters<typeof recordEvents>[1][number]][]=[
+  ['catch',{type:'catch',sizeCm:20}],['bigCatch',{type:'catch',sizeCm:30}],['keep',{type:'keep'}],['feed',{type:'feed'}],
+  ['fireside',{type:'fireside',seconds:8}],['seaside',{type:'seaside'}],['lookout',{type:'lookout'}],['row',{type:'row',meters:40}],
+  ['sleep',{type:'sleep'}],['tree',{type:'tree'}],['photo',{type:'photo',night:false}],['nightPhoto',{type:'photo',night:true}],
+ ]
+ for(const [id,event] of cases){
+  const other=taskIds.filter(t=>t!==id&&t!=='catch'&&t!=='bigCatch'&&t!=='photo'&&t!=='nightPhoto').slice(0,2)
+  const result=recordEvents(book([id,...other]),[event],now)
+  expect(result.book.page.tasks[0].doneAt).toBe(now)
+  expect(result.finished).toEqual([id])
+ }
 })

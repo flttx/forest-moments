@@ -141,3 +141,23 @@ __pycache__/
 !/docs/evidence/2026-10-25-tree-visibility/before/02-at-trunk.png
 !/docs/evidence/2026-10-25-tree-visibility/after/02-at-trunk.png
 !/docs/evidence/2026-10-25-tree-visibility/after/05-whole-island.png
+
+# Journal report figures, 2026-10-26; full capture batches remain local.
+!/docs/evidence/2026-10-26-journal/before-production/journal-production.png
+!/docs/evidence/2026-10-26-journal/final-production/journal-production.png
+!/docs/evidence/2026-10-26-journal/final/history-page-one.png
+!/docs/evidence/2026-10-26-journal/final/fireside-paused.png
+!/docs/evidence/2026-10-26-journal/final/legacy-history.png
+
+/docs/evidence/2026-10-26-journal/regression-i18n*/report.json
+
+# Campfire reference and reviewed before/after figures, 2026-10-26.
+!/docs/evidence/2026-10-26-campfire/before/day-fireClose.png
+!/docs/evidence/2026-10-26-campfire/final/day-fireClose.png
+!/docs/evidence/2026-10-26-campfire/final/night-fireClose.png
+!/docs/evidence/2026-10-26-campfire/final/night-reduced.png
+
+# Bench sitting contact figures, 2026-10-26; other capture batches remain local.
+!/docs/evidence/2026-10-26-seat-fit/before/camp-west-seatSide.png
+!/docs/evidence/2026-10-26-seat-fit/final/camp-west-seatSide.png
+!/docs/evidence/2026-10-26-seat-fit/final/camp-west-seatFront.png

@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-26",
+  "baseCommit": "34b9409",
+  "scope": "Journal J1/J2; PC keyboard and mouse only",
+  "checks": {
+    "lint": "PASS",
+    "unitTests": {
+      "files": 26,
+      "passed": 116,
+      "failed": 0
+    },
+    "build": {
+      "status": "PASS",
+      "jsKB": 1669.01,
+      "gzipKB": 511.14,
+      "warning": "Existing >500 kB chunk warning"
+    },
+    "journal": {
+      "status": "PASS",
+      "checkCount": 11,
+      "errors": [],
+      "screenshots": 33,
+      "source": "final/headless-validation.json"
+    },
+    "ui": {
+      "status": "PASS",
+      "checkCount": 7,
+      "errors": [],
+      "screenshots": 13,
+      "source": "regression-ui/headless-validation.json"
+    },
+    "i18nPc": {
+      "status": "PASS",
+      "checkCount": 7,
+      "errors": [],
+      "screenshots": 13,
+      "source": "regression-i18n-pc/report.json"
+    },
+    "productionCapture": {
+      "status": "CAPTURED",
+      "checkCount": 0,
+      "errors": [],
+      "screenshots": 1,
+      "source": "final-production/headless-validation.json"
+    },
+    "sceneCapture": {
+      "status": "PASS",
+      "errors": [],
+      "screenshots": 26,
+      "source": "scene-review/meta.json",
+      "note": "Current-code capture; representative images reviewed, not a renewed geometry/animation acceptance"
+    }
+  },
+  "limits": [
+    "No fresh browser task completion for feed or bigCatch; pure rule unit tests cover these",
+    "No performance/FPS benchmark; actual save-call count checked",
+    "Audio listening and photo mode remain pending",
+    "Mobile compatibility intentionally excluded by user on 2026-10-26"
+  ],
+  "sourceSha256": {
+    "src/game/journal.ts": "a8a9015f53bfd22f14bdd3611a15e2db0482e122cdba0654a8c80b4767da3e62",
+    "src/game/journalStore.ts": "bfcb82fdf001ba559614c91b73525f88ef223ed44037c28aa5af73a7c423f28d",
+    "src/game/journal.test.ts": "08ede6df7de3c836227d008fc8a762aeee3ef4a7001b65465eebcdb489745e46",
+    "src/JournalPanel.tsx": "ea8ecad101909eb9be7929b0bbcd7d0a9045bb40ee469e1dfd82f7530055f720",
+    "src/Hud.tsx": "3d558702ad9450faeb2d70ad2b9c629d3ed0ec7fc70b28daed76f987d8fceb2b",
+    "src/i18n.ts": "419be8430e950e3f490a44cbcc59f2368efc1a52fa73c1210b6e470db4997e7a",
+    "src/App.css": "0d9102d5ab57bb54cf6f7c54e8cd943b1a8b90dd138a924a8754d782f89e0449",
+    "scripts/check_journal.mjs": "ec3e88bc4c4e06d98f70fd790e18ae1901a82a726535efaf848526d27a809253"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-26",
+  "status": "PASS - local validation; awaiting user visual review",
+  "baseCommit": "34b9409e652d1e3453b69ef5abb3bf1d98e70d5f",
+  "workingTree": "Uncommitted campfire plus prior journal changes",
+  "sourceHashes": {
+    "src/world/CampfireFlame.tsx": "0fcdfaebd53967947d0e1d8772b5bbd3862dcbc24ab36a68cafa33ae3cd967c5",
+    "src/world/ExpansionScene.tsx": "991ebbae65b51178787324f4fae5ba5ef8a384bd43903f2d15c6783deaade310",
+    "scripts/check_campfire.mjs": "1cbdd8bede6aaddde398adda4fb38aedb2b6620c5ae0a935e428ab78dc1f088a",
+    "src/world/ForestWorld.tsx": "5082c5053bbaa4fa8d57a93d02095e8a88115ee93991eb42814b49e5aa7ee3f8"
+  },
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "lint": "PASS",
+  "tests": {
+    "files": 26,
+    "passed": 116,
+    "failed": 0
+  },
+  "build": {
+    "warning": "Existing chunk >500 kB",
+    "gzipKB": 513.14,
+    "mainJsKB": 1673.41,
+    "status": "PASS"
+  },
+  "defaultQuality": {
+    "screenshots": 19,
+    "errors": 0,
+    "checks": [
+      {
+        "name": "real F toggle, live shader, reduced-motion freeze and ember suppression",
+        "ok": true,
+        "still": {
+          "visible": true,
+          "time": 0,
+          "sparks": false,
+          "power": 5,
+          "vertices": 12,
+          "emberCount": 28,
+          "raycast": "() => {}"
+        },
+        "live": {
+          "visible": true,
+          "time": 39.179299999983016,
+          "sparks": true,
+          "power": 4.028147414128075,
+          "vertices": 12,
+          "emberCount": 28,
+          "raycast": "() => {}"
+        }
+      },
+      {
+        "name": "real fire lighting, seated eight seconds, journal completion, get up and extinguish",
+        "ok": true
+      }
+    ],
+    "status": "PASS"
+  },
+  "lowQuality": {
+    "screenshots": 19,
+    "errors": 0,
+    "checks": [
+      {
+        "name": "real F toggle, live shader, reduced-motion freeze and ember suppression",
+        "ok": true,
+        "still": {
+          "visible": true,
+          "time": 0,
+          "sparks": false,
+          "power": 5,
+          "vertices": 12,
+          "emberCount": 28,
+          "raycast": "() => {}"
+        },
+        "live": {
+          "visible": true,
+          "time": 31.466900000007286,
+          "sparks": true,
+          "power": 3.8766268977128044,
+          "vertices": 12,
+          "emberCount": 28,
+          "raycast": "() => {}"
+        }
+      },
+      {
+        "name": "real fire lighting, seated eight seconds, journal completion, get up and extinguish",
+        "ok": true
+      }
+    ],
+    "status": "PASS"
+  },
+  "sceneReview": {
+    "errors": 0,
+    "screenshots": 26
+  },
+  "newModels": false,
+  "newTextures": false,
+  "paidCalls": false,
+  "limitations": [
+    "Stylized camera-facing cards, not volumetric fire",
+    "No cross-GPU performance comparison",
+    "No manual audio review",
+    "PC keyboard/mouse only"
+  ]
+}

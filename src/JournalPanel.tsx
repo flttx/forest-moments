@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useRef,useState} from 'react'
 import {useLang,useT,type Key} from './i18n'
 import {Icon,type IconName} from './Icon'
 import {useJournalStore} from './game/journalStore'
@@ -18,29 +18,42 @@ export function JournalPanel(){
  const t=useT(),lang=useLang(s=>s.lang)
  const book=useJournalStore(s=>s.book),turn=useJournalStore(s=>s.turn)
  const title=useRef<HTMLParagraphElement>(null)
- const full=pageDone(book.page),stamp=full?book.stamps.at(-1):undefined
+ const [selected,setSelected]=useState<number|null>(null)
+ const current=selected===null||selected>=book.page.number
+ const number=current?book.page.number:selected
+ const stamp=book.stamps.find(s=>s.page===number)
+ const tasks=current?book.page.tasks:stamp?.tasks
+ const full=current?pageDone(book.page):true
+ const show=(n:number|null)=>{setSelected(n);requestAnimationFrame(()=>title.current?.focus())}
+ const date=(at:string)=>new Date(at).toLocaleDateString(lang==='zh'?'zh-CN':'en-GB',{year:'numeric',month:'short',day:'numeric'})
  const time=(at:string)=>new Date(at).toLocaleTimeString(lang==='zh'?'zh-CN':'en-GB',{hour:'2-digit',minute:'2-digit'})
  return <div className="journal">
-  <p ref={title} className="journal-page" tabIndex={-1}>{t('journal.page',{n:book.page.number})}</p>
+  <nav className="journal-nav" aria-label={t('journal.browse')}>
+   <button type="button" disabled={number<=1} onClick={()=>show(number-1)} aria-label={t('journal.previous')}>←</button>
+   <p ref={title} className="journal-page" tabIndex={-1}>{t('journal.page',{n:number})}</p>
+   <button type="button" disabled={current} onClick={()=>show(number+1)} aria-label={t('journal.next')}>→</button>
+  </nav>
+  {!current&&<button type="button" className="journal-return" onClick={()=>show(null)}>{t('journal.current')}</button>}
+  {!tasks&&<p className="empty journal-legacy">{t('journal.legacy')}</p>}
   <ul className="journal-tasks">
-   {book.page.tasks.map(task=>{
+   {tasks?.map(task=>{
     const unit=measured[task.id]
     return <li key={task.id} className={task.doneAt?'done':undefined}>
      <Icon name={task.doneAt?'done':'todo'}/>
-     <span>{t(`journal.task.${task.id}` as Key)}</span>
+     <span>{t(`journal.task.${task.id}` as Key)}{!task.doneAt&&measured[task.id]&&<small className="journal-condition">{t(task.id==='row'?'journal.rowCondition':'journal.fireCondition')}</small>}</span>
      {task.doneAt?<small>{time(task.doneAt)}</small>:unit&&<small>{t(unit,{p:Math.floor(task.progress),target:taskTarget[task.id]})}</small>}
     </li>
    })}
   </ul>
-  {stamp&&<div className="journal-full">
+  {full&&stamp&&<div className="journal-full">
    <Stamp id={stamp.stamp} size={40}/>
-   <span>{t('journal.full')}</span>
+   <span>{t('journal.full')}<small className="journal-date">{date(stamp.doneAt)}</small></span>
    {/* The button leaves with the full page, so focus moves on to the new page's title. */}
-   <button type="button" className="primary" onClick={()=>{turn();requestAnimationFrame(()=>title.current?.focus())}}>{t('journal.turn')}</button>
+   {current&&<button type="button" className="primary" onClick={()=>{turn();show(null)}}>{t('journal.turn')}</button>}
   </div>}
   <section className="journal-stamps">
    <h3>{t('journal.stamps',{n:book.stamps.length})}</h3>
-   {book.stamps.length?<div className="stamp-row">{book.stamps.slice(-12).map(s=><Stamp key={s.page} id={s.stamp} size={22}/>)}</div>:<p className="empty">{t('journal.noStamps')}</p>}
+   {book.stamps.length?<div className="stamp-row">{book.stamps.map(s=><button key={s.page} type="button" aria-label={t('journal.viewPage',{n:s.page})} aria-pressed={number===s.page} onClick={()=>show(s.page)}><Stamp id={s.stamp} size={22}/><small>{s.page}</small></button>)}</div>:<p className="empty">{t('journal.noStamps')}</p>}
   </section>
  </div>
 }

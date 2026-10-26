@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-26",
+  "request": "Reference local my-blog campfire; user rejected rigid polygon flames",
+  "sourceProject": "F:/Projects/my-blog",
+  "sourceCommit": "14d4c1d1621f5e4528e82c25ef54fb7d7c1ff22c",
+  "sourceFile": "src/world/scene/CampfireFlame.tsx",
+  "sourceSha256": "ac1ccefb89311a2563b5eaa916cdc90cb33a30caeab7ed52328c8b707275eb6c",
+  "referenceImage": "F:\\Projects\\my-blog\\public\\assets\\world\\sample-albums\\raccoon-2-campfire.webp",
+  "referenceSha256": "d0bcb5cf0d8efdb6f85a521527b512abfed64adc92eb25833aa8f99cc51afb3d",
+  "adaptation": "Reuse shader cards, noise, ember particles and light; connect existing lit state and reduced motion; shift roots to existing firepit wood height; local bounded clock",
+  "newModels": false,
+  "newTextures": false,
+  "paidCalls": false
+}

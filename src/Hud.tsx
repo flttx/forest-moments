@@ -32,8 +32,8 @@ function LanguageSwitch(){
 
 /** This page's progress beside the journal button: quiet, no badge colour or motion to nag. */
 function JournalCount(){
- const t=useT(),tasks=useJournalStore(s=>s.book.page.tasks),done=tasks.filter(task=>task.doneAt).length
- return <span className="tool-count" aria-label={t('journal.countLabel',{done,total:tasks.length})}>{done}/{tasks.length}</span>
+ const t=useT(),done=useJournalStore(s=>s.book.page.tasks.filter(task=>task.doneAt).length)
+ return <span className="tool-count" aria-label={t('journal.countLabel',{done,total:3})}>{done}/3</span>
 }
 
 /** Title set in the display face straight on the scene, and one paper toolbar; both step aside during transfers and sleep. */

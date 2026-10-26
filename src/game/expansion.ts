@@ -38,7 +38,16 @@ export const seats=[
 ] as const
 export type SeatId=typeof seats[number]['id']|'stool'
 export type SeatSession={id:SeatId;phase:'down'|'idle'|'up';elapsed:number;returnPosition:{x:number;z:number}}
-export function seatOrigin(s:{x:number;z:number;yaw:number}){return{x:s.x-Math.sin(s.yaw)*.254*7/3,z:s.z-Math.cos(s.yaw)*.254*7/3}}
+// Seat top .35 m, thigh underside .20 m; low hip/coat outline gets local soft
+// contact in benchSeatContact rather than raising the thighs off the seat.
+// The hips settle .296 m behind the actor root.
+export const benchSeatForward=.45
+export const benchSeatLift=.15
+const benchApproachForward=.254*7/3
+export function seatOrigin(s:{x:number;z:number;yaw:number}){return{x:s.x-Math.sin(s.yaw)*benchApproachForward,z:s.z-Math.cos(s.yaw)*benchApproachForward}}
+function seatBlend(s:SeatSession){return s.id==='stool'?0:s.phase==='idle'?1:s.phase==='down'?smoothRange(s.elapsed,.35,1.8):1-smoothRange(s.elapsed,.25,1.8)}
+export function seatLift(s:SeatSession){return benchSeatLift*seatBlend(s)}
+export function seatSlide(s:SeatSession){return (benchApproachForward-benchSeatForward)*seatBlend(s)}
 export function creekZ(x:number){return -18+2*Math.sin(x*.1)}
 export function creekWaterY(x:number){return -.85+6.4*smoothRange(x,-40,-10)}
 export function creekDistance(x:number,z:number){return Math.hypot(Math.max(-44-x,0,x+10),z-creekZ(Math.max(-44,Math.min(-10,x))))}

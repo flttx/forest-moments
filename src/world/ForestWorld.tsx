@@ -1,6 +1,6 @@
 import {sleepCamera} from '../game/dayCycle'
 import {Bedroom,ExpansionExterior} from './ExpansionScene'
-import {moveInBedroom,seats} from '../game/expansion'
+import {moveInBedroom,seats,seatLift,seatSlide} from '../game/expansion'
 import {cameraRelativeMovement} from '../game/movementInput'
 import {createOrbit,rotateOrbit,stepOrbit,orbitConfig,spawnYaw} from '../game/orbitCamera'
 import {useOrbitInput} from './useOrbitInput'
@@ -80,11 +80,24 @@ function ReviewCamera() {
       creekMouth: [[-43,7,-10],[-34,1,-18]],
       seaCliff: [[-44,18,-49],[-18,5,-31]],
       camp: [[28,5,31],[20,.6,23]],
+      fireClose: [[22.8,1.9,26.5],[20,.65,23]],
+      fireSide: [[16.5,1.5,24.5],[20,.65,23]],
+      fireHigh: [[21,4,24],[20,.4,23]],
       reef: [[35,3,-5],[34,0,-16]],
       craft: [[1.5,2.2,1.8],[-.4,.7,-1.8]],
       craftContact: [[1.0,1.1,-.5],[-.6,.55,-1.45]],
       interior: [[0,2.6,2.7],[0,1,-1.3]],
       wood: [[-5.9,1.8,11.8],[-7.9,.3,9.6]],
+    }
+    // Seat-local development views stay identical across all rotated bench instances.
+    if(view.startsWith('seat')){
+      const seat=seats.find(s=>s.id===useForestStore.getState().sitting?.id)
+      if(seat){
+        const y=groundHeightAt(seat.x,seat.z),a=seat.yaw
+        const local=view==='seatSide'?[2.3,1,-.1]:view==='seatRear'?[1.8,1.3,2.2]:[1.8,1.2,-2.4]
+        camera.position.set(seat.x+Math.cos(a)*local[0]+Math.sin(a)*local[2],y+local[1],seat.z-Math.sin(a)*local[0]+Math.cos(a)*local[2]);camera.lookAt(seat.x,y+.65,seat.z)
+        return
+      }
     }
     const shot = views[view]
     if (shot) { camera.position.set(shot[0][0], shot[0][1], shot[0][2]); camera.lookAt(shot[1][0], shot[1][1], shot[1][2]) }
@@ -210,6 +223,11 @@ function Player() {
     }
     if(state.mode==='sitting'&&state.sitting){
       const seat=seats.find(v=>v.id===state.sitting?.id);character.rotation.y=seat?.yaw??-Math.PI/2
+      if(seat){
+        const slide=seatSlide(state.sitting)
+        character.position.x+=Math.sin(seat.yaw)*slide;character.position.z+=Math.cos(seat.yaw)*slide
+        character.position.y=groundHeightAt(seat.x,seat.z)+seatLift(state.sitting)
+      }
       motion.current=state.sitting.phase==='down'?'bench_sit_down':state.sitting.phase==='up'?'bench_stand_up':'bench_sit_idle'
       if((x||z)&&state.sitting.phase==='idle')state.leaveSeat()
     }

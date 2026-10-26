@@ -1,0 +1,256 @@
+{
+  "date": "2026-10-26",
+  "baseCommit": "34b9409e652d1e3453b69ef5abb3bf1d98e70d5f",
+  "workingTree": "Uncommitted seat fix plus prior journal and campfire work",
+  "status": "PASS - local validation; awaiting user visual review",
+  "sha256": {
+    "src/world/ForestWorld.tsx": "b381e8f59b3e420ad8f52a4e4067d005e010429b50ed1931b7638d414ff4ef5a",
+    "scripts/check_seat_fit.mjs": "bfabe2b8e032f8377cacb4549932f30694981f99167978727ab219c6a7023ff7",
+    "scripts/seat-contact-audit.js": "8cccb035ad5813451063524056a5c851f002a4904e99fdb29047b574741572ee",
+    "src/game/expansion.ts": "17bcc4ebd3cc9a5d566086eae3c5cdba6efebd26a703fbe4bba598e372389387",
+    "src/world/ModelAsset.tsx": "04d0afcbe4d3e6c9867d31a0cd044c1af15d46ae94d1c864c18ecc549a26e4ad",
+    "public/assets/models/raccoon.glb": "49995845d5646252054a8afcf602decf85798a1ec5c3e78affb72d714f85709c",
+    "src/world/benchSeatContact.ts": "90c25e4e476ad4e86d0ca8e9dd8b52f13352fc63a54634beb4a685b6eb3e113b",
+    "public/assets/expansion/low-bench.glb": "1d683dcfdb24e8615209d2acca3fe9f002060c3856720dacefb5b053e18a2628",
+    "src/world/benchSeatContact.test.ts": "83209714dd84e4bccdf9a9146eaff5630a3ddfc53247acf0f355e8d16e002380"
+  },
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "lint": "PASS without warnings",
+  "unitTests": {
+    "passed": 118,
+    "files": 27,
+    "failed": 0
+  },
+  "build": {
+    "mainJsKB": 1676.24,
+    "warning": "Existing chunk >500 kB",
+    "gzipKB": 514.1,
+    "status": "PASS"
+  },
+  "seatCheck": {
+    "errors": 0,
+    "screenshots": 27,
+    "seats": [
+      {
+        "contacts": [
+          {
+            "phase": "down",
+            "elapsed": 0.9547999999821186,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.008571050516608003
+            }
+          },
+          {
+            "phase": "idle",
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007978754334126648
+            }
+          },
+          {
+            "phase": "up",
+            "elapsed": 0.894699999988079,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.00765915274245299
+            }
+          }
+        ],
+        "id": "camp-west"
+      },
+      {
+        "contacts": [
+          {
+            "phase": "down",
+            "elapsed": 0.9507000000178815,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.009297527900810676
+            }
+          },
+          {
+            "phase": "idle",
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007981085570222257
+            }
+          },
+          {
+            "phase": "up",
+            "elapsed": 0.9009000000059605,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007650851499478195
+            }
+          }
+        ],
+        "id": "camp-south"
+      },
+      {
+        "contacts": [
+          {
+            "phase": "down",
+            "elapsed": 0.8973999999761582,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.04542441677569198
+            }
+          },
+          {
+            "phase": "idle",
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007984693334327775
+            }
+          },
+          {
+            "phase": "up",
+            "elapsed": 0.8965000000000001,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007656814843002735
+            }
+          }
+        ],
+        "id": "camp-east"
+      },
+      {
+        "contacts": [
+          {
+            "phase": "down",
+            "elapsed": 0.8957000000178814,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.04944334545686013
+            }
+          },
+          {
+            "phase": "idle",
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007979481922508747
+            }
+          },
+          {
+            "phase": "up",
+            "elapsed": 0.9345999999940393,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007636382995205526
+            }
+          }
+        ],
+        "id": "coast"
+      },
+      {
+        "contacts": [
+          {
+            "phase": "down",
+            "elapsed": 0.8933000000119212,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.052445922369046105
+            }
+          },
+          {
+            "phase": "idle",
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.007977378323383633
+            }
+          },
+          {
+            "phase": "up",
+            "elapsed": 0.8967999999821186,
+            "contact": {
+              "tolerance": 0.003,
+              "regions": {},
+              "maxDepth": 0,
+              "supportGap": 0.00765642392926158
+            }
+          }
+        ],
+        "id": "reef"
+      }
+    ],
+    "status": "PASS"
+  },
+  "sceneReview": {
+    "errors": 0,
+    "screenshots": 26
+  },
+  "fireRegression": {
+    "errors": 0,
+    "screenshots": 19,
+    "checks": [
+      {
+        "name": "real F toggle, live shader, reduced-motion freeze and ember suppression",
+        "ok": true,
+        "still": {
+          "visible": true,
+          "time": 0,
+          "sparks": false,
+          "power": 5,
+          "vertices": 12,
+          "emberCount": 28,
+          "raycast": "() => {}"
+        },
+        "live": {
+          "visible": true,
+          "time": 32.280199999988824,
+          "sparks": true,
+          "power": 4.178678096610222,
+          "vertices": 12,
+          "emberCount": 28,
+          "raycast": "() => {}"
+        }
+      },
+      {
+        "name": "real fire lighting, seated eight seconds, journal completion, get up and extinguish",
+        "ok": true
+      }
+    ],
+    "status": "PASS"
+  },
+  "newAssets": false,
+  "paidCalls": false,
+  "limitations": [
+    "Finite posed-vertex samples, not continuous triangle collision proof",
+    "No cross-GPU performance comparison",
+    "No manual audio review",
+    "PC only"
+  ]
+}

@@ -90,7 +90,7 @@ try {
   // 2. Switch to English: every visible label, the page language and title change together.
   await click('.menu .lang-switch'); await sleep(250)
   assert.equal(await evaluate('document.documentElement.lang'), 'en'); assert.equal(await text('.brand'), 'Forest Moments')
-  assert.deepEqual(await evaluate("[...document.querySelectorAll('.menu .tool-label')].map(e=>e.textContent)"), ['Places', 'Fish log', 'Help'])
+  assert.deepEqual(await evaluate("[...document.querySelectorAll('.menu .tool-label')].map(e=>e.textContent)"), ['Journal', 'Places', 'Fish log', 'Help'])
   assert.equal(await evaluate('document.title'), 'Forest Moments · 森林拾光')
   check('switches to English and updates page language and title')
   await shot('04-default-en')
@@ -123,10 +123,7 @@ try {
   await click('.menu .lang-switch'); await sleep(250); assert.equal(await text('.brand'), '森林拾光')
   await shot('13-night-zh'); await setState({ timeOfDay: 'day' })
 
-  // 6. Phone width: icons only in the toolbar, nothing overlaps.
-  await boot(390, 844)
-  await assertLayout('390 default'); await shot('14-mobile-zh')
-  await click('.menu button[aria-controls]'); await sleep(250); await assertLayout('390 places'); await shot('15-mobile-places'); await press('Escape', 'Escape')
+  // PC-only scope (2026-10-26): phone layouts and touch controls are not acceptance targets.
 
   assert.deepEqual(report.errors, [])
   report.status = 'PASS'

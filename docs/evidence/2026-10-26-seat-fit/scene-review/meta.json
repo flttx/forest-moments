@@ -1,0 +1,14 @@
+{
+  "version": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.42",
+    "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.6"
+  },
+  "viewport": [
+    1440,
+    900
+  ],
+  "errors": []
+}

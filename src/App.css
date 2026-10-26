@@ -95,7 +95,7 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 /* First-run guide */
 .guide{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:4px 4px 4px 18px;white-space:nowrap}
 /* Below this width the centred guide would run into the toolbar, so it drops underneath. */
-@media(max-width:1320px){.guide{top:72px}}
+@media(max-width:1840px){.guide{top:72px}}
 
 /* Bottom centre: notice, first-time mode hint, then the current action. Text that only informs is ink; what you can press is solid. */
 .bottom-stack{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;max-width:calc(100% - 40px);pointer-events:none}
@@ -161,7 +161,7 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
 /* Journal: three small things per page, a stamp once full */
-.hud .tool-count{margin-left:2px;font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.hud .tool-count{margin-left:2px;font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .journal-page{font-size:15px;color:var(--ink-soft);letter-spacing:.1em}
 .journal-page:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 .journal-tasks{margin:0 0 12px;padding:0;list-style:none}
@@ -169,7 +169,7 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .journal-tasks li .icon{color:var(--ink-soft)}
 .journal-tasks li.done .icon{color:var(--moss)}
 .journal-tasks li.done span{color:var(--ink-soft)}
-.journal-tasks small{font-size:13px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.journal-tasks small{font-size:14px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .journal-full{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
 .journal-full>span:not(.stamp){flex:1;color:var(--amber-ink)}
 .stamp{display:inline-flex;align-items:center;justify-content:center;padding:5px;border:2px solid #b4553f;border-radius:50%;color:#b4553f;transform:rotate(-8deg);opacity:.9}
@@ -177,3 +177,16 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .stamp-row{display:flex;flex-wrap:wrap;gap:8px}
 .stamp-row .stamp{padding:3px;border-width:1.5px}
 .stamp-row .stamp:nth-child(2n){transform:rotate(6deg)}
+
+.journal-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.journal-nav .journal-page{margin:0}
+.hud .journal-nav button{min-width:36px;padding:0 10px}
+.hud .journal-return{margin:0 0 10px;font-size:14px}
+.journal-condition,.journal-date{display:block;margin-top:4px;font-size:14px;color:var(--ink-soft);line-height:1.5}
+.journal-tasks li>span{min-width:0}
+.journal-tasks li>small{white-space:nowrap}
+.stamp-row{max-height:144px;overflow-y:auto;padding:4px}
+.hud .stamp-row button{padding:4px;gap:4px;border-color:transparent;background:transparent}
+.hud .stamp-row button[aria-pressed=true]{border-color:var(--amber);background:var(--amber-soft)}
+
+.stamp-row small{font-size:14px}

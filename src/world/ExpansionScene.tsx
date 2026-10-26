@@ -8,6 +8,7 @@ import {createCreekGeometry} from './creekGeometry'
 import {useForestStore} from '../game/store'
 import {terrainHeight} from './terrain'
 import {daylightAt,lanternPower} from '../game/dayCycle'
+import CampfireFlame from './CampfireFlame'
 
 /** Night glow shared by cabin panes and resting embers; follows the same curve as the path lanterns. */
 const nightGlow={value:0}
@@ -69,9 +70,6 @@ function Creek(){
  }}/></mesh>
 }
 
-// HDR flame colours so the bloom pass catches the fire without lifting the surrounding scene.
-const flameColours=[new THREE.Color('#ed7226').multiplyScalar(4),new THREE.Color('#ffb845').multiplyScalar(4)]
-
 /** A few coals keep a faint glow after dusk even when the fire is out; brighter under live flames. */
 function Embers({lit}:{lit:boolean}){
  const coals=useRef<THREE.Group>(null)
@@ -80,13 +78,10 @@ function Embers({lit}:{lit:boolean}){
 }
 
 function Campfire(){
- const fire=useRef<THREE.Group>(null),light=useRef<THREE.PointLight>(null),time=useRef(0)
  const lit=useForestStore(s=>s.homeBook.fireLit)
- useFrame((_,dt)=>{time.current+=Math.min(dt,.05);const t=time.current,reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(fire.current)fire.current.children.forEach((o,i)=>{o.scale.y=reduced?.8:.6+.35*(.5+.5*Math.sin(t*(3+i%3)+i));o.rotation.y=t*.2+i;if(o.name==='ember'){o.position.y=.4+(t*.25+i*.2)%1.4;o.visible=!reduced}});if(light.current)light.current.intensity=lit?(reduced?7:7+Math.sin(t*9)*.6):0})
  return <group position={[camp.x,0,camp.z]} name="campfire">
   <ExpansionModel id="firepit"/>
-  <group ref={fire} visible={lit}>{Array.from({length:7},(_,i)=><mesh key={i} position={[Math.sin(i*2.4)*.23,.28,Math.cos(i*2.4)*.23]} scale={[.7,1,.7]}><latheGeometry args={[[new THREE.Vector2(0,0),new THREE.Vector2(.16,.08),new THREE.Vector2(.20,.22),new THREE.Vector2(.12,.42),new THREE.Vector2(.07,.62),new THREE.Vector2(0,.8)],10]}/><meshBasicMaterial color={flameColours[i%2]} transparent opacity={.8} depthWrite={false}/></mesh>)}{Array.from({length:8},(_,i)=><mesh key={`e${i}`} name="ember" position={[Math.sin(i)*.3,.5,Math.cos(i)*.3]}><sphereGeometry args={[.013,5,4]}/><meshBasicMaterial color="#ffd27b"/></mesh>)}</group>
-  <pointLight ref={light} position={[0,.8,0]} color="#ffad55" intensity={lit?7:0} distance={9} decay={2}/>
+  <CampfireFlame lit={lit}/>
   <Embers lit={lit}/>
  </group>
 }

@@ -27,7 +27,9 @@ export const useJournalStore=create<JournalState>((set,get)=>({
  record:events=>{
   const before=get().book,{book,finished}=recordEvents(before,events,new Date().toISOString())
   if(book===before)return
-  set({book});save(book)
+  set({book})
+  // Metres and seconds belong to the current outing/sitting. Persist achievements, not every frame.
+  if(finished.length)save(book)
   if(!finished.length)return
   if(pageDone(book.page)){playSound('craft',{volume:.9});note(t('journal.pageDone',{n:book.page.number}))}
   else{playSound('task-done',{volume:.8});note(t('journal.taskDone',{task:t(`journal.task.${finished[0]}` as Key)}))}
@@ -40,5 +42,7 @@ export const useJournalStore=create<JournalState>((set,get)=>({
 
 /** Writes down what happens on the island as it happens. Returns the cleanup. */
 export function installJournal(){
+ // Save the freshly drawn page immediately, including when the player refreshes before doing a task.
+ save(useJournalStore.getState().book)
  return useForestStore.subscribe((next,prev)=>{const events=journalEvents(prev,next);if(events.length)useJournalStore.getState().record(events)})
 }
