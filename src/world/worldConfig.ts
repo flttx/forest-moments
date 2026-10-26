@@ -22,20 +22,24 @@ let low=0,high=1
 for(let i=0;i<30;i++){const t=(low+high)/2;if(t*t*(3-2*t)<-seaLevel/islandShape.shoreDepth)low=t;else high=t}
 export const shoreWaterFraction=(low+high)/2
 export function smoothRange(v:number,a:number,b:number){const t=Math.max(0,Math.min(1,(v-a)/(b-a)));return t*t*(3-2*t)}
-/** Authored broad landforms, shared by rendered terrain, water limits and foundations. */
-export function landformHeight(x:number,z:number){
- const r=Math.hypot(x,z),coast=coastRadius(Math.atan2(z,x))
- const shore=-islandShape.shoreDepth*smoothRange(r,islandShape.plateauRadius,coast+islandShape.shoreExtension)
+function hillside(x:number,z:number){
  let hill=7.8*smoothRange(-z,7,26)+3.5*smoothRange(-x,15,30)*smoothRange(-z,-8,18)
  for(const [px,pz,height,inner,outer] of [[-15,-28,7.3,5.3,9],[13,-26,7.8,4,8],[-14,-19.97089946,6.2,4,7]]){
   const blend=1-smoothRange(Math.hypot(x-px,z-pz),inner,outer);hill=hill*(1-blend)+height*blend
  }
  // A broad, walkable ramp meets the bridge's southern landing instead of a steep pad edge.
  const approach=(1-smoothRange(Math.abs(x+14),1.5,8))*smoothRange(z,-18,-16)
- hill=hill*(1-approach)+6.2*smoothRange(-z,1,17)*approach
+ return hill*(1-approach)+6.2*smoothRange(-z,1,17)*approach
+}
+/** Authored broad landforms, shared by rendered terrain, water limits and foundations. */
+export function landformHeight(x:number,z:number){
+ const r=Math.hypot(x,z),coast=coastRadius(Math.atan2(z,x))
+ const shore=-islandShape.shoreDepth*smoothRange(r,islandShape.plateauRadius,coast+islandShape.shoreExtension)
  const dx=-12.3,dz=-1,t=Math.max(0,Math.min(1,((x+1.7)*dx+(z+14)*dz)/(dx*dx+dz*dz)))
+ // The terrace road shifts the hillside to its own grade instead of flattening it: a flat shelf cut
+ // into the slope left banks the crossing trails could not climb (above the 0.85 walking limit).
  const road=1-smoothRange(Math.hypot(x+1.7-dx*t,z+14-dz*t),1.25,4)
- hill=hill*(1-road)+(2.4+3.5344*t)*road
+ let hill=hillside(x,z)+(2.4+3.5344*t-hillside(-1.7+dx*t,-14+dz*t))*road
  hill*=smoothRange(Math.hypot(x-pond.x,z-pond.z),5.3,9)
  return shore+hill*(1-smoothRange(r,coast-2.8,coast+.9))
 }

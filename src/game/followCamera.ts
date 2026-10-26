@@ -96,14 +96,12 @@ export function walkingCamera(position:CameraPoint,yaw:number,inside:boolean,orb
  const distance=inside?3.4:9,height=inside?2.65:5.8
  const zoom=Math.min(orbit?.zoom??1,inside?orbitConfig.indoorMaxZoom:orbitConfig.maxZoom),angle=orbit?.pitch??Math.atan2(height-.8,distance)
  const {target,pitch}=inside?{target:{x:position.x,y:position.y+.8,z:position.z},pitch:angle}:outdoorOrbitFocus(position,zoom,angle)
- const radius=Math.hypot(distance,height-.8)*zoom
- let eye={x:target.x+Math.sin(yaw)*Math.cos(pitch)*radius,y:Math.min(inside?3.05:Infinity,target.y+Math.sin(pitch)*radius),z:target.z+Math.cos(yaw)*Math.cos(pitch)*radius}
+ const radius=Math.hypot(distance,height-.8)*zoom,ceiling=inside?3.05:Infinity,rise=Math.sin(pitch)*radius
+ let eye={x:target.x+Math.sin(yaw)*Math.cos(pitch)*radius,y:Math.min(ceiling,target.y+rise),z:target.z+Math.cos(yaw)*Math.cos(pitch)*radius}
  eye=clipCameraArm(target,eye,boxes)
- if(!inside&&Math.hypot(eye.x-target.x,eye.z-target.z)<1.35)eye.y=position.y+3.2
- if(inside){
-  // At the wall, lift above the character instead of pushing the camera into its head.
-  if(Math.hypot(eye.x-target.x,eye.z-target.z)<1.35)eye.y=3.05
-  eye.x=Math.max(-3.72,Math.min(3.72,eye.x));eye.z=Math.max(-2.72,Math.min(2.72,eye.z))
- }
+ // A wall-shortened arm keeps its height: the view tilts down gradually as the raccoon backs into
+ // a wall, instead of jumping overhead at a fixed distance. Height alone cannot enter a padded box.
+ eye.y=Math.min(ceiling,Math.max(eye.y,target.y+rise))
+ if(inside){eye.x=Math.max(-3.72,Math.min(3.72,eye.x));eye.z=Math.max(-2.72,Math.min(2.72,eye.z))}
  return{eye,target}
 }

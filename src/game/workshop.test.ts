@@ -1,5 +1,5 @@
 import {beforeEach,afterEach,it,expect,vi} from 'vitest'
-import {decodeWorkshop,workshopStorageKey,woodSpot,craftSpot,workpieceSpot,strikeCraft,workshopDoor,indoorExit,workshopAction} from './workshop'
+import {decodeWorkshop,workshopStorageKey,woodSpot,craftSpot,workpieceSpot,strikeCraft,workshopDoor,indoorExit,indoorSpawn,stoolSeat,workshopAction} from './workshop'
 import {canStandAt} from './movement'
 import {canStandInWorkshop,moveInWorkshop} from './workshopInterior'
 let memory:Map<string,string>
@@ -52,7 +52,7 @@ it('enters through the door at the opaque point, locks repeat F and returns to t
  s.getState().interact();expect(s.getState().location).toBe('island');expect(s.getState().workshopTransfer?.direction).toBe('enter')
  s.getState().interact();for(let i=0;i<7;i++)s.getState().tickWorkshopTransfer(.05)
  expect(s.getState().location).toBe('island');for(let i=0;i<11;i++)s.getState().tickWorkshopTransfer(.05)
- expect(s.getState().location).toBe('workshop');expect(s.getState().position).toEqual({x:0,z:1.6});expect(s.getState().workshopTransfer).toBeNull()
+ expect(s.getState().location).toBe('workshop');expect(s.getState().position).toEqual(indoorSpawn);expect(s.getState().workshopTransfer).toBeNull()
  s.getState().updatePosition(indoorExit.x,indoorExit.z);s.getState().interact();for(let i=0;i<18;i++)s.getState().tickWorkshopTransfer(.05)
  expect(s.getState().location).toBe('island');expect(s.getState().position).toEqual(workshopDoor)
 })
@@ -66,4 +66,16 @@ it('separates indoor actions and collision from the island, blocks furniture and
  p=moveInWorkshop(p,0,3.15,true);p=moveInWorkshop(p,.6,0,true)
  expect(p.x).toBeCloseTo(indoorExit.x);expect(p.z).toBeCloseTo(indoorExit.z)
  expect(moveInWorkshop(p,100,0).x).toBeLessThan(3.73)
+})
+it('offers shaping wherever the raccoon can stand against the workbench, and the stool only within reach of its seat',()=>{
+ const carrying={version:1,phase:'carrying'} as const,finished={version:1,phase:'finished'} as const
+ // Walk straight north from the spawn until the bench stops the raccoon, at several points along it.
+ for(const x of [-1.5,-.6,0,.8,1.5]){
+  const p=moveInWorkshop({x,z:indoorSpawn.z},0,-4)
+  expect(p.z).toBeLessThan(-1.5);expect(workshopAction(p,carrying,'workshop')).toBe('craft')
+ }
+ expect(workshopAction({x:0,z:indoorSpawn.z},carrying,'workshop')).toBeNull()
+ const nearStool=moveInWorkshop({x:stoolSeat.x+.5,z:indoorSpawn.z},0,-4,true)
+ expect(workshopAction(nearStool,finished,'workshop')).toBe('inspect')
+ expect(workshopAction({x:1.5,z:-1.67},finished,'workshop')).toBeNull()
 })

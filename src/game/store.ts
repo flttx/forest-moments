@@ -1,6 +1,6 @@
 import {t} from '../i18n'
 import {beginSleepJourney,sleepDuration,lightingStorageKey,type TimeOfDay,type SleepJourney} from './dayCycle'
-import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,expansionStorageKey,addCatch,catchId,type HomeBook,type SeatSession,type SeatId} from './expansion'
+import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,expansionStorageKey,addCatch,catchId,latestCatchChoice,type HomeBook,type SeatSession,type SeatId} from './expansion'
 import { create } from 'zustand'
 import { findNearestLandmark, type LandmarkId } from './landmarks'
 import { canBoard, canLand, initialBoat, landing, type BoatState } from './rowing'
@@ -9,7 +9,7 @@ import {advanceTree,decodeTree,growthStages,growthStorageKey,legacySeedlingKey,p
 import {transferCommit,transferDuration,type BoatTransfer} from './boatPresentation'
 import {decodeFarm,farmStorageKey,feedSpot,type FarmBook} from './farm'
 import {canViewLookout,initialLookoutView,turnLookout,type LookoutView,type LookoutTransfer} from './lookout'
-import {decodeWorkshop,workshopDoor,workshopStorageKey,workshopAction,strikeCraft,type WorkshopBook,type CraftSession,craftSpot,indoorSpawn,type WorkshopTransfer} from './workshop'
+import {decodeWorkshop,workshopDoor,workshopStorageKey,workshopAction,strikeCraft,type WorkshopBook,type CraftSession,craftSpot,indoorSpawn,stoolSeat,type WorkshopTransfer} from './workshop'
 
 function saveHome(home:HomeBook){try{window.localStorage.setItem(expansionStorageKey,JSON.stringify(home));return true}catch{return false}}
 function saveWorkshop(book:WorkshopBook){try{window.localStorage.setItem(workshopStorageKey,JSON.stringify(book));return true}catch{return false}}
@@ -79,6 +79,8 @@ type ForestState = {
   reel: (held: boolean) => void
   pauseFishing: () => void
   cancelFishing: () => void
+  keepCatch: () => void
+  releaseCatch: () => void
   position: { x: number; z: number }
   boat: BoatState
   boatReady: boolean
@@ -109,7 +111,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   timeOfDay:(()=>{if(typeof window==='undefined')return'day';const t=new URLSearchParams(window.location?.search??'').get('light');if(t==='day'||t==='night'||t==='dusk')return t;try{const saved=window.localStorage.getItem(lightingStorageKey);return saved==='night'?'night':'day'}catch{return'day'}})(),
   sit:id=>{
     const s=get();if(s.mode!=='walking'||s.homeTransfer||s.workshopTransfer||s.boatTransfer||s.lookoutTransfer)return
-    const seat=seats.find(v=>v.id===id),position=id==='stool'?{x:-.6+.254*7/3,z:-1.6}:seat?seatOrigin(seat):null
+    const seat=seats.find(v=>v.id===id),position=id==='stool'?{...stoolSeat}:seat?seatOrigin(seat):null
     if(!position||id==='stool'&&(s.location!=='workshop'||s.workshopBook.phase!=='finished')||id!=='stool'&&s.location!=='island'||Math.hypot(s.position.x-position.x,s.position.z-position.z)>1.5)return
     set({mode:'sitting',position,sitting:{id,phase:'down',elapsed:0,returnPosition:{...s.position}},message:'',inspectingTree:false})
   },
@@ -226,6 +228,20 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   reel: (held) => { const f = get().fishing; if (f && f.phase === 'reeling' && !f.paused) set({ fishing: { ...f, held } }) },
   pauseFishing: () => { const f = get().fishing; if (f && !['caught', 'escaped'].includes(f.phase)) set({ fishing: { ...f, paused: true, held: false } }) },
   cancelFishing: () => { if (get().mode === 'fishing') set({ mode: 'walking', fishing: null, message: '' }) },
+  // Decide on the fish just landed, right at the pond. Undecided catches can still go in the tank later.
+  keepCatch: () => {
+    const s = get(), fish = s.fishBook.recent[0]
+    if (s.mode !== 'fishing' || s.fishing?.phase !== 'caught' || !fish || latestCatchChoice(s)) return
+    const homeBook = addCatch(s.homeBook, fish); if (homeBook === s.homeBook) return
+    const saved = saveHome(homeBook)
+    set({ homeBook, messageKind: saved ? 'info' : 'error', message: saved ? t('msg.catchKept', { n: homeBook.fish.length }) : t('msg.fishKeptUnsaved') })
+  },
+  releaseCatch: () => {
+    const s = get(), fish = s.fishBook.recent[0]
+    if (s.mode !== 'fishing' || s.fishing?.phase !== 'caught' || !fish || latestCatchChoice(s)) return
+    const homeBook = { ...s.homeBook, usedCatchIds: [...s.homeBook.usedCatchIds, catchId(fish)] }, saved = saveHome(homeBook)
+    set({ homeBook, messageKind: saved ? 'info' : 'error', message: saved ? t('msg.fishReleased') : t('msg.fishReleasedUnsaved') })
+  },
   tickFishing: (delta) => {
     const current = get().fishing
     if (!current || get().mode !== 'fishing' || get().menuPaused) return

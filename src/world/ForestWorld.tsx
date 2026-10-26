@@ -12,7 +12,7 @@ import * as THREE from 'three'
 import { useForestStore } from '../game/store'
 import {useUiStore,gameplayPaused} from '../game/uiStore'
 import {promptFor} from '../game/prompt'
-import { canStandAt, groundHeightAt, moveOnGround } from '../game/movement'
+import { groundHeightAt, moveOnGround, pathStones } from '../game/movement'
 import { lookoutPosition, workshopPosition } from './assets'
 import { canBoard, canLand, stepBoat } from '../game/rowing'
 import { RowingBoat } from './RowingBoat'
@@ -29,7 +29,6 @@ import { Stockpiles } from './Stockpiles'
 import { AmbientLife } from './AmbientLife'
 import { CoastalRocks } from './CoastalRocks'
 import { PathDetails } from './PathDetails'
-import { pathEdgeDistance } from './terrain'
 import {seaLevel} from './worldConfig'
 import {OceanBoundary} from './OceanBoundary'
 import {SeasideDock} from './SeasideDock'
@@ -84,7 +83,7 @@ function ReviewCamera() {
       craft: [[1.5,2.2,1.8],[-.4,.7,-1.8]],
       craftContact: [[1.0,1.1,-.5],[-.6,.55,-1.45]],
       interior: [[0,2.6,2.7],[0,1,-1.3]],
-      wood: [[-5.5,1.8,11.4],[-7.5,.3,9.2]],
+      wood: [[-5.9,1.8,11.8],[-7.9,.3,9.6]],
     }
     const shot = views[view]
     if (shot) { camera.position.set(shot[0][0], shot[0][1], shot[0][2]); camera.lookAt(shot[1][0], shot[1][1], shot[1][2]) }
@@ -189,8 +188,11 @@ function Player() {
     const islandOverview=state.location==='island'&&['walking','rowing','sitting'].includes(state.mode)&&orbit.current.zoom>5
     if(state.islandOverview!==islandOverview)useForestStore.setState({islandOverview})
     if(camera instanceof THREE.PerspectiveCamera){const fov=state.mode==='sleeping'?55:state.location!=='island'?62:46;if(camera.fov!==fov){camera.fov=fov;camera.updateProjectionMatrix()}}
-    if(workshopCommitted&&state.location==='workshop')character.rotation.y=0
-    if(homeCommitted||workshopCommitted||lookoutCommitted||transferCommitted){Object.assign(orbit.current,createOrbit(character.rotation.y));movementHeading.current=character.rotation.y;movementIntent.current=null}
+    // Through a door the raccoon faces into the new space. Indoors the camera follows from behind;
+    // outdoors "behind" is inside the building, so it starts out front, three-quarter on, with the door behind.
+    const doorway=homeCommitted||workshopCommitted,outside=doorway&&state.location==='island'
+    if(doorway)character.rotation.y=outside?Math.PI:0
+    if(homeCommitted||workshopCommitted||lookoutCommitted||transferCommitted){Object.assign(orbit.current,createOrbit(character.rotation.y+(outside?Math.PI-.5:0)));movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(!transferring&&!state.inspectingTree&&(state.mode==='walking'||state.mode==='rowing'||state.mode==='sitting')){
       const turn=Number(keys.has('KeyQ'))-Number(keys.has('KeyE'))
       rotateOrbit(orbit.current,turn*orbitConfig.keySpeed*dt/orbitConfig.yawPerPixel,0)
@@ -207,7 +209,6 @@ function Player() {
     }
     if(state.mode==='sitting'&&state.sitting){
       const seat=seats.find(v=>v.id===state.sitting?.id);character.rotation.y=seat?.yaw??-Math.PI/2
-      if(state.sitting.id==='stool')character.position.y=.12
       motion.current=state.sitting.phase==='down'?'bench_sit_down':state.sitting.phase==='up'?'bench_stand_up':'bench_sit_idle'
       if((x||z)&&state.sitting.phase==='idle')state.leaveSeat()
     }
@@ -286,9 +287,9 @@ function Player() {
       else camera.position.lerp(next,1-Math.exp(-7*dt))
       // Position interpolation can cut a corner; constrain the interpolated arm too.
       const safe=clipCameraArm(target,camera.position,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
+      safe.y=Math.max(safe.y,camera.position.y)
       if(!inside)Object.assign(safe,clearCanopy(target,safe,canopySpheres))
-      if(inside){safe.x=THREE.MathUtils.clamp(safe.x,-3.72,3.72);safe.z=THREE.MathUtils.clamp(safe.z,-2.72,2.72);if(Math.hypot(safe.x-target.x,safe.z-target.z)<1.35)safe.y=3.05}
-      else if(Math.hypot(safe.x-target.x,safe.z-target.z)<1.35)safe.y=character.position.y+3.2
+      if(inside){safe.x=THREE.MathUtils.clamp(safe.x,-3.72,3.72);safe.z=THREE.MathUtils.clamp(safe.z,-2.72,2.72)}
       safe.y=inside?Math.min(3.05,safe.y):Math.max(safe.y,groundHeightAt(safe.x,safe.z)+.25)
       camera.position.set(safe.x,safe.y,safe.z)
       camera.lookAt(target.x,target.y,target.z)
@@ -308,6 +309,8 @@ function Player() {
   useFrame(({ gl, scene, camera }) => {
     // Opt-in, read-only local QA telemetry; removed from production builds.
     if (qaEnabled && root.current) {
+      // Geometry audits (scripts/audit_collisions.mjs) read the live scene graph.
+      Object.assign(window, { forestScene: scene })
       const current = useForestStore.getState()
       const models = ['raccoon', 'workshop', 'lookout', 'canoe'].filter((name) => scene.getObjectByName(`asset-${name}`))
       gl.domElement.dataset.forestQa = JSON.stringify({
@@ -336,11 +339,7 @@ function Player() {
 
 function Scene() {
   const inside=useForestStore(s=>s.location!=='island'&&s.mode!=='sleeping')
-  const stones = useMemo(() => Array.from({ length: 36 }, (_, i) => {
-    const a = i * 2.399
-    const r = 9 + ((i * 11) % 17) * .5
-    return [Math.sin(a) * r, Math.cos(a) * r] as const
-  }).filter(([x, z]) => canStandAt(x, z) && groundHeightAt(x, z) === 0 && pathEdgeDistance(x,z)>.45), [])
+  const stones = pathStones
   return <>
     <group visible={!inside} name="island-exterior">
     <Atmosphere />

@@ -5,7 +5,7 @@ import {useFrame,useLoader} from '@react-three/fiber'
 import {useGLTF} from '@react-three/drei'
 import {Group,Mesh,MeshStandardMaterial,MeshBasicMaterial,TextureLoader,LinearFilter,NoColorSpace} from 'three'
 import {useForestStore} from '../game/store'
-import {woodSpot,workpieceSpot} from '../game/workshop'
+import {woodSpot,workpieceSpot,stoolSeatHeight} from '../game/workshop'
 import {groundHeightAt} from '../game/movement'
 
 const base='/assets/interiors/'
@@ -50,7 +50,9 @@ export function WorkshopCraft(){
    const raw=piece.clone(true)
    raw.traverse(o=>{if(o instanceof Mesh){o.material=(o.material as MeshStandardMaterial).clone();o.material.color.multiplyScalar(.7);o.material.roughness=1;materials.push(o.material)}})
    raw.position.set(woodSpot.x,groundHeightAt(woodSpot.x,woodSpot.z)+.23,woodSpot.z)
-   return{room,raw,piece,materials}
+   // The authored stump is centred on its origin, so its top sits at twice its height.
+   const tall={scale:piece.scale.clone(),y:piece.position.y},cut=stoolSeatHeight/(2*tall.y)
+   return{room,raw,piece,tall,cut,materials}
  },[gltf.scene,textures,day,light])
  const runtime=useRef(assets)
  useEffect(()=>{runtime.current=assets},[assets])
@@ -62,6 +64,10 @@ export function WorkshopCraft(){
    if(interior.current)interior.current.visible=inside
    assets.raw.visible=!inside&&s.workshopBook.phase==='available'
    assets.piece.visible=s.mode==='crafting'||s.workshopBook.phase==='finished'
+   // Shaping keeps the tall stump under the plane; the finished stool is cut down to the sitting height.
+   const finished=s.mode!=='crafting'&&s.workshopBook.phase==='finished',{tall,cut}=assets
+   assets.piece.scale.set(tall.scale.x*(finished?.85:1),tall.scale.y*(finished?cut:1),tall.scale.z*(finished?.85:1))
+   assets.piece.position.y=tall.y*(finished?cut:1)
    if(dust.current)dust.current.children.forEach((o,i)=>{
      const stroke=s.craft?.stroke??0,t=(.95-stroke)/.95
      o.visible=inside&&s.mode==='crafting'&&woodworkPose(stroke).contact

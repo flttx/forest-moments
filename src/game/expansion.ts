@@ -1,9 +1,11 @@
 import {smoothRange} from '../world/worldConfig'
 export const cabin={x:-15,z:-28,halfX:3.4,halfZ:2.8,doorZ:-24.5}
 export const camp={x:20,z:23}
-export const reefs=[{x:36,z:-17,yaw:.5,scale:1},{x:31,z:25,yaw:2.4,scale:1.2},{x:-31,z:27,yaw:1.2,scale:1},{x:-39,z:-7,yaw:2.8,scale:1.2}]
+// foot: body-band extent of each reef above its own sand, in its turned frame (u0,u1,w0,w1), measured by scripts/audit_collisions.mjs.
+export const reefs=[{x:36,z:-17,yaw:.5,scale:1,foot:[-.64,.89,-1.47,1.19]},{x:31,z:25,yaw:2.4,scale:1.2,foot:[-2.4,1.95,-1.8,1.43]},{x:-31,z:27,yaw:1.2,scale:1,foot:[-2,1.59,-1.5,1.17]},{x:-39,z:-7,yaw:2.8,scale:1.2,foot:[-1.34,1.32,-1.76,1.8]}] as const
 export const bridge={x:-14,z:-18+2*Math.sin(-1.4),halfX:1.05,halfZ:3}
-export const bedroomSpawn={x:0,z:2.3}
+// Clear of the entrance wall so the camera arm fits behind the raccoon, like the workshop spawn.
+export const bedroomSpawn={x:0,z:1.1}
 export const bedSpot={x:-1.0,z:-.5}
 export const tankSpot={x:2,z:-.3}
 export const expansionStorageKey='forest-moments:home:v1'
@@ -18,6 +20,11 @@ export function decodeHome(raw:string|null):HomeBook{
  }catch{return emptyHome()}
 }
 export const catchId=(f:{at:string;sizeCm:number})=>`${f.at}:${f.sizeCm}`
+/** What became of the newest catch: swimming in the tank, let go at the pond, or not decided yet. */
+export function latestCatchChoice(s:{fishBook:{recent:{at:string;sizeCm:number}[]};homeBook:HomeBook}){
+ const f=s.fishBook.recent[0];if(!f)return null
+ const id=catchId(f);return s.homeBook.fish.some(x=>x.id===id)?'kept':s.homeBook.usedCatchIds.includes(id)?'released':null
+}
 export function addCatch(home:HomeBook,fish:{at:string;sizeCm:number}){
  const id=catchId(fish);if(home.fish.length>=5||home.usedCatchIds.includes(id))return home
  return{...home,fish:[...home.fish,{...fish,id}],usedCatchIds:[...home.usedCatchIds,id]}

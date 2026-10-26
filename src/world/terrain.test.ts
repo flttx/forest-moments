@@ -2,7 +2,7 @@ import {onBridge,bridgeHeight} from '../game/expansion'
 import { expect, it } from 'vitest'
 import { canStandAt, groundHeightAt, dockDeckHeight } from '../game/movement'
 import { pond } from '../game/rowing'
-import { coastRadius, seaLevel, terrainHeight, pathRelief } from './terrain'
+import { coastRadius, seaLevel, terrainHeight, pathRelief, pathDistance } from './terrain'
 import {pondRadiusAt,pondWaterInset} from './pondShape'
 
 it('keeps the trail passable beside each planted trunk radius',()=>{
@@ -48,4 +48,14 @@ it('gives trails bounded continuous relief without moving foundations or interac
   }
   expect(maximum-minimum).toBeGreaterThan(.1)
   for(const [x,z] of [[0,0],[-12,8],[13,-8],[8,6],[1.5,-5],[23,0],[0,8]])expect(pathRelief(x,z)).toBe(0)
+})
+
+it('keeps every drawn trail surface within the walking slope limit',()=>{
+  const steep=[]
+  for(let x=-35;x<=35;x+=.5)for(let z=-35;z<=35;z+=.5){
+    if(pathDistance(x,z)>.8||onBridge(x,z)||Math.hypot(x,z)>35)continue
+    const slope=Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3
+    if(slope>.85)steep.push([x,z,slope])
+  }
+  expect(steep).toEqual([])
 })

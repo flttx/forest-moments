@@ -2,7 +2,11 @@ import {pathDistance,terrainHeight} from '../world/terrain'
 import {workshopAction,woodSpot} from './workshop'
 import {workshopDoor} from './workshop'
 import { describe, expect, it } from 'vitest'
-import { canStandAt, groundHeightAt, moveOnGround } from './movement'
+import { canStandAt, groundHeightAt, moveOnGround, standBlocker, pathStones } from './movement'
+import {bridge,cabin} from './expansion'
+import {hayBales,logPile} from '../world/settlement'
+import {pondStoneColliders} from '../world/pondLayout'
+import {lampPositions,instanceCircles,vegetationPositions} from '../world/vegetationLayout'
 
 describe('ground movement around imported assets', () => {
   it('keeps spawn and shore interactions accessible while blocking water and structures', () => {
@@ -37,4 +41,25 @@ it('keeps the enlarged workshop entrance on flat accessible ground with room for
  }
  expect(canStandAt(-12,11)).toBe(false) // Old trigger now lies inside the enlarged footprint.
  expect(canStandAt(woodSpot.x,woodSpot.z+1)).toBe(true)
+})
+
+it('stops the body at drawn props and keeps their gaps open (measured by scripts/audit_collisions.mjs)',()=>{
+ // Props that used to be walk-through: hay, the log pile, path stones, raised pond stones.
+ for(const b of hayBales)expect(standBlocker(b.x,b.z),`hay ${b.x}`).toBe('hay bale')
+ expect(standBlocker(logPile.x,logPile.z)).toBe('log pile')
+ for(const [x,z] of pathStones)expect(standBlocker(x,z)).toBe('path stone')
+ for(const s of pondStoneColliders)expect(canStandAt(s.x,s.z)).toBe(false)
+ // Bridge: the deck lane stays open, the railings and end posts do not.
+ expect(canStandAt(bridge.x,bridge.z)).toBe(true);expect(canStandAt(bridge.x+.75,bridge.z)).toBe(false)
+ expect(standBlocker(bridge.x-1.4,bridge.z+bridge.halfZ-.1)).toBe('box:bridge railing')
+ // Street lamps: the hanging lantern is solid at head height, not only the post.
+ const lamp=lampPositions[0],post=instanceCircles(lamp)[0],n=Math.hypot(lamp.x-post.x,lamp.z-post.z)
+ expect(standBlocker(post.x+(lamp.x-post.x)/n*.9,post.z+(lamp.z-post.z)/n*.9)).toBe('lamp head')
+ // Buildings stop at their walls: beside the cabin's side wall and in front of the workshop's open porch.
+ expect(canStandAt(cabin.x-3.15-.32,cabin.z)).toBe(true);expect(canStandAt(cabin.x-3.15-.2,cabin.z)).toBe(false)
+ expect(canStandAt(-14.5,8+2.1)).toBe(true)
+ // Bushes and pine skirts: blocked at the outer leaves, not only at the trunk.
+ const bush=vegetationPositions.find(p=>p.kit==='bush-a')!,pine=vegetationPositions.find(p=>p.kit==='normal-pine-b')!
+ expect(standBlocker(bush.x+.74*bush.scale,bush.z)).toMatch(/^plant:bush-a/)
+ expect(standBlocker(pine.x+1.2*pine.scale,pine.z)).toMatch(/^plant:normal-pine-b/)
 })

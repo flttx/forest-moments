@@ -6,6 +6,12 @@ import {workshopPosition,lookoutPosition,isBeachApproach,clearings} from './worl
 
 export type PlantKit = keyof typeof templates
 export interface VegetationInstance { kit: PlantKit; x: number; z: number; scale: number; yaw: number }
+/**
+ * Foliage low enough to meet the raccoon (kit space): reach is the measured body-band radius less 8 cm, so only the
+ * outer needles brush the body; base is the lowest leaves above the trunk foot. Movement turns these into per-direction
+ * colliders against the actual slope. Kits not listed are trunk-only.
+ */
+export const lowFoliage:Partial<Record<PlantKit,{reach:number;base:number}>>={'normal-pine-b':{reach:1.5,base:.78},'young-tree-b':{reach:.79,base:.74},'bush-a':{reach:.74,base:0},'round-tree-a':{reach:1.9,base:2.06}}
 const originalLampPositions: VegetationInstance[] = [
   [-4.1,-2.5,0],[-8.6,13.1,.5],[15.8,-3.4,Math.PI],
   ...[-2.8,-1.9,-1,.25,.9,1.8,2.7].map(a=>[Math.cos(a)*22.1,Math.sin(a)*22.1,-a]),
@@ -76,11 +82,12 @@ const inClearing=(p:VegetationInstance)=>clearings.some(c=>Math.hypot(p.x-c.x,p.
 export const vegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2&&!inClearing(p))
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
-  return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale}))
+  return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))
 }
 export const vegetationColliders=[...vegetationPositions,...lampPositions].flatMap(instanceCircles)
 
-// Approximate foliage volumes in kit space (template heights 4-8 m); bushes sit below the camera arm.
-const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4}}
+// Approximate foliage volumes in kit space (template heights 4-8 m). Bushes count too: a low or close
+// camera arm otherwise ends inside one and the view fills with leaves.
+const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9}}
 /** Crown spheres used only to keep the camera out of leaves; rendering and collisions are unaffected. */
 export const canopySpheres=vegetationPositions.flatMap(p=>{const c=crownShape[p.kit];return c?[{x:p.x,y:terrainHeight(p.x,p.z)+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]})

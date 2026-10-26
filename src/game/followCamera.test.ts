@@ -1,4 +1,4 @@
-import {workshopDoor} from './workshop'
+import {workshopDoor,indoorSpawn} from './workshop'
 import {expect,it} from 'vitest'
 import {createFollowTurn,stepFollowTurn,followTurnConfig,movementYaw,walkingCamera,clipCameraArm,clearCanopy,indoorCameraBoxes} from './followCamera'
 
@@ -46,19 +46,30 @@ it('shortens against a wall without blocking parallel clear arms',()=>{
  expect(clipCameraArm(target,{x:5,y:2,z:0},[box]).x).toBeLessThan(.82)
  expect(clipCameraArm(target,{x:0,y:2,z:5},[box])).toEqual({x:0,y:2,z:5})
 })
-it('keeps interior eye within room bounds and lifts near the entrance wall',()=>{
+it('keeps interior eye within room bounds and tilts down smoothly toward the entrance wall',()=>{
  for(const p of [{x:0,y:0,z:2.5},{x:3.6,y:0,z:1},{x:-3,y:0,z:-1.4}])for(let i=0;i<16;i++){
   const {eye}=walkingCamera(p,i*Math.PI/8,true)
   expect(Math.abs(eye.x)).toBeLessThanOrEqual(3.72);expect(eye.z).toBeGreaterThanOrEqual(-2.72);expect(eye.z).toBeLessThanOrEqual(2.72)
   expect(eye.y).toBeLessThanOrEqual(3.05)
   expect(indoorCameraBoxes.some(b=>eye.x>b.minX&&eye.x<b.maxX&&eye.y>b.minY&&eye.y<b.maxY&&eye.z>b.minZ&&eye.z<b.maxZ)).toBe(false)
  }
- expect(walkingCamera({x:0,y:0,z:2.5},0,true).eye.y).toBe(3.05)
+ // Backing toward the south wall: the eye keeps its height and the downward angle grows without a jump.
+ let previous=0
+ for(let z=0;z<=2.5;z+=.05){
+  const {eye,target}=walkingCamera({x:0,y:0,z},0,true,{pitch:.31,zoom:1})
+  expect(eye.y).toBeCloseTo(.8+Math.sin(.31)*Math.hypot(3.4,1.85),6)
+  const down=Math.atan2(eye.y-target.y,Math.hypot(eye.x-target.x,eye.z-target.z))
+  if(z>0){expect(down).toBeGreaterThanOrEqual(previous-1e-9);expect(down-previous).toBeLessThan(.06)}
+  previous=down
+ }
+ // From the doorway spawn the view still looks across the room, not down on the raccoon.
+ const spawn=walkingCamera({...indoorSpawn,y:0},0,true,{pitch:.31,zoom:1})
+ expect(Math.atan2(spawn.eye.y-spawn.target.y,spawn.eye.z-spawn.target.z)).toBeLessThan(.65)
 })
 
 it('keeps the outdoor arm in front of the workshop when walking away from its entrance',()=>{
- const {eye}=walkingCamera({...workshopDoor,y:0},Math.PI,false)
- expect(eye.z).toBeGreaterThan(11.21);expect(eye.y).toBe(3.2)
+ const {eye,target}=walkingCamera({...workshopDoor,y:0},Math.PI,false)
+ expect(eye.z).toBeGreaterThan(11.21);expect(eye.y).toBeCloseTo(target.y+5,6)
 })
 
 it('pulls an eye that sits inside a crown back to the crown surface, leaving crossing or enclosing crowns alone',()=>{

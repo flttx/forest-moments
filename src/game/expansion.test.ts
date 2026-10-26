@@ -1,5 +1,5 @@
 import {beforeEach,afterEach,it,expect,vi} from 'vitest'
-import {cabin,camp,seats,seatOrigin,bridge,bridgeHeight,creekZ,bedSpot,tankSpot,canStandInBedroom,moveInBedroom,decodeHome,emptyHome,addCatch,catchId,expansionStorageKey} from './expansion'
+import {cabin,camp,seats,seatOrigin,bridge,bridgeHeight,creekZ,bedSpot,tankSpot,canStandInBedroom,moveInBedroom,decodeHome,emptyHome,addCatch,catchId,latestCatchChoice,expansionStorageKey} from './expansion'
 import {canStandAt,moveOnGround,groundHeightAt} from './movement'
 import {lookoutEntry} from './lookout'
 import {workshopDoor} from './workshop'
@@ -53,6 +53,25 @@ it('requires an actual catch, prevents duplication after release and restores pe
  s.getState().releaseFish(id);s.getState().keepFish(id);expect(s.getState().homeBook.fish).toHaveLength(0)
  let book=emptyHome();for(let i=0;i<6;i++)book=addCatch(book,{...fish,at:`2026-10-25T02:00:0${i}Z`});expect(book.fish).toHaveLength(5)
  for(const raw of ['bad','{}',JSON.stringify({...book,nights:-1})])expect(decodeHome(raw)).toEqual(emptyHome())
+})
+it('lets the newest catch go into the tank or back into the pond right at the bank, once',async()=>{
+ const {useForestStore:s}=await import('./store'),fish={at:'2026-10-25T03:00:00Z',sizeCm:30},caught={phase:'caught' as const,elapsed:0,wait:3,sizeCm:30,progress:1,tension:.2,held:false,paused:false,reason:'' as const}
+ s.setState({fishBook:{count:1,bestCm:30,recent:[fish]}})
+ // Only while the catch is on the line.
+ s.getState().keepCatch();expect(s.getState().homeBook.fish).toHaveLength(0)
+ s.setState({mode:'fishing',fishing:caught});expect(latestCatchChoice(s.getState())).toBeNull()
+ s.getState().keepCatch();s.getState().keepCatch();s.getState().releaseCatch()
+ expect(s.getState().homeBook.fish.map(f=>f.id)).toEqual([catchId(fish)]);expect(latestCatchChoice(s.getState())).toBe('kept')
+ expect(decodeHome(memory.get(expansionStorageKey)!).fish).toHaveLength(1)
+ // A released catch never shows up in the tank afterwards.
+ const next={at:'2026-10-25T03:05:00Z',sizeCm:22};s.setState({fishBook:{count:2,bestCm:30,recent:[next,fish]}})
+ s.getState().releaseCatch();s.getState().keepCatch();expect(latestCatchChoice(s.getState())).toBe('released')
+ expect(s.getState().homeBook.fish).toHaveLength(1)
+ s.setState({mode:'walking',fishing:null,location:'bedroom',aquariumOpen:true});s.getState().keepFish(catchId(next));expect(s.getState().homeBook.fish).toHaveLength(1)
+ // A full tank refuses the keep but still allows letting go.
+ let full=emptyHome();for(let i=0;i<5;i++)full=addCatch(full,{...fish,at:`2026-10-25T04:00:0${i}Z`})
+ const last={at:'2026-10-25T05:00:00Z',sizeCm:24};s.setState({homeBook:full,location:'island',aquariumOpen:false,mode:'fishing',fishing:caught,fishBook:{count:8,bestCm:30,recent:[last]}})
+ s.getState().keepCatch();expect(latestCatchChoice(s.getState())).toBeNull();s.getState().releaseCatch();expect(latestCatchChoice(s.getState())).toBe('released')
 })
 it('enters and exits at the fade midpoint and sleeps through to morning once',async()=>{
  const {useForestStore:s}=await import('./store');s.setState({position:{x:cabin.x,z:cabin.doorZ},homeReady:true,timeOfDay:'night'})
