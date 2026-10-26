@@ -2,7 +2,9 @@ import {modelAssets,workshopPosition,workshopSize} from '../world/assets'
 
 export const workshopStorageKey='forest-moments:workshop:v1'
 export type WorkshopBook={version:1;phase:'available'|'carrying'|'finished'}
-export type CraftSession={elapsed:number;steps:number;stroke:number;feedback:string}
+/** Latest sanding result, translated as `craft.<feedback>` when shown. */
+export type CraftFeedback=''|'first'|'good'|'miss'
+export type CraftSession={elapsed:number;steps:number;stroke:number;feedback:CraftFeedback}
 export const woodSpot={x:-7.5,z:9.2}
 export const workshopDoor={x:workshopPosition[0],z:workshopPosition[2]+workshopSize.halfZ*modelAssets.workshop.scale+.85}
 export const indoorSpawn={x:0,z:1.6}
@@ -28,5 +30,5 @@ export function craftCursor(elapsed:number){const t=(elapsed%2.4)/1.2;return t<=
 export function strikeCraft(c:CraftSession):CraftSession{
  if(c.stroke>0||c.steps>=3)return c
  const cursor=craftCursor(c.elapsed),hit=cursor>=.34&&cursor<=.66
- return{...c,steps:c.steps+(hit?1:0),stroke:hit?.95:0,feedback:hit?'打磨完成一处。':'节奏慢一点，指针进入浅绿区域时再按 F。'}
+ return{...c,steps:c.steps+(hit?1:0),stroke:hit?.95:0,feedback:hit?'good':'miss'}
 }

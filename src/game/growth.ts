@@ -2,11 +2,12 @@ export const growthStorageKey='forest-moments:tree:v2'
 export const legacySeedlingKey='forest-moments:seedling:v1'
 export const plantingSpot={x:0,z:8}
 export const plantingStand={x:0,z:9.15}
+/** Stage names are translated by id (i18n `growth.<id>`). */
 export const growthStages=[
-  {id:'sprout',label:'初生小苗',height:.22,at:0},
-  {id:'seedling',label:'分叉树苗',height:.55,at:45000},
-  {id:'young',label:'幼树',height:1.5,at:120000},
-  {id:'mature',label:'成树',height:3,at:240000},
+  {id:'sprout',height:.22,at:0},
+  {id:'seedling',height:.55,at:45000},
+  {id:'young',height:1.5,at:120000},
+  {id:'mature',height:3,at:240000},
 ] as const
 export type PlantedTree={version:2;plantedAt:number;stage:number}
 export function advanceTree(tree:PlantedTree,now:number):PlantedTree{

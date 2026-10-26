@@ -1,93 +1,136 @@
 .app-shell{width:100%;height:100%;min-height:420px;position:relative;isolation:isolate;
- --paper:#f7f0e1f2;--paper-solid:#f8f2e4;--ink:#2f4632;--ink-soft:#5d6a53;--line:#cbbd9f;--amber:#c4893a;--amber-soft:#f0dcb6;--moss:#4f6b48;--error:#a4513b;
- --paper-radius:14px 10px 15px 11px / 11px 15px 10px 14px;--paper-shadow:0 6px 22px #2c3a2626}
+ --paper:#f7f0e1f2;--paper-solid:#f8f2e4;--ink:#2f4632;--ink-soft:#5d6a53;--line:#cbbd9f;--line-soft:#e3d8bf;--amber:#c4893a;--amber-ink:#8f5d1f;--amber-soft:#f0dcb6;--moss:#4f6b48;--moss-deep:#43603d;--error:#a4513b;--cream:#fbf5e6;
+ --hover:#efe4cb;--ink-wash:#23332ad9;--ink-wash-line:#fbf5e62e;
+ --paper-radius:14px 10px 15px 11px / 11px 15px 10px 14px;--paper-shadow:0 6px 22px #2c3a2626,0 1px 2px #2c3a261f;
+ --font-ui:"LXGW WenKai UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;--ease:cubic-bezier(.16,1,.3,1);
+ font-family:var(--font-ui)}
+.app-shell ::selection{background:var(--amber-soft);color:var(--ink)}
 .world{position:absolute;inset:0}
 .boat-transfer-shade{position:absolute;inset:0;z-index:2;background:#273f36;opacity:0;pointer-events:none}
+.icon{flex:none;display:block}
 
-/* Loading and error screens */
-.asset-loading{position:absolute;z-index:5;left:50%;top:48%;transform:translate(-50%,-50%);max-width:85vw;padding:12px 20px;border:1px solid var(--line);border-radius:var(--paper-radius);background:var(--paper);color:var(--ink);font-size:15px;box-shadow:var(--paper-shadow);pointer-events:none}
-.world-error{position:absolute;z-index:6;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#e6e4d4;color:var(--ink);font-size:16px}
-.world-error button{min-height:40px;padding:0 20px;border:1px solid var(--moss);border-radius:var(--paper-radius);background:var(--moss);color:#fffaf0}
+/* Loading and error screens: the loading line sits on the scene without a card. */
+.asset-loading{position:absolute;z-index:5;left:50%;top:48%;transform:translate(-50%,-50%);max-width:85vw;color:var(--ink);font-size:19px;font-weight:500;letter-spacing:.12em;text-shadow:0 1px 10px #f8f2e4;pointer-events:none}
+.world-error{position:absolute;z-index:6;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:#e6e4d4;color:var(--ink);font-size:17px}
+.world-error p{margin:0}
+.world-error button{min-height:40px;padding:0 20px;border:1px solid var(--moss);border-radius:var(--paper-radius);background:var(--moss);color:var(--cream)}
 
 /* HUD shell: only its own controls take pointer input, the scene stays reachable around them. */
-.hud{position:absolute;inset:0;z-index:3;pointer-events:none;color:var(--ink);font-size:14px}
+.hud{position:absolute;inset:0;z-index:3;pointer-events:none;color:var(--ink);font-size:15px}
 .hud>*,.bottom-stack>*{pointer-events:auto}
-.paper-note,.paper-card,.paper-panel,.interaction,.brand,.paper-button,.sleep-panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--paper-radius);box-shadow:var(--paper-shadow)}
-kbd{display:inline-flex;align-items:center;justify-content:center;min-width:1.7em;height:1.7em;padding:0 5px;margin-right:4px;font:700 12px system-ui,sans-serif;color:var(--ink);background:#fffaf0;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px}
-.hud button{min-height:36px;padding:0 14px;border:1px solid var(--line);border-radius:var(--paper-radius);background:#fbf6ea;color:var(--ink);font-size:14px;display:inline-flex;align-items:center;gap:2px}
-.hud button:disabled{opacity:.5;cursor:not-allowed}
-.hud button.primary,.interaction button:not(.quiet){background:var(--moss);border-color:var(--moss);color:#fffaf0}
-.hud button.primary kbd,.interaction button:not(.quiet) kbd{background:#3f5a39;color:#fffaf0;border-color:#8ea986}
-.hud button.warn{background:var(--amber);border-color:var(--amber);color:#fffaf0}
-.hud .close-button{min-width:36px;padding:0;justify-content:center;border-color:transparent;background:transparent;font-size:20px;line-height:1}
+.paper-note,.paper-card,.paper-panel,.menu,.sleep-panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--paper-radius);box-shadow:var(--paper-shadow)}
+/* Information only (status, hints, the first-run guide): a quiet wash of ink rather than another paper card. */
+.ink-note{background:var(--ink-wash);color:var(--cream);border-radius:var(--paper-radius);box-shadow:0 4px 16px #1b261f33}
+kbd{display:inline-flex;align-items:center;justify-content:center;min-width:1.8em;height:1.8em;padding:0 6px;margin-right:5px;font:600 13px system-ui,sans-serif;color:var(--ink);background:#fffaf0;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px}
+.ink-note kbd{color:var(--cream);background:#fbf5e614;border-color:var(--ink-wash-line)}
 
-/* Top corners */
-.brand{position:absolute;top:18px;left:20px;padding:6px 14px;font-size:16px;font-weight:700;letter-spacing:.14em;pointer-events:none}
-.menu{position:absolute;top:18px;right:20px;display:flex;gap:8px}
-.hud .menu .paper-button{box-shadow:var(--paper-shadow)}
-.hud .menu .paper-button[aria-expanded=true]{background:var(--amber-soft);border-color:var(--amber)}
+/* Buttons: one family, every state drawn. */
+.hud button{min-height:36px;padding:0 14px;border:1px solid var(--line);border-radius:9px;background:#fbf6ea;color:var(--ink);font-size:15px;display:inline-flex;align-items:center;gap:6px;
+ transition:background-color .16s var(--ease),border-color .16s var(--ease),color .16s var(--ease),transform .08s ease-out}
+.hud button:hover{background:var(--hover);border-color:#b8a782}
+.hud button:active:not(:disabled){transform:translateY(1px)}
+.hud button:disabled{opacity:.5;cursor:not-allowed}
+.hud button.primary,.hud .action-button{background:var(--moss);border-color:var(--moss);color:var(--cream)}
+.hud button.primary:hover,.hud .action-button:hover{background:var(--moss-deep);border-color:var(--moss-deep)}
+.hud button.primary kbd,.hud .action-button kbd{background:#3c5637;color:var(--cream);border-color:#8ea986}
+.hud button.warn{background:var(--amber);border-color:var(--amber);color:var(--cream)}
+.hud button.warn:hover{background:#b07a31;border-color:#b07a31}
+.hud button.quiet{background:transparent;border-color:transparent}
+.hud button.quiet:hover{background:var(--hover)}
+.hud .close-button{min-width:36px;padding:0;justify-content:center;border-color:transparent;background:transparent;color:var(--ink-soft)}
+.hud .close-button:hover{background:var(--hover);color:var(--ink)}
+.hud .ink-note .close-button{color:#e6dfcc}
+.hud .ink-note .close-button:hover{background:#fbf5e61f;color:var(--cream)}
+
+/* Top corners: the title is lettering on the scene; the tools share one paper strip. */
+.brand{position:absolute;top:16px;left:22px;font-size:27px;font-weight:500;letter-spacing:.16em;line-height:1.2;color:var(--cream);text-shadow:0 1px 2px #1c2a1f99,0 3px 14px #1c2a1f59;pointer-events:none;user-select:none}
+html[lang=en] .brand{letter-spacing:.04em}
+html[lang=en] .app-shell{--font-ui:"LXGW WenKai UI Latin","Segoe UI",system-ui,sans-serif}
+.menu{position:absolute;top:16px;right:20px;display:flex;align-items:center;gap:2px;padding:4px}
+.hud .tool-button{border-color:transparent;background:transparent;padding:0 12px;border-radius:8px}
+.hud .tool-button:hover{background:var(--hover);border-color:transparent}
+.hud .tool-button[aria-expanded=true]{background:var(--amber-soft);box-shadow:inset 0 -2px 0 var(--amber)}
+.hud .tool-button.icon-only{width:36px;padding:0;justify-content:center}
+.tool-divider{width:1px;align-self:stretch;margin:7px 4px;background:var(--line)}
+.lang-switch{color:var(--ink-soft)}
+.lang-switch .current{color:var(--ink);font-weight:500}
+.lang-switch .slash{color:var(--line)}
 .island-overview .brand{display:none}
+.hud .show-hud{position:absolute;top:16px;right:20px;width:40px;min-height:40px;padding:0;justify-content:center;border-radius:50%;background:#f7f0e1b3;border-color:#cbbd9f99;color:var(--ink-soft);box-shadow:0 2px 10px #2c3a2626}
+.hud .show-hud:hover{background:var(--paper);color:var(--ink)}
 
 /* Right-hand paper panels: menu and aquarium */
-.paper-panel{position:absolute;right:20px;top:68px;width:min(340px,calc(100% - 40px));max-height:calc(100% - 96px);display:flex;flex-direction:column;background:var(--paper-solid);overscroll-behavior:contain}
-.paper-panel header{display:flex;align-items:center;justify-content:space-between;padding:10px 8px 6px 18px;border-bottom:1px solid var(--line)}
-.paper-panel h2{margin:0;font-size:17px;letter-spacing:.08em}
-.panel-body{overflow:auto;padding:12px 18px 16px;line-height:1.6}
+.paper-panel{position:absolute;right:20px;top:68px;width:min(360px,calc(100% - 40px));max-height:calc(100% - 96px);display:flex;flex-direction:column;background:var(--paper-solid);overscroll-behavior:contain}
+.paper-panel header{display:flex;align-items:center;justify-content:space-between;padding:12px 8px 8px 20px;border-bottom:1px solid var(--line-soft)}
+.paper-panel h2{margin:0;font-size:21px;font-weight:500;letter-spacing:.08em}
+html[lang=en] .paper-panel h2{letter-spacing:.01em}
+.panel-body{overflow:auto;padding:10px 20px 18px;line-height:1.6;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .panel-body p{margin:0 0 8px}
 .empty{color:var(--ink-soft)}
 .place-list,.catch-list{margin:0;padding:0;list-style:none}
-.place-list li{padding:9px 10px;border-radius:8px}
-.place-list li+li{border-top:1px dashed #d8ccb2}
-.place-list li.here{background:#e9f0dc}
-.place-list strong{font-size:15px}.place-list em{font-style:normal;color:var(--amber);font-size:14px}
-.place-list p{margin:2px 0;color:var(--ink-soft);font-size:14px}
+.place-list li{padding:10px 0}
+.place-list li+li{border-top:1px solid var(--line-soft)}
+.place-list strong{display:flex;align-items:center;gap:7px;font-size:17px;font-weight:500}
+.place-list li.here strong::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--moss);box-shadow:0 0 0 3px #4f6b4826}
+.place-list em{font-style:normal;font-weight:400;color:var(--amber-ink);font-size:14px}
+.place-list p{margin:3px 0;color:var(--ink-soft);font-size:14px}
 .place-list small{font-size:14px;color:var(--moss)}
-.catch-list li{padding:4px 0;border-bottom:1px dashed #d8ccb2}
-.help-list{margin:0;display:grid;gap:6px}
-.help-list div{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.catch-list li{padding:5px 0;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+.help-list{margin:0;display:grid;gap:4px}
+.help-list div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:3px 0}
 .help-list dt{color:var(--ink-soft)}.help-list dd{margin:0;white-space:nowrap}
 .fish-choice{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 0}
 
 /* First-run guide */
-.guide{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:14px;padding:4px 4px 4px 16px;white-space:nowrap}
+.guide{position:absolute;top:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:4px 4px 4px 18px;white-space:nowrap}
+/* Below this width the centred guide would run into the toolbar, so it drops underneath. */
+@media(max-width:1320px){.guide{top:72px}}
 
-/* Bottom centre: notice, first-time mode hint, then the one current action */
+/* Bottom centre: notice, first-time mode hint, then the current action. Text that only informs is ink; what you can press is solid. */
 .bottom-stack{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;width:max-content;max-width:calc(100% - 40px);pointer-events:none}
-.interaction{display:flex;align-items:center;gap:12px;padding:6px 6px 6px 16px;min-height:48px}
-.interaction:not(:has(button)){padding-right:16px}
-.prompt-status{font-weight:700}
-.prompt-hint{color:var(--ink-soft)}
+.interaction{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px}
+.prompt-info,.prompt-hint,.interaction>.prompt-status{display:inline-flex;align-items:center;gap:12px;min-height:40px;padding:0 16px}
+.prompt-status{font-weight:500}
+.prompt-hint{color:#ece5d2}
+.hud .action-button{min-height:44px;padding:0 20px 0 9px;font-size:16px;font-weight:500;border-radius:var(--paper-radius);box-shadow:0 6px 18px #1f2d2240}
+.hud button.round{width:40px;min-height:40px;padding:0;justify-content:center;border-radius:50%;background:var(--paper);border-color:var(--line);box-shadow:0 2px 10px #2c3a2626}
+.hud button.round:hover{background:var(--paper-solid);border-color:#b8a782}
 .interaction progress,.paper-card progress,.paper-card meter{height:10px;width:120px;appearance:none;border:1px solid var(--line);border-radius:6px;background:#e4dcc8;overflow:hidden}
+.ink-note progress{border-color:var(--ink-wash-line);background:#fbf5e61f}
 .hud progress::-webkit-progress-bar{background:#e4dcc8}
+.hud .ink-note progress::-webkit-progress-bar{background:#fbf5e61f}
 .hud progress::-webkit-progress-value{background:var(--moss)}
+.hud .ink-note progress::-webkit-progress-value{background:var(--amber-soft)}
 .hud progress::-moz-progress-bar{background:var(--moss)}
 .hud meter::-webkit-meter-bar{background:#e4dcc8;border:0;height:10px}
 .hud meter::-webkit-meter-optimum-value{background:var(--moss)}
 .hud meter::-webkit-meter-suboptimum-value{background:var(--amber)}
 .hud meter::-webkit-meter-even-less-good-value{background:var(--error)}
-.mode-hint{margin:0;padding:5px 14px;border-radius:var(--paper-radius);background:#2f4632d9;color:#fbf5e6;font-size:14px}
+.mode-hint{margin:0;padding:7px 16px;font-size:15px}
 .notice{display:flex;align-items:center;gap:8px;padding:4px 4px 4px 16px;max-width:min(560px,calc(100vw - 40px))}
 .notice p{margin:0;line-height:1.5}
-.notice-error{border-color:var(--error);box-shadow:inset 4px 0 0 var(--error),var(--paper-shadow)}
+.notice-error{border-color:var(--error)}
+.notice-error>.icon{color:var(--error);margin-left:-4px}
 
 /* Gameplay cards: fishing and woodworking, bottom left */
-.paper-card{position:absolute;left:20px;bottom:24px;width:min(300px,calc(100% - 40px));display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 16px}
-.paper-card strong{flex-basis:100%;font-size:16px}
+.paper-card{position:absolute;left:20px;bottom:24px;width:min(310px,calc(100% - 40px));display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px 16px}
+.paper-card strong{flex-basis:100%;font-size:18px;font-weight:500}
 .paper-card label{flex-basis:100%;display:flex;align-items:center;gap:10px}
 .paper-card label progress,.paper-card label meter{flex:1}
 .paper-card small{flex-basis:100%;font-size:14px;color:var(--ink-soft)}
 .fishing-hud.urgent{border-color:var(--amber);box-shadow:0 0 0 2px var(--amber-soft),var(--paper-shadow)}
-.fishing-hud.urgent strong{color:var(--amber)}
+.fishing-hud.urgent strong{color:var(--amber-ink)}
 .craft-meter{position:relative;flex-basis:100%;height:14px;background:#ddd5c0;border-radius:6px;overflow:hidden}
 .craft-meter i{position:absolute;left:34%;width:32%;height:100%;background:#a8c893}.craft-meter b{position:absolute;top:0;width:4px;height:100%;background:var(--ink);transform:translateX(-50%)}
 
 /* Sleep: a quiet title and a skip */
-.sleep-panel{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:6px 6px 6px 18px}
-.sleep-panel strong{font-size:16px;letter-spacing:.2em}
-.hud .sleep-panel button{background:transparent}
+.sleep-panel{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);display:flex;align-items:center;gap:12px;padding:6px 6px 6px 20px}
+.sleep-panel strong{font-size:18px;font-weight:500;letter-spacing:.2em}
+.hud .sleep-panel button{background:transparent;border-color:transparent}
+.hud .sleep-panel button:hover{background:var(--hover)}
 
 .hud :focus-visible,.world-error button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
 .hud :focus:not(:focus-visible){outline:none}
-/* No entrance animation on overlays: an animated layer above the WebGL canvas stalled frames for 140-210 ms. */
-@media(max-width:760px){.brand{display:none}.menu{right:12px;top:12px}.paper-panel{right:12px;top:60px;width:calc(100% - 24px)}.guide{top:62px}.paper-card{left:12px;bottom:84px;width:calc(100% - 24px)}}
+/* No entrance animation on overlays: an animated layer above the WebGL canvas stalled frames for 140-210 ms. Only small hover/press transitions remain. */
+@media(max-width:760px){.brand{display:none}.menu{right:12px;top:12px}.tool-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.hud .tool-button{padding:0 10px}.hud .show-hud{right:12px;top:12px}.paper-panel{right:12px;top:60px;width:calc(100% - 24px)}.guide{top:62px}.paper-card{left:12px;bottom:84px;width:calc(100% - 24px)}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

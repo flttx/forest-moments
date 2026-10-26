@@ -25,6 +25,9 @@ type UiState={
  seenHints:ModeHint[]
  /** The mode hint shown right now: only on the first visit to that mode, cleared when the mode ends. */
  activeHint:ModeHint|null
+ /** Photo view: the HUD steps aside except a restore button, errors and an active game's own card. Not remembered across reloads. */
+ hudHidden:boolean
+ toggleHud:()=>void
  openPanel:(panel:MenuPanel)=>void
  closePanel:()=>void
  finishGuide:()=>void
@@ -38,6 +41,8 @@ export const useUiStore=create<UiState>((set,get)=>({
  guideSeen:seen.guide,
  seenHints:seen.hints,
  activeHint:null,
+ hudHidden:false,
+ toggleHud:()=>{const hidden=!get().hudHidden;if(hidden)get().closePanel();set({hudHidden:hidden})},
  openPanel:panel=>{
   // One panel at a time: a menu panel replaces the aquarium. Held reel input is released, never re-pressed on close.
   const forest=useForestStore.getState()

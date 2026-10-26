@@ -43,7 +43,7 @@ it('handles reload and blocked storage without losing session playability',async
  expect(s.getState().workshopBook.phase).toBe('finished');expect(s.getState().message).toContain('无法保存')
 })
 it('ignores strokes during a stroke and rejects non-finite time progression',async()=>{
- const c={elapsed:.6,steps:1,stroke:.5,feedback:''};expect(strikeCraft(c)).toBe(c)
+ const c={elapsed:.6,steps:1,stroke:.5,feedback:'' as const};expect(strikeCraft(c)).toBe(c)
  const {useForestStore:s}=await import('./store');s.setState({mode:'gathering',gatheringElapsed:0});s.getState().tickWorkshop(NaN);s.getState().tickWorkshop(-4);expect(s.getState().gatheringElapsed).toBe(0)
 })
 

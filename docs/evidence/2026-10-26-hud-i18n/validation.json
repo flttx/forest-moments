@@ -1,0 +1,40 @@
+{
+  "stage": "HUD hide toggle, zh/en language switch, HUD style refinement",
+  "date": "2026-10-26",
+  "status": "implemented, local-machine verification only; awaiting user review",
+  "font": {
+    "family": "LXGW WenKai v1.530",
+    "licence": "SIL OFL 1.1 with the author's additional permission for subset/WOFF2 web delivery under the original name",
+    "source": "https://github.com/lxgw/LxgwWenKai/releases/tag/v1.530",
+    "sourceSha256": {
+      "LXGWWenKai-Regular.ttf": "2d73eea94ad808999d90c0000c239a84a33b09d4bc6ab6c5b8bbf1eda8a7fc8b",
+      "LXGWWenKai-Medium.ttf": "f4b8a34d1f838fe411540cb7c97b1c384ac9738a876c4104500bc42508b2312a"
+    },
+    "subset": { "script": "scripts/build_ui_font.py", "characters": 454 },
+    "output": {
+      "public/fonts/wenkai-ui-regular.woff2": { "bytes": 104120, "sha256": "77bda7b1e015cfdcd9e83f6734190c0ce17f64aec292eb49bfb7d0f2ef5e653a" },
+      "public/fonts/wenkai-ui-medium.woff2": { "bytes": 103844, "sha256": "450a3cda5686cac9a7bc21c4dd3aa95388d63e3af1795af79e94a98cfe7e163f" },
+      "public/fonts/LXGW-WenKai-OFL.txt": { "bytes": 5171 }
+    }
+  },
+  "i18n": { "keys": 228, "languages": ["zh", "en"], "default": "zh", "storageKey": "forest-moments:lang:v1" },
+  "lint": "pnpm lint (oxlint) exit 0",
+  "build": { "result": "pass", "mainJs": "1614.15 kB", "mainJsGzip": "492.92 kB", "css": "11.72 kB" },
+  "unitTests": {
+    "result": "93/94",
+    "added": "src/i18n.test.ts 3/3",
+    "failure": "src/game/rowing.test.ts timeout at 5 s, same as the previous round and at HEAD; passes with a longer timeout. Not related."
+  },
+  "browser": {
+    "check_hud_i18n.mjs": "9/9 PASS, 15 screenshots, console errors 0 (Edge 156.0.4314.42 headless)",
+    "check_ui_upgrade.mjs interaction": "7/7 PASS",
+    "check_ui_upgrade.mjs layout": "PASS after moving the guide below the toolbar at <=1320 px (first run failed: 1024x768 .menu x .guide)"
+  },
+  "designDetector": "impeccable detect on changed UI files: no findings",
+  "notDone": [
+    "A notice already on screen keeps the language it was written in",
+    "English copy not reviewed by a native speaker",
+    "Rerun scripts/build_ui_font.py after copy changes",
+    "No production build or cross-device test"
+  ]
+}

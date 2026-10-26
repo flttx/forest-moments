@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-26T08:24:01.138Z",
+  "checks": [
+    {
+      "name": "Chinese default; title uses the subset display face without a box",
+      "bg": "rgba(0, 0, 0, 0)",
+      "border": "none",
+      "family": "\"LXGW WenKai UI\", \"Microsoft YaHei\", \"PingFang SC\", system-ui, sans-serif",
+      "loaded": true
+    },
+    {
+      "name": "layout 1440 places zh",
+      "issues": [],
+      "small": [],
+      "tiny": [],
+      "count": 3
+    },
+    {
+      "name": "switches to English and updates page language and title"
+    },
+    {
+      "name": "layout 1440 places en",
+      "issues": [],
+      "small": [],
+      "tiny": [],
+      "count": 3
+    },
+    {
+      "name": "H and the restore button toggle the photo view; errors stay visible while hidden"
+    },
+    {
+      "name": "prompt and fishing card translated; the card survives the photo view"
+    },
+    {
+      "name": "language remembered after reload"
+    },
+    {
+      "name": "layout 390 default",
+      "issues": [],
+      "small": [],
+      "tiny": [],
+      "count": 1
+    },
+    {
+      "name": "layout 390 places",
+      "issues": [],
+      "small": [],
+      "tiny": [],
+      "count": 2
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-default-zh.png",
+    "02-hover-zh.png",
+    "03-places-zh.png",
+    "04-default-en.png",
+    "05-places-en.png",
+    "06-help-en.png",
+    "07-hidden.png",
+    "08-hidden-error.png",
+    "09-prompt-en.png",
+    "10-fishing-en.png",
+    "11-hidden-fishing.png",
+    "12-night-en.png",
+    "13-night-zh.png",
+    "14-mobile-zh.png",
+    "15-mobile-places.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}

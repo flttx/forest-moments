@@ -1,7 +1,8 @@
+import {t} from '../i18n'
 import {beginSleepJourney,sleepDuration,lightingStorageKey,type TimeOfDay,type SleepJourney} from './dayCycle'
 import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,expansionStorageKey,addCatch,catchId,type HomeBook,type SeatSession,type SeatId} from './expansion'
 import { create } from 'zustand'
-import { findNearestLandmark, landmarks, type LandmarkId } from './landmarks'
+import { findNearestLandmark, type LandmarkId } from './landmarks'
 import { canBoard, canLand, initialBoat, landing, type BoatState } from './rowing'
 import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSpot, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
 import {advanceTree,decodeTree,growthStages,growthStorageKey,legacySeedlingKey,plantingSpot,type PlantedTree} from './growth'
@@ -117,10 +118,10 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     const s=get();if(s.mode!=='sleeping'||!s.sleepJourney)return
     const timeOfDay=s.sleepJourney.target,homeBook={...s.homeBook,nights:s.homeBook.nights+1};let saved=saveHome(homeBook)
     try{window.localStorage.setItem(lightingStorageKey,timeOfDay)}catch{saved=false}
-    set({mode:'walking',position:{...bedSpot},sleepElapsed:0,sleepJourney:null,homeBook,timeOfDay,messageKind:saved?'info':'error',message:(timeOfDay==='day'?'晨光照亮了小岛。':'小岛的灯火亮起来了。')+(saved?'':'无法保存，仅本次有效。')})
+    set({mode:'walking',position:{...bedSpot},sleepElapsed:0,sleepJourney:null,homeBook,timeOfDay,messageKind:saved?'info':'error',message:(timeOfDay==='day'?t('msg.morning'):t('msg.evening'))+(saved?'':t('msg.unsavedShort'))})
   },
-  keepFish:id=>{const s=get();if(s.location!=='bedroom'||!s.aquariumOpen||s.mode!=='walking')return;const fish=s.fishBook.recent.find(f=>catchId(f)===id);if(!fish)return;const homeBook=addCatch(s.homeBook,fish);if(homeBook===s.homeBook)return;const saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:saved?'锦鲤已经游进鱼缸，养鱼记录已保存。':'锦鲤已放入鱼缸；无法保存，仅在本次会话保留。'})},
-  releaseFish:id=>{const s=get();if(s.location!=='bedroom'||!s.aquariumOpen||s.mode!=='walking'||!s.homeBook.fish.some(f=>f.id===id))return;const homeBook={...s.homeBook,fish:s.homeBook.fish.filter(f=>f.id!==id)};const saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:saved?'锦鲤已放归池塘。':'已放归；无法保存，仅在本次会话保留。'})},
+  keepFish:id=>{const s=get();if(s.location!=='bedroom'||!s.aquariumOpen||s.mode!=='walking')return;const fish=s.fishBook.recent.find(f=>catchId(f)===id);if(!fish)return;const homeBook=addCatch(s.homeBook,fish);if(homeBook===s.homeBook)return;const saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:saved?t('msg.fishKept'):t('msg.fishKeptUnsaved')})},
+  releaseFish:id=>{const s=get();if(s.location!=='bedroom'||!s.aquariumOpen||s.mode!=='walking'||!s.homeBook.fish.some(f=>f.id===id))return;const homeBook={...s.homeBook,fish:s.homeBook.fish.filter(f=>f.id!==id)};const saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:saved?t('msg.fishReleased'):t('msg.fishReleasedUnsaved')})},
   tickHome:delta=>{
     if(!Number.isFinite(delta))return false
     const dt=Math.min(Math.max(delta,0),.05),s=get(),t=s.homeTransfer
@@ -141,7 +142,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   },
   workshopBook:(()=>{try{return decodeWorkshop(window.localStorage.getItem(workshopStorageKey))}catch{return decodeWorkshop(null)}})(),
   workshopReady:false,gatheringElapsed:0,craft:null,
-  cancelWorkshop:()=>{if(['crafting','gathering'].includes(get().mode))set({mode:'walking',craft:null,gatheringElapsed:0,message:'已暂停，材料仍然保留。'})},
+  cancelWorkshop:()=>{if(['crafting','gathering'].includes(get().mode))set({mode:'walking',craft:null,gatheringElapsed:0,message:t('msg.workshopPaused')})},
   tickWorkshop:delta=>{
     if(!Number.isFinite(delta)||get().menuPaused)return
     const dt=Math.min(Math.max(delta,0),.05),s=get()
@@ -149,13 +150,13 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       const elapsed=s.gatheringElapsed+dt
       if(elapsed<1.6){set({gatheringElapsed:elapsed});return}
       const workshopBook:WorkshopBook={version:1,phase:'carrying'},saved=saveWorkshop(workshopBook)
-      set({workshopBook,mode:'walking',gatheringElapsed:0,messageKind:saved?'info':'error',message:saved?'旧木墩已收好。从西侧工坊正门进入，在室内修整。':'旧木墩已收好；浏览器无法保存，仅在本次会话保留。'})
+      set({workshopBook,mode:'walking',gatheringElapsed:0,messageKind:saved?'info':'error',message:saved?t('msg.stumpCollected'):t('msg.stumpCollectedUnsaved')})
     }
     if(s.mode==='crafting'&&s.craft){
       const craft={...s.craft,elapsed:s.craft.elapsed+dt,stroke:Math.max(0,s.craft.stroke-dt)}
       if(craft.steps===3&&craft.stroke===0){
         const workshopBook:WorkshopBook={version:1,phase:'finished'},saved=saveWorkshop(workshopBook)
-        set({workshopBook,mode:'walking',craft:null,messageKind:saved?'info':'error',message:saved?'木墩凳修整好了，留在工坊室内。成果已保存。':'木墩凳修整好了；浏览器无法保存，仅在本次会话保留。'})
+        set({workshopBook,mode:'walking',craft:null,messageKind:saved?'info':'error',message:saved?t('msg.stoolDone'):t('msg.stoolDoneUnsaved')})
       }else set({craft})
     }
   },
@@ -176,14 +177,14 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(get().mode!=='feeding'||!Number.isFinite(delta)||get().menuPaused)return
     const elapsed=get().feedingElapsed+Math.min(Math.max(delta,0),.05)
     if(elapsed<1.6){set({feedingElapsed:elapsed});return}
-    set({mode:'walking',feedingElapsed:0,mealActive:true,mealProgress:0,message:'饲料添好了，鸡和羊会走过来吃。给它们留一点路。'})
+    set({mode:'walking',feedingElapsed:0,mealActive:true,mealProgress:0,message:t('msg.fed')})
   },
-  cancelFeeding:()=>{if(get().mode==='feeding')set({mode:'walking',feedingElapsed:0,message:'已暂停添料，按 F 可以重新开始。'})},
+  cancelFeeding:()=>{if(get().mode==='feeding')set({mode:'walking',feedingElapsed:0,message:t('msg.feedingPaused')})},
   finishMeal:()=>{
     if(!get().mealActive)return
     const farmBook:FarmBook={version:1,meals:get().farmBook.meals+1};let saved=true
     try{window.localStorage.setItem(farmStorageKey,JSON.stringify(farmBook))}catch{saved=false}
-    set({farmBook,mealActive:false,mealProgress:1,messageKind:saved?'info':'error',message:saved?'鸡和羊吃饱了，回去散步了。喂养记录已保存。':'鸡和羊吃饱了；浏览器无法保存，记录仅在本次会话保留。'})
+    set({farmBook,mealActive:false,mealProgress:1,messageKind:saved?'info':'error',message:saved?t('msg.mealDone'):t('msg.mealDoneUnsaved')})
   },
   boatTransfer:null,
   tickBoatTransfer:(delta)=>{
@@ -204,19 +205,19 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   inspectingTree:false,
   plantingElapsed:0,
   setGrowthReady:(growthReady)=>set({growthReady}),
-  cancelPlanting:()=>{if(get().mode==='planting')set({mode:'walking',plantingElapsed:0,message:'已暂停栽种，再按 F 可以重新开始。'})},
+  cancelPlanting:()=>{if(get().mode==='planting')set({mode:'walking',plantingElapsed:0,message:t('msg.plantingPaused')})},
   tickPlanting:(delta)=>{
     if(get().mode!=='planting'||get().menuPaused)return
     const elapsed=get().plantingElapsed+Math.min(Math.max(delta,0),.05)
     if(elapsed<1.6){set({plantingElapsed:elapsed});return}
     const tree:PlantedTree={version:2,plantedAt:Date.now(),stage:0},saved=saveTree(tree)
-    set({tree,planted:true,mode:'walking',inspectingTree:true,plantingElapsed:0,messageKind:saved?'info':'error',message:saved?'小苗种好了。走动或按 F 返回漫游；离开后它也会继续成长。':'小苗种好了；浏览器无法保存，成长仅在本次会话保留。'})
+    set({tree,planted:true,mode:'walking',inspectingTree:true,plantingElapsed:0,messageKind:saved?'info':'error',message:saved?t('msg.planted'):t('msg.plantedUnsaved')})
   },
   refreshGrowth:()=>{
     const previous=get().tree;if(!previous)return
     const tree=advanceTree(previous,Date.now());if(tree===previous)return
     const saved=saveTree(tree)
-    set({tree,messageKind:saved?'info':'error',message:`树长成了${growthStages[tree.stage].label}。${saved?'已记入这片森林。':'浏览器无法保存，本次会话仍可继续。'}`})
+    set({tree,messageKind:saved?'info':'error',message:t(saved?'msg.grew':'msg.grewUnsaved',{stage:t(`growth.${growthStages[tree.stage].id}`)})})
   },
   fishing: null,
   fishBook: (() => { try { return decodeCatchBook(window.localStorage.getItem(catchStorageKey)) } catch { return emptyBook() } })(),
@@ -235,7 +236,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       const fishBook = { count: book.count + 1, bestCm: Math.max(book.bestCm, fishing.sizeCm), recent: [{ sizeCm: fishing.sizeCm, at: new Date().toISOString() }, ...book.recent].slice(0, 20) }
       let saved = true
       try { window.localStorage.setItem(catchStorageKey, JSON.stringify(fishBook)) } catch { saved = false }
-      set({ fishing, fishBook, message: saved ? '' : '浏览器不允许存档，这条锦鲤只在本次会话保留。', messageKind: saved ? 'info' : 'error' })
+      set({ fishing, fishBook, message: saved ? '' : t('msg.catchUnsaved'), messageKind: saved ? 'info' : 'error' })
     } else set({ fishing })
   },
   position: { x: 0, z: 0 },
@@ -266,7 +267,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       return
     }
     if (mode === 'rowing') {
-      if (!canLand(boat)) { set({ message: '回到码头旁，松开方向键停稳后按 F 下船。' }); return }
+      if (!canLand(boat)) { set({ message: t('msg.notAtDock') }); return }
       set({boatTransfer:{direction:'land',elapsed:0,committed:false},message:''})
       return
     }
@@ -279,55 +280,54 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(get().location==='island'){
       const seat=seats.find(v=>Math.hypot(position.x-seatOrigin(v).x,position.z-seatOrigin(v).z)<1.3)
       if(seat){get().sit(seat.id);return}
-      if(Math.hypot(position.x-camp.x,position.z-camp.z)<2.1){const homeBook={...get().homeBook,fireLit:!get().homeBook.fireLit},saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:(homeBook.fireLit?'篝火点燃了。':'篝火熄灭了。')+(saved?'':'无法保存，仅本次有效。')});return}
-      if(Math.hypot(position.x-cabin.x,position.z-cabin.doorZ)<1.2){if(get().homeReady)set({homeReturn:{...position},homeTransfer:{direction:'enter',elapsed:0,committed:false},message:''});else set({message:'卧室正在准备，请稍候。'});return}
+      if(Math.hypot(position.x-camp.x,position.z-camp.z)<2.1){const homeBook={...get().homeBook,fireLit:!get().homeBook.fireLit},saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:(homeBook.fireLit?t('msg.fireLit'):t('msg.fireOut'))+(saved?'':t('msg.unsavedShort'))});return}
+      if(Math.hypot(position.x-cabin.x,position.z-cabin.doorZ)<1.2){if(get().homeReady)set({homeReturn:{...position},homeTransfer:{direction:'enter',elapsed:0,committed:false},message:''});else set({message:t('msg.bedroomLoading')});return}
     }
     if (!nearby) return
     if(nearby==='workshop'){
-      if(!get().workshopReady){set({message:'木工台正在准备，请稍候。'});return}
+      if(!get().workshopReady){set({message:t('msg.benchLoading')});return}
       const book=get().workshopBook,action=workshopAction(position,book,get().location==='workshop'?'workshop':'island')
       if(action==='enter'){set({workshopReturn:{...position},workshopTransfer:{direction:'enter',elapsed:0,committed:false},message:''});return}
       if(action==='exit'){set({workshopTransfer:{direction:'exit',elapsed:0,committed:false},message:''});return}
       if(action==='collect'){set({mode:'gathering',gatheringElapsed:0,inspectingTree:false,message:''});return}
       if(action==='inspect'){get().sit('stool');return}
-      if(action==='craft'&&book.phase==='carrying'){set({mode:'crafting',position:{...craftSpot},craft:{elapsed:0,steps:0,stroke:0,feedback:'指针进入浅绿区域时按 F 打磨。'},inspectingTree:false,message:''});return}
-      set({message:get().location==='island'?'走到工坊正门，按 F 进入；旧木墩在东侧路边。':book.phase==='available'?'从身后的门回小岛，沿工坊东侧小路找到旧木墩。':'走近北侧木工台前的木墩位置，按 F 修整。'});return
+      if(action==='craft'&&book.phase==='carrying'){set({mode:'crafting',position:{...craftSpot},craft:{elapsed:0,steps:0,stroke:0,feedback:'first'},inspectingTree:false,message:''});return}
+      set({message:get().location==='island'?t('msg.toWorkshopDoor'):book.phase==='available'?t('msg.findStump'):t('msg.toBench')});return
     }
     if(nearby==='lookout'){
-      if(!get().lookoutReady){set({message:'瞭望塔正在准备，请稍候。'});return}
-      if(!canViewLookout(position)){set({message:'沿塔的东侧绕到楼梯脚，再按 F 进入观景视角。'});return}
+      if(!get().lookoutReady){set({message:t('msg.lookoutLoading')});return}
+      if(!canViewLookout(position)){set({message:t('msg.toStairs')});return}
       set({lookoutTransfer:{direction:'enter',elapsed:0,committed:false},lookoutView:{...initialLookoutView},message:''});return
     }
     if(nearby==='farm'){
-      if(!get().farmReady){set({message:'牧场正在准备，请稍候。'});return}
-      if(get().mealActive){set({message:'饲料还没有吃完，给它们留一点路。'});return}
-      if(Math.hypot(position.x-feedSpot.x,position.z-feedSpot.z)>.65){set({message:'从围栏北侧开口进入，走到食槽左边的小空地，按 F 添料。'});return}
+      if(!get().farmReady){set({message:t('msg.farmLoading')});return}
+      if(get().mealActive){set({message:t('msg.mealActive')});return}
+      if(Math.hypot(position.x-feedSpot.x,position.z-feedSpot.z)>.65){set({message:t('msg.toTrough')});return}
       set({mode:'feeding',feedingElapsed:0,inspectingTree:false,message:''});return
     }
     if (nearby === 'pond') {
-      if (!get().fishingReady) { set({ message: '钓具正在准备，请稍候。' }); return }
-      if (Math.hypot(position.x - fishingSpot.x, position.z - fishingSpot.z) > .85) { set({ message: '走到池塘西岸的钓点，再按 F 抛竿。' }); return }
+      if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
+      if (Math.hypot(position.x - fishingSpot.x, position.z - fishingSpot.z) > .85) { set({ message: t('msg.toFishingSpot') }); return }
       set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(), message: '' })
       return
     }
     if (nearby === 'dock') {
-      if (!boatReady) { set({ message: '木船正在准备，请稍候。' }); return }
-      if (!canBoard(position.x, position.z, boat)) { set({ message: '走到木码头靠水的一端，再按 F 上船。' }); return }
+      if (!boatReady) { set({ message: t('msg.boatLoading') }); return }
+      if (!canBoard(position.x, position.z, boat)) { set({ message: t('msg.toDockEnd') }); return }
       set({boatTransfer:{direction:'board',elapsed:0,committed:false},message:''})
       return
     }
     if (nearby === 'grove') {
       if (!planted) {
-        if(!get().growthReady){set({message:'树苗正在准备，请稍候。'});return}
-        if(Math.hypot(position.x-plantingSpot.x,position.z-plantingSpot.z)>1.8){set({message:'走近种植角的空地，再按 F 种下小苗。'});return}
+        if(!get().growthReady){set({message:t('msg.treeLoading')});return}
+        if(Math.hypot(position.x-plantingSpot.x,position.z-plantingSpot.z)>1.8){set({message:t('msg.toPlot')});return}
         const dx=position.x-plantingSpot.x,dz=position.z-plantingSpot.z,d=Math.hypot(dx,dz)
         const stand=d<.65?{x:plantingSpot.x+(d?dx/d:0)*.8,z:plantingSpot.z+(d?dz/d:1)*.8}:position
         set({mode:'planting',position:stand,plantingElapsed:0,message:''})
       } else {get().refreshGrowth();set({inspectingTree:!get().inspectingTree,message:''})}
       return
     }
-    const point = landmarks.find((item) => item.id === nearby)
-    set({ message: point?.hint ?? '' })
+    set({ message: t(`place.${nearby}.hint`) })
   },
   dismiss: () => set({ message: '' }),
 }})

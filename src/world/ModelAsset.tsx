@@ -8,6 +8,7 @@ import type { Group } from 'three'
 import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { modelAssets } from './assets'
 import { useForestStore } from '../game/store'
+import { t, useT } from '../i18n'
 
 export type Locomotion = 'idle' | 'walk' | 'run' | 'interact' | 'fish_cast' | 'fish_hold' | 'fish_reel' | 'fish_land' | 'woodwork' | 'bench_sit_down' | 'bench_sit_idle' | 'bench_stand_up'
 
@@ -71,8 +72,9 @@ export function ModelAsset({ asset, motion, onReadyChange }: {
 }
 
 export function AssetLoadingNotice() {
+  const t = useT()
   const active = useProgress((s) => s.active)
-  return active ? <div className="asset-loading" role="status">正在进入小岛…</div> : null
+  return active ? <div className="asset-loading" role="status">{t('loading')}</div> : null
 }
 
 export class WorldErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
@@ -80,8 +82,8 @@ export class WorldErrorBoundary extends Component<{ children: ReactNode }, { fai
   static getDerivedStateFromError() { return { failed: true } }
   render() {
     if (this.state.failed) return <div className="world-error" role="alert">
-      <p>森林暂时没有加载成功，请重新载入。</p>
-      <button type="button" onClick={() => window.location.reload()}>重新载入</button>
+      <p>{t('error.world')}</p>
+      <button type="button" onClick={() => window.location.reload()}>{t('error.reload')}</button>
     </div>
     return this.props.children
   }

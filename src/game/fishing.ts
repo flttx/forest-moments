@@ -1,6 +1,7 @@
 export const fishingSpot = { x: 1.5, z: -5 }
 export const catchStorageKey = 'forest-moments:fish-book:v1'
 export type FishingPhase = 'casting' | 'waiting' | 'bite' | 'reeling' | 'landing' | 'caught' | 'escaped'
+export type FishingReason = '' | 'early' | 'missed' | 'snapped' | 'tooLong'
 export interface FishingState {
   phase: FishingPhase
   elapsed: number
@@ -10,7 +11,8 @@ export interface FishingState {
   tension: number
   held: boolean
   paused: boolean
-  reason: string
+  /** Why the fish got away; translated as `fishing.<reason>` when shown. */
+  reason: FishingReason
 }
 export interface CatchBook { count: number; bestCm: number; recent: { sizeCm: number; at: string }[] }
 export const emptyBook = (): CatchBook => ({ count: 0, bestCm: 0, recent: [] })
@@ -30,7 +32,7 @@ export function beginFishing(random = Math.random): FishingState {
 export function strikeFish(s: FishingState): FishingState {
   if (s.paused) return { ...s, paused: false, held: false }
   if (s.phase === 'bite') return { ...s, phase: 'reeling', elapsed: 0 }
-  if (s.phase === 'waiting') return { ...s, phase: 'escaped', elapsed: 0, reason: '提竿太早，鱼还没有咬钩。' }
+  if (s.phase === 'waiting') return { ...s, phase: 'escaped', elapsed: 0, reason: 'early' }
   return s
 }
 export function stepFishing(s: FishingState, delta: number): FishingState {
@@ -39,12 +41,12 @@ export function stepFishing(s: FishingState, delta: number): FishingState {
   const next = { ...s, elapsed }
   if (s.phase === 'casting' && elapsed >= 3.2) return { ...next, phase: 'waiting', elapsed: 0 }
   if (s.phase === 'waiting' && elapsed >= s.wait) return { ...next, phase: 'bite', elapsed: 0 }
-  if (s.phase === 'bite' && elapsed >= 2.4) return { ...next, phase: 'escaped', reason: '错过了咬钩，鱼游走了。', held: false }
+  if (s.phase === 'bite' && elapsed >= 2.4) return { ...next, phase: 'escaped', reason: 'missed', held: false }
   if (s.phase === 'landing' && elapsed >= 7 / 6) return { ...next, phase: 'caught', held: false }
   if (s.phase !== 'reeling') return next
   const tension = Math.max(0, s.tension + (s.held ? .25 + .07 * Math.sin(elapsed * 2) : -.38) * dt)
   const progress = Math.max(0, Math.min(1, s.progress + (s.held ? .21 : -.025) * dt))
-  if (tension >= 1 || elapsed >= 30) return { ...next, tension: Math.min(tension, 1), phase: 'escaped', held: false, reason: tension >= 1 ? '鱼线绷得太紧，鱼挣脱了。下次张力高时松开收线。' : '收线太久，鱼挣脱了。' }
+  if (tension >= 1 || elapsed >= 30) return { ...next, tension: Math.min(tension, 1), phase: 'escaped', held: false, reason: tension >= 1 ? 'snapped' : 'tooLong' }
   if (progress >= 1) return { ...next, phase: 'landing', elapsed: 0, progress: 1, tension, held: false }
   return { ...next, progress, tension }
 }
