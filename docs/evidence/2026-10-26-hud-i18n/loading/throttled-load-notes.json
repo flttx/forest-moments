@@ -1,0 +1,16 @@
+{
+  "notes": [
+    {
+      "name": "loading-zh",
+      "samples": 125,
+      "first": "正在准备…",
+      "last": "100%",
+      "monotonic": true
+    },
+    {
+      "errorsBeforeFailureStep": 0,
+      "messages": []
+    }
+  ],
+  "errorsDuringRun": 0
+}
