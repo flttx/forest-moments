@@ -66,6 +66,15 @@ for prop in ids:
         if ratio < 1:
             mod = o.modifiers.new('Decimate', 'DECIMATE'); mod.ratio = ratio; mod.use_collapse_triangulate = True
             bpy.context.view_layer.objects.active = o; bpy.ops.object.modifier_apply(modifier=mod.name)
+    # Lux3D materials come out metallic and glossy; the island is matte (as for the expansion assets), glass and jelly stay smoother.
+    for o in meshes:
+        for m in o.data.materials:
+            bsdf = m.node_tree.nodes.get('Principled BSDF') if m and m.use_nodes else None
+            if bsdf:
+                bsdf.inputs['Metallic'].default_value = 0
+                bsdf.inputs['Roughness'].default_value = {'11': .3, '12': .4}.get(prop, .8)
+                for socket in ('Metallic', 'Roughness'):
+                    for link in list(bsdf.inputs[socket].links): m.node_tree.links.remove(link)
     for image in bpy.data.images:
         if image.size[0] > texture:
             image.scale(texture, texture)

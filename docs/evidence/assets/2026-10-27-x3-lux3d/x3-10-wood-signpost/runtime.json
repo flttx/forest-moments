@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-10-wood-signpost-v1-r2/output-1.glb",
   "sourceSha256": "cf1633749a507214e4cc94817b9554955f50b08f7e2827a22261977ddd5241c6",
   "output": "public/assets/x3/wood-signpost.glb",
-  "outputBytes": 544568,
-  "outputSha256": "3c8bfcf2e59da62e6e898a925eceb5234c446b77a2e511800d649389306d3093",
+  "outputBytes": 526388,
+  "outputSha256": "07aada29b8d59f527c3c6a8edc066878f2b6604373c6ba5487230580ecd9f0c3",
   "trianglesBefore": 48590,
   "trianglesAfter": 16000,
   "sizeMetres": [

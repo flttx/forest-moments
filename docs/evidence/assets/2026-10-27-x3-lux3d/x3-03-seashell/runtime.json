@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-03-seashell-v1/output-1.glb",
   "sourceSha256": "257bf53e83f481a32e563b4d39810d16cfad45937ad00ca43d3bca0b1adde4e6",
   "output": "public/assets/x3/seashell.glb",
-  "outputBytes": 445356,
-  "outputSha256": "38fa959b39f587a9c5b262e5aa5d875de641ff41eee16a7491c64b0d292a7d3d",
+  "outputBytes": 439180,
+  "outputSha256": "9b722d60a5f152db9116bbed8f8aa3053a35c269d15856505ed96edc680f4453",
   "trianglesBefore": 29400,
   "trianglesAfter": 8000,
   "sizeMetres": [

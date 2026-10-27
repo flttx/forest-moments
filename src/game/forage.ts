@@ -1,6 +1,6 @@
 import {vegetationPositions} from '../world/vegetationLayout'
 import {pathEdgeDistance,terrainHeight} from '../world/terrain'
-import {seaLevel} from '../world/worldConfig'
+import {islandShape,seaLevel} from '../world/worldConfig'
 import {canStandAt} from './movement'
 
 /**
@@ -24,11 +24,16 @@ function placeable(x:number,z:number){
  if(!canStandAt(x,z)||pathEdgeDistance(x,z)<.6)return false
  return Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6<.45
 }
+/** Roughly where the ground is drawn as sand (IslandTerrain): the east beach, the south crescent and the low outer shore. */
+export function onSand(x:number,z:number){
+ const r=Math.hypot(x,z),h=terrainHeight(x,z)
+ return (x>30.5&&Math.abs(z)<11)||(z>21&&r>13.5&&h<2.6)||(r>islandShape.plateauRadius-.5&&h<1.8)
+}
 /** First standable point around a plant, trying distances outward and eight bearings from its own yaw. */
 function beside(p:{x:number;z:number;yaw:number;scale:number},from:number,to:number){
  for(let d=from;d<=to+1e-6;d+=.2)for(let k=0;k<8;k++){
   const a=p.yaw+k*Math.PI/4,x=round(p.x+Math.cos(a)*d*p.scale),z=round(p.z+Math.sin(a)*d*p.scale)
-  if(placeable(x,z))return{x,z}
+  if(placeable(x,z)&&!onSand(x,z))return{x,z}
  }
  return null
 }

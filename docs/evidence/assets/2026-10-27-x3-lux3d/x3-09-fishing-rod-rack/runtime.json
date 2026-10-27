@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-09-fishing-rod-rack-v1-r2/output-1.glb",
   "sourceSha256": "ec46b226acbfc86394a84ec05892bee3a8b7df661712b4fc5a9ac3a4cd339fe5",
   "output": "public/assets/x3/fishing-rod-rack.glb",
-  "outputBytes": 650388,
-  "outputSha256": "8a93e5edde7fa0a23fcae6f4ecd475e4dc3b6fd71fa71d949d120cecf625b469",
+  "outputBytes": 617748,
+  "outputSha256": "1ea5f197cfc3dea9fb66b5ea566adf4c733b29a2d12f9974af346654684fd069",
   "trianglesBefore": 49525,
   "trianglesAfter": 16000,
   "sizeMetres": [

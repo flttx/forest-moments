@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-02-berry-twig-v1/output-1.glb",
   "sourceSha256": "4ba446b50fcb1c5b54d509e933b4dee6957d417cbe303ae583ada6b0b350f50e",
   "output": "public/assets/x3/berry-twig.glb",
-  "outputBytes": 371896,
-  "outputSha256": "d7b577809af887dc64f0dab08f584c5b4fe9215fd582aabc79c70f20497b3901",
+  "outputBytes": 360944,
+  "outputSha256": "87aaab42596a7d6511570f6ecb6b9c0e4ef32938f690f16bad1749d6afebaa96",
   "trianglesBefore": 29598,
   "trianglesAfter": 7999,
   "sizeMetres": [

@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-08-birdhouse-v1-r2/output-1.glb",
   "sourceSha256": "75bd2ee33cf9ca52713a926b8336c54cdd1ec81486ea53a304ef172ea6077e49",
   "output": "public/assets/x3/birdhouse.glb",
-  "outputBytes": 619808,
-  "outputSha256": "7ab3b6b22ab35b32237e08d0cc796f92972a7a95cbc83b47da124b983a82ac26",
+  "outputBytes": 601324,
+  "outputSha256": "51ae49b5cae2a7fd86855a5725a08f587b88c290435a57e9a59f28ba8e4a8664",
   "trianglesBefore": 48513,
   "trianglesAfter": 16000,
   "sizeMetres": [

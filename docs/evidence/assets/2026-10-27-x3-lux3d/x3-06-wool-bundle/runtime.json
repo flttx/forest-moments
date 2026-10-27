@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-06-wool-bundle-v1-r2/output-1.glb",
   "sourceSha256": "26d4608137a8e229cef6a5fd525d274b3d0f6294514f8f633c7a8614a0170876",
   "output": "public/assets/x3/wool-bundle.glb",
-  "outputBytes": 347932,
-  "outputSha256": "3d6616091cad8d76a5953944fe1338783bef577ab4ca93c0840f1fbf237497a0",
+  "outputBytes": 341400,
+  "outputSha256": "47cb79f160b58605da987ff0dd9252306c1383751387ab9839d6f81833571182",
   "trianglesBefore": 29428,
   "trianglesAfter": 7999,
   "sizeMetres": [

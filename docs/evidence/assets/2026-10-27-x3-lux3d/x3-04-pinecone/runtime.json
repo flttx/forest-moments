@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-04-pinecone-v1/output-1.glb",
   "sourceSha256": "159fe3fbef6de2a1f034b731b2d46d18093d5d48cc33f43d0cb18cac42571018",
   "output": "public/assets/x3/pinecone.glb",
-  "outputBytes": 396068,
-  "outputSha256": "3d7f737c2e10ec8b6cd766a75e75b1772ac5a53ddcf60d87d294ab05f355266c",
+  "outputBytes": 385828,
+  "outputSha256": "aa3d3027d3700772340dd02b4dcc1e12eda5d581a56c8f600eac0684abd52397",
   "trianglesBefore": 29406,
   "trianglesAfter": 7999,
   "sizeMetres": [

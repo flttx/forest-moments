@@ -1,10 +1,12 @@
 import {expect,it} from 'vitest'
-import {availableSpots,decodeForage,emptyForage,forageKinds,forageSpots,perDay,spotNear,spotsForDay,takeSpot} from './forage'
+import {availableSpots,decodeForage,onSand,emptyForage,forageKinds,forageSpots,perDay,spotNear,spotsForDay,takeSpot} from './forage'
 import {canStandAt} from './movement'
 
 it('has room on the island for every kind, each on standable ground and apart',()=>{
  for(const kind of forageKinds)expect(forageSpots.filter(s=>s.kind===kind).length).toBeGreaterThanOrEqual(perDay[kind]*2)
  for(const s of forageSpots)expect(canStandAt(s.x,s.z)).toBe(true)
+ // Woodland finds stay off the sand; shells are only on it.
+ for(const s of forageSpots)expect(onSand(s.x,s.z)).toBe(s.kind==='shell')
  expect(new Set(forageSpots.map(s=>s.id)).size).toBe(forageSpots.length)
 })
 it('offers a fixed handful per day, different from day to day',()=>{

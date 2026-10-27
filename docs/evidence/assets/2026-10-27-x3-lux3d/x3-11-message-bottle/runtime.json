@@ -4,8 +4,8 @@
   "source": "assets/lux3d/x3-11-message-bottle-v1-r2/output-1.glb",
   "sourceSha256": "223db03e89410bba895e41aaf096eb051dde7a192553501c8df122fc937c562d",
   "output": "public/assets/x3/message-bottle.glb",
-  "outputBytes": 330228,
-  "outputSha256": "6293dc0d0a8a77312bd601782467b2036187032abd3d755f237599eb3c2860d5",
+  "outputBytes": 323308,
+  "outputSha256": "b96ad5ea3e35f6b68e82e46564fca370a316be893db09d8523b6d95eb95c4191",
   "trianglesBefore": 29206,
   "trianglesAfter": 7999,
   "sizeMetres": [
