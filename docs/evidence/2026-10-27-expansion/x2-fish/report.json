@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-27T07:58:27.936Z",
+  "checks": [
+    {
+      "name": "night casts can hook a glowfish",
+      "kinds": [
+        "inkKoi",
+        "glowfish",
+        "koi",
+        "silverfish",
+        "goldKoi"
+      ]
+    },
+    {
+      "name": "landed glowfish is named on the card and glows",
+      "title": "钓到 27 cm 夜光鱼",
+      "tint": {
+        "color": "ffffff",
+        "glow": 1,
+        "visible": true
+      }
+    },
+    {
+      "name": "journal: new kind and glowfish tasks complete",
+      "done": [
+        "newKind:1",
+        "glowfish:1",
+        "tree:0"
+      ]
+    },
+    {
+      "name": "kept fish remembers its kind"
+    },
+    {
+      "name": "field guide lists kinds, found and unknown, after reload",
+      "summary": "已发现 1 / 5 种",
+      "items": [
+        "unknown:？？？:多在白天出没",
+        "unknown:？？？:多在黄昏出没",
+        "unknown:？？？:多在黄昏出没",
+        "unknown:？？？:多在白天出没",
+        "found:夜光鱼:1 尾 · 最大 27 cm"
+      ]
+    },
+    {
+      "name": "satchel tab shows the empty note"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-glowfish-caught.png",
+    "02-field-guide.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}

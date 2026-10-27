@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-27T08:32:28.906Z",
+  "checks": [
+    {
+      "name": "a framed shot of the cabin counts as the cabin",
+      "cabinShot": [
+        "cabin"
+      ]
+    },
+    {
+      "name": "facing away from the cabin does not count",
+      "away": []
+    },
+    {
+      "name": "dusk with the sun in frame counts as a sunset",
+      "sunset": [
+        "sunsetSea"
+      ]
+    },
+    {
+      "name": "night shot near fireflies",
+      "night": [
+        "fireflies"
+      ]
+    },
+    {
+      "name": "journal photo tasks",
+      "done": [
+        "shotCabin:1",
+        "shotSunset:1",
+        "shotFireflies:1"
+      ],
+      "shutterMs": [
+        824,
+        842,
+        527,
+        751
+      ]
+    },
+    {
+      "name": "album filters by what is in frame",
+      "tags": [
+        "全部",
+        "落日海面",
+        "萤火虫",
+        "小屋"
+      ]
+    },
+    {
+      "name": "the hung photo shows on the bedroom wall after reload",
+      "frames": 1
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-cabin.png",
+    "02-sunset.png",
+    "03-fireflies.png",
+    "04-album.png",
+    "05-photo-wall.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}
