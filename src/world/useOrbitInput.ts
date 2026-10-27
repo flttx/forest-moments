@@ -1,7 +1,8 @@
 import {useEffect,type RefObject} from 'react'
 import {useThree} from '@react-three/fiber'
 import {useForestStore} from '../game/store'
-import {usePhotoStore} from '../game/photoStore'
+import {freeCam,usePhotoStore} from '../game/photoStore'
+import {dollyFreeView,turnFreeView} from '../game/freeCamera'
 import {photoOrbit} from '../game/photo'
 import {cancelOrbit,rotateOrbit,zoomOrbit,orbitConfig,type Orbit} from '../game/orbitCamera'
 
@@ -23,13 +24,18 @@ export function useOrbitInput(orbit:RefObject<Orbit>,dragging:RefObject<boolean>
    if(!(e.buttons&2)||!enabled()){stop();return}
    const previous=last;last={x:e.clientX,y:e.clientY};if(!previous)return
    const dx=e.clientX-previous.x,dy=e.clientY-previous.y,s=useForestStore.getState()
-   if(s.mode==='lookout')s.turnLookout(-dx*.004,dy*.003)
+   const photo=usePhotoStore.getState()
+   if(photo.active&&photo.free){if(freeCam.view)freeCam.view=turnFreeView(freeCam.view,dx,dy)}
+   else if(s.mode==='lookout')s.turnLookout(-dx*.004,dy*.003)
    else if(usePhotoStore.getState().active)rotateOrbit(orbit.current,dx,dy,photoOrbit.minPitch,photoOrbit.maxPitch)
    else rotateOrbit(orbit.current,dx,dy)
   }
   const up=(e:PointerEvent)=>{if(e.pointerId===pointer&&!(e.buttons&2))stop()}
   const menu=(e:MouseEvent)=>e.preventDefault()
   const wheel=(e:WheelEvent)=>{
+   const flying=usePhotoStore.getState()
+   // In free framing the wheel moves the camera along its view.
+   if(enabled()&&flying.active&&flying.free){e.preventDefault();if(freeCam.view)freeCam.view=dollyFreeView(freeCam.view,-e.deltaY*.01);return}
    if(!enabled()||useForestStore.getState().mode==='lookout')return
    e.preventDefault();const photo=usePhotoStore.getState().active,pixels=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?canvas.clientHeight:1)
    if(photo)zoomOrbit(orbit.current,pixels,useForestStore.getState().location==='island'?photoOrbit.maxZoom:orbitConfig.indoorMaxZoom,photoOrbit.minZoom)

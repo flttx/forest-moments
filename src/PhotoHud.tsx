@@ -40,11 +40,12 @@ export function PhotoHud(){
    <div className="photo-lights" role="group" aria-label={t('photo.light')}>
     {lights.map(l=><button key={l} type="button" className="tool-button" aria-pressed={light===l} onClick={()=>s.setLight(l)}>{t(`photo.light.${l}` as const)}</button>)}
    </div>
+   <button type="button" className="tool-button" aria-pressed={s.free} title={t('photo.freeHint')} onClick={s.toggleFree}>{t('photo.free')}</button>
    <button type="button" className="tool-button" aria-pressed={s.hideRaccoon} onClick={s.toggleHideRaccoon}>{t('photo.hideRaccoon')}</button>
    <button type="button" className="shutter" aria-label={t('photo.shutter')} title={`${t('photo.shutter')} (Space)`} aria-busy={s.pending} onClick={s.shutter}><Icon name="camera" size={22}/></button>
    <button type="button" className="tool-button icon-only" aria-label={t('photo.close')} title={`${t('photo.close')} (Esc)`} onClick={s.exit}><Icon name="close"/></button>
   </div>
-  <p className="ink-note photo-hint">{t('photo.hint')}</p>
+  <p className="ink-note photo-hint">{t(s.free?'photo.hintFree':'photo.hint')}</p>
   {s.last&&<figure className="paper-note photo-last">
    <img src={s.last.url} alt={t('photo.taken')}/>
    <figcaption>{t('photo.taken')}{s.last.saved?` · ${t('photo.savedAlbum')}`:''}</figcaption>

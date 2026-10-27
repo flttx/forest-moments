@@ -5,6 +5,7 @@ import {useJournalStore} from './journalStore'
 import {playSound} from '../audio/audioStore'
 import {filterUnlock,frameUnlock,looksUnlocked,photoBlock,photoFileName,type FilterId,type FrameId} from './photo'
 import {composeFrame} from './photoFrame'
+import type {FreeView} from './freeCamera'
 import {makeThumb,savePhoto} from './photoAlbum'
 
 type Light=ReturnType<typeof useForestStore.getState>['timeOfDay']
@@ -13,6 +14,8 @@ export interface LastShot{id:string;url:string;name:string;saved:boolean}
 type PhotoState={
  active:boolean
  hideRaccoon:boolean
+ /** Free framing: the camera is flown by hand near the raccoon instead of orbiting it. */
+ free:boolean
  filter:FilterId
  frame:FrameId
  /** The light the player was in before previewing another one; restored on leaving. */
@@ -26,6 +29,7 @@ type PhotoState={
  enter:()=>void
  exit:()=>void
  toggleHideRaccoon:()=>void
+ toggleFree:()=>void
  setFilter:(id:FilterId)=>void
  setFrame:(id:FrameId)=>void
  setLight:(light:Light)=>void
@@ -35,13 +39,15 @@ type PhotoState={
  dismissLast:()=>void
 }
 
+/** The hand-flown camera's view: changes every frame, so it lives outside the reactive state. */
+export const freeCam:{view:FreeView|null}={view:null}
 /** Stamped journal pages: each one unlocks the next look. */
 export const pagesFilled=()=>useJournalStore.getState().book.stamps.length
 const say=(message:string,kind:'info'|'error'='info')=>useForestStore.setState({message,messageKind:kind})
 const forget=(shot:LastShot|null)=>{if(shot)URL.revokeObjectURL(shot.url)}
 
 export const usePhotoStore=create<PhotoState>((set,get)=>({
- active:false,hideRaccoon:false,filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
+ active:false,hideRaccoon:false,free:false,filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
  enter:()=>{
   const forest=useForestStore.getState()
   if(get().active)return
@@ -58,10 +64,13 @@ export const usePhotoStore=create<PhotoState>((set,get)=>({
   if(!active)return
   forget(last)
   useForestStore.setState({menuPaused:false,...(restoreLight?{timeOfDay:restoreLight}:{})})
-  set({active:false,hideRaccoon:false,filter:'plain',frame:'none',restoreLight:null,pending:false,last:null})
+  freeCam.view=null
+  set({active:false,hideRaccoon:false,free:false,filter:'plain',frame:'none',restoreLight:null,pending:false,last:null})
   playSound('ui-close',{volume:.7})
  },
  toggleHideRaccoon:()=>{if(get().active)set({hideRaccoon:!get().hideRaccoon})},
+ // The scene starts the free view from wherever the camera is when it finds free mode without one.
+ toggleFree:()=>{if(get().active){freeCam.view=null;set({free:!get().free})}},
  setFilter:id=>{if(get().active&&looksUnlocked(pagesFilled(),filterUnlock[id]))set({filter:id})},
  setFrame:id=>{if(get().active&&looksUnlocked(pagesFilled(),frameUnlock[id]))set({frame:id})},
  // A look at another time of day is for the picture only: it is put back on leaving and never saved.

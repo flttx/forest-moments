@@ -7,7 +7,8 @@ import {useOrbitInput} from './useOrbitInput'
 import {ScaleReview} from './ScaleReview'
 import {PostEffects} from './PostEffects'
 import {PhotoCapture} from './PhotoCapture'
-import {usePhotoStore} from '../game/photoStore'
+import {freeCam,usePhotoStore} from '../game/photoStore'
+import {constrainFreePosition,freeSpeed,lookDirection,moveFreeView,viewFromDirection} from '../game/freeCamera'
 import {clampOrbitTargets,photoOrbit} from '../game/photo'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Suspense, useCallback, useEffect, useMemo, useRef } from 'react'
@@ -207,6 +208,7 @@ function Player() {
     const photoActive=usePhotoStore.getState().active
     // Photo mode holds the game but still turns the view and the tower look-around.
     const look=photoActive?pressed.current:null
+    const freeLook=photoActive&&usePhotoStore.getState().free
     const keys = hold ? new Set<string>() : pressed.current
     const x = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'))
     const z = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'))
@@ -223,7 +225,7 @@ function Player() {
     if(doorway)character.rotation.y=outside?Math.PI:0
     if(homeCommitted||workshopCommitted||lookoutCommitted||transferCommitted){Object.assign(orbit.current,createOrbit(character.rotation.y+(outside?Math.PI-.5:0)));movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(!transferring&&!state.inspectingTree&&(state.mode==='walking'||state.mode==='rowing'||state.mode==='sitting')){
-      const turn=Number((look??keys).has('KeyQ'))-Number((look??keys).has('KeyE'))
+      const turn=freeLook?0:Number((look??keys).has('KeyQ'))-Number((look??keys).has('KeyE'))
       rotateOrbit(orbit.current,turn*orbitConfig.keySpeed*dt/orbitConfig.yawPerPixel,0,photoActive?photoOrbit.minPitch:undefined,photoActive?photoOrbit.maxPitch:undefined)
       if(dragging.current)orbit.current.idle=0
       stepOrbit(orbit.current,dt,motionPreference.matches,state.mode==='rowing'&&!photoActive?state.boat.heading-Math.PI/2:undefined)
@@ -285,8 +287,22 @@ function Player() {
     }
     if (state.mode === 'walking') updatePosition(character.position.x, character.position.z)
     const current = useForestStore.getState()
+    if(freeLook){
+      // Hand-flown camera: starts where the camera is, then keeps to the raccoon's surroundings.
+      let view=freeCam.view
+      if(!view){const d=new THREE.Vector3();camera.getWorldDirection(d);view=viewFromDirection(camera.position,d)}
+      const k=pressed.current,has=(a:string,b:string)=>k.has(a)||k.has(b)
+      view=moveFreeView(view,{forward:Number(has('KeyW','ArrowUp'))-Number(has('KeyS','ArrowDown')),right:Number(has('KeyD','ArrowRight'))-Number(has('KeyA','ArrowLeft')),up:Number(k.has('KeyE'))-Number(k.has('KeyQ'))},freeSpeed*dt)
+      const inside=current.location!=='island',boxes=current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes
+      const centre=current.mode==='rowing'?{x:current.boat.x,y:seaLevel+.5,z:current.boat.z}:{x:character.position.x,y:character.position.y+.5,z:character.position.z}
+      const safe=constrainFreePosition(view,centre,{boxes,crowns:inside?[]:canopySpheres,floor:inside?()=>0:(x,z)=>Math.max(groundHeightAt(x,z),seaLevel),room:inside?{x:3.72,z:2.72,ceiling:3.05}:undefined})
+      view={...view,...safe};freeCam.view=view
+      const d=lookDirection(view)
+      camera.position.set(view.x,view.y,view.z);camera.lookAt(view.x+d.x,view.y+d.y,view.z+d.z)
+      return
+    }
     if(current.mode==='lookout'){
-      if(!transferring){const lx=look?Number(look.has('KeyD')||look.has('ArrowRight'))-Number(look.has('KeyA')||look.has('ArrowLeft')):x,lz=look?Number(look.has('KeyS')||look.has('ArrowDown'))-Number(look.has('KeyW')||look.has('ArrowUp')):z;current.turnLookout(-lx*dt*.7,-lz*dt*.4)}
+      if(!transferring&&!freeLook){const lx=look?Number(look.has('KeyD')||look.has('ArrowRight'))-Number(look.has('KeyA')||look.has('ArrowLeft')):x,lz=look?Number(look.has('KeyS')||look.has('ArrowDown'))-Number(look.has('KeyW')||look.has('ArrowUp')):z;current.turnLookout(-lx*dt*.7,-lz*dt*.4)}
       const {yaw,pitch}=useForestStore.getState().lookoutView
       camera.position.set(lookoutEye.x,lookoutEye.y,lookoutEye.z)
       camera.lookAt(lookoutEye.x+Math.sin(yaw)*Math.cos(pitch),lookoutEye.y+Math.sin(pitch),lookoutEye.z+Math.cos(yaw)*Math.cos(pitch))

@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-27T03:21:23.832Z",
+  "checks": [
+    {
+      "name": "free camera flies with WASD while the raccoon stays",
+      "start": [
+        6.933093040018805,
+        3.940770892135514,
+        -6.9330930400187984
+      ],
+      "ahead": [
+        3.522575612966124,
+        3.940770892135514,
+        -3.522575612966133
+      ]
+    },
+    {
+      "name": "Q/E fly down and up"
+    },
+    {
+      "name": "right-drag turns the view (travel follows it); the wheel dollies"
+    },
+    {
+      "name": "stays within 15 m of the raccoon and above the ground",
+      "cam": [
+        -14.01807927655938,
+        0.3,
+        3.343340203700122
+      ],
+      "ground": 0
+    },
+    {
+      "name": "a photo can be taken from the free camera"
+    },
+    {
+      "name": "toggling off returns to the orbit; Esc leaves photo mode"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-free-start.png",
+    "02-far-edge.png",
+    "03-low.png",
+    "04-back-to-orbit.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}
