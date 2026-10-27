@@ -1,3 +1,4 @@
+import {constellation} from '../game/secrets'
 import {daylightAt,lanternPower} from '../game/dayCycle'
 import {dayLighting} from './dayLighting'
 import {useForestStore} from '../game/store'
@@ -111,7 +112,7 @@ export function Atmosphere() {
   const uniforms=useMemo(()=>({
     time, top:{value:new THREE.Color(palette.top)}, horizon:{value:new THREE.Color(palette.horizon)},
     sunlight:{value:new THREE.Color(palette.sun)}, sun:{value:palette.sunPosition.clone().normalize()},
-    night:{value:0},disc:{value:1},stargaze:{value:0},meteorA:{value:new THREE.Vector3(0,1,0)},meteorB:{value:new THREE.Vector3(0,1,0)},meteorT:{value:0},moon:{value:new THREE.Vector3(-24,32,-32).normalize()},haze:{value:new THREE.Color(palette.haze)},
+    night:{value:0},disc:{value:1},stargaze:{value:0},meteorA:{value:new THREE.Vector3(0,1,0)},meteorB:{value:new THREE.Vector3(0,1,0)},meteorT:{value:0},conStars:{value:constellation.stars.map(d=>new THREE.Vector3(...d))},moon:{value:new THREE.Vector3(-24,32,-32).normalize()},haze:{value:new THREE.Color(palette.haze)},
   }),[time,palette])
   useEffect(()=>{
     const {gl,scene}=get()
@@ -159,9 +160,10 @@ export function Atmosphere() {
       <shaderMaterial ref={skyMaterial} side={THREE.BackSide} depthWrite={false} uniforms={uniforms}
         vertexShader={`varying vec3 vDirection;void main(){vDirection=position;vec4 p=projectionMatrix*modelViewMatrix*vec4(position,1.0);gl_Position=p.xyww;}`}
         fragmentShader={/* glsl */ `
-          varying vec3 vDirection;uniform float time;uniform float night;uniform float stargaze;uniform vec3 meteorA;uniform vec3 meteorB;uniform float meteorT;
+          varying vec3 vDirection;uniform float time;uniform float night;uniform float stargaze;uniform vec3 meteorA;uniform vec3 meteorB;uniform float meteorT;uniform vec3 conStars[7];
           uniform vec3 top;uniform vec3 horizon;uniform vec3 sunlight;uniform vec3 sun;uniform vec3 moon;uniform float disc;uniform vec3 haze;
           ${noiseGLSL}
+          void conLine(vec3 d,vec3 a,vec3 b,inout vec3 colour,float night){a=normalize(a);b=normalize(b);vec3 seg=b-a;float h=clamp(dot(d-a,seg)/dot(seg,seg),0.0,1.0);float l=length(d-(a+seg*h));colour+=vec3(.85,.9,1.0)*smoothstep(.0016,.0,l)*night*.22*step(.0,dot(d,a));}
           float cloud(vec2 p){return noise21(p)*.57+noise21(p*2.03+17.1)*.28+noise21(p*4.1+9.2)*.15;}
           void main(){
             vec3 d=normalize(vDirection);
@@ -179,6 +181,9 @@ export function Atmosphere() {
             colour=mix(colour,shade,alpha);
             vec2 stars=d.xz/(d.y+.9)*210.0;float star=step(.997-.0035*stargaze,hash21(floor(stars)))*(1.0-smoothstep(.02,.13,length(fract(stars)-.5)));
             colour+=vec3(star*night*(1.0+1.6*stargaze)*smoothstep(.06,.25,d.y)*(1.0-alpha*(1.0-.5*stargaze)));
+            // The raccoon constellation (hidden corner): seven steady stars joined by faint lines.
+            for(int i=0;i<7;i++){float a=acos(clamp(dot(d,normalize(conStars[i])),-1.0,1.0));colour+=vec3(1.0,.97,.88)*smoothstep(.0045,.0012,a)*night*(1.2+stargaze);}
+            conLine(d,conStars[0],conStars[2],colour,night);conLine(d,conStars[1],conStars[2],colour,night);conLine(d,conStars[2],conStars[3],colour,night);conLine(d,conStars[3],conStars[4],colour,night);conLine(d,conStars[4],conStars[5],colour,night);conLine(d,conStars[5],conStars[6],colour,night);
             if(meteorT>0.0){vec3 head=normalize(mix(meteorA,meteorB,meteorT)),tail=normalize(mix(meteorA,meteorB,max(0.0,meteorT-.3)));vec3 seg=head-tail;
               float h=clamp(dot(d-tail,seg)/max(dot(seg,seg),1e-6),0.0,1.0);float l=length(d-(tail+seg*h));
               colour+=vec3(1.0,.96,.86)*smoothstep(.0022,.0,l)*h*night*sin(meteorT*3.14159)*1.6;}

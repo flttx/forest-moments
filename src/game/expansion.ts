@@ -1,3 +1,4 @@
+import {furnitureAt} from './furniture'
 import {isSpecies,type SpeciesId} from './fishSpecies'
 import {smoothRange} from '../world/worldConfig'
 export const cabin={x:-15,z:-28,halfX:3.4,halfZ:2.8,doorZ:-24.5}
@@ -58,6 +59,7 @@ const bridgeDeck=[.6354,.6339,.631,.6231,.612,.5902,.5728,.5486,.5249,.4967,.451
 export function bridgeHeight(z:number){const t=Math.min(15,Math.abs(z-bridge.z)/.2),i=Math.min(14,Math.floor(t));return 6+bridgeDeck[i]+(bridgeDeck[i+1]-bridgeDeck[i])*(t-i)}
 export function canStandInBedroom(x:number,z:number){
  if(!Number.isFinite(x)||!Number.isFinite(z)||Math.abs(x)>3.65||Math.abs(z)>2.65)return false
+ if(furnitureAt('bedroom',x,z,.28))return false
  return ![{x:-2.2,z:-.65,hx:.85,hz:1.45},{x:2.3,z:-1.3,hx:.72,hz:.31}].some(b=>Math.hypot(Math.max(Math.abs(x-b.x)-b.hx,0),Math.max(Math.abs(z-b.z)-b.hz,0))<.28)
 }
 export function moveInBedroom(p:{x:number;z:number},dx:number,dz:number){let{x,z}=p;if(![x,z,dx,dz].every(Number.isFinite))return p;const n=Math.max(1,Math.ceil(Math.hypot(dx,dz)/.1));for(let i=0;i<n;i++){if(canStandInBedroom(x+dx/n,z))x+=dx/n;if(canStandInBedroom(x,z+dz/n))z+=dz/n}return{x,z}}

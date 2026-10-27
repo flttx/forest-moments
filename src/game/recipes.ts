@@ -15,7 +15,9 @@ export const recipes:Record<RecipeId,{cost:ItemCounts}>={
 }
 export const isRecipe=(id:unknown):id is RecipeId=>typeof id==='string'&&(recipeIds as readonly string[]).includes(id)
 export const woodPerDay=2
-export const madeOf=(book:WorkshopBook):RecipeId[]=>book.made??[]
+// One shared empty list: components subscribe to this, and a fresh [] each call would re-render forever.
+const none:RecipeId[]=[]
+export const madeOf=(book:WorkshopBook):RecipeId[]=>book.made??none
 export type RecipeBlock='stool'|'made'|'materials'
 /** Why a recipe cannot be started now, or null. `have` is the satchel's counts. */
 export function recipeBlock(book:WorkshopBook,have:ItemCounts,id:RecipeId):RecipeBlock|null{

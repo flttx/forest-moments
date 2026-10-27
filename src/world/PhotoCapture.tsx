@@ -5,6 +5,7 @@ import {useForestStore} from '../game/store'
 import {daylightAt} from '../game/dayCycle'
 import {dayLighting} from './dayLighting'
 import {subjectsIn,type SubjectId} from '../game/photoSubjects'
+import {constellation} from '../game/secrets'
 
 // Small scattered dressing that should not count as blocking the view.
 const seeThrough=/^(grass|path-embedded|pond-reeds|pond-lily)/
@@ -25,7 +26,8 @@ function judge(scene:THREE.Scene,camera:THREE.Camera):SubjectId[]{
  const outside=s.location==='island'
  return subjectsIn({light:s.timeOfDay,mode:s.mode,seat:s.sitting?.phase==='idle'?s.sitting.id:null,fireLit:s.homeBook.fireLit,raccoonShown:!photo.hideRaccoon&&s.mode!=='rowing'&&s.mode!=='lookout',
   raccoon:boxOf(scene,'asset-raccoon'),cabin:outside?boxOf(scene,'expansion-cabin'):null,campfire:outside?boxOf(scene,'campfire'):null,
-  sun:dayLighting(daylightAt(s),s.sunRising).sunPosition.clone().normalize(),fireflies:outside?fireflies:[],camera:camera.position.clone(),viewProjection,clear})
+  sun:dayLighting(daylightAt(s),s.sunRising).sunPosition.clone().normalize(),fireflies:outside?fireflies:[],
+  jellyfish:outside?scene.getObjectByName('secret-jellyfish')?.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.25,0))??null:null,constellation:new THREE.Vector3(...constellation.centre),camera:camera.position.clone(),viewProjection,clear})
 }
 
 /**

@@ -4,8 +4,9 @@ import {useForestStore} from './game/store'
 import {useInventoryStore} from './game/inventoryStore'
 import {itemIds} from './game/inventory'
 import {bestLight,speciesIds} from './game/fishSpecies'
+import {secretIds} from './game/secrets'
 
-const tabs=[['fish','catalog.fish'],['satchel','catalog.satchel']] as const
+const tabs=[['fish','catalog.fish'],['satchel','catalog.satchel'],['secrets','catalog.secrets']] as const
 type Tab=typeof tabs[number][0]
 
 /** Every kind of fish: found ones with their tally, the rest as a silhouette and when they might bite. */
@@ -29,6 +30,13 @@ function SatchelPage(){
  return <ul className="satchel-list">{found.map(id=><li key={id}><span>{t(`item.${id}` as Key)}</span><span className="satchel-count">× {inv.items[id]??0}</span></li>)}</ul>
 }
 
+/** Hidden corners: found ones with when; the rest as a hint, never a map marker. */
+function SecretsPage(){
+ const t=useT(),lang=useLang(s=>s.lang),found=useForestStore(s=>s.secretsBook.found)
+ return <ul className="species-list">{secretIds.map(id=>{const at=found[id]
+  return <li key={id} className={at?'found':'unknown'}><span className="species-swatch secret-swatch" aria-hidden="true"/><strong>{at?t(`secret.${id}`):t('fish.unknown')}</strong><small>{at?new Date(at).toLocaleDateString(lang==='zh'?'zh-CN':'en-GB'):t(`secret.${id}.hint`)}</small></li>})}</ul>
+}
+
 /** The field guide: one tab per kind of find; arrow keys move between tabs. */
 export function CatalogPanel(){
  const t=useT(),[tab,setTab]=useState<Tab>('fish'),refs=useRef<(HTMLButtonElement|null)[]>([])
@@ -41,6 +49,6 @@ export function CatalogPanel(){
   <div className="catalog-tabs" role="tablist" aria-label={t('menu.fishbook')} onKeyDown={move}>
    {tabs.map(([id,label],i)=><button key={id} ref={el=>{refs.current[i]=el}} type="button" role="tab" id={`catalog-tab-${id}`} aria-selected={tab===id} aria-controls="catalog-page" tabIndex={tab===id?0:-1} className="tool-button" onClick={()=>setTab(id)}>{t(label)}</button>)}
   </div>
-  <div id="catalog-page" role="tabpanel" aria-labelledby={`catalog-tab-${tab}`}>{tab==='fish'?<FishPage/>:<SatchelPage/>}</div>
+  <div id="catalog-page" role="tabpanel" aria-labelledby={`catalog-tab-${tab}`}>{tab==='fish'?<FishPage/>:tab==='satchel'?<SatchelPage/>:<SecretsPage/>}</div>
  </div>
 }

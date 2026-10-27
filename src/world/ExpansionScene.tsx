@@ -2,6 +2,7 @@ import {dressFish} from './fishLook'
 import {kindOf} from '../game/fishing'
 import {roastSeconds} from '../game/campfire'
 import {PhotoWall} from './PhotoWall'
+import {Furniture} from './Furniture'
 import {useEffect,useMemo,useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {useGLTF} from '@react-three/drei'
@@ -149,6 +150,7 @@ export function Bedroom(){
   <TankResidents/>
   </group>
   <PhotoWall/>
+  <Furniture place="bedroom"/>
   <hemisphereLight args={['#ffe5bc','#463223',1.1]}/>
   <pointLight position={[0,2.8,.4]} color="#ffd4a0" intensity={18} distance={9} castShadow shadow-mapSize={[512,512]} shadow-bias={-.001}/>
   <pointLight position={[0,2.1,-2.2]} color={day?'#d4e4e5':'#97b4dc'} intensity={day?7:2} distance={5}/>

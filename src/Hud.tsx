@@ -116,9 +116,10 @@ const modeHints:Record<ModeHint,Key>={rowing:'hint.rowing',lookout:'hint.lookout
 /** A mode's own controls, shown the first time only; afterwards just the current action remains. */
 function ModeHintLine(){
  const t=useT()
- const mode=useForestStore(s=>s.mode),active=useUiStore(s=>s.activeHint),enterMode=useUiStore(s=>s.enterMode)
+ const mode=useForestStore(s=>s.mode),active=useUiStore(s=>s.activeHint),enterMode=useUiStore(s=>s.enterMode),photo=usePhotoStore(s=>s.active)
  useEffect(()=>enterMode(mode),[mode,enterMode])
- return active&&active===mode?<p className="ink-note mode-hint">{t(modeHints[active])}</p>:null
+ // The camera has its own strip; mode hints would sit on top of it.
+ return active&&active===mode&&!photo?<p className="ink-note mode-hint">{t(modeHints[active])}</p>:null
 }
 
 function Prompt(){

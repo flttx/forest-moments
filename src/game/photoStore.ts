@@ -102,6 +102,7 @@ export const usePhotoStore=create<PhotoState>((set,get)=>({
   const shot:LastShot={id,url:URL.createObjectURL(blob),name:photoFileName(at),saved:false,subjects}
   set(s=>({flash:s.flash+1,last:shot}))
   useJournalStore.getState().record([{type:'photo',night,subjects}])
+  for(const id of subjects)if(id==='jellyfish'||id==='constellation')useForestStore.getState().discoverSecret(id)
   const saved=await savePhoto({id,at:at.toISOString(),night,width,height,subjects,image:blob,thumb:await makeThumb(blob)})
   if(!saved)say(t('photo.unsaved'),'error')
   set(s=>({albumVersion:s.albumVersion+1,last:s.last?.id===id?{...s.last,saved}:s.last}))

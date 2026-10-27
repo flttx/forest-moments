@@ -1,3 +1,4 @@
+import {furnitureAt} from './furniture'
 import {cabin,camp,seats,reefs,bridge,creekDistance,onBridge,bridgeHeight} from './expansion'
 import { lookoutPosition, modelAssets, workshopPosition } from '../world/assets'
 import { islandShape, terrainHeight, pathEdgeDistance } from '../world/terrain'
@@ -93,6 +94,7 @@ export function standBlocker(x: number, z: number,treeRadius=0,workshopPhase:Wor
   // Each reef's ellipse fits the rock that stands above its own patch of sand (foot: u0,u1,w0,w1 in its frame).
   if(reefs.some(r=>{const dx=x-r.x,dz=z-r.z,[u0,u1,w0,w1]=r.foot,u=(dx*Math.cos(r.yaw)-dz*Math.sin(r.yaw)-(u0+u1)/2)/((u1-u0)/2+radius),v=(dx*Math.sin(r.yaw)+dz*Math.cos(r.yaw)-(w0+w1)/2)/((w1-w0)/2+radius);return u*u+v*v<1}))return 'reef'
   const rect=rects.find(r=>rectDistance(x,z,r)<radius);if(rect)return rect.name
+  const piece=furnitureAt('island',x,z,radius);if(piece)return `furniture:${piece}`
   const rock=[...rocks,...pathStoneColliders].find(r=>Math.hypot(x-r.x,z-r.z)<radius+r.r);if(rock)return rock.name
   if(seats.some(s=>{const dx=x-s.x,dz=z-s.z;return Math.abs(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))<1.2&&Math.abs(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))<.53}))return 'bench'
   const onDock=isDockSurface(x,z,radius)

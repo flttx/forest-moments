@@ -1,3 +1,4 @@
+import {bottleReach,bottleSpot} from './secrets'
 import {t} from '../i18n'
 import {bedSpot,cabin,camp,seats,seatOrigin,tankSpot} from './expansion'
 import {brushSpot,eggReady,eggSpot,feedSpot,woolReady} from './farm'
@@ -41,6 +42,7 @@ export function promptFor(s:State):Prompt|null{
  }
  if(s.location==='island'){
   if(seats.some(v=>near(p,seatOrigin(v),1.3)))return{action:t('prompt.sit')}
+  if(s.mode==='walking'&&near(p,bottleSpot,bottleReach))return{action:t('prompt.bottle')}
   const spot=s.mode==='walking'?spotNear(p,s.forageBook,s.homeBook.nights):null
   if(spot)return{action:t('prompt.forage',{item:t(`item.${spot.kind}`)})}
   if(s.mode==='walking'&&near(p,logPile,1.4))return woodReady(s.workshopBook,s.homeBook.nights)?{action:t('prompt.wood')}:{hint:t('msg.woodTaken')}

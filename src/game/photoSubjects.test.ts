@@ -7,7 +7,7 @@ function view(position:[number,number,number],target:[number,number,number]){
  return{camera:camera.position.clone(),viewProjection:new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse)}
 }
 const box=(cx:number,cy:number,cz:number,h:number)=>new THREE.Box3(new THREE.Vector3(cx-h,cy-h,cz-h),new THREE.Vector3(cx+h,cy+h,cz+h))
-const shot=(over:Partial<Shot>={}):Shot=>({light:'day',mode:'walking',seat:null,fireLit:false,raccoonShown:true,raccoon:null,cabin:null,campfire:null,sun:new THREE.Vector3(1,.05,0).normalize(),fireflies:[],...view([0,1.5,0],[0,1.5,-10]),clear:()=>true,...over})
+const shot=(over:Partial<Shot>={}):Shot=>({light:'day',mode:'walking',seat:null,fireLit:false,raccoonShown:true,raccoon:null,cabin:null,campfire:null,sun:new THREE.Vector3(1,.05,0).normalize(),fireflies:[],jellyfish:null,constellation:new THREE.Vector3(0,1,0),...view([0,1.5,0],[0,1.5,-10]),clear:()=>true,...over})
 
 it('measures how much of a box is in the picture',()=>{
  const {viewProjection}=view([0,0,0],[0,0,-10])
@@ -45,4 +45,14 @@ it('the raccoon by the fire needs it seated at camp, shown, with the lit fire in
  expect(subjectsIn(shot({...seated,raccoonShown:false}))).toEqual([])
  expect(subjectsIn(shot({...seated,fireLit:false}))).toEqual([])
  expect(subjectsIn(shot({...seated,seat:'coast'}))).toEqual([])
+})
+
+it('hidden corners: the jellyfish close by at night, and the constellation in a night sky',()=>{
+ const jelly=new THREE.Vector3(.3,1.2,-6)
+ expect(subjectsIn(shot({light:'night',jellyfish:jelly}))).toEqual(['jellyfish'])
+ expect(subjectsIn(shot({light:'day',jellyfish:jelly}))).toEqual([])
+ expect(subjectsIn(shot({light:'night',jellyfish:new THREE.Vector3(0,1.2,-30)}))).toEqual([])
+ const up={...view([0,1.5,0],[0,12,-8]),constellation:new THREE.Vector3(0,.8,-.6).normalize()}
+ expect(subjectsIn(shot({...up,light:'night'}))).toEqual(['constellation'])
+ expect(subjectsIn(shot({...up,light:'dusk'}))).toEqual([])
 })

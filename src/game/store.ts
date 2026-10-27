@@ -1,3 +1,4 @@
+import {bottleReach,bottleSpot,decodeSecrets,discover,emptySecrets,secretsStorageKey,type SecretId,type SecretsBook} from './secrets'
 import {madeOf,woodPerDay,woodReady,type RecipeId} from './recipes'
 import {logPile} from '../world/settlement'
 import {decodeForage,emptyForage,forageSeconds,forageStorageKey,spotNear,takeSpot,type ForageBook} from './forage'
@@ -52,6 +53,9 @@ type ForestState = {
   /** The latest thing the island gave (gathering, farm); the satchel takes it from here. */
   harvest:{seq:number;item:ItemId;n?:number}|null
   tickForage:(delta:number)=>void
+  /** Hidden corners found, with when. */
+  secretsBook:SecretsBook
+  discoverSecret:(id:SecretId)=>void
   toggleStargaze:()=>void
   sit:(id:SeatId)=>void
   keepFish:(id:string)=>void
@@ -122,6 +126,7 @@ type ForestState = {
 }
 
 // tickHome names its transfer `t`; the notice is worded out here.
+const secretNotice=(id:SecretId,saved:boolean)=>(id==='bottle'?t('secret.bottleNote')+' ':'')+t(saved?'secret.found':'secret.foundUnsaved',{name:t(`secret.${id}`)})
 const craftNotice=(id:RecipeId,saved:boolean)=>t(saved?'msg.made':'msg.madeUnsaved',{item:t(`recipe.${id}`)})
 const nearLogPile=(p:{x:number;z:number})=>Math.hypot(p.x-logPile.x,p.z-logPile.z)<1.4
 const forageNotice=(item:ItemId)=>t(item==='wool'?'msg.brushed':'msg.foraged',{item:t(`item.${item}`)})
@@ -150,6 +155,12 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   roast:null,roasted:0,stargazing:false,
   forageBook:(()=>{if(typeof window==='undefined')return emptyForage();try{return decodeForage(window.localStorage.getItem(forageStorageKey))??emptyForage()}catch{return emptyForage()}})(),
   foraging:null,harvest:null,
+  secretsBook:(()=>{if(typeof window==='undefined')return emptySecrets();try{return decodeSecrets(window.localStorage.getItem(secretsStorageKey))??emptySecrets()}catch{return emptySecrets()}})(),
+  discoverSecret:id=>{
+    const book=discover(get().secretsBook,id,new Date().toISOString());if(book===get().secretsBook)return
+    let saved=true;try{window.localStorage.setItem(secretsStorageKey,JSON.stringify(book))}catch{saved=false}
+    set({secretsBook:book,messageKind:saved?'info':'error',message:secretNotice(id,saved)})
+  },
   tickForage:delta=>{
     const s=get(),f=s.foraging;if(s.mode!=='foraging'||!f||s.menuPaused||!Number.isFinite(delta))return
     const elapsed=f.elapsed+Math.min(Math.max(delta,0),.05)
@@ -355,6 +366,8 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(get().location==='island'){
       const seat=seats.find(v=>Math.hypot(position.x-seatOrigin(v).x,position.z-seatOrigin(v).z)<1.3)
       if(seat){get().sit(seat.id);return}
+      // The bottle on the south crescent: read its note (found the first time).
+      if(mode==='walking'&&Math.hypot(position.x-bottleSpot.x,position.z-bottleSpot.z)<bottleReach){if(get().secretsBook.found.bottle)set({message:t('secret.bottleNote'),messageKind:'info'});else get().discoverSecret('bottle');return}
       const spot=mode==='walking'?spotNear(position,get().forageBook,get().homeBook.nights):null
       if(spot){set({mode:'foraging',foraging:{item:spot.kind,source:'forage',spotId:spot.id,x:spot.x,z:spot.z,seconds:forageSeconds,elapsed:0},inspectingTree:false,message:''});return}
       if(mode==='walking'&&nearLogPile(position)){if(!woodReady(get().workshopBook,get().homeBook.nights)){set({message:t('msg.woodTaken')});return}set({mode:'foraging',foraging:{item:'wood',source:'wood',x:logPile.x,z:logPile.z,seconds:1.6,elapsed:0},inspectingTree:false,message:''});return}

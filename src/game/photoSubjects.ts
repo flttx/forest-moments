@@ -6,7 +6,7 @@ import type {Light} from './fishSpecies'
  * A subject counts when its box sits in the frame large enough, unhidden, at the right time. Pure apart from the
  * `clear` line-of-sight test the scene supplies.
  */
-export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset'] as const
+export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation'] as const
 export type SubjectId=typeof subjectIds[number]
 
 export interface Framing{
@@ -49,6 +49,10 @@ export interface Shot{
  /** Unit direction toward the sun. */
  sun:THREE.Vector3
  fireflies:readonly THREE.Vector3[]
+ /** The jellyfish by the jetty (hidden corner), when the scene has it. */
+ jellyfish:THREE.Vector3|null
+ /** Unit direction to the raccoon constellation's centre. */
+ constellation:THREE.Vector3
  camera:THREE.Vector3
  viewProjection:THREE.Matrix4
  /** Nothing stands between the camera and this point. */
@@ -67,6 +71,9 @@ export function subjectsIn(s:Shot):SubjectId[]{
   fireflies:s.light==='night'&&near.length>=4,
   // The whole cabin, big enough to read as a picture of it.
   cabin:whole(s.cabin,s,.9,.06),
+  // Hidden corners: the glowing jellyfish close by at night, the raccoon constellation in a night sky.
+  jellyfish:s.light==='night'&&!!s.jellyfish&&s.jellyfish.distanceTo(s.camera)<14&&inPicture(s.jellyfish,s.viewProjection,.02)&&s.clear(s.jellyfish),
+  constellation:s.light==='night'&&inPicture(s.camera.clone().addScaledVector(s.constellation,200),s.viewProjection,.05),
   fireside:s.fireLit&&s.raccoonShown&&s.mode==='sitting'&&!!s.seat?.startsWith('camp-')&&whole(s.raccoon,s,.75,.01)&&whole(s.campfire,s,.6,.004),
  }
  return subjectIds.filter(id=>found[id])
