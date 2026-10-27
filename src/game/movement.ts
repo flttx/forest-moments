@@ -1,6 +1,7 @@
 import {cabin,camp,seats,reefs,bridge,creekDistance,onBridge,bridgeHeight} from './expansion'
 import { lookoutPosition, modelAssets, workshopPosition } from '../world/assets'
 import { islandShape, terrainHeight, pathEdgeDistance } from '../world/terrain'
+import {pineReach} from '../world/pineReach'
 import { vegetationColliders, vegetationPositions, lampPositions, instanceCircles, lowFoliage } from '../world/vegetationLayout'
 import {pondEdgeDistance} from '../world/pondShape'
 import {pondStoneColliders} from '../world/pondLayout'
@@ -50,17 +51,23 @@ const rocks=pondStoneColliders.map(c=>({name:'pond stone',...c}))
  * the turf it is buried under; a pine skirt stops where the ground falls away far enough to walk beneath it; a high
  * crown only blocks uphill, where the ground rises to it.
  */
-function profile(name:string,x:number,z:number,reach:number,bottom:number,top:number){
-  const radii=Array.from({length:8},(_,i)=>{
-    const a=i*Math.PI/4;let r=0
+function profile(name:string,x:number,z:number,reach:number,bottom:number,top:number,foliage?:(angle:number,low:number,high:number)=>number){
+  const count=foliage?16:8,foot=terrainHeight(x,z)
+  const radii=Array.from({length:count},(_,i)=>{
+    const a=i*Math.PI*2/count;let r=0
     // Farthest overlap, not the first gap: a crown may clear the head by the trunk yet meet the rising ground uphill.
-    for(let d=.1;d<=reach+1e-6;d+=.1){const g=terrainHeight(x+Math.cos(a)*d,z+Math.sin(a)*d);if(top>=g+.15&&bottom<=g+1.1)r=d}
+    for(let d=.1;d<=reach+1e-6;d+=.1){
+      const g=terrainHeight(x+Math.cos(a)*d,z+Math.sin(a)*d)
+      // Measured foliage: blocks where its reach in the body's height window (relative to the trunk foot) gets this far.
+      if(foliage?foliage(a,g-foot+.15,g-foot+1.1)>=d:top>=g+.15&&bottom<=g+1.1)r=d
+    }
     return r
   })
   return{name,x,z,radii,max:Math.max(...radii)}
 }
 const profiles=[
-  ...vegetationPositions.flatMap(p=>{const f=lowFoliage[p.kit];return f?[profile(`plant:${p.kit}`,p.x,p.z,f.reach*p.scale,terrainHeight(p.x,p.z)+f.base*p.scale,Infinity)]:[]}),
+  // Pines: the lowest branches only reach some directions, so their reach is measured per direction from the mesh.
+  ...vegetationPositions.flatMap(p=>{const f=lowFoliage[p.kit];return f?[profile(`plant:${p.kit}`,p.x,p.z,f.reach*p.scale,terrainHeight(p.x,p.z)+f.base*p.scale,Infinity,p.kit==='normal-pine-b'?(a,lo,hi)=>pineReach(p.scale,p.yaw,a,lo,hi):undefined)]:[]}),
   ...coastPieces.filter(p=>!p.kit.startsWith('Driftwood')).map(p=>profile('coast rock',p.x,p.z,coastKits[p.kit].half*p.scale*.8,p.y,p.y+coastKits[p.kit].height*p.scale)),
   // Street lamps hang their lantern 0.62 m out from the post, 0.72-1.8 m up: head height for the raccoon.
   ...lampPositions.map(l=>{const post=instanceCircles(l)[0],dx=l.x-post.x,dz=l.z-post.z,n=Math.hypot(dx,dz)||1,g=terrainHeight(l.x,l.z)
@@ -68,8 +75,8 @@ const profiles=[
 ].filter(c=>c.max>0)
 const profileHit=(x:number,z:number,c:typeof profiles[number])=>{
   const dx=x-c.x,dz=z-c.z,d=Math.hypot(dx,dz);if(d>=c.max+radius)return false
-  const f=((Math.atan2(dz,dx)+Math.PI*2)%(Math.PI*2))/(Math.PI/4),i=Math.floor(f)%8,t=f-Math.floor(f)
-  return d<c.radii[i]*(1-t)+c.radii[(i+1)%8]*t+radius
+  const n=c.radii.length,f=((Math.atan2(dz,dx)+Math.PI*2)%(Math.PI*2))/(Math.PI*2/n),i=Math.floor(f)%n,t=f-Math.floor(f)
+  return d<c.radii[i]*(1-t)+c.radii[(i+1)%n]*t+radius
 }
 // Filled once the path stones below are placed (they are laid out with this very check).
 let pathStoneColliders:{name:string;x:number;z:number;r:number}[]=[]
