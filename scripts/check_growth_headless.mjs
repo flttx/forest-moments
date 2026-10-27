@@ -68,7 +68,7 @@ try {
   async function press(k){await key(k,true);await key(k,false)}
   async function go(x,z){
     await key('Shift',true);const start=Date.now()
-    for(;;){const s=await snapshot(),dx=x-s.position[0],dz=z-s.position[2];if(Math.hypot(dx,dz)<.15)break;if(Date.now()-start>25000)throw Error('Travel blocked '+JSON.stringify(s.position));await key('d',dx>.08);await key('a',dx<-.08);await key('s',dz>.08);await key('w',dz<-.08);await sleep(45)}
+    for(;;){const s=await snapshot(),dx=x-s.position[0],dz=z-s.position[2];if(Math.hypot(dx,dz)<.15)break;if(Date.now()-start>25000)throw Error('Travel blocked '+JSON.stringify(s.position));const yaw=s.orbit?.yaw??0,c=Math.cos(yaw),n=Math.sin(yaw),ix=dx*c-dz*n,iz=dx*n+dz*c;await key('d',ix>.08);await key('a',ix<-.08);await key('s',iz>.08);await key('w',iz<-.08);await sleep(45)}
     for(const k of ['w','s','a','d','Shift'])await key(k,false)
   }
   async function reload(){const previous=await evaluate('performance.timeOrigin');await cmd('Page.reload');for(let i=0;i<100;i++){await sleep(100);try{if(await evaluate('performance.timeOrigin')!==previous)break}catch{}}await waitFor(s=>s?.ready&&s.growthReady,'reload ready',90000)}

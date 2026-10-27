@@ -80,7 +80,16 @@ try {
   })()`)
   report.route=route
   await writeFile(resolve(process.env.FOREST_WORKSHOP_ROUTE??'docs/evidence/2026-10-24-workshop/keyboard-route.json'),JSON.stringify(route,null,2)+'\n')
-  async function walk(segments){for(const s of segments)await hold(s.key,s.distance/1.1*1000)}
+  // Movement is camera-relative: turn each world-axis segment into the key pair for the live orbit yaw.
+  async function holdWorld(dir, ms) {
+    const yaw=(await snapshot()).orbit?.yaw??0,c=Math.cos(yaw),n=Math.sin(yaw)
+    const dx=dir==='d'?1:dir==='a'?-1:0,dz=dir==='s'?1:dir==='w'?-1:0,ix=dx*c-dz*n,iz=dx*n+dz*c
+    const names=[ix>.3?'d':ix<-.3?'a':null,iz>.3?'s':iz<-.3?'w':null].filter(Boolean)
+    for(const k of names)await key(k,true)
+    await evaluate(`new Promise(resolve=>{let last=performance.now(),elapsed=0;function frame(t){elapsed+=Math.min(t-last,50);last=t;if(elapsed>=${ms})resolve();else requestAnimationFrame(frame)}requestAnimationFrame(frame)})`)
+    for(const k of names)await key(k,false)
+  }
+  async function walk(segments){for(const s of segments)await holdWorld(s.key,s.distance/1.1*1000)}
   await shot('01-spawn');await walk(route.wood);await sleep(500);await shot('02-wood')
   assert(await evaluate("document.querySelector('.interaction button')?.textContent.includes('收好旧木墩')"),'Reach collectible with real keyboard')
   await press('f');await press('Escape');assert.equal((await snapshot()).workshopBook.phase,'available')

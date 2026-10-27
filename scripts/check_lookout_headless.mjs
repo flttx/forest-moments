@@ -60,26 +60,28 @@ try {
 
   const key=async(name,down)=>{const map={f:['KeyF',70],a:['KeyA',65],d:['KeyD',68],w:['KeyW',87],s:['KeyS',83],Escape:['Escape',27]};await cmd('Input.dispatchKeyEvent',{type:down?'keyDown':'keyUp',key:name,code:map[name][0],windowsVirtualKeyCode:map[name][1]})}
   const press=async(name)=>{await key(name,true);await key(name,false)}
+  // Frame rate varies in headless Edge, so hold until the limit is reached instead of for a fixed time.
+  const holdUntil=async(name,reached,maxMs=8000)=>{await key(name,true);for(const t=Date.now();Date.now()-t<maxMs&&!reached((await snapshot()).lookoutView);)await sleep(50);await key(name,false)}
   const hold=async(name,ms)=>{await key(name,true);await sleep(ms);await key(name,false)}
   for(const light of (process.env.FOREST_LIGHTS??'day,dusk,night').split(',')){
     await cmd('Page.navigate',{url:`http://127.0.0.1:5176/?qa&light=${light}`})
     await waitFor(s=>s?.ready&&s.lookoutReady&&s.farmReady,'ready',90000)
-    await evaluate("import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname==='/src/game/store.ts').name).then(({useForestStore:s})=>s.getState().updatePosition(13,-5.2))")
+    await evaluate("import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname==='/src/game/store.ts').name).then(({useForestStore:s})=>s.getState().updatePosition(13,-23.2))")
     await sleep(300);await press('f');assert.equal((await snapshot()).mode,'walking')
-    await evaluate("import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname==='/src/game/store.ts').name).then(({useForestStore:s})=>s.getState().updatePosition(15.45,-9.65))")
+    await evaluate("import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname==='/src/game/store.ts').name).then(({useForestStore:s})=>s.getState().updatePosition(15.45,-27.65))")
     await sleep(1500);const initial=await snapshot();await shot(`${light}-entry`)
     await press('f');await press('f')
     const samples=[]
     for(let i=0;i<50;i++){samples.push(await evaluate("({s:JSON.parse(document.querySelector('canvas').dataset.forestQa),opacity:Number(document.querySelector('.boat-transfer-shade').style.opacity)})"));if(samples.at(-1).s.mode==='lookout'&&!samples.at(-1).s.lookoutTransfer)break;await sleep(20)}
     const state=await waitFor(s=>s?.mode==='lookout'&&!s.lookoutTransfer,'entered')
     assert.equal(state.playerVisible,false);assert.deepEqual(state.position,initial.position)
-    assert.deepEqual(state.cameraPosition,[13,4.9,-8])
+    assert.deepEqual(state.cameraPosition,[13,12.7,-26])
     const commit=samples.find(s=>s.s.lookoutTransfer?.committed)
     assert(commit&&commit.opacity===1,'camera must switch inside opaque shade')
     await shot(`${light}-island`)
     await hold('d',2300);await shot(`${light}-sea`)
-    await hold('w',1900);assert.equal((await snapshot()).lookoutView.pitch,.18);await shot(`${light}-upper-limit`)
-    await hold('s',2200);assert.equal((await snapshot()).lookoutView.pitch,-.48);await shot(`${light}-lower-limit`)
+    await holdUntil('w',v=>v.pitch>=.18);assert.equal((await snapshot()).lookoutView.pitch,.18);await shot(`${light}-upper-limit`)
+    await holdUntil('s',v=>v.pitch<=-.48);assert.equal((await snapshot()).lookoutView.pitch,-.48);await shot(`${light}-lower-limit`)
     await key('a',true);await sleep(200);await evaluate("window.dispatchEvent(new Event('blur'))")
     const paused=(await snapshot()).lookoutView.yaw;await sleep(300);assert.equal((await snapshot()).lookoutView.yaw,paused);await key('a',false)
     await press('Escape');await waitFor(s=>s?.mode==='walking'&&!s.lookoutTransfer,'returned')
