@@ -6,6 +6,9 @@ import {createOrbit,rotateOrbit,stepOrbit,orbitConfig,spawnYaw} from '../game/or
 import {useOrbitInput} from './useOrbitInput'
 import {ScaleReview} from './ScaleReview'
 import {PostEffects} from './PostEffects'
+import {PhotoCapture} from './PhotoCapture'
+import {usePhotoStore} from '../game/photoStore'
+import {clampOrbitTargets,photoOrbit} from '../game/photo'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Suspense, useCallback, useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
@@ -134,6 +137,7 @@ function Player() {
   const motionPreference=useMemo(()=>window.matchMedia('(prefers-reduced-motion: reduce)'),[])
   const ready = useRef(false)
   const wasSleeping=useRef(false)
+  const wasPhoto=useRef(false)
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
   const movementIntent=useRef<ReturnType<typeof cameraRelativeMovement>>(null)
@@ -147,11 +151,19 @@ function Player() {
       if (e.target instanceof HTMLElement && (e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName))) return
       // An open panel owns the keyboard: Esc closes only the top panel, nothing reaches the scene.
       const ui=useUiStore.getState()
+      const photo=usePhotoStore.getState()
+      if (photo.active) {
+        if (e.code === 'Escape' || e.code === 'KeyP') { e.preventDefault(); if (!e.repeat) photo.exit() }
+        else if (e.code === 'Space') { e.preventDefault(); if (!e.repeat) photo.shutter() }
+        else if (['KeyW','KeyA','KeyS','KeyD','KeyQ','KeyE','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code)) { e.preventDefault(); pressed.current.add(e.code) }
+        return
+      }
       if (ui.panel) { if (e.code === 'Escape') { e.preventDefault(); ui.closePanel() } return }
       if (useForestStore.getState().aquariumOpen) {
         if (e.code === 'Escape' || (e.code === 'KeyF' && !e.repeat)) { e.preventDefault(); useForestStore.setState({ aquariumOpen: false }) }
         return
       }
+      if (e.code === 'KeyP' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey) { photo.enter(); return }
       if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyQ', 'KeyE', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || e.code==='Escape' || (['fishing','planting','feeding','lookout','gathering','crafting','sitting','sleeping'].includes(useForestStore.getState().mode) && ['Space', 'Escape'].includes(e.code))) {
         e.preventDefault()
         pressed.current.add(e.code)
@@ -161,7 +173,7 @@ function Player() {
         if (e.code === 'Escape') {useForestStore.getState().leaveSeat();useForestStore.getState().wakeUp();useForestStore.setState({aquariumOpen:false});useForestStore.getState().cancelFishing();useForestStore.getState().cancelPlanting();useForestStore.getState().cancelFeeding();useForestStore.getState().leaveLookout();useForestStore.getState().cancelWorkshop()}
       }
     }
-    function up(e: KeyboardEvent) { pressed.current.delete(e.code); if(!['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight'].some(k=>pressed.current.has(k)))movementIntent.current=null; if (e.code === 'Space') useForestStore.getState().reel(false) }
+    function up(e: KeyboardEvent) { if (e.code === 'Space' && usePhotoStore.getState().active) e.preventDefault(); pressed.current.delete(e.code); if(!['KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowLeft','ArrowDown','ArrowRight'].some(k=>pressed.current.has(k)))movementIntent.current=null; if (e.code === 'Space') useForestStore.getState().reel(false) }
     function blur() { pressed.current.clear();movementIntent.current=null; useForestStore.getState().pauseFishing();useForestStore.getState().cancelPlanting();useForestStore.getState().cancelFeeding();useForestStore.getState().cancelWorkshop() }
     const unsubscribe = useUiStore.subscribe(s => { if (s.panel) { pressed.current.clear(); movementIntent.current = null } })
     window.addEventListener('keydown', down)
@@ -192,6 +204,9 @@ function Player() {
     wasSleeping.current=sleeping
     // While a panel is open the raccoon and boat hold still; scenery keeps animating.
     const hold = gameplayPaused(useForestStore.getState())
+    const photoActive=usePhotoStore.getState().active
+    // Photo mode holds the game but still turns the view and the tower look-around.
+    const look=photoActive?pressed.current:null
     const keys = hold ? new Set<string>() : pressed.current
     const x = Number(keys.has('KeyD') || keys.has('ArrowRight')) - Number(keys.has('KeyA') || keys.has('ArrowLeft'))
     const z = Number(keys.has('KeyS') || keys.has('ArrowDown')) - Number(keys.has('KeyW') || keys.has('ArrowUp'))
@@ -208,13 +223,16 @@ function Player() {
     if(doorway)character.rotation.y=outside?Math.PI:0
     if(homeCommitted||workshopCommitted||lookoutCommitted||transferCommitted){Object.assign(orbit.current,createOrbit(character.rotation.y+(outside?Math.PI-.5:0)));movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(!transferring&&!state.inspectingTree&&(state.mode==='walking'||state.mode==='rowing'||state.mode==='sitting')){
-      const turn=Number(keys.has('KeyQ'))-Number(keys.has('KeyE'))
-      rotateOrbit(orbit.current,turn*orbitConfig.keySpeed*dt/orbitConfig.yawPerPixel,0)
+      const turn=Number((look??keys).has('KeyQ'))-Number((look??keys).has('KeyE'))
+      rotateOrbit(orbit.current,turn*orbitConfig.keySpeed*dt/orbitConfig.yawPerPixel,0,photoActive?photoOrbit.minPitch:undefined,photoActive?photoOrbit.maxPitch:undefined)
       if(dragging.current)orbit.current.idle=0
-      stepOrbit(orbit.current,dt,motionPreference.matches,state.mode==='rowing'?state.boat.heading-Math.PI/2:undefined)
+      stepOrbit(orbit.current,dt,motionPreference.matches,state.mode==='rowing'&&!photoActive?state.boat.heading-Math.PI/2:undefined)
     }
     character.rotation.x=0;character.rotation.z=0
-    character.visible = state.mode !== 'rowing' && state.mode !== 'lookout' && state.mode !== 'sleeping'
+    character.visible = state.mode !== 'rowing' && state.mode !== 'lookout' && state.mode !== 'sleeping' && !(photoActive&&usePhotoStore.getState().hideRaccoon)
+    // Back inside play limits once the camera is put away.
+    if(wasPhoto.current&&!photoActive)clampOrbitTargets(orbit.current,[orbitConfig.minPitch,orbitConfig.maxPitch],[orbitConfig.minZoom,orbitConfig.maxZoom])
+    wasPhoto.current=photoActive
     // Store position also supplies the safe landing point after leaving the boat.
     character.position.set(state.position.x, state.location!=='island'?0:groundHeightAt(state.position.x, state.position.z), state.position.z)
     if(state.location==='island'&&state.tree&&state.mode==='walking'){
@@ -268,7 +286,7 @@ function Player() {
     if (state.mode === 'walking') updatePosition(character.position.x, character.position.z)
     const current = useForestStore.getState()
     if(current.mode==='lookout'){
-      if(!transferring)current.turnLookout(-x*dt*.7,-z*dt*.4)
+      if(!transferring){const lx=look?Number(look.has('KeyD')||look.has('ArrowRight'))-Number(look.has('KeyA')||look.has('ArrowLeft')):x,lz=look?Number(look.has('KeyS')||look.has('ArrowDown'))-Number(look.has('KeyW')||look.has('ArrowUp')):z;current.turnLookout(-lx*dt*.7,-lz*dt*.4)}
       const {yaw,pitch}=useForestStore.getState().lookoutView
       camera.position.set(lookoutEye.x,lookoutEye.y,lookoutEye.z)
       camera.lookAt(lookoutEye.x+Math.sin(yaw)*Math.cos(pitch),lookoutEye.y+Math.sin(pitch),lookoutEye.z+Math.cos(yaw)*Math.cos(pitch))
@@ -387,6 +405,7 @@ function Scene() {
     <Player />
     <SoundDirector />
     <PostEffects />
+    <PhotoCapture />
     {import.meta.env.DEV && <><ReviewCamera /><ScaleReview/></>}
   </>
 }

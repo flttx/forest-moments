@@ -16,8 +16,8 @@ export interface JournalBook{version:1;page:{number:number;tasks:JournalTask[]};
 /** How much of each thing completes it: seconds by the fire, metres rowed, otherwise once. */
 export const taskTarget:Record<TaskId,number>={catch:1,bigCatch:1,keep:1,feed:1,fireside:8,seaside:1,lookout:1,row:40,sleep:1,photo:1,nightPhoto:1,tree:1}
 export const tasksPerPage=3
-/** Photo tasks join the pool once photo mode exists (plan stage P1). */
-export const photoModeReady=false
+/** Photo tasks are in the pool: photo mode exists (plan stage P1). */
+export const photoModeReady=true
 
 export type JournalEvent=
  {type:'catch';sizeCm:number}|{type:'keep'}|{type:'feed'}|{type:'fireside';seconds:number}|{type:'seaside'}
@@ -62,7 +62,7 @@ export function taskStep(id:TaskId,e:JournalEvent){
  }
 }
 
-/** Whether the player could do it right now: a full tank takes no new fish, photos wait for photo mode. */
+/** Whether the player could do it right now: a full tank takes no new fish, . */
 export function taskAvailable(id:TaskId,s:{homeBook:{fish:unknown[]}}){
  if(id==='keep')return s.homeBook.fish.length<5
  if(id==='photo'||id==='nightPhoto')return photoModeReady

@@ -14,8 +14,8 @@ it('draws three different tasks it can offer, avoiding the last page where it ca
   let n=seed;const random=()=>((n=n*16807%2147483647)/2147483647)||.5
   const page=drawPage(2,full,['catch','feed','row'],random),ids=page.tasks.map(t=>t.id)
   expect(new Set(ids).size).toBe(3)
-  // A full tank takes no new fish; photos wait for photo mode; the last page's tasks are skipped while others remain.
-  expect(ids.some(id=>['keep','photo','nightPhoto','catch','feed','row'].includes(id))).toBe(false)
+  // A full tank takes no new fish; the last page's tasks are skipped while others remain.
+  expect(ids.some(id=>['keep','catch','feed','row'].includes(id))).toBe(false)
  }
 })
 it('moves only matching tasks, accumulates metres and seconds, and stamps a page once all three are done',()=>{

@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-27T02:58:02.189Z",
+  "checks": [
+    {
+      "name": "locked looks are marked, explain how to unlock, and cannot be selected",
+      "locks": [
+        "原色:o",
+        "暖阳:o",
+        "景深:L",
+        "胶片:L",
+        "黑白:L",
+        "夜灯:L",
+        "无相框:o",
+        "纸边:L",
+        "印章:L"
+      ]
+    },
+    {
+      "name": "unlock thresholds: 2 depth, 4 film, 6 paper frame, 8 mono, 10 lamplight, 12 stamp frame"
+    },
+    {
+      "name": "filters measurably change the picture",
+      "plain": {
+        "w": 1440,
+        "h": 900,
+        "lum": 86.99233981656903,
+        "sat": 0.4539301201913879,
+        "grain": 5.038167173221791
+      },
+      "warm": {
+        "w": 1440,
+        "h": 900,
+        "lum": 98.27671618535533,
+        "sat": 0.36711496860932524,
+        "grain": 5.4198489362342395
+      },
+      "depth": {
+        "w": 1440,
+        "h": 900,
+        "lum": 96.22837444287482,
+        "sat": 0.4188862500675208,
+        "grain": 1.5585046091500907
+      },
+      "film": {
+        "w": 1440,
+        "h": 900,
+        "lum": 67.70860876223317,
+        "sat": 0.35002302738351626,
+        "grain": 6.43807488991203
+      },
+      "mono": {
+        "w": 1440,
+        "h": 900,
+        "lum": 95.44815583842396,
+        "sat": 0,
+        "grain": 4.365772922873221
+      },
+      "nightPlain": {
+        "w": 1440,
+        "h": 900,
+        "lum": 30.73709956232322,
+        "sat": 0.5264991422848516,
+        "grain": 2.0513676988354246
+      },
+      "lamp": {
+        "w": 1440,
+        "h": 900,
+        "lum": 30.970429217699262,
+        "sat": 0.5194628021186196,
+        "grain": 2.0186372162538997
+      }
+    },
+    {
+      "name": "paper and stamp frames mount the saved photo with a caption footer; album keeps the framed image",
+      "framed": {
+        "w": 1512,
+        "h": 1051,
+        "lum": 114.26854821123462,
+        "sat": 0.3877009375084698,
+        "grain": 4.544191753926701
+      },
+      "stamped": {
+        "w": 1512,
+        "h": 1051,
+        "lum": 113.42982384386613,
+        "sat": 0.3905241319258875,
+        "grain": 4.803174083769633
+      },
+      "canvasSize": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "leaving the camera resets filter and frame"
+    },
+    {
+      "name": "depth can be selected on low quality; it is rendered as plain (see screenshot and PostEffects.filterAllowed)"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-locked.png",
+    "02-filter-plain.png",
+    "02-filter-warm.png",
+    "02-filter-depth.png",
+    "02-filter-film.png",
+    "02-filter-mono.png",
+    "02-filter-lamp.png",
+    "03-frame-paper.png",
+    "04-frame-stamps.png",
+    "05-low-quality-depth.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}

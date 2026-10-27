@@ -18,8 +18,10 @@ import {HomeHud} from './HomeHud'
 import {WorkshopHud} from './WorkshopHud'
 import {LookoutHud} from './LookoutHud'
 import {GrowthStatus} from './GrowthStatus'
+import {PhotoButton,PhotoHud,AlbumPanel} from './PhotoHud'
+import {usePhotoStore} from './game/photoStore'
 
-const menuItems:[MenuPanel,Key][]=[['journal','menu.journal'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
+const menuItems:[MenuPanel,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
 const inTransfer=(s:ReturnType<typeof useForestStore.getState>)=>!!(s.boatTransfer||s.lookoutTransfer||s.workshopTransfer||s.homeTransfer)
 
 /** Two-way switch: both languages stay visible, the current one is set in ink. */
@@ -40,12 +42,13 @@ function JournalCount(){
 function TopBar(){
  const t=useT()
  const panel=useUiStore(s=>s.panel),openPanel=useUiStore(s=>s.openPanel),closePanel=useUiStore(s=>s.closePanel),toggleHud=useUiStore(s=>s.toggleHud)
- const hidden=useForestStore(s=>s.mode==='sleeping'||inTransfer(s))
- if(hidden)return null
+ const hidden=useForestStore(s=>s.mode==='sleeping'||inTransfer(s)),photo=usePhotoStore(s=>s.active)
+ if(hidden||photo)return null
  return <>
   <div className="brand">{t('brand')}</div>
   <nav className="menu" aria-label={t('menu.label')}>
    {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
+   <PhotoButton/>
    <span className="tool-divider" aria-hidden="true"/>
    <LanguageSwitch/>
    <SoundControl/>
@@ -63,7 +66,7 @@ function MenuPanelView(){
  return <section id="menu-panel" ref={ref} className="paper-panel menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-panel-title"
   onKeyDown={e=>{trap(e);if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closePanel()}}} onWheel={e=>e.stopPropagation()}>
   <header><h2 id="menu-panel-title">{title}</h2><button type="button" className="close-button" onClick={closePanel} aria-label={t('panel.close')}><Icon name="close"/></button></header>
-  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<FishBook/>:<Help/>}</div>
+  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<FishBook/>:<Help/>}</div>
  </section>
 }
 
@@ -89,7 +92,7 @@ function FishBook(){
 }
 
 const helpRows:[Key,(Key|string)[]][]=[
- ['help.move',['W','A','S','D']],['help.run',['Shift']],['help.look',['key.rightDrag']],['help.orbit',['Q','E']],['help.zoom',['key.wheel']],['help.interact',['F']],['help.back',['Esc']],['help.hide',['H']],['help.mute',['M']],
+ ['help.move',['W','A','S','D']],['help.run',['Shift']],['help.look',['key.rightDrag']],['help.orbit',['Q','E']],['help.zoom',['key.wheel']],['help.interact',['F']],['help.back',['Esc']],['help.hide',['H']],['help.photo',['P']],['help.mute',['M']],
  ['help.strike',['F']],['help.reel',['key.holdSpace']],['help.row',['W','S']],['help.steer',['A','D']],['help.tower',['A','D','W','S']],
 ]
 function Help(){
@@ -200,6 +203,7 @@ export function Hud(){
  </div>
  return <div className="hud">
   <TopBar/>
+  <PhotoHud/>
   <FirstGuide/>
   {gameCards}
   <div className="bottom-stack"><Notice/><ModeHintLine/><Prompt/>{lookout}</div>
