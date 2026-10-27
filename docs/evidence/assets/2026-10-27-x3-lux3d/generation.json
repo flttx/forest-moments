@@ -1,0 +1,615 @@
+{
+ "date": "2026-10-27",
+ "service": "Aholo Lux3D img-to-3d G1, China region API",
+ "pricing": "Balance/quote endpoint returned a server error, so no quote was recorded; the first-round bill showed 20 credits per generation.",
+ "runs": [
+  {
+   "dir": "assets/lux3d/x3-01-mushroom-cluster-v1",
+   "phase": "succeeded",
+   "taskId": 4409621,
+   "imageSha256": "11e90d5a83d4c652a02028f7ae8720d53b71159448d5f0e69245263a7e36f913",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 4957438,
+     "sha256": "642d972119df92c5082cf10cf4760feb8dfa91643752cd5d678b5e67dca323f9"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 4701012,
+     "sha256": "76ffc1f6b55afe1b7e1f8be1381e6098402f5c158a85741c84642e92a1e92046"
+    }
+   ],
+   "review": {
+    "run": "x3-01-mushroom-cluster-v1",
+    "objects": 1,
+    "triangles": 29427,
+    "size": [
+     0.8706,
+     0.8408,
+     1.0035
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 4701012
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-02-berry-twig-v1",
+   "phase": "succeeded",
+   "taskId": 4409636,
+   "imageSha256": "503bc76efdc4e8f2e9a3b28a63523a2991144b518b9f822329c15431bbb03250",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 6393365,
+     "sha256": "6a489c3031ca4b2f177e038b38733bf57db6c380b1c93b5466f962be0c5486ee"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 5779076,
+     "sha256": "4ba446b50fcb1c5b54d509e933b4dee6957d417cbe303ae583ada6b0b350f50e"
+    }
+   ],
+   "review": {
+    "run": "x3-02-berry-twig-v1",
+    "objects": 1,
+    "triangles": 29598,
+    "size": [
+     0.9709,
+     0.6526,
+     1.0013
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 5779076
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-03-seashell-v1",
+   "phase": "succeeded",
+   "taskId": 4409639,
+   "imageSha256": "9e59b5f85125ce791e0157c83464ac514275dceefe07f54fda726b75ecad490e",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 6756789,
+     "sha256": "d467d824715dbf601f3b441487cd783605fca25bfeda70689ef0f1f04df17a92"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 6296128,
+     "sha256": "257bf53e83f481a32e563b4d39810d16cfad45937ad00ca43d3bca0b1adde4e6"
+    }
+   ],
+   "review": {
+    "run": "x3-03-seashell-v1",
+    "objects": 1,
+    "triangles": 29400,
+    "size": [
+     1.0022,
+     0.4479,
+     0.8049
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 6296128
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-04-pinecone-v1",
+   "phase": "succeeded",
+   "taskId": 4409642,
+   "imageSha256": "fb273ce6b40bc7cbeb7f58b8a58de996d564afafa23ff63988699151b4aec86f",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 6436706,
+     "sha256": "6189cfd16af4b83ce8c3d883c0ff411b88991117aed3a767872a600406a388af"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 6093712,
+     "sha256": "159fe3fbef6de2a1f034b731b2d46d18093d5d48cc33f43d0cb18cac42571018"
+    }
+   ],
+   "review": {
+    "run": "x3-04-pinecone-v1",
+    "objects": 1,
+    "triangles": 29406,
+    "size": [
+     0.8073,
+     0.7975,
+     1.0015
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 6093712
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-05-egg-nest-v1",
+   "phase": "succeeded",
+   "taskId": 4409645,
+   "imageSha256": "696643575a9c355718c8912426c132a40df1e979682b6f4895bfb69a565ed27c",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 10745284,
+     "sha256": "d952f15e427267687bf46c674d7eee3dc35fd95d919262b8d8199ffa04e2ecb8"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 7272912,
+     "sha256": "bba0987c59f257e11a2369a4604af207e32bcb2fe1c103ea18aa8420eb365e64"
+    }
+   ],
+   "review": {
+    "run": "x3-05-egg-nest-v1",
+    "objects": 1,
+    "triangles": 29465,
+    "size": [
+     0.9896,
+     0.9853,
+     0.4163
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 7272912
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-06-wool-bundle-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "002fb8f5ccec62135371a422da13d2cb1404aa0332fe62e1a7d7f554607b9990",
+   "faceCount": 30000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-06-wool-bundle-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4409950,
+   "imageSha256": "002fb8f5ccec62135371a422da13d2cb1404aa0332fe62e1a7d7f554607b9990",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 7688033,
+     "sha256": "31ef9a017ab86e30078f55e676fcc7c4120751fa3a5f0bfb35d55206fe799010"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 6006180,
+     "sha256": "26d4608137a8e229cef6a5fd525d274b3d0f6294514f8f633c7a8614a0170876"
+    }
+   ],
+   "review": {
+    "run": "x3-06-wool-bundle-v1-r2",
+    "objects": 1,
+    "triangles": 29428,
+    "size": [
+     0.9937,
+     0.9573,
+     0.5912
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 6006180
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-07-small-wood-table-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "7967e8bfbae1f1faed348720b49e7038922b651b0ffe19215d8ec3ccb0464f4a",
+   "faceCount": 50000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-07-small-wood-table-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4409953,
+   "imageSha256": "7967e8bfbae1f1faed348720b49e7038922b651b0ffe19215d8ec3ccb0464f4a",
+   "faceCount": 50000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 5712587,
+     "sha256": "14146b6528de2cd117fe49c35cabb4d8829fd7e66b546c2a41181765d6fadb4e"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 4861180,
+     "sha256": "0a58aa8a1568c448d877be2661d2f93a09f1dd5fde22417460be613c0e8b8225"
+    }
+   ],
+   "review": {
+    "run": "x3-07-small-wood-table-v1-r2",
+    "objects": 1,
+    "triangles": 46797,
+    "size": [
+     1.0028,
+     0.9896,
+     0.8332
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 4861180
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-08-birdhouse-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "436a3e0ffa670e033c4fc413d43bed41afb110b3d6cddff507fc974edcd6f677",
+   "faceCount": 50000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-08-birdhouse-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4409956,
+   "imageSha256": "436a3e0ffa670e033c4fc413d43bed41afb110b3d6cddff507fc974edcd6f677",
+   "faceCount": 50000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 4779115,
+     "sha256": "8121c56abea582f7d7bf7d0cb7ac9995a72132d139c68e81cf58f16719c389e3"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 5011136,
+     "sha256": "75bd2ee33cf9ca52713a926b8336c54cdd1ec81486ea53a304ef172ea6077e49"
+    }
+   ],
+   "review": {
+    "run": "x3-08-birdhouse-v1-r2",
+    "objects": 1,
+    "triangles": 48513,
+    "size": [
+     0.7598,
+     0.612,
+     1.0031
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 5011136
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-09-fishing-rod-rack-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "7250f90546359352cc48e4f44929bc90f69ab2dc90a9d3cee8d8dc9ac3638843",
+   "faceCount": 50000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-09-fishing-rod-rack-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4409958,
+   "imageSha256": "7250f90546359352cc48e4f44929bc90f69ab2dc90a9d3cee8d8dc9ac3638843",
+   "faceCount": 50000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 6896831,
+     "sha256": "2b1d0b55f0911cd2877e6aba0a71ff1bc592f3c5eab7e8e4496b13142761ea1e"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 5460172,
+     "sha256": "ec46b226acbfc86394a84ec05892bee3a8b7df661712b4fc5a9ac3a4cd339fe5"
+    }
+   ],
+   "review": {
+    "run": "x3-09-fishing-rod-rack-v1-r2",
+    "objects": 1,
+    "triangles": 49525,
+    "size": [
+     1.004,
+     0.561,
+     0.9373
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 5460172
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-10-wood-signpost-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "b2d068c87e7cd192b19d290b0dbc37b994ecd53674befa9aecc35e12380269e0",
+   "faceCount": 50000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-10-wood-signpost-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4409962,
+   "imageSha256": "b2d068c87e7cd192b19d290b0dbc37b994ecd53674befa9aecc35e12380269e0",
+   "faceCount": 50000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 5472296,
+     "sha256": "59b6357695f93785a5aff9858fb5ed9aeb89bbef18516d3f097794e79f21da9e"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 4868664,
+     "sha256": "cf1633749a507214e4cc94817b9554955f50b08f7e2827a22261977ddd5241c6"
+    }
+   ],
+   "review": {
+    "run": "x3-10-wood-signpost-v1-r2",
+    "objects": 1,
+    "triangles": 48590,
+    "size": [
+     0.8993,
+     0.1569,
+     1.0036
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 4868664
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-11-message-bottle-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "0f0d82e5c6acfffcd7150a70f4473082a335bd88bb503df6075f6bade04640bb",
+   "faceCount": 30000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-11-message-bottle-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4410231,
+   "imageSha256": "0f0d82e5c6acfffcd7150a70f4473082a335bd88bb503df6075f6bade04640bb",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 4243347,
+     "sha256": "0a8011041245594ac9fcd922f9db0593d6fe2a4706d01ee2237f7f4488984501"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 3930776,
+     "sha256": "223db03e89410bba895e41aaf096eb051dde7a192553501c8df122fc937c562d"
+    }
+   ],
+   "review": {
+    "run": "x3-11-message-bottle-v1-r2",
+    "objects": 1,
+    "triangles": 29206,
+    "size": [
+     0.7567,
+     0.7564,
+     1.002
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 3930776
+   }
+  },
+  {
+   "dir": "assets/lux3d/x3-12-glowing-jellyfish-v1",
+   "phase": "submission_unconfirmed",
+   "taskId": null,
+   "imageSha256": "9f32495d4a61980e4bcadc6bc8229ecf45fc95ab066658eacc3c5c4f1b289015",
+   "faceCount": 40000,
+   "files": []
+  },
+  {
+   "dir": "assets/lux3d/x3-12-glowing-jellyfish-v1-r2",
+   "phase": "succeeded",
+   "taskId": 4410234,
+   "imageSha256": "9f32495d4a61980e4bcadc6bc8229ecf45fc95ab066658eacc3c5c4f1b289015",
+   "faceCount": 40000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 8085481,
+     "sha256": "6cf8ae2fb9872f5452928acf7c6c1bf802c5dffcbe526f3cb9f0bb8b90ef88f0"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 6433896,
+     "sha256": "bead3846414fee61169cc94b6028f1cf903a722786f00a124b738ecb87ba4b7c"
+    }
+   ],
+   "review": {
+    "run": "x3-12-glowing-jellyfish-v1-r2",
+    "objects": 1,
+    "triangles": 39892,
+    "size": [
+     0.7649,
+     0.6763,
+     1.0026
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 6433896
+   }
+  }
+ ]
+}

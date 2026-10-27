@@ -1,0 +1,17 @@
+{
+  "prop": "01",
+  "name": "mushroom-cluster",
+  "source": "assets/lux3d/x3-01-mushroom-cluster-v1/output-1.glb",
+  "sourceSha256": "76ffc1f6b55afe1b7e1f8be1381e6098402f5c158a85741c84642e92a1e92046",
+  "output": "public/assets/x3/mushroom-cluster.glb",
+  "outputBytes": 328696,
+  "outputSha256": "8a6b9a68958fbba3302ae554e3be55be9f4b95257e6707ae574905f51ab45f0e",
+  "trianglesBefore": 29427,
+  "trianglesAfter": 8000,
+  "sizeMetres": [
+    0.1917,
+    0.1845,
+    0.2201
+  ],
+  "textureSize": 512
+}

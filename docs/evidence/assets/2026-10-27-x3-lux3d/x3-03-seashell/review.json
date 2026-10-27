@@ -1,0 +1,27 @@
+{
+  "run": "x3-03-seashell-v1",
+  "objects": 1,
+  "triangles": 29400,
+  "size": [
+    1.0022,
+    0.4479,
+    0.8049
+  ],
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "glbBytes": 6296128
+}

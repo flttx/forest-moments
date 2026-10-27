@@ -1,0 +1,27 @@
+{
+  "run": "x3-08-birdhouse-v1-r2",
+  "objects": 1,
+  "triangles": 48513,
+  "size": [
+    0.7598,
+    0.612,
+    1.0031
+  ],
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "glbBytes": 5011136
+}

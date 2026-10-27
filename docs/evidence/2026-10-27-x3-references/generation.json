@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-27",
+  "generator": "built-in image_gen.imagegen",
+  "calls": 12,
+  "status": "参考图已生成并初步图像复核，待用户确认；非模型或游戏截图",
+  "lux3d_calls": 0,
+  "style_sources": [
+    "docs/ART_DIRECTION.md",
+    "docs/references/style/forest-moments-environment-board-v3.png",
+    "docs/references/workshop/reused-stool.png"
+  ],
+  "images": [
+    {
+      "id": "01",
+      "name": "蘑菇簇",
+      "file": "docs/forest-moments-x3-01-mushroom-cluster-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-124e9d7f-bca9-49fa-a3a2-1d29cf45c9da.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One compact cluster of exactly three mushrooms of different heights, connected at the base. Thick cream stems and broad gently irregular chestnut/ochre caps, one largest and two smaller, subtly painted cap texture. All stems readable, no grass, soil patch or basket."
+    },
+    {
+      "id": "02",
+      "name": "浆果小枝",
+      "file": "docs/forest-moments-x3-02-berry-twig-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-75ccf227-3b9b-44fd-9885-fb2b557fd025.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One short sturdy woodland berry twig with a compact cluster of six muted burgundy red berries and four broad muted green leaves. Berries attached to one branching woody stem; simplified leaves, no thorns or loose fruit. Diagonal arrangement, entire twig visible."
+    },
+    {
+      "id": "03",
+      "name": "贝壳",
+      "file": "docs/forest-moments-x3-03-seashell-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-931cc85a-68ea-4d45-835d-1067531e7058.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One single fan-shaped scallop seashell, gently convex outer surface toward viewer, broad soft radial ribs, warm ivory with subtle faded peach at the hinge and rim. Thick readable rim, no sand, pearl or second shell."
+    },
+    {
+      "id": "04",
+      "name": "松果",
+      "file": "docs/forest-moments-x3-04-pinecone-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-433d192a-b361-41b2-ad51-1894fdbd1701.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One single squat oval pinecone standing slightly tilted, layered broad warm chestnut woody scales and a short top stem. Clear chunky overlapping scale rhythm, about six layers, avoid dozens of tiny sharp fragments; no needles or ground patch."
+    },
+    {
+      "id": "05",
+      "name": "草窝鸡蛋",
+      "file": "docs/forest-moments-x3-05-egg-nest-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-8bea1eff-69ec-42b3-8ff9-d1efeea5bb43.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One small shallow compact straw nest holding exactly three warm cream chicken eggs. Eggs visibly separate and unobstructed, nestled together. Straw modeled as simplified thick interwoven golden straw bands, cohesive ring silhouette, no individual hair-thin fibers, no chicken, no crate."
+    },
+    {
+      "id": "06",
+      "name": "羊毛团",
+      "file": "docs/forest-moments-x3-06-wool-bundle-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-b04a6113-742c-48b6-b95e-5ea18bee85ca.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One compact loose bundle of shorn sheep wool, warm ivory, irregular rounded form made from a small number of broad soft connected wool lobes, lightly folded center, hand-painted felt-like surface. Clearly a raw fluffy wool bundle, no sheep face, no legs, no yarn spool, no ribbon or basket, no hair-strand microgeometry."
+    },
+    {
+      "id": "07",
+      "name": "小木桌",
+      "file": "docs/forest-moments-x3-07-small-wood-table-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-d5a0aece-ccea-4d79-aa00-bfde1cf75b01.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One small sturdy rustic square wooden side table for a woodland cabin bedroom. Four clearly constructed stout wooden legs, four-plank top with softly irregular beveled edges, simple apron and low cross stretcher. Warm honey-brown timber with restrained painted grain, handmade joinery; no drawers, objects on top, cloth or surrounding room. All four legs anatomically plausible and visible where perspective permits."
+    },
+    {
+      "id": "08",
+      "name": "鸟屋",
+      "file": "docs/forest-moments-x3-08-birdhouse-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-54ee1e19-432a-48f6-89c1-8a58576cf675.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One small handcrafted wooden birdhouse, warm honey-brown plank walls, muted dark moss-green pitched shingle roof, single circular dark entry hole centered on front, one short stout wooden perch under hole, simple flat rear mounting board extending slightly above the roof. Show front and one side, no tree, mounting pole, bird or decoration, no second entrance."
+    },
+    {
+      "id": "09",
+      "name": "钓竿架",
+      "file": "docs/forest-moments-x3-09-fishing-rod-rack-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-8adfe5c5-4463-43a3-8826-1531698ea4bb.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One EMPTY freestanding rustic wooden fishing rod storage rack. Two upright side posts on two stable wide perpendicular feet, upper horizontal thick rail with exactly three open U-shaped notches along its top, lower horizontal rest shelf with three shallow matching cup depressions aligned below. Warm medium brown wood, simple coherent joinery, clearly connected construction, suitable for standing fishing rods vertically. No rods, no fishing line, no reels, no text; clean open silhouette, show front and right side."
+    },
+    {
+      "id": "10",
+      "name": "木路牌",
+      "file": "docs/forest-moments-x3-10-wood-signpost-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-daadc7e6-081c-4393-ae2d-21d6d80b4512.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One rustic wooden trail signpost: one stout vertical warm-brown post, two blank thick directional arrow boards attached at different heights, upper arrow points right and lower arrow points left. Blank broad wood faces with understated grain, softened hand-carved edges, a few visible wooden pegs, short pointed lower post end. No lettering, symbols, ground, rocks, vines, lantern or extra props."
+    },
+    {
+      "id": "11",
+      "name": "漂流瓶",
+      "file": "docs/forest-moments-x3-11-message-bottle-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-cd20aa88-c13a-420e-b126-36eabe8f98be.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One squat seafoam-green glass message bottle, thick stylized softly translucent glass with a readable solid silhouette, narrow neck sealed with a warm brown cork, one rolled cream parchment visible inside. Bottle upright slightly angled by perspective, show complete rounded bottom. Minimal soft highlights, restrained transparency rather than clear invisible glass, no text or markings on parchment, no rope, liquid, sand, shells or scenery."
+    },
+    {
+      "id": "12",
+      "name": "发光水母",
+      "file": "docs/forest-moments-x3-12-glowing-jellyfish-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-c0aa701a-18a1-405f-b72f-075a242a61c2.png",
+      "prompt": "Use case: stylized-concept. Asset type: single-object image-to-3D modeling reference for Forest Moments, a mature cozy hand-painted woodland life PC game. Create one isolated asset, one three-quarter view, square composition, fully visible with generous white margins. Pure white background, only a faint contact shadow, no scenery, no base plinth, no text, labels, logos, borders or watermark. Warm restrained storybook art direction, tactile matte hand-painted textures, softly beveled handcrafted forms, clear readable solid volumes suitable for a low-to-medium-poly 3D model. Warm brown wood, muted forest green, cream and natural earthy accents; avoid plastic, photorealism, voxel, dense microgeometry or toy-like oversaturation. Soft neutral studio light from upper left, modest ambient occlusion. Subject: One small softly luminous jellyfish suspended against pure white. Rounded pale turquoise translucent bell with clearly defined softly scalloped edge, four thick short cream-teal oral arms and six separate gently curved medium-length tentacles, all tips fully visible and separated enough for modeling. Subtle cyan internal glow, legible pale blue silhouette on white, painted luminous body with restrained translucency, no neon bloom cloud, no face, eyes, water, bubbles or ocean background."
+    }
+  ]
+}

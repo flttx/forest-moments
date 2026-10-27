@@ -1,0 +1,17 @@
+{
+  "prop": "02",
+  "name": "berry-twig",
+  "source": "assets/lux3d/x3-02-berry-twig-v1/output-1.glb",
+  "sourceSha256": "4ba446b50fcb1c5b54d509e933b4dee6957d417cbe303ae583ada6b0b350f50e",
+  "output": "public/assets/x3/berry-twig.glb",
+  "outputBytes": 371896,
+  "outputSha256": "d7b577809af887dc64f0dab08f584c5b4fe9215fd582aabc79c70f20497b3901",
+  "trianglesBefore": 29598,
+  "trianglesAfter": 7999,
+  "sizeMetres": [
+    0.2332,
+    0.1569,
+    0.2409
+  ],
+  "textureSize": 512
+}

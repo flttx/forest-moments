@@ -1,0 +1,17 @@
+{
+  "prop": "12",
+  "name": "glowing-jellyfish",
+  "source": "assets/lux3d/x3-12-glowing-jellyfish-v1-r2/output-1.glb",
+  "sourceSha256": "bead3846414fee61169cc94b6028f1cf903a722786f00a124b738ecb87ba4b7c",
+  "output": "public/assets/x3/glowing-jellyfish.glb",
+  "outputBytes": 680560,
+  "outputSha256": "ce44d013f67948464625d81420ee71c2d7f8338f36cf7f42a4306836571026fb",
+  "trianglesBefore": 39892,
+  "trianglesAfter": 14000,
+  "sizeMetres": [
+    0.3433,
+    0.304,
+    0.4502
+  ],
+  "textureSize": 1024
+}

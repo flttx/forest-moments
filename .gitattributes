@@ -1,3 +1,4 @@
 public/assets/models/*.glb filter=lfs diff=lfs merge=lfs -text
 public/assets/interiors/*.glb filter=lfs diff=lfs merge=lfs -text
 public/assets/expansion/*.glb filter=lfs diff=lfs merge=lfs -text
+public/assets/x3/*.glb filter=lfs diff=lfs merge=lfs -text

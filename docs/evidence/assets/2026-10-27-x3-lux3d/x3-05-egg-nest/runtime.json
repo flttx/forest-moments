@@ -1,0 +1,17 @@
+{
+  "prop": "05",
+  "name": "egg-nest",
+  "source": "assets/lux3d/x3-05-egg-nest-v1/output-1.glb",
+  "sourceSha256": "bba0987c59f257e11a2369a4604af207e32bcb2fe1c103ea18aa8420eb365e64",
+  "output": "public/assets/x3/egg-nest.glb",
+  "outputBytes": 541660,
+  "outputSha256": "c7607d5940c6a8ce773d926ed3377f6ccde718c8986d32ca6e92003bb7eb1b22",
+  "trianglesBefore": 29465,
+  "trianglesAfter": 8000,
+  "sizeMetres": [
+    0.2478,
+    0.2422,
+    0.1042
+  ],
+  "textureSize": 512
+}

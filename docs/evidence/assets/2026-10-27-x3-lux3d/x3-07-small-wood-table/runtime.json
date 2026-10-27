@@ -1,0 +1,17 @@
+{
+  "prop": "07",
+  "name": "small-wood-table",
+  "source": "assets/lux3d/x3-07-small-wood-table-v1-r2/output-1.glb",
+  "sourceSha256": "0a58aa8a1568c448d877be2661d2f93a09f1dd5fde22417460be613c0e8b8225",
+  "output": "public/assets/x3/small-wood-table.glb",
+  "outputBytes": 635984,
+  "outputSha256": "b95e04d399c24cdc041fa567d20c5455f85010f48838d62c385dce9d2597ea69",
+  "trianglesBefore": 46797,
+  "trianglesAfter": 16000,
+  "sizeMetres": [
+    0.7503,
+    0.7394,
+    0.6229
+  ],
+  "textureSize": 1024
+}
