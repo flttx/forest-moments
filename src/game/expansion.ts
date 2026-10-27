@@ -1,3 +1,4 @@
+import {isSpecies,type SpeciesId} from './fishSpecies'
 import {smoothRange} from '../world/worldConfig'
 export const cabin={x:-15,z:-28,halfX:3.4,halfZ:2.8,doorZ:-24.5}
 export const camp={x:20,z:23}
@@ -9,12 +10,12 @@ export const bedroomSpawn={x:0,z:1.1}
 export const bedSpot={x:-1.0,z:-.5}
 export const tankSpot={x:2,z:-.3}
 export const expansionStorageKey='forest-moments:home:v1'
-export type KeptFish={id:string;sizeCm:number;at:string}
+export type KeptFish={id:string;sizeCm:number;at:string;species?:SpeciesId}
 export type HomeBook={version:1;fish:KeptFish[];usedCatchIds:string[];nights:number;fireLit:boolean}
 export const emptyHome=():HomeBook=>({version:1,fish:[],usedCatchIds:[],nights:0,fireLit:false})
 export function decodeHome(raw:string|null):HomeBook{
  try{const b=JSON.parse(raw??'null');if(b?.version!==1||!Array.isArray(b.fish)||b.fish.length>5||!Array.isArray(b.usedCatchIds)||!Number.isSafeInteger(b.nights)||b.nights<0||typeof b.fireLit!=='boolean')return emptyHome();
- if(b.fish.some((f:KeptFish)=>!f||typeof f.id!=='string'||!Number.isFinite(f.sizeCm)||f.sizeCm<18||f.sizeCm>36||typeof f.at!=='string'||!Number.isFinite(Date.parse(f.at)))||b.usedCatchIds.some((id:unknown)=>typeof id!=='string'))return emptyHome();
+ if(b.fish.some((f:KeptFish)=>!f||typeof f.id!=='string'||!Number.isFinite(f.sizeCm)||f.sizeCm<18||f.sizeCm>36||typeof f.at!=='string'||!Number.isFinite(Date.parse(f.at))||(f.species!==undefined&&!isSpecies(f.species)))||b.usedCatchIds.some((id:unknown)=>typeof id!=='string'))return emptyHome();
  if(new Set(b.fish.map((f:KeptFish)=>f.id)).size!==b.fish.length)return emptyHome();
  return{version:1,fish:b.fish,usedCatchIds:[...new Set<string>([...b.usedCatchIds,...b.fish.map((f:KeptFish)=>f.id)])],nights:b.nights,fireLit:b.fireLit}
  }catch{return emptyHome()}
@@ -25,7 +26,7 @@ export function latestCatchChoice(s:{fishBook:{recent:{at:string;sizeCm:number}[
  const f=s.fishBook.recent[0];if(!f)return null
  const id=catchId(f);return s.homeBook.fish.some(x=>x.id===id)?'kept':s.homeBook.usedCatchIds.includes(id)?'released':null
 }
-export function addCatch(home:HomeBook,fish:{at:string;sizeCm:number}){
+export function addCatch(home:HomeBook,fish:{at:string;sizeCm:number;species?:SpeciesId}){
  const id=catchId(fish);if(home.fish.length>=5||home.usedCatchIds.includes(id))return home
  return{...home,fish:[...home.fish,{...fish,id}],usedCatchIds:[...home.usedCatchIds,id]}
 }

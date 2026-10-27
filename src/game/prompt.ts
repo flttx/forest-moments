@@ -1,6 +1,9 @@
 import {t} from '../i18n'
 import {bedSpot,cabin,camp,seats,seatOrigin,tankSpot} from './expansion'
-import {feedSpot} from './farm'
+import {brushSpot,eggReady,eggSpot,feedSpot,woolReady} from './farm'
+import {spotNear} from './forage'
+import {woodReady} from './recipes'
+import {logPile} from '../world/settlement'
 import {fishingSpot} from './fishing'
 import {plantingSpot} from './growth'
 import {canViewLookout} from './lookout'
@@ -26,6 +29,7 @@ export function promptFor(s:State):Prompt|null{
  if(['fishing','crafting','sleeping','lookout'].includes(s.mode)||s.aquariumOpen)return null
  if(s.mode==='sitting')return s.sitting?.phase==='idle'?{action:t('prompt.standUp')}:{status:s.sitting?.phase==='up'?t('prompt.standingUp'):t('prompt.sittingDown')}
  if(s.mode==='gathering')return{status:t('prompt.gathering')}
+ if(s.mode==='foraging')return{status:t('prompt.foraging')}
  if(s.mode==='feeding')return{status:t('prompt.feeding')}
  if(s.mode==='planting')return{status:t('prompt.planting')}
  if(s.mode==='rowing')return canLand(s.boat)?{action:t('prompt.land')}:seaBoundaryClearance(s.boat.x,s.boat.z)<2?{hint:t('prompt.openSea')}:null
@@ -37,6 +41,9 @@ export function promptFor(s:State):Prompt|null{
  }
  if(s.location==='island'){
   if(seats.some(v=>near(p,seatOrigin(v),1.3)))return{action:t('prompt.sit')}
+  const spot=s.mode==='walking'?spotNear(p,s.forageBook,s.homeBook.nights):null
+  if(spot)return{action:t('prompt.forage',{item:t(`item.${spot.kind}`)})}
+  if(s.mode==='walking'&&near(p,logPile,1.4))return woodReady(s.workshopBook,s.homeBook.nights)?{action:t('prompt.wood')}:{hint:t('msg.woodTaken')}
   if(near(p,camp,2.1))return{action:s.homeBook.fireLit?t('prompt.fireOut'):t('prompt.fireLight')}
   if(near(p,{x:cabin.x,z:cabin.doorZ},1.2))return s.homeReady?{action:t('prompt.enterBedroom')}:{status:t('prompt.bedroomLoading')}
   if(s.nearby==='campfire')return{hint:t('prompt.toFire')}
@@ -50,13 +57,17 @@ export function promptFor(s:State):Prompt|null{
    if(action==='exit')return{action:t('prompt.toIsland')}
    if(action==='collect')return{action:t('prompt.collectStump')}
    if(action==='inspect')return{action:t('prompt.sitStool')}
+   if(action==='recipes')return{action:t('prompt.recipes')}
    if(action==='craft'&&book.phase==='carrying')return{action:t('prompt.startCraft')}
    // Materials are mentioned only while they are still missing.
    if(book.phase==='available')return{hint:inside?t('prompt.stumpInside'):t('prompt.stumpOutside')}
    return{hint:inside?t('prompt.toBench'):t('prompt.toWorkshopDoor')}
   }
   case 'lookout':return !s.lookoutReady?{status:t('prompt.lookoutLoading')}:canViewLookout(p)?{action:t('prompt.enterLookout')}:{hint:t('prompt.toStairs')}
-  case 'farm':return !s.farmReady?{status:t('prompt.farmLoading')}:s.mealActive?{hint:t('prompt.mealActive')}:near(p,feedSpot,.65)?{action:t('prompt.feed')}:{hint:t('prompt.toTrough')}
+  case 'farm':
+   if(s.farmReady&&eggReady(s.farmBook,s.homeBook.nights)&&near(p,eggSpot,.9))return{action:t('prompt.egg')}
+   if(s.farmReady&&!s.mealActive&&woolReady(s.farmBook,s.homeBook.nights)&&near(p,brushSpot,1))return{action:t('prompt.wool')}
+   return !s.farmReady?{status:t('prompt.farmLoading')}:s.mealActive?{hint:t('prompt.mealActive')}:near(p,feedSpot,.65)?{action:t('prompt.feed')}:{hint:t('prompt.toTrough')}
   case 'pond':return !s.fishingReady?{status:t('prompt.fishingLoading')}:near(p,fishingSpot,.85)?{action:t('prompt.cast')}:{hint:t('prompt.toFishingSpot')}
   case 'dock':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:{hint:t('prompt.toDockEnd')}
   case 'grove':

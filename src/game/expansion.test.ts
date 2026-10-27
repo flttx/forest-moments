@@ -46,7 +46,7 @@ it('keeps furniture solid and the bed, tank and doorway accessible',()=>{
 })
 it('requires an actual catch, prevents duplication after release and restores persistent residents',async()=>{
  const {useForestStore:s}=await import('./store'),fish={at:'2026-10-25T02:00:00Z',sizeCm:26},id=catchId(fish)
- s.setState({fishBook:{count:1,bestCm:26,recent:[fish]}})
+ s.setState({fishBook:{count:1,bestCm:26,recent:[fish],kinds:{}}})
  s.getState().keepFish(id);expect(s.getState().homeBook.fish).toHaveLength(0)
  s.setState({location:'bedroom',aquariumOpen:true});s.getState().keepFish('unknown');s.getState().keepFish(id);s.getState().keepFish(id)
  expect(s.getState().homeBook.fish).toHaveLength(1);expect(decodeHome(memory.get(expansionStorageKey)!).fish[0].id).toBe(id)
@@ -55,8 +55,8 @@ it('requires an actual catch, prevents duplication after release and restores pe
  for(const raw of ['bad','{}',JSON.stringify({...book,nights:-1})])expect(decodeHome(raw)).toEqual(emptyHome())
 })
 it('lets the newest catch go into the tank or back into the pond right at the bank, once',async()=>{
- const {useForestStore:s}=await import('./store'),fish={at:'2026-10-25T03:00:00Z',sizeCm:30},caught={phase:'caught' as const,elapsed:0,wait:3,sizeCm:30,progress:1,tension:.2,held:false,paused:false,reason:'' as const}
- s.setState({fishBook:{count:1,bestCm:30,recent:[fish]}})
+ const {useForestStore:s}=await import('./store'),fish={at:'2026-10-25T03:00:00Z',sizeCm:30},caught={phase:'caught' as const,elapsed:0,wait:3,sizeCm:30,progress:1,tension:.2,held:false,paused:false,reason:'' as const,species:'koi' as const}
+ s.setState({fishBook:{count:1,bestCm:30,recent:[fish],kinds:{}}})
  // Only while the catch is on the line.
  s.getState().keepCatch();expect(s.getState().homeBook.fish).toHaveLength(0)
  s.setState({mode:'fishing',fishing:caught});expect(latestCatchChoice(s.getState())).toBeNull()
@@ -64,13 +64,13 @@ it('lets the newest catch go into the tank or back into the pond right at the ba
  expect(s.getState().homeBook.fish.map(f=>f.id)).toEqual([catchId(fish)]);expect(latestCatchChoice(s.getState())).toBe('kept')
  expect(decodeHome(memory.get(expansionStorageKey)!).fish).toHaveLength(1)
  // A released catch never shows up in the tank afterwards.
- const next={at:'2026-10-25T03:05:00Z',sizeCm:22};s.setState({fishBook:{count:2,bestCm:30,recent:[next,fish]}})
+ const next={at:'2026-10-25T03:05:00Z',sizeCm:22};s.setState({fishBook:{count:2,bestCm:30,recent:[next,fish],kinds:{}}})
  s.getState().releaseCatch();s.getState().keepCatch();expect(latestCatchChoice(s.getState())).toBe('released')
  expect(s.getState().homeBook.fish).toHaveLength(1)
  s.setState({mode:'walking',fishing:null,location:'bedroom',aquariumOpen:true});s.getState().keepFish(catchId(next));expect(s.getState().homeBook.fish).toHaveLength(1)
  // A full tank refuses the keep but still allows letting go.
  let full=emptyHome();for(let i=0;i<5;i++)full=addCatch(full,{...fish,at:`2026-10-25T04:00:0${i}Z`})
- const last={at:'2026-10-25T05:00:00Z',sizeCm:24};s.setState({homeBook:full,location:'island',aquariumOpen:false,mode:'fishing',fishing:caught,fishBook:{count:8,bestCm:30,recent:[last]}})
+ const last={at:'2026-10-25T05:00:00Z',sizeCm:24};s.setState({homeBook:full,location:'island',aquariumOpen:false,mode:'fishing',fishing:caught,fishBook:{count:8,bestCm:30,recent:[last],kinds:{}}})
  s.getState().keepCatch();expect(latestCatchChoice(s.getState())).toBeNull();s.getState().releaseCatch();expect(latestCatchChoice(s.getState())).toBe('released')
 })
 it('enters and exits at the fade midpoint and sleeps through to morning once',async()=>{

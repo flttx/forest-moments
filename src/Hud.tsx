@@ -19,6 +19,9 @@ import {WorkshopHud} from './WorkshopHud'
 import {LookoutHud} from './LookoutHud'
 import {GrowthStatus} from './GrowthStatus'
 import {PhotoButton,PhotoHud,AlbumPanel} from './PhotoHud'
+import {CatalogPanel} from './CatalogPanel'
+import {CampHud} from './CampHud'
+import {RecipeCard} from './RecipeCard'
 import {usePhotoStore} from './game/photoStore'
 
 const menuItems:[MenuPanel,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
@@ -47,7 +50,7 @@ function TopBar(){
  return <>
   <div className="brand">{t('brand')}</div>
   <nav className="menu" aria-label={t('menu.label')}>
-   {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
+   {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" title={t(label)} aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
    <PhotoButton/>
    <span className="tool-divider" aria-hidden="true"/>
    <LanguageSwitch/>
@@ -66,7 +69,7 @@ function MenuPanelView(){
  return <section id="menu-panel" ref={ref} className="paper-panel menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-panel-title"
   onKeyDown={e=>{trap(e);if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closePanel()}}} onWheel={e=>e.stopPropagation()}>
   <header><h2 id="menu-panel-title">{title}</h2><button type="button" className="close-button" onClick={closePanel} aria-label={t('panel.close')}><Icon name="close"/></button></header>
-  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<FishBook/>:<Help/>}</div>
+  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<CatalogPanel/>:<Help/>}</div>
  </section>
 }
 
@@ -84,15 +87,9 @@ function Places(){
  </li>)}</ul>
 }
 
-function FishBook(){
- const t=useT(),lang=useLang(s=>s.lang)
- const book=useForestStore(s=>s.fishBook)
- if(!book.count)return <p className="empty">{t('fishbook.empty')}</p>
- return <><p>{t('fishbook.summary',{count:book.count,best:book.bestCm})}</p><ol className="catch-list">{book.recent.slice(0,8).map((fish,i)=><li key={`${fish.at}-${i}`}>{fish.sizeCm} cm · {new Date(fish.at).toLocaleDateString(lang==='zh'?'zh-CN':'en-GB')}</li>)}</ol></>
-}
 
 const helpRows:[Key,(Key|string)[]][]=[
- ['help.move',['W','A','S','D']],['help.run',['Shift']],['help.look',['key.rightDrag']],['help.orbit',['Q','E']],['help.zoom',['key.wheel']],['help.interact',['F']],['help.back',['Esc']],['help.hide',['H']],['help.photo',['P']],['help.mute',['M']],
+ ['help.move',['W','A','S','D']],['help.run',['Shift']],['help.look',['key.rightDrag']],['help.orbit',['Q','E']],['help.zoom',['key.wheel']],['help.interact',['F']],['help.back',['Esc']],['help.hide',['H']],['help.photo',['P']],['help.campRoast',['R']],['help.campStars',['V']],['help.mute',['M']],
  ['help.strike',['F']],['help.reel',['key.holdSpace']],['help.row',['W','S']],['help.steer',['A','D']],['help.tower',['A','D','W','S']],
 ]
 function Help(){
@@ -194,6 +191,8 @@ export function Hud(){
  const gameCards=!paused&&<>
   {mode==='fishing'&&<FishingHud/>}
   {mode==='crafting'&&<WorkshopHud/>}
+  <CampHud/>
+  <RecipeCard/>
   <HomeHud/>
  </>,lookout=!paused&&mode==='lookout'&&<LookoutHud/>
  if(hudHidden)return <div className="hud hud-hidden">

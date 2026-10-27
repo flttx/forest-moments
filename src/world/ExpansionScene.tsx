@@ -1,3 +1,7 @@
+import {dressFish} from './fishLook'
+import {kindOf} from '../game/fishing'
+import {roastSeconds} from '../game/campfire'
+import {PhotoWall} from './PhotoWall'
 import {useEffect,useMemo,useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {useGLTF} from '@react-three/drei'
@@ -77,12 +81,36 @@ function Embers({lit}:{lit:boolean}){
  return <group ref={coals} name="campfire-embers">{Array.from({length:6},(_,i)=><mesh key={i} position={[Math.sin(i*1.9)*.13,.14,Math.cos(i*1.9)*.13]} rotation={[i,i*2,0]} scale={[.07,.045,.06]}><icosahedronGeometry args={[1,0]}/><meshStandardMaterial color="#2a1a12" roughness={.9} emissive="#ff5a1f" emissiveIntensity={0}/></mesh>)}</group>
 }
 
+/** A fish on a green stick over the fire while it roasts; it turns slowly and browns as it cooks. */
+function RoastSpit(){
+ const source=useGLTF('/assets/models/fish-koi.glb')
+ const roast=useForestStore(s=>s.roast)
+ const kind=roast?.species,size=roast?.sizeCm
+ const fish=useMemo(()=>{if(!kind||!size)return null;const root=clone(source.scene);dressFish(root,kind);root.scale.setScalar(size/100);return root},[source,kind,size])
+ const spin=useRef<THREE.Group>(null),cooked=new THREE.Color('#7b4a28')
+ useFrame((_,dt)=>{
+  const r=useForestStore.getState().roast;if(!r||!fish||!spin.current)return
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)spin.current.rotation.x+=Math.min(dt,.05)*.9
+  const k=Math.min(1,r.elapsed/roastSeconds)*.55
+  fish.traverse(o=>{if(o instanceof THREE.Mesh&&o.material instanceof THREE.MeshStandardMaterial){const base=new THREE.Color(o.material.userData.base??(o.material.userData.base=`#${o.material.color.getHexString()}`));o.material.color.copy(base).lerp(cooked,k)}})
+ })
+ if(!fish)return null
+ return <group name="roast-spit" position={[0,.62,0]}>
+  {[-.42,.42].map(x=><mesh key={x} position={[x,-.3,0]} rotation={[0,0,x>0?-.12:.12]}><cylinderGeometry args={[.018,.022,.66,6]}/><meshStandardMaterial color="#6b4a2e" roughness={.95}/></mesh>)}
+  <group ref={spin}>
+   <mesh rotation={[0,0,Math.PI/2]}><cylinderGeometry args={[.012,.012,.98,6]}/><meshStandardMaterial color="#8a6a3f" roughness={.9}/></mesh>
+   <primitive object={fish} rotation={[0,Math.PI/2,0]}/>
+  </group>
+ </group>
+}
+
 function Campfire(){
  const lit=useForestStore(s=>s.homeBook.fireLit)
  return <group position={[camp.x,0,camp.z]} name="campfire">
   <ExpansionModel id="firepit"/>
   <CampfireFlame lit={lit}/>
   <Embers lit={lit}/>
+  <RoastSpit/>
  </group>
 }
 
@@ -99,7 +127,7 @@ export function ExpansionExterior(){return <group name="expansion-exterior">
 function TankResidents(){
  const source=useGLTF('/assets/models/fish-koi.glb')
  const fish=useForestStore(s=>s.homeBook.fish)
- const residents=useMemo(()=>fish.map((f,i)=>{const root=clone(source.scene);root.scale.setScalar(Math.min(.29,f.sizeCm/100));const mixer=new THREE.AnimationMixer(root);for(const clip of source.animations)mixer.clipAction(clip).play();return{root,mixer,phase:i*2.4}}),[fish,source])
+ const residents=useMemo(()=>fish.map((f,i)=>{const root=clone(source.scene);dressFish(root,kindOf(f));root.scale.setScalar(Math.min(.29,f.sizeCm/100));const mixer=new THREE.AnimationMixer(root);for(const clip of source.animations)mixer.clipAction(clip).play();return{root,mixer,phase:i*2.4}}),[fish,source])
  useEffect(()=>()=>residents.forEach(r=>r.mixer.stopAllAction()),[residents])
  const elapsed=useRef(0)
  const runtime=useRef(residents);useEffect(()=>{runtime.current=residents},[residents])
@@ -120,6 +148,7 @@ export function Bedroom(){
   <mesh position={[0,1.61,0]} rotation={[-Math.PI/2,0,0]}><planeGeometry args={[1.76,.65]}/><meshPhysicalMaterial color="#78b9a3" transparent opacity={.25} roughness={.2} depthWrite={false}/></mesh>
   <TankResidents/>
   </group>
+  <PhotoWall/>
   <hemisphereLight args={['#ffe5bc','#463223',1.1]}/>
   <pointLight position={[0,2.8,.4]} color="#ffd4a0" intensity={18} distance={9} castShadow shadow-mapSize={[512,512]} shadow-bias={-.001}/>
   <pointLight position={[0,2.1,-2.2]} color={day?'#d4e4e5':'#97b4dc'} intensity={day?7:2} distance={5}/>

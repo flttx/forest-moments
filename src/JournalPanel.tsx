@@ -5,7 +5,7 @@ import {useJournalStore} from './game/journalStore'
 import {pageDone,taskTarget,type StampId,type TaskId} from './game/journal'
 
 const stampIcon:Record<StampId,IconName>={pine:'pine',koi:'fishbook',flame:'flame',feather:'feather',boat:'boat',moon:'moon'}
-const measured:Partial<Record<TaskId,Key>>={row:'journal.meters',fireside:'journal.seconds'}
+const measured:Partial<Record<TaskId,Key>>={row:'journal.meters',fireside:'journal.seconds',mushrooms:'journal.count'}
 
 /** A stamp in ink: one of six designs, rotating by page. */
 export function Stamp({id,size=28}:{id:StampId;size?:number}){

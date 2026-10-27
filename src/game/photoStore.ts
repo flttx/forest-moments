@@ -6,10 +6,12 @@ import {playSound} from '../audio/audioStore'
 import {filterUnlock,frameUnlock,looksUnlocked,photoBlock,photoFileName,type FilterId,type FrameId} from './photo'
 import {composeFrame} from './photoFrame'
 import type {FreeView} from './freeCamera'
+import type {SubjectId} from './photoSubjects'
 import {makeThumb,savePhoto} from './photoAlbum'
+import {decodeWall,hang,keepExisting,photoWallKey,takeDown} from './photoWall'
 
 type Light=ReturnType<typeof useForestStore.getState>['timeOfDay']
-export interface LastShot{id:string;url:string;name:string;saved:boolean}
+export interface LastShot{id:string;url:string;name:string;saved:boolean;subjects:SubjectId[]}
 
 type PhotoState={
  active:boolean
@@ -35,8 +37,13 @@ type PhotoState={
  setLight:(light:Light)=>void
  shutter:()=>void
  takePending:()=>boolean
- finish:(blob:Blob|null,width:number,height:number)=>Promise<void>
+ finish:(blob:Blob|null,width:number,height:number,subjects?:SubjectId[])=>Promise<void>
  dismissLast:()=>void
+ /** Photo ids hung on the bedroom wall, in frame order. */
+ wall:readonly string[]
+ toggleWall:(id:string)=>void
+ /** Forgets frames whose photo has left the album. */
+ pruneWall:(albumIds:readonly string[])=>void
 }
 
 /** The hand-flown camera's view: changes every frame, so it lives outside the reactive state. */
@@ -45,6 +52,7 @@ export const freeCam:{view:FreeView|null}={view:null}
 export const pagesFilled=()=>useJournalStore.getState().book.stamps.length
 const say=(message:string,kind:'info'|'error'='info')=>useForestStore.setState({message,messageKind:kind})
 const forget=(shot:LastShot|null)=>{if(shot)URL.revokeObjectURL(shot.url)}
+function saveWall(wall:readonly string[]){try{window.localStorage.setItem(photoWallKey,JSON.stringify(wall))}catch{say(t('wall.unsaved'),'error')}}
 
 export const usePhotoStore=create<PhotoState>((set,get)=>({
  active:false,hideRaccoon:false,free:false,filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
@@ -77,7 +85,7 @@ export const usePhotoStore=create<PhotoState>((set,get)=>({
  setLight:light=>{if(get().active&&useForestStore.getState().timeOfDay!==light)useForestStore.setState({timeOfDay:light})},
  shutter:()=>{if(get().active&&!get().pending)set({pending:true})},
  takePending:()=>{if(!get().pending)return false;set({pending:false});return true},
- finish:async(blob,width,height)=>{
+ finish:async(blob,width,height,subjects=[])=>{
   if(!get().active)return
   if(!blob){say(t('photo.failed'),'error');return}
   const {frame}=get()
@@ -89,12 +97,15 @@ export const usePhotoStore=create<PhotoState>((set,get)=>({
   const night=useForestStore.getState().timeOfDay==='night',at=new Date(),id=`${at.getTime()}-${Math.random().toString(36).slice(2,6)}`
   playSound('scissors',{volume:.6,rate:1.5})
   forget(get().last)
-  const shot:LastShot={id,url:URL.createObjectURL(blob),name:photoFileName(at),saved:false}
+  const shot:LastShot={id,url:URL.createObjectURL(blob),name:photoFileName(at),saved:false,subjects}
   set(s=>({flash:s.flash+1,last:shot}))
-  useJournalStore.getState().record([{type:'photo',night}])
-  const saved=await savePhoto({id,at:at.toISOString(),night,width,height,image:blob,thumb:await makeThumb(blob)})
+  useJournalStore.getState().record([{type:'photo',night,subjects}])
+  const saved=await savePhoto({id,at:at.toISOString(),night,width,height,subjects,image:blob,thumb:await makeThumb(blob)})
   if(!saved)say(t('photo.unsaved'),'error')
   set(s=>({albumVersion:s.albumVersion+1,last:s.last?.id===id?{...s.last,saved}:s.last}))
  },
  dismissLast:()=>{forget(get().last);set({last:null})},
+ wall:typeof window==='undefined'?[]:(()=>{try{return decodeWall(window.localStorage.getItem(photoWallKey))}catch{return []}})(),
+ toggleWall:id=>{const wall=get().wall,next=wall.includes(id)?takeDown(wall,id):hang(wall,id);if(next!==wall){set({wall:next});saveWall(next)}},
+ pruneWall:albumIds=>{const next=keepExisting(get().wall,albumIds);if(next!==get().wall){set({wall:next});saveWall(next)}},
 }))

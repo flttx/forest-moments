@@ -80,7 +80,7 @@ try {
   check('Chinese default; title uses the subset display face without a box', brand)
   await shot('01-default-zh')
   await waitFor("!document.querySelector('.guide')", 'guide folds away', 120)
-  await hover('.menu button', '鱼簿'); await shot('02-hover-zh')
+  await hover('.menu button', '图鉴'); await shot('02-hover-zh')
   await click('.menu button', '地点'); await sleep(250)
   assert(await evaluate("!!document.querySelector('#menu-panel')&&document.querySelector('.menu button[aria-expanded=true]').textContent==='地点'"))
   assert.equal(await state('s.menuPaused'), true)
@@ -90,7 +90,7 @@ try {
   // 2. Switch to English: every visible label, the page language and title change together.
   await click('.menu .lang-switch'); await sleep(250)
   assert.equal(await evaluate('document.documentElement.lang'), 'en'); assert.equal(await text('.brand'), 'Forest Moments')
-  assert.deepEqual(await evaluate("[...document.querySelectorAll('.menu .tool-label')].map(e=>e.textContent)"), ['Journal', 'Places', 'Fish log', 'Help'])
+  assert.deepEqual(await evaluate("[...document.querySelectorAll('.menu .tool-label')].map(e=>e.textContent)"), ['Journal', 'Album', 'Places', 'Field guide', 'Help', 'Photo'])
   assert.equal(await evaluate('document.title'), 'Forest Moments · 森林拾光')
   check('switches to English and updates page language and title')
   await shot('04-default-en')

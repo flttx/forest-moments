@@ -7,6 +7,7 @@ import {useOrbitInput} from './useOrbitInput'
 import {ScaleReview} from './ScaleReview'
 import {PostEffects} from './PostEffects'
 import {PhotoCapture} from './PhotoCapture'
+import {ForageItems} from './ForageItems'
 import {freeCam,usePhotoStore} from '../game/photoStore'
 import {constrainFreePosition,freeSpeed,lookDirection,moveFreeView,viewFromDirection} from '../game/freeCamera'
 import {clampOrbitTargets,photoOrbit} from '../game/photo'
@@ -139,6 +140,7 @@ function Player() {
   const ready = useRef(false)
   const wasSleeping=useRef(false)
   const wasPhoto=useRef(false)
+  const skyLook=useRef(new THREE.Vector3())
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
   const movementIntent=useRef<ReturnType<typeof cameraRelativeMovement>>(null)
@@ -165,6 +167,8 @@ function Player() {
         return
       }
       if (e.code === 'KeyP' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey) { photo.enter(); return }
+      // Seated by the fire or the sea: R roasts a fish, V looks up at the stars.
+      if ((e.code === 'KeyR' || e.code === 'KeyV') && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && useForestStore.getState().mode === 'sitting') { e.preventDefault(); if (e.code === 'KeyR') useForestStore.getState().startRoast(); else useForestStore.getState().toggleStargaze(); return }
       if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyQ', 'KeyE', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || e.code==='Escape' || (['fishing','planting','feeding','lookout','gathering','crafting','sitting','sleeping'].includes(useForestStore.getState().mode) && ['Space', 'Escape'].includes(e.code))) {
         e.preventDefault()
         pressed.current.add(e.code)
@@ -252,6 +256,7 @@ function Player() {
       if((x||z)&&state.sitting.phase==='idle')state.leaveSeat()
     }
 
+    if(state.mode==='foraging'&&state.foraging){state.tickForage(dt);motion.current='interact';const at=state.foraging;character.rotation.y=Math.atan2(character.position.x-at.x,character.position.z-at.z)}
     if(state.mode==='feeding'){state.tickFeeding(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-(feedSpot.x+1),character.position.z-feedSpot.z)}
     if(state.mode==='planting'){state.tickPlanting(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-plantingSpot.x,character.position.z-plantingSpot.z)}
     if(state.mode==='gathering'||state.mode==='crafting'){
@@ -271,7 +276,7 @@ function Player() {
     if(state.mode!=='walking'){movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(transferring||(x===0&&z===0))movementIntent.current=null
     if (state.mode === 'walking' && !transferring && ready.current && (x !== 0 || z !== 0)) {
-      if(state.inspectingTree||state.aquariumOpen)useForestStore.setState({inspectingTree:false,aquariumOpen:false})
+      if(state.inspectingTree||state.aquariumOpen||state.recipesOpen)useForestStore.setState({inspectingTree:false,aquariumOpen:false,recipesOpen:false})
       const intent=cameraRelativeMovement(x,z,orbit.current.yaw)!
       movementIntent.current=intent
       const next = state.location==='bedroom'?moveInBedroom(character.position,intent.x*speed*dt,intent.z*speed*dt):state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,state.tree?[.06,.11,.19,.32][state.tree.stage]:0,state.workshopBook.phase)
@@ -330,6 +335,16 @@ function Player() {
     if(current.mode==='sleeping'&&current.sleepJourney){
       const shot=sleepCamera(current.sleepJourney.target);camera.position.set(...shot.position);camera.lookAt(...shot.target);return
     }
+    if(current.stargazing&&current.mode==='sitting'){
+      // Looking up from the seat: the eye eases to just behind the head and tilts up along the seat's facing.
+      const yaw=character.rotation.y,forward=new THREE.Vector3(-Math.sin(yaw),0,-Math.cos(yaw))
+      const head=new THREE.Vector3(character.position.x,character.position.y+1.05,character.position.z)
+      camera.position.lerp(head.clone().addScaledVector(forward,-.85).add(new THREE.Vector3(0,.45,0)),1-Math.exp(-2.2*dt))
+      skyLook.current.lerp(head.clone().addScaledVector(forward,8).add(new THREE.Vector3(0,6,0)),1-Math.exp(-2.2*dt))
+      camera.lookAt(skyLook.current)
+      return
+    }
+    skyLook.current.copy(camera.position).add(camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(6))
     if(current.mode!=='rowing'&&current.mode!=='fishing'){
       const inside=current.location!=='island'
       const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,orbit.current,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
@@ -415,6 +430,7 @@ function Scene() {
     <Suspense fallback={null}><ExpansionExterior/></Suspense>
     <Suspense fallback={null}><GrowingTree /></Suspense>
     <Suspense fallback={null}><FishingScene /></Suspense>
+    <ForageItems />
     </group>
     <Suspense fallback={null}><WorkshopCraft/></Suspense>
     <Suspense fallback={null}><Bedroom/></Suspense>

@@ -63,7 +63,7 @@ export function AmbientLife() {
       return points
     }
     const seeds = driftMaterial('#f1ead2', 1.3, 0), flies = driftMaterial('#d6f27a', 2.8, 2.1)
-    return { geometry, butterfly, seeds, flies, seedPoints: makePoints(seeds, DRIFTERS), flyPoints: makePoints(flies, DRIFTERS) }
+    return { geometry, butterfly, seeds, flies, seedPoints: makePoints(seeds, DRIFTERS), flyPoints: Object.assign(makePoints(flies, DRIFTERS), { name: 'fireflies' }) }
   }, [])
   useEffect(() => {
     const media = matchMedia('(prefers-reduced-motion: reduce)')

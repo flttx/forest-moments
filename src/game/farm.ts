@@ -4,11 +4,36 @@ export const farmStorageKey='forest-moments:farm:v1'
 export const feedSpot={x:8,z:4.2}
 export const farmColliders=colliders
 export const animalObstacles=[{x:7.1,z:5.7,r:.18},{x:8.5,z:7.1,r:.38}]
-export type FarmBook={version:1;meals:number}
+/**
+ * `fedDay`: day (nights slept) of the last finished meal. `eggDay`: from which day an egg waits by the coop (null when
+ * none is owed). `woolDay`: day the sheep was last brushed. Older saves only have meals.
+ */
+export type FarmBook={version:1;meals:number;fedDay?:number;eggDay?:number|null;woolDay?:number}
+const day=(v:unknown)=>Number.isSafeInteger(v)&&(v as number)>=0
 export function decodeFarm(raw:string|null):FarmBook{
- try{const b=JSON.parse(raw??'null');if(b?.version===1&&Number.isSafeInteger(b.meals)&&b.meals>=0)return{version:1,meals:b.meals}}catch{/* Invalid saves start empty. */}
+ try{
+  const b=JSON.parse(raw??'null')
+  if(b?.version===1&&Number.isSafeInteger(b.meals)&&b.meals>=0){
+   const out:FarmBook={version:1,meals:b.meals}
+   if(day(b.fedDay))out.fedDay=b.fedDay
+   if(day(b.eggDay)||b.eggDay===null)out.eggDay=b.eggDay
+   if(day(b.woolDay))out.woolDay=b.woolDay
+   return out
+  }
+ }catch{/* Invalid saves start empty. */}
  return{version:1,meals:0}
 }
+/** Farm chores after feeding (docs/GAMEPLAY_EXPANSION_PLAN.md §2.3): an egg the morning after, the sheep brushed once a day. */
+export const eggSpot={x:6.8,z:7.35}
+export const brushSpot={x:9.05,z:5.75}
+export const choreSeconds={egg:1.1,wool:2} as const
+/** A meal finished today: the sheep can be brushed today, and an egg is owed for tomorrow unless one is already waiting. */
+export function afterMeal(book:FarmBook,today:number):FarmBook{
+ const waiting=book.eggDay!=null&&book.eggDay<=today
+ return{...book,meals:book.meals+1,fedDay:today,eggDay:waiting?book.eggDay:today+1}
+}
+export const eggReady=(book:FarmBook,today:number)=>book.eggDay!=null&&book.eggDay<=today
+export const woolReady=(book:FarmBook,today:number)=>book.fedDay===today&&book.woolDay!==today
 export type Animal={id:'hen'|'sheep';x:number;z:number;yaw:number;state:'idle'|'walk'|'eat';eaten:number;wait:number;target:number}
 export const animalRoutes={hen:[[7.1,5.7],[8.3,5.7],[8.3,4.9],[7.1,4.9]],sheep:[[8.5,7.1],[9.6,7.1],[9.6,6.3],[8.5,6.3]]} as const
 export const mealTargets={hen:{x:9,z:3.95,yaw:-Math.PI/2},sheep:{x:9.7,z:4.43,yaw:0}}

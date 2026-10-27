@@ -20,16 +20,16 @@ it('draws three different tasks it can offer, avoiding the last page where it ca
 })
 it('moves only matching tasks, accumulates metres and seconds, and stamps a page once all three are done',()=>{
  let b=book(['bigCatch','row','fireside'])
- let r=recordEvents(b,[{type:'catch',sizeCm:24}],'t1');expect(r.book).toBe(b)
+ let r=recordEvents(b,[{type:'catch',sizeCm:24,species:'koi',isNew:false}],'t1');expect(r.book).toBe(b)
  r=recordEvents(b,[{type:'row',meters:25},{type:'fireside',seconds:3}],'t2');b=r.book
  expect(b.page.tasks.map(t=>t.progress)).toEqual([0,25,3]);expect(r.finished).toEqual([])
  r=recordEvents(b,[{type:'row',meters:30}],'t3');b=r.book
  expect(b.page.tasks[1]).toEqual({id:'row',progress:taskTarget.row,doneAt:'t3'});expect(r.finished).toEqual(['row'])
- r=recordEvents(b,[{type:'fireside',seconds:6},{type:'catch',sizeCm:31}],'t4');b=r.book
+ r=recordEvents(b,[{type:'fireside',seconds:6},{type:'catch',sizeCm:31,species:'koi',isNew:false}],'t4');b=r.book
  expect(r.finished.sort()).toEqual(['bigCatch','fireside']);expect(pageDone(b.page)).toBe(true)
  expect(b.stamps).toEqual([{page:1,stamp:stampFor(1),doneAt:'t4',tasks:b.page.tasks}])
  // A full page records nothing more until it is turned, and only then.
- expect(recordEvents(b,[{type:'catch',sizeCm:40}],'t5').book).toBe(b)
+ expect(recordEvents(b,[{type:'catch',sizeCm:40,species:'koi',isNew:false}],'t5').book).toBe(b)
  expect(turnPage(book(['catch','feed','sleep']),roomy)).toEqual(book(['catch','feed','sleep']))
  const next=turnPage(b,roomy,()=>.5)
  expect(next.page.number).toBe(2);expect(next.page.tasks.every(t=>t.progress===0&&!t.doneAt)).toBe(true);expect(next.stamps).toHaveLength(1)
@@ -37,7 +37,12 @@ it('moves only matching tasks, accumulates metres and seconds, and stamps a page
 it('turns game changes into journal entries',async()=>{
  const {useForestStore:s}=await import('./store'),base=s.getState()
  const fishing={...base,mode:'fishing' as const,fishing:{...beginFishing(()=>.9),phase:'landing' as const}}
- expect(journalEvents(fishing,{...fishing,fishing:{...fishing.fishing,phase:'caught' as const}})).toEqual([{type:'catch',sizeCm:fishing.fishing.sizeCm}])
+ expect(journalEvents(fishing,{...fishing,fishing:{...fishing.fishing,phase:'caught' as const}})).toEqual([{type:'catch',sizeCm:fishing.fishing.sizeCm,species:fishing.fishing.species,isNew:true}])
+ // A kind already in the book is not new; the new-kind and glowfish tasks follow the catch.
+ const known={...fishing,fishBook:{...fishing.fishBook,kinds:{[fishing.fishing.species]:{count:1,bestCm:20}}}}
+ expect(journalEvents(known,{...known,fishing:{...known.fishing,phase:'caught' as const}})[0]).toMatchObject({isNew:false})
+ expect(recordEvents(book(['newKind','glowfish','catch']),[{type:'catch',sizeCm:24,species:'glowfish',isNew:true}],'t').finished.sort()).toEqual(['catch','glowfish','newKind'])
+ expect(recordEvents(book(['newKind','glowfish','catch']),[{type:'catch',sizeCm:24,species:'koi',isNew:false}],'t').finished).toEqual(['catch'])
  expect(journalEvents(base,{...base,farmBook:{version:1,meals:base.farmBook.meals+1}})).toEqual([{type:'feed'}])
  const rowing={...base,mode:'rowing' as const}
  expect(journalEvents(rowing,{...rowing,boat:{...rowing.boat,x:rowing.boat.x+.05}})[0]).toMatchObject({type:'row'})
@@ -61,7 +66,7 @@ it('restores a valid save and starts afresh from a broken one; a blocked save ke
  window.localStorage.setItem=()=>{throw Error('denied')}
  j.getState().record([{type:'feed'}])
  expect(j.getState().book.page.tasks[1].doneAt).not.toBeNull();expect(s.getState().messageKind).toBe('error')
- expect(taskIds).toHaveLength(12)
+ expect(taskIds).toHaveLength(27)
 })
 
 const now='2026-10-26T14:00:00Z'
@@ -126,7 +131,7 @@ it('saves the initial page, achievements and page turns, with no per-frame write
 })
 it('credits every available task from the corresponding event and protects unrelated tasks',()=>{
  const cases:[TaskId,Parameters<typeof recordEvents>[1][number]][]=[
-  ['catch',{type:'catch',sizeCm:20}],['bigCatch',{type:'catch',sizeCm:30}],['keep',{type:'keep'}],['feed',{type:'feed'}],
+  ['catch',{type:'catch',sizeCm:20,species:'koi',isNew:false}],['bigCatch',{type:'catch',sizeCm:30,species:'koi',isNew:false}],['keep',{type:'keep'}],['feed',{type:'feed'}],
   ['fireside',{type:'fireside',seconds:8}],['seaside',{type:'seaside'}],['lookout',{type:'lookout'}],['row',{type:'row',meters:40}],
   ['sleep',{type:'sleep'}],['tree',{type:'tree'}],['photo',{type:'photo',night:false}],['nightPhoto',{type:'photo',night:true}],
  ]

@@ -1,7 +1,11 @@
 import {photosToDrop,thumbWidth} from './photo'
+import type {SubjectId} from './photoSubjects'
 
-/** The local album: the newest few photos in IndexedDB (localStorage is too small for images). */
-export interface PhotoRecord{id:string;at:string;night:boolean;width:number;height:number;image:Blob;thumb:Blob}
+/**
+ * The local album: the newest few photos in IndexedDB (localStorage is too small for images).
+ * `subjects`: photo-task subjects the picture shows; older records have none.
+ */
+export interface PhotoRecord{id:string;at:string;night:boolean;width:number;height:number;subjects?:SubjectId[];image:Blob;thumb:Blob}
 const dbName='forest-moments:photos:v1',storeName='photos'
 
 function open():Promise<IDBDatabase>{

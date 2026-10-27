@@ -61,7 +61,8 @@ try {
   const photo = (expr) => evaluate(`(()=>{const p=photoStore.getState(),s=forestStore.getState();return ${expr}})()`)
   // Mean luminance, saturation and local contrast of the last photo; frames are measured separately.
   const measure = () => evaluate(`(async()=>{const img=document.querySelector('.photo-last img');const b=await (await fetch(img.src)).blob();const bm=await createImageBitmap(b);const c=document.createElement('canvas');c.width=bm.width;c.height=bm.height;const g=c.getContext('2d');g.drawImage(bm,0,0);const d=g.getImageData(0,0,c.width,c.height).data;let l=0,sat=0,n=0,grain=0;for(let i=0;i<d.length-8;i+=4*13){const r=d[i],gg=d[i+1],bb=d[i+2],mx=Math.max(r,gg,bb),mn=Math.min(r,gg,bb);l+=(r+gg+bb)/3;sat+=mx?(mx-mn)/mx:0;grain+=Math.abs(d[i]-d[i+4]);n++}return{w:bm.width,h:bm.height,lum:l/n,sat:sat/n,grain:grain/n}})()`)
-  const snap = async () => { await press('Space', ' '); await waitFor("!!document.querySelector('.photo-last img')", 'preview', 100); await sleep(900); return measure() }
+  // Clear the previous preview first, so the measurement waits for this shot rather than reading the last one.
+  const snap = async () => { await evaluate("photoStore.setState({last:null})"); await press('Space', ' '); await waitFor("!!document.querySelector('.photo-last img')", 'preview', 100); await sleep(900); return measure() }
   const setPages = (n) => evaluate(`journalStore.setState(s=>({book:{...s.book,stamps:Array.from({length:${n}},(_,i)=>({page:i+1,stamp:['pine','koi','flame','feather','boat','moon'][i%6],doneAt:new Date().toISOString()}))}}))`)
 
   await boot(1440, 900, true)

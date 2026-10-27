@@ -1,3 +1,4 @@
+import { dressFish } from './fishLook'
 import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
@@ -195,6 +196,7 @@ export function FishingScene() {
     if (choice === 'released' && p.choice !== 'released') { ripple(2.45, -4.85, .9, .7); splash(2.45, -4.85, 10, 1.2) }
     p.choice = choice
     p.fish.visible = f.phase === 'landing' || (f.phase === 'caught' && !choice)
+    if (p.fish.userData.species !== f.species) dressFish(p.fish, f.species)
     // Evaluated skeleton length is 1 m; the raw decoded mesh spans 2 m.
     p.fish.scale.setScalar(f.sizeCm / 100)
     p.fish.position.copy(p.end).y -= f.sizeCm / 200

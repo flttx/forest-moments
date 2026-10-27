@@ -214,3 +214,34 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .photo-styles>div{display:flex;gap:2px}
 .hud .photo-styles .tool-button[aria-pressed=true]{background:var(--amber-soft);box-shadow:inset 0 -2px 0 var(--amber)}
 .hud .photo-styles .tool-button[aria-disabled=true]{opacity:.45}
+
+/* Field guide */
+.catalog-tabs{display:flex;gap:4px;margin-bottom:10px;border-bottom:1px solid var(--line-soft)}
+.hud .catalog-tabs .tool-button[aria-selected=true]{background:var(--amber-soft);box-shadow:inset 0 -2px 0 var(--amber)}
+.satchel-list{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.satchel-list li{display:flex;justify-content:space-between;border-bottom:1px dashed var(--line-soft);padding:4px 0}
+.satchel-count{color:var(--ink-soft);font-variant-numeric:tabular-nums}
+
+.species-list{list-style:none;margin:6px 0 10px;padding:0;display:grid;gap:6px}
+.species-list li{display:grid;grid-template-columns:22px 1fr;column-gap:8px;align-items:center}
+.species-list small{grid-column:2;color:var(--ink-soft);font-size:14px}
+.species-list .unknown strong{color:var(--ink-soft)}
+.species-swatch{width:18px;height:18px;border-radius:50%;grid-row:span 2;border:1px solid var(--line)}
+.species-list .unknown .species-swatch{background:var(--line-soft)!important}
+.swatch-koi{background:linear-gradient(135deg,#f3efe6 50%,#d8582f 50%)}.swatch-goldKoi{background:#e6b04a}.swatch-inkKoi{background:linear-gradient(135deg,#d9d9d4 50%,#3c4044 50%)}
+.swatch-silverfish{background:#c9d6df}.swatch-glowfish{background:#8fe0d2;box-shadow:0 0 6px #8fe0d2}
+
+.album-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+.hud .album-tags .tool-button[aria-pressed=true],.hud .album-grid .tool-button[aria-pressed=true]{background:var(--amber-soft);box-shadow:inset 0 -2px 0 var(--amber)}
+.album-grid div{flex-wrap:wrap}
+
+/* Narrower PC windows: the toolbar keeps its icons and drops the words (still read out, and shown on hover). */
+@media(max-width:1279px){.menu .tool-label{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.hud .menu .tool-button{padding:0 10px}}
+
+/* Workbench patterns */
+.recipe-card{position:absolute;right:20px;top:80px;width:min(340px,calc(100% - 40px));pointer-events:auto}
+.recipe-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.recipe-list li{display:grid;grid-template-columns:1fr auto;column-gap:10px;align-items:center;border-bottom:1px dashed var(--line-soft);padding-bottom:8px}
+.recipe-list small{grid-column:1;color:var(--ink-soft);font-size:14px}
+.recipe-list button,.recipe-made{grid-column:2;grid-row:1/span 2}
+.recipe-made{color:var(--moss);font-size:14px}

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useForestStore } from './game/store'
 import { installAudio } from './audio/audioStore'
 import { installJournal } from './game/journalStore'
+import { installInventory } from './game/inventoryStore'
 import { ForestWorld } from './world/ForestWorld'
 import { WorldErrorBoundary } from './world/ModelAsset'
 import {LoadingScreen} from './LoadingScreen'
@@ -15,6 +16,7 @@ function App() {
   // Audio stays locked until the first click or key press, as browsers require.
   useEffect(()=>installAudio(),[])
   useEffect(()=>installJournal(),[])
+  useEffect(()=>installInventory(),[])
   return <main className={`app-shell${islandOverview?' island-overview':''}${mode==='sleeping'?' sleeping':''}`}>
     <div className="world"><WorldErrorBoundary><ForestWorld /></WorldErrorBoundary></div>
     <LoadingScreen />

@@ -1,3 +1,5 @@
+import { isSpecies, pickCatch, type Light, type SpeciesId } from './fishSpecies'
+
 export const fishingSpot = { x: 1.5, z: -5 }
 export const catchStorageKey = 'forest-moments:fish-book:v1'
 export type FishingPhase = 'casting' | 'waiting' | 'bite' | 'reeling' | 'landing' | 'caught' | 'escaped'
@@ -7,6 +9,7 @@ export interface FishingState {
   elapsed: number
   wait: number
   sizeCm: number
+  species: SpeciesId
   progress: number
   tension: number
   held: boolean
@@ -14,20 +17,35 @@ export interface FishingState {
   /** Why the fish got away; translated as `fishing.<reason>` when shown. */
   reason: FishingReason
 }
-export interface CatchBook { count: number; bestCm: number; recent: { sizeCm: number; at: string }[] }
-export const emptyBook = (): CatchBook => ({ count: 0, bestCm: 0, recent: [] })
+export interface CatchRecord { sizeCm: number; at: string; species?: SpeciesId }
+/** Per kind: how many and the largest. Older books (koi only) are read as koi. */
+export type KindTally = Partial<Record<SpeciesId, { count: number; bestCm: number }>>
+export interface CatchBook { count: number; bestCm: number; recent: CatchRecord[]; kinds: KindTally }
+export const emptyBook = (): CatchBook => ({ count: 0, bestCm: 0, recent: [], kinds: {} })
+export const kindOf = (f: { species?: SpeciesId }): SpeciesId => f.species ?? 'koi'
+/** The book after one more fish. */
+export function recordCatch(book: CatchBook, fish: CatchRecord): CatchBook {
+  const kind = kindOf(fish), was = book.kinds[kind]
+  return { count: book.count + 1, bestCm: Math.max(book.bestCm, fish.sizeCm), recent: [fish, ...book.recent].slice(0, 20),
+    kinds: { ...book.kinds, [kind]: { count: (was?.count ?? 0) + 1, bestCm: Math.max(was?.bestCm ?? 0, fish.sizeCm) } } }
+}
 export function decodeCatchBook(raw: string | null): CatchBook {
   try {
     const value: unknown = JSON.parse(raw ?? 'null')
     if (!value || typeof value !== 'object') return emptyBook()
     const b = value as CatchBook
     if (!Number.isSafeInteger(b.count) || b.count < 0 || !Number.isFinite(b.bestCm) || b.bestCm < 0 || b.bestCm > 36 || !Array.isArray(b.recent)) return emptyBook()
-    if (b.recent.length > 20 || b.recent.some(r => !r || !Number.isFinite(r.sizeCm) || r.sizeCm < 18 || r.sizeCm > 36 || typeof r.at !== 'string' || !Number.isFinite(Date.parse(r.at)))) return emptyBook()
-    return { count: b.count, bestCm: b.bestCm, recent: b.recent }
+    if (b.recent.length > 20 || b.recent.some(r => !r || !Number.isFinite(r.sizeCm) || r.sizeCm < 18 || r.sizeCm > 36 || typeof r.at !== 'string' || !Number.isFinite(Date.parse(r.at)) || (r.species !== undefined && !isSpecies(r.species)))) return emptyBook()
+    let kinds: KindTally = {}
+    if (b.kinds === undefined) { if (b.count) kinds = { koi: { count: b.count, bestCm: b.bestCm } } }
+    else if (!b.kinds || typeof b.kinds !== 'object' || Object.entries(b.kinds).some(([id, k]) => !isSpecies(id) || !k || !Number.isSafeInteger(k.count) || k.count < 1 || !Number.isFinite(k.bestCm) || k.bestCm < 18 || k.bestCm > 36)) return emptyBook()
+    else kinds = b.kinds
+    return { count: b.count, bestCm: b.bestCm, recent: b.recent, kinds }
   } catch { return emptyBook() }
 }
-export function beginFishing(random = Math.random): FishingState {
-  return { phase: 'casting', elapsed: 0, wait: 3 + random() * 3, sizeCm: Math.round(18 + random() * 18), progress: 0, tension: .22, held: false, paused: false, reason: '' }
+export function beginFishing(random = Math.random, light: Light = 'day'): FishingState {
+  const wait = 3 + random() * 3, fish = pickCatch(light, random)
+  return { phase: 'casting', elapsed: 0, wait, sizeCm: fish.sizeCm, species: fish.species, progress: 0, tension: .22, held: false, paused: false, reason: '' }
 }
 export function strikeFish(s: FishingState): FishingState {
   if (s.paused) return { ...s, paused: false, held: false }

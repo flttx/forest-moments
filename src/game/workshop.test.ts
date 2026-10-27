@@ -77,5 +77,6 @@ it('offers shaping wherever the raccoon can stand against the workbench, and the
  expect(workshopAction({x:0,z:indoorSpawn.z},carrying,'workshop')).toBeNull()
  const nearStool=moveInWorkshop({x:stoolSeat.x+.5,z:indoorSpawn.z},0,-4,true)
  expect(workshopAction(nearStool,finished,'workshop')).toBe('inspect')
- expect(workshopAction({x:1.5,z:-1.67},finished,'workshop')).toBeNull()
+ // After the stool, the rest of the bench opens the patterns for new pieces.
+ expect(workshopAction({x:1.5,z:-1.67},finished,'workshop')).toBe('recipes')
 })

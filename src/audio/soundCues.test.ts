@@ -22,7 +22,7 @@ it('voices each fishing step once, and nothing when the state did not change',as
 })
 it('tells a kept catch from one let go, and opens then closes doors',async()=>{
  const {useForestStore:s}=await import('../game/store'),base=s.getState(),fish={at:'2026-10-26T01:00:00Z',sizeCm:30}
- const caught={...base,fishBook:{count:1,bestCm:30,recent:[fish]}}
+ const caught={...base,fishBook:{count:1,bestCm:30,recent:[fish],kinds:{}}}
  const kept={...caught,homeBook:{...caught.homeBook,fish:[{...fish,id:catchId(fish)}],usedCatchIds:[catchId(fish)]}}
  expect(names(soundCues(caught,kept))).toEqual(['pour'])
  const released={...caught,homeBook:{...caught.homeBook,usedCatchIds:[catchId(fish)]}}

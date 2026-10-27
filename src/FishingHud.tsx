@@ -14,7 +14,7 @@ export function FishingHud() {
   const tankFull = useForestStore(s => s.homeBook.fish.length >= 5)
   if (!f) return null
   // The catch result appears here once; the notice line stays empty for it.
-  const title = f.paused ? t('fishing.paused') : f.phase === 'caught' ? t('fishing.caught', { size: f.sizeCm }) : f.phase === 'escaped' ? (f.reason ? t(`fishing.${f.reason}`) : '') : t(`fishing.${f.phase}`)
+  const title = f.paused ? t('fishing.paused') : f.phase === 'caught' ? t('fishing.caught', { size: f.sizeCm, name: t(`fish.${f.species}`) }) : f.phase === 'escaped' ? (f.reason ? t(`fishing.${f.reason}`) : '') : t(`fishing.${f.phase}`)
   const tense = f.tension > .72
   return <section className={`paper-card fishing-hud${f.phase === 'bite' ? ' urgent' : ''}`} aria-label={t('fishing.label')}>
     <strong role="status">{title}</strong>

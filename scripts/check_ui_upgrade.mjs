@@ -93,7 +93,7 @@ try {
   const c = await state('s.position'); await sleep(700); const d = await state('s.position')
   assert(Math.hypot(c.x - d.x, c.z - d.z) < 1e-6, 'W not re-held after close')
   check('held W + menu: pause, focus trap target, Esc restores focus without resuming movement')
-  await click('.menu button|鱼簿'); await sleep(200); assert(await evaluate("document.querySelector('#menu-panel').textContent.includes('还没有渔获')")); await shot('04-fishbook-empty')
+  await click('.menu button|图鉴'); await sleep(200); assert(await evaluate("document.querySelector('#menu-panel').textContent.includes('已发现 0 / 5 种')")); await shot('04-fishbook-empty')
   await click('.menu button|帮助'); await sleep(200); await shot('05-help'); await press('Escape', 'Escape'); await sleep(150)
   check('fish book empty state and help panel')
 
