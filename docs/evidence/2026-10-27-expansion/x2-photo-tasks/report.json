@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-27T08:32:28.906Z",
+  "date": "2026-10-27T10:10:01.484Z",
   "checks": [
     {
       "name": "a framed shot of the cabin counts as the cabin",
@@ -31,10 +31,10 @@
         "shotFireflies:1"
       ],
       "shutterMs": [
-        824,
-        842,
-        527,
-        751
+        780,
+        636,
+        631,
+        809
       ]
     },
     {

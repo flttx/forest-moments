@@ -1,4 +1,4 @@
-import {useRef,useState} from 'react'
+import {useEffect,useRef,useState} from 'react'
 import {useFrame} from '@react-three/fiber'
 import * as THREE from 'three'
 import {PerformanceMonitor} from '@react-three/drei'
@@ -39,6 +39,8 @@ function FocusPull({effect}:{effect:React.RefObject<{target:THREE.Vector3}|null>
  */
 export function PostEffects(){
   const [low,setLow]=useState(forcedLow)
+  // Photo mode greys out what the low tier cannot draw.
+  useEffect(()=>{usePhotoStore.setState({lowQuality:low})},[low])
   const look=useLook(low),focus=useRef<{target:THREE.Vector3}|null>(null)
   const lamp=look==='lamp'
   return <>

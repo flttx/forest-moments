@@ -1,18 +1,18 @@
 {
-  "date": "2026-10-27T02:50:03.143Z",
+  "date": "2026-10-27T10:07:36.365Z",
   "checks": [
     {
       "name": "P enters photo mode; game paused; WASD does not move the raccoon"
     },
     {
       "name": "photo orbit goes closer and lower than play limits",
-      "zoom": 0.12000003100569848,
-      "pitch": -0.16999999844409963
+      "zoom": 0.12000001639176813,
+      "pitch": -0.1699999986801898
     },
     {
       "name": "photo orbit goes higher and farther",
-      "zoom": 2.299999999729518,
-      "pitch": 0.9099999999936085
+      "zoom": 2.2999999998448875,
+      "pitch": 0.9099999999968021
     },
     {
       "name": "hide raccoon toggles; light preview switches to night"
@@ -24,9 +24,9 @@
       "h": 900,
       "cw": 1440,
       "ch": 900,
-      "lit": 11802,
+      "lit": 11769,
       "samples": 13360,
-      "bytes": 1646934
+      "bytes": 1648105
     },
     {
       "name": "journal: photo and night-photo tasks complete",
@@ -36,13 +36,13 @@
         "tree:0"
       ],
       "drawnBefore": [
-        "sleep",
-        "catch",
-        "photo"
+        "egg",
+        "shotFireflies",
+        "shotFireside"
       ]
     },
     {
-      "name": "forest-moments-20261027-105044.png",
+      "name": "forest-moments-20261027-180817.png",
       "href": true
     },
     {
@@ -52,15 +52,15 @@
           "n": true,
           "w": 1440,
           "h": 900,
-          "img": 1647977,
-          "th": 7287
+          "img": 1654345,
+          "th": 7290
         },
         {
           "n": true,
           "w": 1440,
           "h": 900,
-          "img": 1646934,
-          "th": 7283
+          "img": 1648105,
+          "th": 7260
         }
       ]
     },

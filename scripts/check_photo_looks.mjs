@@ -68,7 +68,8 @@ try {
   await boot(1440, 900, true)
   await evaluate('indexedDB.deleteDatabase("forest-moments:photos:v1")'); await sleep(300)
   await waitFor("!document.querySelector('.guide')", 'guide folds away', 120)
-  await press('KeyP', 'p'); await sleep(600)
+  // Filters and frames fold away behind one button in the strip.
+  await press('KeyP', 'p'); await sleep(600); await click('.photo-bar button', '滤镜与相框'); await sleep(300)
 
   // 1. Locks: with no pages only natural, warm and no frame are open; clicking a locked look changes nothing.
   const lock = () => evaluate("[...document.querySelectorAll('.photo-styles button')].map(b=>b.textContent+':'+(b.getAttribute('aria-disabled')==='true'?'L':'o'))")
@@ -81,13 +82,17 @@ try {
   for (const [pages, open] of [[2, ['原色', '暖阳', '景深', '无相框']], [4, ['原色', '暖阳', '景深', '胶片', '无相框']], [6, ['原色', '暖阳', '景深', '胶片', '无相框', '纸边']], [8, ['原色', '暖阳', '景深', '胶片', '黑白', '无相框', '纸边']], [10, ['原色', '暖阳', '景深', '胶片', '黑白', '夜灯', '无相框', '纸边']], [12, ['原色', '暖阳', '景深', '胶片', '黑白', '夜灯', '无相框', '纸边', '印章']]]) {
     await setPages(pages); await sleep(250)
     const got = (await lock()).filter((x) => x.endsWith(':o')).map((x) => x.split(':')[0])
-    assert.deepEqual(got, open, `pages ${pages}`)
+    // On the low tier depth stays greyed out even when unlocked.
+    const low = await evaluate('photoStore.getState().lowQuality')
+    assert.deepEqual(got, low ? open.filter((x) => x !== '景深') : open, `pages ${pages}`)
   }
   check('unlock thresholds: 2 depth, 4 film, 6 paper frame, 8 mono, 10 lamplight, 12 stamp frame')
 
   // 3. Each filter changes the picture the way it says (same camera, same light).
   const stats = {}
+  const lowTier = await evaluate('photoStore.getState().lowQuality')
   for (const [id, label] of [['plain', '原色'], ['warm', '暖阳'], ['depth', '景深'], ['film', '胶片'], ['mono', '黑白']]) {
+    if (id === 'depth' && lowTier) continue
     await click('.photo-styles button', label); await sleep(900); assert.equal(await photo('p.filter'), id)
     stats[id] = await snap(); await shot(`02-filter-${id}`); await sleep(1100)
   }
@@ -99,7 +104,9 @@ try {
   assert(stats.warm.sat !== stats.plain.sat && stats.warm.lum !== stats.plain.lum, 'warm differs')
   assert(stats.film.grain > stats.plain.grain * 1.05, `film grain ${stats.film.grain} vs ${stats.plain.grain}`)
   assert(stats.film.sat < stats.plain.sat, 'film is slightly desaturated')
-  assert(stats.depth.grain < stats.plain.grain, `depth softens ${stats.depth.grain} vs ${stats.plain.grain}`)
+  // On a busy machine the renderer may drop to its low tier, where depth of field is off by design.
+  if (lowTier) report.notes = ['renderer on low tier during this run: depth of field off, not measured']
+  else assert(stats.depth.grain < stats.plain.grain, `depth softens ${stats.depth.grain} vs ${stats.plain.grain}`)
   assert(stats.lamp.lum > stats.nightPlain.lum, `lamplight brightens night ${stats.lamp.lum} vs ${stats.nightPlain.lum}`)
   check('filters measurably change the picture', stats)
 
@@ -120,10 +127,10 @@ try {
   assert.deepEqual(await photo('[p.filter,p.frame]'), ['plain', 'none']); check('leaving the camera resets filter and frame')
   await cmd('Page.navigate', { url: `${base}?qa&quality=low` }); await sleep(800); await waitFor(ready, 'scene ready', 400); await sleep(1500)
   await evaluate(`(async()=>{const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p).name;window.photoStore=(await import(r('/src/game/photoStore.ts'))).usePhotoStore;window.journalStore=(await import(r('/src/game/journalStore.ts'))).useJournalStore})()`)
-  await setPages(2); await press('KeyP', 'p'); await sleep(500); await click('.photo-styles button', '景深'); await sleep(900)
-  const pass = await evaluate("(async()=>{const c=document.querySelector('canvas');return{filter:photoStore.getState().filter}})()")
-  assert.equal(pass.filter, 'depth'); await shot('05-low-quality-depth')
-  check('depth can be selected on low quality; it is rendered as plain (see screenshot and PostEffects.filterAllowed)')
+  await setPages(2); await press('KeyP', 'p'); await sleep(500); await click('.photo-bar button', '滤镜与相框'); await sleep(300); await click('.photo-styles button', '景深'); await sleep(900)
+  const pass = await evaluate("({filter:photoStore.getState().filter,low:photoStore.getState().lowQuality,title:[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='景深')?.title,disabled:[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='景深')?.getAttribute('aria-disabled')})")
+  assert.deepEqual([pass.filter, pass.low, pass.disabled], ['plain', true, 'true']); assert(pass.title.includes('低画质'), JSON.stringify(pass)); await shot('05-low-quality-depth')
+  check('on low quality the depth chip is greyed out with the reason and cannot be chosen', pass)
 
   assert.deepEqual(report.errors, [])
   report.status = 'PASS'

@@ -1,11 +1,11 @@
 import {useEffect,useState} from 'react'
 import {useLang,useT} from './i18n'
-import {Icon} from './Icon'
+import {Icon,type IconName} from './Icon'
 import {useForestStore} from './game/store'
 import {usePhotoStore} from './game/photoStore'
 import {wallSlots} from './game/photoWall'
 import {subjectIds,type SubjectId} from './game/photoSubjects'
-import {photoBlock,albumLimit,filterIds,frameIds,filterUnlock,frameUnlock,looksUnlocked} from './game/photo'
+import {filterAllowed,photoBlock,albumLimit,filterIds,frameIds,filterUnlock,frameUnlock,looksUnlocked} from './game/photo'
 import {useJournalStore} from './game/journalStore'
 import {deletePhoto,listPhotos,type PhotoRecord} from './game/photoAlbum'
 
@@ -26,28 +26,32 @@ export function PhotoButton(){
 export function PhotoHud(){
  const t=useT()
  const s=usePhotoStore(),light=useForestStore(f=>f.timeOfDay),pages=useJournalStore(j=>j.book.stamps.length)
+ const [looksOpen,setLooksOpen]=useState(false)
  if(!s.active)return null
+ const lightIcon={day:'sun',dusk:'sunset',night:'moon'} as const
+ // Icon buttons keep their words for screen readers (and scripts) in a hidden span; the title shows them on hover.
+ const icon=(label:string,name:IconName,pressed:boolean|undefined,onClick:()=>void,extra?:string)=>
+  <button type="button" className="icon-button" aria-pressed={pressed} title={extra?`${label} · ${extra}`:label} onClick={onClick}><Icon name={name} size={19}/><span className="sr-only">{label}</span></button>
  return <>
   {s.flash>0&&!reducedMotion()&&<div key={s.flash} className="photo-flash" aria-hidden="true"/>}
-  <div className="photo-styles paper-note">
-   <div role="group" aria-label={t('photo.filters')}>
-    {filterIds.map(id=>{const open=looksUnlocked(pages,filterUnlock[id]);return <button key={id} type="button" className="tool-button" aria-pressed={s.filter===id} aria-disabled={open?undefined:true} title={open?undefined:t('photo.locked',{n:filterUnlock[id]})} onClick={()=>s.setFilter(id)}>{t(`photo.filter.${id}` as const)}</button>})}
+  <div className="viewfinder" aria-hidden="true"><i/><i/><i/><i/></div>
+  {looksOpen&&<div className="photo-looks photo-styles" role="group" aria-label={t('photo.filters')}>
+   {filterIds.map(id=>{const open=looksUnlocked(pages,filterUnlock[id]),usable=filterAllowed(id,s.lowQuality);return <button key={id} type="button" className="chip" aria-pressed={s.filter===id&&usable} aria-disabled={open&&usable?undefined:true} title={!open?t('photo.locked',{n:filterUnlock[id]}):usable?undefined:t('photo.lowQuality')} onClick={()=>{if(usable)s.setFilter(id)}}>{t(`photo.filter.${id}` as const)}</button>})}
+   <span className="rule" aria-hidden="true"/>
+   {frameIds.map(id=>{const open=looksUnlocked(pages,frameUnlock[id]);return <button key={id} type="button" className="chip" aria-pressed={s.frame===id} aria-disabled={open?undefined:true} title={open?undefined:t('photo.locked',{n:frameUnlock[id]})} onClick={()=>s.setFrame(id)}>{t(`photo.frame.${id}` as const)}</button>})}
+  </div>}
+  <p key={s.free?'free':'orbit'} className="photo-hint">{t(s.free?'photo.hintFree':'photo.hint')}</p>
+  <div className="photo-strip photo-bar" role="toolbar" aria-label={t('photo.label')}>
+   <div className="group" role="group" aria-label={t('photo.light')}>
+    {lights.map(l=><span key={l}>{icon(t(`photo.light.${l}` as const),lightIcon[l],light===l,()=>s.setLight(l))}</span>)}
    </div>
-   <span className="tool-divider" aria-hidden="true"/>
-   <div role="group" aria-label={t('photo.frames')}>
-    {frameIds.map(id=>{const open=looksUnlocked(pages,frameUnlock[id]);return <button key={id} type="button" className="tool-button" aria-pressed={s.frame===id} aria-disabled={open?undefined:true} title={open?undefined:t('photo.locked',{n:frameUnlock[id]})} onClick={()=>s.setFrame(id)}>{t(`photo.frame.${id}` as const)}</button>})}
-   </div>
+   {icon(t('photo.looks'),'sparkles',looksOpen,()=>setLooksOpen(v=>!v))}
+   <button type="button" className="shutter" aria-label={t('photo.shutter')} title={`${t('photo.shutter')} (Space)`} aria-busy={s.pending} onClick={s.shutter}><span/></button>
+   {icon(t('photo.free'),'move',s.free,s.toggleFree,t('photo.freeHint'))}
+   {icon(t('photo.hideRaccoon'),'hide',s.hideRaccoon,s.toggleHideRaccoon)}
+   <span className="rule" aria-hidden="true"/>
+   {icon(`${t('photo.close')} (Esc)`,'close',undefined,s.exit)}
   </div>
-  <div className="photo-bar paper-note" role="toolbar" aria-label={t('photo.label')}>
-   <div className="photo-lights" role="group" aria-label={t('photo.light')}>
-    {lights.map(l=><button key={l} type="button" className="tool-button" aria-pressed={light===l} onClick={()=>s.setLight(l)}>{t(`photo.light.${l}` as const)}</button>)}
-   </div>
-   <button type="button" className="tool-button" aria-pressed={s.free} title={t('photo.freeHint')} onClick={s.toggleFree}>{t('photo.free')}</button>
-   <button type="button" className="tool-button" aria-pressed={s.hideRaccoon} onClick={s.toggleHideRaccoon}>{t('photo.hideRaccoon')}</button>
-   <button type="button" className="shutter" aria-label={t('photo.shutter')} title={`${t('photo.shutter')} (Space)`} aria-busy={s.pending} onClick={s.shutter}><Icon name="camera" size={22}/></button>
-   <button type="button" className="tool-button icon-only" aria-label={t('photo.close')} title={`${t('photo.close')} (Esc)`} onClick={s.exit}><Icon name="close"/></button>
-  </div>
-  <p className="ink-note photo-hint">{t(s.free?'photo.hintFree':'photo.hint')}</p>
   {s.last&&<figure className="paper-note photo-last">
    <img src={s.last.url} alt={t('photo.taken')}/>
    <figcaption>{t('photo.taken')}{s.last.saved?` · ${t('photo.savedAlbum')}`:''}{s.last.subjects.length>0&&<><br/>{t('photo.subjects',{list:s.last.subjects.map(id=>t(`subject.${id}` as const)).join(t('list.separator'))})}</>}</figcaption>

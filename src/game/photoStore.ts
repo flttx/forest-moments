@@ -18,6 +18,8 @@ type PhotoState={
  hideRaccoon:boolean
  /** Free framing: the camera is flown by hand near the raccoon instead of orbiting it. */
  free:boolean
+ /** The renderer has dropped to its low tier (forced or after slow frames): depth of field is off. */
+ lowQuality:boolean
  filter:FilterId
  frame:FrameId
  /** The light the player was in before previewing another one; restored on leaving. */
@@ -55,7 +57,7 @@ const forget=(shot:LastShot|null)=>{if(shot)URL.revokeObjectURL(shot.url)}
 function saveWall(wall:readonly string[]){try{window.localStorage.setItem(photoWallKey,JSON.stringify(wall))}catch{say(t('wall.unsaved'),'error')}}
 
 export const usePhotoStore=create<PhotoState>((set,get)=>({
- active:false,hideRaccoon:false,free:false,filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
+ active:false,hideRaccoon:false,free:false,lowQuality:false,filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
  enter:()=>{
   const forest=useForestStore.getState()
   if(get().active)return
