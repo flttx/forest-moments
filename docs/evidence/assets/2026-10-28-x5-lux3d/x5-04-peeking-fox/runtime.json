@@ -1,0 +1,17 @@
+{
+  "prop": "04",
+  "name": "peeking-fox",
+  "source": "assets/lux3d/x5-04-peeking-fox-v1/output-1.glb",
+  "sourceSha256": "ed61d5780343365e4c65ec594962f59fc2b198ef0ed72efec7a1bbdbeb04d420",
+  "output": "public/assets/x5/peeking-fox.glb",
+  "outputBytes": 716900,
+  "outputSha256": "324cb27713ba1a2c481347a30534658c43e7d6e97af920c5f2846afbbd0bf231",
+  "trianglesBefore": 39566,
+  "trianglesAfter": 14000,
+  "sizeMetres": [
+    0.3445,
+    0.3486,
+    0.4218
+  ],
+  "textureSize": 1024
+}

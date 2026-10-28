@@ -1,0 +1,38 @@
+[
+  {
+    "id": "01",
+    "file": "docs/forest-moments-x5-01-sleeping-fox-v1.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1890445,
+    "sha256": "AB8FF0E7E0DD21FECE1A1A080AEC7DF259FCD22F97AC06924754A67B0F73EE12",
+    "source_match": true
+  },
+  {
+    "id": "02",
+    "file": "docs/forest-moments-x5-02-fox-den-entrance-v1.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 2051767,
+    "sha256": "341BA6D6EDABDB36B524D0250BD683F0CA43BFF8C38E03D8460EF5BDAD2CA344",
+    "source_match": true
+  },
+  {
+    "id": "03",
+    "file": "docs/forest-moments-x5-03-heart-stone-v1.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1988840,
+    "sha256": "7B6115D66ACB64947BFC49CB38A38E806009610D6E96F18FC2E8E4BC4546735C",
+    "source_match": true
+  },
+  {
+    "id": "04",
+    "file": "docs/forest-moments-x5-04-peeking-fox-v1.png",
+    "width": 1254,
+    "height": 1254,
+    "bytes": 1567866,
+    "sha256": "54EE086DD36FECBEB8C90E34F82DF7109B0D49F26414F4A28B27E9CC37AC3487",
+    "source_match": true
+  }
+]

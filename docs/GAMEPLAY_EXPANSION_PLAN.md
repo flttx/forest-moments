@@ -1,6 +1,6 @@
 # 玩法扩展方案（9 项）
 
-状态：**9 项均已实现并本机限定验证，待用户查看（2026-10-28）。** 部分范围收窄：隐藏角落做了 3 处（漂流瓶、夜光水母、浣熊星座），另 4 处需新造型未做；X4 天气无水面涟漪与积水。证据见 [扩展证据](evidence/2026-10-27-expansion/evidence.md)、[道具](evidence/assets/2026-10-27-x3-lux3d/evidence.md)、[天气季节](evidence/2026-10-28-weather/evidence.md)。
+状态：**9 项均已实现并本机限定验证，待用户查看（2026-10-28）。** 隐藏角落已做 6 处（漂流瓶、夜光水母、浣熊星座、狐狸洞、心形石、塔梁刻字），其中后 3 处是简单几何体；小瀑布做过，用户认为观感奇怪，已删除。X4 天气已加水面、溪面雨点和带真实倒影的路面水坑。后 3 处角落换成建模资产的参考图清单见第 8 节。证据见 [扩展证据](evidence/2026-10-27-expansion/evidence.md)、[道具](evidence/assets/2026-10-27-x3-lux3d/evidence.md)、[天气季节](evidence/2026-10-28-weather/evidence.md)。
 
 用户 2026-10-27 选定 9 项：工坊配方扩展、钓鱼深化、牧场互动、篝火与营地、照片任务、相册升级、天气与季节、岛上采集、隐藏角落。（“种树深化”未选。）
 
@@ -142,3 +142,43 @@
 - **参考图**：用户于 2026-10-27 要求按清单生成并放在同一目录；已用内置 image_gen 生成 12 张白底、无文字的单体 PNG，按 01–12 编号保存于本文件所在的 `docs/`。见 [逐件预览索引](GAMEPLAY_EXPANSION_REFERENCES.md) 与 [生成证据](evidence/2026-10-27-x3-references/evidence.md)。已做初步图像复核和文件校验，待用户确认；仅参考图完成，Lux3D 调用仍待确认。
 - 隐藏角落其余几处（塔梁刻字、狐狸洞、特殊角度石头、小瀑布）用现有资产、贴花或简单几何完成，不调用 Lux3D。
 - 未确认前，X3 的玩法逻辑可以先用几何体占位开发并标为“占位”，不当成正式资产。
+
+## 8. X5 隐藏角落建模资产（已生成并接入，2026-10-28，待用户查看）
+
+2026-10-28 用户要求把新加的隐藏角落从简单几何体换成建模资产，狐狸也要有完整模型。流程与 X3 相同：每件一张单体参考 PNG，经 Lux3D G1（中国区）生成，用 Blender 归一化尺度和原点，按实测决定是否减面，进运行时前多视角截图审阅。
+
+**结果**：用户确认下方 4 张参考图，授权全部 4 件，心形石同意在 Blender 里压薄。4 个任务一次成功，按单价估算约 80 积分。模型已优化并接入，见 [X5 资产证据](evidence/assets/2026-10-28-x5-lux3d/evidence.md)。
+
+同日后续：用户要求按本节提示词生成参考图，已用内置 image_gen 生成全部 4 张（包含可选的探头狐狸），以以下指定文件名保存到 `docs/`。均为 1254×1254 PNG，已逐张查看、验证解码与源文件哈希一致；[预览索引](GAMEPLAY_X5_REFERENCES.md)，[生成证据及提示词](evidence/2026-10-28-x5-references/evidence.md)。用户随后确认参考图并授权调用 Lux3D，结果见上方“结果”段。
+
+| # | 资产 | 在游戏里的用法 | 尺寸（参考） | 运行时目标 |
+| --- | --- | --- | --- | --- |
+| 1 | 蜷睡的狐狸 | 白天蜷在洞口打盹，代码只加轻微呼吸起伏；夜里收起，洞里保留会眨的眼睛 | 身长约 0.6 m | ≤ 10k 三角面 |
+| 2 | 狐狸洞洞口 | 嵌进瞭望塔小路旁的土坡，替换现有的贴图洞口、石块和土堆 | 宽 1.3 × 高 0.8 × 深 0.9 m | ≤ 12k |
+| 3 | 心形立石 | 东草地；正面看是心形，侧面看是薄石板，拍照判定不变 | 高 1.15 × 宽 1.2 × 厚 0.25 m | ≤ 6k |
+| 4（可选） | 探头的狐狸 | 黄昏时从洞里探出头和前爪，与 1 号轮换 | 头加前爪约 0.35 m | ≤ 8k |
+
+塔梁刻字不需要新模型：它已经贴在瞭望塔真实的木构件上。之后可以在代码里给它加凹凸法线，让刻痕有深度。
+
+**积分估算**：3 件 × 20 = 60 积分，加上可选件是 80 积分；每件若首次结果不可用，最多重试 1 次，上限 160 积分。
+
+### 参考图要求（每件一张）
+
+所有参考图的共同要求：
+- 文件名为 `forest-moments-x5-NN-<名字>-v1.png`，放在 `docs/`（与 X3 参考图同目录），正方形，边长 ≥ 1024，最好 1254×1254。
+- 纯白背景，单个物体居中且完整入画，不要地面、投影平面或文字。
+- 光照柔和均匀，视角为 3/4 前侧，能看出体积。
+- 风格与 X3 道具参考图一致：成熟克制的温暖童话森林，手绘质感的材质，低多边形但不塑料，饱和度中等。
+
+1. **蜷睡的狐狸**（`forest-moments-x5-01-sleeping-fox-v1.png`）
+   - 中文要点：一只赤狐蜷成一团侧卧睡觉，鼻尖埋进蓬松的大尾巴里，尾尖白色，耳尖和四爪深棕，眼睛闭着；毛色是温暖的锈橙色，胸口奶白；看上去安静、可爱。
+   - 英文提示词：`a red fox curled up asleep, nose tucked into its big fluffy tail, white tail tip, dark brown ear tips and paws, eyes closed, warm rusty orange fur with cream chest, cozy storybook forest style, hand-painted textures, stylized low-poly but soft, single object centered, plain white background, soft even lighting, three-quarter view, no ground, no text`
+2. **狐狸洞洞口**（`forest-moments-x5-02-fox-den-entrance-v1.png`）
+   - 中文要点：长草的土坡上挖出的拱形洞口，里面很暗；拱顶有一层草皮檐，下垂几根细树根；两侧嵌着几块小石头，洞口前有一小片刨出的松土；后面和底面平整，便于嵌进坡里。
+   - 英文提示词：`an earthen burrow entrance dug into a small grassy bank, dark arched opening, overhanging turf lip with a few hanging roots, small stones set into the sides, a little apron of freshly dug soil in front, flat back and base, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, three-quarter front view, no text`
+3. **心形立石**（`forest-moments-x5-03-heart-stone-v1.png`）
+   - 中文要点：一块薄的风化立石，正面轮廓天然像一颗心（两个圆润的上瓣、底部收尖），厚度只有手掌宽；暖灰色岩石，上沿有一点青苔，带地衣斑点和细裂纹；脚下有两三块小卵石；视角接近正面，略偏 15–20°，让人看得出厚度很薄。
+   - 英文提示词：`a thin weathered standing stone whose front silhouette naturally forms a heart shape, two rounded lobes and a soft point at the bottom, only a palm's width thick, warm grey rock, a little moss along the top edges, lichen speckles and fine cracks, two or three small pebbles at its foot, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, near-front view turned about 15 degrees to show the thin depth, no text`
+4. **探头的狐狸**（可选，`forest-moments-x5-04-peeking-fox-v1.png`）
+   - 中文要点：一只赤狐从洞口探出头和两只前爪，耳朵竖起，好奇地往外看；只有头、脖子和前爪，身体其余部分隐没（截断处平整）。
+   - 英文提示词：`the head, neck and two front paws of a curious red fox peeking out, ears up, looking forward, warm rusty orange fur, cream muzzle and chest, dark paws, body cut off flat behind the shoulders, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, three-quarter front view, no text`

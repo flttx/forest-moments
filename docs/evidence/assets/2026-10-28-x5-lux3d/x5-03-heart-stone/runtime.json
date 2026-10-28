@@ -1,0 +1,17 @@
+{
+  "prop": "03",
+  "name": "heart-stone",
+  "source": "assets/lux3d/x5-03-heart-stone-v1/output-1.glb",
+  "sourceSha256": "2cfecd58b522cd6a5051c86cb4b27093d08f3cbb4f68d9164c8e763d7c9ed6cb",
+  "output": "public/assets/x5/heart-stone.glb",
+  "outputBytes": 461644,
+  "outputSha256": "0d07277cc1b04f56f85793817ba5dba20d11a075d43f7d16c52666d2ebc91e5f",
+  "trianglesBefore": 29304,
+  "trianglesAfter": 8000,
+  "sizeMetres": [
+    0.9546,
+    0.1802,
+    1.1538
+  ],
+  "textureSize": 1024
+}

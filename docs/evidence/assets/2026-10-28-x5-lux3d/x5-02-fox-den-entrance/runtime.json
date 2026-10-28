@@ -1,0 +1,17 @@
+{
+  "prop": "02",
+  "name": "fox-den-entrance",
+  "source": "assets/lux3d/x5-02-fox-den-entrance-v1/output-1.glb",
+  "sourceSha256": "245fb20e3abe65eefa9b17bcd9f713bfd86dc5adc3f99495612c87870a997fc9",
+  "output": "public/assets/x5/fox-den-entrance.glb",
+  "outputBytes": 687504,
+  "outputSha256": "b4c6b0b5fe98a521db52ae09d60cd73e8745dc4530be8c76be5d0df803cc9fee",
+  "trianglesBefore": 46718,
+  "trianglesAfter": 12000,
+  "sizeMetres": [
+    1.3067,
+    1.2681,
+    0.8252
+  ],
+  "textureSize": 1024
+}

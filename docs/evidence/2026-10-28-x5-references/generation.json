@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-28",
+  "source_plan": "docs/GAMEPLAY_EXPANSION_PLAN.md section 8",
+  "generator": "built-in image_gen.imagegen",
+  "calls": 4,
+  "lux3d_calls": 0,
+  "status": "参考图已生成并初步图像复核，待用户确认；未生成模型",
+  "images": [
+    {
+      "id": "01",
+      "name": "蜷睡的狐狸",
+      "file": "docs/forest-moments-x5-01-sleeping-fox-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-069076be-be64-4859-b571-f182e6e5094b.png",
+      "plan_prompt": "a red fox curled up asleep, nose tucked into its big fluffy tail, white tail tip, dark brown ear tips and paws, eyes closed, warm rusty orange fur with cream chest, cozy storybook forest style, hand-painted textures, stylized low-poly but soft, single object centered, plain white background, soft even lighting, three-quarter view, no ground, no text",
+      "submitted_prompt": "Create a single square modeling-reference image at 1254x1254 if possible, minimum 1024x1024. Mature restrained warm storybook forest style consistent with Forest Moments X3 props: hand-painted tactile matte textures, softly faceted low-poly solid volumes, no plastic, moderate saturation. Pure white background, one centered complete asset with generous margin, no ground plane, no cast shadow or display plinth, no text or watermark. Soft even light. Preserve the subject instructions below. Integral soil and pebbles explicitly requested as part of the asset are allowed; no surrounding scenery. a red fox curled up asleep, nose tucked into its big fluffy tail, white tail tip, dark brown ear tips and paws, eyes closed, warm rusty orange fur with cream chest, cozy storybook forest style, hand-painted textures, stylized low-poly but soft, single object centered, plain white background, soft even lighting, three-quarter view, no ground, no text"
+    },
+    {
+      "id": "02",
+      "name": "狐狸洞洞口",
+      "file": "docs/forest-moments-x5-02-fox-den-entrance-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-b900ca69-c605-4a7d-acb7-2ddc8246fa08.png",
+      "plan_prompt": "an earthen burrow entrance dug into a small grassy bank, dark arched opening, overhanging turf lip with a few hanging roots, small stones set into the sides, a little apron of freshly dug soil in front, flat back and base, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, three-quarter front view, no text",
+      "submitted_prompt": "Create a single square modeling-reference image at 1254x1254 if possible, minimum 1024x1024. Mature restrained warm storybook forest style consistent with Forest Moments X3 props: hand-painted tactile matte textures, softly faceted low-poly solid volumes, no plastic, moderate saturation. Pure white background, one centered complete asset with generous margin, no ground plane, no cast shadow or display plinth, no text or watermark. Soft even light. Preserve the subject instructions below. Integral soil and pebbles explicitly requested as part of the asset are allowed; no surrounding scenery. an earthen burrow entrance dug into a small grassy bank, dark arched opening, overhanging turf lip with a few hanging roots, small stones set into the sides, a little apron of freshly dug soil in front, flat back and base, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, three-quarter front view, no text"
+    },
+    {
+      "id": "03",
+      "name": "心形立石",
+      "file": "docs/forest-moments-x5-03-heart-stone-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-402540e2-1620-4d99-8d2e-08ebec355785.png",
+      "plan_prompt": "a thin weathered standing stone whose front silhouette naturally forms a heart shape, two rounded lobes and a soft point at the bottom, only a palm's width thick, warm grey rock, a little moss along the top edges, lichen speckles and fine cracks, two or three small pebbles at its foot, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, near-front view turned about 15 degrees to show the thin depth, no text",
+      "submitted_prompt": "Create a single square modeling-reference image at 1254x1254 if possible, minimum 1024x1024. Mature restrained warm storybook forest style consistent with Forest Moments X3 props: hand-painted tactile matte textures, softly faceted low-poly solid volumes, no plastic, moderate saturation. Pure white background, one centered complete asset with generous margin, no ground plane, no cast shadow or display plinth, no text or watermark. Soft even light. Preserve the subject instructions below. Integral soil and pebbles explicitly requested as part of the asset are allowed; no surrounding scenery. a thin weathered standing stone whose front silhouette naturally forms a heart shape, two rounded lobes and a soft point at the bottom, only a palm's width thick, warm grey rock, a little moss along the top edges, lichen speckles and fine cracks, two or three small pebbles at its foot, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, near-front view turned about 15 degrees to show the thin depth, no text"
+    },
+    {
+      "id": "04",
+      "name": "探头的狐狸（可选）",
+      "file": "docs/forest-moments-x5-04-peeking-fox-v1.png",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a17ca3-2f45-7f01-9814-fe26c6478fff\\exec-5731015f-3be3-4130-acac-b5fd8944602f.png",
+      "plan_prompt": "the head, neck and two front paws of a curious red fox peeking out, ears up, looking forward, warm rusty orange fur, cream muzzle and chest, dark paws, body cut off flat behind the shoulders, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, three-quarter front view, no text",
+      "submitted_prompt": "Create a single square modeling-reference image at 1254x1254 if possible, minimum 1024x1024. Mature restrained warm storybook forest style consistent with Forest Moments X3 props: hand-painted tactile matte textures, softly faceted low-poly solid volumes, no plastic, moderate saturation. Pure white background, one centered complete asset with generous margin, no ground plane, no cast shadow or display plinth, no text or watermark. Soft even light. Preserve the subject instructions below. Integral soil and pebbles explicitly requested as part of the asset are allowed; no surrounding scenery. the head, neck and two front paws of a curious red fox peeking out, ears up, looking forward, warm rusty orange fur, cream muzzle and chest, dark paws, body cut off flat behind the shoulders, cozy storybook forest style, hand-painted textures, stylized low-poly, single object centered, plain white background, soft even lighting, three-quarter front view, no text"
+    }
+  ]
+}

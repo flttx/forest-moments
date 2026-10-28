@@ -1,0 +1,191 @@
+{
+ "date": "2026-10-28",
+ "service": "Aholo Lux3D img-to-3d G1, China region API",
+ "pricing": "Balance/quote endpoint returned a server error, so no quote was recorded; the first-round bill showed 20 credits per generation.",
+ "runs": [
+  {
+   "dir": "assets/lux3d/x5-01-sleeping-fox-v1",
+   "phase": "succeeded",
+   "taskId": 4434100,
+   "imageSha256": "ab8ff0e7e0dd21fece1a1a080aec7df259fcd22f97ac06924754a67b0f73ee12",
+   "faceCount": 40000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 8396612,
+     "sha256": "c7d9a6feea369fdf8d733929149cfd21aa5ba2121fb679899ec0344ac4d33d52"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 8420924,
+     "sha256": "219478711a648367f42f125cd8786f8c662c38526dcb3603ae135d1a6c6404e7"
+    }
+   ],
+   "review": {
+    "run": "x5-01-sleeping-fox-v1",
+    "objects": 1,
+    "triangles": 38974,
+    "size": [
+     0.9951,
+     0.9945,
+     0.6801
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 8420924
+   }
+  },
+  {
+   "dir": "assets/lux3d/x5-02-fox-den-entrance-v1",
+   "phase": "succeeded",
+   "taskId": 4434115,
+   "imageSha256": "341ba6d6edabdb36b524d0250bd683f0ca43bff8c38e03d8460ef5bdad2ca344",
+   "faceCount": 50000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 9598975,
+     "sha256": "257171a0b6f1c022b43e0d1de05488171cda6ac87c7bf54882fc51195c3eca7b"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 8516268,
+     "sha256": "245fb20e3abe65eefa9b17bcd9f713bfd86dc5adc3f99495612c87870a997fc9"
+    }
+   ],
+   "review": {
+    "run": "x5-02-fox-den-entrance-v1",
+    "objects": 1,
+    "triangles": 46718,
+    "size": [
+     1.001,
+     0.9739,
+     0.636
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 8516268
+   }
+  },
+  {
+   "dir": "assets/lux3d/x5-03-heart-stone-v1",
+   "phase": "succeeded",
+   "taskId": 4434124,
+   "imageSha256": "7b6115d66acb64947bfc49cb38a38e806009610d6e96f18fc2e8e4bc4546735c",
+   "faceCount": 30000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 6342839,
+     "sha256": "3c1ec8c011d79ad88d829ef8b45ae1ace9339fc6ccfb6e01bba1441a2a2e7131"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 6431872,
+     "sha256": "2cfecd58b522cd6a5051c86cb4b27093d08f3cbb4f68d9164c8e763d7c9ed6cb"
+    }
+   ],
+   "review": {
+    "run": "x5-03-heart-stone-v1",
+    "objects": 1,
+    "triangles": 29304,
+    "size": [
+     0.8226,
+     0.3141,
+     1.0022
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 6431872
+   }
+  },
+  {
+   "dir": "assets/lux3d/x5-04-peeking-fox-v1",
+   "phase": "succeeded",
+   "taskId": 4434132,
+   "imageSha256": "54ee086dd36fecbeb8c90e34f82df7109b0d49f26414f4a28b27e9cc37ac3487",
+   "faceCount": 40000,
+   "files": [
+    {
+     "filename": "output-0.zip",
+     "bytes": 6816815,
+     "sha256": "fbb763d7791bd18f38ed7268545d8454c26eb21f3f6dae8fb1baeea408ad91e4"
+    },
+    {
+     "filename": "output-1.glb",
+     "bytes": 6675440,
+     "sha256": "ed61d5780343365e4c65ec594962f59fc2b198ef0ed72efec7a1bbdbeb04d420"
+    }
+   ],
+   "review": {
+    "run": "x5-04-peeking-fox-v1",
+    "objects": 1,
+    "triangles": 39566,
+    "size": [
+     0.8189,
+     0.8253,
+     0.9988
+    ],
+    "images": [
+     {
+      "name": "Image_0",
+      "size": [
+       2048,
+       2048
+      ]
+     },
+     {
+      "name": "Image_1",
+      "size": [
+       2048,
+       2048
+      ]
+     }
+    ],
+    "glbBytes": 6675440
+   }
+  }
+ ]
+}

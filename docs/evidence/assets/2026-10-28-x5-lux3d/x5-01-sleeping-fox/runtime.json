@@ -1,0 +1,17 @@
+{
+  "prop": "01",
+  "name": "sleeping-fox",
+  "source": "assets/lux3d/x5-01-sleeping-fox-v1/output-1.glb",
+  "sourceSha256": "219478711a648367f42f125cd8786f8c662c38526dcb3603ae135d1a6c6404e7",
+  "output": "public/assets/x5/sleeping-fox.glb",
+  "outputBytes": 1024656,
+  "outputSha256": "0ab02d11594c84b47cbdc0e835f79b5fb207b48c0f844815824e9a4f4180d22c",
+  "trianglesBefore": 38974,
+  "trianglesAfter": 16000,
+  "sizeMetres": [
+    0.6226,
+    0.6246,
+    0.428
+  ],
+  "textureSize": 1024
+}
