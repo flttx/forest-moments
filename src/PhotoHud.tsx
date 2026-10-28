@@ -7,6 +7,7 @@ import {wallSlots} from './game/photoWall'
 import {subjectIds,type SubjectId} from './game/photoSubjects'
 import {filterAllowed,photoBlock,albumLimit,filterIds,frameIds,filterUnlock,frameUnlock,looksUnlocked} from './game/photo'
 import {useJournalStore} from './game/journalStore'
+import {seasonFor,seasonIds,weatherFor,weatherIds} from './game/weather'
 import {deletePhoto,listPhotos,type PhotoRecord} from './game/photoAlbum'
 
 const lights=['day','dusk','night'] as const
@@ -27,6 +28,7 @@ export function PhotoHud(){
  const t=useT()
  const s=usePhotoStore(),light=useForestStore(f=>f.timeOfDay),pages=useJournalStore(j=>j.book.stamps.length)
  const [looksOpen,setLooksOpen]=useState(false)
+ const day=useForestStore(f=>f.homeBook.nights),todayWeather=weatherFor(day),todaySeason=seasonFor(day)
  if(!s.active)return null
  const lightIcon={day:'sun',dusk:'sunset',night:'moon'} as const
  // Icon buttons keep their words for screen readers (and scripts) in a hidden span; the title shows them on hover.
@@ -39,6 +41,10 @@ export function PhotoHud(){
    {filterIds.map(id=>{const open=looksUnlocked(pages,filterUnlock[id]),usable=filterAllowed(id,s.lowQuality);return <button key={id} type="button" className="chip" aria-pressed={s.filter===id&&usable} aria-disabled={open&&usable?undefined:true} title={!open?t('photo.locked',{n:filterUnlock[id]}):usable?undefined:t('photo.lowQuality')} onClick={()=>{if(usable)s.setFilter(id)}}>{t(`photo.filter.${id}` as const)}</button>})}
    <span className="rule" aria-hidden="true"/>
    {frameIds.map(id=>{const open=looksUnlocked(pages,frameUnlock[id]);return <button key={id} type="button" className="chip" aria-pressed={s.frame===id} aria-disabled={open?undefined:true} title={open?undefined:t('photo.locked',{n:frameUnlock[id]})} onClick={()=>s.setFrame(id)}>{t(`photo.frame.${id}` as const)}</button>})}
+   <span className="rule" aria-hidden="true"/>
+   {weatherIds.map(w=><button key={w} type="button" className="chip" aria-pressed={(s.weatherPreview??todayWeather)===w} title={t('photo.previewOnly')} onClick={()=>s.setWeatherPreview(w===todayWeather?null:w)}>{t(`weather.${w}` as const)}</button>)}
+   <span className="rule" aria-hidden="true"/>
+   {seasonIds.map(v=><button key={v} type="button" className="chip" aria-pressed={(s.seasonPreview??todaySeason)===v} title={t('photo.previewOnly')} onClick={()=>s.setSeasonPreview(v===todaySeason?null:v)}>{t(`season.${v}` as const)}</button>)}
   </div>}
   <p key={s.free?'free':'orbit'} className="photo-hint">{t(s.free?'photo.hintFree':'photo.hint')}</p>
   <div className="photo-strip photo-bar" role="toolbar" aria-label={t('photo.label')}>

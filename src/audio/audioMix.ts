@@ -30,19 +30,23 @@ export interface MixInput{
  sea:number
  /** 0 .. 1: a lit campfire close by. */
  fire:number
+ /** 0 .. 1: how hard it is raining (weather, plan X4). */
+ rain?:number
 }
-export interface Mix{birds:number;crickets:number;sea:number;wind:number;room:number;fire:number;musicDay:number;musicNight:number;ambienceCutoff:number}
+export interface Mix{birds:number;crickets:number;sea:number;wind:number;room:number;fire:number;rain:number;musicDay:number;musicNight:number;ambienceCutoff:number}
 
 /** Target levels (0..1, before the bus volumes) for the island's state; walls muffle the outdoors. */
-export function mixFor({night,indoors,sea,fire}:MixInput):Mix{
+export function mixFor({night,indoors,sea,fire,rain=0}:MixInput):Mix{
  const day=1-night
  return{
-  birds:day*(indoors?.12:1),
+  // Birds fall quiet in the rain; indoors the rain on the roof stays, softer (the cabin is for listening to it).
+  birds:day*(indoors?.12:1)*(1-.7*rain),
   crickets:night*(indoors?.15:1),
   sea:sea*(indoors?.12:1),
   wind:indoors?.03:.16+.14*sea,
   room:indoors?1:0,
   fire:indoors?0:fire,
+  rain:rain*(indoors?.45:1),
   musicDay:day,musicNight:night,
   ambienceCutoff:indoors?900:18000,
  }

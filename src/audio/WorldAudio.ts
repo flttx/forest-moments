@@ -78,7 +78,7 @@ export class WorldAudio{
  private readonly loops=new Map<string,LoopVoice>()
  private readonly levels=new Map<string,number>()
  private readonly pendingLoops=new Set<string>()
- private readonly beds:Record<'wind'|'room'|'fire',GainNode>
+ private readonly beds:Record<'wind'|'room'|'fire'|'rain',GainNode>
  private disposed=false
 
  private constructor(ctx:AudioContext){
@@ -87,7 +87,7 @@ export class WorldAudio{
   this.muffle=ctx.createBiquadFilter();this.muffle.type='lowpass';this.muffle.frequency.value=18000;this.muffle.connect(this.master)
   this.buses={music:ctx.createGain(),ambience:ctx.createGain(),effects:ctx.createGain()}
   this.buses.music.connect(this.master);this.buses.ambience.connect(this.muffle);this.buses.effects.connect(this.master)
-  this.beds={wind:this.bed('wind'),room:this.bed('room'),fire:this.bed('fire')}
+  this.beds={wind:this.bed('wind'),room:this.bed('room'),fire:this.bed('fire'),rain:this.bed('rain')}
  }
 
  /** Null where WebAudio is missing. Call from a user gesture. */
@@ -97,9 +97,9 @@ export class WorldAudio{
   try{const audio=new WorldAudio(new Context());void audio.ctx.resume().catch(()=>{});return audio}catch{return null}
  }
 
- private bed(kind:'wind'|'room'|'fire'){
+ private bed(kind:'wind'|'room'|'fire'|'rain'){
   const ctx=this.ctx,source=ctx.createBufferSource()
-  source.buffer=noiseBuffer(ctx,kind==='fire'?5.7:4.3,kind==='fire'?'fire':'brown');source.loop=true
+  source.buffer=noiseBuffer(ctx,kind==='fire'?5.7:kind==='rain'?3.1:4.3,kind==='fire'?'fire':kind==='rain'?'white':'brown');source.loop=true
   const gain=ctx.createGain();gain.gain.value=0
   let node:AudioNode=source
   if(kind==='wind'){
@@ -116,6 +116,11 @@ export class WorldAudio{
    const low=ctx.createBiquadFilter();low.type='lowpass';low.frequency.value=180
    const trim=ctx.createGain();trim.gain.value=.5
    node=node.connect(low).connect(trim)
+  }else if(kind==='rain'){
+   // A soft hiss of rain: white noise kept to the middle band, never harsh.
+   const band=ctx.createBiquadFilter();band.type='bandpass';band.frequency.value=2400;band.Q.value=.45
+   const soft=ctx.createBiquadFilter();soft.type='lowpass';soft.frequency.value=6500
+   node=node.connect(band).connect(soft)
   }else{
    const high=ctx.createBiquadFilter();high.type='highpass';high.frequency.value=180
    const low=ctx.createBiquadFilter();low.type='lowpass';low.frequency.value=5200
@@ -158,6 +163,7 @@ export class WorldAudio{
   this.beds.wind.gain.setTargetAtTime(mix.wind*.5,t,smooth)
   this.beds.room.gain.setTargetAtTime(mix.room*.12,t,smooth)
   this.beds.fire.gain.setTargetAtTime(mix.fire*.35,t,smooth)
+  this.beds.rain.gain.setTargetAtTime(mix.rain*.28,t,smooth)
   this.muffle.frequency.setTargetAtTime(mix.ambienceCutoff,t,.3)
  }
 

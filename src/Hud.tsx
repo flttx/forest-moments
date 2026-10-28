@@ -21,6 +21,7 @@ import {GrowthStatus} from './GrowthStatus'
 import {PhotoButton,PhotoHud,AlbumPanel} from './PhotoHud'
 import {CatalogPanel} from './CatalogPanel'
 import {CampHud} from './CampHud'
+import {seasonFor,weatherFor} from './game/weather'
 import {RecipeCard} from './RecipeCard'
 import {usePhotoStore} from './game/photoStore'
 
@@ -33,6 +34,12 @@ function LanguageSwitch(){
  return <button type="button" className="tool-button lang-switch" aria-label={t('menu.lang')} onClick={()=>setLang(lang==='zh'?'en':'zh')}>
   <Icon name="language"/><span className={lang==='zh'?'current':undefined}>中</span><span className="slash" aria-hidden="true">/</span><span className={lang==='en'?'current':undefined}>EN</span>
  </button>
+}
+
+/** Today's season and weather, set small beside the title; nothing to press. */
+function Climate(){
+ const t=useT(),day=useForestStore(s=>s.homeBook.nights)
+ return <span className="brand-climate">{t(`season.${seasonFor(day)}`)} · {t(`weather.${weatherFor(day)}`)}</span>
 }
 
 /** This page's progress beside the journal button: quiet, no badge colour or motion to nag. */
@@ -48,7 +55,7 @@ function TopBar(){
  const hidden=useForestStore(s=>s.mode==='sleeping'||inTransfer(s)),photo=usePhotoStore(s=>s.active)
  if(hidden||photo)return null
  return <>
-  <div className="brand">{t('brand')}</div>
+  <div className="brand">{t('brand')}<Climate/></div>
   <nav className="menu" aria-label={t('menu.label')}>
    {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" title={t(label)} aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
    <PhotoButton/>

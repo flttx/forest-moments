@@ -1,3 +1,4 @@
+import {climateUniforms} from './climateUniforms'
 import {daylightAt,lanternPower} from '../game/dayCycle'
 import {terrainHeight} from './terrain'
 import { useEffect, useMemo, useRef } from 'react'
@@ -56,7 +57,7 @@ export function ForestKit() {
         all.forEach((_,i)=>{mesh.getMatrixAt(i,m);anchors.push(...new THREE.Vector3(...anchor).applyMatrix4(m).toArray())})
         continue
       }
-      patchFoliageMaterial(material)
+      patchFoliageMaterial(material,kit.includes('pine')?climateUniforms.climatePine:climateUniforms.climateBroadleaf)
       const lod=low.scene.getObjectByName('LOD_Eco_'+kit) as THREE.Mesh
       const lodGeometry=transformedGeometry(lod.geometry,lod.matrixWorld);geometries.push(lodGeometry)
       const groups=new Map<string,VegetationInstance[]>()

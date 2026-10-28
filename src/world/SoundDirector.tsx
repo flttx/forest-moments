@@ -1,3 +1,4 @@
+import {climateNow} from './climateUniforms'
 import {useEffect,useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {Vector3} from 'three'
@@ -41,7 +42,7 @@ export function SoundDirector(){
   const indoors=s.location!=='island',onWater=s.mode==='rowing',here=onWater?s.boat:p
   const daylight=daylightAt(s),night=Math.min(1,Math.max(0,(.6-daylight)/.6)),sea=indoors?0:seaNearness(here.x,here.z,onWater)
   r.mix-=dt
-  if(r.mix<=0){r.mix=.25;engine.applyMix(mixFor({night,indoors,sea,fire:indoors?0:fireNearness(here.x-camp.x,here.z-camp.z,s.homeBook.fireLit)}))}
+  if(r.mix<=0){r.mix=.25;engine.applyMix(mixFor({night,indoors,sea,fire:indoors?0:fireNearness(here.x-camp.x,here.z-camp.z,s.homeBook.fireLit),rain:climateNow.rain}))}
   // Footfalls: one per stride travelled on foot. Teleports (doors, landing) move far in one frame and are not steps.
   const speed=moved/Math.max(dt,1e-3)
   if(s.mode==='walking'&&!inTransfer(s)&&speed>.3&&speed<5){

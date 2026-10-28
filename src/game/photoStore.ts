@@ -6,6 +6,7 @@ import {playSound} from '../audio/audioStore'
 import {filterUnlock,frameUnlock,looksUnlocked,photoBlock,photoFileName,type FilterId,type FrameId} from './photo'
 import {composeFrame} from './photoFrame'
 import type {FreeView} from './freeCamera'
+import type {Season,Weather} from './weather'
 import type {SubjectId} from './photoSubjects'
 import {makeThumb,savePhoto} from './photoAlbum'
 import {decodeWall,hang,keepExisting,photoWallKey,takeDown} from './photoWall'
@@ -22,6 +23,11 @@ type PhotoState={
  lowQuality:boolean
  filter:FilterId
  frame:FrameId
+ /** Weather or season shown in photo mode only; never saved and dropped on leaving. */
+ weatherPreview:Weather|null
+ seasonPreview:Season|null
+ setWeatherPreview:(w:Weather|null)=>void
+ setSeasonPreview:(s:Season|null)=>void
  /** The light the player was in before previewing another one; restored on leaving. */
  restoreLight:Light|null
  /** Set by the shutter, taken by the scene on its next frame (the canvas is read right after it renders). */
@@ -57,7 +63,8 @@ const forget=(shot:LastShot|null)=>{if(shot)URL.revokeObjectURL(shot.url)}
 function saveWall(wall:readonly string[]){try{window.localStorage.setItem(photoWallKey,JSON.stringify(wall))}catch{say(t('wall.unsaved'),'error')}}
 
 export const usePhotoStore=create<PhotoState>((set,get)=>({
- active:false,hideRaccoon:false,free:false,lowQuality:false,filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
+ active:false,hideRaccoon:false,free:false,lowQuality:false,weatherPreview:null,seasonPreview:null,
+ setWeatherPreview:w=>{if(get().active)set({weatherPreview:w})},setSeasonPreview:v=>{if(get().active)set({seasonPreview:v})},filter:'plain',frame:'none',restoreLight:null,pending:false,flash:0,albumVersion:0,last:null,
  enter:()=>{
   const forest=useForestStore.getState()
   if(get().active)return
@@ -75,7 +82,7 @@ export const usePhotoStore=create<PhotoState>((set,get)=>({
   forget(last)
   useForestStore.setState({menuPaused:false,...(restoreLight?{timeOfDay:restoreLight}:{})})
   freeCam.view=null
-  set({active:false,hideRaccoon:false,free:false,filter:'plain',frame:'none',restoreLight:null,pending:false,last:null})
+  set({active:false,hideRaccoon:false,free:false,weatherPreview:null,seasonPreview:null,filter:'plain',frame:'none',restoreLight:null,pending:false,last:null})
   playSound('ui-close',{volume:.7})
  },
  toggleHideRaccoon:()=>{if(get().active)set({hideRaccoon:!get().hideRaccoon})},

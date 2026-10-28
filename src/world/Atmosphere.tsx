@@ -1,3 +1,6 @@
+import {climateNow} from './climateUniforms'
+// Mist and rain thin the colour toward a soft grey.
+const mistGrey=new THREE.Color('#c3cbc7')
 import {constellation} from '../game/secrets'
 import {daylightAt,lanternPower} from '../game/dayCycle'
 import {dayLighting} from './dayLighting'
@@ -112,7 +115,7 @@ export function Atmosphere() {
   const uniforms=useMemo(()=>({
     time, top:{value:new THREE.Color(palette.top)}, horizon:{value:new THREE.Color(palette.horizon)},
     sunlight:{value:new THREE.Color(palette.sun)}, sun:{value:palette.sunPosition.clone().normalize()},
-    night:{value:0},disc:{value:1},stargaze:{value:0},meteorA:{value:new THREE.Vector3(0,1,0)},meteorB:{value:new THREE.Vector3(0,1,0)},meteorT:{value:0},conStars:{value:constellation.stars.map(d=>new THREE.Vector3(...d))},moon:{value:new THREE.Vector3(-24,32,-32).normalize()},haze:{value:new THREE.Color(palette.haze)},
+    night:{value:0},disc:{value:1},stargaze:{value:0},overcast:{value:0},meteorA:{value:new THREE.Vector3(0,1,0)},meteorB:{value:new THREE.Vector3(0,1,0)},meteorT:{value:0},conStars:{value:constellation.stars.map(d=>new THREE.Vector3(...d))},moon:{value:new THREE.Vector3(-24,32,-32).normalize()},haze:{value:new THREE.Color(palette.haze)},
   }),[time,palette])
   useEffect(()=>{
     const {gl,scene}=get()
@@ -130,6 +133,7 @@ export function Atmosphere() {
     if(!reduced.current)wind.advance(delta)
     const state=useForestStore.getState(),daylight=daylightAt(state),light=dayLighting(daylight,state.sunRising),u=skyMaterial.current.uniforms as typeof uniforms
     u.time.value=time.value
+    u.overcast.value=climateNow.overcast
     // Looking up from a seat: more and brighter stars, and now and then a falling star (none with reduced motion).
     const gazing=state.stargazing&&state.mode==='sitting'
     u.stargaze.value+=((gazing?1:0)-u.stargaze.value)*(1-Math.exp(-1.5*Math.min(delta,.1)))
@@ -141,11 +145,11 @@ export function Atmosphere() {
       u.meteorT.value=.001
     }
     u.top.value.copy(light.top);u.horizon.value.copy(light.horizon);u.sunlight.value.copy(light.sun);u.sun.value.copy(light.sunPosition).normalize();u.night.value=light.night;u.disc.value=light.disc;u.haze.value.copy(light.haze)
-    if(sunLight.current){sunLight.current.position.copy(light.sunPosition);sunLight.current.color.copy(light.light);sunLight.current.intensity=light.power;sunLight.current.shadow.intensity=THREE.MathUtils.smoothstep(light.sunPosition.y,1,7)}
+    if(sunLight.current){sunLight.current.position.copy(light.sunPosition);sunLight.current.color.copy(light.light);sunLight.current.intensity=light.power*climateNow.light;sunLight.current.shadow.intensity=THREE.MathUtils.smoothstep(light.sunPosition.y,1,7)}
     if(moonLight.current)moonLight.current.intensity=.95*light.night
-    if(fillLight.current){fillLight.current.intensity=light.fill;fillLight.current.color.copy(light.sky);fillLight.current.groundColor.copy(light.ground)}
+    if(fillLight.current){fillLight.current.intensity=light.fill*(.6+.4*climateNow.light);fillLight.current.color.copy(light.sky);fillLight.current.groundColor.copy(light.ground)}
     const viewDistance=state.mode==='sleeping'?165:camera.position.length()
-    const scene=get().scene;if(scene.fog){scene.fog.color.copy(light.horizon);if(scene.fog instanceof THREE.Fog){scene.fog.near=Math.max(65,viewDistance-25);scene.fog.far=270+Math.max(0,viewDistance-65)*1.8}}scene.environmentIntensity=light.environment
+    const scene=get().scene;if(scene.fog){scene.fog.color.copy(light.horizon).lerp(mistGrey,Math.min(1,Math.max(0,(1-climateNow.fog)*1.2))*.7);if(scene.fog instanceof THREE.Fog){scene.fog.near=Math.max(65,viewDistance-25)*climateNow.fog;scene.fog.far=(270+Math.max(0,viewDistance-65)*1.8)*climateNow.fog}}scene.environmentIntensity=light.environment*climateNow.light
     sky.current?.position.copy(camera.position)
     if(import.meta.env.DEV && new URLSearchParams(location.search).has('qa')) gl.domElement.dataset.environmentQa=JSON.stringify({time:time.value,reduced:reduced.current,lighting:state.timeOfDay,daylight,sunPosition:light.sunPosition.toArray(),sunPower:light.power,moonPower:.95*light.night,lanternPower:lanternPower(daylight),sky:light.top.getHexString(),horizon:light.horizon.getHexString(),renderedNight:u.night.value,renderedDisc:u.disc.value})
   })
@@ -160,7 +164,7 @@ export function Atmosphere() {
       <shaderMaterial ref={skyMaterial} side={THREE.BackSide} depthWrite={false} uniforms={uniforms}
         vertexShader={`varying vec3 vDirection;void main(){vDirection=position;vec4 p=projectionMatrix*modelViewMatrix*vec4(position,1.0);gl_Position=p.xyww;}`}
         fragmentShader={/* glsl */ `
-          varying vec3 vDirection;uniform float time;uniform float night;uniform float stargaze;uniform vec3 meteorA;uniform vec3 meteorB;uniform float meteorT;uniform vec3 conStars[7];
+          varying vec3 vDirection;uniform float time;uniform float night;uniform float stargaze;uniform float overcast;uniform vec3 meteorA;uniform vec3 meteorB;uniform float meteorT;uniform vec3 conStars[7];
           uniform vec3 top;uniform vec3 horizon;uniform vec3 sunlight;uniform vec3 sun;uniform vec3 moon;uniform float disc;uniform vec3 haze;
           ${noiseGLSL}
           void conLine(vec3 d,vec3 a,vec3 b,inout vec3 colour,float night){a=normalize(a);b=normalize(b);vec3 seg=b-a;float h=clamp(dot(d-a,seg)/dot(seg,seg),0.0,1.0);float l=length(d-(a+seg*h));colour+=vec3(.85,.9,1.0)*smoothstep(.0016,.0,l)*night*.22*step(.0,dot(d,a));}
@@ -176,7 +180,9 @@ export function Atmosphere() {
             float moonFacing=max(0.0,dot(d,moon));colour=mix(colour,vec3(.68,.76,.85),smoothstep(.9995,.9998,moonFacing)*night);
             vec2 p=d.xz/(max(d.y,0.0)+.17)*2.5+vec2(time*.003,time*.001)+vec2(8,3);
             float density=cloud(p), rim=clamp(.5+(density-cloud(p+sun.xz*.18))*4.0,0.0,1.0);
-            float alpha=smoothstep(.54,.72,density)*smoothstep(.015,.18,d.y)*.8;
+            float alpha=smoothstep(.54-.28*overcast,.72-.16*overcast,density)*smoothstep(.015,.18,d.y)*(.8+.15*overcast);
+            // An overcast sky is flatter and greyer behind the clouds.
+            colour=mix(colour,vec3(dot(colour,vec3(.3,.5,.2)))*.92,overcast*.55);
             vec3 shade=mix(mix(horizon*.65,sunlight,.45+rim*.4),top*1.1,night);
             colour=mix(colour,shade,alpha);
             vec2 stars=d.xz/(d.y+.9)*210.0;float star=step(.997-.0035*stargaze,hash21(floor(stars)))*(1.0-smoothstep(.02,.13,length(fract(stars)-.5)));

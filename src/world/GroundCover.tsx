@@ -1,3 +1,4 @@
+import { climateGLSL, climateUniforms } from './climateUniforms';
 import {onBridge} from '../game/expansion'
 // Grass geometry, rosette heads and wind shader adapted from my-blog GroundCover.tsx.
 import { useEffect, useMemo, useRef } from 'react'
@@ -152,13 +153,13 @@ interface GrassUniforms {
 function createGrassMaterial(uniforms: GrassUniforms) {
   const material = new THREE.MeshStandardMaterial({ roughness: 0.92, metalness: 0, side: THREE.DoubleSide });
   material.onBeforeCompile = (shader) => {
-    Object.assign(shader.uniforms, uniforms);
+    Object.assign(shader.uniforms, uniforms, { climateGrass: climateUniforms.climateGrass, climateWet: climateUniforms.climateWet });
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', `#include <common>\n${GRASS_VERTEX_PARS}`)
       .replace('#include <begin_vertex>', `#include <begin_vertex>\n${GRASS_VERTEX}`);
     shader.fragmentShader = shader.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying vec3 vGrassColor;\nvarying float vGrassHeight;')
-      .replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.rgb *= vGrassColor;')
+      .replace('#include <common>', `#include <common>\nvarying vec3 vGrassColor;\nvarying float vGrassHeight;\n${climateGLSL}`)
+      .replace('#include <color_fragment>', '#include <color_fragment>\ndiffuseColor.rgb *= vGrassColor * climateGrass * (1.0 - climateWet * .15);')
       // DoubleSide flips back-face normals downward, which leaves half the blades unlit; both sides share the up normal
       .replace('#include <normal_fragment_begin>', '#include <normal_fragment_begin>\nnormal = normalize(vNormal);')
       // a little back-light through the upper blade so sunlit grass glows instead of reading as flat paint

@@ -268,3 +268,5 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .photo-last .close-button{position:absolute;top:-10px;right:-10px;background:var(--cream);border-radius:50%;box-shadow:0 2px 8px #10181240}
 .photo-last a{justify-self:start}
 .secret-swatch{background:radial-gradient(circle,#f0dcb6 0 30%,#8f5d1f 70%)}
+.brand-climate{display:block;margin-top:2px;font-size:14px;letter-spacing:.08em;color:#fbf5e6cc;text-shadow:0 1px 3px #0e1610aa;font-family:inherit;font-weight:400}
+.photo-looks{flex-wrap:wrap;justify-content:center;max-width:calc(100% - 40px);border-radius:22px}

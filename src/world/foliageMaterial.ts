@@ -1,6 +1,7 @@
 // Stable tree colour variation without proximity or camera-dependent fading.
 import * as THREE from 'three'
 import { noiseGLSL } from './terrain'
+import { climateUniforms } from './climateUniforms'
 // P14 C5: neighbouring groves lean yellow-green or blue-green and each tree is a little lighter or darker, so one pine
 // kit no longer reads as a uniform carpet. Keyed on the instance's world position (stable across chunks and the LOD
 // twin, which share these materials); only leaf colours are tinted, not trunks or bark.
@@ -21,17 +22,20 @@ const VARIATION_VERTEX = /* glsl */ `
 `;
 const VARIATION_FRAGMENT = /* glsl */ `
   // leaves only: the brown trunks and bark (red well above green) keep their colour; olive pine needles count as leaves
-  diffuseColor.rgb *= mix(vec3(1.0), vFoliageTint, smoothstep(-0.05, 0.0, diffuseColor.g - diffuseColor.r));
+  float foliageLeaf = smoothstep(-0.05, 0.0, diffuseColor.g - diffuseColor.r);
+  diffuseColor.rgb *= mix(vec3(1.0), vFoliageTint * climateSeason, foliageLeaf);
 `;
 
-export function patchFoliageMaterial(material: THREE.Material) {
+/** `season` is the shared season colour for this kind of crown (plan X4): pines barely turn, broadleaf crowns do. */
+export function patchFoliageMaterial(material: THREE.Material, season: { value: THREE.Vector3 } = climateUniforms.climateBroadleaf) {
   if (!(material instanceof THREE.MeshStandardMaterial)) return;
   material.onBeforeCompile = (shader) => {
+    shader.uniforms.climateSeason = season;
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', `#include <common>\n${VARIATION_VERTEX_PARS}`)
       .replace('#include <begin_vertex>', `#include <begin_vertex>\n${VARIATION_VERTEX}`);
     shader.fragmentShader = shader.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying vec3 vFoliageTint;')
+      .replace('#include <common>', '#include <common>\nvarying vec3 vFoliageTint;\nuniform vec3 climateSeason;')
       .replace('#include <map_fragment>', `#include <map_fragment>\n${VARIATION_FRAGMENT}`);
   };
   material.customProgramCacheKey=()=> 'opaque-foliage-tint-v1';

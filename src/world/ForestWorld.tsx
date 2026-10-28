@@ -10,6 +10,7 @@ import {PhotoCapture} from './PhotoCapture'
 import {ForageItems} from './ForageItems'
 import {Furniture} from './Furniture'
 import {Secrets} from './Secrets'
+import {Climate} from './Climate'
 import {freeCam,usePhotoStore} from '../game/photoStore'
 import {constrainFreePosition,freeSpeed,lookDirection,moveFreeView,viewFromDirection} from '../game/freeCamera'
 import {clampOrbitTargets,photoOrbit} from '../game/photo'
@@ -442,6 +443,7 @@ function Scene() {
     <Suspense fallback={null}><Bedroom/></Suspense>
     <Player />
     <SoundDirector />
+    <Climate />
     <PostEffects />
     <PhotoCapture />
     {import.meta.env.DEV && <><ReviewCamera /><ScaleReview/></>}

@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-28T01:42:38.744Z",
+  "checks": [
+    {
+      "name": "each weather and season shows in the scene and beside the title; rain falls, autumn leaves drift",
+      "clear": {
+        "day": 4,
+        "title": "夏 · 晴",
+        "rain": false,
+        "leaves": false,
+        "frame": {
+          "median": 6,
+          "p95": 10.4
+        }
+      },
+      "cloudy": {
+        "day": 16,
+        "title": "夏 · 多云",
+        "rain": false,
+        "leaves": false,
+        "frame": {
+          "median": 5.2,
+          "p95": 12.2
+        }
+      },
+      "rain": {
+        "day": 66,
+        "title": "夏 · 小雨",
+        "rain": true,
+        "leaves": false,
+        "frame": {
+          "median": 5.8,
+          "p95": 10.1
+        }
+      },
+      "mist": {
+        "day": 28,
+        "title": "夏 · 薄雾",
+        "rain": false,
+        "leaves": false,
+        "frame": {
+          "median": 5.4,
+          "p95": 11.6
+        }
+      },
+      "autumn": {
+        "day": 8,
+        "title": "秋 · 晴",
+        "rain": false,
+        "leaves": true,
+        "frame": {
+          "median": 5.7,
+          "p95": 10.5
+        }
+      },
+      "spring": {
+        "day": 1,
+        "title": "春 · 晴",
+        "rain": false,
+        "leaves": false,
+        "frame": {
+          "median": 4.5,
+          "p95": 13.7
+        }
+      }
+    },
+    {
+      "name": "no rain streaks inside the cabin"
+    },
+    {
+      "name": "a weather preview is for the photo only and is dropped on leaving"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-clear.png",
+    "01-cloudy.png",
+    "01-rain.png",
+    "01-mist.png",
+    "01-autumn.png",
+    "01-spring.png",
+    "02-rain-indoors.png",
+    "03-photo-preview-mist.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}

@@ -1,3 +1,4 @@
+import {climateGLSL,climateUniforms} from './climateUniforms'
 import { useEffect, useMemo } from 'react'
 import { noiseGLSL, islandShape, pathGLSL, groundColourGLSL, seaLevel } from './terrain'
 import {pondGLSL} from './pondShape'
@@ -11,9 +12,10 @@ export function IslandTerrain() {
   return <mesh name="island-terrain" geometry={geometry} receiveShadow>
     <meshStandardMaterial color="white" roughness={.96} onBeforeCompile={(shader) => {
       shader.uniforms.canopyMap={value:canopyTexture()}
+      Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet})
       shader.vertexShader = 'varying vec3 vGround;varying vec3 vTerrainNormal;\n' + shader.vertexShader
       shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvGround=position;vTerrainNormal=normal;')
-      shader.fragmentShader = `varying vec3 vGround;varying vec3 vTerrainNormal;\n${noiseGLSL}
+      shader.fragmentShader = `varying vec3 vGround;varying vec3 vTerrainNormal;\n${climateGLSL}${noiseGLSL}
 ${pathGLSL}
 ${pondGLSL}
 ${groundColourGLSL}
@@ -29,7 +31,7 @@ ${trampleGLSL}\n` + shader.fragmentShader
         #include <color_fragment>
         vec2 p=vGround.xz;
         float broad=noise21(p*.38), fleck=noise21(p*14.0);
-        vec3 grass=groundColour(p);
+        vec3 grass=groundColour(p)*climateGrass;
         grass*=1.0+(noise21(p*48.0)-.5)*.2*(1.0-smoothstep(6.0,18.0,length(vViewPosition)));
         float track=pathAt(p);
         float edge=pathEdgeAt(p);
@@ -80,6 +82,8 @@ ${trampleGLSL}\n` + shader.fragmentShader
         rock*=mix(.7,1.0,smoothstep(-.55,.6,vGround.y));
         colour=mix(colour,rock,cliff);
         colour*=mix(.68,1.0,smoothstep(-.95,-.35,vGround.y));
+        // Rain darkens the ground a little, sand and soil alike.
+        colour*=1.0-climateWet*.2;
         diffuseColor.rgb *= colour;
       `)
       shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>', /* glsl */ `
