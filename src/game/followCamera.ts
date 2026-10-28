@@ -105,3 +105,13 @@ export function walkingCamera(position:CameraPoint,yaw:number,inside:boolean,orb
  if(inside){eye.x=Math.max(-3.72,Math.min(3.72,eye.x));eye.z=Math.max(-2.72,Math.min(2.72,eye.z))}
  return{eye,target}
 }
+/**
+ * Pitch offset from the ground slope along the view: uphill ahead lowers the camera to show the rise,
+ * downhill ahead lifts it to look down the slope. Samples a wide span so path stones and bumps do not jitter.
+ */
+export function slopePitch(height:(x:number,z:number)=>number,position:CameraPoint,yaw:number,span=1.4){
+ const fx=-Math.sin(yaw),fz=-Math.cos(yaw)
+ const rise=height(position.x+fx*span,position.z+fz*span)-height(position.x-fx*span,position.z-fz*span)
+ if(!Number.isFinite(rise))return 0
+ return Math.max(-.16,Math.min(.2,-Math.atan(rise/(2*span))*.6))
+}

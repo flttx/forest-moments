@@ -56,7 +56,7 @@ import {WorkshopCraft} from './WorkshopCraft'
 import {woodSpot,workpieceSpot} from '../game/workshop'
 
 import {moveInWorkshop} from '../game/workshopInterior'
-import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
+import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,slopePitch,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
 import {canopySpheres} from './vegetationLayout'
 
 const qaEnabled = import.meta.env.DEV && new URLSearchParams(location.search).has('qa')
@@ -150,6 +150,7 @@ function Player() {
   const wasSleeping=useRef(false)
   const wasPhoto=useRef(false)
   const skyLook=useRef(new THREE.Vector3())
+  const slopeTilt=useRef(0)
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
   const movementIntent=useRef<ReturnType<typeof cameraRelativeMovement>>(null)
@@ -369,7 +370,11 @@ function Player() {
     skyLook.current.copy(camera.position).add(camera.getWorldDirection(new THREE.Vector3()).multiplyScalar(6))
     if(current.mode!=='rowing'&&current.mode!=='fishing'){
       const inside=current.location!=='island'
-      const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,orbit.current,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
+      // Outdoors the view eases toward the slope ahead; it fades out as the orbit widens to the island overview.
+      const tilt=inside?0:slopePitch(groundHeightAt,character.position,orbit.current.yaw)*THREE.MathUtils.clamp((4-orbit.current.zoom)/2,0,1)
+      slopeTilt.current=returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted?tilt:slopeTilt.current+(tilt-slopeTilt.current)*(1-Math.exp(-2.5*dt))
+      const view={zoom:orbit.current.zoom,pitch:THREE.MathUtils.clamp(orbit.current.pitch+slopeTilt.current,orbitConfig.minPitch,orbitConfig.maxPitch)}
+      const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,view,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
       // Outdoors, a camera that would sit inside a tree crown slides along the arm to just outside it.
       const clear=inside?eye:clearCanopy(target,eye,canopySpheres)
       const next=new THREE.Vector3(clear.x,clear.y,clear.z)

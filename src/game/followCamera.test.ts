@@ -1,6 +1,6 @@
 import {workshopDoor,indoorSpawn} from './workshop'
 import {expect,it} from 'vitest'
-import {createFollowTurn,stepFollowTurn,followTurnConfig,movementYaw,walkingCamera,clipCameraArm,clearCanopy,indoorCameraBoxes} from './followCamera'
+import {createFollowTurn,stepFollowTurn,followTurnConfig,movementYaw,walkingCamera,clipCameraArm,clearCanopy,indoorCameraBoxes,slopePitch} from './followCamera'
 
 it('puts the camera behind all four real movement directions and preserves heading at rest',()=>{
  for(const [dx,dz] of [[0,-1],[1,0],[0,1],[-1,0]]){
@@ -84,4 +84,15 @@ it('pulls an eye that sits inside a crown back to the crown surface, leaving cro
  // Leaving one crown into another keeps pulling until both are clear.
  const both=clearCanopy(target,{x:0,y:4,z:9},[crown,{x:0,y:3.5,z:5.5,r:1}],.5)
  expect(Math.hypot(both.x,both.y-3.5,both.z-5.5)).toBeGreaterThanOrEqual(1.5-1e-6)
+})
+it('tilts the camera down the slope ahead and toward a rise ahead',()=>{
+ // yaw 0 looks toward -z.
+ const uphill=(_x:number,z:number)=>-z*.3,downhill=(_x:number,z:number)=>z*.3
+ expect(slopePitch(uphill,{x:0,y:0,z:0},0)).toBeLessThan(-.1)
+ expect(slopePitch(downhill,{x:0,y:0,z:0},0)).toBeGreaterThan(.1)
+ expect(slopePitch(()=>2,{x:0,y:0,z:0},1)).toBeCloseTo(0)
+ // Looking across the hillside does not tilt.
+ expect(slopePitch(uphill,{x:0,y:0,z:0},Math.PI/2)).toBeCloseTo(0)
+ expect(slopePitch((_x,z)=>-z*10,{x:0,y:0,z:0},0)).toBe(-.16)
+ expect(slopePitch(()=>NaN,{x:0,y:0,z:0},0)).toBe(0)
 })
