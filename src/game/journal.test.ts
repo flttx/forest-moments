@@ -37,7 +37,7 @@ it('moves only matching tasks, accumulates metres and seconds, and stamps a page
 it('turns game changes into journal entries',async()=>{
  const {useForestStore:s}=await import('./store'),base=s.getState()
  const fishing={...base,mode:'fishing' as const,fishing:{...beginFishing(()=>.9),phase:'landing' as const}}
- expect(journalEvents(fishing,{...fishing,fishing:{...fishing.fishing,phase:'caught' as const}})).toEqual([{type:'catch',sizeCm:fishing.fishing.sizeCm,species:fishing.fishing.species,isNew:true}])
+ expect(journalEvents(fishing,{...fishing,fishing:{...fishing.fishing,phase:'caught' as const}})).toEqual([{type:'catch',sizeCm:fishing.fishing.sizeCm,species:fishing.fishing.species,isNew:true,site:'pond'}])
  // A kind already in the book is not new; the new-kind and glowfish tasks follow the catch.
  const known={...fishing,fishBook:{...fishing.fishBook,kinds:{[fishing.fishing.species]:{count:1,bestCm:20}}}}
  expect(journalEvents(known,{...known,fishing:{...known.fishing,phase:'caught' as const}})[0]).toMatchObject({isNew:false})
@@ -66,7 +66,7 @@ it('restores a valid save and starts afresh from a broken one; a blocked save ke
  window.localStorage.setItem=()=>{throw Error('denied')}
  j.getState().record([{type:'feed'}])
  expect(j.getState().book.page.tasks[1].doneAt).not.toBeNull();expect(s.getState().messageKind).toBe('error')
- expect(taskIds).toHaveLength(28)
+ expect(taskIds).toHaveLength(29)
 })
 
 const now='2026-10-26T14:00:00Z'

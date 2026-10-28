@@ -5,7 +5,7 @@ import {brushSpot,eggReady,eggSpot,feedSpot,woolReady} from './farm'
 import {spotNear} from './forage'
 import {woodReady} from './recipes'
 import {logPile} from '../world/settlement'
-import {fishingSpot} from './fishing'
+import {fishingSites,fishingSpot} from './fishing'
 import {plantingSpot} from './growth'
 import {canViewLookout} from './lookout'
 import {canBoard,canLand,seaBoundaryClearance} from './rowing'
@@ -71,7 +71,7 @@ export function promptFor(s:State):Prompt|null{
    if(s.farmReady&&!s.mealActive&&woolReady(s.farmBook,s.homeBook.nights)&&near(p,brushSpot,1))return{action:t('prompt.wool')}
    return !s.farmReady?{status:t('prompt.farmLoading')}:s.mealActive?{hint:t('prompt.mealActive')}:near(p,feedSpot,.65)?{action:t('prompt.feed')}:{hint:t('prompt.toTrough')}
   case 'pond':return !s.fishingReady?{status:t('prompt.fishingLoading')}:near(p,fishingSpot,.85)?{action:t('prompt.cast')}:{hint:t('prompt.toFishingSpot')}
-  case 'dock':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:{hint:t('prompt.toDockEnd')}
+  case 'dock':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:near(p,fishingSites.sea.stand,.85)?{action:t('prompt.castSea')}:{hint:t('prompt.toDockEnd')}
   case 'grove':
    if(s.planted)return{action:s.inspectingTree?t('prompt.walkOn'):t('prompt.lookTree')}
    return !s.growthReady?{status:t('prompt.treeLoading')}:near(p,plantingSpot,1.8)?{action:t('prompt.plant')}:{hint:t('prompt.toPlot')}

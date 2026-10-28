@@ -1,14 +1,14 @@
 {
-  "date": "2026-10-27T07:58:27.936Z",
+  "date": "2026-10-28T01:30:16.781Z",
   "checks": [
     {
       "name": "night casts can hook a glowfish",
       "kinds": [
-        "inkKoi",
+        "goldKoi",
         "glowfish",
         "koi",
         "silverfish",
-        "goldKoi"
+        "inkKoi"
       ]
     },
     {
@@ -33,13 +33,15 @@
     },
     {
       "name": "field guide lists kinds, found and unknown, after reload",
-      "summary": "已发现 1 / 5 种",
+      "summary": "已发现 1 / 7 种",
       "items": [
         "unknown:？？？:多在白天出没",
         "unknown:？？？:多在黄昏出没",
         "unknown:？？？:多在黄昏出没",
         "unknown:？？？:多在白天出没",
-        "found:夜光鱼:1 尾 · 最大 27 cm"
+        "found:夜光鱼:1 尾 · 最大 27 cm",
+        "unknown:？？？:在码头海钓 · 多在夜晚出没",
+        "unknown:？？？:在码头海钓 · 多在白天出没"
       ]
     },
     {

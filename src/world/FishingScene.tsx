@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { useForestStore } from '../game/store'
 import { pond } from '../game/rowing'
+import { fishingSites } from '../game/fishing'
 import { latestCatchChoice } from '../game/expansion'
 
 // A soft travelling crest with a darker trough just inside it, fading as it spreads: reads as a
@@ -88,19 +89,21 @@ export function FishingScene() {
     const p = runtime.current, state = useForestStore.getState(), f = state.fishing
     p.group.visible = state.mode === 'fishing' && !!f
     if (!f || !p.group.visible) { p.phase = ''; return }
+    const site = fishingSites[f.site], ahead = new THREE.Vector3(-Math.sin(site.facing), 0, -Math.cos(site.facing))
+    p.landing.set(site.float.x, site.waterY, site.float.z)
     const dt = Math.min(delta, .05), still = reduced.current
     p.clock += dt
     const ripple = (x: number, z: number, strength: number, size: number) => {
       const r = p.ripples.reduce((a, b) => a.mesh.material.uniforms.progress.value >= b.mesh.material.uniforms.progress.value ? a : b)
       r.start = p.clock; r.life = .9 + size * 1.6; r.mesh.visible = true
-      r.mesh.position.set(x, pond.waterY + .006, z); r.mesh.scale.setScalar(size * 2)
+      r.mesh.position.set(x, site.waterY + .006, z); r.mesh.scale.setScalar(size * 2)
       r.mesh.material.uniforms.strength.value = strength
     }
     const splash = (x: number, z: number, count: number, speed: number) => {
       if (still) return
       for (const d of p.spray.filter(d => !d.alive).slice(0, count)) {
         const a = Math.random() * Math.PI * 2, s = speed * (.4 + Math.random() * .6)
-        d.alive = true; d.position.set(x, pond.waterY + .02, z); d.velocity.set(Math.cos(a) * s * .45, s * (1.2 + Math.random() * .8), Math.sin(a) * s * .45)
+        d.alive = true; d.position.set(x, site.waterY + .02, z); d.velocity.set(Math.cos(a) * s * .45, s * (1.2 + Math.random() * .8), Math.sin(a) * s * .45)
       }
     }
     const actor = scene.getObjectByName('asset-raccoon')
@@ -113,7 +116,9 @@ export function FishingScene() {
     p.x.setFromMatrixColumn(p.basis, 0)
     p.forward.setFromMatrixColumn(p.basis, 2).addScaledVector(p.x, .6).normalize()
     // Prop-only orientation inherited from the reference cast; actor bones stay untouched.
-    p.forward.z *= .15
+    // Keep the rod pointing out over the water: damp its sideways lean relative to where the angler faces.
+    const side = new THREE.Vector3(-ahead.z, 0, ahead.x), lean = p.forward.dot(side)
+    p.forward.addScaledVector(side, -lean * .85)
     p.forward.normalize()
     p.right.crossVectors(p.forward, THREE.Object3D.DEFAULT_UP).normalize()
     p.up.crossVectors(p.right, p.forward).normalize()
@@ -125,7 +130,7 @@ export function FishingScene() {
     const entered = p.phase !== f.phase, previous = p.phase
     p.phase = f.phase
     // The float rides low: body centre 2 cm under the surface, only the cap and antenna showing.
-    const rest = pond.waterY - .02
+    const rest = site.waterY - .02
     p.end.copy(p.landing)
     let tilt = Math.sin(p.clock * 1.7) * .06, sink = 0
     if (f.phase === 'casting') {
@@ -157,9 +162,9 @@ export function FishingScene() {
       if (f.tension > .7 && Math.random() < dt * 6) splash(p.end.x + .1, p.end.z + (Math.random() - .5) * .2, 2, .7)
     } else if (f.phase === 'landing' || f.phase === 'caught') {
       const u = f.phase === 'caught' ? 1 : Math.min(f.elapsed / (7 / 6), 1)
-      p.end.set(2.45, pond.waterY + .04, -5).lerp(p.tipPosition.clone().add(new THREE.Vector3(0, -.45, 0)), u)
+      p.end.set(site.cast.x, site.waterY + .04, site.cast.z).lerp(p.tipPosition.clone().add(new THREE.Vector3(0, -.45, 0)), u)
       // The fish breaks the surface: a burst of spray and rings where it left the water.
-      if (entered && f.phase === 'landing') { ripple(2.45, -5, 1, .8); ripple(2.5, -4.95, .7, .5); splash(2.45, -5, 12, 1.4) }
+      if (entered && f.phase === 'landing') { ripple(site.cast.x, site.cast.z, 1, .8); ripple(site.cast.x + .05, site.cast.z + .05, .7, .5); splash(site.cast.x, site.cast.z, 12, 1.4) }
     }
     if (f.phase === 'waiting' || f.phase === 'escaped') {
       p.nextRipple -= dt
@@ -179,21 +184,21 @@ export function FishingScene() {
     shadowOpacity.value = THREE.MathUtils.damp(shadowOpacity.value, near ? (fighting ? .34 : .2) : 0, 4, dt)
     p.shadow.visible = shadowOpacity.value > .01
     const swim = fighting ? f.elapsed * 7 : p.clock * 2, heading = fighting ? Math.PI + Math.sin(swim) * .35 : p.clock * .9
-    p.shadow.position.set(p.end.x + Math.cos(heading) * (fighting ? .18 : .32), pond.waterY + .004, p.end.z - Math.sin(heading) * (fighting ? .18 : .32))
+    p.shadow.position.set(p.end.x + Math.cos(heading) * (fighting ? .18 : .32), site.waterY + .004, p.end.z - Math.sin(heading) * (fighting ? .18 : .32))
     p.shadow.rotation.set(-Math.PI / 2, 0, heading + (fighting ? 0 : Math.PI / 2) + Math.sin(swim * 1.6) * .12)
     p.shadow.scale.set(f.sizeCm / 100 * 1.1, f.sizeCm / 100 * .5, 1)
     let shown = 0
     p.spray.forEach(d => {
       if (d.alive) {
         d.velocity.y -= 9.8 * dt; d.position.addScaledVector(d.velocity, dt)
-        if (d.position.y < pond.waterY) d.alive = false
+        if (d.position.y < site.waterY) d.alive = false
       }
       if (d.alive) p.drops.setMatrixAt(shown++, p.matrix.makeTranslation(d.position.x, d.position.y, d.position.z))
     })
     p.drops.count = shown; p.drops.instanceMatrix.needsUpdate = true
     // Once kept or let go, the koi leaves the line; letting it go drops it back with a splash.
     const choice = f.phase === 'caught' ? latestCatchChoice(state) ?? '' : ''
-    if (choice === 'released' && p.choice !== 'released') { ripple(2.45, -4.85, .9, .7); splash(2.45, -4.85, 10, 1.2) }
+    if (choice === 'released' && p.choice !== 'released') { ripple(site.cast.x, site.cast.z, .9, .7); splash(site.cast.x, site.cast.z, 10, 1.2) }
     p.choice = choice
     p.fish.visible = f.phase === 'landing' || (f.phase === 'caught' && !choice)
     if (p.fish.userData.species !== f.species) dressFish(p.fish, f.species)

@@ -3,7 +3,7 @@ import {useLang,useT,type Key} from './i18n'
 import {useForestStore} from './game/store'
 import {useInventoryStore} from './game/inventoryStore'
 import {itemIds} from './game/inventory'
-import {bestLight,speciesIds} from './game/fishSpecies'
+import {bestLight,species,speciesIds} from './game/fishSpecies'
 import {secretIds} from './game/secrets'
 
 const tabs=[['fish','catalog.fish'],['satchel','catalog.satchel'],['secrets','catalog.secrets']] as const
@@ -16,7 +16,7 @@ function FishPage(){
  const found=speciesIds.filter(id=>book.kinds[id])
  return <>
   <p>{t('fish.found',{n:found.length,total:speciesIds.length})}</p>
-  <ul className="species-list">{speciesIds.map(id=>{const k=book.kinds[id];const hint=bestLight(id),when=t(hint.only?'fish.only':'fish.mostly',{light:t(`light.${hint.light}`)})
+  <ul className="species-list">{speciesIds.map(id=>{const k=book.kinds[id];const hint=bestLight(id),when=(species[id].site==='sea'?t('fish.atSea')+' · ':'')+t(hint.only?'fish.only':'fish.mostly',{light:t(`light.${hint.light}`)})
    return <li key={id} className={k?'found':'unknown'}><span className={`species-swatch swatch-${id}`} aria-hidden="true"/><strong>{k?t(`fish.${id}`):t('fish.unknown')}</strong><small>{k?t('fish.tally',{count:k.count,best:k.bestCm}):when}</small></li>})}</ul>
   {book.count>0&&<ol className="catch-list">{book.recent.slice(0,8).map((fish,i)=><li key={`${fish.at}-${i}`}>{t(`fish.${fish.species??'koi'}`)} · {fish.sizeCm} cm · {new Date(fish.at).toLocaleDateString(lang==='zh'?'zh-CN':'en-GB')}</li>)}</ol>}
  </>

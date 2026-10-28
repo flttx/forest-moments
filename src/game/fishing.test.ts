@@ -53,3 +53,10 @@ describe('fishing decisions and records', () => {
     for (const raw of ['{', 'null', '{"count":-1}', JSON.stringify({ count: 1, bestCm: 900, recent: [] }), JSON.stringify({ count: 1, bestCm: 20, recent: [{ sizeCm: 20, at: 'invalid' }] })]) expect(decodeCatchBook(raw)).toEqual(emptyBook())
   })
 })
+
+it('F on the jetty edge casts into the sea; boarding stays at the mooring',async()=>{
+ const {useForestStore:s}=await import('./store'),{fishingSites}=await import('./fishing')
+ s.setState({location:'island',mode:'walking',nearby:'dock',boatReady:true,fishingReady:true,position:{...fishingSites.sea.stand}})
+ s.getState().interact()
+ expect(s.getState().mode).toBe('fishing');expect(s.getState().fishing?.site).toBe('sea')
+})

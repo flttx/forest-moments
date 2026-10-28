@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-28T01:29:25.540Z",
+  "checks": [
+    {
+      "name": "real F on the jetty edge casts into the sea; the float rides on open water",
+      "prompt": "F在码头抛竿",
+      "float": [
+        41,
+        -0.87,
+        -3.5
+      ]
+    },
+    {
+      "name": "a sea bass from the jetty: named on the card, let go into the sea, jetty and new-kind tasks done",
+      "card": "钓到 31 cm 海鲈放入鱼缸放回海里F再抛一竿Esc收起",
+      "done": [
+        "seaCatch:1",
+        "newKind:1",
+        "tree:0"
+      ]
+    },
+    {
+      "name": "boarding is still offered at the mooring",
+      "boardPrompt": "F上船"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-sea-waiting.png",
+    "02-sea-bass.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}

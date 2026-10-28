@@ -23,7 +23,7 @@ import { groundHeightAt, moveOnGround, pathStones } from '../game/movement'
 import { lookoutPosition, workshopPosition } from './assets'
 import { canBoard, canLand, stepBoat } from '../game/rowing'
 import { RowingBoat } from './RowingBoat'
-import { fishingClips } from '../game/fishing'
+import { fishingClips, fishingSites } from '../game/fishing'
 import { FishingScene } from './FishingScene'
 import { ModelAsset } from './ModelAsset'
 import type { Locomotion } from './ModelAsset'
@@ -273,7 +273,7 @@ function Player() {
       state.tickFishing(dt)
       const f = useForestStore.getState().fishing
       if (f) motion.current = fishingClips[f.phase]
-      character.rotation.y = -Math.PI / 2
+      character.rotation.y = fishingSites[f?.site ?? 'pond'].facing
     }
     if(state.mode!=='walking'){movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(transferring||(x===0&&z===0))movementIntent.current=null
@@ -369,10 +369,12 @@ function Player() {
     const surface=current.mode==='rowing'?seaLevel:character.position.y
     const focus=outdoorOrbitFocus({x:target.x,y:surface+.05,z:target.z},orbit.current.zoom,orbit.current.pitch)
     const radius=8.7*orbit.current.zoom,horizontal=radius*Math.cos(focus.pitch)
-    const cameraTarget=current.mode==='fishing'?new THREE.Vector3(target.x-1.8,surface+3.2,target.z+5):new THREE.Vector3(focus.target.x+Math.sin(orbit.current.yaw)*horizontal,focus.target.y+radius*Math.sin(focus.pitch),focus.target.z+Math.cos(orbit.current.yaw)*horizontal)
+    // Fishing: behind and to the right of the angler, whichever way the site faces.
+    const site=fishingSites[current.fishing?.site??'pond'],fx=-Math.sin(site.facing),fz=-Math.cos(site.facing)
+    const cameraTarget=current.mode==='fishing'?new THREE.Vector3(target.x-1.8*fx-5*fz,surface+3.2,target.z-1.8*fz+5*fx):new THREE.Vector3(focus.target.x+Math.sin(orbit.current.yaw)*horizontal,focus.target.y+radius*Math.sin(focus.pitch),focus.target.z+Math.cos(orbit.current.yaw)*horizontal)
     if(homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(cameraTarget)
     else camera.position.lerp(cameraTarget, 1 - Math.exp(-3 * dt))
-    if(current.mode==='fishing')camera.lookAt(target.x+1,surface+.85,target.z)
+    if(current.mode==='fishing')camera.lookAt(target.x+fx,surface+.85,target.z+fz)
     else camera.lookAt(focus.target.x,focus.target.y,focus.target.z)
   }, -2)
 

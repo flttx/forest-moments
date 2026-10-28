@@ -55,7 +55,7 @@ it('requires an actual catch, prevents duplication after release and restores pe
  for(const raw of ['bad','{}',JSON.stringify({...book,nights:-1})])expect(decodeHome(raw)).toEqual(emptyHome())
 })
 it('lets the newest catch go into the tank or back into the pond right at the bank, once',async()=>{
- const {useForestStore:s}=await import('./store'),fish={at:'2026-10-25T03:00:00Z',sizeCm:30},caught={phase:'caught' as const,elapsed:0,wait:3,sizeCm:30,progress:1,tension:.2,held:false,paused:false,reason:'' as const,species:'koi' as const}
+ const {useForestStore:s}=await import('./store'),fish={at:'2026-10-25T03:00:00Z',sizeCm:30},caught={phase:'caught' as const,elapsed:0,wait:3,sizeCm:30,progress:1,tension:.2,held:false,paused:false,reason:'' as const,species:'koi' as const,site:'pond' as const}
  s.setState({fishBook:{count:1,bestCm:30,recent:[fish],kinds:{}}})
  // Only while the catch is on the line.
  s.getState().keepCatch();expect(s.getState().homeBook.fish).toHaveLength(0)

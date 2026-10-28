@@ -1,6 +1,17 @@
-import { isSpecies, pickCatch, type Light, type SpeciesId } from './fishSpecies'
+import { isSpecies, pickCatch, type FishingSite, type Light, type SpeciesId } from './fishSpecies'
+import { pond, seaLevel } from '../world/worldConfig'
 
-export const fishingSpot = { x: 1.5, z: -5 }
+/**
+ * Where the raccoon can fish: where it stands, which way it faces (the actor's rotation.y; forward is
+ * (-sin, -cos)), where the float lands (`float`), where a hooked fish is drawn in to the bank (`cast`) and the
+ * water height. The pond bank, and the south edge of the jetty
+ * (deep water, away from the boat's mooring on the north side).
+ */
+export const fishingSites: Record<FishingSite, { stand: { x: number; z: number }; facing: number; float: { x: number; z: number }; cast: { x: number; z: number }; waterY: number }> = {
+  pond: { stand: { x: 1.5, z: -5 }, facing: -Math.PI / 2, float: { x: 4.2, z: -5 }, cast: { x: 2.45, z: -5 }, waterY: pond.waterY },
+  sea: { stand: { x: 41, z: -.8 }, facing: 0, float: { x: 41, z: -3.5 }, cast: { x: 41, z: -1.75 }, waterY: seaLevel },
+}
+export const fishingSpot = fishingSites.pond.stand
 export const catchStorageKey = 'forest-moments:fish-book:v1'
 export type FishingPhase = 'casting' | 'waiting' | 'bite' | 'reeling' | 'landing' | 'caught' | 'escaped'
 export type FishingReason = '' | 'early' | 'missed' | 'snapped' | 'tooLong'
@@ -10,6 +21,7 @@ export interface FishingState {
   wait: number
   sizeCm: number
   species: SpeciesId
+  site: FishingSite
   progress: number
   tension: number
   held: boolean
@@ -18,6 +30,7 @@ export interface FishingState {
   reason: FishingReason
 }
 export interface CatchRecord { sizeCm: number; at: string; species?: SpeciesId }
+export type { FishingSite }
 /** Per kind: how many and the largest. Older books (koi only) are read as koi. */
 export type KindTally = Partial<Record<SpeciesId, { count: number; bestCm: number }>>
 export interface CatchBook { count: number; bestCm: number; recent: CatchRecord[]; kinds: KindTally }
@@ -43,9 +56,9 @@ export function decodeCatchBook(raw: string | null): CatchBook {
     return { count: b.count, bestCm: b.bestCm, recent: b.recent, kinds }
   } catch { return emptyBook() }
 }
-export function beginFishing(random = Math.random, light: Light = 'day'): FishingState {
-  const wait = 3 + random() * 3, fish = pickCatch(light, random)
-  return { phase: 'casting', elapsed: 0, wait, sizeCm: fish.sizeCm, species: fish.species, progress: 0, tension: .22, held: false, paused: false, reason: '' }
+export function beginFishing(random = Math.random, light: Light = 'day', site: FishingSite = 'pond'): FishingState {
+  const wait = 3 + random() * 3, fish = pickCatch(light, random, site)
+  return { phase: 'casting', elapsed: 0, wait, sizeCm: fish.sizeCm, species: fish.species, site, progress: 0, tension: .22, held: false, paused: false, reason: '' }
 }
 export function strikeFish(s: FishingState): FishingState {
   if (s.paused) return { ...s, paused: false, held: false }

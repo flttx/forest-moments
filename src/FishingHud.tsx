@@ -27,7 +27,7 @@ export function FishingHud() {
     </>}
     {f.phase === 'caught' && (choice ? <small role="status">{t(choice === 'kept' ? 'fishing.kept' : 'fishing.released')}</small> : <>
       <button type="button" disabled={tankFull} onClick={keep}>{tankFull ? t('fishing.tankFull') : t('fishing.keep')}</button>
-      <button type="button" onClick={release}>{t('fishing.letGo')}</button>
+      <button type="button" onClick={release}>{t(f.site==='sea'?'fishing.letGoSea':'fishing.letGo')}</button>
     </>)}
     {(f.paused || ['bite', 'caught', 'escaped'].includes(f.phase)) && <button type="button" className="primary" onClick={interact}><kbd>F</kbd>{f.paused ? t('fishing.resume') : f.phase === 'bite' ? t('fishing.strike') : t('fishing.again')}</button>}
     <button type="button" className="quiet" onClick={cancel}><kbd>Esc</kbd>{t('fishing.stow')}</button>

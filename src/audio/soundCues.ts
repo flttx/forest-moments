@@ -2,12 +2,12 @@ import type {PlayOptions} from './WorldAudio'
 import type {useForestStore} from '../game/store'
 import {camp,catchId} from '../game/expansion'
 import {plantingSpot} from '../game/growth'
-import {pond} from '../world/worldConfig'
+import {fishingSites} from '../game/fishing'
 
 type State=ReturnType<typeof useForestStore.getState>
 export interface Cue{name:string;options?:PlayOptions}
 
-const castLanding={x:4.2,y:pond.waterY,z:-5},campfire={x:camp.x,y:.4,z:camp.z},sapling={x:plantingSpot.x,y:.4,z:plantingSpot.z}
+const campfire={x:camp.x,y:.4,z:camp.z},sapling={x:plantingSpot.x,y:.4,z:plantingSpot.z}
 const started=<T,>(prev:T|null,next:T|null)=>!prev&&!!next
 
 /**
@@ -20,6 +20,7 @@ export function soundCues(prev:State,next:State):Cue[]{
 
  // Fishing: cast, the float landing, a bite, the strike, the fish breaking the surface, or it getting away.
  const was=prev.fishing?.phase,is=next.fishing?.phase
+ const site=fishingSites[next.fishing?.site??prev.fishing?.site??'pond'],castLanding={x:site.float.x,y:site.waterY,z:site.float.z}
  if(is!==was){
   if(is==='casting')cue('cast',{volume:.8})
   if(was==='casting'&&is==='waiting')cue('splash-tiny',{volume:.6,at:castLanding})

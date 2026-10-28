@@ -45,7 +45,7 @@ it('keeps one panel at a time, holds gameplay while open and resumes without los
  ui.getState().openPanel('places');expect(ui.getState().panel).toBe('places')
  ui.getState().closePanel();expect(s.getState().menuPaused).toBe(false)
  // Fishing: a bite window cannot expire behind the help panel, and reeling is released.
- s.setState({location:'island',mode:'fishing',fishing:{phase:'reeling',elapsed:0,wait:3,sizeCm:20,species:'koi',progress:.4,tension:.3,held:true,paused:false,reason:''}})
+ s.setState({location:'island',mode:'fishing',fishing:{phase:'reeling',elapsed:0,wait:3,sizeCm:20,species:'koi',site:'pond',progress:.4,tension:.3,held:true,paused:false,reason:''}})
  ui.getState().openPanel('help');expect(s.getState().fishing?.held).toBe(false)
  const held={...s.getState().fishing!};for(let i=0;i<200;i++)s.getState().tickFishing(.05)
  expect(s.getState().fishing).toEqual(held)

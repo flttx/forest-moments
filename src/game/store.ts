@@ -10,7 +10,7 @@ import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,exp
 import { create } from 'zustand'
 import { findNearestLandmark, type LandmarkId } from './landmarks'
 import { canBoard, canLand, initialBoat, landing, type BoatState } from './rowing'
-import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSpot, recordCatch, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
+import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSites, fishingSpot, recordCatch, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
 import {advanceTree,decodeTree,growthStages,growthStorageKey,legacySeedlingKey,plantingSpot,type PlantedTree} from './growth'
 import {transferCommit,transferDuration,type BoatTransfer} from './boatPresentation'
 import {decodeFarm,farmStorageKey,feedSpot,type FarmBook,afterMeal,brushSpot,choreSeconds,eggReady,eggSpot,woolReady} from './farm'
@@ -349,7 +349,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(mode==='lookout'){get().leaveLookout();return}
     if (mode === 'fishing') {
       const f = get().fishing
-      if (f) set({ fishing: ['caught', 'escaped'].includes(f.phase) ? beginFishing(Math.random, get().timeOfDay) : strikeFish(f), message: '' })
+      if (f) set({ fishing: ['caught', 'escaped'].includes(f.phase) ? beginFishing(Math.random, get().timeOfDay, f.site) : strikeFish(f), message: '' })
       return
     }
     if (mode === 'rowing') {
@@ -403,11 +403,17 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if (nearby === 'pond') {
       if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
       if (Math.hypot(position.x - fishingSpot.x, position.z - fishingSpot.z) > .85) { set({ message: t('msg.toFishingSpot') }); return }
-      set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(Math.random, get().timeOfDay), message: '' })
+      set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(Math.random, get().timeOfDay, 'pond'), message: '' })
       return
     }
     if (nearby === 'dock') {
       if (!boatReady) { set({ message: t('msg.boatLoading') }); return }
+      // The jetty's south edge is for fishing; boarding stays at the mooring on the north side.
+      const sea = fishingSites.sea.stand
+      if (!canBoard(position.x, position.z, boat) && Math.hypot(position.x - sea.x, position.z - sea.z) <= .85) {
+        if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
+        set({ mode: 'fishing', position: { ...sea }, fishing: beginFishing(Math.random, get().timeOfDay, 'sea'), message: '' }); return
+      }
       if (!canBoard(position.x, position.z, boat)) { set({ message: t('msg.toDockEnd') }); return }
       set({boatTransfer:{direction:'board',elapsed:0,committed:false},message:''})
       return

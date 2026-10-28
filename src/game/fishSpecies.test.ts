@@ -40,3 +40,16 @@ it('keeps the kind of a fish in the tank and rejects an unknown one',()=>{
  expect(decodeHome(JSON.stringify(home)).fish[0].species).toBe('goldKoi')
  expect(decodeHome(JSON.stringify({...home,fish:[{...home.fish[0],species:'shark'}]})).fish).toEqual([])
 })
+
+it('the jetty has its own kinds; the pond never yields sea fish and the sea never yields koi',async()=>{
+ const {fishingSites}=await import('./fishing')
+ const sea=new Set(Array.from({length:400},()=>pickCatch('day',Math.random,'sea').species))
+ expect([...sea].sort()).toEqual(['mackerel','seaBass'])
+ expect(Array.from({length:400},()=>pickCatch('night',Math.random,'sea').species).every(s=>s==='seaBass')).toBe(true)
+ expect(Array.from({length:400},()=>pickCatch('day',Math.random,'pond').species).some(s=>s==='seaBass'||s==='mackerel')).toBe(false)
+ // Sea hints compare within the sea.
+ expect(bestLight('mackerel').light).toBe('day')
+ // The jetty spot faces the water it casts into.
+ const s=fishingSites.sea,ahead={x:-Math.sin(s.facing),z:-Math.cos(s.facing)}
+ expect(Math.sign(s.float.z-s.stand.z)).toBe(Math.sign(ahead.z))
+})
