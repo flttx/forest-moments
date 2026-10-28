@@ -2,6 +2,7 @@ import {Suspense,useMemo} from 'react'
 import {useGLTF} from '@react-three/drei'
 import * as THREE from 'three'
 import {useForestStore} from '../game/store'
+import {useWeatherStore} from '../game/weatherStore'
 import {availableSpots,type ForageKind} from '../game/forage'
 import {groundHeightAt} from '../game/movement'
 import {eggReady,eggSpot} from '../game/farm'
@@ -29,6 +30,8 @@ function Egg(){
 
 export function ForageItems(){
  const book=useForestStore(s=>s.forageBook),day=useForestStore(s=>s.homeBook.nights)
- const spots=useMemo(()=>availableSpots(book,day),[book,day])
+ // Rain brings more mushrooms, so a changed sky (read here to redraw) changes today's spots.
+ useWeatherStore(s=>s.forced)
+ const spots=availableSpots(book,day)
  return <Suspense fallback={null}><group name="forage-items">{spots.map(s=><group key={s.id} name={`forage-${s.id}`} position={[s.x,groundHeightAt(s.x,s.z),s.z]} rotation={[0,(s.x*13+s.z*7)%6.28,0]}><Prop id={s.kind}/></group>)}<Egg/></group></Suspense>
 }

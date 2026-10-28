@@ -2,7 +2,7 @@ import {create} from 'zustand'
 import {useForestStore} from './store'
 
 /** `season` is not on the toolbar: it opens itself on a new season's first morning, or from the journal. */
-export type MenuPanel='journal'|'album'|'places'|'fishbook'|'help'|'season'
+export type MenuPanel='journal'|'album'|'places'|'fishbook'|'help'|'season'|'weather'
 /** Modes whose controls are explained once, the first time the player enters them. */
 export type ModeHint='rowing'|'lookout'|'sitting'
 export const guideStorageKey='forest-moments:guide:v1'

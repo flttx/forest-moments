@@ -8,6 +8,7 @@ import {subjectIds,type SubjectId} from './game/photoSubjects'
 import {filterAllowed,photoBlock,albumLimit,filterIds,frameIds,filterUnlock,frameUnlock,looksUnlocked} from './game/photo'
 import {useJournalStore} from './game/journalStore'
 import {seasonFor,seasonIds,weatherFor,weatherIds} from './game/weather'
+import {useWeatherStore} from './game/weatherStore'
 import {deletePhoto,listPhotos,type PhotoRecord} from './game/photoAlbum'
 
 const lights=['day','dusk','night'] as const
@@ -28,6 +29,7 @@ export function PhotoHud(){
  const t=useT()
  const s=usePhotoStore(),light=useForestStore(f=>f.timeOfDay),pages=useJournalStore(j=>j.book.stamps.length)
  const [looksOpen,setLooksOpen]=useState(false)
+ useWeatherStore(w=>w.forced)
  const day=useForestStore(f=>f.homeBook.nights),todayWeather=weatherFor(day),todaySeason=seasonFor(day)
  if(!s.active)return null
  const lightIcon={day:'sun',dusk:'sunset',night:'moon'} as const

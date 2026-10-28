@@ -290,3 +290,8 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .hud .sand-tool kbd{position:absolute;top:4px;left:6px;font-size:11px;padding:0 4px;opacity:.75}
 .hud .sand-tool[aria-pressed=true]{background:var(--amber-soft);border-color:var(--amber);color:var(--amber-ink)}
 .sand-help{padding:4px 12px;font-size:13px}
+/* Weather picker panel */
+.weather-panel p{margin:0 0 12px;color:var(--ink-soft);font-size:14px}
+.weather-options{display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.hud .weather-options .chip{justify-content:flex-start;min-height:40px;padding:0 14px}
+.hud .weather-options .chip[aria-pressed=true]{background:var(--amber-soft);border-color:var(--amber);color:var(--amber-ink)}

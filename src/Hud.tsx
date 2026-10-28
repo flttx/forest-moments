@@ -29,8 +29,10 @@ import {RecipeCard} from './RecipeCard'
 import {usePhotoStore} from './game/photoStore'
 import {useSandStore} from './game/sandStore'
 import {SandHud} from './SandHud'
+import {WeatherPanel} from './WeatherPanel'
+import {useWeatherStore} from './game/weatherStore'
 
-const menuItems:[Exclude<MenuPanel,'season'>,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
+const menuItems:[Exclude<MenuPanel,'season'|'weather'>,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
 const inTransfer=(s:ReturnType<typeof useForestStore.getState>)=>!!(s.boatTransfer||s.lookoutTransfer||s.workshopTransfer||s.homeTransfer)
 
 /** Two-way switch: both languages stay visible, the current one is set in ink. */
@@ -44,6 +46,7 @@ function LanguageSwitch(){
 /** Today's season and weather, set small beside the title; nothing to press. */
 function Climate(){
  const t=useT(),day=useForestStore(s=>s.homeBook.nights)
+ useWeatherStore(s=>s.forced)
  return <span className="brand-climate">{t(`season.${seasonFor(day)}`)} · {t(`weather.${weatherFor(day)}`)}</span>
 }
 
@@ -63,6 +66,7 @@ function TopBar(){
   <div className="brand">{t('brand')}<Climate/></div>
   <nav className="menu" aria-label={t('menu.label')}>
    {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" title={t(label)} aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
+   <button type="button" className="tool-button" title={t('weather.title')} aria-haspopup="dialog" aria-expanded={panel==='weather'} aria-controls="menu-panel" onClick={()=>panel==='weather'?closePanel():openPanel('weather')}><Icon name="cloudsun"/><span className="tool-label">{t('weather.title')}</span></button>
    <PhotoButton/>
    <TourButton/>
    <span className="tool-divider" aria-hidden="true"/>
@@ -78,11 +82,11 @@ function MenuPanelView(){
  const panel=useUiStore(s=>s.panel),closePanel=useUiStore(s=>s.closePanel)
  const {ref,trap}=useDialogFocus<HTMLElement>(!!panel)
  if(!panel)return null
- const title=panel==='season'?t('season.title'):t(menuItems.find(([id])=>id===panel)![1])
+const title=panel==='season'?t('season.title'):panel==='weather'?t('weather.title'):t(menuItems.find(([id])=>id===panel)![1])
  return <section id="menu-panel" ref={ref} className="paper-panel menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-panel-title"
   onKeyDown={e=>{trap(e);if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closePanel()}}} onWheel={e=>e.stopPropagation()}>
   <header><h2 id="menu-panel-title">{title}</h2><button type="button" className="close-button" onClick={closePanel} aria-label={t('panel.close')}><Icon name="close"/></button></header>
-  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<CatalogPanel/>:panel==='season'?<SeasonPanel/>:<Help/>}</div>
+  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<CatalogPanel/>:panel==='season'?<SeasonPanel/>:panel==='weather'?<WeatherPanel/>:<Help/>}</div>
  </section>
 }
 

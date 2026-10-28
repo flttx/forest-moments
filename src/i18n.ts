@@ -234,7 +234,10 @@ const zh={
  'weather.clear':'晴',
  'weather.cloudy':'多云',
  'weather.rain':'小雨',
- 'weather.mist':'薄雾',
+ 'weather.mist':'薄雾', 'weather.title':'天气',
+ 'weather.auto':'跟随天数（今天：{weather}）',
+ 'weather.hint':'想要哪种天气就选哪种：画面、声音、钓鱼和采集都会跟着变。选“跟随天数”则由睡过的夜数决定。只记在这台浏览器上。',
+
  'photo.previewOnly':'只在拍照时预览，不会改变小岛',
  'journal.task.rainCabin':'下雨天回小屋听雨',
  'journal.task.mistTower':'雾天登上瞭望塔',
@@ -784,7 +787,10 @@ const en:Record<Key,string>={
  'weather.clear':'Clear',
  'weather.cloudy':'Cloudy',
  'weather.rain':'Light rain',
- 'weather.mist':'Mist',
+ 'weather.mist':'Mist', 'weather.title':'Weather',
+ 'weather.auto':'Follow the days (today: {weather})',
+ 'weather.hint':'Pick the weather you like: the picture, sound, fishing and foraging all follow. "Follow the days" lets the nights slept decide. Saved on this browser only.',
+
  'photo.previewOnly':'Preview for photos only; the island is unchanged',
  'journal.task.rainCabin':'Listen to the rain from the cabin',
  'journal.task.mistTower':'Climb the tower on a misty day',

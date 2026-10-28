@@ -11,8 +11,11 @@ export const nightsPerSeason=4
 const weatherOdds:Record<Weather,number>={clear:45,cloudy:25,rain:15,mist:15}
 
 export const seasonFor=(day:number)=>seasonIds[Math.floor(Math.max(0,day)/nightsPerSeason)%seasonIds.length]
-/** The day's weather; the first morning is always clear so a new island starts in sunshine. */
-export function weatherFor(day:number):Weather{
+/** The weather the player picked from the toolbar, if any (weatherStore); it stands in for every day's own. */
+let forced:Weather|null=null
+export const setForcedWeather=(w:Weather|null)=>{forced=w}
+/** The day's own weather; the first morning is always clear so a new island starts in sunshine. */
+export function naturalWeather(day:number):Weather{
  if(day<=0)return 'clear'
  // A mixing hash (mulberry32's output step): a linear one gave weeks-long runs in a fixed clear→cloudy→rain→mist order.
  let n=(Math.floor(day)*0x9e3779b9+0x6d2b79f5)|0
@@ -23,7 +26,9 @@ export function weatherFor(day:number):Weather{
 }
 
 /** The morning after a rainy day, if it has cleared up, a rainbow stands over the sea through the day (plan T1). */
-export const rainbowFor=(day:number)=>day>0&&weatherFor(day-1)==='rain'&&['clear','cloudy'].includes(weatherFor(day))
+/** What the sky does today: the player's pick, else the day's own. */
+export const weatherFor=(day:number):Weather=>forced??naturalWeather(day)
+export const rainbowFor=(day:number)=>day>0&&naturalWeather(day-1)==='rain'&&['clear','cloudy'].includes(weatherFor(day))
 /** On a rainy day mushrooms come up more freely (plan T1); the other finds are unchanged. */
 export const rainMushrooms=8
 
