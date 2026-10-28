@@ -11,7 +11,7 @@ export function terrainHeight(x:number,z:number) {
   return base*(1-creek)+(creekWaterY(x)-.42)*creek
 
 }
-export const highlandPaths=[[-1.7,-14,-14,-15],[-14,-15,-14,-24.5],[13,1.7,20,-12],[20,-12,23,-20],[23,-20,15.45,-27.65],[-14,-24.5,-9,-24],[-9,-24,-8,-28],[-8,-28,6,-29],[6,-29,10,-30],[10,-30,17,-30],[17,-30,15.45,-27.65],[-14,-11,-29,-10],[20,1,30.5,-8],[30.5,-8,30.5,-12],[30.5,-12,29.7,-12]] as const
+export const highlandPaths=[[-1.7,-14,-14,-15],[-14,-15,-14,-24.5],[13,1.7,20,-12],[20,-12,23,-20],[23,-20,15.45,-27.65],[-14,-24.5,-9,-24],[-9,-24,-8,-28],[-8,-28,6,-29],[6,-29,9.05,-29.85],[15.45,-27.65,8.5,-28.3],[8.5,-28.3,9.05,-29.85],[-14,-11,-29,-10],[20,1,30.5,-8],[30.5,-8,30.5,-12],[30.5,-12,29.7,-12]] as const
 export function segmentDistance(x:number,z:number,ax:number,az:number,bx:number,bz:number){const dx=bx-ax,dz=bz-az,t=Math.max(0,Math.min(1,((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz)));return Math.hypot(x-ax-t*dx,z-az-t*dz)}
 export function loopRadius(angle:number){return islandShape.loopRadius+.65*Math.sin(angle*3+.3)}
 export function workshopPathZ(x:number,offset=workshopPathOffset){return 10.8+Math.sin(x*.35)*.6+offset*(1-MathUtils.smoothstep(x,-8,-5))}

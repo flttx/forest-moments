@@ -2,7 +2,7 @@ import {cabin,camp,seats,creekDistance} from '../game/expansion'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
 import templates from './vegetation-templates.json'
 import { pathDistance, islandShape, terrainHeight } from './terrain'
-import {workshopPosition,lookoutPosition,isBeachApproach,clearings} from './worldConfig'
+import {workshopPosition,lookoutPosition,lookoutHill,isBeachApproach,clearings} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
 export interface VegetationInstance { kit: PlantKit; x: number; z: number; scale: number; yaw: number }
@@ -33,7 +33,7 @@ export function clearForVegetation(x:number,z:number,margin=0,pathOffset=worksho
   if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.7)return false
   if(isBeachApproach(x,z)||creekDistance(x,z)<2.8+margin||Math.hypot(x-cabin.x,z-cabin.z)<5.4+margin||Math.hypot(x-camp.x,z-camp.z)<5+margin||seats.some(s=>Math.hypot(x-s.x,z-s.z)<3+margin))return false
   if(pathDistance(x,z,pathOffset)<1.5+margin) return false
-  const exclusions=[[workshopPosition[0],workshopPosition[2],4.9],[lookoutPosition[0],lookoutPosition[2],4.7],[8,6,4.4],[6,-5,6.1],[0,8,2.8],[0,0,3.2],[1.5,-5,2.4],[8,8,2.8]]
+  const exclusions=[[workshopPosition[0],workshopPosition[2],4.9],[lookoutPosition[0],lookoutPosition[2],4.7],[lookoutHill.x,lookoutHill.z,4.7],[8,6,4.4],[6,-5,6.1],[0,8,2.8],[0,0,3.2],[1.5,-5,2.4],[8,8,2.8]]
   return exclusions.every(([cx,cz,r])=>Math.hypot(x-cx,z-cz)>r+margin)
     && (pathOffset===0?originalLampPositions:lampPositions).every(p=>Math.hypot(x-p.x,z-p.z)>2+margin)
 }

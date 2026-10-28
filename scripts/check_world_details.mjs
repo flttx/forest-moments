@@ -61,7 +61,7 @@ try {
   await waitFor("!document.querySelector('.guide')", 'guide folds away', 120)
   const days = await evaluate("(()=>{const pick=(w,s)=>{for(let d=1;d<400;d++)if(weather.weatherFor(d)===w&&weather.seasonFor(d)===s)return d;return null};return{clear:pick('clear','summer'),rain:pick('rain','summer'),spring:pick('clear','spring'),autumn:pick('clear','autumn')}})()")
   const found = () => evaluate("Object.keys(forestStore.getState().secretsBook.found)")
-  const day = async (d, light = 'day') => { await evaluate(`forestStore.setState(s=>({homeBook:{...s.homeBook,nights:${d}},timeOfDay:'${light}',location:'island',mode:'walking'}))`); await sleep(5500) }
+  const day = async (d, light = 'day') => { await evaluate(`forestStore.setState(s=>({homeBook:{...s.homeBook,nights:${d}},timeOfDay:'${light}',location:'island',mode:'walking'}))`); await sleep(5500); await evaluate('uiStore.getState().closePanel()') }
   const free = async (view, wait = 1500) => { await evaluate(`photoMod.freeCam.view=${view}`); await sleep(wait) }
   const openFree = async () => { await press('KeyP', 'p'); await sleep(300); await click('.photo-bar button', '自由取景'); await sleep(200); await click('.photo-bar button', '隐藏浣熊'); await sleep(200) }
   const shoot = async () => { await evaluate('photoStore.setState({last:null})'); await press('Space', ' '); await waitFor('!!photoStore.getState().last', 'photo', 100); await sleep(400); return evaluate('photoStore.getState().last.subjects') }

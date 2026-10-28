@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-28T12:21:40.705Z",
+  "checks": [
+    {
+      "name": "rain leaves puddles with rings on the tracks, splashes around the raccoon and rings on the creek; none on a clear day"
+    },
+    {
+      "name": "the jellyfish glows through the sea at night"
+    },
+    {
+      "name": "the fox den: the fox sleeps in front by day, peeks out at dusk, only its eyes show at night; F at the trail finds it"
+    },
+    {
+      "name": "the heart stone shows its heart only face on; that photo finds it, the trail view does not",
+      "subjects": [
+        "heartStone"
+      ]
+    },
+    {
+      "name": "the carving sits on the lookout timber behind the view; a photo of it finds it",
+      "carving": {
+        "x": 12.502154463898005,
+        "y": 12.360931130062832,
+        "z": -31.083889794910515
+      }
+    },
+    {
+      "name": "spring fills the meadow with flowers, autumn lays leaves; summer nights have the most fireflies",
+      "flies": {
+        "summer": 1,
+        "autumn": 0.48
+      }
+    },
+    {
+      "name": "the field guide lists six hidden corners, the three new ones found",
+      "page": [
+        "unknown:？？？",
+        "unknown:？？？",
+        "unknown:？？？",
+        "found:塔梁刻字",
+        "found:心形石",
+        "found:狐狸洞"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-path-clear.png",
+    "02-creek-clear.png",
+    "01-path-rain.png",
+    "02-creek-rain.png",
+    "03-jellyfish-night.png",
+    "04-fox-den-day.png",
+    "05-fox-den-night.png",
+    "05b-fox-den-dusk.png",
+    "07-heart-stone-trail.png",
+    "08-heart-stone-face.png",
+    "09-carving.png",
+    "10-meadow-spring.png",
+    "10-meadow-summer.png",
+    "10-meadow-autumn.png",
+    "11-field-guide.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.50"
+}

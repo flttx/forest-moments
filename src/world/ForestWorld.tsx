@@ -23,6 +23,7 @@ import {useUiStore,gameplayPaused} from '../game/uiStore'
 import {promptFor} from '../game/prompt'
 import { groundHeightAt, moveOnGround, pathStones } from '../game/movement'
 import { lookoutPosition, workshopPosition } from './assets'
+import {lookoutYaw} from './worldConfig'
 import { canBoard, canLand, stepBoat } from '../game/rowing'
 import { RowingBoat } from './RowingBoat'
 import { fishingClips, fishingSites } from '../game/fishing'
@@ -80,7 +81,8 @@ function ReviewCamera() {
       coast: [[24, 4, 27], [0, 1, 0]],
       pond: [[14, 6, 4], [6, .4, -5]],
       workshop: [[-4, 5, 17], [-12, 1.3, 8]],
-      tower: [[24,13,-16],[13,10.5,-26]],
+      tower: [[22.5,13,-21.5],[11.5,10.5,-31.5]],
+      towerSea: [[2,10,-52],[11.5,9,-31.5]],
       farm: [[15, 4, 13], [8, .6, 6]],
       farmFront:[[14,5,-1],[8,.5,6]],
       farmFeed:[[11,2.5,1.8],[9.1,.3,4.7]],
@@ -127,7 +129,7 @@ function Workshop() {
 
 function Tower() {
   const ready=useCallback((lookoutReady:boolean)=>useForestStore.setState({lookoutReady}),[])
-  return <group position={[...lookoutPosition]}>
+  return <group position={[...lookoutPosition]} rotation={[0,lookoutYaw,0]}>
     <Suspense fallback={null}><ModelAsset asset="lookout" onReadyChange={ready} /></Suspense>
   </group>
 }

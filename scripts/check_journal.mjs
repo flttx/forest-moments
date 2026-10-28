@@ -90,7 +90,7 @@ try {
     await evaluate(`(async()=>{window.expansion=await import('/src/game/expansion.ts');window.growth=await import('/src/game/growth.ts');window.journalWrites=0;const original=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k===journalRules.journalStorageKey)window.journalWrites++;return original.call(this,k,v)}})()`)
     await waitFor('forestStore.getState().lookoutReady&&forestStore.getState().growthReady&&forestStore.getState().homeReady&&forestStore.getState().boatReady')
     await key('Escape','Escape')
-    await point(15.45,-27.65);await key('KeyF','f');await done('lookout')
+    await point(9.05,-29.85);await key('KeyF','f');await done('lookout')
     await waitFor("!forestStore.getState().lookoutTransfer");await shot('task-lookout');await key('Escape','Escape');await waitFor("forestStore.getState().mode==='walking'&&!forestStore.getState().lookoutTransfer")
     check('lookout task from F-key entry',true,null)
     await evaluate("forestStore.setState({position:expansion.seatOrigin(expansion.seats[0])})");await sleep(250);await key('KeyF','f');await done('seaside');await shot('task-seaside')
