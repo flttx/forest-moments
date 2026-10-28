@@ -5,6 +5,8 @@ import {pondGLSL} from './pondShape'
 import {createTerrainGeometry} from './terrainGeometry'
 import {canopyTexture} from './canopyMap'
 import {trampleGLSL} from './settlement'
+import {sandGLSL,sandUniforms} from './sandField'
+import {sandTexel} from '../game/sand'
 
 export function IslandTerrain() {
   const geometry = useMemo(()=>createTerrainGeometry(), [])
@@ -12,14 +14,16 @@ export function IslandTerrain() {
   return <mesh name="island-terrain" geometry={geometry} receiveShadow>
     <meshStandardMaterial color="white" roughness={.96} onBeforeCompile={(shader) => {
       shader.uniforms.canopyMap={value:canopyTexture()}
+      Object.assign(shader.uniforms,sandUniforms)
       Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet,climateRain:climateUniforms.climateRain,climateTime:climateUniforms.climateTime,climateLitter:climateUniforms.climateLitter,puddleMap:puddleReflection.puddleMap,puddleMatrix:puddleReflection.puddleMatrix,puddleOn:puddleReflection.puddleOn,puddleHeight:puddleReflection.puddleHeight})
       shader.vertexShader = 'varying vec3 vGround;varying vec3 vTerrainNormal;\n' + shader.vertexShader
-      shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvGround=position;vTerrainNormal=normal;')
+      shader.vertexShader = sandGLSL + shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\ntransformed.y+=sandDug(transformed.xz);vGround=transformed;vTerrainNormal=normal;')
       shader.fragmentShader = `varying vec3 vGround;varying vec3 vTerrainNormal;uniform float climateTime;uniform float climateLitter;uniform sampler2D puddleMap;uniform mat4 puddleMatrix;uniform float puddleOn;uniform float puddleHeight;\n${climateGLSL}${rainRingsGLSL}${noiseGLSL}
 ${pathGLSL}
 ${pondGLSL}
 ${groundColourGLSL}
-${trampleGLSL}\n` + shader.fragmentShader
+${trampleGLSL}
+${sandGLSL}\n` + shader.fragmentShader
       shader.fragmentShader=`
         float stoneHash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
         float stoneNoise(vec3 p){
@@ -69,6 +73,9 @@ ${trampleGLSL}\n` + shader.fragmentShader
         // Darker, cooler wet sand just above the tide line, with a ragged upper edge.
         float wet=(1.0-smoothstep(${(seaLevel+.3).toFixed(2)},${(seaLevel+.48).toFixed(2)},vGround.y+(broad-.5)*.18))*sand;
         colour=mix(colour,vec3(.27,.23,.17)*(.92+fleck*.1),wet*.8);
+        // The dry beach carries soft wind ripples (also in the normal).
+        float sandRipple=sin(dot(p,vec2(.82,.57))*11.0+noise21(p*.9)*7.0+noise21(p*3.1)*1.5)*sand*(1.0-wet);
+        colour*=1.0+sandRipple*.03;
         colour=mix(colour,soil*.9,trampleAt(p)*.78);
         vec3 groundNormal=normalize(vTerrainNormal);
         // Steep faces stay rock right down to the waterline instead of a strip of sand under the cliff.
@@ -95,6 +102,9 @@ ${trampleGLSL}\n` + shader.fragmentShader
         colour=mix(colour,vec3(.3,.33,.35),puddle*puddleSky*.5);
         vec2 puddleCell=fwidth(p);
         if(climateRain>.01)colour+=vec3(.45,.48,.5)*rainRings(p,climateTime).x*climateRain*puddle*.3*(1.0-smoothstep(.02,.08,max(puddleCell.x,puddleCell.y)));
+        // Dug and pressed sand is the damper sand underneath, a shade darker; heaped sand a touch lighter.
+        colour*=1.0+clamp(sandRelief(p)*2.2,-.24,.06);
+        colour*=1.0-clamp(sandPrint(p)*18.0,0.0,.38);
         diffuseColor.rgb *= colour;
       `)
       shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>', /* glsl */ `
@@ -109,18 +119,28 @@ ${trampleGLSL}\n` + shader.fragmentShader
       `)
       shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>', /* glsl */ `
         #include <roughnessmap_fragment>
-        roughnessFactor=mix(mix(roughnessFactor,.6,climateWet*.5),.05,puddle);
+        // Wet sand at the tide line takes a dull sheen.
+        roughnessFactor=mix(mix(mix(roughnessFactor,.34,wet*.7),.6,climateWet*.5),.05,puddle);
       `)
       shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>', /* glsl */ `
         #include <normal_fragment_maps>
         float earthMask=(1.0-smoothstep(-.1,.25,pathEdgeAt(vGround.xz)))*(1.0-smoothstep(34.0,35.0,length(vGround.xz)));
         float earthBump=(noise21(vGround.xz*4.0)*.024+noise21(vGround.xz*15.0)*.009)*earthMask;
         earthBump+=stoneNoise(vGround*3.0)*.025*cliff;
+        earthBump+=sandRipple*.0035;
         earthBump*=1.0-puddle;
         vec3 earthQx=dFdx(-vViewPosition),earthQy=dFdy(-vViewPosition);
         vec3 earthRx=cross(earthQy,normal),earthRy=cross(normal,earthQx);
         float earthDet=dot(earthQx,earthRx);
         normal=normalize(abs(earthDet)*normal-sign(earthDet)*(dFdx(earthBump)*earthRx+dFdy(earthBump)*earthRy));
+        // Play sand: the slope of the relief texture (works and paw prints) one texel either way, finer than the mesh.
+        if(inSand(vGround.xz)){
+          const float sandStep=${sandTexel.toFixed(3)};
+          float sandX=sandRelief(vGround.xz+vec2(sandStep,0.0))-sandRelief(vGround.xz-vec2(sandStep,0.0));
+          float sandZ=sandRelief(vGround.xz+vec2(0.0,sandStep))-sandRelief(vGround.xz-vec2(0.0,sandStep));
+          vec3 sandNormal=normalize(vTerrainNormal+vec3(-sandX,0.0,-sandZ)/(2.0*sandStep));
+          normal=normalize(mix(normal,normalize((viewMatrix*vec4(sandNormal,0.0)).xyz),smoothstep(.0002,.004,abs(sandX)+abs(sandZ))));
+        }
       `)
     }} />
   </mesh>

@@ -27,6 +27,8 @@ import {CampHud} from './CampHud'
 import {seasonFor,weatherFor} from './game/weather'
 import {RecipeCard} from './RecipeCard'
 import {usePhotoStore} from './game/photoStore'
+import {useSandStore} from './game/sandStore'
+import {SandHud} from './SandHud'
 
 const menuItems:[Exclude<MenuPanel,'season'>,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
 const inTransfer=(s:ReturnType<typeof useForestStore.getState>)=>!!(s.boatTransfer||s.lookoutTransfer||s.workshopTransfer||s.homeTransfer)
@@ -137,8 +139,9 @@ function Prompt(){
  const t=useT()
  const prompt=useForestStore(useShallow(promptFor))
  const s=useForestStore(useShallow(s=>({paused:s.menuPaused,mode:s.mode,inspecting:s.inspectingTree,nearby:s.nearby,feeding:s.feedingElapsed,planting:s.plantingElapsed,boat:s.boatTransfer?.direction,lookout:s.lookoutTransfer?.direction})))
- const interact=useForestStore(s=>s.interact)
- if(s.paused||!prompt)return null
+ const interact=useForestStore(s=>s.interact),sand=useSandStore(s=>s.active||!!s.build)
+ // Sand play keeps F for itself.
+ if(s.paused||!prompt||sand)return null
  const info=prompt.status||s.mode==='feeding'||s.mode==='planting'||(s.nearby==='grove'&&s.inspecting&&s.mode==='walking')
  return <div className="interaction prompt" aria-live="polite" data-boat-transfer={s.boat} data-lookout-transfer={s.lookout}>
   {info&&<span className="ink-note prompt-info">
@@ -218,7 +221,7 @@ export function Hud(){
   <TourHud/>
   <FirstGuide/>
   {gameCards}
-  <div className="bottom-stack"><Notice/><ModeHintLine/><Prompt/>{lookout}</div>
+  <div className="bottom-stack"><Notice/><ModeHintLine/><Prompt/>{!paused&&<SandHud/>}{lookout}</div>
   <MenuPanelView/>
  </div>
 }

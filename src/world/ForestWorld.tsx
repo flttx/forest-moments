@@ -59,6 +59,12 @@ import {woodSpot,workpieceSpot} from '../game/workshop'
 import {moveInWorkshop} from '../game/workshopInterior'
 import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,slopePitch,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
 import {canopySpheres} from './vegetationLayout'
+import {SandPlay} from './SandPlay'
+import {pressPaw,sandGroundAt} from './sandField'
+import {useSandStore,sandAim} from '../game/sandStore'
+import {inSandRect,sandObstacles,stepStride,type SandKind} from '../game/sand'
+
+const sandKeys:Record<string,SandKind>={Digit1:'castle',Digit2:'river',Digit3:'pit',Digit4:'imprint',Numpad1:'castle',Numpad2:'river',Numpad3:'pit',Numpad4:'imprint'}
 
 const qaEnabled = import.meta.env.DEV && new URLSearchParams(location.search).has('qa')
 
@@ -83,6 +89,8 @@ function ReviewCamera() {
       workshop: [[-4, 5, 17], [-12, 1.3, 8]],
       tower: [[22.5,13,-21.5],[11.5,10.5,-31.5]],
       towerSea: [[2,10,-52],[11.5,9,-31.5]],
+      sandPlay: [[6,6.5,47],[0,0,30.5]],
+      sandClose: [[-1.5,2,35.5],[1,0,31.5]],
       farm: [[15, 4, 13], [8, .6, 6]],
       farmFront:[[14,5,-1],[8,.5,6]],
       farmFeed:[[11,2.5,1.8],[9.1,.3,4.7]],
@@ -152,6 +160,7 @@ function Player() {
   const wasSleeping=useRef(false)
   const wasPhoto=useRef(false)
   const skyLook=useRef(new THREE.Vector3())
+  const stride=useRef({travelled:0,left:true})
   const slopeTilt=useRef(0)
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
@@ -183,6 +192,16 @@ function Player() {
       if (e.code === 'KeyP' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey) { photo.enter(); return }
       // Seated by the fire or the sea: R roasts a fish, V looks up at the stars.
       if ((e.code === 'KeyR' || e.code === 'KeyV') && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && useForestStore.getState().mode === 'sitting') { e.preventDefault(); if (e.code === 'KeyR') useForestStore.getState().startRoast(); else useForestStore.getState().toggleStargaze(); return }
+      // Sand play on the south beach: B opens the quick bar; 1-4 choose, R turns the outline, F builds, Esc steps back.
+      const sand=useSandStore.getState()
+      if (e.code === 'KeyB' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); if (sand.active) sand.exit(); else sand.enter(); return }
+      if (sand.active && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        const tool=sandKeys[e.code]
+        if (tool) { e.preventDefault(); if (!e.repeat) sand.choose(tool); return }
+        if (e.code === 'KeyR') { e.preventDefault(); if (!e.repeat) sand.rotate(e.shiftKey?-Math.PI/8:Math.PI/8); return }
+        if (e.code === 'KeyF') { e.preventDefault(); if (!e.repeat) sand.confirm(); return }
+        if (e.code === 'Escape') { e.preventDefault(); if (sand.build) sand.cancel(); else sand.exit(); return }
+      }
       if (['KeyW', 'KeyA', 'KeyS', 'KeyD', 'KeyQ', 'KeyE', 'ShiftLeft', 'ShiftRight', 'KeyF', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code) || e.code==='Escape' || (['fishing','planting','feeding','lookout','gathering','crafting','sitting','sleeping'].includes(useForestStore.getState().mode) && ['Space', 'Escape'].includes(e.code))) {
         e.preventDefault()
         pressed.current.add(e.code)
@@ -208,7 +227,7 @@ function Player() {
     }
   }, [])
 
-  useFrame(({ camera }, delta) => {
+  useFrame(({ camera, clock }, delta) => {
     const character = root.current
     if (!character) return
     const dt = Math.min(delta, .05)
@@ -255,7 +274,7 @@ function Player() {
     if(wasPhoto.current&&!photoActive)clampOrbitTargets(orbit.current,[orbitConfig.minPitch,orbitConfig.maxPitch],[orbitConfig.minZoom,orbitConfig.maxZoom])
     wasPhoto.current=photoActive
     // Store position also supplies the safe landing point after leaving the boat.
-    character.position.set(state.position.x, state.location!=='island'?0:groundHeightAt(state.position.x, state.position.z), state.position.z)
+    character.position.set(state.position.x, state.location!=='island'?0:sandGroundAt(state.position.x, state.position.z), state.position.z)
     if(state.location==='island'&&state.mode==='walking')for(const tree of state.garden.trees){
       const spot=plantingSpots[tree.spot],r=pushRadius[tree.stage],dx=character.position.x-spot.x,dz=character.position.z-spot.z,d=Math.hypot(dx,dz)
       if(d<r){character.position.x=spot.x+(d?dx/d:0)*(r+.01);character.position.z=spot.z+(d?dz/d:1)*(r+.01)}
@@ -289,16 +308,24 @@ function Player() {
       if (f) motion.current = fishingClips[f.phase]
       character.rotation.y = fishingSites[f?.site ?? 'pond'].facing
     }
+    // Building in the sand: the raccoon stays put, faces the work and digs with the gathering motion.
+    const sand=useSandStore.getState()
+    if(sand.active&&!sand.build&&(state.location!=='island'||state.mode!=='walking'||!inSandRect(state.position.x,state.position.z,.3)))sand.exit()
+    const building=sand.build
+    if(building&&!hold){sand.tick(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-building.work.x,character.position.z-building.work.z)}
+    sandAim.facing=character.rotation.y
     if(state.mode!=='walking'){movementHeading.current=character.rotation.y;movementIntent.current=null}
     if(transferring||(x===0&&z===0))movementIntent.current=null
-    if (state.mode === 'walking' && !transferring && ready.current && (x !== 0 || z !== 0)) {
+    if (state.mode === 'walking' && !transferring && !building && ready.current && (x !== 0 || z !== 0)) {
       if(state.inspectingTree||state.aquariumOpen||state.recipesOpen)useForestStore.setState({inspectingTree:false,aquariumOpen:false,recipesOpen:false})
       const intent=cameraRelativeMovement(x,z,orbit.current.yaw)!
       movementIntent.current=intent
-      const next = state.location==='bedroom'?moveInBedroom(character.position,intent.x*speed*dt,intent.z*speed*dt):state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,trunks(state.garden),state.workshopBook.phase)
+      const next = state.location==='bedroom'?moveInBedroom(character.position,intent.x*speed*dt,intent.z*speed*dt):state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,[...trunks(state.garden),...sandObstacles(sand.book.works)],state.workshopBook.phase)
       if (Math.hypot(next.x - character.position.x, next.z - character.position.z) > .00001) {
         movementHeading.current=movementYaw(next.x-character.position.x,next.z-character.position.z,movementHeading.current)
-        character.position.set(next.x,state.location!=='island'?0:groundHeightAt(next.x, next.z), next.z)
+        // Paws press prints into the play sand, one stride at a time.
+        if(state.location==='island'&&inSandRect(next.x,next.z)){const step=stepStride(stride.current,character.position,next,running);stride.current=step.stride;if(step.print)pressPaw(step.print,clock.elapsedTime)}
+        character.position.set(next.x,state.location!=='island'?0:sandGroundAt(next.x, next.z), next.z)
         motion.current = running ? 'run' : 'walk'
       }
     }
@@ -463,6 +490,7 @@ function Scene() {
     <Suspense fallback={null}><GrowingTree /></Suspense>
     <Suspense fallback={null}><FishingScene /></Suspense>
     <ForageItems />
+    <SandPlay />
     <Furniture place="island" />
     <Secrets />
     <RiverLanterns />

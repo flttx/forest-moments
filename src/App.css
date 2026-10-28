@@ -283,3 +283,10 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 .secret-swatch{background:radial-gradient(circle,#f0dcb6 0 30%,#8f5d1f 70%)}
 .brand-climate{display:block;margin-top:2px;font-size:14px;letter-spacing:.08em;color:#fbf5e6cc;text-shadow:0 1px 3px #0e1610aa;font-family:inherit;font-weight:400}
 .photo-looks{flex-wrap:wrap;justify-content:center;max-width:calc(100% - 40px);border-radius:22px}
+/* Sand play quick bar (east beach): four works, then turn, dig in, done. */
+.sand-hud{display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:auto}
+.sand-tools{display:flex;gap:6px;padding:6px}
+.hud .sand-tool{flex-direction:column;gap:2px;min-width:78px;min-height:66px;padding:6px 10px;position:relative;background:transparent;border-color:transparent}
+.hud .sand-tool kbd{position:absolute;top:4px;left:6px;font-size:11px;padding:0 4px;opacity:.75}
+.hud .sand-tool[aria-pressed=true]{background:var(--amber-soft);border-color:var(--amber);color:var(--amber-ink)}
+.sand-help{padding:4px 12px;font-size:13px}

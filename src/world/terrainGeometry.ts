@@ -1,12 +1,14 @@
 import {BufferGeometry,Float32BufferAttribute} from 'three'
 import {islandShape,pond} from './worldConfig'
 import {terrainHeight} from './terrain'
+import {sandRect} from '../game/sand'
 
-/** 30 cm island grid; 6 cm cells around the pond prevent a sawtooth waterline.
- * The refinement boundary sits on the flat fishing clearing, so shared edges remain watertight.
+/** 30 cm island grid; 6 cm cells around the pond prevent a sawtooth waterline, and 10 cm cells on the south beach's
+ * play sand carry the dug and heaped relief (sandField). Both refinement boundaries sit on flat or gently curving
+ * ground, so the shared edges stay closed to well under a millimetre.
  */
 export function createTerrainGeometry(){
-  const size=islandShape.meshSize,coarse=320,step=size/coarse,sub=5
+  const size=islandShape.meshSize,coarse=320,step=size/coarse,sub=15
   const positions:number[]=[],indices:number[]=[],vertices=new Map<string,number>()
   const vertex=(ix:number,iz:number)=>{
     const key=`${ix},${iz}`,existing=vertices.get(key)
@@ -15,8 +17,9 @@ export function createTerrainGeometry(){
     positions.push(x,terrainHeight(x,z),z);vertices.set(key,i);return i
   }
   for(let z=0;z<coarse;z++)for(let x=0;x<coarse;x++){
-    const near=Math.hypot((x+.5)*step-size/2-pond.x,(z+.5)*step-size/2-pond.z)<5.05
-    const count=near?sub:1,inc=sub/count
+    const cx=(x+.5)*step-size/2,cz=(z+.5)*step-size/2
+    const pondCell=Math.hypot(cx-pond.x,cz-pond.z)<5.05,sandCell=cx>sandRect.minX&&cx<sandRect.maxX&&cz>sandRect.minZ&&cz<sandRect.maxZ
+    const count=pondCell?5:sandCell?3:1,inc=sub/count
     for(let j=0;j<count;j++)for(let i=0;i<count;i++){
       const ix=x*sub+i*inc,iz=z*sub+j*inc
       const a=vertex(ix,iz),b=vertex(ix,iz+inc),c=vertex(ix+inc,iz+inc),d=vertex(ix+inc,iz)

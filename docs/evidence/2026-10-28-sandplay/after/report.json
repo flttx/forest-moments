@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-28T13:34:55.985Z",
+  "checks": [
+    {
+      "name": "walking on the play sand presses paw prints",
+      "printTexels": 311
+    },
+    {
+      "name": "B is refused away from the beach and opens the four-work quick bar on it"
+    },
+    {
+      "name": "F builds a castle over about three seconds",
+      "castle": {
+        "kind": "castle",
+        "x": -3.9999999999999827,
+        "z": 30.000000000000018,
+        "yaw": 0
+      },
+      "message": "一座小沙堡立起来了。"
+    },
+    {
+      "name": "a pit against the rocks is refused with a reason",
+      "refused": "这里有东西挡着。"
+    },
+    {
+      "name": "Esc stops a pit halfway with nothing kept; a finished pit lowers the ground",
+      "pit": {
+        "kind": "pit",
+        "x": 3.999999999999975,
+        "z": 29.999999999999975,
+        "yaw": 0
+      },
+      "pitGround": -0.32
+    },
+    {
+      "name": "a stream runs to the sea, a print turns with R; Esc closes the bar",
+      "works": [
+        {
+          "kind": "castle",
+          "x": -3.9999999999999827,
+          "z": 30.000000000000018,
+          "yaw": 0
+        },
+        {
+          "kind": "pit",
+          "x": 3.999999999999975,
+          "z": 29.999999999999975,
+          "yaw": 0
+        },
+        {
+          "kind": "river",
+          "x": 1.0000000000000777,
+          "z": 33.20000000000008,
+          "yaw": 0
+        },
+        {
+          "kind": "imprint",
+          "x": -7.999999999999998,
+          "z": 31.000000000000004,
+          "yaw": 0.7853981633974483
+        }
+      ]
+    },
+    {
+      "name": "works survive a reload"
+    },
+    {
+      "name": "the next day starts with smooth sand"
+    },
+    {
+      "name": "quick bar in English",
+      "labels": [
+        "Castle",
+        "Stream",
+        "Pit",
+        "Raccoon print"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-beach-before.png",
+    "02-paw-prints.png",
+    "02b-paw-prints-close.png",
+    "03-castle-outline.png",
+    "04-castle-building.png",
+    "05-castle-done.png",
+    "06-refused-dock.png",
+    "07-river-outline.png",
+    "08-river-done.png",
+    "09-imprint-outline.png",
+    "10-beach-overview.png",
+    "11-beach-close.png",
+    "12-after-tide.png",
+    "13-quick-bar-en.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.50",
+  "seaward": {
+    "key": "w",
+    "x": 30.196865598968692
+  }
+}
