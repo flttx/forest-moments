@@ -1,7 +1,7 @@
 // Adapted from my-blog src/world/scene/CampfireFlame.tsx (14d4c1d).
 // Reuse its noise-shaped flame cards and GPU embers; this component follows the island's fire switch.
 import {useEffect,useMemo,useRef} from 'react'
-import {useFrame} from '@react-three/fiber'
+import {useFrame,useThree} from '@react-three/fiber'
 import * as THREE from 'three'
 
 const LIGHT_INTENSITY = 5;
@@ -57,12 +57,14 @@ const FLAME_VERTEX = /* glsl */ `
 // teardrop mask whose edge is eaten by rising noise; colour runs from a pale core to orange and red edges
 const FLAME_FRAGMENT = /* glsl */ `
   uniform float time;
+  uniform float lit;
   varying vec2 flameUv;
   varying float flameSeed;
   #include <common>
   #include <fog_pars_fragment>
   ${NOISE}
   void main() {
+    if (lit < 0.5) discard;
     vec2 uv = flameUv;
     float n = fbm(vec2(uv.x * 2.4 + flameSeed, uv.y * 1.8 - time * 1.6));
     float x = uv.x - 0.5 + (n - 0.5) * 0.45 * uv.y;
@@ -101,10 +103,12 @@ const EMBER_VERTEX = /* glsl */ `
 `;
 
 const EMBER_FRAGMENT = /* glsl */ `
+  uniform float lit;
   varying float emberFade;
   #include <common>
   #include <fog_pars_fragment>
   void main() {
+    if (lit < 0.5) discard;
     float glow = (1.0 - smoothstep(0.2, 0.5, length(gl_PointCoord - 0.5))) * emberFade;
     if (glow < 0.01) discard;
     gl_FragColor = vec4(vec3(1.0, 0.55, 0.15) * 1.5, glow);
@@ -117,6 +121,7 @@ const EMBER_FRAGMENT = /* glsl */ `
 function createFire() {
   const time = { value: 0 };
   const pointSize = { value: 1 };
+  const litUniform = { value: 1 };
   const fogUniforms = () => THREE.UniformsUtils.clone(THREE.UniformsLib.fog);
 
   const flameGeometry = new THREE.BufferGeometry();
@@ -127,7 +132,7 @@ function createFire() {
   flameGeometry.setIndex(FLAME_LAYERS.flatMap((_layer, index) => [0, 1, 2, 0, 2, 3].map((corner) => index * 4 + corner)));
   flameGeometry.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 0.5, 0), 0.9);
   const flameMaterial = new THREE.ShaderMaterial({
-    uniforms: { ...fogUniforms(), time },
+    uniforms: { ...fogUniforms(), time, lit: litUniform },
     vertexShader: FLAME_VERTEX,
     fragmentShader: FLAME_FRAGMENT,
     transparent: true,
@@ -145,7 +150,7 @@ function createFire() {
   emberGeometry.setAttribute('seed', new THREE.Float32BufferAttribute(Array.from({ length: EMBER_COUNT }, (_value, index) => (index * 0.618034) % 1), 1));
   emberGeometry.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 1.1, 0), 1.4);
   const emberMaterial = new THREE.ShaderMaterial({
-    uniforms: { ...fogUniforms(), time, pointSize },
+    uniforms: { ...fogUniforms(), time, pointSize, lit: litUniform },
     vertexShader: EMBER_VERTEX,
     fragmentShader: EMBER_FRAGMENT,
     transparent: true,
@@ -170,6 +175,16 @@ function createFire() {
 
   return {
     group,
+    flame,
+    embers,
+    /**
+     * Out: every pixel discarded and no light. Everything stays in the scene (the light at zero), so lighting the
+     * fire changes neither the light count nor what the GPU has uploaded, and no frame stalls.
+     */
+    setLit(lit: boolean) {
+      litUniform.value = lit ? 1 : 0;
+      if (!lit) light.intensity = 0;
+    },
     /** still (reduced motion): frozen flame shape, no embers, steady light */
     update(elapsed: number, still: boolean, bufferHeight: number) {
       const t = still ? 0 : elapsed;
@@ -199,11 +214,21 @@ export default function CampfireFlame({lit}:{lit:boolean}) {
     return()=>motion.removeEventListener('change',change)
   },[motion])
   useEffect(()=>()=>fire.dispose(),[fire])
+  // Lighting the fire used to compile every lit material anew (the light count changed, the flame's shaders were new)
+  // and the frame stalled for seconds. Compile it all once, while the fire is out, and keep the light in the scene.
+  const {gl,scene,camera}=useThree()
+  useEffect(()=>{
+    fire.setLit(true)
+    try{gl.compile(scene,camera)}catch{/* compiled on first use instead */}
+    fire.setLit(lit)
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- only the first state is compiled; later changes just toggle
+  },[fire,gl,scene,camera])
+  useEffect(()=>{fire.setLit(lit)},[fire,lit])
   useFrame(({gl},dt)=>{
     if(!lit)return
     if(!reduced.current)elapsed.current+=Math.min(dt,.05)
     fire.update(elapsed.current,reduced.current,gl.getDrawingBufferSize(bufferSize).y)
   })
   // The existing stone ring's firewood sits above the ground; put the flame roots inside it.
-  return <primitive object={fire.group} position={[0,.22,0]} visible={lit} dispose={null}/>
+  return <primitive object={fire.group} position={[0,.22,0]} dispose={null}/>
 }
