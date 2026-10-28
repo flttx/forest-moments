@@ -40,9 +40,9 @@ export function PhotoHud(){
   {s.flash>0&&!reducedMotion()&&<div key={s.flash} className="photo-flash" aria-hidden="true"/>}
   <div className="viewfinder" aria-hidden="true"><i/><i/><i/><i/></div>
   {looksOpen&&<div className="photo-looks photo-styles" role="group" aria-label={t('photo.filters')}>
-   {filterIds.map(id=>{const open=looksUnlocked(pages,filterUnlock[id]),usable=filterAllowed(id,s.lowQuality);return <button key={id} type="button" className="chip" aria-pressed={s.filter===id&&usable} aria-disabled={open&&usable?undefined:true} title={!open?t('photo.locked',{n:filterUnlock[id]}):usable?undefined:t('photo.lowQuality')} onClick={()=>{if(usable)s.setFilter(id)}}>{t(`photo.filter.${id}` as const)}</button>})}
+   {filterIds.map(id=>{const open=looksUnlocked(pages,filterUnlock[id]),usable=filterAllowed(id,s.lowQuality);return <button key={id} type="button" className="chip" aria-pressed={s.filter===id&&usable} aria-disabled={open&&usable?undefined:true} data-tip={!open?t('photo.locked',{n:filterUnlock[id]}):usable?undefined:t('photo.lowQuality')} onClick={()=>{if(usable)s.setFilter(id)}}>{t(`photo.filter.${id}` as const)}</button>})}
    <span className="rule" aria-hidden="true"/>
-   {frameIds.map(id=>{const open=looksUnlocked(pages,frameUnlock[id]);return <button key={id} type="button" className="chip" aria-pressed={s.frame===id} aria-disabled={open?undefined:true} title={open?undefined:t('photo.locked',{n:frameUnlock[id]})} onClick={()=>s.setFrame(id)}>{t(`photo.frame.${id}` as const)}</button>})}
+   {frameIds.map(id=>{const open=looksUnlocked(pages,frameUnlock[id]);return <button key={id} type="button" className="chip" aria-pressed={s.frame===id} aria-disabled={open?undefined:true} data-tip={open?undefined:t('photo.locked',{n:frameUnlock[id]})} onClick={()=>s.setFrame(id)}>{t(`photo.frame.${id}` as const)}</button>})}
    <span className="rule" aria-hidden="true"/>
    {weatherIds.map(w=><button key={w} type="button" className="chip" aria-pressed={(s.weatherPreview??todayWeather)===w} title={t('photo.previewOnly')} onClick={()=>s.setWeatherPreview(w===todayWeather?null:w)}>{t(`weather.${w}` as const)}</button>)}
    <span className="rule" aria-hidden="true"/>
