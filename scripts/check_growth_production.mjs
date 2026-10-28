@@ -67,21 +67,19 @@ try {
   async function hold(k,ms){await key(k,true);await evaluate(`new Promise(resolve=>{let last=performance.now(),elapsed=0;function frame(t){elapsed+=Math.min(t-last,50);last=t;if(elapsed>=${ms})resolve();else requestAnimationFrame(frame)}requestAnimationFrame(frame)})`);await key(k,false)}
   async function waitUi(expression,label,limit=90000){const start=Date.now();while(Date.now()-start<limit){if(await evaluate(expression))return;await sleep(100)}throw Error('UI timeout '+label)}
   async function goPlot(){
-    await key('Shift',true)
-    for(let i=0;i<50;i++){
-      if(await evaluate("!!document.querySelector('[data-growth-stage]')||Array.from(document.querySelectorAll('button')).some(b=>b.textContent.includes('种一棵树'))")){
-        await hold('s',500);await key('Shift',false);return
-      }
-      await hold('s',180)
+    // From the spawn the opening camera looks along yaw 3π/4, so W+A walks straight toward the corner at (0, 8).
+    for(let i=0;i<60;i++){
+      if(await evaluate("Array.from(document.querySelectorAll('.interaction .action-button')).some(b=>/种一棵树|看看小树/.test(b.textContent))"))return
+      await key('w',true);await hold('a',180);await key('w',false)
     }
-    await key('Shift',false);throw Error('Planting corner was not reached through visible UI')
+    throw Error('Planting corner was not reached through visible UI')
   }
   async function reload(){const time=await evaluate('performance.timeOrigin');await cmd('Page.reload');await sleep(500);await waitUi(`performance.timeOrigin!==${time}&&!document.querySelector('.asset-loading')&&!document.querySelector('.world-error')`,'reload');await sleep(1000)}
   await goPlot();await press('f');await waitUi("document.querySelector('[data-growth-stage]')?.dataset.growthStage==='sprout'",'plant sprout');await sleep(1300);await shot('01-production-sprout')
-  const initial=await evaluate("JSON.parse(localStorage.getItem('forest-moments:tree:v2'))");assert.equal(initial.stage,0)
+  const initial=await evaluate("JSON.parse(localStorage.getItem('forest-moments:tree:v3')).trees[0]");assert.equal(initial.stage,0)
   await waitUi("document.querySelector('[data-growth-stage]')?.dataset.growthStage==='seedling'",'real seedling',65000);await sleep(1000);await shot('02-production-seedling');check('real production planting and first growth',{elapsedMs:Date.now()-initial.plantedAt})
-  await reload();assert.equal(await snapshot(),null);await goPlot();await press('f');await sleep(1300);await shot('03-production-reload');assert.equal(await evaluate("JSON.parse(localStorage.getItem('forest-moments:tree:v2')).stage"),1)
-  await evaluate("localStorage.setItem('forest-moments:tree:v2',JSON.stringify({version:2,plantedAt:Date.now()-300000,stage:1}))")
+  await reload();assert.equal(await snapshot(),null);await goPlot();await press('f');await sleep(1300);await shot('03-production-reload');assert.equal(await evaluate("JSON.parse(localStorage.getItem('forest-moments:tree:v3')).trees[0].stage"),1)
+  await evaluate("localStorage.setItem('forest-moments:tree:v3',JSON.stringify({version:3,trees:[{spot:0,plantedAt:Date.now()-300000,stage:1,day:0}]}))")
   await reload();await goPlot();await press('f');await sleep(1300);await shot('04-production-offline-mature');assert.equal(await evaluate("document.querySelector('[data-growth-stage]').dataset.growthStage"),'mature');check('production offline fixture and inspection',true)
   await press('f');await hold('w',400);assert.equal(await snapshot(),null)
   report.assets=await evaluate("performance.getEntriesByType('resource').filter(e=>/assets\\/models/.test(e.name)).map(e=>new URL(e.name).pathname)")

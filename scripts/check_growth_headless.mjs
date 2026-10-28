@@ -28,6 +28,8 @@ async function evaluate(expression) {
   return r.result?.value
 }
 const snapshot = () => evaluate("JSON.parse(document.querySelector('canvas')?.dataset.forestQa || 'null')")
+// The first plot's tree (the original sapling corner); saves are tree:v3 gardens since the tier-one plots.
+const firstTree = (s) => s?.garden?.trees.find((t) => t.spot === 0) ?? null
 async function waitFor(predicate, label, limit = 45000) {
   const start = Date.now()
   while (Date.now() - start < limit) { const value = await snapshot(); if (predicate(value)) return value; await sleep(100) }
@@ -73,31 +75,31 @@ try {
   }
   async function reload(){const previous=await evaluate('performance.timeOrigin');await cmd('Page.reload');for(let i=0;i<100;i++){await sleep(100);try{if(await evaluate('performance.timeOrigin')!==previous)break}catch{}}await waitFor(s=>s?.ready&&s.growthReady,'reload ready',90000)}
   await go(0,6.6);await shot('01-empty-plot')
-  await press('f');await waitFor(s=>s?.mode==='planting','planting');await press('Escape');assert.equal((await snapshot()).tree,null);assert.equal((await snapshot()).mode,'walking');check('cancel planting without save',true)
-  await press('f');await waitFor(s=>s?.tree?.stage===0&&s.mode==='walking','planted');await sleep(1400);await shot('02-sprout-inspection')
-  const plantedAt=(await snapshot()).tree.plantedAt;report.plantedAt=plantedAt
+  await press('f');await waitFor(s=>s?.mode==='planting','planting');await press('Escape');assert.equal(firstTree(await snapshot()),null);assert.equal((await snapshot()).mode,'walking');check('cancel planting without save',true)
+  await press('f');await waitFor(s=>firstTree(s)?.stage===0&&s.mode==='walking','planted');await sleep(1400);await shot('02-sprout-inspection')
+  const plantedAt=firstTree(await snapshot()).plantedAt;report.plantedAt=plantedAt
   await press('f');await shot('03-sprout-walking');await go(-1,6.6);await go(0,6.6);await press('f')
   report.realGrowth=[]
   for(let stage=1;stage<=3;stage++){
-    const state=await waitFor(s=>s?.tree?.stage===stage,'real growth stage '+stage,150000)
+    const state=await waitFor(s=>firstTree(s)?.stage===stage,'real growth stage '+stage,150000)
     await sleep(1200);await shot('04-stage-'+stage)
     report.realGrowth.push({stage,elapsedMs:Date.now()-plantedAt,state})
     check('real elapsed growth stage '+stage,{elapsedMs:Date.now()-plantedAt})
-    if(stage===1){await reload();assert.equal((await snapshot()).tree.stage,1);await go(0,6.6);await press('f');await sleep(800);await shot('05-seedling-after-reload')}
+    if(stage===1){await reload();assert.equal(firstTree(await snapshot()).stage,1);await go(0,6.6);await press('f');await sleep(800);await shot('05-seedling-after-reload')}
   }
   await press('f');await go(0,7.1)
   await key('s',true);await sleep(1000);await key('s',false)
   const blocked=await snapshot();assert(Math.hypot(blocked.position[0],blocked.position[2]-8)>=.59);check('mature trunk blocks walking',blocked.position)
   await shot('06-mature-collision')
-  await reload();assert.equal((await snapshot()).tree.stage,3);check('mature persists',true)
-  await evaluate("localStorage.removeItem('forest-moments:tree:v2');localStorage.setItem('forest-moments:seedling:v1','true')")
-  await reload();assert.equal((await snapshot()).tree.stage,1);await go(0,6.6);await press('f');await sleep(800);await shot('07-legacy-migration');check('legacy planting migrated',true)
-  await evaluate("localStorage.setItem('forest-moments:tree:v2',JSON.stringify({version:2,plantedAt:Date.now()-300000,stage:0}));localStorage.removeItem('forest-moments:seedling:v1')")
-  await reload();assert.equal((await snapshot()).tree.stage,3);check('offline age fixture matures on load',true)
-  await evaluate("localStorage.setItem('forest-moments:tree:v2','broken')")
-  await reload();assert.equal((await snapshot()).tree,null);check('malformed save ignored',true)
+  await reload();assert.equal(firstTree(await snapshot()).stage,3);check('mature persists',true)
+  await evaluate("localStorage.removeItem('forest-moments:tree:v3');localStorage.removeItem('forest-moments:tree:v2');localStorage.setItem('forest-moments:seedling:v1','true')")
+  await reload();assert.equal(firstTree(await snapshot()).stage,1);await go(0,6.6);await press('f');await sleep(800);await shot('07-legacy-migration');check('legacy planting migrated',true)
+  await evaluate("localStorage.removeItem('forest-moments:tree:v3');localStorage.setItem('forest-moments:tree:v2',JSON.stringify({version:2,plantedAt:Date.now()-300000,stage:0}));localStorage.removeItem('forest-moments:seedling:v1')")
+  await reload();assert.equal(firstTree(await snapshot()).stage,3);check('offline age fixture matures on load',true)
+  await evaluate("localStorage.setItem('forest-moments:tree:v3','broken');localStorage.removeItem('forest-moments:tree:v2')")
+  await reload();assert.equal(firstTree(await snapshot()),null);check('malformed save ignored',true)
   await evaluate("localStorage.clear();Storage.prototype.setItem=function(){throw new Error('test storage unavailable')}")
-  await go(0,6.6);await press('f');await waitFor(s=>s?.tree?.stage===0,'in-memory planting');await sleep(1000);await shot('08-storage-denied')
+  await go(0,6.6);await press('f');await waitFor(s=>firstTree(s)?.stage===0,'in-memory planting');await sleep(1000);await shot('08-storage-denied')
   assert(await evaluate("document.querySelector('.notice')?.textContent.includes('无法保存')"));check('storage unavailable remains playable and visible',true)
   assert.equal(report.errors.length,0,report.errors.join('\n'));report.status='PASS'
 } catch(error){report.status='FAIL';report.failure=String(error);process.exitCode=1;if(socket?.readyState===1){try{await shot('headless-failure')}catch{}}}

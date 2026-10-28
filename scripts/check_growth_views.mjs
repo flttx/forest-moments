@@ -63,16 +63,19 @@ try {
   await sleep(1500)
 
 
-  report.fixtureNote='Saved-stage fixtures for visual coverage; real time growth is tested separately.'
+  report.fixtureNote='Stage fixtures set in the live store for visual coverage; real time growth and saved stages are tested by check_growth_headless.'
+  // One page load: a fresh WebGL context per navigation stalled headless Edge after a few dozen loads. The dev review
+  // camera reads ?view= every frame, so the view, light and stage all change in place.
+  await evaluate(`(async()=>{window.forestStore=(await import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname==='/src/game/store.ts').name)).useForestStore})()`)
+  const set=async(light,view,stage)=>{
+    await evaluate(`history.replaceState(null,'','/?qa&light=${light}&view=${view}');forestStore.setState({timeOfDay:'${light}',garden:{version:3,trees:[{spot:0,plantedAt:Date.now()-${[0,45000,120000,240000][stage]},stage:${stage},day:0}]}})`)
+    await waitFor(s=>s?.ready&&s.growthReady&&s.timeOfDay===light&&s.garden?.trees.find(t=>t.spot===0)?.stage===stage,'stage fixture',30000);await sleep(1600)
+  }
   for(const light of ['day','dusk','night'])for(const stage of [0,1,2,3]){
-    await evaluate(`localStorage.setItem('forest-moments:tree:v2',JSON.stringify({version:2,plantedAt:Date.now()-${[0,45000,120000,240000][stage]},stage:${stage}}))`)
-    await cmd('Page.navigate',{url:`http://127.0.0.1:5176/?qa&light=${light}&view=grove`})
-    await sleep(250);await waitFor(s=>s?.ready&&s.growthReady&&s.tree?.stage===stage,'stage fixture',90000);await sleep(1100)
-    await shot(`${light}-stage-${stage}`);check(`${light} stage ${stage}`,await snapshot())
+    await set(light,'grove',stage);await shot(`${light}-stage-${stage}`);check(`${light} stage ${stage}`,await snapshot())
   }
   for(const light of ['day','dusk','night'])for(const view of ['default','overview','pond','workshop','tower','farm','player']){
-    await cmd('Page.navigate',{url:`http://127.0.0.1:5176/?qa&light=${light}&view=${view}`});await sleep(250)
-    await waitFor(s=>s?.ready&&s.growthReady&&s.tree?.stage===3,'scene view',90000);await sleep(1000);await shot(`${light}-${view}`)
+    await set(light,view,3);await shot(`${light}-${view}`)
   }
   await cmd('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});await sleep(500)
   assert(await evaluate("matchMedia('(prefers-reduced-motion: reduce)').matches"));await shot('reduced-motion-mature')

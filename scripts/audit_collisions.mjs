@@ -41,8 +41,9 @@ function auditInPage({ root, bounds, kind, cell }) {
   const centre = (c) => [minX + (c % nx + .5) * cell, minZ + (Math.floor(c / nx) + .5) * cell]
   const groundCache = new Float32Array(nx * nz).fill(NaN)
   const ground = (c) => { if (Number.isNaN(groundCache[c])) { const [x, z] = centre(c); groundCache[c] = kind === 'island' ? M.groundHeightAt(x, z) : 0 } return groundCache[c] }
-  const treeRadius = state.tree ? [.06, .11, .19, .32][state.tree.stage] : 0
-  const stand = kind === 'island' ? (x, z) => M.canStandAt(x, z, treeRadius, state.workshopBook.phase)
+  // Planted trunks: the garden's list since the tier-one plots; builds before that took the single tree's radius.
+  const trees = state.garden ? window.audit.G.trunks(state.garden) : state.tree ? [.06, .11, .19, .32][state.tree.stage] : 0
+  const stand = kind === 'island' ? (x, z) => M.canStandAt(x, z, trees, state.workshopBook.phase)
     : kind === 'workshop' ? (x, z) => WI.canStandInWorkshop(x, z, state.workshopBook.phase === 'finished') : (x, z) => E.canStandInBedroom(x, z)
   // Not solid by design: ground, water, sky, effects, and grass and reeds the raccoon wades through.
   const skip = /island-terrain|painted-sky|^ocean|fresh-water|woodland-creek|ambient-life|boat-water-feedback|fishing-tools|campfire-embers|pond-lily-pads|GroundCover|pond-reeds/
@@ -94,7 +95,7 @@ function auditInPage({ root, bounds, kind, cell }) {
   const reason = (x, z) => {
     if (kind === 'workshop') { const b = window.audit.workshopBoxes.find((b) => Math.hypot(Math.max(b.minX - x, 0, x - b.maxX), Math.max(b.minZ - z, 0, z - b.maxZ)) < r); return b ? b.name : 'room/piece' }
     if (kind === 'bedroom') return 'bedroom box'
-    if (M.standBlocker) return M.standBlocker(x, z, treeRadius, state.workshopBook.phase) ?? 'unknown'
+    if (M.standBlocker) return M.standBlocker(x, z, trees, state.workshopBook.phase) ?? 'unknown'
     // Builds before standBlocker existed: tell ground limits (same formulas as canStandAt) from object colliders.
     if (E.creekDistance(x, z) < 1.45 && !E.onBridge(x, z, r)) return 'terrain:creek'
     if (!C.isDockSurface(x, z, r) && !E.onBridge(x, z)) {
