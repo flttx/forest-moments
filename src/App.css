@@ -239,7 +239,7 @@ html[lang=en] .paper-panel h2{letter-spacing:.01em}
 
 /* Workbench patterns */
 .recipe-card{position:absolute;right:20px;top:80px;width:min(340px,calc(100% - 40px));pointer-events:auto}
-.recipe-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.recipe-list{list-style:none;margin:0;padding:10px 20px 18px;display:grid;gap:10px}
 .recipe-list li{display:grid;grid-template-columns:1fr auto;column-gap:10px;align-items:center;border-bottom:1px dashed var(--line-soft);padding-bottom:8px}
 .recipe-list small{grid-column:1;color:var(--ink-soft);font-size:14px}
 .recipe-list button,.recipe-made{grid-column:2;grid-row:1/span 2}

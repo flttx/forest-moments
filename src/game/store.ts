@@ -142,6 +142,8 @@ const forageNotice=(item:ItemId)=>t(item==='wool'?'msg.brushed':'msg.foraged',{i
 function saveFarm(book:FarmBook){try{window.localStorage.setItem(farmStorageKey,JSON.stringify(book));return true}catch{return false}}
 function saveForage(book:ForageBook){try{window.localStorage.setItem(forageStorageKey,JSON.stringify(book));return true}catch{return false}}
 const roastNotice=(saved:boolean)=>saved?t('msg.roasted'):t('msg.roastedUnsaved')
+/** When a crafting session last finished, to swallow the taps that overshoot it. */
+let craftDoneAt=0
 export const useForestStore = create<ForestState>((rawSet, get) => {
   // A new message is ordinary feedback unless the caller marks it as an error explicitly.
   const set=(partial:Partial<ForestState>)=>rawSet('message' in partial&&!('messageKind' in partial)?{...partial,messageKind:'info'}:partial)
@@ -246,6 +248,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       const craft={...s.craft,elapsed:s.craft.elapsed+dt,stroke:Math.max(0,s.craft.stroke-dt)}
       if(craft.steps===3&&craft.stroke===0){
         const recipe=craft.recipe,workshopBook:WorkshopBook=recipe?{...s.workshopBook,made:[...madeOf(s.workshopBook),recipe]}:{...s.workshopBook,phase:'finished'},saved=saveWorkshop(workshopBook)
+        craftDoneAt=Date.now()
         set({workshopBook,mode:'walking',craft:null,messageKind:saved?'info':'error',message:recipe?craftNotice(recipe,saved):saved?t('msg.stoolDone'):t('msg.stoolDoneUnsaved')})
       }else set({craft})
     }
@@ -359,6 +362,8 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   },
   interact: () => {
     const { nearby, mode, position, boat, boatReady } = get()
+    // The last strike of a piece is often followed by another tap of F; let it pass instead of sitting on the new stool.
+    if(Date.now()-craftDoneAt<1500)return
     // Under an open menu panel the scene ignores F, including clicks that reach the prompt.
     if(get().menuPaused)return
     if(mode==='planting'||mode==='launching'||mode==='feeding'||mode==='gathering'||mode==='foraging'||get().boatTransfer||get().lookoutTransfer||get().workshopTransfer||get().homeTransfer)return
