@@ -7,7 +7,7 @@ function view(position:[number,number,number],target:[number,number,number]){
  return{camera:camera.position.clone(),viewProjection:new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse)}
 }
 const box=(cx:number,cy:number,cz:number,h:number)=>new THREE.Box3(new THREE.Vector3(cx-h,cy-h,cz-h),new THREE.Vector3(cx+h,cy+h,cz+h))
-const shot=(over:Partial<Shot>={}):Shot=>({light:'day',mode:'walking',seat:null,fireLit:false,raccoonShown:true,raccoon:null,cabin:null,campfire:null,sun:new THREE.Vector3(1,.05,0).normalize(),fireflies:[],jellyfish:null,constellation:new THREE.Vector3(0,1,0),...view([0,1.5,0],[0,1.5,-10]),clear:()=>true,...over})
+const shot=(over:Partial<Shot>={}):Shot=>({light:'day',mode:'walking',seat:null,fireLit:false,raccoonShown:true,raccoon:null,cabin:null,campfire:null,sun:new THREE.Vector3(1,.05,0).normalize(),fireflies:[],jellyfish:null,constellation:new THREE.Vector3(0,1,0),carving:null,heartStone:null,...view([0,1.5,0],[0,1.5,-10]),clear:()=>true,...over})
 
 it('measures how much of a box is in the picture',()=>{
  const {viewProjection}=view([0,0,0],[0,0,-10])
@@ -47,6 +47,18 @@ it('the raccoon by the fire needs it seated at camp, shown, with the lit fire in
  expect(subjectsIn(shot({...seated,seat:'coast'}))).toEqual([])
 })
 
+it('hidden corners: the carving up close in the middle of the picture, the heart stone only square on',()=>{
+ const carving=new THREE.Vector3(0,1.5,-2.5)
+ expect(subjectsIn(shot({carving}))).toEqual(['carving'])
+ expect(subjectsIn(shot({carving:new THREE.Vector3(0,1.5,-6)}))).toEqual([])
+ expect(subjectsIn(shot({carving,clear:()=>false}))).toEqual([])
+ // Face normal along z: the default camera looks straight down -z at it.
+ const stone={centre:new THREE.Vector3(0,.6,-5),normal:new THREE.Vector3(0,0,1)}
+ expect(subjectsIn(shot({heartStone:stone}))).toEqual(['heartStone'])
+ // The same stone seen edge on from the side.
+ const side=view([5,1.5,-5],[0,.6,-5])
+ expect(subjectsIn(shot({...side,heartStone:stone}))).toEqual([])
+})
 it('hidden corners: the jellyfish close by at night, and the constellation in a night sky',()=>{
  const jelly=new THREE.Vector3(.3,1.2,-6)
  expect(subjectsIn(shot({light:'night',jellyfish:jelly}))).toEqual(['jellyfish'])

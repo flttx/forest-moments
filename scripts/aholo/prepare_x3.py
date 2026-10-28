@@ -1,4 +1,5 @@
-"""Prepare the X3 Lux3D props for the browser: real size, bottom-centre origin, fewer triangles, smaller WebP textures.
+"""Prepare the X3 Lux3D props (and, with FOREST_SERIES=x5, the X5 hidden-corner assets) for the browser: real size,
+bottom-centre origin, fewer triangles, smaller WebP textures.
 
 Run: python scripts/aholo/blender_run.py scripts/aholo/prepare_x3.py --blender "<blender.exe>" -- <prop id> [<prop id> ...]
 Reads assets/lux3d/x3-<id>-*/output-1.glb (latest attempt), writes public/assets/x3/<name>.glb and, in
@@ -7,20 +8,26 @@ Why reduce: these props stand 0.1-1.4 m tall and cover a few dozen to a few hund
 triangles and two 2048 px textures each are measured waste there, not a budget figure.
 Decimation below about 8k triangles tore texture seams on the mushroom (UV islands collapse), so small props keep 8k.
 """
-import bpy, json, math, sys, hashlib
+import bpy, json, math, os, sys, hashlib
 from mathutils import Vector
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-EVIDENCE = ROOT / 'docs/evidence/assets/2026-10-27-x3-lux3d'
-OUT = ROOT / 'public/assets/x3'
+SERIES = os.environ.get('FOREST_SERIES', 'x3')
+EVIDENCE = ROOT / {'x3': 'docs/evidence/assets/2026-10-27-x3-lux3d', 'x5': 'docs/evidence/assets/2026-10-28-x5-lux3d'}[SERIES]
+OUT = ROOT / f'public/assets/{SERIES}'
 # id: (name, tallest or widest side in metres, triangle target, texture size)
-PROPS = {
+X3 = {
  '01': ('mushroom-cluster', .22, 8000, 512), '02': ('berry-twig', .24, 8000, 512), '03': ('seashell', .12, 8000, 512),
  '04': ('pinecone', .11, 8000, 512), '05': ('egg-nest', .24, 8000, 512), '06': ('wool-bundle', .22, 8000, 512),
  '07': ('small-wood-table', .75, 16000, 1024), '08': ('birdhouse', .34, 16000, 1024), '09': ('fishing-rod-rack', .9, 16000, 1024),
  '10': ('wood-signpost', 1.35, 16000, 1024), '11': ('message-bottle', .2, 8000, 512), '12': ('glowing-jellyfish', .45, 14000, 1024),
 }
+X5 = {'01': ('sleeping-fox', .62, 16000, 1024), '02': ('fox-den-entrance', 1.3, 12000, 1024), '03': ('heart-stone', 1.15, 8000, 1024),
+      '04': ('peeking-fox', .42, 14000, 1024)}
+PROPS = {'x3': X3, 'x5': X5}[SERIES]
+# The heart stone came out thicker than a slab: squash its thinner horizontal side so it reads as a heart face on only.
+THIN = {('x5', '03'): .5}
 ids = [a for a in sys.argv[sys.argv.index('--') + 1:] if a != '--'] if '--' in sys.argv else list(PROPS)
 
 
@@ -40,7 +47,7 @@ def render(scene, path, centre, radius):
 OUT.mkdir(parents=True, exist_ok=True)
 for prop in ids:
     name, side, target, texture = PROPS[prop]
-    run = sorted((ROOT / 'assets/lux3d').glob(f'x3-{prop}-{name}-v1*'))[-1]
+    run = sorted((ROOT / 'assets/lux3d').glob(f'{SERIES}-{prop}-{name}-v1*'))[-1]
     source = run / 'output-1.glb'
     bpy.ops.wm.read_factory_settings(use_empty=True)
     scene = bpy.context.scene
@@ -58,9 +65,12 @@ for prop in ids:
     points = [v.co.copy() for o in meshes for v in o.data.vertices]
     low = Vector([min(p[i] for p in points) for i in range(3)]); high = Vector([max(p[i] for p in points) for i in range(3)])
     scale = side / max(high - low)
+    thin = THIN.get((SERIES, prop), 1)
+    deep = 0 if high.x - low.x < high.y - low.y else 1
     for o in meshes:
         for v in o.data.vertices:
             v.co = Vector(((v.co.x - (low.x + high.x) / 2) * scale, (v.co.y - (low.y + high.y) / 2) * scale, (v.co.z - low.z) * scale))
+            v.co[deep] *= thin
         o.data.update()
         ratio = min(1, target / max(1, triangles([o])))
         if ratio < 1:
@@ -72,7 +82,7 @@ for prop in ids:
             bsdf = m.node_tree.nodes.get('Principled BSDF') if m and m.use_nodes else None
             if bsdf:
                 bsdf.inputs['Metallic'].default_value = 0
-                bsdf.inputs['Roughness'].default_value = {'11': .3, '12': .4}.get(prop, .8)
+                bsdf.inputs['Roughness'].default_value = {'11': .3, '12': .4}.get(prop, .8) if SERIES == 'x3' else .85
                 for socket in ('Metallic', 'Roughness'):
                     for link in list(bsdf.inputs[socket].links): m.node_tree.links.remove(link)
     for image in bpy.data.images:
@@ -89,7 +99,7 @@ for prop in ids:
     sun.rotation_euler = (math.radians(50), 0, math.radians(35)); scene.collection.objects.link(sun)
     camera = bpy.data.objects.new('Camera', bpy.data.cameras.new('Camera')); camera.data.lens = 60
     scene.collection.objects.link(camera); scene.camera = camera
-    folder = EVIDENCE / f'x3-{prop}-{name}'
+    folder = EVIDENCE / f'{SERIES}-{prop}-{name}'
     render(scene, folder / 'optimized.png', Vector((0, 0, size.z / 2)), size.length / 2)
     record = {'prop': prop, 'name': name, 'source': source.relative_to(ROOT).as_posix(),
               'sourceSha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'output': out.relative_to(ROOT).as_posix(),

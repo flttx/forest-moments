@@ -1,12 +1,13 @@
 import * as THREE from 'three'
 import type {Light} from './fishSpecies'
+import {carvingReach,heartStoneAngle} from './secrets'
 
 /**
  * Photo tasks (docs/GAMEPLAY_EXPANSION_PLAN.md §2.6): what a picture shows, judged from the camera, not from pixels.
  * A subject counts when its box sits in the frame large enough, unhidden, at the right time. Pure apart from the
  * `clear` line-of-sight test the scene supplies.
  */
-export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation'] as const
+export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation','carving','heartStone'] as const
 export type SubjectId=typeof subjectIds[number]
 
 export interface Framing{
@@ -53,6 +54,10 @@ export interface Shot{
  jellyfish:THREE.Vector3|null
  /** Unit direction to the raccoon constellation's centre. */
  constellation:THREE.Vector3
+ /** The carving on the lookout timber, once the scene has placed it. */
+ carving:THREE.Vector3|null
+ /** Centre of the heart stone's face and the face's horizontal normal (either side shows the heart). */
+ heartStone:{centre:THREE.Vector3;normal:THREE.Vector3}|null
  camera:THREE.Vector3
  viewProjection:THREE.Matrix4
  /** Nothing stands between the camera and this point. */
@@ -61,6 +66,12 @@ export interface Shot{
 
 const sunInView=(s:Shot)=>s.light==='dusk'&&inPicture(s.camera.clone().addScaledVector(s.sun,200),s.viewProjection,.04)
 const whole=(box:THREE.Box3|null,s:Shot,inside:number,area:number)=>{if(!box)return false;const f=frameBox(box,s.viewProjection);return f.inside>=inside&&f.area>=area&&s.clear(box.getCenter(new THREE.Vector3()))}
+
+function heartFaceOn(stone:{centre:THREE.Vector3;normal:THREE.Vector3},camera:THREE.Vector3){
+ const to=camera.clone().sub(stone.centre);to.y=0
+ const d=to.length();if(d<1.5||d>14)return false
+ return Math.acos(Math.min(1,Math.abs(to.dot(stone.normal))/d))<heartStoneAngle
+}
 
 /** Every subject this picture shows. */
 export function subjectsIn(s:Shot):SubjectId[]{
@@ -74,6 +85,9 @@ export function subjectsIn(s:Shot):SubjectId[]{
   // Hidden corners: the glowing jellyfish close by at night, the raccoon constellation in a night sky.
   jellyfish:s.light==='night'&&!!s.jellyfish&&s.jellyfish.distanceTo(s.camera)<14&&inPicture(s.jellyfish,s.viewProjection,.02)&&s.clear(s.jellyfish),
   constellation:s.light==='night'&&inPicture(s.camera.clone().addScaledVector(s.constellation,200),s.viewProjection,.05),
+  // The carving up close, toward the middle of the picture; the heart stone roughly square on, not edge on.
+  carving:!!s.carving&&s.carving.distanceTo(s.camera)<carvingReach&&inPicture(s.carving,s.viewProjection,.25)&&s.clear(s.carving),
+  heartStone:!!s.heartStone&&heartFaceOn(s.heartStone,s.camera)&&inPicture(s.heartStone.centre,s.viewProjection,.15)&&s.clear(s.heartStone.centre),
   fireside:s.fireLit&&s.raccoonShown&&s.mode==='sitting'&&!!s.seat?.startsWith('camp-')&&whole(s.raccoon,s,.75,.01)&&whole(s.campfire,s,.6,.004),
  }
  return subjectIds.filter(id=>found[id])

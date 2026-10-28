@@ -1,4 +1,4 @@
-import {climateNow,climateUniforms,rainRingsGLSL} from './climateUniforms'
+import {climateNow,climateUniforms,jellyGlow,rainRingsGLSL} from './climateUniforms'
 // Mist and rain thin the colour toward a soft grey.
 const mistGrey=new THREE.Color('#c3cbc7')
 import {constellation} from '../game/secrets'
@@ -58,10 +58,10 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
     <primitive object={geometry} attach="geometry"/>
     <meshPhysicalMaterial ref={material} color={fresh ? '#3d746d' : '#286879'} roughness={fresh ? .36 : .32} metalness={0} specularIntensity={.28} envMapIntensity={.7}
       onBeforeCompile={(shader)=>{
-        Object.assign(shader.uniforms,uniforms,{climateRain:climateUniforms.climateRain})
+        Object.assign(shader.uniforms,uniforms,{climateRain:climateUniforms.climateRain,jellyGlow})
         shader.vertexShader='varying vec3 vWater;\n'+shader.vertexShader
         shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvWater=(modelMatrix*vec4(position,1.0)).xyz;')
-        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
+        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
@@ -79,6 +79,15 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
           // Raindrop rings catch a little light; they fade out where a ring would be smaller than a pixel.
           vec2 rainCell=fwidth(p);float rainNear=1.0-smoothstep(.02,.08,max(rainCell.x,rainCell.y));
           if(climateRain>.01)diffuseColor.rgb+=vec3(.55,.6,.6)*rainRings(p,waterTime).x*climateRain*rainNear*.16;
+          // The jellyfish by the jetty shows through the sea as a pale bell by day and a glow with trailing threads at night.
+          vec2 jellyOff=p-jellyGlow.xz;float jellyR=dot(jellyOff,jellyOff);
+          float jellyBell=(1.0-fresh)*exp(-jellyR/.04);
+          diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.62,.8,.78),jellyBell*.3);
+        `)
+        shader.fragmentShader=shader.fragmentShader.replace('#include <emissivemap_fragment>',/* glsl */ `
+          #include <emissivemap_fragment>
+          // A slow pulse, as the bell opens and closes.
+          totalEmissiveRadiance+=vec3(.4,.9,.8)*(jellyBell*.4+(1.0-fresh)*exp(-jellyR/.5)*.08)*(.8+.2*sin(waterTime*1.3))*jellyGlow.w;
         `)
         shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',/* glsl */ `
           #include <normal_fragment_maps>

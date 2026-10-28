@@ -1,4 +1,4 @@
-import {bottleReach,bottleSpot,decodeSecrets,discover,emptySecrets,secretsStorageKey,type SecretId,type SecretsBook} from './secrets'
+import {decodeSecrets,discover,emptySecrets,noteSecretAt,noteSecrets,secretsStorageKey,type SecretId,type SecretsBook} from './secrets'
 import {madeOf,woodPerDay,woodReady,type RecipeId} from './recipes'
 import {logPile} from '../world/settlement'
 import {decodeForage,emptyForage,forageSeconds,forageStorageKey,spotNear,takeSpot,type ForageBook} from './forage'
@@ -126,7 +126,8 @@ type ForestState = {
 }
 
 // tickHome names its transfer `t`; the notice is worded out here.
-const secretNotice=(id:SecretId,saved:boolean)=>(id==='bottle'?t('secret.bottleNote')+' ':'')+t(saved?'secret.found':'secret.foundUnsaved',{name:t(`secret.${id}`)})
+const hasNote=(id:SecretId):id is typeof noteSecrets[number]=>(noteSecrets as readonly SecretId[]).includes(id)
+const secretNotice=(id:SecretId,saved:boolean)=>(hasNote(id)?t(`secret.${id}Note`)+' ':'')+t(saved?'secret.found':'secret.foundUnsaved',{name:t(`secret.${id}`)})
 const craftNotice=(id:RecipeId,saved:boolean)=>t(saved?'msg.made':'msg.madeUnsaved',{item:t(`recipe.${id}`)})
 const nearLogPile=(p:{x:number;z:number})=>Math.hypot(p.x-logPile.x,p.z-logPile.z)<1.4
 const forageNotice=(item:ItemId)=>t(item==='wool'?'msg.brushed':'msg.foraged',{item:t(`item.${item}`)})
@@ -366,8 +367,9 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(get().location==='island'){
       const seat=seats.find(v=>Math.hypot(position.x-seatOrigin(v).x,position.z-seatOrigin(v).z)<1.3)
       if(seat){get().sit(seat.id);return}
-      // The bottle on the south crescent: read its note (found the first time).
-      if(mode==='walking'&&Math.hypot(position.x-bottleSpot.x,position.z-bottleSpot.z)<bottleReach){if(get().secretsBook.found.bottle)set({message:t('secret.bottleNote'),messageKind:'info'});else get().discoverSecret('bottle');return}
+      // The bottle and the fox den: read the note (found the first time).
+      const note=mode==='walking'?noteSecretAt(position):null
+      if(note){if(get().secretsBook.found[note])set({message:t(`secret.${note}Note`),messageKind:'info'});else get().discoverSecret(note);return}
       const spot=mode==='walking'?spotNear(position,get().forageBook,get().homeBook.nights):null
       if(spot){set({mode:'foraging',foraging:{item:spot.kind,source:'forage',spotId:spot.id,x:spot.x,z:spot.z,seconds:forageSeconds,elapsed:0},inspectingTree:false,message:''});return}
       if(mode==='walking'&&nearLogPile(position)){if(!woodReady(get().workshopBook,get().homeBook.nights)){set({message:t('msg.woodTaken')});return}set({mode:'foraging',foraging:{item:'wood',source:'wood',x:logPile.x,z:logPile.z,seconds:1.6,elapsed:0},inspectingTree:false,message:''});return}

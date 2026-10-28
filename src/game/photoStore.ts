@@ -9,6 +9,7 @@ import type {FreeView} from './freeCamera'
 import type {Season,Weather} from './weather'
 import type {SubjectId} from './photoSubjects'
 import {makeThumb,savePhoto} from './photoAlbum'
+import {isSecret} from './secrets'
 import {decodeWall,hang,keepExisting,photoWallKey,takeDown} from './photoWall'
 
 type Light=ReturnType<typeof useForestStore.getState>['timeOfDay']
@@ -109,7 +110,7 @@ export const usePhotoStore=create<PhotoState>((set,get)=>({
   const shot:LastShot={id,url:URL.createObjectURL(blob),name:photoFileName(at),saved:false,subjects}
   set(s=>({flash:s.flash+1,last:shot}))
   useJournalStore.getState().record([{type:'photo',night,subjects}])
-  for(const id of subjects)if(id==='jellyfish'||id==='constellation')useForestStore.getState().discoverSecret(id)
+  for(const id of subjects)if(isSecret(id))useForestStore.getState().discoverSecret(id)
   const saved=await savePhoto({id,at:at.toISOString(),night,width,height,subjects,image:blob,thumb:await makeThumb(blob)})
   if(!saved)say(t('photo.unsaved'),'error')
   set(s=>({albumVersion:s.albumVersion+1,last:s.last?.id===id?{...s.last,saved}:s.last}))

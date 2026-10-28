@@ -1,4 +1,4 @@
-import {climateGLSL,climateUniforms} from './climateUniforms'
+import {climateGLSL,climateUniforms,puddleReflection,rainRingsGLSL} from './climateUniforms'
 import { useEffect, useMemo } from 'react'
 import { noiseGLSL, islandShape, pathGLSL, groundColourGLSL, seaLevel } from './terrain'
 import {pondGLSL} from './pondShape'
@@ -12,10 +12,10 @@ export function IslandTerrain() {
   return <mesh name="island-terrain" geometry={geometry} receiveShadow>
     <meshStandardMaterial color="white" roughness={.96} onBeforeCompile={(shader) => {
       shader.uniforms.canopyMap={value:canopyTexture()}
-      Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet})
+      Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet,climateRain:climateUniforms.climateRain,climateTime:climateUniforms.climateTime,climateLitter:climateUniforms.climateLitter,puddleMap:puddleReflection.puddleMap,puddleMatrix:puddleReflection.puddleMatrix,puddleOn:puddleReflection.puddleOn,puddleHeight:puddleReflection.puddleHeight})
       shader.vertexShader = 'varying vec3 vGround;varying vec3 vTerrainNormal;\n' + shader.vertexShader
       shader.vertexShader = shader.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvGround=position;vTerrainNormal=normal;')
-      shader.fragmentShader = `varying vec3 vGround;varying vec3 vTerrainNormal;\n${climateGLSL}${noiseGLSL}
+      shader.fragmentShader = `varying vec3 vGround;varying vec3 vTerrainNormal;uniform float climateTime;uniform float climateLitter;uniform sampler2D puddleMap;uniform mat4 puddleMatrix;uniform float puddleOn;uniform float puddleHeight;\n${climateGLSL}${rainRingsGLSL}${noiseGLSL}
 ${pathGLSL}
 ${pondGLSL}
 ${groundColourGLSL}
@@ -32,6 +32,9 @@ ${trampleGLSL}\n` + shader.fragmentShader
         vec2 p=vGround.xz;
         float broad=noise21(p*.38), fleck=noise21(p*14.0);
         vec3 grass=groundColour(p)*climateGrass;
+        // Autumn: fallen leaves gather in drifts on the turf, thickest under the crowns.
+        float fallen=climateLitter*smoothstep(.5,.8,noise21(p*1.1+vec2(5.0,2.0))+canopyAt(p)*.35)*smoothstep(.25,.7,noise21(p*9.0+1.7));
+        grass=mix(grass,mix(vec3(.5,.24,.07),vec3(.6,.4,.11),noise21(p*3.3))*(.75+fleck*.4),fallen*.8);
         grass*=1.0+(noise21(p*48.0)-.5)*.2*(1.0-smoothstep(6.0,18.0,length(vViewPosition)));
         float track=pathAt(p);
         float edge=pathEdgeAt(p);
@@ -82,15 +85,38 @@ ${trampleGLSL}\n` + shader.fragmentShader
         rock*=mix(.7,1.0,smoothstep(-.55,.6,vGround.y));
         colour=mix(colour,rock,cliff);
         colour*=mix(.68,1.0,smoothstep(-.95,-.35,vGround.y));
-        // Rain darkens the ground a little, sand and soil alike.
+        // Rain darkens the ground a little, sand and soil alike; puddles gather in hollows of the worn tracks,
+        // dark and glassy, with raindrop rings while it still rains.
         colour*=1.0-climateWet*.2;
+        float puddle=climateWet*path*(1.0-sand)*smoothstep(.62,.68,noise21(p*.7+vec2(11.0,3.0))+(noise21(p*3.0)-.5)*.14);
+        colour=mix(colour,colour*.4+vec3(.025,.03,.035),puddle);
+        // Grazing views catch the grey sky in the water.
+        float puddleSky=pow(1.0-clamp(normalize(cameraPosition-vGround).y,0.0,1.0),2.0);
+        colour=mix(colour,vec3(.3,.33,.35),puddle*puddleSky*.5);
+        vec2 puddleCell=fwidth(p);
+        if(climateRain>.01)colour+=vec3(.45,.48,.5)*rainRings(p,climateTime).x*climateRain*puddle*.3*(1.0-smoothstep(.02,.08,max(puddleCell.x,puddleCell.y)));
         diffuseColor.rgb *= colour;
+      `)
+      shader.fragmentShader=shader.fragmentShader.replace('#include <opaque_fragment>', /* glsl */ `
+        // The mirror view of the world above, shaken by raindrop rings; it only lines up near the mirror's own height.
+        if(puddleOn>.5&&puddle>.01){
+          vec4 puddleUv=puddleMatrix*vec4(vGround,1.0);
+          if(climateRain>.01)puddleUv.xy+=rainRings(p,climateTime).yz*climateRain*.025*puddleUv.w;
+          float puddleLevel=1.0-smoothstep(.15,.5,abs(vGround.y-puddleHeight));
+          outgoingLight=mix(outgoingLight,texture2DProj(puddleMap,puddleUv).rgb*.6,puddle*puddleLevel*(.3+.5*puddleSky));
+        }
+        #include <opaque_fragment>
+      `)
+      shader.fragmentShader=shader.fragmentShader.replace('#include <roughnessmap_fragment>', /* glsl */ `
+        #include <roughnessmap_fragment>
+        roughnessFactor=mix(mix(roughnessFactor,.6,climateWet*.5),.05,puddle);
       `)
       shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>', /* glsl */ `
         #include <normal_fragment_maps>
         float earthMask=(1.0-smoothstep(-.1,.25,pathEdgeAt(vGround.xz)))*(1.0-smoothstep(34.0,35.0,length(vGround.xz)));
         float earthBump=(noise21(vGround.xz*4.0)*.024+noise21(vGround.xz*15.0)*.009)*earthMask;
         earthBump+=stoneNoise(vGround*3.0)*.025*cliff;
+        earthBump*=1.0-puddle;
         vec3 earthQx=dFdx(-vViewPosition),earthQy=dFdy(-vViewPosition);
         vec3 earthRx=cross(earthQy,normal),earthRy=cross(normal,earthQx);
         float earthDet=dot(earthQx,earthRx);

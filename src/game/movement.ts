@@ -12,6 +12,7 @@ import {coastalDock,dockPosts,isDockSurface,seaLevel} from '../world/worldConfig
 import {plantingSpot} from './growth'
 import {farmColliders,animalObstacles} from './farm'
 import {woodSpot,type WorkshopBook} from './workshop'
+import {foxDen,heartStone} from './secrets'
 
 export interface GroundPoint { x: number; z: number }
 const radius = .28
@@ -39,7 +40,11 @@ const boxes = [
 // Hay bales and the log pile, as turned rectangles (half sizes in metres along their own axes).
 const rects=[...hayBales.map(b=>({name:'hay bale',x:b.x,z:b.z,yaw:b.yaw,hx:.5,hz:.29})),{name:'log pile',x:logPile.x,z:logPile.z,yaw:logPile.yaw,hx:.65,hz:.37},
   // Driftwood logs lie along their local x; only logs standing proud of the sand count.
-  ...coastPieces.filter(p=>p.kit.startsWith('Driftwood')&&p.y+coastKits[p.kit].height*p.scale-terrainHeight(p.x,p.z)>.15).map(p=>({name:'driftwood',x:p.x,z:p.z,yaw:p.yaw,hx:coastKits[p.kit].half*p.scale,hz:.15*p.scale}))]
+  ...coastPieces.filter(p=>p.kit.startsWith('Driftwood')&&p.y+coastKits[p.kit].height*p.scale-terrainHeight(p.x,p.z)>.15).map(p=>({name:'driftwood',x:p.x,z:p.z,yaw:p.yaw,hx:coastKits[p.kit].half*p.scale,hz:.15*p.scale})),
+  // The heart stone's slab and its foot pebbles (the face spans its local x).
+  {name:'heart stone',x:heartStone.x,z:heartStone.z,yaw:Math.atan2(heartStone.normal.x,heartStone.normal.z),hx:.5,hz:.2},
+  // The fox den mound and the fox asleep beside it.
+  {name:'fox den',x:foxDen.x,z:foxDen.z,yaw:0,hx:.62,hz:.6},{name:'sleeping fox',x:foxDen.sleep.x,z:foxDen.sleep.z,yaw:0,hx:.3,hz:.3}]
 const rectDistance=(x:number,z:number,r:{x:number;z:number;yaw:number;hx:number;hz:number})=>{
   const dx=x-r.x,dz=z-r.z,c=Math.cos(r.yaw),s=Math.sin(r.yaw)
   return Math.hypot(Math.max(Math.abs(c*dx-s*dz)-r.hx,0),Math.max(Math.abs(s*dx+c*dz)-r.hz,0))

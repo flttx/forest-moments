@@ -4,8 +4,9 @@ import {usePhotoStore} from '../game/photoStore'
 import {useForestStore} from '../game/store'
 import {daylightAt} from '../game/dayCycle'
 import {dayLighting} from './dayLighting'
+import * as movement from '../game/movement'
 import {subjectsIn,type SubjectId} from '../game/photoSubjects'
-import {constellation} from '../game/secrets'
+import {constellation,heartStone} from '../game/secrets'
 
 // Small scattered dressing that should not count as blocking the view.
 const seeThrough=/^(grass|path-embedded|pond-reeds|pond-lily)/
@@ -16,7 +17,8 @@ function judge(scene:THREE.Scene,camera:THREE.Camera):SubjectId[]{
  const s=useForestStore.getState(),photo=usePhotoStore.getState()
  const flies=scene.getObjectByName('fireflies') as THREE.Points|undefined,glow=(flies?.material as THREE.ShaderMaterial|undefined)?.uniforms?.opacity?.value??0
  const attr=flies?.geometry.getAttribute('position'),fireflies:THREE.Vector3[]=[]
- if(attr&&glow>.5)for(let i=0;i<attr.count;i++)fireflies.push(new THREE.Vector3().fromBufferAttribute(attr,i))
+ // A thin autumn swarm still counts once it has faded in.
+ if(attr&&glow>.3)for(let i=0;i<attr.count;i++)fireflies.push(new THREE.Vector3().fromBufferAttribute(attr,i))
  const ray=new THREE.Raycaster(),viewProjection=new THREE.Matrix4().multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse)
  // Something well in front of the subject (not its own near side) blocks it.
  const clear=(point:THREE.Vector3)=>{
@@ -27,7 +29,9 @@ function judge(scene:THREE.Scene,camera:THREE.Camera):SubjectId[]{
  return subjectsIn({light:s.timeOfDay,mode:s.mode,seat:s.sitting?.phase==='idle'?s.sitting.id:null,fireLit:s.homeBook.fireLit,raccoonShown:!photo.hideRaccoon&&s.mode!=='rowing'&&s.mode!=='lookout',
   raccoon:boxOf(scene,'asset-raccoon'),cabin:outside?boxOf(scene,'expansion-cabin'):null,campfire:outside?boxOf(scene,'campfire'):null,
   sun:dayLighting(daylightAt(s),s.sunRising).sunPosition.clone().normalize(),fireflies:outside?fireflies:[],
-  jellyfish:outside?scene.getObjectByName('secret-jellyfish')?.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.25,0))??null:null,constellation:new THREE.Vector3(...constellation.centre),camera:camera.position.clone(),viewProjection,clear})
+  jellyfish:outside?scene.getObjectByName('secret-jellyfish')?.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.25,0))??null:null,constellation:new THREE.Vector3(...constellation.centre),
+  carving:outside?scene.getObjectByName('secret-carving')?.getWorldPosition(new THREE.Vector3())??null:null,
+  heartStone:outside?{centre:new THREE.Vector3(heartStone.x,movement.groundHeightAt(heartStone.x,heartStone.z)+heartStone.height*.5,heartStone.z),normal:new THREE.Vector3(heartStone.normal.x,0,heartStone.normal.z)}:null,camera:camera.position.clone(),viewProjection,clear})
 }
 
 /**

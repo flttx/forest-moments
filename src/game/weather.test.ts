@@ -21,3 +21,11 @@ it('rain wets and darkens; mist thickens the fog; autumn warms broadleaf crowns 
  expect(autumn.leaves).toBeGreaterThan(0);expect(clear.leaves).toBe(0)
  expect(clear.broadleaf).toEqual([1,1,1])
 })
+it('spring flowers most, summer brings the fireflies, autumn lays leaves on the ground',()=>{
+ const spring=climateLook('clear','spring'),summer=climateLook('clear','summer'),autumn=climateLook('clear','autumn')
+ expect(spring.bloom).toBeGreaterThan(summer.bloom);expect(summer.bloom).toBe(1);expect(autumn.bloom).toBeLessThan(summer.bloom)
+ expect(summer.fireflies).toBeGreaterThan(spring.fireflies);expect(summer.fireflies).toBeGreaterThan(autumn.fireflies)
+ expect(autumn.litter).toBe(1);expect(spring.litter+summer.litter).toBe(0)
+ expect(autumn.butterflies).toBeLessThan(spring.butterflies)
+ expect(autumn.turn).toBeGreaterThan(.5);expect(spring.turn+summer.turn).toBe(0)
+})

@@ -101,7 +101,7 @@ try {
   // 4. The field guide lists all three.
   await click('.menu button', '图鉴'); await sleep(300); await click('.catalog-tabs button', '隐藏角落'); await sleep(300)
   const page = await evaluate("[...document.querySelectorAll('#catalog-page li')].map(li=>li.className+':'+li.querySelector('strong').textContent)")
-  assert.deepEqual(page, ['found:漂流瓶', 'found:夜光水母', 'found:浣熊星座']); await shot('05-field-guide')
+  assert.deepEqual(page.slice(0, 3), ['found:漂流瓶', 'found:夜光水母', 'found:浣熊星座']); assert.equal(page.length, 6); await shot('05-field-guide')
   check('the field guide lists the three hidden corners', { page })
   assert.deepEqual(report.errors, [])
   report.status = 'PASS'

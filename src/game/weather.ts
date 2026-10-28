@@ -39,16 +39,27 @@ export interface ClimateLook{
  grass:[number,number,number]
  /** Falling leaves, 0..1. */
  leaves:number
+ /** Flower heads in the grass, as a multiple of summer's. */
+ bloom:number
+ /** Fallen leaves lying on the ground, 0..1. */
+ litter:number
+ /** Fireflies, 0..1: summer nights are full of them, and they come out at dusk too. */
+ fireflies:number
+ /** Share of the day butterflies flying, 0..1. */
+ butterflies:number
+ /** How far broadleaf crowns have turned to rust and amber, 0..1. */
+ turn:number
 }
-const seasonColours:Record<Season,Pick<ClimateLook,'broadleaf'|'pine'|'grass'|'leaves'>>={
- spring:{broadleaf:[1.04,1.12,.9],pine:[1.02,1.06,.98],grass:[1.04,1.1,.88],leaves:0},
- summer:{broadleaf:[1,1,1],pine:[1,1,1],grass:[1,1,1],leaves:0},
- autumn:{broadleaf:[1.45,.95,.42],pine:[.95,.94,.86],grass:[1.18,1,.68],leaves:.6},
+type SeasonLook=Pick<ClimateLook,'broadleaf'|'pine'|'grass'|'leaves'|'bloom'|'litter'|'fireflies'|'butterflies'|'turn'>
+const seasonColours:Record<Season,SeasonLook>={
+ spring:{broadleaf:[1.04,1.12,.9],pine:[1.02,1.06,.98],grass:[1.04,1.1,.88],leaves:0,bloom:2.2,litter:0,fireflies:.35,butterflies:1,turn:0},
+ summer:{broadleaf:[1,1,1],pine:[1,1,1],grass:[1,1,1],leaves:0,bloom:1,litter:0,fireflies:1,butterflies:.8,turn:0},
+ autumn:{broadleaf:[1.2,1,.8],pine:[.95,.94,.86],grass:[1.18,1,.68],leaves:.75,bloom:.25,litter:1,fireflies:.2,butterflies:.25,turn:.85},
 }
 const weatherLook:Record<Weather,Pick<ClimateLook,'overcast'|'light'|'fog'|'wet'|'rain'>>={
  clear:{overcast:0,light:1,fog:1,wet:0,rain:0},
  cloudy:{overcast:.55,light:.72,fog:.85,wet:0,rain:0},
- rain:{overcast:.9,light:.55,fog:.45,wet:1,rain:1},
+ rain:{overcast:.95,light:.48,fog:.42,wet:1,rain:1},
  mist:{overcast:.35,light:.8,fog:.14,wet:.25,rain:0},
 }
 export const climateLook=(weather:Weather,season:Season):ClimateLook=>({...weatherLook[weather],...seasonColours[season]})

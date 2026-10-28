@@ -95,6 +95,7 @@ function createClumpGeometry(): THREE.BufferGeometry {
 const GRASS_VERTEX_PARS = /* glsl */ `
   uniform float grassTime;
   uniform vec3 grassPlayer;
+  uniform float climateBloom;
   attribute float flower;
   attribute vec2 flowerOffset;
   varying vec3 vGrassColor;
@@ -128,10 +129,12 @@ const GRASS_VERTEX = /* glsl */ `
   vGrassColor = mix(grassGround * 0.7, grassTip, smoothstep(0.0, 0.9, uv.y)) * grassJitter;
   vGrassHeight = uv.y;
   // flowers gather in drifts a few metres across, on full-height clumps only (not trimmed path edges or the forest
-  // floor); each drift keeps one muted colour: warm yellow, dusty lilac or soft pink, a little darker at the centre
+  // floor); each drift keeps one muted colour: warm yellow, dusty lilac or soft pink, a little darker at the centre.
+  // The season scales how many: spring widens the drifts and fills them, autumn leaves a few late heads.
   float flowerMeadow = meadowAt(grassRoot.xz);
-  float flowerDrift = max(smoothstep(0.66, 0.8, noise21(grassRoot.xz * 0.16 + 13.0)), flowerMeadow * smoothstep(0.42, 0.6, noise21(grassRoot.xz * 0.3 + 5.0)));
-  float flowerOn = flowerDrift * step(mix(0.7, 0.5, flowerMeadow), hash21(grassRoot.xz * 3.1 + 0.7)) * step(0.8, sqrt(grassScale2));
+  float flowerWide = 0.1 * (climateBloom - 1.0);
+  float flowerDrift = max(smoothstep(0.66 - flowerWide, 0.8 - flowerWide, noise21(grassRoot.xz * 0.16 + 13.0)), flowerMeadow * smoothstep(0.42 - flowerWide, 0.6 - flowerWide, noise21(grassRoot.xz * 0.3 + 5.0)));
+  float flowerOn = flowerDrift * step(1.0 - (1.0 - mix(0.7, 0.5, flowerMeadow)) * climateBloom, hash21(grassRoot.xz * 3.1 + 0.7)) * step(0.8, sqrt(grassScale2));
   vec3 flowerRight = vec3(viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0]);
   vec3 flowerUp = vec3(viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1]);
   // a little shorter than wide, as if the flower tipped up toward the sky
@@ -140,6 +143,8 @@ const GRASS_VERTEX = /* glsl */ `
   transformed = mix(transformed, vec3(0.0), flower * (1.0 - flowerOn));
   float flowerKind = noise21(grassRoot.xz * 0.05 + 3.0);
   vec3 flowerColour = flowerKind < 0.45 ? vec3(0.74, 0.5, 0.1) : (flowerKind < 0.65 ? vec3(0.44, 0.32, 0.6) : vec3(0.68, 0.38, 0.42));
+  // spring adds pale daisies among the drifts
+  flowerColour = mix(flowerColour, vec3(0.86, 0.82, 0.76), step(0.72, hash21(grassRoot.xz * 7.1)) * smoothstep(1.0, 2.0, climateBloom));
   flowerColour *= (0.85 + 0.2 * hash21(grassRoot.xz * 5.3)) * mix(0.7, 1.0, step(0.25, abs(uv.x - 0.5)));
   vGrassColor = mix(vGrassColor, flowerColour, flower);
 `;
@@ -153,7 +158,7 @@ interface GrassUniforms {
 function createGrassMaterial(uniforms: GrassUniforms) {
   const material = new THREE.MeshStandardMaterial({ roughness: 0.92, metalness: 0, side: THREE.DoubleSide });
   material.onBeforeCompile = (shader) => {
-    Object.assign(shader.uniforms, uniforms, { climateGrass: climateUniforms.climateGrass, climateWet: climateUniforms.climateWet });
+    Object.assign(shader.uniforms, uniforms, { climateGrass: climateUniforms.climateGrass, climateWet: climateUniforms.climateWet, climateBloom: climateUniforms.climateBloom });
     shader.vertexShader = shader.vertexShader
       .replace('#include <common>', `#include <common>\n${GRASS_VERTEX_PARS}`)
       .replace('#include <begin_vertex>', `#include <begin_vertex>\n${GRASS_VERTEX}`);

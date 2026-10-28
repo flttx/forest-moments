@@ -10,6 +10,7 @@ import * as THREE from 'three'
 import {clone} from 'three/addons/utils/SkeletonUtils.js'
 import {cabin,camp,bridge,seats,reefs} from '../game/expansion'
 import {createCreekGeometry} from './creekGeometry'
+import {climateUniforms,rainRingsGLSL} from './climateUniforms'
 import {useForestStore} from '../game/store'
 import {terrainHeight} from './terrain'
 import {daylightAt,lanternPower} from '../game/dayCycle'
@@ -61,16 +62,20 @@ function Creek(){
  useFrame((_,dt)=>{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)time.current.value+=Math.min(dt,.05)})
  useEffect(()=>()=>geometry.dispose(),[geometry])
  return <mesh geometry={geometry} name="woodland-creek" receiveShadow><meshStandardMaterial ref={material} color="#447e76" roughness={.42} transparent depthWrite={false} side={THREE.DoubleSide} onBeforeCompile={s=>{
-  s.uniforms.streamTime=time.current
-  s.vertexShader='attribute float streamAlpha;varying float streamFade;varying vec2 streamUv;\n'+s.vertexShader
-  s.vertexShader=s.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nstreamUv=uv;streamFade=streamAlpha;')
-  s.fragmentShader='uniform float streamTime;varying vec2 streamUv;varying float streamFade;\n'+s.fragmentShader
+  Object.assign(s.uniforms,{streamTime:time.current,climateRain:climateUniforms.climateRain,climateTime:climateUniforms.climateTime})
+  // The creek mesh sits at the origin, so its positions are world positions (rain rings line up with the ground).
+  s.vertexShader='attribute float streamAlpha;varying float streamFade;varying vec2 streamUv;varying vec2 streamWorld;\n'+s.vertexShader
+  s.vertexShader=s.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nstreamUv=uv;streamFade=streamAlpha;streamWorld=position.xz;')
+  s.fragmentShader='uniform float streamTime;uniform float climateTime;varying vec2 streamUv;varying float streamFade;varying vec2 streamWorld;\n'+rainRingsGLSL+s.fragmentShader
   s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
    float ripple=sin(streamUv.x*9.0+streamTime*2.5+sin(streamUv.y*8.0));
    float edge=abs(streamUv.y*2.0-1.0);
    diffuseColor.rgb*=.95+.05*ripple;
    float thread=pow(max(0.0,ripple),12.0)*(1.0-smoothstep(.45,.95,edge));
    diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.35,.51,.43),thread*.16);
+   // Rings drift downstream with the current.
+   vec2 streamCell=fwidth(streamWorld);
+   if(climateRain>.01)diffuseColor.rgb+=vec3(.5,.56,.55)*rainRings(streamWorld+vec2(streamTime*.35,0.0),climateTime).x*climateRain*.22*(1.0-smoothstep(.02,.08,max(streamCell.x,streamCell.y)));
    diffuseColor.a*=streamFade*(1.0-smoothstep(.83,1.0,edge));`)
  }}/></mesh>
 }

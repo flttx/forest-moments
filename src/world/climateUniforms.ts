@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import {jellyfishSpot} from '../game/secrets'
 
 /**
  * Shared shader inputs for weather and season (plan X4). One object per input, referenced by every material that
@@ -11,10 +12,18 @@ export const climateUniforms={
  climateWet:{value:0},
  /** Rain on water surfaces, 0..1 (follows climateNow.rain). */
  climateRain:{value:0},
+ /** Seconds of falling rain (held under reduced motion), for rings on puddles and the creek. */
+ climateTime:{value:0},
+ /** Flower heads in the grass, as a multiple of summer's. */
+ climateBloom:{value:1},
+ /** Fallen leaves lying on the ground, 0..1. */
+ climateLitter:{value:0},
+ /** How far broadleaf crowns have turned to autumn colours, 0..1. */
+ climateTurn:{value:0},
 }
 export const climateGLSL='uniform vec3 climateGrass;uniform float climateWet;\n'
 /** Eased weather numbers for the sky, light, fog, rain and leaves (not shader uniforms); written by Climate. */
-export const climateNow={overcast:0,light:1,fog:1,rain:0,leaves:0}
+export const climateNow={overcast:0,light:1,fog:1,rain:0,leaves:0,fireflies:1,butterflies:.8}
 /**
  * Raindrop rings on open water: in each 0.8 m cell one drop lands at a cell-fixed spot and phase, and its ring spreads
  * to ~0.4 m and fades within about 0.9 s. Returns (ring brightness, outward slope x, z) summed over neighbouring cells.
@@ -36,3 +45,8 @@ vec3 rainRings(vec2 p,float t){
   return acc;
 }
 `
+/** The hidden jellyfish's glow seen through the sea from above: xyz its position, w how bright (the sea shader reads it). */
+export const jellyGlow={value:new THREE.Vector4(jellyfishSpot.x,jellyfishSpot.y,jellyfishSpot.z,0)}
+const blank=new THREE.DataTexture(new Uint8Array([0,0,0,255]),1,1);blank.needsUpdate=true
+/** The puddle mirror (PuddleReflection writes it, the terrain reads it): texture, projection, on, and its height. */
+export const puddleReflection={puddleMap:{value:blank as THREE.Texture},puddleMatrix:{value:new THREE.Matrix4()},puddleOn:{value:0},puddleHeight:{value:0},blank}

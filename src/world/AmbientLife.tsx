@@ -4,6 +4,7 @@ import * as THREE from 'three'
 import { useForestStore } from '../game/store'
 import { groundHeightAt } from '../game/movement'
 import { clearings, meadowWeight } from './worldConfig'
+import { climateNow } from './climateUniforms'
 
 const BUTTERFLIES = 10, DRIFTERS = 36, AREA = 30
 const hash = (n: number, k: number) => { const v = Math.sin(n * 127.1 + k * 311.7) * 43758.5453; return v - Math.floor(v) }
@@ -83,15 +84,18 @@ export function AmbientLife() {
     const light = state.timeOfDay, player = state.position
     if (!reduced.current) clock.current += Math.min(dt, 0.05)
     const t = clock.current
-    const fade = (m: THREE.ShaderMaterial, on: boolean, hiddenWhenReduced: boolean) => {
-      const target = on && !(hiddenWhenReduced && reduced.current) ? 1 : 0
+    const fade = (m: THREE.ShaderMaterial, on: number, hiddenWhenReduced: boolean) => {
+      const target = hiddenWhenReduced && reduced.current ? 0 : on
       const o = m.uniforms.opacity
       o.value += (target - o.value) * Math.min(1, dt * 1.5)
       m.uniforms.time.value = t
     }
-    fade(parts.seeds, light === 'dusk', true); fade(parts.flies, light === 'night', false)
+    // Seasons: a summer night is full of fireflies and they are out by dusk; spring and autumn keep a few.
+    const flies = climateNow.fireflies
+    fade(parts.seeds, light === 'dusk' ? 1 : 0, true); fade(parts.flies, light === 'night' ? .35 + .65 * flies : light === 'dusk' ? Math.max(0, flies - .6) * 1.5 : 0, false)
     const butterfliesOn = light === 'day' && !reduced.current
     parts.butterfly.visible = butterfliesOn
+    parts.butterfly.count = Math.max(1, Math.round(BUTTERFLIES * climateNow.butterflies))
     if (butterfliesOn) {
       const meadows = [...clearings, { x: player.x, z: player.z, r: 6 }]
       for (let i = 0; i < BUTTERFLIES; i++) {

@@ -3,12 +3,12 @@
 Run: python scripts/aholo/blender_run.py scripts/aholo/render_x3_review.py --blender "<blender.exe>" -- <run-dir> [<run-dir> ...]
 Writes docs/evidence/assets/2026-10-27-x3-lux3d/<prop>/{front,three-quarter,top}.png and review.json.
 """
-import bpy, json, math, sys
+import bpy, json, math, os, sys
 from mathutils import Vector
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / 'docs/evidence/assets/2026-10-27-x3-lux3d'
+OUT = ROOT / {'x3': 'docs/evidence/assets/2026-10-27-x3-lux3d', 'x5': 'docs/evidence/assets/2026-10-28-x5-lux3d'}[os.environ.get('FOREST_SERIES', 'x3')]
 runs = [Path(a) for a in sys.argv[sys.argv.index('--') + 1:] if a != '--'] if '--' in sys.argv else []
 
 

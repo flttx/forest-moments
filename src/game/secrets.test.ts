@@ -1,5 +1,6 @@
 import {afterEach,beforeEach,expect,it,vi} from 'vitest'
-import {bottleSpot,constellation,decodeSecrets,discover,emptySecrets,jellyfishSpot,secretsStorageKey} from './secrets'
+import {bottleSpot,constellation,decodeSecrets,discover,emptySecrets,foxDen,heartStone,jellyfishSpot,noteSecretAt,secretsStorageKey} from './secrets'
+import {terrainHeight} from '../world/terrain'
 import {canStandAt} from './movement'
 import {onSand} from './forage'
 import {seaLevel} from '../world/worldConfig'
@@ -29,4 +30,23 @@ it('F at the bottle finds it, saves it and counts for the journal',async()=>{
  // Reading it again only shows the note.
  s.getState().interact();expect(Object.keys(s.getState().secretsBook.found)).toEqual(['bottle'])
  stop()
+})
+it('puts the fox den in a bank by a standable trail spot and the heart stone in the way',()=>{
+ expect(canStandAt(foxDen.stand.x,foxDen.stand.z)).toBe(true)
+ // The den mouth is cut into ground that rises behind it.
+ expect(terrainHeight(foxDen.x,foxDen.z-.6)-terrainHeight(foxDen.x,foxDen.z)).toBeGreaterThan(.3)
+ expect(canStandAt(heartStone.x,heartStone.z)).toBe(false)
+ expect(canStandAt(heartStone.x-2,heartStone.z)).toBe(true)
+})
+it('F reaches only the secret at hand',()=>{
+ expect(noteSecretAt(bottleSpot)).toBe('bottle')
+ expect(noteSecretAt(foxDen.stand)).toBe('foxDen')
+ expect(noteSecretAt({x:0,z:0})).toBeNull()
+})
+it('F at the fox den finds it, and again reads its note',async()=>{
+ const {useForestStore:s}=await import('./store')
+ s.setState({location:'island',mode:'walking',nearby:null,position:{...foxDen.stand}})
+ s.getState().interact()
+ expect(s.getState().secretsBook.found.foxDen).toBeTruthy();expect(s.getState().message).toContain('狐狸')
+ s.getState().interact();expect(Object.keys(s.getState().secretsBook.found)).toEqual(['foxDen'])
 })
