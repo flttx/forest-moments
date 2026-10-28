@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-28T10:43:38.034Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "real production planting and first growth",
+      "data": {
+        "elapsedMs": 47893
+      }
+    },
+    {
+      "name": "production offline fixture and inspection",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-production-sprout.png",
+    "02-production-seedling.png",
+    "03-production-reload.png",
+    "04-production-offline-mature.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.42",
+    "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.6"
+  },
+  "assets": [
+    "/assets/models/workshop.glb",
+    "/assets/models/lookout.glb",
+    "/assets/models/farm-ranch.glb",
+    "/assets/models/farm-hen.glb",
+    "/assets/models/farm-sheep.glb",
+    "/assets/models/coastal-jetty.glb",
+    "/assets/models/canoe-center-seat.glb",
+    "/assets/models/fish-koi.glb",
+    "/assets/models/tree-sprout.glb",
+    "/assets/models/tree-seedling.glb",
+    "/assets/models/tree-young.glb",
+    "/assets/models/fishing-rod.glb",
+    "/assets/models/tree-mature.glb",
+    "/assets/models/raccoon.glb",
+    "/assets/models/paddle.glb",
+    "/assets/models/paddle-track.json"
+  ]
+}

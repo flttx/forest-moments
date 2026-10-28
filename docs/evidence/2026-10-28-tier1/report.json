@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-28T09:10:18.060Z",
+  "checks": [
+    {
+      "name": "the first plot takes a tree by F on day 0; another plot is marked as soil and waits for tomorrow"
+    },
+    {
+      "name": "waking into summer opens the spring recap: days, the tree planted and the photo taken; the journal lists it",
+      "recap": {
+        "season": "spring",
+        "startDay": 0,
+        "endDay": 4,
+        "tally": {
+          "fish": 0,
+          "meals": 0,
+          "stamps": 0,
+          "crafted": 0,
+          "secrets": 0,
+          "trees": 1
+        }
+      }
+    },
+    {
+      "name": "a day later the second plot takes a tree, saved with its day"
+    },
+    {
+      "name": "on a misty day the pond gives the mistfish; on a clear day the same roll does not"
+    },
+    {
+      "name": "the day after rain shows a rainbow over the sea opposite the sun and its photo completes the task; a plain clear day does not",
+      "stand": {
+        "x": 19.052630782283778,
+        "z": 17.691728583549224
+      }
+    },
+    {
+      "name": "lanterns are refused by day, set at night with F, photographed at the stone and carried down the creek",
+      "mid": [
+        {
+          "x": -28.3,
+          "y": 1.34,
+          "z": -18.8
+        },
+        {
+          "x": -26.4,
+          "y": 1.94,
+          "z": -19.1
+        },
+        {
+          "x": -24.5,
+          "y": 2.53,
+          "z": -19.1
+        }
+      ],
+      "lanternMs": 4.5
+    },
+    {
+      "name": "six grown trees stand clear on their plots",
+      "bareMs": 8.4,
+      "grownMs": 7.7
+    },
+    {
+      "name": "the tour flies all seven stops with captions, turns to dusk at the tower, ends by itself or on any key, and leaves position and light as they were"
+    },
+    {
+      "name": "captions follow the language switch"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-empty-plot.png",
+    "02-season-recap.png",
+    "03-journal-seasons.png",
+    "04-mistfish.png",
+    "05-rainbow.png",
+    "06-no-rainbow.png",
+    "07-lanterns-set.png",
+    "08-lanterns-creek.png",
+    "09-six-trees-overview.png",
+    "10-plot-1-grown.png",
+    "10-plot-4-grown.png",
+    "10-plot-5-grown.png",
+    "11-tour-overview.png",
+    "12-tour-farm.png",
+    "13-tour-dock.png",
+    "14-tour-lookout-dusk.png",
+    "15-tour-english.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42"
+}
