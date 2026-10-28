@@ -56,8 +56,11 @@ export function ModelAsset({ asset, motion, onReadyChange }: {
     const requested=motion.current
     const next=requested==='woodwork'?'interact':requested
     if (next !== active.current && actions[next]) {
-      if (active.current) actions[active.current]?.fadeOut(.2)
-      actions[next].reset().fadeIn(.2).play()
+      // A seat clip hands over cut to cut, into the next phase or out to standing: once it stops being held at its
+      // time it would loop back to its first frame while fading, which read as sitting or rising twice.
+      const fromSeat = !!active.current && active.current.startsWith('bench_')
+      if (active.current) { if (fromSeat) actions[active.current]?.stop(); else actions[active.current]?.fadeOut(.2) }
+      if (fromSeat) actions[next].reset().play(); else actions[next].reset().fadeIn(.2).play()
       active.current = next
     }
     mixer.update(Math.min(delta, .05))
