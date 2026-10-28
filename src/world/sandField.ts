@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import {useSandStore} from '../game/sandStore'
-import {buildSeconds,inSandRect,pawDepth,printLifetime,sandOffsetAt,sandRect,sandSize,sandTexel,workExtent,workHeight,type SandWork} from '../game/sand'
+import {buildSeconds,inSandRect,pawDepth,printLifetime,sandOffsetAt,sandRect,sandSize,sandTexel,workBounds,workHeight,type SandWork} from '../game/sand'
 import {groundHeightAt} from '../game/movement'
 
 /**
@@ -30,6 +30,7 @@ const half=THREE.DataUtils.toHalfFloat
 const column=(x:number)=>Math.floor((x-sandRect.minX)/sandTexel)
 const row=(z:number)=>Math.floor((z-sandRect.minZ)/sandTexel)
 type Box={i0:number;i1:number;j0:number;j1:number}
+const boxFor=(w:SandWork):Box=>{const b=workBounds(w);return{i0:Math.max(0,column(b.minX)),i1:Math.min(W-1,column(b.maxX)),j0:Math.max(0,row(b.minZ)),j1:Math.min(H-1,row(b.maxZ))}}
 const boxAround=(x:number,z:number,r:number):Box=>({i0:Math.max(0,column(x-r)),i1:Math.min(W-1,column(x+r)),j0:Math.max(0,row(z-r)),j1:Math.min(H-1,row(z+r))})
 function upload(b:Box,value:(k:number,x:number,z:number)=>void){
  for(let j=b.j0;j<=b.j1;j++){
@@ -46,14 +47,14 @@ const writeG=(k:number,v:number)=>{texels[k*4+1]=half(v)}
 export function drawWorks(works:readonly SandWork[]){
  baseStatic.fill(0)
  for(const w of works){
-  const b=boxAround(w.x,w.z,workExtent(w))
+  const b=boxFor(w)
   for(let j=b.j0;j<=b.j1;j++){const z=sandRect.minZ+(j+.5)*sandTexel;for(let i=b.i0;i<=b.i1;i++){const x=sandRect.minX+(i+.5)*sandTexel;baseStatic[j*W+i]+=workHeight(w,x,z)}}
  }
  upload({i0:0,i1:W-1,j0:0,j1:H-1},k=>writeR(k,baseStatic[k]))
 }
 /** The work going up, at `amount`, over what is already there. */
 export function drawBuilding(w:SandWork,amount:number){
- upload(boxAround(w.x,w.z,workExtent(w)),(k,x,z)=>writeR(k,baseStatic[k]+workHeight(w,x,z,amount)))
+ upload(boxFor(w),(k,x,z)=>writeR(k,baseStatic[k]+workHeight(w,x,z,amount)))
 }
 
 type Print={x:number;z:number;yaw:number;left:boolean;born:number;fade:number}

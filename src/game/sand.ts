@@ -43,9 +43,22 @@ export function tidelineDistance(w:{x:number;z:number}){
 }
 
 /** A channel from the dug end down to the tide line, with a gentle bend; the sea runs in along it. */
+const riverPaths=new Map<string,{x:number;z:number}[]>()
+/** The channel's path is fixed by where it starts; it is asked for once per texel while drawing, so keep it. */
 export function riverPath(w:Pick<SandWork,'x'|'z'>):{x:number;z:number}[]{
+ const key=`${w.x},${w.z}`,known=riverPaths.get(key)
+ if(known)return known
+ if(riverPaths.size>64)riverPaths.clear()
  const d=seaward(w),length=tidelineDistance(w)+.25,n=12,phase=(w.x*3.1+w.z*1.7)%6.28
- return Array.from({length:n+1},(_,i)=>{const t=i/n,bend=Math.sin(t*Math.PI*1.6+phase)*.28*Math.sin(t*Math.PI);return{x:w.x+d.x*length*t-d.z*bend,z:w.z+d.z*length*t+d.x*bend}})
+ const path=Array.from({length:n+1},(_,i)=>{const t=i/n,bend=Math.sin(t*Math.PI*1.6+phase)*.28*Math.sin(t*Math.PI);return{x:w.x+d.x*length*t-d.z*bend,z:w.z+d.z*length*t+d.x*bend}})
+ riverPaths.set(key,path)
+ return path
+}
+/** The ground a work can change, as a box: a channel hugs its path instead of filling a circle round its start. */
+export function workBounds(w:SandWork){
+ if(w.kind!=='river'){const r=workExtent(w);return{minX:w.x-r,maxX:w.x+r,minZ:w.z-r,maxZ:w.z+r}}
+ const p=riverPath(w),xs=p.map(q=>q.x),zs=p.map(q=>q.z)
+ return{minX:Math.min(...xs)-.45,maxX:Math.max(...xs)+.45,minZ:Math.min(...zs)-.45,maxZ:Math.max(...zs)+.45}
 }
 
 /** Local frame: u to the print's right, v toward its head. */
