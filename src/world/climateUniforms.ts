@@ -9,7 +9,30 @@ export const climateUniforms={
  climatePine:{value:new THREE.Vector3(1,1,1)},
  climateGrass:{value:new THREE.Vector3(1,1,1)},
  climateWet:{value:0},
+ /** Rain on water surfaces, 0..1 (follows climateNow.rain). */
+ climateRain:{value:0},
 }
 export const climateGLSL='uniform vec3 climateGrass;uniform float climateWet;\n'
 /** Eased weather numbers for the sky, light, fog, rain and leaves (not shader uniforms); written by Climate. */
 export const climateNow={overcast:0,light:1,fog:1,rain:0,leaves:0}
+/**
+ * Raindrop rings on open water: in each 0.8 m cell one drop lands at a cell-fixed spot and phase, and its ring spreads
+ * to ~0.4 m and fades within about 0.9 s. Returns (ring brightness, outward slope x, z) summed over neighbouring cells.
+ */
+export const rainRingsGLSL=/* glsl */ `
+uniform float climateRain;
+vec3 rainRings(vec2 p,float t){
+  vec3 acc=vec3(0.0);
+  vec2 base=floor(p/.8);
+  for(int i=-1;i<=1;i++)for(int j=-1;j<=1;j++){
+    vec2 c=base+vec2(float(i),float(j));
+    vec2 h=fract(sin(vec2(dot(c,vec2(127.1,311.7)),dot(c,vec2(269.5,183.3))))*43758.5453);
+    vec2 centre=(c+.15+.7*h)*.8;
+    float age=fract(t*1.1+h.x*7.0+h.y*3.0);
+    vec2 d=p-centre;float dist=length(d);
+    float ring=(1.0-smoothstep(0.0,.035,abs(dist-age*.42)))*(1.0-age)*(1.0-age);
+    acc.x+=ring;acc.yz+=ring*d/max(dist,1e-3);
+  }
+  return acc;
+}
+`

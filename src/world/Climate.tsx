@@ -51,6 +51,7 @@ export function Climate(){
   climateNow.overcast=ease(climateNow.overcast,look.overcast);climateNow.light=ease(climateNow.light,look.light)
   climateNow.fog=ease(climateNow.fog,look.fog);climateNow.rain=ease(climateNow.rain,look.rain);climateNow.leaves=ease(climateNow.leaves,look.leaves)
   climateUniforms.climateWet.value=ease(climateUniforms.climateWet.value,look.wet)
+  climateUniforms.climateRain.value=climateNow.rain
   climateUniforms.climateBroadleaf.value.lerp(new THREE.Vector3(...look.broadleaf),k)
   climateUniforms.climatePine.value.lerp(new THREE.Vector3(...look.pine),k)
   climateUniforms.climateGrass.value.lerp(new THREE.Vector3(...look.grass),k)

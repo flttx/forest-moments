@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-28T01:42:38.744Z",
+  "date": "2026-10-28T01:54:03.551Z",
   "checks": [
     {
       "name": "each weather and season shows in the scene and beside the title; rain falls, autumn leaves drift",
@@ -9,8 +9,8 @@
         "rain": false,
         "leaves": false,
         "frame": {
-          "median": 6,
-          "p95": 10.4
+          "median": 5,
+          "p95": 10.2
         }
       },
       "cloudy": {
@@ -19,8 +19,8 @@
         "rain": false,
         "leaves": false,
         "frame": {
-          "median": 5.2,
-          "p95": 12.2
+          "median": 4.9,
+          "p95": 11.1
         }
       },
       "rain": {
@@ -30,7 +30,7 @@
         "leaves": false,
         "frame": {
           "median": 5.8,
-          "p95": 10.1
+          "p95": 10.3
         }
       },
       "mist": {
@@ -39,8 +39,8 @@
         "rain": false,
         "leaves": false,
         "frame": {
-          "median": 5.4,
-          "p95": 11.6
+          "median": 5.6,
+          "p95": 9.7
         }
       },
       "autumn": {
@@ -49,8 +49,8 @@
         "rain": false,
         "leaves": true,
         "frame": {
-          "median": 5.7,
-          "p95": 10.5
+          "median": 5.3,
+          "p95": 11.3
         }
       },
       "spring": {
@@ -59,8 +59,8 @@
         "rain": false,
         "leaves": false,
         "frame": {
-          "median": 4.5,
-          "p95": 13.7
+          "median": 5,
+          "p95": 11
         }
       }
     },
@@ -69,6 +69,9 @@
     },
     {
       "name": "a weather preview is for the photo only and is dropped on leaving"
+    },
+    {
+      "name": "raindrop rings show on the pond and the sea when it rains (see 04/05 screenshots)"
     }
   ],
   "errors": [],
@@ -80,7 +83,11 @@
     "01-autumn.png",
     "01-spring.png",
     "02-rain-indoors.png",
-    "03-photo-preview-mist.png"
+    "03-photo-preview-mist.png",
+    "04-pond-clear.png",
+    "05-sea-clear.png",
+    "04-pond-rain.png",
+    "05-sea-rain.png"
   ],
   "status": "PASS",
   "browser": "Edg/156.0.4314.42"

@@ -1,4 +1,4 @@
-import {climateNow} from './climateUniforms'
+import {climateNow,climateUniforms,rainRingsGLSL} from './climateUniforms'
 // Mist and rain thin the colour toward a soft grey.
 const mistGrey=new THREE.Color('#c3cbc7')
 import {constellation} from '../game/secrets'
@@ -58,10 +58,10 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
     <primitive object={geometry} attach="geometry"/>
     <meshPhysicalMaterial ref={material} color={fresh ? '#3d746d' : '#286879'} roughness={fresh ? .36 : .32} metalness={0} specularIntensity={.28} envMapIntensity={.7}
       onBeforeCompile={(shader)=>{
-        Object.assign(shader.uniforms,uniforms)
+        Object.assign(shader.uniforms,uniforms,{climateRain:climateUniforms.climateRain})
         shader.vertexShader='varying vec3 vWater;\n'+shader.vertexShader
         shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvWater=(modelMatrix*vec4(position,1.0)).xyz;')
-        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${waveGLSL}\n`+shader.fragmentShader
+        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
@@ -76,6 +76,9 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
           float foam=max(washLine*(.35+.35*noise21(p*3.0+waterTime*.1)),hug*.85);
           diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.78,.83,.78),foam*(fresh>.5?.2:.7));
           diffuseColor.rgb*=.96+ripples*.04;
+          // Raindrop rings catch a little light; they fade out where a ring would be smaller than a pixel.
+          vec2 rainCell=fwidth(p);float rainNear=1.0-smoothstep(.02,.08,max(rainCell.x,rainCell.y));
+          if(climateRain>.01)diffuseColor.rgb+=vec3(.55,.6,.6)*rainRings(p,waterTime).x*climateRain*rainNear*.16;
         `)
         shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>',/* glsl */ `
           #include <normal_fragment_maps>
@@ -87,6 +90,7 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
           slope+=waveSlope(mat2(.8,-.6,.6,.8)*q+t*vec2(-.5,.4),1.4,.07)*(1.0-smoothstep(.04,.18,footprint));
           slope+=waveSlope(mat2(.6,.8,-.8,.6)*q+t*vec2(.8,-.6),3.2,.025)*(1.0-smoothstep(.015,.07,footprint));
           slope*=mix(1.0,.6,fresh);
+          if(climateRain>.01)slope+=rainRings(q,t).yz*climateRain*(1.0-smoothstep(.02,.08,footprint))*.35;
           // Broad, slow swell keeps distant sea from turning into a flat mirror.
           slope+=(waveSlope(q+t*vec2(.3,.2),.045,2.0)+waveSlope(q+t*vec2(-.45,.35),.13,.5)*(1.0-smoothstep(.1,.6,footprint)))*(1.0-fresh);
           float nx=slope.x,nz=slope.y;

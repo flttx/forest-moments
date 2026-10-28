@@ -87,6 +87,17 @@ try {
   assert.equal(await evaluate('photoStore.getState().weatherPreview'), null)
   assert.equal(await evaluate(`forestStore.getState().homeBook.nights`), days.clear)
   check('a weather preview is for the photo only and is dropped on leaving')
+  // Raindrop rings on the pond and the sea: the same close views on a clear day and in the rain.
+  const water = async (label, day) => {
+    await evaluate(`forestStore.setState(s=>({homeBook:{...s.homeBook,nights:${day}},location:'island',position:{x:-.2,z:-3.2},mode:'walking'}))`); await sleep(5500)
+    await press('KeyP', 'p'); await sleep(300); await click('.photo-bar button', '自由取景'); await sleep(200); await click('.photo-bar button', '隐藏浣熊'); await sleep(200)
+    await evaluate("photoMod.freeCam.view={x:1.6,y:1.7,z:-2.4,yaw:Math.atan2(1.8,-1.6),pitch:-.62}"); await sleep(1500); await shot(`04-pond-${label}`)
+    await evaluate(`forestStore.getState().updatePosition(41,-.8)`); await sleep(300)
+    await evaluate("photoMod.freeCam.view={x:41,y:1.8,z:-1.2,yaw:Math.PI*.95,pitch:-.55}"); await sleep(1500); await shot(`05-sea-${label}`)
+    await press('Escape', 'Escape'); await sleep(300)
+  }
+  await water('clear', days.clear); await water('rain', days.rain)
+  check('raindrop rings show on the pond and the sea when it rains (see 04/05 screenshots)')
   assert.deepEqual(report.errors, [])
   report.status = 'PASS'
 } catch (e) {
