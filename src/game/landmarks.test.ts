@@ -2,9 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { findNearestLandmark, landmarks } from './landmarks'
 
 describe('forest landmark interactions', () => {
-  it('has eight unique landmarks', () => {
-    expect(landmarks).toHaveLength(8)
-    expect(new Set(landmarks.map((point) => point.id)).size).toBe(8)
+  it('has nine unique landmarks', () => {
+    expect(landmarks).toHaveLength(9)
+    expect(new Set(landmarks.map((point) => point.id)).size).toBe(9)
   })
 
   it('finds the planting location and rejects distant positions', () => {

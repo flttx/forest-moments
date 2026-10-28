@@ -12,8 +12,8 @@ it('rejects bad saves and keeps only a single valid material/product phase',()=>
 it('keeps the station reachable and switches wood collision with the saved phase',()=>{
  expect(canStandInWorkshop(craftSpot.x,craftSpot.z,true)).toBe(true)
  expect(canStandAt(workshopDoor.x,workshopDoor.z)).toBe(true)
- expect(canStandAt(woodSpot.x,woodSpot.z,0,'available')).toBe(false)
- expect(canStandAt(woodSpot.x,woodSpot.z,0,'carrying')).toBe(true)
+ expect(canStandAt(woodSpot.x,woodSpot.z,[],'available')).toBe(false)
+ expect(canStandAt(woodSpot.x,woodSpot.z,[],'carrying')).toBe(true)
  expect(canStandInWorkshop(workpieceSpot.x,workpieceSpot.z,true)).toBe(false)
 })
 it('requires reach and loaded props; cancelling collection leaves the wood and does not save',async()=>{

@@ -10,7 +10,7 @@ import {useAudioStore} from './audio/audioStore'
 import {useUiStore,noticeLifetime,guideLifetime,type MenuPanel,type ModeHint} from './game/uiStore'
 import {promptFor} from './game/prompt'
 import {landmarks,type LandmarkId} from './game/landmarks'
-import {growthStages} from './game/growth'
+import {plantingSpots} from './game/growth'
 import {useLang,useT,type Key} from './i18n'
 import {Icon} from './Icon'
 import {FishingHud} from './FishingHud'
@@ -19,13 +19,16 @@ import {WorkshopHud} from './WorkshopHud'
 import {LookoutHud} from './LookoutHud'
 import {GrowthStatus} from './GrowthStatus'
 import {PhotoButton,PhotoHud,AlbumPanel} from './PhotoHud'
+import {TourButton,TourHud} from './TourHud'
+import {useTourStore} from './game/tourStore'
 import {CatalogPanel} from './CatalogPanel'
+import {SeasonPanel} from './SeasonPanel'
 import {CampHud} from './CampHud'
 import {seasonFor,weatherFor} from './game/weather'
 import {RecipeCard} from './RecipeCard'
 import {usePhotoStore} from './game/photoStore'
 
-const menuItems:[MenuPanel,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
+const menuItems:[Exclude<MenuPanel,'season'>,Key][]=[['journal','menu.journal'],['album','menu.album'],['places','menu.places'],['fishbook','menu.fishbook'],['help','menu.help']]
 const inTransfer=(s:ReturnType<typeof useForestStore.getState>)=>!!(s.boatTransfer||s.lookoutTransfer||s.workshopTransfer||s.homeTransfer)
 
 /** Two-way switch: both languages stay visible, the current one is set in ink. */
@@ -52,13 +55,14 @@ function JournalCount(){
 function TopBar(){
  const t=useT()
  const panel=useUiStore(s=>s.panel),openPanel=useUiStore(s=>s.openPanel),closePanel=useUiStore(s=>s.closePanel),toggleHud=useUiStore(s=>s.toggleHud)
- const hidden=useForestStore(s=>s.mode==='sleeping'||inTransfer(s)),photo=usePhotoStore(s=>s.active)
- if(hidden||photo)return null
+ const hidden=useForestStore(s=>s.mode==='sleeping'||inTransfer(s)),photo=usePhotoStore(s=>s.active),tour=useTourStore(s=>s.active)
+ if(hidden||photo||tour)return null
  return <>
   <div className="brand">{t('brand')}<Climate/></div>
   <nav className="menu" aria-label={t('menu.label')}>
    {menuItems.map(([id,label])=><button key={id} type="button" className="tool-button" title={t(label)} aria-haspopup="dialog" aria-expanded={panel===id} aria-controls="menu-panel" onClick={()=>panel===id?closePanel():openPanel(id)}><Icon name={id}/><span className="tool-label">{t(label)}</span>{id==='journal'&&<JournalCount/>}</button>)}
    <PhotoButton/>
+   <TourButton/>
    <span className="tool-divider" aria-hidden="true"/>
    <LanguageSwitch/>
    <SoundControl/>
@@ -72,22 +76,22 @@ function MenuPanelView(){
  const panel=useUiStore(s=>s.panel),closePanel=useUiStore(s=>s.closePanel)
  const {ref,trap}=useDialogFocus<HTMLElement>(!!panel)
  if(!panel)return null
- const title=t(menuItems.find(([id])=>id===panel)![1])
+ const title=panel==='season'?t('season.title'):t(menuItems.find(([id])=>id===panel)![1])
  return <section id="menu-panel" ref={ref} className="paper-panel menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-panel-title"
   onKeyDown={e=>{trap(e);if(e.key==='Escape'){e.preventDefault();e.stopPropagation();closePanel()}}} onWheel={e=>e.stopPropagation()}>
   <header><h2 id="menu-panel-title">{title}</h2><button type="button" className="close-button" onClick={closePanel} aria-label={t('panel.close')}><Icon name="close"/></button></header>
-  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<CatalogPanel/>:<Help/>}</div>
+  <div className="panel-body">{panel==='journal'?<JournalPanel/>:panel==='album'?<AlbumPanel/>:panel==='places'?<Places/>:panel==='fishbook'?<CatalogPanel/>:panel==='season'?<SeasonPanel/>:<Help/>}</div>
  </section>
 }
 
 function Places(){
  const t=useT()
- const s=useForestStore(useShallow(s=>({nearby:s.nearby,meals:s.farmBook.meals,tree:s.tree,nights:s.homeBook.nights,fireLit:s.homeBook.fireLit,phase:s.workshopBook.phase,fish:s.fishBook.count})))
+ const s=useForestStore(useShallow(s=>({nearby:s.nearby,meals:s.farmBook.meals,trees:s.garden.trees.length,nights:s.homeBook.nights,fireLit:s.homeBook.fireLit,phase:s.workshopBook.phase,fish:s.fishBook.count})))
  const status:Partial<Record<LandmarkId,string>>={
   bedroom:t('status.nights',{n:s.nights}),campfire:t(s.fireLit?'status.fireLit':'status.fireOut'),
   workshop:t(s.phase==='finished'?'status.stoolDone':s.phase==='carrying'?'status.stumpCarried':'status.stumpMissing'),
   farm:t('status.meals',{n:s.meals}),pond:t('status.fish',{n:s.fish}),
-  grove:s.tree?t('status.planted',{stage:t(`growth.${growthStages[s.tree.stage].id}`)}):t('status.noTree'),
+  grove:s.trees?t('status.trees',{n:s.trees,total:plantingSpots.length}):t('status.noTree'),
  }
  return <ul className="place-list">{landmarks.map(p=><li key={p.id} className={s.nearby===p.id?'here':undefined}>
   <strong>{t(`place.${p.id}`)}{s.nearby===p.id&&<em> · {t('place.nearby')}</em>}</strong><p>{t(`place.${p.id}.hint`)}</p>{status[p.id]&&<small>{status[p.id]}</small>}
@@ -211,6 +215,7 @@ export function Hud(){
  return <div className="hud">
   <TopBar/>
   <PhotoHud/>
+  <TourHud/>
   <FirstGuide/>
   {gameCards}
   <div className="bottom-stack"><Notice/><ModeHintLine/><Prompt/>{lookout}</div>

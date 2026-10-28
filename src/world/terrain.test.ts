@@ -6,10 +6,10 @@ import { coastRadius, seaLevel, terrainHeight, pathRelief, pathDistance } from '
 import {pondRadiusAt,pondWaterInset} from './pondShape'
 
 it('keeps the trail passable beside each planted trunk radius',()=>{
-  for(const radius of [.06,.11,.19,.32]){
-    expect(canStandAt(0,8,radius)).toBe(false)
-    expect(canStandAt(-1,8,radius)).toBe(true)
-    expect(canStandAt(0,6.6,radius)).toBe(true)
+  for(const r of [.06,.11,.19,.32]){
+    expect(canStandAt(0,8,[{x:0,z:8,r}])).toBe(false)
+    expect(canStandAt(-1,8,[{x:0,z:8,r}])).toBe(true)
+    expect(canStandAt(0,6.6,[{x:0,z:8,r}])).toBe(true)
   }
 })
 

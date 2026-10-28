@@ -9,7 +9,6 @@ import {pondStoneColliders} from '../world/pondLayout'
 import {coastPieces,coastKits} from '../world/coastalLayout'
 import {hayBales,logPile} from '../world/settlement'
 import {coastalDock,dockPosts,isDockSurface,seaLevel} from '../world/worldConfig'
-import {plantingSpot} from './growth'
 import {farmColliders,animalObstacles} from './farm'
 import {woodSpot,type WorkshopBook} from './workshop'
 import {foxDen,heartStone} from './secrets'
@@ -88,10 +87,12 @@ const profileHit=(x:number,z:number,c:typeof profiles[number])=>{
 let pathStoneColliders:{name:string;x:number;z:number;r:number}[]=[]
 
 /** What keeps the raccoon from standing here, or null when it can. Labels feed scripts/audit_collisions.mjs. */
-export function standBlocker(x: number, z: number,treeRadius=0,workshopPhase:WorkshopBook['phase']='available'): string|null {
+/** A planted tree's trunk: where it stands and how wide it is at its stage. */
+export type Trunk={x:number;z:number;r:number}
+export function standBlocker(x: number, z: number,trees:readonly Trunk[]=[],workshopPhase:WorkshopBook['phase']='available'): string|null {
   if (!Number.isFinite(x) || !Number.isFinite(z)) return 'invalid'
   if(animalObstacles.some(a=>Math.hypot(x-a.x,z-a.z)<radius+a.r))return 'animal'
-  if(treeRadius>0&&Math.hypot(x-plantingSpot.x,z-plantingSpot.z)<radius+treeRadius)return 'planted tree'
+  if(trees.some(t=>Math.hypot(x-t.x,z-t.z)<radius+t.r))return 'planted tree'
   const wood=workshopPhase==='available'?woodSpot:null
   if(wood&&Math.hypot(x-wood.x,z-wood.z)<radius+.43)return 'old stump'
   if(creekDistance(x,z)<1.45&&!onBridge(x,z,.28))return 'terrain:creek'
@@ -115,8 +116,8 @@ export function standBlocker(x: number, z: number,treeRadius=0,workshopPhase:Wor
   if(plant)return `plant:${plant.kit}`
   return profiles.find(c=>profileHit(x,z,c))?.name??null
 }
-export function canStandAt(x: number, z: number,treeRadius=0,workshopPhase:WorkshopBook['phase']='available'): boolean {
-  return standBlocker(x,z,treeRadius,workshopPhase)===null
+export function canStandAt(x: number, z: number,trees:readonly Trunk[]=[],workshopPhase:WorkshopBook['phase']='available'): boolean {
+  return standBlocker(x,z,trees,workshopPhase)===null
 }
 
 /** Decorative stones beside the trails, kept off paths, pads and other solids; each is solid itself afterwards. */
@@ -128,13 +129,13 @@ export const pathStones = Array.from({ length: 36 }, (_, i) => {
 pathStoneColliders=pathStones.map(([x,z])=>({name:'path stone',x,z,r:.3}))
 
 /** Short steps prevent tunnelling; independent axes allow sliding along walls. */
-export function moveOnGround(start: GroundPoint, dx: number, dz: number,treeRadius=0,workshopPhase:WorkshopBook['phase']='available'): GroundPoint {
+export function moveOnGround(start: GroundPoint, dx: number, dz: number,trees:readonly Trunk[]=[],workshopPhase:WorkshopBook['phase']='available'): GroundPoint {
   if (![dx, dz, start.x, start.z].every(Number.isFinite)) return { ...start }
   const count = Math.max(1, Math.ceil(Math.hypot(dx, dz) / .12))
   let { x, z } = start
   for (let i = 0; i < count; i++) {
-    if (canStandAt(x + dx / count, z,treeRadius,workshopPhase)) x += dx / count
-    if (canStandAt(x, z + dz / count,treeRadius,workshopPhase)) z += dz / count
+    if (canStandAt(x + dx / count, z,trees,workshopPhase)) x += dx / count
+    if (canStandAt(x, z + dz / count,trees,workshopPhase)) z += dz / count
   }
   return { x, z }
 }

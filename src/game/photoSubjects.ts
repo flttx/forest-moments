@@ -7,7 +7,7 @@ import {carvingReach,heartStoneAngle} from './secrets'
  * A subject counts when its box sits in the frame large enough, unhidden, at the right time. Pure apart from the
  * `clear` line-of-sight test the scene supplies.
  */
-export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation','carving','heartStone'] as const
+export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation','carving','heartStone','rainbow','lanterns'] as const
 export type SubjectId=typeof subjectIds[number]
 
 export interface Framing{
@@ -58,6 +58,10 @@ export interface Shot{
  carving:THREE.Vector3|null
  /** Centre of the heart stone's face and the face's horizontal normal (either side shows the heart). */
  heartStone:{centre:THREE.Vector3;normal:THREE.Vector3}|null
+ /** Points along the rainbow's arc while one is up (plan T1). */
+ rainbow?:readonly THREE.Vector3[]
+ /** River lanterns afloat (plan T4). */
+ lanterns?:readonly THREE.Vector3[]
  camera:THREE.Vector3
  viewProjection:THREE.Matrix4
  /** Nothing stands between the camera and this point. */
@@ -88,6 +92,10 @@ export function subjectsIn(s:Shot):SubjectId[]{
   // The carving up close, toward the middle of the picture; the heart stone roughly square on, not edge on.
   carving:!!s.carving&&s.carving.distanceTo(s.camera)<carvingReach&&inPicture(s.carving,s.viewProjection,.25)&&s.clear(s.carving),
   heartStone:!!s.heartStone&&heartFaceOn(s.heartStone,s.camera)&&inPicture(s.heartStone.centre,s.viewProjection,.15)&&s.clear(s.heartStone.centre),
+  // Enough of the bow to read as one: at least two of its five arc points in the picture.
+  rainbow:s.light==='day'&&(s.rainbow??[]).filter(p=>inPicture(p,s.viewProjection,.02)).length>=2,
+  // A lantern on the water, close enough to read as one.
+  lanterns:s.light!=='day'&&(s.lanterns??[]).some(p=>p.distanceTo(s.camera)<18&&inPicture(p,s.viewProjection,.03)&&s.clear(p)),
   fireside:s.fireLit&&s.raccoonShown&&s.mode==='sitting'&&!!s.seat?.startsWith('camp-')&&whole(s.raccoon,s,.75,.01)&&whole(s.campfire,s,.6,.004),
  }
  return subjectIds.filter(id=>found[id])

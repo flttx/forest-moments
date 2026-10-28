@@ -14,12 +14,18 @@ export const seasonFor=(day:number)=>seasonIds[Math.floor(Math.max(0,day)/nights
 /** The day's weather; the first morning is always clear so a new island starts in sunshine. */
 export function weatherFor(day:number):Weather{
  if(day<=0)return 'clear'
- let n=(Math.floor(day)*2654435761+97)%4294967296
- n=(n*1664525+1013904223)%4294967296
- let roll=n/4294967296*100
+ // A mixing hash (mulberry32's output step): a linear one gave weeks-long runs in a fixed clear→cloudy→rain→mist order.
+ let n=(Math.floor(day)*0x9e3779b9+0x6d2b79f5)|0
+ n=Math.imul(n^n>>>15,n|1);n^=n+Math.imul(n^n>>>7,n|61)
+ let roll=((n^n>>>14)>>>0)/4294967296*100
  for(const id of weatherIds){roll-=weatherOdds[id];if(roll<0)return id}
  return 'clear'
 }
+
+/** The morning after a rainy day, if it has cleared up, a rainbow stands over the sea through the day (plan T1). */
+export const rainbowFor=(day:number)=>day>0&&weatherFor(day-1)==='rain'&&['clear','cloudy'].includes(weatherFor(day))
+/** On a rainy day mushrooms come up more freely (plan T1); the other finds are unchanged. */
+export const rainMushrooms=8
 
 /** What a sky and season do to the picture; the scene eases toward these numbers. */
 export interface ClimateLook{

@@ -30,6 +30,11 @@ import { FishingScene } from './FishingScene'
 import { ModelAsset } from './ModelAsset'
 import type { Locomotion } from './ModelAsset'
 import { Atmosphere } from './Atmosphere'
+import {Rainbow} from './Rainbow'
+import {RiverLanterns} from './RiverLanterns'
+import {launchPoint} from '../game/lanterns'
+import {useTourStore} from '../game/tourStore'
+import {tourFrame} from '../game/tour'
 import { IslandTerrain } from './IslandTerrain'
 import { ForestKit } from './ForestKit'
 import { GroundCover } from './GroundCover'
@@ -45,7 +50,7 @@ import {SeasideDock} from './SeasideDock'
 import {GrowingTree} from './GrowingTree'
 import {FarmScene} from './FarmScene'
 import {feedSpot} from '../game/farm'
-import {growthStages,plantingSpot} from '../game/growth'
+import {growthStages,plantingSpots,pushRadius,trunks} from '../game/growth'
 import {lookoutEye} from '../game/lookout'
 import {WorkshopCraft} from './WorkshopCraft'
 import {woodSpot,workpieceSpot} from '../game/workshop'
@@ -157,6 +162,8 @@ function Player() {
     function down(e: KeyboardEvent) {
       if (e.target instanceof HTMLElement && (e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName))) return
       // An open panel owns the keyboard: Esc closes only the top panel, nothing reaches the scene.
+      // The tour gives way to any key.
+      if (useTourStore.getState().active) { e.preventDefault(); if (!e.repeat) useTourStore.getState().stop(); return }
       const ui=useUiStore.getState()
       const photo=usePhotoStore.getState()
       if (photo.active) {
@@ -202,6 +209,7 @@ function Player() {
     const character = root.current
     if (!character) return
     const dt = Math.min(delta, .05)
+    useTourStore.getState().tick(dt)
     const transferring=!!(useForestStore.getState().boatTransfer||useForestStore.getState().lookoutTransfer||useForestStore.getState().workshopTransfer||useForestStore.getState().homeTransfer)
     if(transferring)pressed.current.clear()
     const transferCommitted=useForestStore.getState().tickBoatTransfer(dt)
@@ -245,9 +253,9 @@ function Player() {
     wasPhoto.current=photoActive
     // Store position also supplies the safe landing point after leaving the boat.
     character.position.set(state.position.x, state.location!=='island'?0:groundHeightAt(state.position.x, state.position.z), state.position.z)
-    if(state.location==='island'&&state.tree&&state.mode==='walking'){
-      const r=[.34,.39,.47,.60][state.tree.stage],dx=character.position.x-plantingSpot.x,dz=character.position.z-plantingSpot.z,d=Math.hypot(dx,dz)
-      if(d<r){character.position.x=plantingSpot.x+(d?dx/d:0)*(r+.01);character.position.z=plantingSpot.z+(d?dz/d:1)*(r+.01)}
+    if(state.location==='island'&&state.mode==='walking')for(const tree of state.garden.trees){
+      const spot=plantingSpots[tree.spot],r=pushRadius[tree.stage],dx=character.position.x-spot.x,dz=character.position.z-spot.z,d=Math.hypot(dx,dz)
+      if(d<r){character.position.x=spot.x+(d?dx/d:0)*(r+.01);character.position.z=spot.z+(d?dz/d:1)*(r+.01)}
     }
     if(state.mode==='sitting'&&state.sitting){
       const seat=seats.find(v=>v.id===state.sitting?.id);character.rotation.y=seat?.yaw??-Math.PI/2
@@ -261,8 +269,9 @@ function Player() {
     }
 
     if(state.mode==='foraging'&&state.foraging){state.tickForage(dt);motion.current='interact';const at=state.foraging;character.rotation.y=Math.atan2(character.position.x-at.x,character.position.z-at.z)}
+    if(state.mode==='launching'){state.tickLaunch(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-launchPoint.x,character.position.z-launchPoint.z)}
     if(state.mode==='feeding'){state.tickFeeding(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-(feedSpot.x+1),character.position.z-feedSpot.z)}
-    if(state.mode==='planting'){state.tickPlanting(dt);motion.current='interact';character.rotation.y=Math.atan2(character.position.x-plantingSpot.x,character.position.z-plantingSpot.z)}
+    if(state.mode==='planting'){state.tickPlanting(dt);motion.current='interact';const spot=plantingSpots[state.plot??0];character.rotation.y=Math.atan2(character.position.x-spot.x,character.position.z-spot.z)}
     if(state.mode==='gathering'||state.mode==='crafting'){
       state.tickWorkshop(dt)
       const target=state.mode==='gathering'?woodSpot:workpieceSpot
@@ -283,7 +292,7 @@ function Player() {
       if(state.inspectingTree||state.aquariumOpen||state.recipesOpen)useForestStore.setState({inspectingTree:false,aquariumOpen:false,recipesOpen:false})
       const intent=cameraRelativeMovement(x,z,orbit.current.yaw)!
       movementIntent.current=intent
-      const next = state.location==='bedroom'?moveInBedroom(character.position,intent.x*speed*dt,intent.z*speed*dt):state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,state.tree?[.06,.11,.19,.32][state.tree.stage]:0,state.workshopBook.phase)
+      const next = state.location==='bedroom'?moveInBedroom(character.position,intent.x*speed*dt,intent.z*speed*dt):state.location==='workshop'?moveInWorkshop(character.position,intent.x*speed*dt,intent.z*speed*dt,state.workshopBook.phase==='finished'):moveOnGround(character.position, intent.x*speed*dt, intent.z*speed*dt,trunks(state.garden),state.workshopBook.phase)
       if (Math.hypot(next.x - character.position.x, next.z - character.position.z) > .00001) {
         movementHeading.current=movementYaw(next.x-character.position.x,next.z-character.position.z,movementHeading.current)
         character.position.set(next.x,state.location!=='island'?0:groundHeightAt(next.x, next.z), next.z)
@@ -296,6 +305,14 @@ function Player() {
     }
     if (state.mode === 'walking') updatePosition(character.position.x, character.position.z)
     const current = useForestStore.getState()
+    const tour=useTourStore.getState()
+    if(tour.active){
+      // The route starts from wherever the camera was looking.
+      let from=tour.from
+      if(!from){const ahead=camera.position.clone().addScaledVector(camera.getWorldDirection(new THREE.Vector3()),10);from={eye:[camera.position.x,camera.position.y,camera.position.z],target:[ahead.x,ahead.y,ahead.z]};useTourStore.setState({from})}
+      const frame=tourFrame(tour.elapsed,from);camera.position.set(...frame.eye);camera.lookAt(...frame.target)
+      return
+    }
     if(freeLook){
       // Hand-flown camera: starts where the camera is, then keeps to the raccoon's surroundings.
       let view=freeCam.view
@@ -317,10 +334,11 @@ function Player() {
       camera.lookAt(lookoutEye.x+Math.sin(yaw)*Math.cos(pitch),lookoutEye.y+Math.sin(pitch),lookoutEye.z+Math.cos(yaw)*Math.cos(pitch))
       return
     }
-    if(current.inspectingTree&&current.tree&&current.mode==='walking'){
-      const h=growthStages[current.tree.stage].height
-      camera.position.lerp(new THREE.Vector3(plantingSpot.x+Math.max(.8,h*1.1),Math.max(.5,h*.8),plantingSpot.z+Math.max(.8,h*1.1)),1-Math.exp(-4*dt))
-      camera.lookAt(plantingSpot.x,h*.45,plantingSpot.z)
+    const looked=current.plot!==null?current.garden.trees.find(t=>t.spot===current.plot):undefined
+    if(current.inspectingTree&&looked&&current.mode==='walking'){
+      const h=growthStages[looked.stage].height,spot=plantingSpots[looked.spot],ground=groundHeightAt(spot.x,spot.z)
+      camera.position.lerp(new THREE.Vector3(spot.x+Math.max(.8,h*1.1),ground+Math.max(.5,h*.8),spot.z+Math.max(.8,h*1.1)),1-Math.exp(-4*dt))
+      camera.lookAt(spot.x,ground+h*.45,spot.z)
       return
     }
     if(current.mode==='feeding'){
@@ -398,7 +416,7 @@ function Player() {
         waterFeedback:scene.getObjectByName('boat-water-feedback')?.userData.qa,
         fishing: current.fishing, fishingReady: current.fishingReady, fishBook: current.fishBook,
         fishingVisual: scene.getObjectByName('fishing-tools')?.userData.qa,
-        tree:current.tree,growthReady:current.growthReady,plantingElapsed:current.plantingElapsed,growthVisual:scene.getObjectByName('planted-tree')?.userData.stage,
+        garden:current.garden,plot:current.plot,growthReady:current.growthReady,plantingElapsed:current.plantingElapsed,growthVisual:scene.getObjectByName('planted-tree')?.userData.stage,
         farmReady:current.farmReady,mealActive:current.mealActive,farmBook:current.farmBook,feedingElapsed:current.feedingElapsed,farmVisual:scene.getObjectByName('forest-farm')?.userData.qa,
         location:current.location,workshopTransfer:current.workshopTransfer,workshopReady:current.workshopReady,workshopBook:current.workshopBook,craft:current.craft,gatheringElapsed:current.gatheringElapsed,workshopVisual:scene.getObjectByName('workshop-craft')?.userData.qa,
         triangles: gl.info.render.triangles, calls: gl.info.render.calls,
@@ -417,6 +435,7 @@ function Scene() {
   return <>
     <group visible={!inside} name="island-exterior">
     <Atmosphere />
+    <Rainbow />
     <IslandTerrain />
     <ForestKit />
     <GroundCover />
@@ -439,6 +458,7 @@ function Scene() {
     <ForageItems />
     <Furniture place="island" />
     <Secrets />
+    <RiverLanterns />
     </group>
     <Suspense fallback={null}><WorkshopCraft/></Suspense>
     <Suspense fallback={null}><Bedroom/></Suspense>

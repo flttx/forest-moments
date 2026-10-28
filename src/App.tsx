@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useForestStore } from './game/store'
 import { installAudio } from './audio/audioStore'
 import { installJournal } from './game/journalStore'
+import {installSeasons} from './game/seasonStore'
 import { installInventory } from './game/inventoryStore'
 import { setMadeFurniture } from './game/furniture'
 import { madeOf } from './game/recipes'
@@ -18,6 +19,7 @@ function App() {
   // Audio stays locked until the first click or key press, as browsers require.
   useEffect(()=>installAudio(),[])
   useEffect(()=>installJournal(),[])
+  useEffect(()=>installSeasons(),[])
   useEffect(()=>installInventory(),[])
   // Finished workshop pieces block walking where they stand.
   useEffect(()=>{setMadeFurniture(madeOf(useForestStore.getState().workshopBook));return useForestStore.subscribe((s,p)=>{if(s.workshopBook!==p.workshopBook)setMadeFurniture(madeOf(s.workshopBook))})},[])

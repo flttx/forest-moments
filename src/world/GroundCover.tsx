@@ -7,6 +7,7 @@ import * as THREE from 'three'
 import { useForestStore } from '../game/store'
 import { canStandAt, groundHeightAt, dockDeckHeight } from '../game/movement'
 import { pathEdgeDistance, noiseGLSL, groundColourGLSL } from './terrain'
+import {plantingSpots} from '../game/growth'
 import {isBeachApproach,meadowWeight} from './worldConfig'
 import {canopyDensityAt,canopyTexture} from './canopyMap'
 const BLADES_PER_CLUMP=6, FLOWER_HEADS=2, PLAYER_RADIUS=.85, FADE_START=22, FADE_END=34
@@ -206,7 +207,7 @@ export function GroundCover() {
       for(let i=0;i<24;i++)for(let j=0;j<24;j++) {
         const cx=c.x+i/3,cz=c.z+j/3,x=cx+hash(cx,cz,1)/3,z=cz+hash(cx,cz,2)/3
         const edge=pathEdgeDistance(x,z)
-        if(onBridge(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||Math.hypot(x,z)>34.5||(z>25&&Math.hypot(x,z)>23)||Math.hypot(x,z-8)<1.3||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
+        if(onBridge(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||Math.hypot(x,z)>34.5||(z>25&&Math.hypot(x,z)>23)||plantingSpots.some(p=>Math.hypot(x-p.x,z-p.z)<1.3)||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
         // meadows grow continuous turf, crown shade thins it out, and the verge tapers toward the track
         const shade=canopyDensityAt(x,z),meadow=meadowWeight(x,z)
         const drift=.55+.45*Math.sin(x*.31+Math.sin(z*.23)*2.1)*Math.cos(z*.27-Math.sin(x*.19)*1.7)

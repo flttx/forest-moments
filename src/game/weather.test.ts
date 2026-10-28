@@ -29,3 +29,11 @@ it('spring flowers most, summer brings the fireflies, autumn lays leaves on the 
  expect(autumn.butterflies).toBeLessThan(spring.butterflies)
  expect(autumn.turn).toBeGreaterThan(.5);expect(spring.turn+summer.turn).toBe(0)
 })
+
+it('one morning does not decide the next: every change of weather happens, and runs stay short',()=>{
+ const days=Array.from({length:2000},(_,i)=>weatherFor(i+1)),pairs=new Set<string>()
+ let run=1,longest=1
+ for(let i=1;i<days.length;i++){pairs.add(days[i-1]+'>'+days[i]);run=days[i]===days[i-1]?run+1:1;longest=Math.max(longest,run)}
+ expect(pairs.size).toBe(weatherIds.length**2)
+ expect(longest).toBeLessThan(15)
+})

@@ -1,5 +1,5 @@
 import {beforeEach,afterEach,expect,it,vi} from 'vitest'
-import {growthStorageKey,legacySeedlingKey} from './growth'
+import {growthStorageKey,growthStorageKeyV2,legacySeedlingKey,plantingSpots} from './growth'
 let memory:Map<string,string>
 beforeEach(()=>{
  vi.resetModules();vi.useFakeTimers();vi.setSystemTime(500000)
@@ -7,35 +7,54 @@ beforeEach(()=>{
  vi.stubGlobal('window',{localStorage:{getItem:(k:string)=>memory.get(k)??null,setItem:(k:string,v:string)=>memory.set(k,v)}})
 })
 afterEach(()=>{vi.useRealTimers();vi.unstubAllGlobals()})
+const saved=()=>JSON.parse(memory.get(growthStorageKey)!)
 it('cancels safely, then plants exactly once and persists later stages',async()=>{
  const {useForestStore:store}=await import('./store')
  store.setState({growthReady:true,position:{x:0,z:6.6},nearby:'grove'})
  store.getState().interact();expect(store.getState().mode).toBe('planting')
- store.getState().cancelPlanting();expect(store.getState().tree).toBeNull();expect(memory.size).toBe(0)
+ store.getState().cancelPlanting();expect(store.getState().garden.trees).toEqual([]);expect(memory.size).toBe(0)
  store.getState().interact();store.getState().interact()
  for(let i=0;i<33;i++)store.getState().tickPlanting(.05)
- expect(store.getState().tree?.stage).toBe(0)
- const at=store.getState().tree!.plantedAt
- store.getState().interact();expect(store.getState().tree!.plantedAt).toBe(at)
+ expect(store.getState().garden.trees).toEqual([{spot:0,plantedAt:500000,stage:0,day:0}])
+ store.getState().interact();expect(store.getState().garden.trees).toHaveLength(1)
  vi.setSystemTime(740000);store.getState().refreshGrowth()
- expect(JSON.parse(memory.get(growthStorageKey)!).stage).toBe(3)
+ expect(saved().trees[0].stage).toBe(3)
+})
+it('plants on another plot the next day only, and looks at the tree on the plot it stands by',async()=>{
+ const {useForestStore:store}=await import('./store')
+ const at=(spot:number)=>({x:plantingSpots[spot].x,z:plantingSpots[spot].z+1.2})
+ store.setState({growthReady:true,position:at(0)})
+ store.getState().interact();for(let i=0;i<33;i++)store.getState().tickPlanting(.05)
+ store.setState({position:at(2),inspectingTree:false})
+ store.getState().interact();expect(store.getState().mode).toBe('walking');expect(store.getState().message).toContain('明天')
+ store.setState({homeBook:{...store.getState().homeBook,nights:1}})
+ store.getState().interact();expect(store.getState().plot).toBe(2);for(let i=0;i<33;i++)store.getState().tickPlanting(.05)
+ expect(saved().trees.map((t:{spot:number;day:number})=>[t.spot,t.day])).toEqual([[0,0],[2,1]])
+ store.setState({position:at(0),inspectingTree:false})
+ store.getState().interact();expect(store.getState()).toMatchObject({inspectingTree:true,plot:0})
 })
 it('requires loaded assets and proximity, and migrates legacy saved seedlings',async()=>{
  memory.set(legacySeedlingKey,'true')
  const {useForestStore:store}=await import('./store')
- expect(store.getState().tree?.stage).toBe(1)
- expect(JSON.parse(memory.get(growthStorageKey)!).stage).toBe(1)
- store.setState({tree:null,planted:false,nearby:'grove',position:{x:0,z:6.5}})
+ expect(store.getState().garden.trees[0].stage).toBe(1)
+ expect(saved().trees[0].stage).toBe(1)
+ store.setState({garden:{version:3,trees:[]},nearby:'grove',position:{x:0,z:6.5}})
  store.getState().interact();expect(store.getState().mode).toBe('walking')
  store.setState({growthReady:true,position:{x:0,z:5}})
  store.getState().interact();expect(store.getState().mode).toBe('walking')
+})
+it('moves a v2 tree to the first plot',async()=>{
+ memory.set(growthStorageKeyV2,JSON.stringify({version:2,plantedAt:400000,stage:1}))
+ const {useForestStore:store}=await import('./store')
+ expect(store.getState().garden.trees).toEqual([{spot:0,plantedAt:400000,stage:1,day:0}])
+ expect(saved().version).toBe(3)
 })
 it('keeps the session playable and reports a failed storage write',async()=>{
  const {useForestStore:store}=await import('./store')
  window.localStorage.setItem=()=>{throw Error('blocked')}
  store.setState({growthReady:true,position:{x:0,z:6.6},nearby:'grove'})
  store.getState().interact();for(let i=0;i<33;i++)store.getState().tickPlanting(.05)
- expect(store.getState().planted).toBe(true)
+ expect(store.getState().garden.trees).toHaveLength(1)
  expect(store.getState().message).toContain('无法保存')
  expect(memory.has(growthStorageKey)).toBe(false)
 })

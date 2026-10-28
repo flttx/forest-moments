@@ -1,5 +1,6 @@
 import { isSpecies, pickCatch, type FishingSite, type Light, type SpeciesId } from './fishSpecies'
 import { pond, seaLevel } from '../world/worldConfig'
+import type { Weather } from './weather'
 
 /**
  * Where the raccoon can fish: where it stands, which way it faces (the actor's rotation.y; forward is
@@ -56,8 +57,8 @@ export function decodeCatchBook(raw: string | null): CatchBook {
     return { count: b.count, bestCm: b.bestCm, recent: b.recent, kinds }
   } catch { return emptyBook() }
 }
-export function beginFishing(random = Math.random, light: Light = 'day', site: FishingSite = 'pond'): FishingState {
-  const wait = 3 + random() * 3, fish = pickCatch(light, random, site)
+export function beginFishing(random = Math.random, light: Light = 'day', site: FishingSite = 'pond', weather: Weather = 'clear'): FishingState {
+  const wait = 3 + random() * 3, fish = pickCatch(light, random, site, weather)
   return { phase: 'casting', elapsed: 0, wait, sizeCm: fish.sizeCm, species: fish.species, site, progress: 0, tension: .22, held: false, paused: false, reason: '' }
 }
 export function strikeFish(s: FishingState): FishingState {

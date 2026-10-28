@@ -7,6 +7,7 @@ import {dayLighting} from './dayLighting'
 import * as movement from '../game/movement'
 import {subjectsIn,type SubjectId} from '../game/photoSubjects'
 import {constellation,heartStone} from '../game/secrets'
+import {rainbowRadius} from './rainbowArc'
 
 // Small scattered dressing that should not count as blocking the view.
 const seeThrough=/^(grass|path-embedded|pond-reeds|pond-lily)/
@@ -26,7 +27,9 @@ function judge(scene:THREE.Scene,camera:THREE.Camera):SubjectId[]{
   return !ray.intersectObjects(scene.children,true).some(h=>h.object.visible&&(h.object as THREE.Mesh).isMesh&&!seeThrough.test(h.object.name))
  }
  const outside=s.location==='island'
- return subjectsIn({light:s.timeOfDay,mode:s.mode,seat:s.sitting?.phase==='idle'?s.sitting.id:null,fireLit:s.homeBook.fireLit,raccoonShown:!photo.hideRaccoon&&s.mode!=='rowing'&&s.mode!=='lookout',
+ const bow=scene.getObjectByName('rainbow'),rainbow=outside&&bow?.visible&&(bow.userData.opacity??0)>.2?[1,2,3,4,5].map(i=>bow.localToWorld(new THREE.Vector3(Math.cos(i*Math.PI/6)*rainbowRadius,Math.sin(i*Math.PI/6)*rainbowRadius,0))):[]
+ const lanterns:THREE.Vector3[]=[];if(outside)scene.getObjectByName('river-lanterns')?.children.forEach(o=>{if(o.visible)lanterns.push(o.getWorldPosition(new THREE.Vector3()))})
+ return subjectsIn({rainbow,lanterns,light:s.timeOfDay,mode:s.mode,seat:s.sitting?.phase==='idle'?s.sitting.id:null,fireLit:s.homeBook.fireLit,raccoonShown:!photo.hideRaccoon&&s.mode!=='rowing'&&s.mode!=='lookout',
   raccoon:boxOf(scene,'asset-raccoon'),cabin:outside?boxOf(scene,'expansion-cabin'):null,campfire:outside?boxOf(scene,'campfire'):null,
   sun:dayLighting(daylightAt(s),s.sunRising).sunPosition.clone().normalize(),fireflies:outside?fireflies:[],
   jellyfish:outside?scene.getObjectByName('secret-jellyfish')?.getWorldPosition(new THREE.Vector3()).add(new THREE.Vector3(0,.25,0))??null:null,constellation:new THREE.Vector3(...constellation.centre),

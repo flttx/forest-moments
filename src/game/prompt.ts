@@ -6,9 +6,10 @@ import {spotNear} from './forage'
 import {woodReady} from './recipes'
 import {logPile} from '../world/settlement'
 import {fishingSites,fishingSpot} from './fishing'
-import {plantingSpot} from './growth'
+import {plantedToday,plotNear,treeAt} from './growth'
 import {canViewLookout} from './lookout'
 import {canBoard,canLand,seaBoundaryClearance} from './rowing'
+import {canLaunch,nearLaunch} from './lanterns'
 import type {useForestStore} from './store'
 import {workshopAction} from './workshop'
 
@@ -33,6 +34,7 @@ export function promptFor(s:State):Prompt|null{
  if(s.mode==='foraging')return{status:t('prompt.foraging')}
  if(s.mode==='feeding')return{status:t('prompt.feeding')}
  if(s.mode==='planting')return{status:t('prompt.planting')}
+ if(s.mode==='launching')return{status:t('prompt.launching')}
  if(s.mode==='rowing')return canLand(s.boat)?{action:t('prompt.land')}:seaBoundaryClearance(s.boat.x,s.boat.z)<2?{hint:t('prompt.openSea')}:null
  if(s.location==='bedroom'){
   if(near(p,{x:0,z:2.5},.9))return{action:t('prompt.toIsland')}
@@ -49,6 +51,12 @@ export function promptFor(s:State):Prompt|null{
   if(s.mode==='walking'&&near(p,logPile,1.4))return woodReady(s.workshopBook,s.homeBook.nights)?{action:t('prompt.wood')}:{hint:t('msg.woodTaken')}
   if(near(p,camp,2.1))return{action:s.homeBook.fireLit?t('prompt.fireOut'):t('prompt.fireLight')}
   if(near(p,{x:cabin.x,z:cabin.doorZ},1.2))return s.homeReady?{action:t('prompt.enterBedroom')}:{status:t('prompt.bedroomLoading')}
+  if(s.mode==='walking'&&nearLaunch(p))return canLaunch(s.timeOfDay)?{action:t('prompt.lantern')}:{hint:t('prompt.lanternDay')}
+  const plot=s.mode==='walking'?plotNear(p):null
+  if(plot!==null){
+   if(treeAt(s.garden,plot))return{action:s.inspectingTree&&s.plot===plot?t('prompt.walkOn'):t('prompt.lookTree')}
+   return !s.growthReady?{status:t('prompt.treeLoading')}:plantedToday(s.garden,s.homeBook.nights)?{hint:t('prompt.plantedToday')}:{action:t('prompt.plant')}
+  }
   if(s.nearby==='campfire')return{hint:t('prompt.toFire')}
   if(s.nearby==='bedroom')return{hint:t('prompt.toCabin')}
  }
@@ -73,9 +81,7 @@ export function promptFor(s:State):Prompt|null{
    return !s.farmReady?{status:t('prompt.farmLoading')}:s.mealActive?{hint:t('prompt.mealActive')}:near(p,feedSpot,.65)?{action:t('prompt.feed')}:{hint:t('prompt.toTrough')}
   case 'pond':return !s.fishingReady?{status:t('prompt.fishingLoading')}:near(p,fishingSpot,.85)?{action:t('prompt.cast')}:{hint:t('prompt.toFishingSpot')}
   case 'dock':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:near(p,fishingSites.sea.stand,.85)?{action:t('prompt.castSea')}:{hint:t('prompt.toDockEnd')}
-  case 'grove':
-   if(s.planted)return{action:s.inspectingTree?t('prompt.walkOn'):t('prompt.lookTree')}
-   return !s.growthReady?{status:t('prompt.treeLoading')}:near(p,plantingSpot,1.8)?{action:t('prompt.plant')}:{hint:t('prompt.toPlot')}
+  case 'grove':return{hint:t('prompt.toPlot')}
   default:return null
  }
 }

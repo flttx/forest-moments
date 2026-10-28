@@ -1,6 +1,7 @@
 import {cabin,camp} from './expansion'
 import {workshopPosition,lookoutPosition,landing} from '../world/worldConfig'
 import {woodSpot,workshopDoor} from './workshop'
+import {launchStand} from './lanterns'
 /** Names and hints are translated by id (i18n `place.<id>`, `place.<id>.hint`). */
 export const landmarks = [
   {id:'bedroom',x:cabin.x,z:cabin.doorZ},
@@ -11,6 +12,7 @@ export const landmarks = [
   { id: 'lookout', x: lookoutPosition[0], z: lookoutPosition[2] },
   { id: 'grove', x: 0, z: 8 },
   { id: 'dock', x: landing.x, z: landing.z },
+  {id:'lanterns',x:launchStand.x,z:launchStand.z},
 ] as const
 
 export type LandmarkId = (typeof landmarks)[number]['id']

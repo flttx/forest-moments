@@ -2,6 +2,7 @@ import {vegetationPositions} from '../world/vegetationLayout'
 import {pathEdgeDistance,terrainHeight} from '../world/terrain'
 import {islandShape,seaLevel} from '../world/worldConfig'
 import {canStandAt} from './movement'
+import {rainMushrooms,weatherFor} from './weather'
 
 /**
  * Gathering (docs/GAMEPLAY_EXPANSION_PLAN.md §2.4): mushrooms under the trees, berries by the bushes, shells on the
@@ -59,10 +60,10 @@ export const forageSpots:ForageSpot[]=(()=>{
 function seeded(seed:number){let n=(seed*2654435761)%4294967296||1;return()=>((n=(n*1664525+1013904223)%4294967296)/4294967296)}
 /** The spots offering something on a given day (day = nights slept). */
 export function spotsForDay(day:number,spots:readonly ForageSpot[]=forageSpots):ForageSpot[]{
- const random=seeded(day+17),out:ForageSpot[]=[]
+ const random=seeded(day+17),out:ForageSpot[]=[],rain=weatherFor(day)==='rain'
  for(const kind of forageKinds){
-  const pool=spots.filter(s=>s.kind===kind)
-  for(let i=0;i<perDay[kind]&&pool.length;i++)out.push(pool.splice(Math.floor(random()*pool.length),1)[0])
+  const pool=spots.filter(s=>s.kind===kind),count=kind==='mushroom'&&rain?rainMushrooms:perDay[kind]
+  for(let i=0;i<count&&pool.length;i++)out.push(pool.splice(Math.floor(random()*pool.length),1)[0])
  }
  return out
 }

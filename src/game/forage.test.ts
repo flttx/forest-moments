@@ -1,6 +1,7 @@
 import {expect,it} from 'vitest'
 import {availableSpots,decodeForage,onSand,emptyForage,forageKinds,forageSpots,perDay,spotNear,spotsForDay,takeSpot} from './forage'
 import {canStandAt} from './movement'
+import {weatherFor} from './weather'
 
 it('has room on the island for every kind, each on standable ground and apart',()=>{
  for(const kind of forageKinds)expect(forageSpots.filter(s=>s.kind===kind).length).toBeGreaterThanOrEqual(perDay[kind]*2)
@@ -10,7 +11,9 @@ it('has room on the island for every kind, each on standable ground and apart',(
  expect(new Set(forageSpots.map(s=>s.id)).size).toBe(forageSpots.length)
 })
 it('offers a fixed handful per day, different from day to day',()=>{
- const a=spotsForDay(3),b=spotsForDay(3),c=spotsForDay(4)
+ // Two dry days: rain brings up extra mushrooms (tier1Weather.test.ts).
+ const [d,e]=Array.from({length:40},(_,i)=>i+1).filter(n=>weatherFor(n)!=='rain')
+ const a=spotsForDay(d),b=spotsForDay(d),c=spotsForDay(e)
  expect(a).toEqual(b)
  for(const kind of forageKinds)expect(a.filter(s=>s.kind===kind)).toHaveLength(perDay[kind])
  expect(a.map(s=>s.id)).not.toEqual(c.map(s=>s.id))

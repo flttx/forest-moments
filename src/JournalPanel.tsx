@@ -3,6 +3,11 @@ import {useLang,useT,type Key} from './i18n'
 import {Icon,type IconName} from './Icon'
 import {useJournalStore} from './game/journalStore'
 import {pageDone,taskTarget,type StampId,type TaskId} from './game/journal'
+import {useSeasonStore} from './game/seasonStore'
+import {useUiStore} from './game/uiStore'
+import type {SeasonRecap} from './game/seasons'
+
+const none:SeasonRecap[]=[]
 
 const stampIcon:Record<StampId,IconName>={pine:'pine',koi:'fishbook',flame:'flame',feather:'feather',boat:'boat',moon:'moon'}
 const measured:Partial<Record<TaskId,Key>>={row:'journal.meters',fireside:'journal.seconds',mushrooms:'journal.count'}
@@ -17,6 +22,7 @@ export function Stamp({id,size=28}:{id:StampId;size?:number}){
 export function JournalPanel(){
  const t=useT(),lang=useLang(s=>s.lang)
  const book=useJournalStore(s=>s.book),turn=useJournalStore(s=>s.turn)
+ const recaps=useSeasonStore(s=>s.book?.recaps??none),view=useSeasonStore(s=>s.view),openPanel=useUiStore(s=>s.openPanel)
  const title=useRef<HTMLParagraphElement>(null)
  const [selected,setSelected]=useState<number|null>(null)
  const current=selected===null||selected>=book.page.number
@@ -55,5 +61,9 @@ export function JournalPanel(){
    <h3>{t('journal.stamps',{n:book.stamps.length})}</h3>
    {book.stamps.length?<div className="stamp-row">{book.stamps.map(s=><button key={s.page} type="button" aria-label={t('journal.viewPage',{n:s.page})} aria-pressed={number===s.page} onClick={()=>show(s.page)}><Stamp id={s.stamp} size={22}/><small>{s.page}</small></button>)}</div>:<p className="empty">{t('journal.noStamps')}</p>}
   </section>
+  {recaps.length>0&&<section className="journal-stamps">
+   <h3>{t('season.title')}</h3>
+ <div className="recap-row">{recaps.map((r,i)=><button key={r.startDay} type="button" className="tool-button" onClick={()=>{view(i);openPanel('season')}}>{t(`season.${r.season}`)}<small>{t('season.days',{from:r.startDay+1,to:r.endDay})}</small></button>)}</div>
+  </section>}
  </div>
 }

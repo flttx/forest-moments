@@ -6,7 +6,7 @@ import {useT} from './i18n'
 /** Growth details, shown only while the player is looking at the tree. */
 export function GrowthStatus(){
  const t=useT()
- const tree=useForestStore(s=>s.tree)
+ const tree=useForestStore(s=>s.plot===null?null:s.garden.trees.find(t=>t.spot===s.plot)??null)
  const [now,setNow]=useState(()=>Date.now())
  useEffect(()=>{const timer=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(timer)},[])
  if(!tree)return null

@@ -5,13 +5,15 @@ import {decodeForage,emptyForage,forageSeconds,forageStorageKey,spotNear,takeSpo
 import type {ItemId} from './inventory'
 import {beginRoast,canStargaze,roastSeconds,type Roast} from './campfire'
 import {t} from '../i18n'
+import {weatherFor} from './weather'
+import {afloat,canLaunch,launchSeconds,maxLanterns,nearLaunch} from './lanterns'
 import {beginSleepJourney,sleepDuration,lightingStorageKey,type TimeOfDay,type SleepJourney} from './dayCycle'
 import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,expansionStorageKey,addCatch,catchId,latestCatchChoice,type HomeBook,type SeatSession,type SeatId} from './expansion'
 import { create } from 'zustand'
 import { findNearestLandmark, type LandmarkId } from './landmarks'
 import { canBoard, canLand, initialBoat, landing, type BoatState } from './rowing'
 import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSites, fishingSpot, recordCatch, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
-import {advanceTree,decodeTree,growthStages,growthStorageKey,legacySeedlingKey,plantingSpot,type PlantedTree} from './growth'
+import {advanceGarden,decodeGarden,growthStages,growthStorageKey,growthStorageKeyV2,legacySeedlingKey,plant,plantedToday,plantingStand,plotNear,treeAt,type Garden} from './growth'
 import {transferCommit,transferDuration,type BoatTransfer} from './boatPresentation'
 import {decodeFarm,farmStorageKey,feedSpot,type FarmBook,afterMeal,brushSpot,choreSeconds,eggReady,eggSpot,woolReady} from './farm'
 import {canViewLookout,initialLookoutView,turnLookout,type LookoutView,type LookoutTransfer} from './lookout'
@@ -20,12 +22,12 @@ import {decodeWorkshop,workshopDoor,workshopStorageKey,workshopAction,strikeCraf
 function saveHome(home:HomeBook){try{window.localStorage.setItem(expansionStorageKey,JSON.stringify(home));return true}catch{return false}}
 function saveWorkshop(book:WorkshopBook){try{window.localStorage.setItem(workshopStorageKey,JSON.stringify(book));return true}catch{return false}}
 
-function saveTree(tree:PlantedTree){try{window.localStorage.setItem(growthStorageKey,JSON.stringify(tree));return true}catch{return false}}
-function loadTree(){try{const tree=decodeTree(window.localStorage.getItem(growthStorageKey),window.localStorage.getItem(legacySeedlingKey),Date.now());if(tree)saveTree(tree);return tree}catch{return null}}
-const initialTree=typeof window!=='undefined'?loadTree():null
+function saveGarden(garden:Garden){try{window.localStorage.setItem(growthStorageKey,JSON.stringify(garden));return true}catch{return false}}
+function loadGarden():Garden{try{const ls=window.localStorage,garden=decodeGarden(ls.getItem(growthStorageKey),ls.getItem(growthStorageKeyV2),ls.getItem(legacySeedlingKey),Date.now());if(garden.trees.length)saveGarden(garden);return garden}catch{return{version:3,trees:[]}}}
+const initialGarden:Garden=typeof window!=='undefined'?loadGarden():{version:3,trees:[]}
 
 type ForestState = {
-  mode: 'walking' | 'rowing' | 'fishing' | 'planting' | 'feeding' | 'lookout' | 'gathering' | 'crafting' | 'sitting' | 'sleeping' | 'foraging'
+  mode: 'walking' | 'rowing' | 'fishing' | 'planting' | 'feeding' | 'lookout' | 'gathering' | 'crafting' | 'sitting' | 'sleeping' | 'foraging' | 'launching'
   location: 'island'|'workshop'|'bedroom'
   islandOverview:boolean
   homeBook:HomeBook
@@ -53,6 +55,10 @@ type ForestState = {
   /** The latest thing the island gave (gathering, farm); the satchel takes it from here. */
   harvest:{seq:number;item:ItemId;n?:number}|null
   tickForage:(delta:number)=>void
+  /** River lanterns set on the creek this visit (launch times, ms) and how many in all; not saved. */
+  lanterns:{launched:number[];total:number}
+  launchingElapsed:number
+  tickLaunch:(delta:number)=>void
   /** Hidden corners found, with when. */
   secretsBook:SecretsBook
   discoverSecret:(id:SecretId)=>void
@@ -90,7 +96,10 @@ type ForestState = {
   finishMeal:()=>void
   boatTransfer:BoatTransfer|null
   tickBoatTransfer:(delta:number)=>boolean
-  tree:PlantedTree|null
+  /** Trees planted on the island's plots (docs/GAMEPLAY_TIER1_PLAN.md T3). */
+  garden:Garden
+  /** The plot being planted or looked at. */
+  plot:number|null
   growthReady:boolean
   inspectingTree:boolean
   plantingElapsed:number
@@ -114,7 +123,6 @@ type ForestState = {
   setBoatReady: (ready: boolean) => void
   updateBoat: (boat: BoatState) => void
   nearby: LandmarkId | null
-  planted: boolean
   message: string
   /** 'error' notices (save or load failures) stay until dismissed; ordinary feedback fades. */
   messageKind: 'info'|'error'
@@ -156,6 +164,14 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   roast:null,roasted:0,stargazing:false,
   forageBook:(()=>{if(typeof window==='undefined')return emptyForage();try{return decodeForage(window.localStorage.getItem(forageStorageKey))??emptyForage()}catch{return emptyForage()}})(),
   foraging:null,harvest:null,
+  lanterns:{launched:[],total:0},launchingElapsed:0,
+  tickLaunch:delta=>{
+    const s=get();if(s.mode!=='launching'||s.menuPaused||!Number.isFinite(delta))return
+    const elapsed=s.launchingElapsed+Math.min(Math.max(delta,0),.05)
+    if(elapsed<launchSeconds){set({launchingElapsed:elapsed});return}
+    const now=Date.now(),launched=[...afloat(s.lanterns.launched,now),now]
+    set({mode:'walking',launchingElapsed:0,lanterns:{launched,total:s.lanterns.total+1},message:t('msg.lanternAway')})
+  },
   secretsBook:(()=>{if(typeof window==='undefined')return emptySecrets();try{return decodeSecrets(window.localStorage.getItem(secretsStorageKey))??emptySecrets()}catch{return emptySecrets()}})(),
   discoverSecret:id=>{
     const book=discover(get().secretsBook,id,new Date().toISOString());if(book===get().secretsBook)return
@@ -273,7 +289,8 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     set({boatTransfer:elapsed>=transferDuration?null:{...previous,elapsed,committed:previous.committed||commit}})
     return commit
   },
-  tree:initialTree,
+  garden:initialGarden,
+  plot:null,
   growthReady:false,
   inspectingTree:false,
   plantingElapsed:0,
@@ -283,14 +300,16 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(get().mode!=='planting'||get().menuPaused)return
     const elapsed=get().plantingElapsed+Math.min(Math.max(delta,0),.05)
     if(elapsed<1.6){set({plantingElapsed:elapsed});return}
-    const tree:PlantedTree={version:2,plantedAt:Date.now(),stage:0},saved=saveTree(tree)
-    set({tree,planted:true,mode:'walking',inspectingTree:true,plantingElapsed:0,messageKind:saved?'info':'error',message:saved?t('msg.planted'):t('msg.plantedUnsaved')})
+    const s=get(),garden=plant(s.garden,s.plot??0,Date.now(),s.homeBook.nights)
+    if(garden===s.garden){set({mode:'walking',plantingElapsed:0});return}
+    const saved=saveGarden(garden),first=garden.trees.length===1
+    set({garden,mode:'walking',inspectingTree:true,plantingElapsed:0,messageKind:saved?'info':'error',message:saved?t(first?'msg.planted':'msg.plantedMore',{n:garden.trees.length}):t('msg.plantedUnsaved')})
   },
   refreshGrowth:()=>{
-    const previous=get().tree;if(!previous)return
-    const tree=advanceTree(previous,Date.now());if(tree===previous)return
-    const saved=saveTree(tree)
-    set({tree,messageKind:saved?'info':'error',message:t(saved?'msg.grew':'msg.grewUnsaved',{stage:t(`growth.${growthStages[tree.stage].id}`)})})
+    const previous=get().garden
+    const garden=advanceGarden(previous,Date.now());if(garden===previous)return
+    const saved=saveGarden(garden),grown=garden.trees.find((tree,i)=>tree!==previous.trees[i])!
+    set({garden,messageKind:saved?'info':'error',message:t(saved?'msg.grew':'msg.grewUnsaved',{stage:t(`growth.${growthStages[grown.stage].id}`)})})
   },
   fishing: null,
   fishBook: (() => { try { return decodeCatchBook(window.localStorage.getItem(catchStorageKey)) } catch { return emptyBook() } })(),
@@ -332,7 +351,6 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   setBoatReady: (boatReady) => set({ boatReady }),
   updateBoat: (boat) => set({ boat }),
   nearby: null,
-  planted:!!initialTree,
   message: '',
   updatePosition: (x, z) => {
     const nearby = get().location==='bedroom'?'bedroom':get().location==='workshop'?'workshop':findNearestLandmark(x, z)
@@ -340,17 +358,17 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if (x !== previous.position.x || z !== previous.position.z || nearby !== previous.nearby) set({ nearby, position: { x, z } })
   },
   interact: () => {
-    const { nearby, planted, mode, position, boat, boatReady } = get()
+    const { nearby, mode, position, boat, boatReady } = get()
     // Under an open menu panel the scene ignores F, including clicks that reach the prompt.
     if(get().menuPaused)return
-    if(mode==='planting'||mode==='feeding'||mode==='gathering'||mode==='foraging'||get().boatTransfer||get().lookoutTransfer||get().workshopTransfer||get().homeTransfer)return
+    if(mode==='planting'||mode==='launching'||mode==='feeding'||mode==='gathering'||mode==='foraging'||get().boatTransfer||get().lookoutTransfer||get().workshopTransfer||get().homeTransfer)return
     if(mode==='sitting'){get().leaveSeat();return}
     if(mode==='sleeping'){get().wakeUp();return}
     if(mode==='crafting'){const c=get().craft;if(c)set({craft:strikeCraft(c)});return}
     if(mode==='lookout'){get().leaveLookout();return}
     if (mode === 'fishing') {
       const f = get().fishing
-      if (f) set({ fishing: ['caught', 'escaped'].includes(f.phase) ? beginFishing(Math.random, get().timeOfDay, f.site) : strikeFish(f), message: '' })
+      if (f) set({ fishing: ['caught', 'escaped'].includes(f.phase) ? beginFishing(Math.random, get().timeOfDay, f.site, weatherFor(get().homeBook.nights)) : strikeFish(f), message: '' })
       return
     }
     if (mode === 'rowing') {
@@ -375,6 +393,20 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       if(mode==='walking'&&nearLogPile(position)){if(!woodReady(get().workshopBook,get().homeBook.nights)){set({message:t('msg.woodTaken')});return}set({mode:'foraging',foraging:{item:'wood',source:'wood',x:logPile.x,z:logPile.z,seconds:1.6,elapsed:0},inspectingTree:false,message:''});return}
       if(Math.hypot(position.x-camp.x,position.z-camp.z)<2.1){const homeBook={...get().homeBook,fireLit:!get().homeBook.fireLit},saved=saveHome(homeBook);set({homeBook,messageKind:saved?'info':'error',message:(homeBook.fireLit?t('msg.fireLit'):t('msg.fireOut'))+(saved?'':t('msg.unsavedShort'))});return}
       if(Math.hypot(position.x-cabin.x,position.z-cabin.doorZ)<1.2){if(get().homeReady)set({homeReturn:{...position},homeTransfer:{direction:'enter',elapsed:0,committed:false},message:''});else set({message:t('msg.bedroomLoading')});return}
+      // The lantern stone above the bridge: dusk and night only, a few afloat at once.
+      if(mode==='walking'&&nearLaunch(position)){
+        if(!canLaunch(get().timeOfDay)){set({message:t('msg.lanternDay')});return}
+        if(afloat(get().lanterns.launched,Date.now()).length>=maxLanterns){set({message:t('msg.lanternsFull')});return}
+        set({mode:'launching',launchingElapsed:0,inspectingTree:false,message:''});return
+      }
+      // A plot: look at its tree, or plant one (one new tree a day).
+      const plot=mode==='walking'?plotNear(position):null
+      if(plot!==null){
+        if(treeAt(get().garden,plot)){get().refreshGrowth();set({inspectingTree:!get().inspectingTree,plot,message:''});return}
+        if(!get().growthReady){set({message:t('msg.treeLoading')});return}
+        if(plantedToday(get().garden,get().homeBook.nights)){set({message:t('msg.plantedToday')});return}
+        set({mode:'planting',plot,position:plantingStand(position,plot),plantingElapsed:0,message:''});return
+      }
     }
     if (!nearby) return
     if(nearby==='workshop'){
@@ -405,7 +437,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if (nearby === 'pond') {
       if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
       if (Math.hypot(position.x - fishingSpot.x, position.z - fishingSpot.z) > .85) { set({ message: t('msg.toFishingSpot') }); return }
-      set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(Math.random, get().timeOfDay, 'pond'), message: '' })
+      set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(Math.random, get().timeOfDay, 'pond', weatherFor(get().homeBook.nights)), message: '' })
       return
     }
     if (nearby === 'dock') {
@@ -414,22 +446,13 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       const sea = fishingSites.sea.stand
       if (!canBoard(position.x, position.z, boat) && Math.hypot(position.x - sea.x, position.z - sea.z) <= .85) {
         if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
-        set({ mode: 'fishing', position: { ...sea }, fishing: beginFishing(Math.random, get().timeOfDay, 'sea'), message: '' }); return
+        set({ mode: 'fishing', position: { ...sea }, fishing: beginFishing(Math.random, get().timeOfDay, 'sea', weatherFor(get().homeBook.nights)), message: '' }); return
       }
       if (!canBoard(position.x, position.z, boat)) { set({ message: t('msg.toDockEnd') }); return }
       set({boatTransfer:{direction:'board',elapsed:0,committed:false},message:''})
       return
     }
-    if (nearby === 'grove') {
-      if (!planted) {
-        if(!get().growthReady){set({message:t('msg.treeLoading')});return}
-        if(Math.hypot(position.x-plantingSpot.x,position.z-plantingSpot.z)>1.8){set({message:t('msg.toPlot')});return}
-        const dx=position.x-plantingSpot.x,dz=position.z-plantingSpot.z,d=Math.hypot(dx,dz)
-        const stand=d<.65?{x:plantingSpot.x+(d?dx/d:0)*.8,z:plantingSpot.z+(d?dz/d:1)*.8}:position
-        set({mode:'planting',position:stand,plantingElapsed:0,message:''})
-      } else {get().refreshGrowth();set({inspectingTree:!get().inspectingTree,message:''})}
-      return
-    }
+    if(nearby==='grove'){set({message:t('msg.toPlot')});return}
     set({ message: t(`place.${nearby}.hint`) })
   },
   dismiss: () => set({ message: '' }),

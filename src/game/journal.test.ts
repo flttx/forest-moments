@@ -66,7 +66,7 @@ it('restores a valid save and starts afresh from a broken one; a blocked save ke
  window.localStorage.setItem=()=>{throw Error('denied')}
  j.getState().record([{type:'feed'}])
  expect(j.getState().book.page.tasks[1].doneAt).not.toBeNull();expect(s.getState().messageKind).toBe('error')
- expect(taskIds).toHaveLength(31)
+ expect(taskIds).toHaveLength(34)
 })
 
 const now='2026-10-26T14:00:00Z'

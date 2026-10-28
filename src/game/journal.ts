@@ -1,7 +1,7 @@
 import {speciesIds,type SpeciesId} from './fishSpecies'
 import type {SubjectId} from './photoSubjects'
 import {forageKinds,type ForageKind} from './forage'
-import {weatherFor} from './weather'
+import {rainbowFor,weatherFor} from './weather'
 import type {useForestStore} from './store'
 
 /**
@@ -9,7 +9,7 @@ import type {useForestStore} from './store'
  * play. Pure rules and data; journalStore keeps the page, saves it and reacts to the game.
  */
 export const journalStorageKey='forest-moments:journal:v1'
-export const taskIds=['catch','bigCatch','keep','feed','fireside','seaside','lookout','row','sleep','photo','nightPhoto','tree','newKind','glowfish','roast','stars','shotSunset','shotFireflies','shotCabin','shotFireside','shotBoat','mushrooms','shell','egg','wool','wood','craft','secret','seaCatch','rainCabin','mistTower'] as const
+export const taskIds=['catch','bigCatch','keep','feed','fireside','seaside','lookout','row','sleep','photo','nightPhoto','tree','newKind','glowfish','roast','stars','shotSunset','shotFireflies','shotCabin','shotFireside','shotBoat','mushrooms','shell','egg','wool','wood','craft','secret','seaCatch','rainCabin','mistTower','shotRainbow','lantern','shotLanterns'] as const
 export type TaskId=typeof taskIds[number]
 export const stampIds=['pine','koi','flame','feather','boat','moon'] as const
 export type StampId=typeof stampIds[number]
@@ -18,7 +18,7 @@ export interface JournalStamp{page:number;stamp:StampId;doneAt:string;tasks?:Jou
 export interface JournalBook{version:1;page:{number:number;tasks:JournalTask[]};stamps:JournalStamp[]}
 
 /** How much of each thing completes it: seconds by the fire, metres rowed, otherwise once. */
-export const taskTarget:Record<TaskId,number>={catch:1,bigCatch:1,keep:1,feed:1,fireside:8,seaside:1,lookout:1,row:40,sleep:1,photo:1,nightPhoto:1,tree:1,newKind:1,glowfish:1,roast:1,stars:1,shotSunset:1,shotFireflies:1,shotCabin:1,shotFireside:1,shotBoat:1,mushrooms:3,shell:1,egg:1,wool:1,wood:1,craft:1,secret:1,seaCatch:1,rainCabin:1,mistTower:1}
+export const taskTarget:Record<TaskId,number>={catch:1,bigCatch:1,keep:1,feed:1,fireside:8,seaside:1,lookout:1,row:40,sleep:1,photo:1,nightPhoto:1,tree:1,newKind:1,glowfish:1,roast:1,stars:1,shotSunset:1,shotFireflies:1,shotCabin:1,shotFireside:1,shotBoat:1,mushrooms:3,shell:1,egg:1,wool:1,wood:1,craft:1,secret:1,seaCatch:1,rainCabin:1,mistTower:1,shotRainbow:1,lantern:1,shotLanterns:1}
 export const tasksPerPage=3
 /** Photo tasks are in the pool: photo mode exists (plan stage P1). */
 export const photoModeReady=true
@@ -26,7 +26,7 @@ export const photoModeReady=true
 export type JournalEvent=
  {type:'catch';sizeCm:number;species:SpeciesId;isNew:boolean;site?:'pond'|'sea'}|{type:'keep'}|{type:'feed'}|{type:'fireside';seconds:number}|{type:'seaside'}
  |{type:'lookout'}|{type:'row';meters:number}|{type:'sleep'}|{type:'photo';night:boolean;subjects?:SubjectId[]}|{type:'tree'}
- |{type:'roast'}|{type:'stars'}|{type:'forage';kind:ForageKind}|{type:'chore';item:'egg'|'wool'|'wood'}|{type:'craft'}|{type:'secret'}|{type:'rainCabin'}|{type:'mistTower'}
+ |{type:'roast'}|{type:'stars'}|{type:'forage';kind:ForageKind}|{type:'chore';item:'egg'|'wool'|'wood'}|{type:'craft'}|{type:'secret'}|{type:'rainCabin'}|{type:'mistTower'}|{type:'lantern'}
  |{type:'reset';task:'row'|'fireside'}
 
 type State=ReturnType<typeof useForestStore.getState>
@@ -55,6 +55,7 @@ export function journalEvents(prev:State,next:State):JournalEvent[]{
  if(next.mode==='rowing'&&prev.mode==='rowing'&&!next.menuPaused&&!next.boatTransfer){const meters=Math.hypot(next.boat.x-prev.boat.x,next.boat.z-prev.boat.z);if(meters>0&&meters<1)events.push({type:'row',meters})}
  if(next.homeBook.nights>prev.homeBook.nights)events.push({type:'sleep'})
  if(next.roasted>prev.roasted)events.push({type:'roast'})
+ if(next.lanterns.total>prev.lanterns.total)events.push({type:'lantern'})
  if(Object.keys(next.secretsBook.found).length>Object.keys(prev.secretsBook.found).length)events.push({type:'secret'})
  if((next.workshopBook.made?.length??0)>(prev.workshopBook.made?.length??0))events.push({type:'craft'})
  if(next.harvest&&next.harvest.seq!==prev.harvest?.seq){
@@ -63,11 +64,11 @@ export function journalEvents(prev:State,next:State):JournalEvent[]{
   if(item==='egg'||item==='wool'||item==='wood')events.push({type:'chore',item})
  }
  if(next.stargazing&&!prev.stargazing&&next.sitting&&campSeats.includes(next.sitting.id))events.push({type:'stars'})
- if((next.planted&&!prev.planted)||(next.inspectingTree&&!prev.inspectingTree))events.push({type:'tree'})
+ if(next.garden.trees.length>prev.garden.trees.length||(next.inspectingTree&&!prev.inspectingTree))events.push({type:'tree'})
  return events
 }
 
-const shotSubject:Record<'shotSunset'|'shotFireflies'|'shotCabin'|'shotFireside'|'shotBoat',SubjectId>={shotSunset:'sunsetSea',shotFireflies:'fireflies',shotCabin:'cabin',shotFireside:'fireside',shotBoat:'boatSunset'}
+const shotSubject:Record<'shotSunset'|'shotFireflies'|'shotCabin'|'shotFireside'|'shotBoat'|'shotRainbow'|'shotLanterns',SubjectId>={shotSunset:'sunsetSea',shotFireflies:'fireflies',shotCabin:'cabin',shotFireside:'fireside',shotBoat:'boatSunset',shotRainbow:'rainbow',shotLanterns:'lanterns'}
 /** How far an event moves a task (0 when unrelated). */
 export function taskStep(id:TaskId,e:JournalEvent){
  switch(id){
@@ -77,7 +78,7 @@ export function taskStep(id:TaskId,e:JournalEvent){
   case 'row':return e.type==='row'?e.meters:0
   case 'photo':return e.type==='photo'?1:0
   case 'nightPhoto':return e.type==='photo'&&e.night?1:0
-  case 'shotSunset':case 'shotFireflies':case 'shotCabin':case 'shotFireside':case 'shotBoat':return e.type==='photo'&&e.subjects?.includes(shotSubject[id])?1:0
+  case 'shotSunset':case 'shotFireflies':case 'shotCabin':case 'shotFireside':case 'shotBoat':case 'shotRainbow':case 'shotLanterns':return e.type==='photo'&&e.subjects?.includes(shotSubject[id])?1:0
   case 'egg':case 'wool':case 'wood':return e.type==='chore'&&e.item===id?1:0
   case 'craft':return e.type==='craft'?1:0
   case 'secret':return e.type==='secret'?1:0
@@ -91,8 +92,9 @@ export function taskStep(id:TaskId,e:JournalEvent){
  }
 }
 
-/** Whether the player could do it right now: a full tank takes no new fish, . */
-export function taskAvailable(id:TaskId,s:{homeBook:{fish:unknown[]};fishBook?:{kinds:object}}){
+/** Whether the player could do it right now: a full tank takes no new fish, a rainbow is only asked for while one is up. */
+export function taskAvailable(id:TaskId,s:{homeBook:{fish:unknown[];nights?:number};fishBook?:{kinds:object}}){
+ if(id==='shotRainbow')return rainbowFor(s.homeBook.nights??0)
  if(id==='keep')return s.homeBook.fish.length<5
  // Nothing left to discover once every kind is in the book.
  if(id==='newKind')return !s.fishBook||Object.keys(s.fishBook.kinds).length<speciesIds.length

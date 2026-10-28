@@ -1,13 +1,14 @@
 import type {PlayOptions} from './WorldAudio'
 import type {useForestStore} from '../game/store'
 import {camp,catchId} from '../game/expansion'
-import {plantingSpot} from '../game/growth'
+import {plantingSpots} from '../game/growth'
+import {launchPoint} from '../game/lanterns'
 import {fishingSites} from '../game/fishing'
 
 type State=ReturnType<typeof useForestStore.getState>
 export interface Cue{name:string;options?:PlayOptions}
 
-const campfire={x:camp.x,y:.4,z:camp.z},sapling={x:plantingSpot.x,y:.4,z:plantingSpot.z}
+const campfire={x:camp.x,y:.4,z:camp.z},sapling=(spot:number)=>({...plantingSpots[spot],y:.4})
 const started=<T,>(prev:T|null,next:T|null)=>!prev&&!!next
 
 /**
@@ -52,9 +53,12 @@ export function soundCues(prev:State,next:State):Cue[]{
 
  // Farm, sapling, seats, campfire, bed.
  if(next.mode==='feeding'&&prev.mode!=='feeding')cue('pour',{volume:.8})
- if(next.mode==='planting'&&prev.mode!=='planting')cue('rustle',{volume:.9,at:sapling})
- if(!prev.planted&&next.planted)cue('pluck',{volume:.8,at:sapling})
- if(prev.tree&&next.tree&&next.tree.stage>prev.tree.stage)cue('rustle',{volume:.6,rate:1.1,at:sapling})
+ if(next.lanterns.total>prev.lanterns.total)cue('splash-tiny',{volume:.5,at:{...launchPoint,y:5.5}})
+ if(next.mode==='planting'&&prev.mode!=='planting')cue('rustle',{volume:.9,at:sapling(next.plot??0)})
+ const planted=next.garden.trees.find(t=>!prev.garden.trees.some(p=>p.spot===t.spot))
+ if(planted)cue('pluck',{volume:.8,at:sapling(planted.spot)})
+ const grown=next.garden.trees.find(t=>{const was=prev.garden.trees.find(p=>p.spot===t.spot);return was&&t.stage>was.stage})
+ if(grown)cue('rustle',{volume:.6,rate:1.1,at:sapling(grown.spot)})
  if(next.sitting?.phase!==prev.sitting?.phase&&(next.sitting?.phase==='down'||next.sitting?.phase==='up'))cue('cloth',{volume:.55,rate:next.sitting?.phase==='up'?.9:1})
  if(!prev.homeBook.fireLit&&next.homeBook.fireLit)cue('rustle',{volume:.8,rate:.8,at:campfire})
  if(prev.homeBook.fireLit&&!next.homeBook.fireLit)cue('splash-tiny',{volume:.5,at:campfire})
