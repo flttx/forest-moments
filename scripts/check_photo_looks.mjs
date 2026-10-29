@@ -4,7 +4,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { createHeadlessBrowser } from './browser-session.mjs'
 
-const out = resolve(process.env.FOREST_QA_OUT ?? 'docs/evidence/2026-10-27-photo/looks')
+const out = resolve(process.env.FOREST_QA_OUT ?? 'docs/evidence/2026-10-28-report-sync/photo-looks')
 const base = process.env.FOREST_URL ?? 'http://127.0.0.1:5176/'
 await mkdir(out, { recursive: true })
 const { profile, cleanup } = await createHeadlessBrowser([
@@ -72,21 +72,25 @@ try {
   await press('KeyP', 'p'); await sleep(600); await click('.photo-bar button', '滤镜与相框'); await sleep(300)
 
   // 1. Locks: with no pages only natural, warm and no frame are open; clicking a locked look changes nothing.
-  const lock = () => evaluate("[...document.querySelectorAll('.photo-styles button')].map(b=>b.textContent+':'+(b.getAttribute('aria-disabled')==='true'?'L':'o'))")
+  const lock = () => evaluate("[...document.querySelectorAll('.photo-styles button')].filter(b=>['原色','暖阳','景深','胶片','黑白','夜灯','无相框','纸边','印章'].includes(b.textContent)).map(b=>b.textContent+':'+(b.getAttribute('aria-disabled')==='true'?'L':'o'))")
   assert.deepEqual(await lock(), ['原色:o', '暖阳:o', '景深:L', '胶片:L', '黑白:L', '夜灯:L', '无相框:o', '纸边:L', '印章:L'])
   await click('.photo-styles button', '黑白'); await sleep(200); assert.equal(await photo('p.filter'), 'plain')
-  assert(await evaluate("document.querySelector('.photo-styles button[aria-disabled=true]').title.includes('手账写满')"))
-  check('locked looks are marked, explain how to unlock, and cannot be selected', { locks: await lock() }); await shot('01-locked')
+  const tipBox = await centre('.photo-styles button', '黑白')
+  await cmd('Input.dispatchMouseEvent', { type: 'mouseMoved', ...tipBox })
+  await sleep(160)
+  const tip = await evaluate("(()=>{const b=[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='黑白'),s=getComputedStyle(b,'::after');return{text:b.dataset.tip,content:s.content,opacity:s.opacity,buttonOpacity:getComputedStyle(b).opacity}})()")
+  assert.equal(tip.text, '手账写满 3 页解锁'); assert(tip.content.includes(tip.text)); assert.equal(tip.opacity, '1'); assert.equal(tip.buttonOpacity, '1')
+  check('locked looks show the current page requirement on hover and cannot be selected', { locks: await lock(), tip }); await shot('01-locked')
 
-  // 2. Unlock thresholds follow the plan: 2 depth, 4 film, 6 paper, 8 mono, 10 lamp, 12 stamps.
-  for (const [pages, open] of [[2, ['原色', '暖阳', '景深', '无相框']], [4, ['原色', '暖阳', '景深', '胶片', '无相框']], [6, ['原色', '暖阳', '景深', '胶片', '无相框', '纸边']], [8, ['原色', '暖阳', '景深', '胶片', '黑白', '无相框', '纸边']], [10, ['原色', '暖阳', '景深', '胶片', '黑白', '夜灯', '无相框', '纸边']], [12, ['原色', '暖阳', '景深', '胶片', '黑白', '夜灯', '无相框', '纸边', '印章']]]) {
+  // 2. Current thresholds: 1 depth, 2 film/paper, 3 mono, 4 lamp, 5 stamps.
+  for (const [pages, open] of [[1, ['原色', '暖阳', '景深', '无相框']], [2, ['原色', '暖阳', '景深', '胶片', '无相框', '纸边']], [3, ['原色', '暖阳', '景深', '胶片', '黑白', '无相框', '纸边']], [4, ['原色', '暖阳', '景深', '胶片', '黑白', '夜灯', '无相框', '纸边']], [5, ['原色', '暖阳', '景深', '胶片', '黑白', '夜灯', '无相框', '纸边', '印章']]]) {
     await setPages(pages); await sleep(250)
     const got = (await lock()).filter((x) => x.endsWith(':o')).map((x) => x.split(':')[0])
     // On the low tier depth stays greyed out even when unlocked.
     const low = await evaluate('photoStore.getState().lowQuality')
     assert.deepEqual(got, low ? open.filter((x) => x !== '景深') : open, `pages ${pages}`)
   }
-  check('unlock thresholds: 2 depth, 4 film, 6 paper frame, 8 mono, 10 lamplight, 12 stamp frame')
+  check('unlock thresholds: 1 depth, 2 film/paper frame, 3 mono, 4 lamplight, 5 stamp frame')
 
   // 3. Each filter changes the picture the way it says (same camera, same light).
   const stats = {}
@@ -128,8 +132,8 @@ try {
   await cmd('Page.navigate', { url: `${base}?qa&quality=low` }); await sleep(800); await waitFor(ready, 'scene ready', 400); await sleep(1500)
   await evaluate(`(async()=>{const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p).name;window.photoStore=(await import(r('/src/game/photoStore.ts'))).usePhotoStore;window.journalStore=(await import(r('/src/game/journalStore.ts'))).useJournalStore})()`)
   await setPages(2); await press('KeyP', 'p'); await sleep(500); await click('.photo-bar button', '滤镜与相框'); await sleep(300); await click('.photo-styles button', '景深'); await sleep(900)
-  const pass = await evaluate("({filter:photoStore.getState().filter,low:photoStore.getState().lowQuality,title:[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='景深')?.title,disabled:[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='景深')?.getAttribute('aria-disabled')})")
-  assert.deepEqual([pass.filter, pass.low, pass.disabled], ['plain', true, 'true']); assert(pass.title.includes('低画质'), JSON.stringify(pass)); await shot('05-low-quality-depth')
+  const pass = await evaluate("({filter:photoStore.getState().filter,low:photoStore.getState().lowQuality,tip:[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='景深')?.dataset.tip,disabled:[...document.querySelectorAll('.photo-styles button')].find(b=>b.textContent==='景深')?.getAttribute('aria-disabled')})")
+  assert.deepEqual([pass.filter, pass.low, pass.disabled], ['plain', true, 'true']); assert(pass.tip.includes('低画质'), JSON.stringify(pass)); await shot('05-low-quality-depth')
   check('on low quality the depth chip is greyed out with the reason and cannot be chosen', pass)
 
   assert.deepEqual(report.errors, [])

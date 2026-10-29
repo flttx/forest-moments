@@ -1,0 +1,175 @@
+{
+  "date": "2026-10-28",
+  "before": {
+    "lines": 2021,
+    "characters": 143210,
+    "imageReferences": 210,
+    "sha256Utf8Normalized": "2388d3c3e43656dcde88295fca52cf850cb2247fbccc5269bf6613e208e3bdad"
+  },
+  "archive": "docs/report/HISTORY_V083.md",
+  "archiveBodyPreserved": true,
+  "runtimeChanged": false,
+  "after": {
+    "lines": 255,
+    "characters": 11933,
+    "imageReferences": 19
+  },
+  "characterReductionPercent": 91.7,
+  "localLinkCount": 52,
+  "missingMainLinks": [],
+  "knownPreexistingMissingArchiveImages": [
+    "../evidence/2026-10-26-hud-i18n/loading/before-user-report.png",
+    "../evidence/2026-10-26-hud-i18n/loading/after-loading-zh.png"
+  ],
+  "checks": {
+    "lint": "PASS",
+    "tests": {
+      "files": 47,
+      "passed": 215
+    },
+    "build": "PASS",
+    "mainJsKB": 1866.86,
+    "mainJsGzipKB": 575.72,
+    "browserRerun": false,
+    "newScreenshots": 0
+  },
+  "images": [
+    {
+      "path": "docs/evidence/2026-10-28-cliff-lookout/views/towerSea.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-27-expansion/x2-sea-fishing/sheet.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1920,
+      "height": 600
+    },
+    {
+      "path": "docs/evidence/rowing-polish/2026-10-24/dusk-final/04-moving-water.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-28-sandplay/after/10-beach-overview.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-28-details/seasons-sheet.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1920,
+      "height": 346
+    },
+    {
+      "path": "docs/evidence/2026-10-28-details/corners-sheet.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 1560
+    },
+    {
+      "path": "docs/evidence/2026-10-28-report-sync/photo-looks/01-locked.png",
+      "tracked": false,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/references/growth/forest-moments-sprout-v1.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-24-tree-growth/sprout-first-back.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1000,
+      "height": 1000
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-24-tree-growth/sprout-runtime-back.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1000,
+      "height": 1000
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-24-tree-growth/browser-views-final/day-stage-3.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-27-x3-lux3d/optimized-sheet.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 960,
+      "height": 1440
+    },
+    {
+      "path": "docs/forest-moments-x5-01-sleeping-fox-v1.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "path": "docs/evidence/assets/2026-10-28-x5-lux3d/optimized-sheet.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 720
+    },
+    {
+      "path": "docs/evidence/2026-10-25-visual-review/baseline/day-seaCliff.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-25-visual-v3/after/day-seaCliff.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-28-slope-camera/before/downhill-still.png",
+      "tracked": false,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-28-slope-camera/after/downhill-still.png",
+      "tracked": false,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    },
+    {
+      "path": "docs/evidence/2026-10-28-campfire-hitch/lit.png",
+      "tracked": true,
+      "ignored": false,
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "skillValidation": "PASS (quick_validate.py)",
+  "excludedNameOccurrencesInReportAndHistory": 0,
+  "figureNumbering": "1-19 continuous",
+  "diffWhitespaceCheck": "PASS"
+}

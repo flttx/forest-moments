@@ -161,3 +161,10 @@ __pycache__/
 !/docs/evidence/2026-10-26-seat-fit/before/camp-west-seatSide.png
 !/docs/evidence/2026-10-26-seat-fit/final/camp-west-seatSide.png
 !/docs/evidence/2026-10-26-seat-fit/final/camp-west-seatFront.png
+
+# Report v0.83 reviewed photo tooltip; remaining capture batch stays local.
+!/docs/evidence/2026-10-28-report-sync/photo-looks/01-locked.png
+
+# Report v0.84 selected slope-camera comparison; other captures stay local.
+!/docs/evidence/2026-10-28-slope-camera/before/downhill-still.png
+!/docs/evidence/2026-10-28-slope-camera/after/downhill-still.png

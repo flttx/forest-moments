@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-28T15:19:50.760Z",
+  "checks": [
+    {
+      "name": "locked looks show the current page requirement on hover and cannot be selected",
+      "locks": [
+        "原色:o",
+        "暖阳:o",
+        "景深:L",
+        "胶片:L",
+        "黑白:L",
+        "夜灯:L",
+        "无相框:o",
+        "纸边:L",
+        "印章:L"
+      ],
+      "tip": {
+        "text": "手账写满 3 页解锁",
+        "content": "\"手账写满 3 页解锁\"",
+        "opacity": "1",
+        "buttonOpacity": "1"
+      }
+    },
+    {
+      "name": "unlock thresholds: 1 depth, 2 film/paper frame, 3 mono, 4 lamplight, 5 stamp frame"
+    },
+    {
+      "name": "filters measurably change the picture",
+      "plain": {
+        "w": 1440,
+        "h": 900,
+        "lum": 88.10211014481101,
+        "sat": 0.47634583656382545,
+        "grain": 5.27053052872318
+      },
+      "warm": {
+        "w": 1440,
+        "h": 900,
+        "lum": 99.76748618257841,
+        "sat": 0.38413362975115206,
+        "grain": 5.689777617285065
+      },
+      "depth": {
+        "w": 1440,
+        "h": 900,
+        "lum": 97.69651831121281,
+        "sat": 0.4387463201856859,
+        "grain": 1.6223205240087066
+      },
+      "film": {
+        "w": 1440,
+        "h": 900,
+        "lum": 69.36903961829405,
+        "sat": 0.36344304460854515,
+        "grain": 6.733511881476132
+      },
+      "mono": {
+        "w": 1440,
+        "h": 900,
+        "lum": 96.97635741727102,
+        "sat": 0,
+        "grain": 4.560851815072271
+      },
+      "nightPlain": {
+        "w": 1440,
+        "h": 900,
+        "lum": 31.24054179664972,
+        "sat": 0.5417615261420705,
+        "grain": 2.1825805222031636
+      },
+      "lamp": {
+        "w": 1440,
+        "h": 900,
+        "lum": 31.539964357243868,
+        "sat": 0.5346612085634345,
+        "grain": 2.1717071409226323
+      }
+    },
+    {
+      "name": "paper and stamp frames mount the saved photo with a caption footer; album keeps the framed image",
+      "framed": {
+        "w": 1512,
+        "h": 1051,
+        "lum": 115.09508344247374,
+        "sat": 0.4065395112187326,
+        "grain": 4.706127290575917
+      },
+      "stamped": {
+        "w": 1512,
+        "h": 1051,
+        "lum": 114.69935100355183,
+        "sat": 0.4073747951328816,
+        "grain": 4.89135307591623
+      },
+      "canvasSize": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "leaving the camera resets filter and frame"
+    },
+    {
+      "name": "on low quality the depth chip is greyed out with the reason and cannot be chosen",
+      "filter": "plain",
+      "low": true,
+      "tip": "画面已降为低画质档，景深暂不可用",
+      "disabled": "true"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-locked.png",
+    "02-filter-plain.png",
+    "02-filter-warm.png",
+    "02-filter-depth.png",
+    "02-filter-film.png",
+    "02-filter-mono.png",
+    "02-filter-lamp.png",
+    "03-frame-paper.png",
+    "04-frame-stamps.png",
+    "05-low-quality-depth.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.50"
+}
