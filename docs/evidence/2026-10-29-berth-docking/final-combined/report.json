@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-29T14:29:18.511Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "mist bow-on: real W approach, F land, F reboard, W depart",
+      "data": {
+        "approach": {
+          "x": 80.6,
+          "z": -13.042257382891005,
+          "heading": -1.5707963267948966,
+          "speed": 0.017976733259723886,
+          "effort": 0.017976733259723886,
+          "phase": 1.2577426171090016
+        },
+        "departed": {
+          "x": 79.29357466998097,
+          "z": -12.15,
+          "heading": 3.141592653589793,
+          "speed": 0.300107508574137,
+          "effort": 0.300107508574137,
+          "phase": 2.568519128071478
+        }
+      }
+    },
+    {
+      "name": "mist offset: real W approach, F land, F reboard, W depart",
+      "data": {
+        "approach": {
+          "x": 79.08122807184638,
+          "z": -12.9,
+          "heading": 0,
+          "speed": 0.015355936720586714,
+          "effort": 0.015355936720586714,
+          "phase": 0.48122807184646366
+        },
+        "departed": {
+          "x": 79.29175665810304,
+          "z": -12.15,
+          "heading": 3.141592653589793,
+          "speed": 0.30023757014812597,
+          "effort": 0.30023757014812597,
+          "phase": 1.7931717043826358
+        }
+      }
+    },
+    {
+      "name": "mist oblique: real W approach, F land, F reboard, W depart",
+      "data": {
+        "approach": {
+          "x": 80.94162671728921,
+          "z": -13.458373282710728,
+          "heading": -0.7853981633974483,
+          "speed": 0.01594136168288089,
+          "effort": 0.01594136168288089,
+          "phase": 0.48313313685951975
+        },
+        "departed": {
+          "x": 79.29052471672297,
+          "z": -12.15,
+          "heading": 3.141592653589793,
+          "speed": 0.29868533452496115,
+          "effort": 0.29868533452496115,
+          "phase": 1.7964601368921462
+        }
+      }
+    },
+    {
+      "name": "main bow-on: real W approach, F land, F reboard, W depart",
+      "data": {
+        "approach": {
+          "x": 42.6,
+          "z": 3.0966305112362926,
+          "heading": 1.5707963267948966,
+          "speed": 0.018402960649251263,
+          "effort": 0.018402960649251263,
+          "phase": 1.2033694887637028
+        },
+        "departed": {
+          "x": 43.90690576697726,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0.2986666992163651,
+          "effort": 0.2986666992163651,
+          "phase": 2.5144900461027992
+        }
+      }
+    },
+    {
+      "name": "main offset: real W approach, F land, F reboard, W depart",
+      "data": {
+        "approach": {
+          "x": 44.128321103732866,
+          "z": 2.9000000000000004,
+          "heading": 3.141592653589793,
+          "speed": 0.015564976459808127,
+          "effort": 0.015564976459808127,
+          "phase": 0.471678896267143
+        },
+        "departed": {
+          "x": 43.90461756610273,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0.2987761551605175,
+          "effort": 0.2987761551605175,
+          "phase": 1.779968722481656
+        }
+      }
+    },
+    {
+      "name": "main oblique: real W approach, F land, F reboard, W depart",
+      "data": {
+        "approach": {
+          "x": 42.93328652725998,
+          "z": 3.466713472740043,
+          "heading": 0.7853981633974483,
+          "speed": 0.015078588943960611,
+          "effort": 0.015078588943960611,
+          "phase": 0.4713383270072695
+        },
+        "departed": {
+          "x": 43.90528207812267,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0.2960387727135137,
+          "effort": 0.2960387727135137,
+          "phase": 1.78005341883929
+        }
+      }
+    },
+    {
+      "name": "reload restores a boardable canonical berth",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "mist-bow-on-approach.png",
+    "mist-bow-on-landed.png",
+    "mist-offset-approach.png",
+    "mist-offset-landed.png",
+    "mist-oblique-approach.png",
+    "mist-oblique-landed.png",
+    "main-bow-on-approach.png",
+    "main-bow-on-landed.png",
+    "main-offset-approach.png",
+    "main-offset-landed.png",
+    "main-oblique-approach.png",
+    "main-oblique-landed.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-29T14:10:32.779Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "overview",
+        "player",
+        "workshop",
+        "pond",
+        "farm",
+        "towerSea"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-overview.png",
+    "day-player.png",
+    "day-workshop.png",
+    "day-pond.png",
+    "day-farm.png",
+    "day-towerSea.png",
+    "dusk-overview.png",
+    "dusk-player.png",
+    "dusk-workshop.png",
+    "dusk-pond.png",
+    "dusk-farm.png",
+    "dusk-towerSea.png",
+    "night-overview.png",
+    "night-player.png",
+    "night-workshop.png",
+    "night-pond.png",
+    "night-farm.png",
+    "night-towerSea.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  },
+  "frames": {
+    "median": 2.7000000000043656,
+    "p95": 7.19999999999709,
+    "low": true,
+    "samples": 180,
+    "view": "towerSea",
+    "light": "night"
+  }
+}

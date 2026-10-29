@@ -1,0 +1,52 @@
+{
+  "blender": "5.2.1 LTS",
+  "source": "public\\assets\\island-trees\\spruce.glb",
+  "sha256": "19a90677e2fdc72efa144465c7df7b3fcd8fa0730bdd8386b1397d29e165a30e",
+  "meshes": [
+    {
+      "name": "geometry_0",
+      "vertices": 90575,
+      "triangles": 97828,
+      "materials": [
+        "Designer_Logic_PBR"
+      ],
+      "components": 5856,
+      "largestComponents": [
+        361,
+        321,
+        248,
+        248,
+        241,
+        226,
+        222,
+        222,
+        221,
+        219,
+        209,
+        205,
+        198,
+        195,
+        193,
+        188,
+        187,
+        184,
+        182,
+        179
+      ],
+      "bounds": [
+        [
+          -1.68968665599823,
+          1.68968665599823
+        ],
+        [
+          -1.5610973834991455,
+          1.5610973834991455
+        ],
+        [
+          0.0,
+          9.0
+        ]
+      ]
+    }
+  ]
+}

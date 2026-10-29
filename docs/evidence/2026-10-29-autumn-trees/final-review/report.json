@@ -1,0 +1,590 @@
+{
+  "date": "2026-10-29T15:46:31.072Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "autumnBirch",
+        "autumnMaple",
+        "overview",
+        "player",
+        "workshop",
+        "pond",
+        "farm",
+        "tower"
+      ]
+    },
+    {
+      "name": "full generated birch and maple geometry, normals and seasonal material loaded",
+      "data": {
+        "saplings": 8,
+        "saplingTriangles": 97828,
+        "trees": [
+          {
+            "kit": "ie-birch-12,5",
+            "instances": 2,
+            "triangles": 97792,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-birch-12,6",
+            "instances": 1,
+            "triangles": 97792,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-birch-12,4",
+            "instances": 1,
+            "triangles": 97792,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-birch-12,7",
+            "instances": 1,
+            "triangles": 97792,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-birch-13,4",
+            "instances": 2,
+            "triangles": 97792,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-birch-13,6",
+            "instances": 1,
+            "triangles": 97792,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-maple-14,4",
+            "instances": 2,
+            "triangles": 119142,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          },
+          {
+            "kit": "ie-maple-14,5",
+            "instances": 1,
+            "triangles": 119142,
+            "invalidNormals": 0,
+            "materialKey": "painted-autumn-trees-v1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "spring summer autumn palette and two new GLB loads",
+      "data": [
+        {
+          "season": "spring",
+          "turn": 0,
+          "broadleaf": [
+            1.0399999999999907,
+            1.1199999999999903,
+            0.900000000000005
+          ]
+        },
+        {
+          "season": "summer",
+          "turn": 0,
+          "broadleaf": [
+            1.0001007976188776,
+            1.0003023928566337,
+            0.9997480059528047
+          ]
+        },
+        {
+          "season": "autumn",
+          "turn": 0.8479173599380482,
+          "broadleaf": [
+            1.1995102136399132,
+            1.0000007397869957,
+            0.8004894164665904
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-autumnBirch.png",
+    "day-autumnMaple.png",
+    "day-overview.png",
+    "day-player.png",
+    "day-workshop.png",
+    "day-pond.png",
+    "day-farm.png",
+    "day-tower.png",
+    "dusk-autumnBirch.png",
+    "dusk-autumnMaple.png",
+    "dusk-overview.png",
+    "dusk-player.png",
+    "dusk-workshop.png",
+    "dusk-pond.png",
+    "dusk-farm.png",
+    "dusk-tower.png",
+    "night-autumnBirch.png",
+    "night-autumnMaple.png",
+    "night-overview.png",
+    "night-player.png",
+    "night-workshop.png",
+    "night-pond.png",
+    "night-farm.png",
+    "night-tower.png",
+    "season-spring.png",
+    "season-spring-autumnBirch.png",
+    "season-spring-autumnMaple.png",
+    "season-summer.png",
+    "season-summer-autumnBirch.png",
+    "season-summer-autumnMaple.png",
+    "season-autumn.png",
+    "season-autumn-autumnBirch.png",
+    "season-autumn-autumnMaple.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  },
+  "frames": {
+    "median": 4.099999999998545,
+    "p95": 9.5,
+    "low": false,
+    "samples": 180,
+    "view": "tower",
+    "light": "night"
+  },
+  "autumnTrees": {
+    "saplings": 8,
+    "saplingTriangles": 97828,
+    "trees": [
+      {
+        "kit": "ie-birch-12,5",
+        "instances": 2,
+        "triangles": 97792,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-birch-12,6",
+        "instances": 1,
+        "triangles": 97792,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-birch-12,4",
+        "instances": 1,
+        "triangles": 97792,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-birch-12,7",
+        "instances": 1,
+        "triangles": 97792,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-birch-13,4",
+        "instances": 2,
+        "triangles": 97792,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-birch-13,6",
+        "instances": 1,
+        "triangles": 97792,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-maple-14,4",
+        "instances": 2,
+        "triangles": 119142,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      },
+      {
+        "kit": "ie-maple-14,5",
+        "instances": 1,
+        "triangles": 119142,
+        "invalidNormals": 0,
+        "materialKey": "painted-autumn-trees-v1"
+      }
+    ]
+  },
+  "autumnLayout": {
+    "plants": [
+      {
+        "kit": "normal-pine-b",
+        "x": 97.79985963033351,
+        "z": 41.82474597132685,
+        "scale": 1.1699701714458712,
+        "yaw": 3.1410414231985113
+      },
+      {
+        "kit": "ie-birch",
+        "x": 97.24222004152277,
+        "z": 47.13400401590289,
+        "scale": 1.0514717588235902,
+        "yaw": 0.9511958787502164
+      },
+      {
+        "kit": "ie-birch",
+        "x": 96.38069446621903,
+        "z": 53.87645367245982,
+        "scale": 0.8683975740715427,
+        "yaw": -2.432007144067272
+      },
+      {
+        "kit": "ie-birch",
+        "x": 100.33776278853722,
+        "z": 38.42673321787794,
+        "scale": 0.9017745925641598,
+        "yaw": -1.8152012846841146
+      },
+      {
+        "kit": "ie-birch",
+        "x": 100.04243206817237,
+        "z": 43.32818143962313,
+        "scale": 0.8390168144866296,
+        "yaw": -2.9749623115311015
+      },
+      {
+        "kit": "ie-birch",
+        "x": 100.25910990927039,
+        "z": 57.32489903289794,
+        "scale": 0.8850608557199587,
+        "yaw": -2.124070419294558
+      },
+      {
+        "kit": "ie-birch",
+        "x": 104.34833886811272,
+        "z": 35.274751014159136,
+        "scale": 0.9465220094739535,
+        "yaw": -0.9882709539139551
+      },
+      {
+        "kit": "ie-birch",
+        "x": 108.37929877286682,
+        "z": 34.596838128690806,
+        "scale": 0.9956009892342009,
+        "yaw": -0.08129352885233368
+      },
+      {
+        "kit": "normal-pine-b",
+        "x": 109.12339307400734,
+        "z": 50.88835171793581,
+        "scale": 1.1537210282265604,
+        "yaw": 2.8407579586990077
+      },
+      {
+        "kit": "ie-birch",
+        "x": 108.27860928530498,
+        "z": 53.70495492519722,
+        "scale": 0.9742044731273098,
+        "yaw": -0.4767002218748316
+      },
+      {
+        "kit": "ie-maple",
+        "x": 112.49061149066529,
+        "z": 35.518890729730934,
+        "scale": 1.0617549417663745,
+        "yaw": 1.1412286551535757
+      },
+      {
+        "kit": "ie-maple",
+        "x": 112.3636136807935,
+        "z": 42.14101551902636,
+        "scale": 1.0347679071686222,
+        "yaw": 0.6425094220096204
+      },
+      {
+        "kit": "ie-maple",
+        "x": 115.47390167010153,
+        "z": 34.38170281741908,
+        "scale": 0.8882041048965786,
+        "yaw": -2.065983310343551
+      },
+      {
+        "kit": "normal-pine-b",
+        "x": 120.29658177799992,
+        "z": 57.600453274863945,
+        "scale": 1.1055236278249858,
+        "yaw": 1.9500720820889361
+      },
+      {
+        "kit": "normal-pine-b",
+        "x": 127.85161445675199,
+        "z": 49.449410837258945,
+        "scale": 1.0959680720598024,
+        "yaw": 1.77348582448383
+      }
+    ],
+    "walkableArea": 901,
+    "originalMainArea": 3695,
+    "ratio": 0.24384303112313938
+  },
+  "memory": [
+    {
+      "name": "JSHeapUsedSize",
+      "value": 84218656
+    },
+    {
+      "name": "JSHeapTotalSize",
+      "value": 134864896
+    }
+  ],
+  "seasons": [
+    {
+      "season": "spring",
+      "turn": 0,
+      "broadleaf": [
+        1.0399999999999907,
+        1.1199999999999903,
+        0.900000000000005
+      ]
+    },
+    {
+      "season": "summer",
+      "turn": 0,
+      "broadleaf": [
+        1.0001007976188776,
+        1.0003023928566337,
+        0.9997480059528047
+      ]
+    },
+    {
+      "season": "autumn",
+      "turn": 0.8479173599380482,
+      "broadleaf": [
+        1.1995102136399132,
+        1.0000007397869957,
+        0.8004894164665904
+      ]
+    }
+  ],
+  "render": {
+    "position": [
+      0,
+      0,
+      0
+    ],
+    "motion": "idle",
+    "ready": true,
+    "models": [
+      "raccoon",
+      "workshop",
+      "lookout",
+      "canoe"
+    ],
+    "animation": {
+      "clip": "idle",
+      "time": 9.146833015382224
+    },
+    "homeBook": {
+      "version": 1,
+      "fish": [],
+      "usedCatchIds": [],
+      "nights": 0,
+      "fireLit": false
+    },
+    "homeReady": true,
+    "homeTransfer": null,
+    "sitting": null,
+    "sleepElapsed": 0,
+    "sleepJourney": null,
+    "timeOfDay": "day",
+    "mode": "walking",
+    "boatTransfer": null,
+    "boat": {
+      "x": 42.6,
+      "z": 2.15,
+      "heading": 0,
+      "speed": 0,
+      "phase": 0,
+      "effort": 0
+    },
+    "boatReady": true,
+    "dockReady": true,
+    "lookoutReady": true,
+    "lookoutTransfer": null,
+    "lookoutView": {
+      "yaw": -2.36,
+      "pitch": -0.22
+    },
+    "cameraPosition": [
+      113,
+      5,
+      26
+    ],
+    "orbit": {
+      "yaw": 2.356194490192345,
+      "targetYaw": 2.356194490192345,
+      "pitch": 0.31,
+      "targetPitch": 0.31,
+      "zoom": 1,
+      "targetZoom": 1,
+      "idle": null
+    },
+    "orbitDragging": false,
+    "movementHeading": 2.356194490192345,
+    "inputDirection": null,
+    "characterYaw": 2.356194490192345,
+    "playerVisible": true,
+    "canBoard": false,
+    "canLand": true,
+    "boatAnimation": {
+      "clip": "paddle",
+      "time": 0,
+      "phase": 0,
+      "original": true
+    },
+    "boatSurface": {
+      "heave": 0,
+      "pitch": 0,
+      "roll": 0
+    },
+    "waterFeedback": {
+      "capacity": 28,
+      "active": 0,
+      "emittedWake": 0,
+      "emittedPaddle": 0,
+      "reducedMotion": false,
+      "marks": []
+    },
+    "wetland": {
+      "modules": 5,
+      "reeds": 28,
+      "cobbleClusters": 12,
+      "deckTop": 0.9,
+      "clearWidth": 1.9,
+      "decimated": false
+    },
+    "travel": {
+      "version": 1,
+      "checkpoint": "main",
+      "visitedMist": false,
+      "foundPine": true,
+      "visitedAutumn": false,
+      "foundVista": false
+    },
+    "fishing": null,
+    "fishingReady": true,
+    "fishBook": {
+      "count": 0,
+      "bestCm": 0,
+      "recent": [],
+      "kinds": {}
+    },
+    "garden": {
+      "version": 3,
+      "trees": []
+    },
+    "plot": null,
+    "growthReady": true,
+    "plantingElapsed": 0,
+    "growthVisual": null,
+    "farmReady": true,
+    "mealActive": false,
+    "farmBook": {
+      "version": 1,
+      "meals": 0
+    },
+    "feedingElapsed": 0,
+    "farmVisual": {
+      "animals": [
+        {
+          "id": "hen",
+          "x": 8.084079269345967,
+          "z": 5.695814511548843,
+          "yaw": 17.259377645828557,
+          "state": "walk",
+          "eaten": 0,
+          "wait": 2.5,
+          "target": 1,
+          "clip": "walk",
+          "clipTime": 0.21680005961656468
+        },
+        {
+          "id": "sheep",
+          "x": 8.510277087346049,
+          "z": 6.752354764605268,
+          "yaw": 15.678399935515477,
+          "state": "walk",
+          "eaten": 0,
+          "wait": 2.5,
+          "target": 0,
+          "clip": "walk",
+          "clipTime": 0.2044999999999983
+        }
+      ],
+      "foodVisible": false,
+      "visibleGrains": 0,
+      "grainPositions": [
+        [
+          9.23,
+          0.25,
+          3.975
+        ],
+        [
+          9.255019408747254,
+          0.25,
+          3.922741438300272
+        ]
+      ],
+      "progress": 0
+    },
+    "location": "island",
+    "workshopTransfer": null,
+    "workshopReady": true,
+    "workshopBook": {
+      "version": 1,
+      "phase": "available"
+    },
+    "craft": null,
+    "gatheringElapsed": 0,
+    "workshopVisual": {
+      "inside": false,
+      "rawVisible": true,
+      "pieceVisible": false,
+      "dust": 0
+    },
+    "triangles": 1,
+    "calls": 1,
+    "loading": false,
+    "documentId": 1793288791421.6
+  },
+  "assets": [
+    {
+      "path": "/assets/island-trees/birch.glb",
+      "duration": 894.1999999880791,
+      "encodedBodySize": 6455960,
+      "decodedBodySize": 6455960
+    },
+    {
+      "path": "/assets/island-trees/maple.glb",
+      "duration": 1036.800000011921,
+      "encodedBodySize": 8453232,
+      "decodedBodySize": 8453232
+    }
+  ]
+}

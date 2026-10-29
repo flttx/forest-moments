@@ -1,5 +1,6 @@
 import {extendWestLand,westCoastRadius} from './westExpansion'
 import {mistHeight} from './mistIsland'
+import {autumnHeight,autumnBerth} from './autumnIsland'
 /** Shared world-space contracts: rendering, navigation, interaction and QA use these coordinates. */
 export const seaLevel=-.85
 export const islandShape={coastRadius:41,walkRadius:35,plateauRadius:35.5,meshSize:96,shoreDepth:2.3,shoreExtension:1.8,loopRadius:19.5} as const
@@ -23,6 +24,7 @@ export const mooring={x:42.6,z:2.15,heading:0} as const
 export const berths={
  main:{id:'main',landing,mooring,dock:coastalDock},
  mist:{id:'mist',landing:{x:80.6,z:-10.8},mooring:{x:80.6,z:-12.15,heading:Math.PI},dock:{minX:79,maxX:88.2,minZ:-11.1,maxZ:-8.9,deckY:.12}},
+ autumn:autumnBerth,
 } as const
 export type BerthId=keyof typeof berths
 export function dockAt(x:number,z:number,inset=0){return Object.values(berths).find(({dock:d})=>x>=d.minX+inset&&x<=d.maxX-inset&&z>=d.minZ+inset&&z<=d.maxZ-inset)}
@@ -56,13 +58,13 @@ export function originalLandformHeight(x:number,z:number){
  hill*=smoothRange(Math.hypot(x-pond.x,z-pond.z),5.3,9)
  return shore+hill*(1-smoothRange(r,coast-2.8,coast+.9))
 }
-export function landformHeight(x:number,z:number){return x>72?mistHeight(x,z):extendWestLand(x,z,originalLandformHeight(x,z))}
+export function landformHeight(x:number,z:number){return x>72?Math.max(mistHeight(x,z),autumnHeight(x,z)):extendWestLand(x,z,originalLandformHeight(x,z))}
 export function originalShorelineRadius(angle:number){let lo=30,hi=originalCoastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<28;i++){const r=(lo+hi)/2;if(originalLandformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
 export function shorelineRadius(angle:number){let lo=30,hi=coastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<32;i++){const r=(lo+hi)/2;if(landformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
-// A single enclosing sea ellipse stays continuous through the concave joins of the two land masses.
+// A single enclosing sea ellipse stays continuous through the channels between the islands.
 // The hull still samples actual terrain depth, so the envelope never makes land navigable.
 export function seaRangeRadius(angle:number){
- const c=Math.cos(angle),s=Math.sin(angle),a=(c/120)**2+(s/70)**2,b=2*(-20*c/14400+4*s/4900),d=(20/120)**2+(4/70)**2-1
+ const c=Math.cos(angle),s=Math.sin(angle),a=(c/146)**2+(s/105)**2,b=-2*(24*c/21316+16*s/11025),d=(24/146)**2+(16/105)**2-1
  return(-b+Math.sqrt(b*b-4*a*d))/(2*a)
 }
 export function isDockSurface(x:number,z:number,inset=0){return !!dockAt(x,z,inset)}

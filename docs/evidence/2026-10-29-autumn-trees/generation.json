@@ -1,0 +1,78 @@
+{
+  "tasks": [
+    {
+      "id": "06",
+      "name": "birch",
+      "createdAt": "2026-10-29T15:28:52.417Z",
+      "taskId": 4480409,
+      "phase": "succeeded",
+      "endpoint": "https://api.aholo3d.cn/lux3d/v1/generate/img-to-3d/task/create",
+      "reference": "docs/references/island-expansion/ie-06-birch-v1.png",
+      "imageSha256": "09b4452a30c598c90dda05596d489bab1a9e2345b5cd0636d5d41132b930e1be",
+      "options": {
+        "version": "G1",
+        "faceCount": 100000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ],
+        "aiPredictSize": false
+      },
+      "pricing": null,
+      "pricingUnavailable": "Balance endpoint HTTP 500; actual credits not available. Same authorized no-quote route as submit_x3.mjs.",
+      "authorization": "2026-10-29 user instructed using the approved tree references with AHOLO API; keep west expansion and add three smaller islands.",
+      "commercialLicense": "No new license evidence; user call authorization is separate from commercial rights.",
+      "rawDirectory": "assets/lux3d/ie-06-birch-v1",
+      "files": [
+        {
+          "filename": "output-0.zip",
+          "bytes": 20129456,
+          "sha256": "b87f9659fdfc58d8ec457035aa68b2c280e036fc85952dcfec7132d4f5c3018c"
+        },
+        {
+          "filename": "output-1.glb",
+          "bytes": 15295168,
+          "sha256": "2ac969bb951fb2d676d92a8e721261ca236be92ab90e2ceefd32077f1bbf8e7e"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "name": "maple",
+      "createdAt": "2026-10-29T15:28:55.206Z",
+      "taskId": 4480412,
+      "phase": "succeeded",
+      "endpoint": "https://api.aholo3d.cn/lux3d/v1/generate/img-to-3d/task/create",
+      "reference": "docs/references/island-expansion/ie-07-maple-v1.png",
+      "imageSha256": "eebc40e87ae6f20aed41eb1c37b48f7ad3d3cf665d31f10f1486efa7f5982ea1",
+      "options": {
+        "version": "G1",
+        "faceCount": 120000,
+        "outputFormat": [
+          "zip",
+          "glb"
+        ],
+        "aiPredictSize": false
+      },
+      "pricing": null,
+      "pricingUnavailable": "Balance endpoint HTTP 500; actual credits not available. Same authorized no-quote route as submit_x3.mjs.",
+      "authorization": "2026-10-29 user instructed using the approved tree references with AHOLO API; keep west expansion and add three smaller islands.",
+      "commercialLicense": "No new license evidence; user call authorization is separate from commercial rights.",
+      "rawDirectory": "assets/lux3d/ie-07-maple-v1",
+      "files": [
+        {
+          "filename": "output-0.zip",
+          "bytes": 17676519,
+          "sha256": "a84efea1c219b06ad78330b19d9fdae7b7f1e3b0d28e879d33fc7ce2ad0ab423"
+        },
+        {
+          "filename": "output-1.glb",
+          "bytes": 17528648,
+          "sha256": "eec08a38ed033e6fb35c935bacf5148ff531293f36a53ddd321fbce15630bedb"
+        }
+      ]
+    }
+  ],
+  "originalsPreserved": true,
+  "decimationPlanned": false
+}

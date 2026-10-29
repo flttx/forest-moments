@@ -12,6 +12,7 @@ import {isBeachApproach,meadowWeight} from './worldConfig'
 import {canopyDensityAt,canopyTexture} from './canopyMap'
 import {onWestBoardwalk,westLandRadius} from './westExpansion'
 import {mistRadius} from './mistIsland'
+import {autumnRadius,autumnOffset} from './autumnIsland'
 const BLADES_PER_CLUMP=6, FLOWER_HEADS=2, PLAYER_RADIUS=.85, FADE_START=22, FADE_END=34
 function hash(x: number, z: number, seed: number): number {
   const value = Math.sin(x * 127.1 + z * 311.7 + seed * 74.7) * 43758.5453;
@@ -187,6 +188,7 @@ export function GroundCover() {
     const chunks:{x:number;z:number;mesh:THREE.InstancedMesh|null;built:boolean}[]=[]
     for(let x=-80;x<40;x+=8)for(let z=-40;z<40;z+=8)chunks.push({x,z,mesh:null,built:false})
     for(let x=88;x<128;x+=8)for(let z=-32;z<16;z+=8)chunks.push({x,z,mesh:null,built:false})
+    for(let x=88+autumnOffset.x;x<128+autumnOffset.x;x+=8)for(let z=16+autumnOffset.z;z<56+autumnOffset.z;z+=8)chunks.push({x,z,mesh:null,built:false})
     return {root,geometry,material,uniforms,chunks,reduced:false,time:0}
   },[])
   const runtime=useRef(field)
@@ -210,7 +212,7 @@ export function GroundCover() {
       for(let i=0;i<24;i++)for(let j=0;j<24;j++) {
         const cx=c.x+i/3,cz=c.z+j/3,x=cx+hash(cx,cz,1)/3,z=cz+hash(cx,cz,2)/3
         const edge=pathEdgeDistance(x,z)
-        if(onBridge(x,z)||onWestBoardwalk(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||(Math.hypot(x,z)>34.5&&!(x< -35.5&&westLandRadius(x,z)<.8)&&!(x>72&&mistRadius(x,z)<.86))||(z>25&&Math.hypot(x,z)>23)||plantingSpots.some(p=>Math.hypot(x-p.x,z-p.z)<1.3)||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
+        if(onBridge(x,z)||onWestBoardwalk(x,z)||!canStandAt(x,z)||groundHeightAt(x,z)===dockDeckHeight||edge<-.18||(Math.hypot(x,z)>34.5&&!(x< -35.5&&westLandRadius(x,z)<.8)&&!(x>72&&(mistRadius(x,z)<.86||autumnRadius(x,z)<.86)))||(x<72&&z>25&&Math.hypot(x,z)>23)||plantingSpots.some(p=>Math.hypot(x-p.x,z-p.z)<1.3)||(Math.abs(x-8)<3.7&&Math.abs(z-6)<3)||Math.hypot(x-1.5,z+5)<1.0||(isBeachApproach(x,z)&&x>21))continue
         // meadows grow continuous turf, crown shade thins it out, and the verge tapers toward the track
         const shade=canopyDensityAt(x,z),meadow=meadowWeight(x,z)
         const drift=.55+.45*Math.sin(x*.31+Math.sin(z*.23)*2.1)*Math.cos(z*.27-Math.sin(x*.19)*1.7)

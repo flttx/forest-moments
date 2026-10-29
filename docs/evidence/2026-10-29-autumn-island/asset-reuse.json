@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-29",
+  "newGeneratedAssets": 0,
+  "paidCalls": 0,
+  "basis": "Existing project assets, reused for the first playable layout. Dedicated IE-06 birch and IE-07 maple remain pending. Existing local reuse authorization does not add independent commercial-license evidence.",
+  "existingLedger": "../vegetation-expansion/2026-10-24/asset-manifest.json",
+  "files": [
+    {
+      "path": "public/assets/vegetation/forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7"
+    },
+    {
+      "path": "public/assets/models/coastal-jetty.glb",
+      "bytes": 2447124,
+      "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666"
+    },
+    {
+      "path": "public/assets/models/canoe-center-seat.glb",
+      "bytes": 10776108,
+      "sha256": "358af8019c854f4276380ae1e438fa2baf3b5a58f16227dbf56d536717229c9a"
+    }
+  ]
+}

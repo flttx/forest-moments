@@ -1,6 +1,6 @@
 # 群岛扩展 · 建模参考图册
 
-2026-10-29 · 单体参考图册 v6，共九件 · **古松、云杉由 AHOLO API 生成，IE-02 倒木、IE-04 栈道与 IE-03 蕨丛由 Blender 自制并接入；其余四件仍待制作。**
+2026-10-29 · 单体参考图册 v8，共九件 · **古松、云杉、白桦、枫树由 AHOLO API 生成，IE-02 倒木、IE-04 栈道与 IE-03 蕨丛由 Blender 自制并接入；其余两件仍待制作。**
 
 空间与实施安排见[规划方案](ISLAND_EXPANSION_PLAN.md)。本图册每件为独立图片，可在后续授权建模时逐件使用；生产方式以逐项清单为准，不需要重复生成共用资产。三座邻岛的独立概念、地形参考与逐岛资产归组见[邻岛图册](ISLAND_NEIGHBOR_REFERENCES.md)。全部图片由内置 imagegen 生成，不是 Blender 渲染或浏览器截图。
 
@@ -11,8 +11,8 @@
 | IE-03 | [蕨类丛](references/island-expansion/ie-03-fern-clump-v1.png) | Blender 自制叶片与贴图 | 高 0.45–0.65 m，宽 0.7–1 m |
 | IE-04 | [直线木栈道模块](references/island-expansion/ie-04-boardwalk-module-v1.png) | Blender 自制已接入，原创木纹贴图 | 长 2.4 m，实际板宽 1.9 m，身体净空宽约 1.34 m |
 | IE-05 | [云杉](references/island-expansion/ie-05-spruce-v1.png) | Lux3D 候选 + Blender 枝形/树龄派生 | 高 7–10 m，冠幅 3–4 m |
-| IE-06 | [白桦](references/island-expansion/ie-06-birch-v1.png) | Lux3D 候选 + Blender 变体 | 高 5–7 m，冠幅 2.5–3.5 m |
-| IE-07 | [枫树](references/island-expansion/ie-07-maple-v1.png) | Lux3D 候选 + Blender 季节材质 | 高 5–7 m，冠幅 4–5 m |
+| IE-06 | [白桦](references/island-expansion/ie-06-birch-v1.png) | AHOLO 4480409 + Blender 规范；已接入 | 高 6.5 m，实际包络冠幅约 4.32 m；原目标 2.5–3.5 m |
+| IE-07 | [枫树](references/island-expansion/ie-07-maple-v1.png) | AHOLO 4480412 + Blender 规范 + 运行季节材质；已接入 | 高 6 m，实际包络冠幅约 5.94 m；原目标 4–5 m |
 | IE-08 | [赤杨 v2](references/island-expansion/ie-08-alder-v2.png) | Lux3D 候选 + Blender 水岸树形派生 | 高 5–7 m，冠幅 3–4 m |
 | IE-09 | [海风松](references/island-expansion/ie-09-windswept-pine-v1.png) | 优先 Blender 基于松树派生 | 高 4–6 m，冠幅 4–5 m |
 
@@ -77,4 +77,4 @@
 - [图像尺寸、SHA-256 与可读取性](evidence/2026-10-29-island-expansion/image-checks.json)及[制作证据](evidence/2026-10-29-island-expansion/evidence.md)。
 - 本轮新增五件树形、四岛/深林/邻岛图及地形图的[完整提示词](evidence/2026-10-29-island-expansion-v2/generation.json)、[尺寸与哈希](evidence/2026-10-29-island-expansion-v2/image-checks.json)、[版本取舍与验证](evidence/2026-10-29-island-expansion-v2/evidence.md)。
 
-尺寸是建模目标，单视图不提供精确尺度、背面或拓扑。2026-10-29 已实际调用 AHOLO Lux3D G1，古松任务 4461967、云杉任务 4461973 成功；完整模型经 Blender 整理后接入西林，见[模型证据](evidence/assets/2026-10-29-island-trees/evidence.md)。近远景保留完整几何，减面候选未采用。IE-04 栈道已由 Blender 自制并接入，见[湿地证据](evidence/2026-10-29-wetland/evidence.md)；IE-03 蕨丛已由 Blender 自制并接入雾松岛，见[蕨丛与岩脊证据](evidence/2026-10-29-mist-detail/evidence.md)；IE-02 倒木也已由 Blender 自制并接入，见[倒木与林缘证据](evidence/2026-10-29-mist-logs/evidence.md)；其余四件和独立树龄变体仍待完成；雾松岛已复用两类树完成首版往返，另两岛及最终美术仍待实施；额度接口失败，模型积分尚未核账。
+尺寸是建模目标，单视图不提供精确尺度、背面或拓扑。2026-10-29 已实际调用 AHOLO Lux3D G1，古松任务 4461967、云杉任务 4461973 成功；完整模型经 Blender 整理后接入西林，见[模型证据](evidence/assets/2026-10-29-island-trees/evidence.md)。近远景保留完整几何，减面候选未采用。IE-04 栈道已由 Blender 自制并接入，见[湿地证据](evidence/2026-10-29-wetland/evidence.md)；IE-03 蕨丛已由 Blender 自制并接入雾松岛，见[蕨丛与岩脊证据](evidence/2026-10-29-mist-detail/evidence.md)；IE-02 倒木也已由 Blender 自制并接入，见[倒木与林缘证据](evidence/2026-10-29-mist-logs/evidence.md)；云杉另有一款保留全部面数的 Blender 幼态枝冠派生，雾松岛接入 8 株，见[派生证据](evidence/2026-10-29-spruce-sapling/evidence.md)；白桦与枫树现已制作并进入秋岚，见[制作证据](evidence/2026-10-29-autumn-trees/evidence.md)，基础清单共 7/9；赤杨、海风松和更多树龄变体仍待完成；雾松与秋岚已有首版往返，潮汐岛及最终美术仍待实施；额度接口失败，模型积分尚未核账。

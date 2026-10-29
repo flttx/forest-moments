@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-29",
+  "lint": "PASS",
+  "test": {
+    "files": 51,
+    "passed": 239,
+    "failed": 0
+  },
+  "build": {
+    "status": "PASS",
+    "mainJsKB": 1901.41,
+    "gzipKB": 585.59,
+    "existingChunkWarning": true
+  },
+  "runtime": {
+    "birchInstances": 8,
+    "mapleInstances": 3,
+    "retainedPines": 4,
+    "oldPlantsPreserved": 304,
+    "walkableArea": 901,
+    "originalMainArea": 3695,
+    "walkableRatio": 0.24384303112313938,
+    "minShoreGap": 24.37085963072485,
+    "autumnOffset": {
+      "x": 4,
+      "z": 18
+    }
+  },
+  "qa": {
+    "before": {
+      "status": "PASS",
+      "checks": 1,
+      "errors": 0,
+      "screenshots": 15
+    },
+    "before-main": {
+      "status": "PASS",
+      "checks": 1,
+      "errors": 0,
+      "screenshots": 18
+    },
+    "first": {
+      "status": "PASS",
+      "checks": 3,
+      "errors": 0,
+      "screenshots": 18
+    },
+    "reviewed": {
+      "status": "PASS",
+      "checks": 3,
+      "errors": 0,
+      "screenshots": 18
+    },
+    "roundtrip": {
+      "status": "PASS",
+      "checks": 8,
+      "errors": 0,
+      "screenshots": 25
+    },
+    "final-review": {
+      "status": "PASS",
+      "checks": 3,
+      "errors": 0,
+      "screenshots": 33
+    },
+    "bark-reviewed": {
+      "status": "PASS",
+      "checks": 3,
+      "errors": 0,
+      "screenshots": 24
+    },
+    "adopted": {
+      "status": "PASS",
+      "checks": 3,
+      "errors": 0,
+      "screenshots": 24
+    }
+  },
+  "adoptedVisual": "adopted",
+  "routeScope": "roundtrip after geometry/layout integration, before final local foliage-mask refinements; movement unchanged",
+  "outboundSeconds": 67.533,
+  "limitations": [
+    "heuristic leaf/bark mask, some low-saturation warm texels remain",
+    "no independent birch/maple age variants",
+    "no commercial-license or actual-credit verification",
+    "no audio, cross-device, public cold-load or full old-gameplay conclusion"
+  ]
+}

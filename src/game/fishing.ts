@@ -5,8 +5,8 @@ import type { Weather } from './weather'
 /**
  * Where the raccoon can fish: where it stands, which way it faces (the actor's rotation.y; forward is
  * (-sin, -cos)), where the float lands (`float`), where a hooked fish is drawn in to the bank (`cast`) and the
- * water height. The pond bank, and the south edge of the jetty
- * (deep water, away from the boat's mooring on the north side).
+ * water height. The pond bank, and the north edge of the jetty
+ * (deep water, away from the boat's mooring on the south side).
  */
 export const fishingSites: Record<FishingSite, { stand: { x: number; z: number }; facing: number; float: { x: number; z: number }; cast: { x: number; z: number }; waterY: number }> = {
   pond: { stand: { x: 1.5, z: -5 }, facing: -Math.PI / 2, float: { x: 4.2, z: -5 }, cast: { x: 2.45, z: -5 }, waterY: pond.waterY },

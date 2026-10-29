@@ -39,6 +39,7 @@ import {tourFrame} from '../game/tour'
 import { IslandTerrain } from './IslandTerrain'
 import {WestWetland} from './WestWetland'
 import {MistIsland} from './MistIslandScene'
+import {AutumnIsland} from './AutumnIslandScene'
 import {IslandTrees} from './IslandTrees'
 import { ForestKit } from './ForestKit'
 import { GroundCover } from './GroundCover'
@@ -87,11 +88,20 @@ function ReviewCamera() {
       westWetlandClear: [[-59,13,-17],[-59,.4,-4]],
       westBoardwalkClose: [[-55,2.8,-8],[-59,.65,-4]],
       archipelago: [[155,105,145],[22,0,-3]],
+      archipelagoWide: [[178,125,176],[28,0,10]],
+      autumnOverview: [[81,32,83],[112,1.5,47]],
+      autumnBerth: [[77,7,59],[98,.8,50]],
+      autumnVista: [[129,7,51],[117,2.5,41]],
+      autumnClearing: [[105,3.5,53],[112,1.8,47]],
+      autumnBirch: [[90,4,59],[96.4,4,54]],
+      autumnMaple: [[113,5,26],[112.5,4,35.5]],
       mistOverview: [[72,35,27],[107,1,-10]],
       mistBerth: [[72,7,-2],[87,.2,-10]],
       mistPine: [[100,4,1],[106,2,-10]],
       mistUnderstory: [[103,2.5,-4.5],[107,1.5,-9]],
       mistRidge: [[124,12,-34],[114,3,-23]],
+      mistEastShore: [[143,8,-8],[123,1,-12]],
+      mistNorthShore: [[109,7,-43],[111,1,-25]],
       mistLog: [[98,2.8,-6],[102,1.8,-9]],
       mistEdge: [[98,2.8,-13],[95,1.4,-16]],
       mistLogMouth: [[97.5,2.45,-9],[101,1.8,-9.5]],
@@ -493,6 +503,7 @@ function Scene() {
     <IslandTerrain />
     <WestWetland />
     <MistIsland />
+    <AutumnIsland />
     <IslandTrees />
     <ForestKit />
     <GroundCover />

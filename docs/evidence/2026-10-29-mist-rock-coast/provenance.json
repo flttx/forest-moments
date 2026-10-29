@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-29",
+  "asset": "public\\assets\\expansion\\coastal-kit.glb",
+  "source": "Reused project-authored Blender coastal kit; no new model generation",
+  "bytes": 97244,
+  "sha256": "1267a96632235e8c593739912572a32ec26b3424f9decfa857791ce4a7c35225",
+  "newPaidCalls": 0,
+  "newBlenderOutputs": 0,
+  "decimated": false,
+  "screenshots": [
+    {
+      "file": "before/day-mistNorthShore.png",
+      "sha256": "76d0de386435c49609d841221180f33c8b336b95169318c5a8cc6be081c8d320"
+    },
+    {
+      "file": "before/day-mistEastShore.png",
+      "sha256": "3c2b350d40c66e35df5c801a11d1da85da0f24cb5de858bf10e1802874a30243"
+    },
+    {
+      "file": "first/day-mistNorthShore.png",
+      "sha256": "a4721a557e2f7639eca17de4c1edf3ddc28b8e5b2437d7f0f3091e2223b4b040"
+    },
+    {
+      "file": "final/day-mistNorthShore.png",
+      "sha256": "6cf166d79ec2928a8dee8fa214f6d97662c04b28ce6aa84ce5817d7296d365d4"
+    },
+    {
+      "file": "reviewed/day-mistNorthShore.png",
+      "sha256": "eeaba2ae99f44afbfab8c4fdf39ed5421fb68ea3abf4b33908db70d3892ce6ba"
+    },
+    {
+      "file": "reviewed/day-mistEastShore.png",
+      "sha256": "70948d47ce90c780287f07ef0d4f012ca202116b80e631acbe14cbe44ac2697f"
+    },
+    {
+      "file": "reviewed/night-mistEastShore.png",
+      "sha256": "a295b1a96dbb295c2eab2440ad1cacfa1989777431778e2c5f523175b49a6e49"
+    }
+  ]
+}

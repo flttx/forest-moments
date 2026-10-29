@@ -1,0 +1,224 @@
+{
+  "date": "2026-10-29T11:51:10.199Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "mistOverview",
+        "mistEastShore",
+        "mistNorthShore",
+        "mistRidge",
+        "mistBerth",
+        "mistLog"
+      ]
+    },
+    {
+      "name": "local veil: reduced motion freeze/resume, night tint, rain and depth occlusion settings",
+      "data": {
+        "day": {
+          "time": 25.94790000003704,
+          "density": 0.16,
+          "tint": [
+            0.18884718935782513,
+            0.3112302583741151,
+            0.368788019758827
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        },
+        "night": {
+          "time": 25.931600000025124,
+          "density": 0.16,
+          "tint": [
+            0.020479255079288473,
+            0.04386316827155164,
+            0.07989253907534555
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        },
+        "rain": {
+          "time": 32.378400000037,
+          "density": 0.18478109647583013,
+          "tint": [
+            0.18884718935782513,
+            0.3112302583741151,
+            0.368788019758827
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        },
+        "frozen": {
+          "time": 25.94790000003704,
+          "density": 0.16,
+          "tint": [
+            0.18884718935782513,
+            0.3112302583741151,
+            0.368788019758827
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        }
+      }
+    },
+    {
+      "name": "smaller island area and original main island preserved",
+      "data": {
+        "sampleStep": 0.5,
+        "originalMainWalkable": 3695,
+        "mistWalkable": 840,
+        "ratio": 0.2273342354533153,
+        "ridgePieces": 6,
+        "shorePieces": 16,
+        "mistPlants": {
+          "ie-old-pine": 1,
+          "ie-spruce": 32,
+          "bush-a": 7
+        },
+        "originalTerrainSamplesUnchanged": 1517,
+        "originalPlantsUnchanged": 140,
+        "originalLampsAndBerthUnchanged": true,
+        "crossEngineTolerance": 1e-10
+      }
+    },
+    {
+      "name": "loaded shore rock vertices stay outside rowable water",
+      "data": {
+        "pieces": 16,
+        "vertices": 5108,
+        "violations": []
+      }
+    },
+    {
+      "name": "authored fern model loaded as instances",
+      "data": {
+        "count": 78,
+        "geometryTriangles": 3240,
+        "decimated": false
+      }
+    },
+    {
+      "name": "real keyboard north ridge and complete forest loop with discovery",
+      "data": true
+    },
+    {
+      "name": "authored log bounds, real keyboard loop around it and solid-side collision",
+      "data": {
+        "logs": {
+          "count": 2,
+          "geometryTriangles": 14852,
+          "bounds": {
+            "isBox3": true,
+            "min": {
+              "x": -1.5937436819076538,
+              "y": -0.05058649182319641,
+              "z": -0.482633113861084
+            },
+            "max": {
+              "x": 1.5937436819076538,
+              "y": 1.3108724355697632,
+              "z": 0.5253961086273193
+            }
+          },
+          "decimated": false
+        },
+        "localZ": 0.8300130711081461
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-mistOverview.png",
+    "day-mistEastShore.png",
+    "day-mistNorthShore.png",
+    "day-mistRidge.png",
+    "day-mistBerth.png",
+    "day-mistLog.png",
+    "dusk-mistOverview.png",
+    "dusk-mistEastShore.png",
+    "dusk-mistNorthShore.png",
+    "dusk-mistRidge.png",
+    "dusk-mistBerth.png",
+    "dusk-mistLog.png",
+    "night-mistOverview.png",
+    "night-mistEastShore.png",
+    "night-mistNorthShore.png",
+    "night-mistRidge.png",
+    "night-mistBerth.png",
+    "night-mistLog.png",
+    "day-reduced-mistRidge.png",
+    "rain-mistRidge.png",
+    "rain-mistBerth.png",
+    "walking-pine.png",
+    "walked-around-log.png",
+    "log-collision.png",
+    "pine-photo.png",
+    "discovery-panel.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  },
+  "frames": {
+    "median": 1.5,
+    "p95": 3,
+    "low": true,
+    "samples": 180,
+    "view": "mistLog",
+    "light": "night"
+  },
+  "layout": {
+    "sampleStep": 0.5,
+    "originalMainWalkable": 3695,
+    "mistWalkable": 840,
+    "ratio": 0.2273342354533153,
+    "ridgePieces": 6,
+    "shorePieces": 16,
+    "mistPlants": {
+      "ie-old-pine": 1,
+      "ie-spruce": 32,
+      "bush-a": 7
+    },
+    "originalTerrainSamplesUnchanged": 1517,
+    "originalPlantsUnchanged": 140,
+    "originalLampsAndBerthUnchanged": true,
+    "crossEngineTolerance": 1e-10
+  },
+  "rockGeometry": {
+    "pieces": 16,
+    "vertices": 5108,
+    "violations": []
+  },
+  "ferns": {
+    "count": 78,
+    "geometryTriangles": 3240,
+    "decimated": false
+  },
+  "logs": {
+    "count": 2,
+    "geometryTriangles": 14852,
+    "bounds": {
+      "isBox3": true,
+      "min": {
+        "x": -1.5937436819076538,
+        "y": -0.05058649182319641,
+        "z": -0.482633113861084
+      },
+      "max": {
+        "x": 1.5937436819076538,
+        "y": 1.3108724355697632,
+        "z": 0.5253961086273193
+      }
+    },
+    "decimated": false
+  }
+}

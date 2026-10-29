@@ -22,16 +22,31 @@ export function isNavigableSea(x:number,z:number){
 export function boatFits(x: number, z: number, heading: number): boolean {
   if (![x, z, heading].every(Number.isFinite)) return false
   const c = Math.cos(heading), s = Math.sin(heading)
-  // Also exclude the part of the dock that extends over the water. A conservative
-  // world box keeps the hull clear of the deck during near-shore turns.
+  // Four separating axes: the dock's world axes AND the hull's rotated axes.
+  // The world envelope alone fills empty corners around a diagonally turned boat.
   const halfX = 1.7 * Math.abs(c) + .57 * Math.abs(s)
   const halfZ = 1.7 * Math.abs(s) + .57 * Math.abs(c)
-  if(Object.values(berths).some(({dock:d})=>x+halfX>d.minX&&x-halfX<d.maxX&&z+halfZ>d.minZ&&z-halfZ<d.maxZ))return false
+  if(Object.values(berths).some(({dock:d})=>{
+    const hx=(d.maxX-d.minX)/2,hz=(d.maxZ-d.minZ)/2
+    const dx=(d.minX+d.maxX)/2-x,dz=(d.minZ+d.maxZ)/2-z
+    return Math.abs(dx)<hx+halfX&&Math.abs(dz)<hz+halfZ
+      &&Math.abs(dx*c-dz*s)<1.7+hx*Math.abs(c)+hz*Math.abs(s)
+      &&Math.abs(dx*s+dz*c)<.57+hx*Math.abs(s)+hz*Math.abs(c)
+  }))return false
   return [-1.7,0,1.7].every((along) => [-.57,0,.57].every((across) =>
     isNavigableSea(x+along*c+across*s,z-along*s+across*c)))
 }
 
-export function landingBerth(boat:BoatState){return Object.values(berths).find(({mooring:m})=>Math.hypot(boat.x-m.x,boat.z-m.z)<.85&&Math.abs(boat.speed)<.18&&Math.abs(Math.sin(boat.heading-m.heading))<.35)}
+/** Small approach area on the boarding side; full hull collision still applies. */
+export function approachBerth(boat:BoatState){
+ const berth=Object.values(berths).find(({mooring:m,landing:l,dock:d})=>{
+  const side=Math.sign(m.z-l.z),edge=side<0?d.minZ:d.maxZ
+  const outward=(boat.z-edge)*side
+  return Math.abs(boat.x-m.x)<=2.4&&outward>0&&outward<=2.5
+ })
+ return berth&&boatFits(boat.x,boat.z,boat.heading)?berth:undefined
+}
+export function landingBerth(boat:BoatState){return Math.abs(boat.speed)<.18?approachBerth(boat):undefined}
 export function canLand(boat: BoatState): boolean {return !!landingBerth(boat)}
 
 export function canBoard(x: number, z: number, boat: BoatState): boolean {

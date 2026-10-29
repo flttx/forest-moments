@@ -1,0 +1,345 @@
+{
+  "date": "2026-10-29T14:07:28.504Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "mistOverview",
+        "mistUnderstory",
+        "mistLog",
+        "mistEdge"
+      ]
+    },
+    {
+      "name": "full-geometry derived spruce saplings loaded and instanced",
+      "data": {
+        "saplings": 8,
+        "saplingTriangles": 97828,
+        "placements": [
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 110.00000000000003,
+            "z": -0.6000000000000043,
+            "scale": 0.8613173320885107,
+            "yaw": 0.06897534686005727
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 104.90000000000002,
+            "z": -0.6000000000000043,
+            "scale": 0.8734101552848006,
+            "yaw": 0.7021540887704634
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 98.10000000000001,
+            "z": -10.800000000000004,
+            "scale": 0.8777957308362238,
+            "yaw": 0.9317822876723678
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 115.10000000000004,
+            "z": -9.100000000000005,
+            "scale": 0.8804482681376248,
+            "yaw": 1.0706688159966071
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 111.70000000000003,
+            "z": -14.200000000000003,
+            "scale": 0.8805117792865349,
+            "yaw": 1.0739942519772208
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 120.20000000000005,
+            "z": -10.800000000000004,
+            "scale": 0.8842925301434298,
+            "yaw": 1.2719539039284589
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 99.80000000000001,
+            "z": -14.200000000000003,
+            "scale": 0.8870557449679473,
+            "yaw": 1.4166354938117014
+          },
+          {
+            "kit": "ie-spruce-sapling",
+            "x": 115.10000000000004,
+            "z": -19.3,
+            "scale": 0.9631309699677513,
+            "yaw": 5.399924960137951
+          }
+        ]
+      }
+    },
+    {
+      "name": "local veil: reduced motion freeze/resume, night tint, rain and depth occlusion settings",
+      "data": {
+        "day": {
+          "time": 23.433699999928635,
+          "density": 0.16,
+          "tint": [
+            0.18884718935782513,
+            0.3112302583741151,
+            0.368788019758827
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        },
+        "night": {
+          "time": 23.417499999940553,
+          "density": 0.16,
+          "tint": [
+            0.020479255079288473,
+            0.04386316827155164,
+            0.07989253907534555
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        },
+        "rain": {
+          "time": 29.569399999976454,
+          "density": 0.18472238615429432,
+          "tint": [
+            0.18884718935782513,
+            0.3112302583741151,
+            0.368788019758827
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        },
+        "frozen": {
+          "time": 23.433699999928635,
+          "density": 0.16,
+          "tint": [
+            0.18884718935782513,
+            0.3112302583741151,
+            0.368788019758827
+          ],
+          "depthTest": true,
+          "depthWrite": false
+        }
+      }
+    },
+    {
+      "name": "smaller island area and original main island preserved",
+      "data": {
+        "sampleStep": 0.5,
+        "originalMainWalkable": 3695,
+        "mistWalkable": 823.75,
+        "ratio": 0.22293640054127198,
+        "ridgePieces": 6,
+        "shorePieces": 16,
+        "mistPlants": {
+          "ie-old-pine": 1,
+          "ie-spruce": 32,
+          "bush-a": 7,
+          "ie-spruce-sapling": 8
+        },
+        "originalTerrainSamplesUnchanged": 1517,
+        "originalPlantsUnchanged": 140,
+        "originalLampsAndBerthUnchanged": true,
+        "crossEngineTolerance": 1e-10
+      }
+    },
+    {
+      "name": "loaded shore rock vertices stay outside rowable water",
+      "data": {
+        "pieces": 16,
+        "vertices": 5108,
+        "violations": []
+      }
+    },
+    {
+      "name": "authored fern model loaded as instances",
+      "data": {
+        "count": 78,
+        "geometryTriangles": 3240,
+        "decimated": false
+      }
+    },
+    {
+      "name": "real keyboard north ridge and complete forest loop with discovery",
+      "data": true
+    },
+    {
+      "name": "authored log bounds, real keyboard loop around it and solid-side collision",
+      "data": {
+        "logs": {
+          "count": 2,
+          "geometryTriangles": 14852,
+          "bounds": {
+            "isBox3": true,
+            "min": {
+              "x": -1.5937436819076538,
+              "y": -0.05058649182319641,
+              "z": -0.482633113861084
+            },
+            "max": {
+              "x": 1.5937436819076538,
+              "y": 1.3108724355697632,
+              "z": 0.5253961086273193
+            }
+          },
+          "decimated": false
+        },
+        "localZ": 0.8300670404244974
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-mistOverview.png",
+    "day-mistUnderstory.png",
+    "day-mistLog.png",
+    "day-mistEdge.png",
+    "dusk-mistOverview.png",
+    "dusk-mistUnderstory.png",
+    "dusk-mistLog.png",
+    "dusk-mistEdge.png",
+    "night-mistOverview.png",
+    "night-mistUnderstory.png",
+    "night-mistLog.png",
+    "night-mistEdge.png",
+    "day-reduced-mistRidge.png",
+    "rain-mistRidge.png",
+    "rain-mistBerth.png",
+    "walking-pine.png",
+    "walked-around-log.png",
+    "log-collision.png",
+    "pine-photo.png",
+    "discovery-panel.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  },
+  "frames": {
+    "median": 1.8000000000029104,
+    "p95": 6.700000000004366,
+    "low": true,
+    "samples": 180,
+    "view": "mistEdge",
+    "light": "night"
+  },
+  "saplings": {
+    "saplings": 8,
+    "saplingTriangles": 97828,
+    "placements": [
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 110.00000000000003,
+        "z": -0.6000000000000043,
+        "scale": 0.8613173320885107,
+        "yaw": 0.06897534686005727
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 104.90000000000002,
+        "z": -0.6000000000000043,
+        "scale": 0.8734101552848006,
+        "yaw": 0.7021540887704634
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 98.10000000000001,
+        "z": -10.800000000000004,
+        "scale": 0.8777957308362238,
+        "yaw": 0.9317822876723678
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 115.10000000000004,
+        "z": -9.100000000000005,
+        "scale": 0.8804482681376248,
+        "yaw": 1.0706688159966071
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 111.70000000000003,
+        "z": -14.200000000000003,
+        "scale": 0.8805117792865349,
+        "yaw": 1.0739942519772208
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 120.20000000000005,
+        "z": -10.800000000000004,
+        "scale": 0.8842925301434298,
+        "yaw": 1.2719539039284589
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 99.80000000000001,
+        "z": -14.200000000000003,
+        "scale": 0.8870557449679473,
+        "yaw": 1.4166354938117014
+      },
+      {
+        "kit": "ie-spruce-sapling",
+        "x": 115.10000000000004,
+        "z": -19.3,
+        "scale": 0.9631309699677513,
+        "yaw": 5.399924960137951
+      }
+    ]
+  },
+  "layout": {
+    "sampleStep": 0.5,
+    "originalMainWalkable": 3695,
+    "mistWalkable": 823.75,
+    "ratio": 0.22293640054127198,
+    "ridgePieces": 6,
+    "shorePieces": 16,
+    "mistPlants": {
+      "ie-old-pine": 1,
+      "ie-spruce": 32,
+      "bush-a": 7,
+      "ie-spruce-sapling": 8
+    },
+    "originalTerrainSamplesUnchanged": 1517,
+    "originalPlantsUnchanged": 140,
+    "originalLampsAndBerthUnchanged": true,
+    "crossEngineTolerance": 1e-10
+  },
+  "rockGeometry": {
+    "pieces": 16,
+    "vertices": 5108,
+    "violations": []
+  },
+  "ferns": {
+    "count": 78,
+    "geometryTriangles": 3240,
+    "decimated": false
+  },
+  "logs": {
+    "count": 2,
+    "geometryTriangles": 14852,
+    "bounds": {
+      "isBox3": true,
+      "min": {
+        "x": -1.5937436819076538,
+        "y": -0.05058649182319641,
+        "z": -0.482633113861084
+      },
+      "max": {
+        "x": 1.5937436819076538,
+        "y": 1.3108724355697632,
+        "z": 0.5253961086273193
+      }
+    },
+    "decimated": false
+  }
+}

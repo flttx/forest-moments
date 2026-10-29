@@ -1,7 +1,7 @@
 import {creekDistance,creekWaterY,creekZ,reefs} from '../game/expansion'
 import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
 import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
-import {mistHeight,mistPathDistance,mistRadius} from './mistIsland'
+import {mistIsland,mistHeight,mistPathDistance,mistRadius} from './mistIsland'
 import {vegetationPositions} from './vegetationLayout'
 const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
 
@@ -115,4 +115,27 @@ export const mistRidgePieces:CoastPiece[]=(()=>{
  }
  return pieces
 })()
-export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces)})()
+/** Broken rock groups on exposed shores; broad sand gaps and the west landing remain open. */
+export const mistShorePieces:CoastPiece[]=(()=>{
+ const pieces:CoastPiece[]=[],rand=random(291029)
+ for(const [angle,count] of [[-2.05,4],[-1.5,5],[-.83,6],[-.08,5],[.62,4],[1.25,3]])for(const level of [.25,1.5,2.8])for(let i=0;i<count;i++){
+  const a=angle+(i-(count-1)/2)*.085+(rand()-.5)*.025+(level>.3?.035:0)
+  const kit:CoastKit=rand()<.28?'Rock_Slab':'Rock_Boulder',scale=.75+rand()*.55,reach=coastKits[kit].half*scale
+  const point=(r:number)=>({x:mistIsland.x+Math.cos(a)*r,z:mistIsland.z+Math.sin(a)*r})
+  // Find the shallow shore, then pull the whole footprint inland. Never obstruct rowable water.
+  let lo=8,hi=25
+  const inner=point(lo);if(mistHeight(inner.x,inner.z)<level)continue
+  for(let j=0;j<24;j++){const r=(lo+hi)/2,p=point(r);if(mistHeight(p.x,p.z)>level)lo=r;else hi=r}
+  let r=(lo+hi)/2,p=point(r)
+  const heights=()=>Array.from({length:32},(_,j)=>mistHeight(p.x+Math.cos(j*Math.PI/16)*reach,p.z+Math.sin(j*Math.PI/16)*reach))
+  for(let j=0;j<24&&Math.min(...heights())<seaLevel+.1;j++){r-=.1;p=point(r)}
+  if(Math.min(...heights())<seaLevel+.1||mistPathDistance(p.x,p.z)<reach+1.2)continue
+  if(vegetationPositions.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<reach+.65))continue
+  if([...mistRidgePieces,...pieces].some(v=>Math.hypot(p.x-v.x,p.z-v.z)<(reach+coastKits[v.kit].half*v.scale)*.58))continue
+  // Bury most of the module at its centre; the downhill face emerges from the slope.
+  const y=mistHeight(p.x,p.z)-coastKits[kit].height*scale*.85
+  pieces.push({kit,...p,y,yaw:-a+(rand()-.5)*1.4,scale,role:'cliff'})
+ }
+ return pieces
+})()
+export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces,mistShorePieces)})()

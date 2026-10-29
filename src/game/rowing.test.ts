@@ -104,3 +104,20 @@ describe('coastal rowing', () => {
     expect(canLand(boat)).toBe(true)
   })
 })
+
+it('clears empty jetty corners while turning, but still blocks actual hull contact',()=>{
+ for(const [x,z,heading] of [[77.8,-12.2,0],[45.4,2.2,Math.PI],[84.8,48.9,0]]){
+  for(let a=0;a<=Math.PI/2;a+=.03)expect(boatFits(x,z,heading+a),`clear corner ${x},${z},${a}`).toBe(true)
+  let boat={...initialBoat,x,z,heading}
+  for(let i=0;i<20;i++)boat=stepBoat(boat,0,1,.05)
+  expect(Math.abs(Math.atan2(Math.sin(boat.heading-heading),Math.cos(boat.heading-heading)))).toBeCloseTo(.8)
+  const turned={...boat}
+  for(let i=0;i<20;i++)boat=stepBoat(boat,1,0,.05)
+  expect(Math.hypot(boat.x-turned.x,boat.z-turned.z)).toBeGreaterThan(.6)
+ }
+ // The bow really overlaps the tip in these orientations: the world envelope is not the only test.
+ expect(boatFits(77.8,-12.2,-Math.PI/4)).toBe(false)
+ expect(boatFits(84.8,48.9,-Math.PI/4)).toBe(false)
+ expect(boatFits(45.4,2.2,Math.PI*3/4)).toBe(false)
+ expect(boatFits(80.6,-12.15,Math.PI/2)).toBe(false)
+})

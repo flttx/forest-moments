@@ -32,7 +32,12 @@ export function MistIsland(){
     float sand=smoothstep(.81,1.02,mistRadius(p)+(noise21(p*.9)-.5)*.055)*(1.0-smoothstep(.4,1.7,vMist.y));
     colour=mix(colour,vec3(.42,.36,.25)*(.88+fleck*.15),sand);
     float cliff=smoothstep(.18,.5,1.0-normalize(vMistNormal).y);
-    colour=mix(colour,mix(vec3(.16,.165,.14),vec3(.27,.26,.22),noise21(p*1.3)),cliff);
+    // Broken mineral seams join the embedded kit rocks to the exposed coastal slope.
+    float strata=sin((vMist.y+noise21(p*.6)*.32)*12.0+noise21(p*2.5)*1.8);
+    float seam=smoothstep(.77,.96,strata)*smoothstep(.35,.7,noise21(p*2.3));
+    vec3 stone=mix(vec3(.19,.195,.17),vec3(.29,.28,.24),noise21(p*1.3));
+    stone*=1.0-seam*.07;
+    colour=mix(colour,stone,cliff);
     colour*=mix(.6,1.0,smoothstep(-1.0,.1,vMist.y))*(1.0-climateWet*.18);
     diffuseColor.rgb*=colour;
    `)

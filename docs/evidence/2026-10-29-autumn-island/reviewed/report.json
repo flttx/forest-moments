@@ -1,0 +1,114 @@
+{
+  "date": "2026-10-29T14:47:08.580Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "real keyboard Mist to Autumn crossing and arrival",
+      "data": 50.462
+    },
+    {
+      "name": "autumn refresh restores player and returnable boat",
+      "data": true
+    },
+    {
+      "name": "real walk up the northeast hill records discovery",
+      "data": true
+    },
+    {
+      "name": "photo entry and all supported seasonal previews reset on exit",
+      "data": true
+    },
+    {
+      "name": "full loop and clearing links return to berth",
+      "data": true
+    },
+    {
+      "name": "real keyboard return and Mist mooring",
+      "data": true
+    },
+    {
+      "name": "return refresh keeps both arrivals and hill discovery",
+      "data": true
+    },
+    {
+      "name": "expanded places panel in three PC windows",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-landed-autumn.png",
+    "02-discovered-vista.png",
+    "03-vista-photo.png",
+    "season-spring.png",
+    "season-summer.png",
+    "season-autumn.png",
+    "day-autumnOverview.png",
+    "day-autumnBerth.png",
+    "day-autumnVista.png",
+    "day-autumnClearing.png",
+    "day-archipelago.png",
+    "dusk-autumnOverview.png",
+    "dusk-autumnBerth.png",
+    "dusk-autumnVista.png",
+    "dusk-autumnClearing.png",
+    "dusk-archipelago.png",
+    "night-autumnOverview.png",
+    "night-autumnBerth.png",
+    "night-autumnVista.png",
+    "night-autumnClearing.png",
+    "night-archipelago.png",
+    "04-returned-mist.png",
+    "places-1920x1080.png",
+    "places-1280x720.png",
+    "places-1024x768.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  },
+  "layout": {
+    "trees": 15,
+    "kits": {
+      "normal-pine-b": 4,
+      "round-tree-a": 11
+    },
+    "berth": {
+      "id": "autumn",
+      "landing": {
+        "x": 83.6,
+        "z": 32.3
+      },
+      "mooring": {
+        "x": 83.6,
+        "z": 30.95,
+        "heading": 3.141592653589793
+      },
+      "dock": {
+        "minX": 82,
+        "maxX": 91.2,
+        "minZ": 32,
+        "maxZ": 34.2,
+        "deckY": 0.12
+      }
+    }
+  },
+  "outboundSeconds": 50.462,
+  "travel": {
+    "version": 1,
+    "checkpoint": "mist",
+    "visitedMist": true,
+    "foundPine": false,
+    "visitedAutumn": true,
+    "foundVista": true
+  },
+  "routeSamples": 2098
+}

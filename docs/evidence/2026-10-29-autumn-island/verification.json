@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-29",
+  "lint": "PASS",
+  "tests": {
+    "files": 51,
+    "passed": 238
+  },
+  "build": "PASS",
+  "jsKB": 1898.88,
+  "gzipKB": 584.87,
+  "walkableArea": 922.5,
+  "originalMainArea": 3695,
+  "shoreGapBefore": 6.062141599763562,
+  "shoreGapAfter": 24.37085963072485,
+  "translation": {
+    "x": 4,
+    "z": 18
+  },
+  "comparisonTolerance": 1e-10,
+  "browser": {
+    "status": "PASS",
+    "errors": 0,
+    "travelChecks": 8,
+    "travelScreenshots": 25,
+    "outboundSeconds": 67.722,
+    "clearanceAndZoomChecks": 4,
+    "mainViewScreenshots": 18
+  }
+}

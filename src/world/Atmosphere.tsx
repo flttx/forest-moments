@@ -12,6 +12,7 @@ import { pond } from '../game/rowing'
 import { noiseGLSL, seaLevel, islandShape, shoreWaterFraction } from './terrain'
 import {pondRadiusAt,pondGLSL,pondWaterInset} from './pondShape'
 import {mistGLSL} from './mistIsland'
+import {autumnGLSL} from './autumnIsland'
 
 function createWindClock() {
   const uniform={value:0}
@@ -62,13 +63,13 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
         Object.assign(shader.uniforms,uniforms,{climateRain:climateUniforms.climateRain,jellyGlow})
         shader.vertexShader='varying vec3 vWater;\n'+shader.vertexShader
         shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvWater=(modelMatrix*vec4(position,1.0)).xyz;')
-        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${mistGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
+        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${mistGLSL}\n${autumnGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
           float shore=fresh>.5 ? -pondEdgeAt(p)-${pondWaterInset.toFixed(9)} : length(p)-mix(${islandShape.plateauRadius.toFixed(1)},coastAt(p)+${islandShape.shoreExtension.toFixed(1)},${shoreWaterFraction.toFixed(9)});
           if(fresh<.5)shore=mix(shore,min(shore,(westLandAt(p)-.896)*28.0),westBlendAt(p));
-          if(fresh<.5&&p.x>72.0)shore=min(shore,(mistRadius(p)-.98)*19.0);
+          if(fresh<.5&&p.x>72.0)shore=min(shore,min((mistRadius(p)-.98)*19.0,(autumnRadius(p)-.98)*18.0));
           float shallows=1.0-smoothstep(.0,fresh>.5?1.2:5.0,shore);
           diffuseColor.rgb=mix(diffuseColor.rgb,shallow,shallows*.65);
           float ripples=sin(p.x*2.4+p.y*1.1-waterTime*.8)*sin(p.y*3.2-p.x*.6+waterTime*.5);

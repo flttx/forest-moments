@@ -31,6 +31,7 @@
 ## 测试临时目录（2026-10-24）
 
 - 浏览器测试统一使用 `scripts/browser-session.mjs` 的 `createHeadlessBrowser`，临时配置、缓存和浏览器进程 TEMP/TMP 位于项目 `.tmp/`；禁止直接调用系统 `tmpdir()` 创建测试配置。
+- 2026-10-29 用户要求验证时不开音效：所有验证浏览器统一静音，helper 默认追加 `--mute-audio`；不修改用户正常游玩的音量设置，静音验证不计作听觉验收。
 - 每个测试在最外层 `finally` 中 `await cleanup()`，报告写入失败也必须执行清理。辅助测试使用 `createProjectTempDirectory`，并在结束后删除自己的临时目录。
 - `.tmp/legacy-browser-profiles/` 是从 C 盘迁回的历史目录，保留备查，不用于新测试。强制结束进程或断电仍可能在项目 `.tmp/` 留下目录。
 

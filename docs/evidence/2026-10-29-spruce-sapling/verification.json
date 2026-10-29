@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-29",
+  "status": "PASS",
+  "links": {
+    "missing": []
+  },
+  "selectedImages": [
+    {
+      "file": "uniform-front.png",
+      "sha256": "80039db00a19b04ca03c3e4fbbc156d07fe06072106c73ecc67412853e8741b2"
+    },
+    {
+      "file": "sapling-front.png",
+      "sha256": "3d97c2569a759342a662a8905d374ea1c1c71188be345b12a6b8c6a0a05aa40d"
+    },
+    {
+      "file": "sapling-back.png",
+      "sha256": "f02291e629a4d2cbb08ebca66c2a66efeeb04c84c7b688ec6eec0765d3904675"
+    },
+    {
+      "file": "before/day-mistOverview.png",
+      "sha256": "a57d33cb344506d762f8b3b06b2618a87001ba0b9f183afc83f345519a03d61b"
+    },
+    {
+      "file": "final/day-mistOverview.png",
+      "sha256": "5a1f46531fff0421a9569b90d5d3c83abbff59f4f0c05ee66a0e90cdc6f1cd6b"
+    },
+    {
+      "file": "final/day-mistUnderstory.png",
+      "sha256": "b7633826b28eb5c26507aea9a5f21688df27467f89a49c332245602c27417b25"
+    }
+  ],
+  "assetHashMatches": true,
+  "originalModelHashMatches": true,
+  "codeChecks": {
+    "lint": "PASS",
+    "testFiles": 50,
+    "testsPassed": 229,
+    "build": "PASS",
+    "mainJsKB": 1891.87,
+    "mainGzipKB": 583.15
+  },
+  "browser": {
+    "before": {
+      "checks": 1,
+      "screenshots": 9,
+      "status": "PASS"
+    },
+    "first": {
+      "checks": 1,
+      "screenshots": 9,
+      "status": "PASS"
+    },
+    "final": {
+      "checks": 8,
+      "screenshots": 20,
+      "status": "PASS"
+    },
+    "main-views": {
+      "checks": 1,
+      "screenshots": 18,
+      "status": "PASS"
+    }
+  },
+  "audio": "muted by common helper; no auditory validation"
+}

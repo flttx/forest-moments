@@ -1,0 +1,46 @@
+{
+  "asset": "06",
+  "name": "birch",
+  "taskId": 4480409,
+  "sourceSha256": "2ac969bb951fb2d676d92a8e721261ca236be92ab90e2ceefd32077f1bbf8e7e",
+  "sourceTriangles": 97792,
+  "runtimeTriangles": 97792,
+  "height": 6.5,
+  "bodyRadius": 0.6320744972527286,
+  "crownRadius": 2.1606603171670624,
+  "decimated": false,
+  "uvLayers": [
+    1
+  ],
+  "finiteNormals": true,
+  "images": [
+    {
+      "name": "Image_0",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Image_1",
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Render Result",
+      "size": [
+        0,
+        0
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "public/assets/island-trees/birch.glb",
+      "bytes": 6455960,
+      "sha256": "f790c548483f99e8e6b094fcd497c430bc30c5aa36a9f45b1bbb18d5d0d5d56a"
+    }
+  ]
+}

@@ -66,13 +66,65 @@ try {
   await waitFor(s=>s?.ready&&s.models.length===4&&s.boatReady,'ready',90000)
   await evaluate(`(async()=>{const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;window.S=(await import(r('/src/game/store.ts'))).useForestStore;window.U=(await import(r('/src/game/uiStore.ts'))).useUiStore;window.P=(await import(r('/src/game/photoStore.ts'))).usePhotoStore;U.setState({guideSeen:true,panel:null});S.setState({position:{x:106,z:-6.3},timeOfDay:'day',menuPaused:true})})()`)
   await sleep(1200)
-  const views=process.env.FOREST_LOG_VIEWS==='1'?['mistLog','mistLogMouth','mistEdge']:['mistOverview','mistUnderstory','mistRidge','mistBerth']
+  if(process.env.FOREST_QA_MAIN==='1')await evaluate("S.setState({position:{x:0,z:0}})")
+  const views=process.env.FOREST_QA_VIEWS?.split(',')??(process.env.FOREST_LOG_VIEWS==='1'?['mistLog','mistLogMouth','mistEdge']:['mistOverview','mistUnderstory','mistRidge','mistBerth'])
   for(const light of ['day','dusk','night'])for(const view of views){
     await evaluate(`history.replaceState(null,'','/?qa&view=${view}');S.setState({timeOfDay:'${light}'})`)
     await sleep(700);await shot(`${light}-${view}`)
   }
   report.frames=await evaluate(`new Promise(resolve=>{const t=[];let p=performance.now();function f(n){t.push(n-p);p=n;if(t.length<180)requestAnimationFrame(f);else{t.sort((a,b)=>a-b);resolve({median:t[90],p95:t[171],low:P.getState().lowQuality,samples:180,view:${JSON.stringify(views.at(-1))},light:'night'})}}requestAnimationFrame(f)})`)
   check('three lighting presets and matching views',views)
+  if(process.env.FOREST_AUTUMN_TREES==='1'){
+    report.autumnTrees=await evaluate(`(()=>{
+      const root=forestScene.getObjectByName('aholo-island-trees'),trees=[];
+      root.traverse(o=>{if(!o.isInstancedMesh||!/^ie-(birch|maple)-/.test(o.parent.name))return;
+        const n=o.geometry.getAttribute('normal');let invalidNormals=0;
+        for(let i=0;i<n.count;i++){const len=Math.hypot(n.getX(i),n.getY(i),n.getZ(i));if(!Number.isFinite(len)||Math.abs(len-1)>.01)invalidNormals++}
+        trees.push({kit:o.parent.name,instances:o.count,triangles:(o.geometry.index?.count??o.geometry.getAttribute('position').count)/3,invalidNormals,materialKey:o.material.customProgramCacheKey()});
+      });return{...root.userData.qa,trees};
+    })()`)
+    for(const name of ['birch','maple']){
+      const record=JSON.parse(await readFile(`docs/evidence/2026-10-29-autumn-trees/${name}/runtime.json`,'utf8'))
+      const trees=report.autumnTrees.trees.filter(t=>t.kit.startsWith(`ie-${name}-`))
+      assert(trees.length>0);assert(trees.every(t=>t.triangles===record.runtimeTriangles&&t.invalidNormals===0&&t.materialKey==='painted-autumn-trees-v1'))
+    }
+    check('full generated birch and maple geometry, normals and seasonal material loaded',report.autumnTrees)
+    report.autumnLayout=await evaluate(`(async()=>{
+      const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
+      const [v,m,a]=await Promise.all(['/src/world/vegetationLayout.ts','/src/game/movement.ts','/src/world/autumnIsland.ts'].map(p=>import(r(p))));
+      let area=0;for(let x=78+a.autumnOffset.x;x<138+a.autumnOffset.x;x+=.5)for(let z=10+a.autumnOffset.z;z<56+a.autumnOffset.z;z+=.5)if(m.canStandAt(x,z))area+=.25;
+      return{plants:v.autumnPlants,walkableArea:area,originalMainArea:3695,ratio:area/3695};
+    })()`)
+    assert(report.autumnLayout.ratio>=.2&&report.autumnLayout.ratio<=.25)
+    await cmd('Performance.enable');report.memory=(await cmd('Performance.getMetrics')).metrics.filter(m=>['JSHeapUsedSize','JSHeapTotalSize'].includes(m.name))
+    await evaluate("S.setState({timeOfDay:'day'});P.setState({active:true})")
+    const seasons=await evaluate("(async()=>{const p='/src/game/weather.ts';return (await import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p)).seasonIds})()")
+    report.seasons=[]
+    for(const season of seasons){
+      await evaluate(`P.getState().setSeasonPreview('${season}');history.replaceState(null,'','/?qa&view=autumnOverview')`)
+      await sleep(4000);await shot(`season-${season}`)
+      for(const view of ['autumnBirch','autumnMaple']){
+        await evaluate(`history.replaceState(null,'','/?qa&view=${view}')`);await sleep(500);await shot(`season-${season}-${view}`)
+      }
+      report.seasons.push(await evaluate(`(async()=>{const p='/src/world/climateUniforms.ts';const u=(await import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p)).climateUniforms;return{season:'${season}',turn:u.climateTurn.value,broadleaf:u.climateBroadleaf.value.toArray()}})()`))
+    }
+    assert(report.seasons.find(s=>s.season==='autumn').turn>.8)
+    assert(report.seasons.find(s=>s.season==='summer').turn<.1)
+    await evaluate("P.setState({active:false,seasonPreview:null})")
+    report.render=await snapshot()
+    report.assets=await evaluate("performance.getEntriesByType('resource').filter(e=>/island-trees\\/(birch|maple)\\.glb/.test(e.name)).map(e=>({path:new URL(e.name).pathname,duration:e.duration,encodedBodySize:e.encodedBodySize,decodedBodySize:e.decodedBodySize}))")
+    assert.equal(report.assets.length,2)
+    check('spring summer autumn palette and two new GLB loads',report.seasons)
+  }
+  if(process.env.FOREST_SAPLING_AFTER==='1'){
+    report.saplings=await evaluate(`(async()=>{
+      const path='/src/world/vegetationLayout.ts',url=performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===path)?.name??path;
+      const {mistSaplings}=await import(url);
+      return{...forestScene.getObjectByName('aholo-island-trees')?.userData.qa,placements:mistSaplings};
+    })()`)
+    assert(report.saplings.saplings>0);assert.equal(report.saplings.saplingTriangles,97828)
+    check('full-geometry derived spruce saplings loaded and instanced',report.saplings)
+  }
   if(process.env.FOREST_SHORE_AFTER==='1'){
     const veil=()=>evaluate("(()=>{const m=forestScene.getObjectByName('mist-ridge-veil');return m?{time:m.material.uniforms.mistTime.value,density:m.material.uniforms.density.value,tint:m.material.uniforms.tint.value.toArray(),depthTest:m.material.depthTest,depthWrite:m.material.depthWrite}:null})()")
     const night=await veil();assert(night?.depthTest&&!night.depthWrite)
@@ -93,15 +145,33 @@ try {
       const [t,w,m,v,c]=await Promise.all(['/src/world/terrain.ts','/src/world/worldConfig.ts','/src/game/movement.ts','/src/world/vegetationLayout.ts','/src/world/coastalLayout.ts'].map(p=>import(r(p))));
       const terrainSamples=[];for(let x=-32;x<=40;x+=2)for(let z=-40;z<=40;z+=2)terrainSamples.push([x,z,t.terrainHeight(x,z)]);
       let walkable=0;for(let x=78;x<135;x+=.5)for(let z=-36;z<17;z+=.5)if(m.canStandAt(x,z))walkable+=.25;
-      return{walkable,terrainSamples,plants:v.vegetationPositions,lamps:v.lampPositions,landing:w.landing,mooring:w.mooring,ridgePieces:c.mistRidgePieces.length};
+      return{walkable,terrainSamples,plants:v.vegetationPositions,lamps:v.lampPositions,landing:w.landing,mooring:w.mooring,ridgePieces:c.mistRidgePieces.length,shorePieces:c.mistShorePieces?.length??0};
     })()`)
     const baseline=JSON.parse(await readFile('docs/evidence/2026-10-29-west-expansion/before/world-snapshot.json','utf8'))
     function close(a,b){if(typeof a==='number'){assert(Math.abs(a-b)<1e-10);return}if(a&&typeof a==='object'){assert.deepEqual(Object.keys(a),Object.keys(b));for(const k of Object.keys(a))close(a[k],b[k]);return}assert.equal(a,b)}
     close(layout.terrainSamples,baseline.terrainSamples);close(layout.plants.filter(p=>p.x>=-35&&p.x<72),baseline.plants)
     close(layout.lamps,baseline.lamps);close(layout.landing,baseline.landing);close(layout.mooring,baseline.mooring)
     const ratio=layout.walkable/baseline.walkableArea;assert(ratio>=.2&&ratio<=.25)
-    report.layout={sampleStep:.5,originalMainWalkable:baseline.walkableArea,mistWalkable:layout.walkable,ratio,ridgePieces:layout.ridgePieces,mistPlants:layout.plants.filter(p=>p.x>72).reduce((a,p)=>({...a,[p.kit]:(a[p.kit]??0)+1}),{}),originalTerrainSamplesUnchanged:baseline.terrainSamples.length,originalPlantsUnchanged:baseline.plants.length,originalLampsAndBerthUnchanged:true,crossEngineTolerance:1e-10}
+    report.layout={sampleStep:.5,originalMainWalkable:baseline.walkableArea,mistWalkable:layout.walkable,ratio,ridgePieces:layout.ridgePieces,shorePieces:layout.shorePieces,mistPlants:layout.plants.filter(p=>p.x>72).reduce((a,p)=>({...a,[p.kit]:(a[p.kit]??0)+1}),{}),originalTerrainSamplesUnchanged:baseline.terrainSamples.length,originalPlantsUnchanged:baseline.plants.length,originalLampsAndBerthUnchanged:true,crossEngineTolerance:1e-10}
     check('smaller island area and original main island preserved',report.layout)
+  }
+  if(process.env.FOREST_ROCK_COAST_AFTER==='1'){
+    const rocks=await evaluate(`(async()=>{
+      const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
+      const [c,rowing]=await Promise.all(['/src/world/coastalLayout.ts','/src/game/rowing.ts'].map(p=>import(r(p))));
+      let vertices=0;const violations=[];
+      for(const p of c.mistShorePieces){
+        const mesh=forestScene.getObjectByName('coastal-'+p.kit),g=mesh.geometry.getAttribute('position');
+        for(let i=0;i<g.count;i++){
+          const x=p.x+(Math.cos(p.yaw)*g.getX(i)+Math.sin(p.yaw)*g.getZ(i))*p.scale;
+          const z=p.z+(-Math.sin(p.yaw)*g.getX(i)+Math.cos(p.yaw)*g.getZ(i))*p.scale;
+          vertices++;if(rowing.isNavigableSea(x,z))violations.push({x,z});
+        }
+      }
+      return{pieces:c.mistShorePieces.length,vertices,violations};
+    })()`)
+    assert(rocks.pieces>0&&rocks.vertices>0);assert.deepEqual(rocks.violations,[])
+    report.rockGeometry=rocks;check('loaded shore rock vertices stay outside rowable water',rocks)
   }
   if(process.env.FOREST_DETAIL_AFTER==='1'){
     await waitFor(()=>true,'snapshot')

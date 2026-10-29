@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-29T14:28:41.832Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "mist turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 77.8,
+          "z": -12.2,
+          "heading": 0
+        },
+        "turned": {
+          "x": 77.8,
+          "z": -12.2,
+          "heading": 0.7700800000667579,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.6256900000542389
+        },
+        "angle": 0.7700800000667579,
+        "moved": {
+          "x": 78.35430076556929,
+          "z": -12.73757394214466,
+          "heading": 0.7700800000667579,
+          "speed": 0.08598823358578501,
+          "effort": 0.08598823358578501,
+          "phase": 1.3978526007956225
+        },
+        "hullLocalBounds": {
+          "min": [
+            -1.6724759340286472,
+            -0.365087240934372,
+            -0.43789619207382924
+          ],
+          "max": [
+            1.6799108982086044,
+            0.3650872409343719,
+            0.5560644268989493
+          ]
+        }
+      }
+    },
+    {
+      "name": "main turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 45.4,
+          "z": 2.2,
+          "heading": 3.141592653589793
+        },
+        "turned": {
+          "x": 45.4,
+          "z": 2.2,
+          "heading": -2.332312653618405,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.657539999976759
+        },
+        "angle": 0.8092799999713878,
+        "moved": {
+          "x": 42.6,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "hullLocalBounds": {
+          "min": [
+            -1.672475934028629,
+            -0.3650872409343719,
+            -0.4378961920738149
+          ],
+          "max": [
+            1.679910898208611,
+            0.365087240934372,
+            0.5560644268989492
+          ]
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "mist-tip-turn.png",
+    "mist-tip-clear.png",
+    "main-tip-turn.png",
+    "main-tip-clear.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  }
+}

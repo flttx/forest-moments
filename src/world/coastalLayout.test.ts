@@ -1,9 +1,9 @@
 import {expect,it} from 'vitest'
-import {coastPieces,coastKits,seawardClear,mistRidgePieces} from './coastalLayout'
-import {mistPathDistance} from './mistIsland'
+import {coastPieces,coastKits,seawardClear,mistRidgePieces,mistShorePieces} from './coastalLayout'
+import {mistPathDistance,mistHeight} from './mistIsland'
 import {canStandAt} from '../game/movement'
 import {isNavigableSea} from '../game/rowing'
-import {coastalDock,landing,mooring} from './worldConfig'
+import {coastalDock,landing,mooring,berths,seaLevel} from './worldConfig'
 import {creekDistance} from '../game/expansion'
 
 it('keeps the neighbour ridge solids clear of the forest trail and navigable water',()=>{
@@ -12,6 +12,21 @@ it('keeps the neighbour ridge solids clear of the forest trail and navigable wat
   const reach=coastKits[p.kit].half*p.scale
   expect(mistPathDistance(p.x,p.z)-reach).toBeGreaterThan(1)
   for(let i=0;i<16;i++)expect(isNavigableSea(p.x+Math.cos(i*Math.PI/8)*reach,p.z+Math.sin(i*Math.PI/8)*reach)).toBe(false)
+ }
+})
+
+it('embeds shore outcrops without closing the trail, landing or boat water',()=>{
+ expect(mistShorePieces.length).toBeGreaterThan(8)
+ for(const p of mistShorePieces){
+  const reach=coastKits[p.kit].half*p.scale
+  expect(mistPathDistance(p.x,p.z)-reach).toBeGreaterThan(1.1)
+  expect(Math.hypot(p.x-berths.mist.landing.x,p.z-berths.mist.landing.z)-reach).toBeGreaterThan(4)
+  expect(p.y).toBeLessThan(mistHeight(p.x,p.z))
+  for(let i=0;i<64;i++){
+   const x=p.x+Math.cos(i*Math.PI/32)*reach,z=p.z+Math.sin(i*Math.PI/32)*reach
+   expect(isNavigableSea(x,z)).toBe(false)
+   expect(mistHeight(x,z)).toBeGreaterThan(seaLevel+.08)
+  }
  }
 })
 
@@ -27,7 +42,8 @@ it('keeps every piece out of rowable water, the dock approach and the walkable c
  for(const p of coastPieces){
   expect(seawardClear(p)).toBe(true)
   expect(isNavigableSea(p.x,p.z)).toBe(false)
-  expect(p.x>coastalDock.minX-2&&Math.abs(p.z)<coastalDock.maxZ+2).toBe(false)
+  // The main dock has a finite footprint; distant neighbour shores are not its approach.
+  expect(p.x>coastalDock.minX-2&&p.x<coastalDock.maxX+2&&Math.abs(p.z)<coastalDock.maxZ+2).toBe(false)
   expect(Math.hypot(p.x-landing.x,p.z-landing.z)).toBeGreaterThan(3)
   expect(Math.hypot(p.x-mooring.x,p.z-mooring.z)).toBeGreaterThan(3)
   // Pieces stay off ground the raccoon can walk on, so walking and collision are unchanged.

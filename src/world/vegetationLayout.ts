@@ -7,6 +7,7 @@ import { originalPathDistance as pathDistance, islandShape, terrainHeight } from
 import {westLandRadius,westTrailDistance,westWetlandRadius} from './westExpansion'
 import {mistRadius,mistPathDistance,mistPine} from './mistIsland'
 import {mistLogDistance} from './mistDetails'
+import {autumnRadius,autumnPathDistance,autumnVista,autumnOffset} from './autumnIsland'
 import {workshopPosition,lookoutPosition,lookoutHill,isBeachApproach,clearings} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
@@ -33,6 +34,7 @@ export const lampPositions=originalLampPositions.map(p=>{
 
 /** Generous canopy buffers around gameplay and entrances, in metres. */
 export function clearForVegetation(x:number,z:number,margin=0,pathOffset=workshopPathOffset) {
+  if(x>72&&z>10)return autumnRadius(x,z)<.84&&terrainHeight(x,z)>.45&&autumnPathDistance(x,z)>2.4+margin&&Math.hypot(x-autumnVista.x,z-autumnVista.z)>3
   if(x>72)return mistRadius(x,z)<.85&&terrainHeight(x,z)>.5&&mistPathDistance(x,z)>2.1+margin
   if(x< -35.5)return westLandRadius(x,z)<.79&&terrainHeight(x,z)>.6&&westTrailDistance(x,z)>2.7+margin&&westWetlandRadius(x,z)>1.65
   if(Math.hypot(x,z)>islandShape.walkRadius-.3-margin) return false
@@ -68,7 +70,7 @@ function makeLayout() {
   const sightlines=[[15,13,8,6],[14,4,6,-5],[-4,17,-12,8]]
   return plants.filter(p=>{
     // Preserve seeded placement; remove only crowns touching the enlarged building or access path.
-    const crown=({'tall-pine-a':1.9,'normal-pine-b':1.7,'round-tree-a':2.2,'young-tree-b':1,'bush-a':.95,lantern:.4,'ie-old-pine':3.9,'ie-spruce':1.8}[p.kit])*p.scale
+    const crown=({'tall-pine-a':1.9,'normal-pine-b':1.7,'round-tree-a':2.2,'young-tree-b':1,'bush-a':.95,lantern:.4,'ie-old-pine':3.9,'ie-spruce':1.8,'ie-spruce-sapling':.7,'ie-birch':2.16,'ie-maple':2.98}[p.kit])*p.scale
     const dx=Math.max(Math.abs(p.x-workshopPosition[0])-workshopSize.halfX*modelAssets.workshop.scale,0)
     const dz=Math.max(Math.abs(p.z-workshopPosition[2])-workshopSize.halfZ*modelAssets.workshop.scale,0)
     return clearForVegetation(p.x,p.z)&&Math.hypot(dx,dz)>crown+.2
@@ -113,7 +115,31 @@ for(const [cx,cz] of [[95,-16],[101,1],[119,-5]])for(let i=0;i<6;i++){
  if([...mistPlants,...mistEdgePlants].some(p=>Math.hypot(x-p.x,z-p.z)<1.05))continue
  mistEdgePlants.push({kit:'bush-a',x,z,scale,yaw:a})
 }
-export const vegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants,...mistEdgePlants]
+// A few shorter, reshaped spruce crowns add a middle layer without moving existing trees.
+export const mistSaplings:VegetationInstance[]=[]
+const saplingCandidates:{x:number;z:number;rank:number}[]=[]
+for(let x=93;x<122;x+=1.7)for(let z=-21;z<4;z+=1.7){
+ const rank=Math.sin(x*19.7+z*31.3)*43758.5
+ if(!clearForVegetation(x,z)||mistRadius(x,z)>.72||mistLogDistance(x,z)<1.35||Math.hypot(x-mistPine.x,z-mistPine.z)<5)continue
+ if([...mistPlants,...mistEdgePlants].some(p=>Math.hypot(x-p.x,z-p.z)<2))continue
+ if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.5)continue
+ saplingCandidates.push({x,z,rank:rank-Math.floor(rank)})
+}
+for(const p of saplingCandidates.sort((a,b)=>a.rank-b.rank)){
+ if(mistSaplings.length>=8)break
+ if(mistSaplings.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<3.5))continue
+ mistSaplings.push({kit:'ie-spruce-sapling',x:p.x,z:p.z,scale:.86+p.rank*.12,yaw:p.rank*Math.PI*2})
+}
+/** Birch on the western approach and maple around the eastern clearing; retain the pine backbone. */
+export const autumnPlants:VegetationInstance[]=[]
+for(let x=93;x<126;x+=3.8)for(let z=17;z<44;z+=3.8){
+ const f=Math.sin(x*12.31+z*7.93),px=x+f*.8+autumnOffset.x,pz=z+Math.cos(x*.78+z)*.8+autumnOffset.z
+ // Keep the northeast hill and its seaward sightline open; trees frame the approach.
+ if(!clearForVegetation(px,pz,.25)||Math.hypot(px-106-autumnOffset.x,pz-29-autumnOffset.z)<3.3||Math.hypot(px-autumnVista.x,pz-autumnVista.z)<5||px>112+autumnOffset.x&&pz<30+autumnOffset.z)continue
+ const scale=.83+(f+1)*.17
+ autumnPlants.push({kit:f>.55?'normal-pine-b':x<108?'ie-birch':'ie-maple',x:px,z:pz,scale,yaw:f*Math.PI})
+}
+export const vegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants,...mistEdgePlants,...mistSaplings,...autumnPlants]
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))
@@ -122,6 +148,6 @@ export const vegetationColliders=[...vegetationPositions,...lampPositions].flatM
 
 // Approximate foliage volumes in kit space (template heights 4-8 m). Bushes count too: a low or close
 // camera arm otherwise ends inside one and the view fills with leaves.
-const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9},'ie-old-pine':islandTemplates['ie-old-pine'].crown,'ie-spruce':islandTemplates['ie-spruce'].crown}
+const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9},'ie-old-pine':islandTemplates['ie-old-pine'].crown,'ie-spruce':islandTemplates['ie-spruce'].crown,'ie-spruce-sapling':islandTemplates['ie-spruce-sapling'].crown,'ie-birch':islandTemplates['ie-birch'].crown,'ie-maple':islandTemplates['ie-maple'].crown}
 /** Crown spheres used only to keep the camera out of leaves; rendering and collisions are unaffected. */
 export const canopySpheres=vegetationPositions.flatMap(p=>{const c=crownShape[p.kit];return c?[{x:p.x,y:terrainHeight(p.x,p.z)+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]})

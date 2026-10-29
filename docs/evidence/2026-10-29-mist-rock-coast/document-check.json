@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-29",
+  "status": "PASS",
+  "currentDocumentMissingLinks": [],
+  "selectedPngHashesChunksAndCompressionVerified": 7,
+  "browserSummaries": {
+    "before": {
+      "checks": 1,
+      "screenshots": 15
+    },
+    "first": {
+      "checks": 1,
+      "screenshots": 9
+    },
+    "final": {
+      "checks": 7,
+      "screenshots": 26
+    },
+    "reviewed": {
+      "checks": 2,
+      "screenshots": 15
+    },
+    "roundtrip": {
+      "checks": 8,
+      "screenshots": 19
+    },
+    "main-views": {
+      "checks": 1,
+      "screenshots": 18
+    }
+  }
+}

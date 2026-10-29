@@ -2,9 +2,10 @@ import {afterEach,beforeEach,expect,it,vi} from 'vitest'
 import {decodeTravel,emptyTravel,travelSpawn,travelStorageKey} from './islandTravel'
 import {berths} from '../world/worldConfig'
 import {mistLoop,mistPaths,mistPine} from '../world/mistIsland'
-import {boatFits,canBoard,canLand,stepBoat,initialBoat} from './rowing'
+import {boatFits,canBoard,canLand,stepBoat,initialBoat,approachBerth} from './rowing'
 import {canStandAt,moveOnGround} from './movement'
 import {useForestStore} from './store'
+import {promptFor} from './prompt'
 import baseline from '../../docs/evidence/2026-10-29-west-expansion/before/world-snapshot.json'
 
 let storage:Map<string,string>
@@ -16,7 +17,7 @@ afterEach(()=>vi.unstubAllGlobals())
 
 it('keeps the neighbour at 20–25% of the original walkable main island and preserves sea separation',()=>{
  let walkable=0
- for(let x=78;x<135;x+=.5)for(let z=-36;z<17;z+=.5)if(canStandAt(x,z))walkable+=.25
+ for(let x=78;x<135;x+=.5)for(let z=-36;z<10;z+=.5)if(canStandAt(x,z))walkable+=.25
  console.log('MIST_AREA',walkable,'ratio',walkable/baseline.walkableArea)
  expect(walkable/baseline.walkableArea).toBeGreaterThanOrEqual(.2)
  expect(walkable/baseline.walkableArea).toBeLessThanOrEqual(.25)
@@ -53,7 +54,7 @@ it('allows loaded boarding at both berths, records arrival and discovery, and re
   }
   s().interact();finish();expect(s().mode).toBe('rowing')
  }
- expect(s().travel).toEqual({version:1,checkpoint:'main',visitedMist:true,foundPine:true})
+ expect(s().travel).toEqual({version:1,checkpoint:'main',visitedMist:true,foundPine:true,visitedAutumn:false,foundVista:false})
 })
 
 it('uses the departure berth after a reload at sea and ignores missing, corrupt or unknown saves',()=>{
@@ -70,4 +71,44 @@ it('reports failed travel storage without stranding the player at a berth',()=>{
  useForestStore.setState({mode:'rowing',boat:{...berths.mist.mooring,speed:0,phase:0,effort:0}})
  const s=useForestStore.getState;s().interact();for(let i=0;i<18;i++)s().tickBoatTransfer(.05)
  expect(s().mode).toBe('walking');expect(s().messageKind).toBe('error');expect(canBoard(s().position.x,s().position.z,s().boat)).toBe(true)
+})
+
+it('accepts broad, bow-on and oblique approaches, then moors under cover with a clear departure',()=>{
+ const s=useForestStore.getState
+ for(const berth of Object.values(berths)){
+  const side=Math.sign(berth.mooring.z-berth.landing.z),edge=side<0?berth.dock.minZ:berth.dock.maxZ
+  for(const [dx,distance,heading] of [[0,2.1,side*Math.PI/2],[2*side,1.8,0],[2*side,1.8,Math.PI],[0,2.3,side*Math.PI/4]]){
+   const boat={...initialBoat,x:berth.mooring.x+dx,z:edge+side*distance,heading}
+   expect(boatFits(boat.x,boat.z,heading),JSON.stringify({id:berth.id,dx,distance,heading})).toBe(true)
+   expect(canLand(boat)).toBe(true)
+   useForestStore.setState({mode:'rowing',boat,boatTransfer:null})
+   expect(promptFor(s())?.action).toContain('下船')
+   s().interact();expect(s().boat).toEqual(boat)
+   for(let i=0;i<18;i++)s().tickBoatTransfer(.05)
+   expect(s().mode).toBe('walking');expect(s().boat).toMatchObject(berth.mooring)
+   expect(canBoard(s().position.x,s().position.z,s().boat)).toBe(true)
+   s().interact();for(let i=0;i<18;i++)s().tickBoatTransfer(.05)
+   expect(s().mode).toBe('rowing')
+   let departing=s().boat
+   for(let i=0;i<40;i++)departing=stepBoat(departing,1,0,.05)
+   expect(Math.hypot(departing.x-berth.mooring.x,departing.z-berth.mooring.z)).toBeGreaterThan(1)
+  }
+ }
+})
+it('explains braking and rejects the opposite dock side, open sea, deck overlap and invalid input',()=>{
+ for(const berth of Object.values(berths)){
+  const boat={...initialBoat,...berth.mooring,speed:.5}
+  expect(approachBerth(boat)?.id).toBe(berth.id);expect(canLand(boat)).toBe(false)
+  useForestStore.setState({mode:'rowing',boat,boatTransfer:null})
+  expect(promptFor(useForestStore.getState())?.hint).toContain('松开')
+  useForestStore.getState().interact();expect(useForestStore.getState().boatTransfer).toBeNull()
+  expect(useForestStore.getState().message).toContain('松开')
+  for(const invalid of [
+   {...boat,speed:0,z:berth.dock.minZ+berth.dock.maxZ-berth.mooring.z},
+   {...boat,speed:0,x:berth.mooring.x+4},
+   {...boat,speed:0,z:berth.landing.z},
+   {...boat,speed:0,heading:NaN},
+   {...boat,speed:NaN},
+  ])expect(canLand(invalid)).toBe(false)
+ }
 })

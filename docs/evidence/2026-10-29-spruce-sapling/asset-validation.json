@@ -1,0 +1,29 @@
+{
+  "sourceTaskId": 4461973,
+  "source": "public\\assets\\island-trees\\spruce.glb",
+  "sourceSha256": "19a90677e2fdc72efa144465c7df7b3fcd8fa0730bdd8386b1397d29e165a30e",
+  "blender": "5.2.1 LTS",
+  "method": "continuous crown taper, asymmetric bough length, whorl twist and trunk bend; no uniform-scale-only claim",
+  "height": 3.799999952316284,
+  "triangles": 97828,
+  "sourceTriangles": 97828,
+  "bodyRadius": 0.5870961563424174,
+  "crownRadius": 0.6800246923611519,
+  "vertices": 90575,
+  "materials": 1,
+  "uvLayers": [
+    1
+  ],
+  "bytes": 4562028,
+  "sha256": "e743d30fb2647ac5dd1c32e9c9b6f56eb3a903325af177ae01fd40fa561664a1",
+  "paidCalls": 0,
+  "decimated": false,
+  "candidate": "assets\\blender\\spruce-sapling\\spruce-sapling.glb",
+  "runtime": "public/assets/island-trees/spruce-sapling.glb",
+  "sourceUnchanged": true,
+  "embeddedTextureHashesUnchanged": [
+    "657ca5b88f53c828b81ad36e745fad406c816ba367b55ebc5bce026a059753d7"
+  ],
+  "exportedUnitNormals": 90613,
+  "normalsRecalculated": true
+}

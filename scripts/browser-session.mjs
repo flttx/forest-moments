@@ -18,6 +18,8 @@ export async function createHeadlessBrowser(args) {
   await mkdir(temporary)
   const edge = spawn(process.env.EDGE_PATH ?? 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', [
     ...args,
+    // Automated verification is silent; do not play game audio on the user's machine.
+    '--mute-audio',
     `--user-data-dir=${profile}`,
     `--disk-cache-dir=${join(profile, 'cache')}`,
     '--disk-cache-size=67108864',

@@ -1,0 +1,26 @@
+{
+  "materials": [
+    {
+      "name": "Designer_Logic_PBR",
+      "pbr": {
+        "metallicFactor": 0,
+        "roughnessFactor": 0.8799999952316284
+      }
+    }
+  ],
+  "meshes": 1,
+  "primitives": [
+    {
+      "attributes": {
+        "POSITION": 0,
+        "NORMAL": 1,
+        "TEXCOORD_0": 2
+      },
+      "triangles": 97792
+    }
+  ],
+  "textures": 1,
+  "extensions": [
+    "EXT_texture_webp"
+  ]
+}

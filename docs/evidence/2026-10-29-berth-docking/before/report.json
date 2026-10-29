@@ -1,0 +1,117 @@
+{
+  "date": "2026-10-29T14:21:38.081Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "mist bow-on old behaviour",
+      "data": {
+        "approach": {
+          "x": 80.6,
+          "z": -13.258026687539283,
+          "heading": -1.5707963267948966,
+          "speed": 0.018631895991499975,
+          "effort": 0.018631895991499975,
+          "phase": 1.0419733124606987
+        },
+        "canLand": false,
+        "mode": "rowing"
+      }
+    },
+    {
+      "name": "mist offset old behaviour",
+      "data": {
+        "approach": {
+          "x": 79.0859941185537,
+          "z": -12.9,
+          "heading": 0,
+          "speed": 0.015069702415242983,
+          "effort": 0.015069702415242983,
+          "phase": 0.48599411855380215
+        },
+        "canLand": false,
+        "mode": "rowing"
+      }
+    },
+    {
+      "name": "mist oblique old behaviour",
+      "data": {
+        "approach": {
+          "x": 80.94393988906378,
+          "z": -13.456060110936198,
+          "heading": -0.7853981633974483,
+          "speed": 0.016166553972291053,
+          "effort": 0.016166553972291053,
+          "phase": 0.4864044557551379
+        },
+        "canLand": false,
+        "mode": "rowing"
+      }
+    },
+    {
+      "name": "main bow-on old behaviour",
+      "data": {
+        "approach": {
+          "x": 42.6,
+          "z": 3.08406094073205,
+          "heading": 1.5707963267948966,
+          "speed": 0.018537284127589104,
+          "effort": 0.018537284127589104,
+          "phase": 1.2159390592679395
+        },
+        "canLand": false,
+        "mode": "rowing"
+      }
+    },
+    {
+      "name": "main offset old behaviour",
+      "data": {
+        "approach": {
+          "x": 44.12719272928358,
+          "z": 2.9000000000000004,
+          "heading": 3.141592653589793,
+          "speed": 0.01582078432371652,
+          "effort": 0.01582078432371652,
+          "phase": 0.4728072707164914
+        },
+        "canLand": false,
+        "mode": "rowing"
+      }
+    },
+    {
+      "name": "main oblique old behaviour",
+      "data": {
+        "approach": {
+          "x": 42.94436873530151,
+          "z": 3.455631264698446,
+          "heading": 0.7853981633974483,
+          "speed": 0.015799263751231245,
+          "effort": 0.015799263751231245,
+          "phase": 0.48701093592072553
+        },
+        "canLand": false,
+        "mode": "rowing"
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "mist-bow-on-approach.png",
+    "mist-offset-approach.png",
+    "mist-oblique-approach.png",
+    "main-bow-on-approach.png",
+    "main-offset-approach.png",
+    "main-oblique-approach.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  }
+}

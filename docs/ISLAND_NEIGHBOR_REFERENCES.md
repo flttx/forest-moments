@@ -1,6 +1,6 @@
 # 三座邻岛 · 独立概念与地形建模参考
 
-2026-10-29 · v4 · **本文图片仍为 AI 设计参考；雾松岛首版已进入运行时，秋岚岛、潮汐岛待实施。**
+2026-10-29 · v8 · **本文图片仍为 AI 设计参考；雾松与秋岚可玩首版已进入运行时；秋岚白桦/枫树已接入，潮汐岛待制作。**
 
 总布局见[群岛规划](ISLAND_EXPANSION_PLAN.md)，树木/倒木/蕨类等独立模型图见[九件单体图册](ISLAND_EXPANSION_REFERENCES.md)。每岛提供场景概念和去除布景的地形造型图。后者是图像工具生成的灰模风格插画，**不是已经制作的灰盒或 Blender 模型**。
 
@@ -10,7 +10,7 @@
 | 秋岚岛 | [白桦与枫树林](references/island-expansion/autumn-island-concept-v1.png) | [IT-02 林地与缓丘](references/island-expansion/it-02-autumn-terrain-v1.png) | IE-06 白桦、IE-07 枫树，复用普通松 |
 | 潮汐岛 | [海风松与潮池](references/island-expansion/tide-island-concept-v1.png) | [IT-03 低岩台与浅池](references/island-expansion/it-03-tide-terrain-v1.png) | IE-09 海风松，复用海岸石、贝壳与漂木 |
 
-雾松岛当前采用独立程序地形、复用 AHOLO 古松/云杉和现有码头，面积为原主岛的 23.10%（加入倒木与林缘灌木后）；首版蕨丛、局部岩脊、不规则岸湾与柔边薄雾已接入，倒木与林缘已细化，完整岩岸尚待制作。[实机实现与验证](evidence/2026-10-29-mist-logs/evidence.md)单独记录，不把下列插画当作实现证据。
+雾松岛当前采用独立程序地形、复用 AHOLO 古松/云杉和现有码头，面积为原主岛的 22.29%（加入 8 株幼态云杉后）；首版蕨丛、局部岩脊、不规则岸湾与柔边薄雾已接入，倒木与林缘已细化，北/东岸等外沿新增 16 处复用岩块和坡面色差，完整岩岸与最终美术仍待验收。[实机实现与验证](evidence/2026-10-29-spruce-sapling/evidence.md)单独记录，不把下列插画当作实现证据。
 
 ## 雾松岛
 
@@ -25,6 +25,8 @@
 单体输入：[古松](references/island-expansion/ie-01-old-pine-v1.png)、[倒木](references/island-expansion/ie-02-hollow-log-v1.png)、[蕨丛](references/island-expansion/ie-03-fern-clump-v1.png)、[云杉](references/island-expansion/ie-05-spruce-v1.png)。码头、普通松和岩石复用现有资产；不新增小屋或动物。
 
 ## 秋岚岛
+
+首版状态（2026-10-29）：独立地形、第三泊位、林路与观景丘发现已接入；15 株树已改为 8 白桦、3 枫树、4 普通松，专用阔叶按参考经 AHOLO 生成；完整面数和季节材质见[制作证据](evidence/2026-10-29-autumn-trees/evidence.md)。按用户间距反馈，秋岚整体向东 4 m、南 18 m 平移，最近岸距从约 6.06 m 拉开到 24.37 m；专用树根碰撞接入后可站立面积 901 m²，为原主岛的 24.38%。静音实机往返与刷新通过，航程 67.722 秒，优先独立海岛的空间感；[过程与同机位对照](evidence/2026-10-29-autumn-island/evidence.md)。
 
 ![秋岚岛独立概念，AI 插画，非实机](references/island-expansion/autumn-island-concept-v1.png)
 
@@ -50,8 +52,8 @@
 
 ## 建模时如何使用
 
-先按 IT-01–03 做可走的地形与泊位灰盒，再按单体图制作或复用模型，最后放置树群、薄雾、潮池水面。三个地形工作项与九件单体资产分开计数；全部仍是计划。
+先按 IT-01–03 做可走的地形与泊位灰盒，再按单体图制作或复用模型，最后放置树群、薄雾、潮池水面。三个地形工作项与九件单体资产分开计数；当前雾松/秋岚可玩首版和 7/9 基础资产已接入，其他项目仍待完成。
 
 场景图与地形图为 AI 编辑关系，不是同一 3D 模型的受控前后渲染。它们大致保留岸线和高差布局，但不保证逐点几何一致，不是高度图或精确投影。后续实施必须重新求值面积、坡度、角色净空、船体碰撞和性能。
 
-完整[提示词与输入输出](evidence/2026-10-29-island-expansion-v2/generation.json)、[尺寸和哈希](evidence/2026-10-29-island-expansion-v2/image-checks.json)及[制作记录](evidence/2026-10-29-island-expansion-v2/evidence.md)均已留存。未生成新 GLB、未调用付费建模服务。
+完整[提示词与输入输出](evidence/2026-10-29-island-expansion-v2/generation.json)、[尺寸和哈希](evidence/2026-10-29-island-expansion-v2/image-checks.json)及[制作记录](evidence/2026-10-29-island-expansion-v2/evidence.md)均已留存。该参考图制作阶段未生成新 GLB、未调用付费建模服务；后续模型生产以逐件证据为准。

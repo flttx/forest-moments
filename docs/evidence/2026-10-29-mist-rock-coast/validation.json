@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-29",
+  "commands": {
+    "pnpm lint": "PASS",
+    "pnpm test": {
+      "status": "PASS",
+      "files": 50,
+      "tests": 228
+    },
+    "pnpm build": {
+      "status": "PASS",
+      "mainJsKB": 1890.81,
+      "gzipKB": 582.83,
+      "warning": "existing large bundle warning"
+    }
+  },
+  "mutedBrowserDefault": true,
+  "browserMutedFlagVerified": true,
+  "runtimeChanges": [
+    "shore rock placement",
+    "mist terrain material colour only"
+  ],
+  "newModels": 0,
+  "paidCalls": 0,
+  "scope": "local PC only; no public cold-load or cross-PC claim"
+}

@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-29T14:27:39.483Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "mist turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 77.8,
+          "z": -12.2,
+          "heading": 0
+        },
+        "turned": {
+          "x": 77.8,
+          "z": -12.2,
+          "heading": 0.33664000000953614,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.5075200000464895
+        },
+        "angle": 0.33664000000953614,
+        "moved": {
+          "x": 78.50979198470571,
+          "z": -12.448399452942114,
+          "heading": 0.33664000000953614,
+          "speed": 0.08531942691235676,
+          "effort": 0.08531942691235676,
+          "phase": 1.259521961329999
+        },
+        "hullLocalBounds": {
+          "min": [
+            -1.6724759340286113,
+            -0.3650872409343717,
+            -0.437896192073822
+          ],
+          "max": [
+            1.6799108982086324,
+            0.36508724093437206,
+            0.5560644268989527
+          ]
+        }
+      }
+    },
+    {
+      "name": "main turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 45.4,
+          "z": 2.2,
+          "heading": 3.141592653589793
+        },
+        "turned": {
+          "x": 45.4,
+          "z": 2.2,
+          "heading": -2.805112653570722,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.6589050000309937
+        },
+        "angle": 0.3364800000190711,
+        "moved": {
+          "x": 44.514604950544836,
+          "z": 2.5096946581220827,
+          "heading": -2.805112653570722,
+          "speed": 0.08869580467776433,
+          "effort": 0.08869580467776433,
+          "phase": 1.5969002957916265
+        },
+        "hullLocalBounds": {
+          "min": [
+            -1.6724759340286326,
+            -0.36508724093437206,
+            -0.4378961920738256
+          ],
+          "max": [
+            1.6799108982086253,
+            0.36508724093437184,
+            0.5560644268989563
+          ]
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "mist-tip-turn.png",
+    "mist-tip-clear.png",
+    "main-tip-turn.png",
+    "main-tip-clear.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.50",
+    "revision": "@af2ba23ae0ecf7084d900446fc59d5119dd5fd5e",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.7"
+  }
+}
