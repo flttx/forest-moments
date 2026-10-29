@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-29T01:45:26.107Z",
+  "checks": [
+    {
+      "name": "all filters and frames selectable at 0, 2 and 5 journal pages; quality restriction preserved"
+    },
+    {
+      "name": "filters measurably change the picture",
+      "plain": {
+        "w": 1440,
+        "h": 900,
+        "lum": 94.29333386831,
+        "sat": 0.46454204178341296,
+        "grain": 5.860180754917597
+      },
+      "warm": {
+        "w": 1440,
+        "h": 900,
+        "lum": 107.20370203190184,
+        "sat": 0.37273386863884866,
+        "grain": 6.250659524740954
+      },
+      "film": {
+        "w": 1440,
+        "h": 900,
+        "lum": 75.63205373831127,
+        "sat": 0.35558588017786974,
+        "grain": 7.785401181627597
+      },
+      "mono": {
+        "w": 1440,
+        "h": 900,
+        "lum": 103.2747534932242,
+        "sat": 0,
+        "grain": 5.011425074980189
+      },
+      "nightPlain": {
+        "w": 1440,
+        "h": 900,
+        "lum": 34.830416043922675,
+        "sat": 0.5314451828308248,
+        "grain": 2.715075281113017
+      },
+      "lamp": {
+        "w": 1440,
+        "h": 900,
+        "lum": 35.12818686701588,
+        "sat": 0.5245573586283153,
+        "grain": 2.67711875457655
+      }
+    },
+    {
+      "name": "paper and stamp frames mount the saved photo with a caption footer; album keeps the framed image",
+      "framed": {
+        "w": 1512,
+        "h": 1051,
+        "lum": 120.4112156414277,
+        "sat": 0.39468055074022534,
+        "grain": 5.232828861256545
+      },
+      "stamped": {
+        "w": 1512,
+        "h": 1051,
+        "lum": 120.70155159256083,
+        "sat": 0.3925684173208921,
+        "grain": 5.224607329842932
+      },
+      "canvasSize": [
+        1440,
+        900
+      ]
+    },
+    {
+      "name": "leaving the camera resets filter and frame"
+    },
+    {
+      "name": "on low quality the depth chip is greyed out with the reason and cannot be chosen",
+      "filter": "plain",
+      "low": true,
+      "tip": "画面已降为低画质档，景深暂不可用",
+      "disabled": "true"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-unlocked.png",
+    "02-filter-plain.png",
+    "02-filter-warm.png",
+    "02-filter-film.png",
+    "02-filter-mono.png",
+    "02-filter-lamp.png",
+    "03-frame-paper.png",
+    "04-frame-stamps.png",
+    "05-low-quality-depth.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42",
+  "notes": [
+    "renderer on low tier during this run: depth of field off, not measured"
+  ]
+}

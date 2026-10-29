@@ -13,8 +13,8 @@ export const frameIds=['none','paper','stamps'] as const
 export type FrameId=typeof frameIds[number]
 export const filterUnlock:Record<FilterId,number>={plain:0,warm:0,depth:1,film:2,mono:3,lamp:4}
 export const frameUnlock:Record<FrameId,number>={none:0,paper:2,stamps:5}
-/** Temporary, for looking at every filter and frame before the journal unlocks them: set back to false to restore the page rules. */
-export const openAllLooks=false
+/** All filters and frames are available from the start; journal progress is no longer required. */
+export const openAllLooks=true
 export const looksUnlocked=(pages:number,need:number)=>openAllLooks||pages>=need
 /** Depth of field is the costly one: dropped on the low quality tier. */
 export const filterAllowed=(id:FilterId,low:boolean)=>!(id==='depth'&&low)

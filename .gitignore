@@ -168,3 +168,6 @@ __pycache__/
 # Report v0.84 selected slope-camera comparison; other captures stay local.
 !/docs/evidence/2026-10-28-slope-camera/before/downhill-still.png
 !/docs/evidence/2026-10-28-slope-camera/after/downhill-still.png
+
+# Report v0.87: photo looks available without journal progress.
+!/docs/evidence/2026-10-29-photo-unlocked/01-unlocked.png
