@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-29",
+  "documents": [
+    {
+      "file": "docs/ISLAND_EXPANSION_PLAN.md",
+      "local_links": 3,
+      "all_exist": true
+    },
+    {
+      "file": "docs/ISLAND_EXPANSION_REFERENCES.md",
+      "local_links": 13,
+      "all_exist": true
+    },
+    {
+      "file": "docs/report/PROJECT_REPORT.md",
+      "local_links": 55,
+      "all_exist": true
+    },
+    {
+      "file": "docs/evidence/2026-10-29-island-expansion/evidence.md",
+      "local_links": 3,
+      "all_exist": true
+    }
+  ],
+  "copies": [
+    {
+      "id": "concept-v1",
+      "copy_matches_source": true
+    },
+    {
+      "id": "concept-v2",
+      "copy_matches_source": true
+    },
+    {
+      "id": "ie-01-old-pine-v1",
+      "copy_matches_source": true
+    },
+    {
+      "id": "ie-02-hollow-log-v1",
+      "copy_matches_source": true
+    },
+    {
+      "id": "ie-03-fern-clump-v1",
+      "copy_matches_source": true
+    },
+    {
+      "id": "ie-04-boardwalk-module-v1",
+      "copy_matches_source": true
+    }
+  ],
+  "history_unchanged": true,
+  "report_excluded_name_check_passed": true,
+  "new_images_not_ignored": true,
+  "errors": []
+}

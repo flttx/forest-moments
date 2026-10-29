@@ -1,0 +1,152 @@
+[
+  {
+    "id": "concept-v3-four-islands",
+    "file": "docs/references/island-expansion/concept-v3-four-islands.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 3251777,
+    "sha256": "a689042662a310f6ca77f749616b759b3c7c4a00de70ab1e01a67e083d2672c1",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "deep-forest-v1",
+    "file": "docs/references/island-expansion/deep-forest-v1.png",
+    "width": 1672,
+    "height": 941,
+    "bytes": 3276362,
+    "sha256": "a5a4d3299bba106f892e1cfdf23a01bbea742f2507ffe988ad7ea482e7077c6b",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "ie-05-spruce-v1",
+    "file": "docs/references/island-expansion/ie-05-spruce-v1.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 1455146,
+    "sha256": "a7d7f8e6394c391eec7f84dacfc0b8fdd0173b899f880f6ad4ffb1a9bc450496",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "ie-06-birch-v1",
+    "file": "docs/references/island-expansion/ie-06-birch-v1.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 1891536,
+    "sha256": "09b4452a30c598c90dda05596d489bab1a9e2345b5cd0636d5d41132b930e1be",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "ie-07-maple-v1",
+    "file": "docs/references/island-expansion/ie-07-maple-v1.png",
+    "width": 1145,
+    "height": 1374,
+    "bytes": 2255023,
+    "sha256": "eebc40e87ae6f20aed41eb1c37b48f7ad3d3cf665d31f10f1486efa7f5982ea1",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "ie-08-alder-v1",
+    "file": "docs/references/island-expansion/ie-08-alder-v1.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 1918025,
+    "sha256": "4563cec87afac07859160f20397a8f294d093874b67dc1b30cf535a3b612cb91",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "ie-09-windswept-pine-v1",
+    "file": "docs/references/island-expansion/ie-09-windswept-pine-v1.png",
+    "width": 1408,
+    "height": 1117,
+    "bytes": 1980427,
+    "sha256": "5676bf989a9534f197fb5b2d8b86849b98f627404a0e6ca2fc68ce15343855af",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "concept-v4-four-islands",
+    "file": "docs/references/island-expansion/concept-v4-four-islands.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 3324008,
+    "sha256": "dd30899449a203a2d774d9c8ce0c53953fbe266e8b5561c0d11661567fe09bfe",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "mist-island-concept-v1",
+    "file": "docs/references/island-expansion/mist-island-concept-v1.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 3084955,
+    "sha256": "9f0d23f7067fdc464e9ce2dae521ada4a67a87957adae848814944d13782fb6c",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "autumn-island-concept-v1",
+    "file": "docs/references/island-expansion/autumn-island-concept-v1.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2891139,
+    "sha256": "d6e7dd5b9c2673db240772cad3c78572ebdefb5eaab2d2b7b980c5cba27d75a1",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "tide-island-concept-v1",
+    "file": "docs/references/island-expansion/tide-island-concept-v1.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2891598,
+    "sha256": "85476f2d31ef21b3cbe473f2fb7da9df84e205a526aae915858261beffea9b5e",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "ie-08-alder-v2",
+    "file": "docs/references/island-expansion/ie-08-alder-v2.png",
+    "width": 1024,
+    "height": 1536,
+    "bytes": 2253026,
+    "sha256": "2c2c2fb326f8aac7c4c09ab1f6caf766fac0550776df1967c0d71122dc41d825",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "it-01-mist-terrain-v1",
+    "file": "docs/references/island-expansion/it-01-mist-terrain-v1.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 2144776,
+    "sha256": "889be98456a70af8359865a60ff4f23c84e028a90a0d546621a0351930e237b5",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "it-02-autumn-terrain-v1",
+    "file": "docs/references/island-expansion/it-02-autumn-terrain-v1.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1813455,
+    "sha256": "f74a924eda1740d3deb2f305ecdb418f731ba92098653a995aef9dc52aa88cb3",
+    "decodable": true,
+    "copy_matches_source": true
+  },
+  {
+    "id": "it-03-tide-terrain-v1",
+    "file": "docs/references/island-expansion/it-03-tide-terrain-v1.png",
+    "width": 1536,
+    "height": 1024,
+    "bytes": 1979379,
+    "sha256": "ecb2b90332c392c7dcc9b45d3ee5f4e6717a029c6f7839eb1e6214cca3662058",
+    "decodable": true,
+    "copy_matches_source": true
+  }
+]

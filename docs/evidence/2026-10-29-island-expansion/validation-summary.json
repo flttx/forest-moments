@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-29",
+  "scope": "设计文档与 AI 参考图；运行时代码和模型不变",
+  "checks": [
+    {"command": "pnpm lint", "exit_code": 0, "result": "passed"},
+    {"command": "pnpm test", "exit_code": 0, "files_passed": 47, "tests_passed": 215, "tests_failed": 0, "reported_duration_seconds": 8.92},
+    {"command": "pnpm build", "exit_code": 0, "result": "passed", "main_js_kb": 1866.86, "main_js_gzip_kb": 575.72, "existing_warning": "Some chunks are larger than 500 kB after minification"}
+  ],
+  "image_decode_passed": 6,
+  "selected_deliverables": {"overall_concept": 1, "individual_asset_references": 4},
+  "retained_superseded_concepts": 1,
+  "browser_rerun": false,
+  "new_runtime_assets": 0,
+  "new_modeling_calls": 0,
+  "new_gameplay_verification": false
+}

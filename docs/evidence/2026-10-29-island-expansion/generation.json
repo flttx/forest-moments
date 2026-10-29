@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-29",
+  "scope": "二维规划概念与建模参考，非模型、非实机截图。",
+  "tool": "built-in image_gen.imagegen",
+  "model_identifier": "not exposed by tool",
+  "account_plan_and_image_usage": "未读取账户或计费明细，不声称免费或商用许可已核验。",
+  "modeling_calls": 0,
+  "licensing": "本轮为用户请求的 AI 设计参考；后续使用的建模服务与发布许可需按实际来源核验。",
+  "records": [
+    {
+      "id": "concept-v1",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen.imagegen",
+      "mode": "generate",
+      "prompt": "Use case: stylized-concept.\nAsset type: Forest Moments PC cozy 3D forest game expansion environment concept, NOT a screenshot, no UI.\nPrimary request: a beautiful wide aerial three-quarter concept painting showing one enlarged main forest island on the LEFT and one much smaller nearshore pine island on the RIGHT, separated by a clear navigable sea channel. North is the top of the composition, east is right. Full silhouettes of BOTH islands fit inside the picture with sea margin; the main island takes about 70% of the land area. This is a grounded natural island archipelago, not floating land.\nLayout: main island has an irregular broad wooded WESTERN lobe merging naturally into an existing smaller central/southern life area. The western lobe is deep pine forest with old asymmetric pines, a visible winding walking-loop path with open glades, a small low wet woodland crossed by a SHORT simple timber boardwalk. Keep tree groups broken into varied clusters so the trail and glades remain readable. Existing life area has just one modest warm wooden workshop southwest, one tiny fenced farm, a small freshwater pond in the interior, a pale southern sand beach, a modest wooden lookout on the north sea cliff, and an east-facing small wooden jetty. Buildings sparse, subordinate to the forest. ONE canoe with a tiny raccoon paddler on the sea between the two docks. Smaller island on the right has a west-facing landing jetty, a few large old pines, mossy warm-grey rocks, fern understory, one hollow fallen log and one readable loop path. NO buildings on the smaller island. The two docks FACE EACH OTHER across a short open-water passage. Main island remains visibly larger. No bridge between islands. No other islands.\nStyle: mature restrained storybook environment concept, hand-painted game art, soft sculpted forms with painterly wood and needle foliage detail, believable terrain, not toy plastic, not voxel. Deep pine greens #28453A, warm aged timber #8A5B3D, warm-grey stone #7D7A6E, muted teal sea, gentle amber sunlight. Calm late-afternoon daylight with cool very thin mist around the right island's trees; terrain and paths remain clearly visible. Warm pools of sunlight in forest clearings. Sea has subtle ripples and translucent shallows. Elevated oblique aerial camera, attractive balanced panoramic composition, no cutaway, no terrain cross-section.\nConstraints: prioritize clearly different older life area / new western deep forest / smaller eastern island. NO text, labels, numbers, logos, watermarks, HUD, borders, mountains, castles, towns, tall fantasy towers, dense buildings, snow, exaggerated bloom or dense fog. Do not make the entire main island a circular mound.",
+      "input_images": [],
+      "transparent_background": false,
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-5196fe30-c80b-4850-9934-43eae2ca0bb9.png",
+      "project_file": "docs/references/island-expansion/concept-v1.png",
+      "status": "superseded",
+      "review": "西岸裁切，保留首版记录。"
+    },
+    {
+      "id": "concept-v2",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen.imagegen",
+      "mode": "edit",
+      "prompt": "Use case: precise-object-edit.\nEdit the provided Forest Moments archipelago concept. Change ONLY the framing: pull the camera back substantially, preserving the same elevated oblique viewing angle, to reveal the entire western/left coastline of the large main island. Both islands must be completely inside the frame with clear open sea around ALL outer edges, at least 6 percent sea margin at left and right and visible sea above all treetops. Complete the previously cropped western coast naturally. Keep all already visible relative landmark locations, island sizes relative to each other, trees, paths, sun direction, sea, warm storybook painted style, existing two facing docks and canoe. Do not add islands, houses, landmarks, labels, text, border or UI. Maintain a wide panoramic landscape format. This is a complete two-island overall design view, not a tight crop.",
+      "input_images": [
+        "docs/references/island-expansion/concept-v1.png"
+      ],
+      "transparent_background": false,
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-42068073-81d7-4116-a461-680dcd41c263.png",
+      "project_file": "docs/references/island-expansion/concept-v2.png",
+      "status": "selected-reference-awaiting-user-review",
+      "review": "完整双岛构图，保留西林与对向码头关系；不是现有场景的精确叠图，距离和建筑坐标不作实施依据。"
+    },
+    {
+      "id": "ie-01-old-pine-v1",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen.imagegen",
+      "mode": "generate",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated 3D modeling reference for Forest Moments, a mature warm storybook PC forest game. Style: hand-painted stylized game asset, sculpted readable shapes and restrained painterly texture; not photorealistic, not shiny toy plastic, not chunky voxel. Palette: deep muted pine and moss greens, warm weathered brown timber, subtle warm-grey accents. Soft even neutral studio light, no dramatic rim glow. Background PURE WHITE with a faint soft contact shadow only. Show exactly ONE complete asset centered, fully inside the frame with generous whitespace, single three-quarter view. No separate detail panels, repeated views, scene, terrain base, pedestal, characters, scale rulers, captions, letters, logos, watermark or UI. Keep silhouette and construction easy to read. Subject: one ancient asymmetric pine tree, full tree from complete exposed root flare to highest needle crown, intended about 8m tall and 4.5m crown span. A thick warm-brown gently leaning trunk with broad readable bark furrows, a few low root buttresses resting directly on the white ground, high uneven sweeping boughs carrying several distinct dark-green pine needle canopies, generous gaps between canopy tiers. Lowest living branches begin high enough for a small character to walk below, lower trunk visible. Slight moss only at root bases. Dignified old forest landmark with a rounded irregular canopy, NOT a perfect conical Christmas tree. Foliage in legible grouped forms rather than thousands of noisy needles. No hanging vines, flowers, animals, nests, stones or built structures. Tall portrait subject in square image, tree occupies about 80% height.",
+      "input_images": [],
+      "transparent_background": false,
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-805b1b64-52c8-4009-ac56-92018676e4e5.png",
+      "project_file": "docs/references/island-expansion/ie-01-old-pine-v1.png",
+      "status": "selected-reference-awaiting-user-review",
+      "review": "单体完整可辨；背面、尺寸、拓扑与浏览器效果未验证。"
+    },
+    {
+      "id": "ie-02-hollow-log-v1",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen.imagegen",
+      "mode": "generate",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated 3D modeling reference for Forest Moments, a mature warm storybook PC forest game. Style: hand-painted stylized game asset, sculpted readable shapes and restrained painterly texture; not photorealistic, not shiny toy plastic, not chunky voxel. Palette: deep muted pine and moss greens, warm weathered brown timber, subtle warm-grey accents. Soft even neutral studio light, no dramatic rim glow. Background PURE WHITE with a faint soft contact shadow only. Show exactly ONE complete asset centered, fully inside the frame with generous whitespace, single three-quarter view. No separate detail panels, repeated views, scene, terrain base, pedestal, characters, scale rulers, captions, letters, logos, watermark or UI. Keep silhouette and construction easy to read. Subject: one mossy hollow fallen pine log, about 3m long and 0.9m outside diameter, lying horizontally. Camera sees the large near hollow end in three-quarter view AND the long outer side. Thick irregular warm-brown bark shell with an intact continuous rim, clear interior wooden wall and dark cavity, broken jagged rear end, two short blunt broken branch stubs. Moss grows in several restrained soft rounded patches along the upper surface, leaving the bark outline visible. Weathered warm ochre exposed end grain contrasts with dark interior, dry wood with subtle cracks. No fern plants, mushrooms, surrounding rocks, dirt mound, water or branches lying separately. The hollow is a small natural animal-scale cavity, not a huge player tunnel. Landscape-oriented single object in square image, full contour clear.",
+      "input_images": [],
+      "transparent_background": false,
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-71093a82-6953-4137-bcac-a7e1f0a52af4.png",
+      "project_file": "docs/references/island-expansion/ie-02-hollow-log-v1.png",
+      "status": "selected-reference-awaiting-user-review",
+      "review": "单体完整可辨；背面、尺寸、拓扑与浏览器效果未验证。"
+    },
+    {
+      "id": "ie-03-fern-clump-v1",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen.imagegen",
+      "mode": "generate",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated 3D modeling reference for Forest Moments, a mature warm storybook PC forest game. Style: hand-painted stylized game asset, sculpted readable shapes and restrained painterly texture; not photorealistic, not shiny toy plastic, not chunky voxel. Palette: deep muted pine and moss greens, warm weathered brown timber, subtle warm-grey accents. Soft even neutral studio light, no dramatic rim glow. Background PURE WHITE with a faint soft contact shadow only. Show exactly ONE complete asset centered, fully inside the frame with generous whitespace, single three-quarter view. No separate detail panels, repeated views, scene, terrain base, pedestal, characters, scale rulers, captions, letters, logos, watermark or UI. Keep silhouette and construction easy to read. Subject: one compact woodland fern clump, about 0.55m high and 0.85m wide, with exactly one planted central crown and approximately 8 broad arcing feathered fronds radiating naturally. Taller upright inner fronds and two lower outward-curving fronds create a balanced 3D silhouette. Clearly visible tapered central stems and simple paired rounded lance-shaped leaflets, grouped shapes easy to reconstruct in Blender; restrained leaf count and no microscopic leaf noise. Muted deep forest green with soft lighter olive tips and a few brown basal stems. Show entire clump to its tiny joined stem base without soil patch or pot, three-quarter slightly elevated view. No flowers, trees, log, rocks, mushrooms or a second plant. Matte painterly foliage, not waxy.",
+      "input_images": [],
+      "transparent_background": false,
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-3e2ec5ba-f36a-464a-908a-a98744aae4c4.png",
+      "project_file": "docs/references/island-expansion/ie-03-fern-clump-v1.png",
+      "status": "selected-reference-awaiting-user-review",
+      "review": "单体完整可辨；背面、尺寸、拓扑与浏览器效果未验证。"
+    },
+    {
+      "id": "ie-04-boardwalk-module-v1",
+      "date": "2026-10-29",
+      "tool": "built-in image_gen.imagegen",
+      "mode": "generate",
+      "prompt": "Use case: stylized-concept. Asset type: ONE isolated 3D modeling reference for Forest Moments, a mature warm storybook PC forest game. Style: hand-painted stylized game asset, sculpted readable shapes and restrained painterly texture; not photorealistic, not shiny toy plastic, not chunky voxel. Palette: deep muted pine and moss greens, warm weathered brown timber, subtle warm-grey accents. Soft even neutral studio light, no dramatic rim glow. Background PURE WHITE with a faint soft contact shadow only. Show exactly ONE complete asset centered, fully inside the frame with generous whitespace, single three-quarter view. No separate detail panels, repeated views, scene, terrain base, pedestal, characters, scale rulers, captions, letters, logos, watermark or UI. Keep silhouette and construction easy to read. Subject: exactly one SHORT STRAIGHT LOW WOODLAND BOARDWALK MODULE, about 2.4m long, 1.6m wide walking deck, 0.45m above ground. Twelve parallel flat timber deck planks laid ACROSS the width, resting on two straight longitudinal support beams underneath, supported at four corners by FOUR short vertical timber posts continuing down below the beams. Deck top completely flat from end to end, no stairs, no curve, no arched bridge, no slope, no railings, no ropes or lamps. The TWO end edges must be square and flush so identical modules can join end to end, no protruding end bars, minimal even gaps between planks. Gently weathered warm-grey brown wood with visible broad grain and softened edges, structurally sound, no rotten broken boards. Three-quarter elevated view shows the top surface, near long side beam and short supporting legs; rear leg may naturally be occluded. No moss covering deck, no water, no shoreline, no ground slab, no plants. This is a low walking platform module, NOT a bridge or a pier.",
+      "input_images": [],
+      "transparent_background": false,
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-0e50d3d5-014c-4e3b-a0a8-ad3384bbe557.png",
+      "project_file": "docs/references/island-expansion/ie-04-boardwalk-module-v1.png",
+      "status": "selected-reference-awaiting-user-review",
+      "review": "单体完整可辨；背面、尺寸、拓扑与浏览器效果未验证。"
+    }
+  ]
+}

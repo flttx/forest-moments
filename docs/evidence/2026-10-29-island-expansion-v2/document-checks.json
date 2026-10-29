@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-29",
+  "documents": [
+    {
+      "file": "docs/ISLAND_EXPANSION_PLAN.md",
+      "local_links": 8,
+      "missing": []
+    },
+    {
+      "file": "docs/ISLAND_EXPANSION_REFERENCES.md",
+      "local_links": 28,
+      "missing": []
+    },
+    {
+      "file": "docs/ISLAND_NEIGHBOR_REFERENCES.md",
+      "local_links": 24,
+      "missing": []
+    },
+    {
+      "file": "docs/report/PROJECT_REPORT.md",
+      "local_links": 56,
+      "missing": []
+    },
+    {
+      "file": "docs/evidence/2026-10-29-island-expansion-v2/evidence.md",
+      "local_links": 6,
+      "missing": []
+    }
+  ],
+  "local_links_total": 122,
+  "new_images_passed": 15,
+  "all_source_copy_hashes_equal": true,
+  "new_images_not_ignored": true,
+  "history_unchanged": true,
+  "report_excluded_name_check_passed": true,
+  "tracked_runtime_files_unchanged": true,
+  "errors": []
+}

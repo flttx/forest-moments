@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-29",
+  "scope": "四岛、密林与树类扩充；追加三岛独立场景及地形建模参考",
+  "tool": "built-in image_gen.imagegen",
+  "model_identifier": "not exposed by tool",
+  "image_usage": "未读取账户或计费明细，不声称免费或商用许可已核验",
+  "new_modeling_calls": 0,
+  "previous_batch": "../2026-10-29-island-expansion/generation.json",
+  "records": [
+    {
+      "id": "concept-v3-four-islands",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments expanded FOUR-ISLAND archipelago overall environment concept, painterly mature warm storybook PC game, not a screenshot.\nCreate a wide panoramic elevated oblique aerial view of EXACTLY FOUR distinct islands, all fully inside frame with ocean margin and clear water channels between them. The LARGE MAIN ISLAND fills the LEFT half to two-thirds: broad western extension covered in genuinely DENSE deep evergreen mixed forest, touching overlapping crowns of pines and slender pointed spruces, scattered pale-barked birches, occasional broadleaf crowns, only a few small sunlit gaps and thin trails partly hidden under canopy. Trees in groups, layered ages, not isolated trees on lawn. Existing very small southern life clearing has one modest wooden workshop, tiny fenced farm, freshwater pond, southern sandy beach, north cliff wooden lookout, and east-facing jetty. Buildings sparse, trees dominant.\nTHREE SMALLER NEIGHBOR ISLANDS clearly separated to the RIGHT, arranged in a loose triangular vertical chain: TOP-RIGHT MIST PINE ISLAND, densely wooded dark pine/spruce with a little thin mist and west-facing dock; MIDDLE-RIGHT AUTUMN GROVE ISLAND, birch and maple groves in muted golden ochre and russet autumn foliage mixed with dark evergreen pine, rolling woodland path and southwest-facing dock; LOWER-RIGHT / lower-middle TIDEPOOL ISLAND, the smallest and lowest, warm-grey natural rock coast, visible shallow still tidal pools, a few windswept leaning pines with asymmetric umbrella crowns, sparse coastal grass, clear dry shoreline path, northwest-facing sheltered dock. Each neighbor around one fifth the main island's land area or smaller. Main island remains clearly largest. All four docks serve navigable channels. ONE tiny canoe between main island and neighbors. No other landmasses, tiny islets, bridges or distant islands. Three neighbors have NO buildings.\nStyle: restrained warm storybook hand-painted concept, sculpted readable forms, textured matte bark, foliage masses, natural grey rocks, muted teal sea, soft amber late afternoon sunlight and rich soft forest shade. Not photoreal aerial photo, toy plastic, voxel or a theme park. Seasonal autumn colors concentrated in deciduous trees; conifers stay green. Show dense forest rather than many grassy holes. Preserve complete silhouettes and enough water around every island, full landscape panoramic composition. No text, labels, numbers, UI, icons, logos, borders or watermark. This is a mood/spatial proposal, not a cartographic map.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-92669e2e-4ca6-499c-b6c9-2312607b4bed.png",
+      "project_file": "docs/references/island-expansion/concept-v3-four-islands.png",
+      "mode": "generate",
+      "status": "superseded",
+      "transparent_background": false
+    },
+    {
+      "id": "deep-forest-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments DENSE deep-forest ground-level exploration environment concept, painterly mature warm storybook PC forest game.\nA low human-eye-height view looking ALONG a gently curving narrow dirt trail through a genuinely dense mixed temperate forest. Tall old pine trunks and slender pointed spruce trees close together on both sides; occasional white-barked birch and a few irregular broadleaf trees in the midground. Upper crowns interlock overhead forming a continuous leafy ceiling covering most sky; only small patches of light and gentle sunlight shafts. Many visible overlapping tree trunks recede into deep forest; several smaller saplings add a middle layer. Rich low fern clumps, mossy warm-grey rocks, pine needle litter and ONE small mossy hollow fallen log beside the trail, never blocking the walking corridor. Trail usable but narrow, around 2m wide, clear enough to follow; NOT an open meadow or park and NOT a huge straight paved boulevard. One very small raccoon seen from behind far enough along the trail to establish scale, subtle not a cartoon face portrait. No buildings, lamps, bridges, settlements or ocean in this forest view.\nTree silhouettes must vary: spreading ancient pine, narrow conical spruce, delicate branching birch, mixed age understory. Calm inviting shade, dark muted forest greens #28453A, warm brown bark, amber dappled highlights, restrained painterly texture, soft sculpted game-art forms. Dense and enveloping but readable, not a horror forest, not black fog, no shiny plastic, not photoreal. Wide landscape view, single coherent scene, no inset panel, labels, text, watermark or UI. This illustrates the desired canopy/midstory/understory layers, not current game output.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-5d609a68-a77c-4c8c-876d-53d55f3a14d7.png",
+      "project_file": "docs/references/island-expansion/deep-forest-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "ie-05-spruce-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments individual TREE 3D modeling reference. Exactly ONE complete isolated tree, full roots to crown visible, centered with generous white margin, PURE WHITE studio background and soft faint contact shadow. Single three-quarter view, NO multi-view layout, text, labels, rulers, logos, frame, scenery, rocks, soil base, pot, characters or other trees. Mature restrained storybook hand-painted GAME ASSET style: readable sculpted masses, soft matte surfaces, warm-brown bark, muted foliage, visible broad painterly texture. Simplify foliage into deliberate leafy groups, not photographic microdetail, no glossy plastic, no voxel. Soft even studio light. Roots meet flat ground naturally. Subject: one tall slender mature SPRUCE around 9m tall, crown width around 3.5m. Clearly tapering narrow pointed spire silhouette with layered short gently drooping boughs, dark forest-green short needle clusters. Warm grey-brown straight slender trunk visible at base and through a few branch gaps, small root flare. Lowest main living branches start about 2m up the trunk, giving walkable clearance. Irregular natural tiers, NOT a stack of geometric cones and NOT a broad spreading pine. Some bough tips droop, upper leader distinct. No ornaments, snow, cones on ground or bright blue foliage.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-93361858-1586-41c4-91aa-87685354dbb5.png",
+      "project_file": "docs/references/island-expansion/ie-05-spruce-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "ie-06-birch-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments individual TREE 3D modeling reference. Exactly ONE complete isolated tree, full roots to crown visible, centered with generous white margin, PURE WHITE studio background and soft faint contact shadow. Single three-quarter view, NO multi-view layout, text, labels, rulers, logos, frame, scenery, rocks, soil base, pot, characters or other trees. Mature restrained storybook hand-painted GAME ASSET style: readable sculpted masses, soft matte surfaces, warm-brown bark, muted foliage, visible broad painterly texture. Simplify foliage into deliberate leafy groups, not photographic microdetail, no glossy plastic, no voxel. Soft even studio light. Roots meet flat ground naturally. Subject: one graceful mature WHITE BIRCH around 6m tall, 3m crown width, a single slender slightly curved trunk splitting into fine irregular branches. Bark softly off-white and warm grey with sparse dark horizontal markings, never pure white emission. Airy translucent-looking but opaque painted leaf groups with many small simple triangular-ovate leaves in muted green and a few pale olive highlights, open gaps between small branch clusters. Lightweight upright oval crown, slightly asymmetric. Show pale trunk prominently; distinguish it from thick-trunk oak. No solid green sphere crown, no autumn gold yet, no separate sapling.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-ee7fa0e6-3967-47d9-9594-276baf61a31d.png",
+      "project_file": "docs/references/island-expansion/ie-06-birch-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "ie-07-maple-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments individual TREE 3D modeling reference. Exactly ONE complete isolated tree, full roots to crown visible, centered with generous white margin, PURE WHITE studio background and soft faint contact shadow. Single three-quarter view, NO multi-view layout, text, labels, rulers, logos, frame, scenery, rocks, soil base, pot, characters or other trees. Mature restrained storybook hand-painted GAME ASSET style: readable sculpted masses, soft matte surfaces, warm-brown bark, muted foliage, visible broad painterly texture. Simplify foliage into deliberate leafy groups, not photographic microdetail, no glossy plastic, no voxel. Soft even studio light. Roots meet flat ground naturally. Subject: one mature MAPLE around 6m tall and 4.5m wide. Warm grey-brown trunk forks into several gracefully spreading irregular limbs; broad slightly asymmetric rounded crown in a few separate layered masses. A handful of clearly readable palmate lobed maple leaf shapes on outer silhouette, painterly grouped smaller leaves elsewhere. Restrained autumn ochre, muted amber, some soft russet and green-gold foliage, NOT neon red. Foliage color is a seasonal reference, lighting neutral with NO orange light baked on bark. Trunk base grounded with subtle roots. Distinct from a round ball lollipop tree, no falling leaves or ground litter.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-0889443c-3f04-4d88-b39e-2ba1ed0e6d0b.png",
+      "project_file": "docs/references/island-expansion/ie-07-maple-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "ie-08-alder-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments individual TREE 3D modeling reference. Exactly ONE complete isolated tree, full roots to crown visible, centered with generous white margin, PURE WHITE studio background and soft faint contact shadow. Single three-quarter view, NO multi-view layout, text, labels, rulers, logos, frame, scenery, rocks, soil base, pot, characters or other trees. Mature restrained storybook hand-painted GAME ASSET style: readable sculpted masses, soft matte surfaces, warm-brown bark, muted foliage, visible broad painterly texture. Simplify foliage into deliberate leafy groups, not photographic microdetail, no glossy plastic, no voxel. Soft even studio light. Roots meet flat ground naturally. Subject: one mature waterside ALDER around 6m tall, 3.5m wide, single slightly irregular grey-brown trunk with two upright main limbs and smaller alternating side branches. An irregular upright oval crown of modest rounded-ovate matte green leaves, broad rounded leaf tips and softly toothed edges, several open gaps revealing branches. Crown narrower and less spreading than maple, darker slightly cooler green than birch; bark dark grey-brown rather than white, restrained vertical texture. A few short low branches, not enormous root stilts. Small root flare only. NOT a weeping willow, mangrove, oak, palm or shrub. No water, flowers or catkins required.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-21248c5d-74c5-42ca-a146-92a48b27cb8c.png",
+      "project_file": "docs/references/island-expansion/ie-08-alder-v1.png",
+      "mode": "generate",
+      "status": "superseded",
+      "transparent_background": false
+    },
+    {
+      "id": "ie-09-windswept-pine-v1",
+      "prompt": "Use case: stylized-concept. Asset type: Forest Moments individual TREE 3D modeling reference. Exactly ONE complete isolated tree, full roots to crown visible, centered with generous white margin, PURE WHITE studio background and soft faint contact shadow. Single three-quarter view, NO multi-view layout, text, labels, rulers, logos, frame, scenery, rocks, soil base, pot, characters or other trees. Mature restrained storybook hand-painted GAME ASSET style: readable sculpted masses, soft matte surfaces, warm-brown bark, muted foliage, visible broad painterly texture. Simplify foliage into deliberate leafy groups, not photographic microdetail, no glossy plastic, no voxel. Soft even studio light. Roots meet flat ground naturally. Subject: one coastal WINDSWEPT PINE around 5m tall and 4.5m canopy spread, thick grounded root flare, gracefully bent trunk leaning moderately to the RIGHT, strong branches extending predominantly to the right. Asymmetric flattened wind-pruned pine needle canopy, 3 to 5 separate layered deep-green umbrella-like crown masses, open trunk and weathered warm-grey brown bark. Root base remains beneath trunk and plausibly supports the lean. One small opposing branch balances silhouette. Full-size natural coastal tree, NOT a miniature bonsai, NO pot, NO cliff or rock base, no exposed floating roots. Do not turn it into a broadleaf tree. This is a pine growth-form variant, not a fantasy species.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-142e3e51-8bb5-4cb7-a2a0-1cd7c68aa9e9.png",
+      "project_file": "docs/references/island-expansion/ie-09-windswept-pine-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "concept-v4-four-islands",
+      "inputs": [
+        "F:/Projects/forest-moments/docs/references/island-expansion/concept-v3-four-islands.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Edit this four-island Forest Moments concept. Preserve all FOUR islands and their relative layout: largest dense forest main island on left; misty evergreen island upper right; golden autumn woodland island middle right; smallest low tidepool island lower right. Keep dense mixed tree canopies, woodland paths, original main workshop/farm, pond, north lookout, four docks, canoe, sea palette and amber light. Pull camera back about 20 percent so the ENTIRE main island west coast, all top treetops and all outer coastlines fit with visible open sea margin on every edge; do not crop any islands. Remove the small extra roofed shelter on the main island next to the EAST DOCK, leave the main workshop near the farm untouched. No new buildings, no extra islands, no labels or text. Landscape panoramic framing, consistent painterly game-concept finish. Change only framing and the one extra dockside shelter; retain four different forest/coastal identities.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-e98e62b4-85dc-48a2-81a2-11dcb90cc02c.png",
+      "project_file": "docs/references/island-expansion/concept-v4-four-islands.png",
+      "mode": "edit",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "mist-island-concept-v1",
+      "prompt": "Use case: stylized-concept. Asset type: ONE neighbor island standalone environment concept for the Forest Moments warm mature storybook PC game. ONE complete small natural island surrounded by calm muted teal sea, full coastline and all treetops inside frame with generous 10% sea margin on every side. Elevated three-quarter aerial view from southwest looking northeast, a slightly map-like readable composition but painterly sculpted game-art finish, matte natural materials, warm grey rock, restrained detail, amber late-afternoon sun. No other islands, no mainland, no far coast, no boats, no buildings, no towers, no bridges to other land. One small simple weathered wooden landing jetty on the LEFT near shore facing west, a walkable route from its land end inland, one clear short LOOP path with varying tree cover. Dock is an existing asset to reuse. Land scale about 30m across, trees and path plausible relative to it. No labels, letters, numbers, arrows, UI, watermark, borders, split panels or terrain cutaway. Preserve mature warm woodland style, not a toy diorama or photoreal photograph. Island identity: MIST PINE ISLAND. Rounded irregular island with a modest raised rocky ridge at BACK RIGHT and a gentler western landing cove at FRONT LEFT. Most inland ground covered by DENSE overlapping dark pine and slender spruce crowns, varied ages, a few old spreading pines as landmarks, fern understory and mossy rocks. A SMALL central clearing with one old pine and a mossy hollow log beside the loop path; the rest of island feels genuinely densely forested, not many lawns. A little THIN cool mist between trees behind the ridge, landing and path remain clear. Path winds from the west dock up an easy continuous slope around the grove and returns; no steps or impossible steep cliffs on route. One low coastal rock shelf on south side. No deciduous autumn colors here.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-f49bfdd2-c81e-4959-a3f3-f4980f933caf.png",
+      "project_file": "docs/references/island-expansion/mist-island-concept-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "autumn-island-concept-v1",
+      "prompt": "Use case: stylized-concept. Asset type: ONE neighbor island standalone environment concept for the Forest Moments warm mature storybook PC game. ONE complete small natural island surrounded by calm muted teal sea, full coastline and all treetops inside frame with generous 10% sea margin on every side. Elevated three-quarter aerial view from southwest looking northeast, a slightly map-like readable composition but painterly sculpted game-art finish, matte natural materials, warm grey rock, restrained detail, amber late-afternoon sun. No other islands, no mainland, no far coast, no boats, no buildings, no towers, no bridges to other land. One small simple weathered wooden landing jetty on the LEFT near shore facing west, a walkable route from its land end inland, one clear short LOOP path with varying tree cover. Dock is an existing asset to reuse. Land scale about 30m across, trees and path plausible relative to it. No labels, letters, numbers, arrows, UI, watermark, borders, split panels or terrain cutaway. Preserve mature warm woodland style, not a toy diorama or photoreal photograph. Island identity: AUTUMN GROVE ISLAND. A gently elongated oval island with low rolling terrain, a sheltered southwestern landing bay on LEFT FRONT, and a broad gently raised northeast woodland knoll at BACK RIGHT overlooking sea. Mixed stands of pale-trunk BIRCH with light golden leaves and spreading MAPLE with muted ochre/russet leaves, balanced by dark green evergreen pines at outer edges. Same temperate autumn season, no neon red, no flowers. Trees in clusters with overlapping canopies, readable pale birch stems, one SMALL maple glade on the loop path, grassy verge with fallen leaf color. The path goes from west jetty through birches to maple glade, follows an easy slope onto the low lookout knoll and returns along coast. Warm-grey stone coast, limited sandy landing, no separate beach resort, no huge bare lawn, no benches or cabins. Soft golden afternoon light.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-8071d9ac-7aa6-48d0-9167-08873294228a.png",
+      "project_file": "docs/references/island-expansion/autumn-island-concept-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "tide-island-concept-v1",
+      "prompt": "Use case: stylized-concept. Asset type: ONE neighbor island standalone environment concept for the Forest Moments warm mature storybook PC game. ONE complete small natural island surrounded by calm muted teal sea, full coastline and all treetops inside frame with generous 10% sea margin on every side. Elevated three-quarter aerial view from southwest looking northeast, a slightly map-like readable composition but painterly sculpted game-art finish, matte natural materials, warm grey rock, restrained detail, amber late-afternoon sun. No other islands, no mainland, no far coast, no boats, no buildings, no towers, no bridges to other land. One small simple weathered wooden landing jetty on the LEFT near shore facing west, a walkable route from its land end inland, one clear short LOOP path with varying tree cover. Dock is an existing asset to reuse. Land scale about 30m across, trees and path plausible relative to it. No labels, letters, numbers, arrows, UI, watermark, borders, split panels or terrain cutaway. Preserve mature warm woodland style, not a toy diorama or photoreal photograph. Island identity: TIDEPOOL ISLAND, the SMALLEST, only about 24m across and low and flat, NOT a high mountain or giant sea cliff. Asymmetric crescent-like but connected warm-grey weathered rocky island with a sheltered shallow cove at LEFT BACK where the jetty meets a smooth dry landing, several low broad natural rock shelves at FRONT RIGHT, and exactly three shallow clear turquoise ROCK TIDEPOOLS recessed into those shelves. A few low windswept pines with trunks and umbrella crowns leaning RIGHT on the back ridge; sparse tufts of muted coastal grass and moss in cracks. The dry gently curving loop trail runs from dock along the pines to a safe wide viewing ledge BESIDE pools then back, clearly above water, with no forced wading or jumping over pools. Ocean shallow blue around rocks; tidal pools still and reflective. Thin natural wave foam at outer rocks, no storm or dramatic splash. No dense inland forest or tropical palms.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-0d68ee26-ed0f-4618-b285-35e1fed4c499.png",
+      "project_file": "docs/references/island-expansion/tide-island-concept-v1.png",
+      "mode": "generate",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "ie-08-alder-v2",
+      "inputs": [
+        "F:/Projects/forest-moments/docs/references/island-expansion/ie-08-alder-v1.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Correct the foliage of this isolated alder modeling-reference tree. Preserve the single entire tree silhouette, grey-brown trunk, branch arrangement, roots, white background, lighting, scale and framing. Replace ALL oak-like lobed leaves with SIMPLE UNLOBED ROUND-OVAL ALDER LEAVES: one continuous oval blade per leaf, broad blunt rounded tip, fine tiny serrations only at edge, no deep cuts, no fingers, no lobes, no clusters shaped like oak leaves. Make several outer leaves large enough to read their plain oval shape clearly. Muted matte medium/dark green foliage, painterly stylized game-art leaf groups with open branch gaps. No new objects, labels, panels or close-up insets. It must read as a waterside alder with rounded oval leaves, not oak or maple.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-c7e58132-385a-487c-8b4a-5c1bc8296efe.png",
+      "project_file": "docs/references/island-expansion/ie-08-alder-v2.png",
+      "mode": "edit",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "it-01-mist-terrain-v1",
+      "inputs": [
+        "F:/Projects/forest-moments/docs/references/island-expansion/mist-island-concept-v1.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: clean single-island TERRAIN FORM modeling reference derived from the provided island environment concept, not an actual 3D model.\nConvert the pictured island to one complete isolated neutral light warm-grey CLAY LANDMASS on PURE WHITE studio background. Remove ALL trees, plants, roots, logs, moss, grass, buildings, dock/jetty, water, waves, foam, boat and atmosphere. No ocean plane. Preserve the main coastline silhouette, coves, hill positions and viewing direction of this exact reference as closely as possible. Show continuous land connecting every area. Simplify surface into broad smooth walkable slopes and readable natural rock terraces; omit tiny stone noise. A subtle smooth walking corridor connects the former dock's landing area through the interior and returns as a loop, without carving a deep trench. Keep the original landfall inlet obvious even though the timber dock is removed. Soft diffuse studio lighting, gentle ambient occlusion to reveal shapes, no colored textures, no wireframe. Fully framed with generous white margin and a faint contact shadow under the base. No text, dimensions, arrows, contour lines, labels, panels or decorative pedestal. One oblique aerial view; not a collage. Terrain is solid downward to a simple shallow base, not floating broken chunks or an immense inverted cone. This is an illustrative sculpt/blockout guide and not technical orthographic projection. Specific shape: keep Mist Pine Island's rounded irregular outline, low WEST/FRONT-LEFT landing cove, central broad gentle bowl/glade and modest raised rocky ridge at BACK RIGHT. Preserve its forest-loop route as a gently graded smooth continuous corridor from low landing around central bowl and back. The route skirts the ridge rather than requiring climbing a cliff. The ridge can be craggy only away from route. The west cove and southern low coastal shelf must remain clear.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-868076e8-2a4b-4941-9454-9ac823892351.png",
+      "project_file": "docs/references/island-expansion/it-01-mist-terrain-v1.png",
+      "mode": "edit",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "it-02-autumn-terrain-v1",
+      "inputs": [
+        "F:/Projects/forest-moments/docs/references/island-expansion/autumn-island-concept-v1.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: clean single-island TERRAIN FORM modeling reference derived from the provided island environment concept, not an actual 3D model.\nConvert the pictured island to one complete isolated neutral light warm-grey CLAY LANDMASS on PURE WHITE studio background. Remove ALL trees, plants, roots, logs, moss, grass, buildings, dock/jetty, water, waves, foam, boat and atmosphere. No ocean plane. Preserve the main coastline silhouette, coves, hill positions and viewing direction of this exact reference as closely as possible. Show continuous land connecting every area. Simplify surface into broad smooth walkable slopes and readable natural rock terraces; omit tiny stone noise. A subtle smooth walking corridor connects the former dock's landing area through the interior and returns as a loop, without carving a deep trench. Keep the original landfall inlet obvious even though the timber dock is removed. Soft diffuse studio lighting, gentle ambient occlusion to reveal shapes, no colored textures, no wireframe. Fully framed with generous white margin and a faint contact shadow under the base. No text, dimensions, arrows, contour lines, labels, panels or decorative pedestal. One oblique aerial view; not a collage. Terrain is solid downward to a simple shallow base, not floating broken chunks or an immense inverted cone. This is an illustrative sculpt/blockout guide and not technical orthographic projection. Specific shape: keep Autumn Grove Island's gently elongated oval outline, FRONT-LEFT southwestern landing bay, broad interior maple-glade location as a low smooth meadow terrace, and gently raised BACK-RIGHT northeast lookout knoll. The loop trail needs an EASY CONTINUOUS RAMP onto knoll, not stairs or a vertical wall. Preserve a relatively softly rolling wooded-island base with only low outer rocky shore ledges, lower and gentler than Mist Pine Island's ridge. No pools or artificial circular platforms.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-08317ce5-78ca-47d0-9747-de4cdc070acf.png",
+      "project_file": "docs/references/island-expansion/it-02-autumn-terrain-v1.png",
+      "mode": "edit",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    },
+    {
+      "id": "it-03-tide-terrain-v1",
+      "inputs": [
+        "F:/Projects/forest-moments/docs/references/island-expansion/tide-island-concept-v1.png"
+      ],
+      "prompt": "Use case: precise-object-edit. Asset type: clean single-island TERRAIN FORM modeling reference derived from the provided island environment concept, not an actual 3D model.\nConvert the pictured island to one complete isolated neutral light warm-grey CLAY LANDMASS on PURE WHITE studio background. Remove ALL trees, plants, roots, logs, moss, grass, buildings, dock/jetty, water, waves, foam, boat and atmosphere. No ocean plane. Preserve the main coastline silhouette, coves, hill positions and viewing direction of this exact reference as closely as possible. Show continuous land connecting every area. Simplify surface into broad smooth walkable slopes and readable natural rock terraces; omit tiny stone noise. A subtle smooth walking corridor connects the former dock's landing area through the interior and returns as a loop, without carving a deep trench. Keep the original landfall inlet obvious even though the timber dock is removed. Soft diffuse studio lighting, gentle ambient occlusion to reveal shapes, no colored textures, no wireframe. Fully framed with generous white margin and a faint contact shadow under the base. No text, dimensions, arrows, contour lines, labels, panels or decorative pedestal. One oblique aerial view; not a collage. Terrain is solid downward to a simple shallow base, not floating broken chunks or an immense inverted cone. This is an illustrative sculpt/blockout guide and not technical orthographic projection. Specific shape: keep Tidepool Island very LOW AND FLAT, with the sheltered landing cove on LEFT and a low curved BACK ridge, broad FRONT-RIGHT rock shelves. Remove water from the THREE existing tidepools so their shallow recessed basin floors and rounded rims are clearly visible in clay. Exactly three shallow basins, NOT deep pits or holes through land. They must have closed bottoms. A continuous broad dry walkable corridor skirts pools without stepping stones, wading or jumping. Preserve irregular weathered rock shelf silhouette and low elevations. No tall peaks, cliffs, stairs or huge isolated boulders.",
+      "source_file": "C:\\Users\\10949\\.codex\\generated_images\\01a18315-a0a0-7a30-8945-67011bde3399\\exec-ac13ef20-61b3-414a-9d73-e46f83fff20b.png",
+      "project_file": "docs/references/island-expansion/it-03-tide-terrain-v1.png",
+      "mode": "edit",
+      "status": "selected-reference-awaiting-user-review",
+      "transparent_background": false
+    }
+  ]
+}

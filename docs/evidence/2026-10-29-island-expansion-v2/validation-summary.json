@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-29",
+  "scope": "群岛设计 v2 与逐岛参考追加；运行时代码和模型不变",
+  "checks": [
+    {"command": "pnpm lint", "exit_code": 0, "result": "passed"},
+    {"command": "pnpm test", "exit_code": 0, "files_passed": 47, "tests_passed": 215, "tests_failed": 0, "reported_duration_seconds": 9.24},
+    {"command": "pnpm build", "exit_code": 0, "result": "passed", "main_js_kb": 1866.86, "main_js_gzip_kb": 575.72, "existing_warning": "Some chunks are larger than 500 kB after minification"}
+  ],
+  "new_image_calls": 15,
+  "new_image_decode_passed": 15,
+  "selected_new_images": {"overall_concept": 1, "dense_forest_concept": 1, "tree_references": 5, "individual_island_concepts": 3, "island_terrain_references": 3},
+  "superseded_new_images_retained": 2,
+  "current_individual_asset_references_including_previous_batch": 9,
+  "browser_rerun": false,
+  "new_runtime_assets": 0,
+  "new_modeling_calls": 0,
+  "new_gameplay_verification": false
+}
