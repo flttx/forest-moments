@@ -13,6 +13,7 @@ import {coastalDock,dockPosts,isDockSurface,seaLevel} from '../world/worldConfig
 import {farmColliders,animalObstacles} from './farm'
 import {woodSpot,type WorkshopBook} from './workshop'
 import {foxDen,heartStone} from './secrets'
+import {mistLogs,mistLogHalf} from '../world/mistDetails'
 
 export interface GroundPoint { x: number; z: number }
 const radius = .28
@@ -39,6 +40,8 @@ const boxes = [
 ]
 // Hay bales and the log pile, as turned rectangles (half sizes in metres along their own axes).
 const rects=[...hayBales.map(b=>({name:'hay bale',x:b.x,z:b.z,yaw:b.yaw,hx:.5,hz:.29})),{name:'log pile',x:logPile.x,z:logPile.z,yaw:logPile.yaw,hx:.65,hz:.37},
+  // IE-02 is a solid scenic obstacle; its narrow visual hollow is not a crawl-through route.
+  ...mistLogs.map(p=>({name:'hollow log',...p,hx:mistLogHalf.x*p.scale,hz:mistLogHalf.z*p.scale})),
   // Driftwood logs lie along their local x; only logs standing proud of the sand count.
   ...coastPieces.filter(p=>p.kit.startsWith('Driftwood')&&p.y+coastKits[p.kit].height*p.scale-terrainHeight(p.x,p.z)>.15).map(p=>({name:'driftwood',x:p.x,z:p.z,yaw:p.yaw,hx:coastKits[p.kit].half*p.scale,hz:.15*p.scale})),
   // The heart stone's slab and its foot pebbles (the face spans its local x).

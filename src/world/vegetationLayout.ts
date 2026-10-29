@@ -6,6 +6,7 @@ const templates={...originalTemplates,...islandTemplates}
 import { originalPathDistance as pathDistance, islandShape, terrainHeight } from './terrain'
 import {westLandRadius,westTrailDistance,westWetlandRadius} from './westExpansion'
 import {mistRadius,mistPathDistance,mistPine} from './mistIsland'
+import {mistLogDistance} from './mistDetails'
 import {workshopPosition,lookoutPosition,lookoutHill,isBeachApproach,clearings} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
@@ -103,7 +104,16 @@ for(let x=88;x<128;x+=3.1)for(let z=-28;z<10;z+=3.1){
  if(!clearForVegetation(px,pz,.3)||Math.hypot(px-mistPine.x,pz-mistPine.z)<5.4)continue
  mistPlants.push({kit:'ie-spruce',x:px,z:pz,scale:.76+Math.abs(f)*.22,yaw:f*6})
 }
-export const vegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants]
+// Small shrub groups at woodland edges; leave the berth and central pine's sightline open.
+export const mistEdgePlants:VegetationInstance[]=[]
+for(const [cx,cz] of [[95,-16],[101,1],[119,-5]])for(let i=0;i<6;i++){
+ const a=i*2.399963,x=cx+Math.cos(a)*(1+i*.24),z=cz+Math.sin(a)*(1+i*.24),scale=.42+(i%3)*.07
+ if(!clearForVegetation(x,z)||mistRadius(x,z)>.86||mistPathDistance(x,z)<1.7||mistLogDistance(x,z)<1.1||terrainHeight(x,z)<.8)continue
+ if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.6)continue
+ if([...mistPlants,...mistEdgePlants].some(p=>Math.hypot(x-p.x,z-p.z)<1.05))continue
+ mistEdgePlants.push({kit:'bush-a',x,z,scale,yaw:a})
+}
+export const vegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants,...mistEdgePlants]
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))

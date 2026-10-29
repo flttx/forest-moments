@@ -1,0 +1,20 @@
+{
+  "format": "GLB2",
+  "bytes": 759152,
+  "sha256": "d9dd7e85ce6d71424acfc259d5593dcb5050a10ca5f334018cd57c9998c19de2",
+  "triangles": 14852,
+  "meshes": 1,
+  "materials": 1,
+  "textures": 0,
+  "animations": 0,
+  "positionNormalColorAttributes": true,
+  "asset": "IE-02 hollow log",
+  "source": "Original Blender geometry; IE-02 reference silhouette, no copied texture",
+  "generationAccount": "Local Blender; no cloud account",
+  "paidCalls": 0,
+  "credits": 0,
+  "licenseEvidence": "Original authored geometry and vertex colours; no new third-party model license asserted",
+  "reference": "docs/references/island-expansion/ie-02-hollow-log-v1.png",
+  "script": "scripts/build_hollow_log.py",
+  "workFile": "assets/blender/hollow-log/hollow-log.blend"
+}

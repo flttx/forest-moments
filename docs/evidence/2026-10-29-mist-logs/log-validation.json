@@ -1,0 +1,19 @@
+{
+  "source": "Original Blender geometry guided by approved IE-02; no reference texture copied",
+  "blender": "5.2.1 LTS",
+  "triangles": 14852,
+  "draftTriangles": 5448,
+  "sizeBlenderXYZ": [
+    3.1874873638153076,
+    1.0080292224884033,
+    1.3614588975906372
+  ],
+  "bytes": 759152,
+  "sha256": "d9dd7e85ce6d71424acfc259d5593dcb5050a10ca5f334018cd57c9998c19de2",
+  "openAxisRay": true,
+  "wallThickness": 0.12,
+  "materials": 1,
+  "textures": 0,
+  "paidCalls": 0,
+  "decimated": false
+}

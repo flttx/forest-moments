@@ -1,0 +1,17 @@
+{
+  "source": "Original Blender geometry guided by IE-03 reference; no texture copied",
+  "blender": "5.2.1 LTS",
+  "fronds": 9,
+  "triangles": 3240,
+  "sizeBlenderXYZ": [
+    0.912563681602478,
+    0.85017991065979,
+    0.6579443216323853
+  ],
+  "bytes": 317856,
+  "sha256": "32abdda7fd0718bb0ada1600e468ab1cfa68df89674d4dd26ce2fbfb801dfab1",
+  "doubleSided": true,
+  "alphaCards": false,
+  "decimated": false,
+  "paidCalls": 0
+}

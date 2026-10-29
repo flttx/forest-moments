@@ -1,9 +1,19 @@
 import {expect,it} from 'vitest'
-import {coastPieces,coastKits,seawardClear} from './coastalLayout'
+import {coastPieces,coastKits,seawardClear,mistRidgePieces} from './coastalLayout'
+import {mistPathDistance} from './mistIsland'
 import {canStandAt} from '../game/movement'
 import {isNavigableSea} from '../game/rowing'
 import {coastalDock,landing,mooring} from './worldConfig'
 import {creekDistance} from '../game/expansion'
+
+it('keeps the neighbour ridge solids clear of the forest trail and navigable water',()=>{
+ expect(mistRidgePieces.length).toBeGreaterThan(0)
+ for(const p of mistRidgePieces){
+  const reach=coastKits[p.kit].half*p.scale
+  expect(mistPathDistance(p.x,p.z)-reach).toBeGreaterThan(1)
+  for(let i=0;i<16;i++)expect(isNavigableSea(p.x+Math.cos(i*Math.PI/8)*reach,p.z+Math.sin(i*Math.PI/8)*reach)).toBe(false)
+ }
+})
 
 it('dresses cliffs, the creek mouth and the tide line with a bounded number of pieces',()=>{
  const count=(role:string)=>coastPieces.filter(p=>p.role===role).length

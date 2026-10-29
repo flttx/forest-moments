@@ -3,6 +3,9 @@ import * as THREE from 'three'
 import {mistIsland,mistHeight,mistGLSL} from './mistIsland'
 import {noiseGLSL} from './terrain'
 import {climateUniforms,climateGLSL} from './climateUniforms'
+import {MistFerns} from './MistFerns'
+import {MistVeil} from './MistVeil'
+import {MistLogs} from './MistLogs'
 
 /** Separate terrain chunk: no giant empty grid between islands. */
 export function MistIsland(){
@@ -13,7 +16,7 @@ export function MistIsland(){
   g.computeVertexNormals();g.computeBoundingSphere();return g
  },[])
  useEffect(()=>()=>geometry.dispose(),[geometry])
- return <mesh name="mist-island-terrain" geometry={geometry} receiveShadow>
+ return <group><MistFerns/><MistLogs/><MistVeil/><mesh name="mist-island-terrain" geometry={geometry} receiveShadow>
   <meshStandardMaterial roughness={.94} onBeforeCompile={shader=>{
    Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet})
    shader.vertexShader='varying vec3 vMist;varying vec3 vMistNormal;\n'+shader.vertexShader
@@ -26,7 +29,7 @@ export function MistIsland(){
     float path=1.0-smoothstep(.72,1.04,mistPath(p)+(noise21(p*4.0)-.5)*.18);
     vec3 earth=mix(vec3(.20,.14,.085),vec3(.32,.25,.15),broad)*(.85+fleck*.25);
     vec3 colour=mix(grass,earth,path);
-    float sand=smoothstep(.81,1.02,mistRadius(p))*(1.0-smoothstep(.4,1.7,vMist.y));
+    float sand=smoothstep(.81,1.02,mistRadius(p)+(noise21(p*.9)-.5)*.055)*(1.0-smoothstep(.4,1.7,vMist.y));
     colour=mix(colour,vec3(.42,.36,.25)*(.88+fleck*.15),sand);
     float cliff=smoothstep(.18,.5,1.0-normalize(vMistNormal).y);
     colour=mix(colour,mix(vec3(.16,.165,.14),vec3(.27,.26,.22),noise21(p*1.3)),cliff);
@@ -34,5 +37,5 @@ export function MistIsland(){
     diffuseColor.rgb*=colour;
    `)
   }}/>
- </mesh>
+ </mesh></group>
 }

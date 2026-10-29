@@ -1,13 +1,13 @@
 # 群岛扩展 · 建模参考图册
 
-2026-10-29 · 单体参考图册 v4，共九件 · **古松、云杉由 AHOLO API 生成，IE-04 栈道由 Blender 自制并接入；其余六件仍待制作。**
+2026-10-29 · 单体参考图册 v6，共九件 · **古松、云杉由 AHOLO API 生成，IE-02 倒木、IE-04 栈道与 IE-03 蕨丛由 Blender 自制并接入；其余四件仍待制作。**
 
 空间与实施安排见[规划方案](ISLAND_EXPANSION_PLAN.md)。本图册每件为独立图片，可在后续授权建模时逐件使用；生产方式以逐项清单为准，不需要重复生成共用资产。三座邻岛的独立概念、地形参考与逐岛资产归组见[邻岛图册](ISLAND_NEIGHBOR_REFERENCES.md)。全部图片由内置 imagegen 生成，不是 Blender 渲染或浏览器截图。
 
 | 编号 | 参考图 | 计划生产方式 | 计划尺寸 |
 | --- | --- | --- | --- |
 | IE-01 | [古松](references/island-expansion/ie-01-old-pine-v1.png) | Lux3D 候选 + Blender 修整 | 高 7–9 m，冠幅 4–5 m |
-| IE-02 | [苔藓中空倒木](references/island-expansion/ie-02-hollow-log-v1.png) | Lux3D 候选 + Blender 补内壁 | 长 3 m，外径 0.8–1 m |
+| IE-02 | [苔藓中空倒木](references/island-expansion/ie-02-hollow-log-v1.png) | Blender 原创中空木壁、树皮与苔藓已接入 | 长 3 m，外径 0.8–1 m |
 | IE-03 | [蕨类丛](references/island-expansion/ie-03-fern-clump-v1.png) | Blender 自制叶片与贴图 | 高 0.45–0.65 m，宽 0.7–1 m |
 | IE-04 | [直线木栈道模块](references/island-expansion/ie-04-boardwalk-module-v1.png) | Blender 自制已接入，原创木纹贴图 | 长 2.4 m，实际板宽 1.9 m，身体净空宽约 1.34 m |
 | IE-05 | [云杉](references/island-expansion/ie-05-spruce-v1.png) | Lux3D 候选 + Blender 枝形/树龄派生 | 高 7–10 m，冠幅 3–4 m |
@@ -77,4 +77,4 @@
 - [图像尺寸、SHA-256 与可读取性](evidence/2026-10-29-island-expansion/image-checks.json)及[制作证据](evidence/2026-10-29-island-expansion/evidence.md)。
 - 本轮新增五件树形、四岛/深林/邻岛图及地形图的[完整提示词](evidence/2026-10-29-island-expansion-v2/generation.json)、[尺寸与哈希](evidence/2026-10-29-island-expansion-v2/image-checks.json)、[版本取舍与验证](evidence/2026-10-29-island-expansion-v2/evidence.md)。
 
-尺寸是建模目标，单视图不提供精确尺度、背面或拓扑。2026-10-29 已实际调用 AHOLO Lux3D G1，古松任务 4461967、云杉任务 4461973 成功；完整模型经 Blender 整理后接入西林，见[模型证据](evidence/assets/2026-10-29-island-trees/evidence.md)。近远景保留完整几何，减面候选未采用。IE-04 栈道已由 Blender 自制并接入，见[湿地证据](evidence/2026-10-29-wetland/evidence.md)；其余六件和独立树龄变体仍待完成；雾松岛已复用两类树完成首版往返，另两岛及最终美术仍待实施；额度接口失败，模型积分尚未核账。
+尺寸是建模目标，单视图不提供精确尺度、背面或拓扑。2026-10-29 已实际调用 AHOLO Lux3D G1，古松任务 4461967、云杉任务 4461973 成功；完整模型经 Blender 整理后接入西林，见[模型证据](evidence/assets/2026-10-29-island-trees/evidence.md)。近远景保留完整几何，减面候选未采用。IE-04 栈道已由 Blender 自制并接入，见[湿地证据](evidence/2026-10-29-wetland/evidence.md)；IE-03 蕨丛已由 Blender 自制并接入雾松岛，见[蕨丛与岩脊证据](evidence/2026-10-29-mist-detail/evidence.md)；IE-02 倒木也已由 Blender 自制并接入，见[倒木与林缘证据](evidence/2026-10-29-mist-logs/evidence.md)；其余四件和独立树龄变体仍待完成；雾松岛已复用两类树完成首版往返，另两岛及最终美术仍待实施；额度接口失败，模型积分尚未核账。

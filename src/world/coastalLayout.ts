@@ -1,6 +1,8 @@
 import {creekDistance,creekWaterY,creekZ,reefs} from '../game/expansion'
 import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
 import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
+import {mistHeight,mistPathDistance,mistRadius} from './mistIsland'
+import {vegetationPositions} from './vegetationLayout'
 const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
 
 export type CoastKit='Rock_Slab'|'Rock_Tall'|'Rock_Boulder'|'Rock_Cobbles'|'Driftwood_Long'|'Driftwood_Short'
@@ -97,4 +99,20 @@ function tidelinePieces(rand:()=>number){
  return pieces
 }
 
-export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01)})()
+/** Small overlapping outcrops on the north face, leaving the forest loop and tree roots clear. */
+export const mistRidgePieces:CoastPiece[]=(()=>{
+ const pieces:CoastPiece[]=[],rand=random(3029)
+ for(let x=107;x<=124;x+=1.8)for(let z=-29;z<=-23;z+=1.5){
+  const px=x+(rand()-.5)*.7,pz=z+(rand()-.5)*.6,scale=1.1+rand()*.5
+  const kit:CoastKit=rand()<.7?'Rock_Slab':'Rock_Boulder',reach=coastKits[kit].half*scale
+  if(mistRadius(px,pz)>1.01||mistHeight(px,pz)<.1||mistPathDistance(px,pz)<reach+1.1)continue
+  if(vegetationPositions.some(p=>Math.hypot(px-p.x,pz-p.z)<reach+.45))continue
+  // Embed the base below the lowest footprint sample; slope controls the exposed rock face.
+  const ground=Math.min(...Array.from({length:8},(_,i)=>mistHeight(px+Math.cos(i*Math.PI/4)*reach*.7,pz+Math.sin(i*Math.PI/4)*reach*.7)))
+  // The full visible footprint must stay in shallow, non-rowable ground, not just the embedded base.
+  if(Array.from({length:16},(_,i)=>mistHeight(px+Math.cos(i*Math.PI/8)*reach,pz+Math.sin(i*Math.PI/8)*reach)).some(h=>h<seaLevel+.1))continue
+  pieces.push({kit,x:px,z:pz,y:ground-.12,yaw:rand()*Math.PI*2,scale,role:'cliff'})
+ }
+ return pieces
+})()
+export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces)})()

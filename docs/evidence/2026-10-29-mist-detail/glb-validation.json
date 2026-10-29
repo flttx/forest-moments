@@ -1,0 +1,28 @@
+{
+  "glbVersion": 2,
+  "bytes": 317856,
+  "triangles": 3240,
+  "meshes": 1,
+  "materials": 1,
+  "textures": 0,
+  "doubleSided": true,
+  "positionBounds": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 9288,
+      "max": [
+        0.41999998688697815,
+        0.6627470254898071,
+        0.44427117705345154
+      ],
+      "min": [
+        -0.4925636649131775,
+        0,
+        -0.4059087336063385
+      ],
+      "type": "VEC3"
+    }
+  ],
+  "sha256": "60574b6f1710e9558c81ea9de03dfa6a60f9f4917718bcd6077923fba38339b5"
+}

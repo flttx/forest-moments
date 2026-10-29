@@ -199,3 +199,31 @@ __pycache__/
 !/docs/evidence/2026-10-29-mist-island/final/day-mistOverview.png
 !/docs/evidence/2026-10-29-mist-island/final/03-pine-photo.png
 !/docs/evidence/2026-10-29-mist-island/final/night-mistBerth.png
+
+# Mist understory and ridge: reviewed Blender and matched browser views.
+!/docs/evidence/2026-10-29-mist-detail/fern-blender-first.png
+!/docs/evidence/2026-10-29-mist-detail/fern-blender.png
+!/docs/evidence/2026-10-29-mist-detail/before/day-mistRidge.png
+!/docs/evidence/2026-10-29-mist-detail/final-v2/day-mistRidge.png
+!/docs/evidence/2026-10-29-mist-detail/before/day-mistUnderstory.png
+!/docs/evidence/2026-10-29-mist-detail/final-v2/day-mistUnderstory.png
+
+# Mist shoreline and veil: failure evidence and reviewed matching views.
+/docs/evidence/2026-10-29-mist-shore/*/route.json
+!/docs/evidence/2026-10-29-mist-shore/before/day-mistRidge.png
+!/docs/evidence/2026-10-29-mist-shore/after/day-mistRidge.png
+!/docs/evidence/2026-10-29-mist-shore/final/day-mistRidge.png
+!/docs/evidence/2026-10-29-mist-shore/final/rain-mistRidge.png
+!/docs/evidence/2026-10-29-mist-shore/final/day-mistOverview.png
+!/docs/evidence/2026-10-29-mist-shore/final/night-mistBerth.png
+
+# IE-02 working scene stays local; authored asset, script and selected evidence are versioned.
+/assets/blender/hollow-log/
+!/docs/evidence/2026-10-29-mist-logs/log-blender-first.png
+!/docs/evidence/2026-10-29-mist-logs/log-blender-first-detail.png
+!/docs/evidence/2026-10-29-mist-logs/log-blender.png
+!/docs/evidence/2026-10-29-mist-logs/log-blender-rear.png
+!/docs/evidence/2026-10-29-mist-logs/before-close/day-mistLog.png
+!/docs/evidence/2026-10-29-mist-logs/final/day-mistLog.png
+!/docs/evidence/2026-10-29-mist-logs/final/day-mistLogMouth.png
+!/docs/evidence/2026-10-29-mist-logs/final/day-mistEdge.png

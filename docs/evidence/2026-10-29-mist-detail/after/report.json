@@ -1,0 +1,65 @@
+{
+  "date": "2026-10-29T07:56:58.631Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and four matching views",
+      "data": true
+    },
+    {
+      "name": "authored fern model loaded as instances",
+      "data": {
+        "count": 68,
+        "geometryTriangles": 3240,
+        "decimated": false
+      }
+    },
+    {
+      "name": "real keyboard north ridge and complete forest loop with discovery",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-mistOverview.png",
+    "day-mistUnderstory.png",
+    "day-mistRidge.png",
+    "day-mistBerth.png",
+    "dusk-mistOverview.png",
+    "dusk-mistUnderstory.png",
+    "dusk-mistRidge.png",
+    "dusk-mistBerth.png",
+    "night-mistOverview.png",
+    "night-mistUnderstory.png",
+    "night-mistRidge.png",
+    "night-mistBerth.png",
+    "walking-pine.png",
+    "pine-photo.png",
+    "discovery-panel.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.42",
+    "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.6"
+  },
+  "frames": {
+    "median": 3.6999999999970896,
+    "p95": 7,
+    "low": true,
+    "samples": 180,
+    "view": "mistBerth",
+    "light": "night"
+  },
+  "ferns": {
+    "count": 68,
+    "geometryTriangles": 3240,
+    "decimated": false
+  }
+}
