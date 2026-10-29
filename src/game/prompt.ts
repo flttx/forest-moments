@@ -8,7 +8,7 @@ import {logPile} from '../world/settlement'
 import {fishingSites,fishingSpot} from './fishing'
 import {plantedToday,plotNear,treeAt} from './growth'
 import {canViewLookout} from './lookout'
-import {canBoard,canLand,seaBoundaryClearance} from './rowing'
+import {canBoard,landingBerth,seaBoundaryClearance} from './rowing'
 import {canLaunch,nearLaunch} from './lanterns'
 import type {useForestStore} from './store'
 import {workshopAction} from './workshop'
@@ -35,7 +35,10 @@ export function promptFor(s:State):Prompt|null{
  if(s.mode==='feeding')return{status:t('prompt.feeding')}
  if(s.mode==='planting')return{status:t('prompt.planting')}
  if(s.mode==='launching')return{status:t('prompt.launching')}
- if(s.mode==='rowing')return canLand(s.boat)?{action:t('prompt.land')}:seaBoundaryClearance(s.boat.x,s.boat.z)<2?{hint:t('prompt.openSea')}:null
+ if(s.mode==='rowing'){
+  const berth=landingBerth(s.boat)
+  return berth?{action:t('travel.landAt',{name:t(berth.id==='main'?'place.dock':'place.mist')})}:seaBoundaryClearance(s.boat.x,s.boat.z)<2?{hint:t('prompt.openSea')}:{hint:t('travel.sailing')}
+ }
  if(s.location==='bedroom'){
   if(near(p,{x:0,z:2.5},.9))return{action:t('prompt.toIsland')}
   if(near(p,bedSpot,1))return{action:t('prompt.sleep')}
@@ -82,6 +85,8 @@ export function promptFor(s:State):Prompt|null{
   case 'pond':return !s.fishingReady?{status:t('prompt.fishingLoading')}:near(p,fishingSpot,.85)?{action:t('prompt.cast')}:{hint:t('prompt.toFishingSpot')}
   case 'dock':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:near(p,fishingSites.sea.stand,.85)?{action:t('prompt.castSea')}:{hint:t('prompt.toDockEnd')}
   case 'grove':return{hint:t('prompt.toPlot')}
+  case 'mist':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:{hint:t('prompt.toDockEnd')}
+  case 'mistPine':return{hint:t('place.mistPine.hint')}
   default:return null
  }
 }

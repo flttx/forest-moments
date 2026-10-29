@@ -1,0 +1,21 @@
+{
+  "asset": "05",
+  "name": "spruce",
+  "taskId": 4461973,
+  "sourceSha256": "77c8c0c18b66f34e87cb53310c6c6666954ef649f85688af56a94debf51f73ea",
+  "sourceTriangles": 97828,
+  "runtimeTriangles": 97828,
+  "height": 9.0,
+  "bodyRadius": 0.6524004647896535,
+  "crownRadius": 1.7006570956055862,
+  "files": [
+    {
+      "path": "public/assets/island-trees/spruce.glb",
+      "bytes": 4560788,
+      "sha256": "19a90677e2fdc72efa144465c7df7b3fcd8fa0730bdd8386b1397d29e165a30e"
+    }
+  ],
+  "lodCandidateTriangles": 50000,
+  "lodAdopted": false,
+  "archivedLod": "assets/lux3d/ie-05-spruce-v1/spruce-lod-candidate.glb"
+}

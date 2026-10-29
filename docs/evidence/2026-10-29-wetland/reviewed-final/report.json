@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-29T05:19:51.175Z",
+  "checks": [
+    {
+      "name": "original terrain samples, trees, lamps and berth preserved"
+    },
+    {
+      "name": "authored wetland kit loaded with continuous deck and clear approaches",
+      "modules": 5,
+      "reeds": 28,
+      "cobbleClusters": 12,
+      "deckTop": 0.9,
+      "clearWidth": 1.9,
+      "decimated": false
+    },
+    {
+      "name": "wetland shared weather clock freezes under reduced motion"
+    },
+    {
+      "name": "real mouse orbit and W walk cross the wetland deck",
+      "start": {
+        "position": [
+          -52.17445967940513,
+          0.8999999999999999,
+          -3.999682589357819
+        ],
+        "camera": [
+          -42.412185150667014,
+          4.833082629434772,
+          -4.147150907311984
+        ]
+      },
+      "end": {
+        "position": [
+          -64.33869965951135,
+          0.9,
+          -3.9995909243916508
+        ],
+        "camera": [
+          -54.45457223670187,
+          5.063957932007439,
+          -3.999590628244153
+        ]
+      },
+      "samples": 101
+    },
+    {
+      "name": "three PC window sizes without horizontal overflow"
+    },
+    {
+      "name": "photo mode on new land and reload to original safe spawn"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-fullIsland.png",
+    "day-westOverview.png",
+    "day-westTrailClear.png",
+    "day-westWetlandClear.png",
+    "day-westBoardwalkClose.png",
+    "day-tower.png",
+    "dusk-fullIsland.png",
+    "dusk-westOverview.png",
+    "dusk-westTrailClear.png",
+    "dusk-westWetlandClear.png",
+    "dusk-westBoardwalkClose.png",
+    "dusk-tower.png",
+    "night-fullIsland.png",
+    "night-westOverview.png",
+    "night-westTrailClear.png",
+    "night-westWetlandClear.png",
+    "night-westBoardwalkClose.png",
+    "night-tower.png",
+    "rain-boardwalk.png",
+    "rain-reduced-motion.png",
+    "walk-west-boardwalk.png",
+    "pc-1920x1080.png",
+    "pc-1280x720.png",
+    "pc-1024x768.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "area": {
+    "ground": 6173.25,
+    "walkable": 5061,
+    "growth": 0.38569023569023564
+  },
+  "load": {
+    "elapsed": 30419.600000023842,
+    "resources": 125978552
+  },
+  "frames": {
+    "fullIsland": {
+      "median": 9.400000000001455,
+      "p95": 14.5,
+      "frames": 180,
+      "low": true
+    },
+    "westOverview": {
+      "median": 9.19999999999709,
+      "p95": 14.30000000000291,
+      "frames": 180,
+      "low": true
+    },
+    "westTrailClear": {
+      "median": 6.299999999995634,
+      "p95": 11.599999999998545,
+      "frames": 180,
+      "low": true
+    },
+    "westWetlandClear": {
+      "median": 7.400000000001455,
+      "p95": 17.299999999995634,
+      "frames": 180,
+      "low": true
+    },
+    "westBoardwalkClose": {
+      "median": 6.900000000001455,
+      "p95": 13.799999999995634,
+      "frames": 180,
+      "low": true
+    },
+    "tower": {
+      "median": 4.5,
+      "p95": 8.400000000001455,
+      "frames": 180,
+      "low": true
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-29",
+  "lint": "PASS, no warnings",
+  "test": {
+    "files": 48,
+    "passed": 218,
+    "temporaryDirectoryExcluded": true
+  },
+  "build": {
+    "status": "PASS",
+    "mainJsKB": 1872.32,
+    "gzipKB": 577.25,
+    "warning": "Existing large chunk warning"
+  },
+  "localDocumentation": {
+    "linksChecked": 232,
+    "imagesDecoded": 39,
+    "missing": [],
+    "reportVersion": "0.88",
+    "historicalAppendixChanged": false,
+    "scope": [
+      "PROGRESS.md",
+      "docs/ART_DIRECTION.md",
+      "docs/ASSET_PIPELINE.md",
+      "docs/GAMEPLAY_EXPANSION_PLAN.md",
+      "docs/ISLAND_EXPANSION_PLAN.md",
+      "docs/ISLAND_EXPANSION_REFERENCES.md",
+      "docs/PRD.md",
+      "docs/report/PROJECT_REPORT.md",
+      "docs/evidence/2026-10-29-west-expansion/evidence.md",
+      "docs/evidence/assets/2026-10-29-island-trees/evidence.md"
+    ]
+  },
+  "browserSummary": "final-full-detail/report.json",
+  "scope": "Local PC headless evidence; not user acceptance or cross-device/cold-network performance",
+  "coastal": {
+    "status": "PASS",
+    "checks": 7,
+    "errors": 0,
+    "summary": "coastal-summary.json"
+  }
+}

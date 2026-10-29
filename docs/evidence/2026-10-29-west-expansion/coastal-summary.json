@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-29T04:52:24.274Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "workshop wall holds at the doorway",
+      "data": [
+        -11.992673518156085,
+        0,
+        11.492216196708402
+      ]
+    },
+    {
+      "name": "beach and jetty support feet",
+      "data": [
+        42.46646114347152,
+        0.12,
+        0.7715701858160523
+      ]
+    },
+    {
+      "name": "cannot land away from the jetty",
+      "data": true
+    },
+    {
+      "name": "full circuit outside the shoreline",
+      "data": {
+        "legs": 73,
+        "samples": 8986
+      }
+    },
+    {
+      "name": "entire hull stops at the island-following limit",
+      "data": {
+        "boat": {
+          "x": 47.71056145674614,
+          "z": 32.48569005448104,
+          "heading": -0.5840946931255843,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.9814092067622484
+        },
+        "fits": true,
+        "clearance": -0.018093165741144945,
+        "start": {
+          "x": 43.31757024266486,
+          "z": 29.6351442509338,
+          "heading": -0.6,
+          "clearance": 5.2
+        },
+        "travelled": 5.236791306240506
+      }
+    },
+    {
+      "name": "reverse into the mooring, repeat boarding and landing",
+      "data": true
+    },
+    {
+      "name": "the planted tree persists after reload",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-workshop-front.png",
+    "02-tower-entrance.png",
+    "03-on-dock.png",
+    "04-boat-start.png",
+    "05-sea-quadrant-0.png",
+    "05-sea-quadrant-18.png",
+    "05-sea-quadrant-36.png",
+    "05-sea-quadrant-54.png",
+    "05-sea-quadrant-72.png",
+    "06-sea-boundary.png",
+    "07-returned-boat.png",
+    "08-landed.png",
+    "09-returned-to-spawn.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.42",
+    "revision": "@57559ad176e613cfedd7dff5fe6856590a39eb3b",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.6"
+  },
+  "movingCadence": {
+    "frames": 98417,
+    "medianFrameMs": 4,
+    "p95FrameMs": 6.900000000023283,
+    "maxFrameMs": 124.19999999999709,
+    "mode": "uncapped headless RAF; not display FPS"
+  },
+  "rawTrace": "coastal-final/headless-validation.json (local only)"
+}

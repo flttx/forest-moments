@@ -1,3 +1,5 @@
+import {extendWestLand,westCoastRadius} from './westExpansion'
+import {mistHeight} from './mistIsland'
 /** Shared world-space contracts: rendering, navigation, interaction and QA use these coordinates. */
 export const seaLevel=-.85
 export const islandShape={coastRadius:41,walkRadius:35,plateauRadius:35.5,meshSize:96,shoreDepth:2.3,shoreExtension:1.8,loopRadius:19.5} as const
@@ -18,10 +20,17 @@ export function meadowWeight(x:number,z:number){
 export const coastalDock={minX:35,maxX:44.2,minZ:-1.1,maxZ:1.1,deckY:.12} as const
 export const landing={x:42.6,z:.8} as const
 export const mooring={x:42.6,z:2.15,heading:0} as const
+export const berths={
+ main:{id:'main',landing,mooring,dock:coastalDock},
+ mist:{id:'mist',landing:{x:80.6,z:-10.8},mooring:{x:80.6,z:-12.15,heading:Math.PI},dock:{minX:79,maxX:88.2,minZ:-11.1,maxZ:-8.9,deckY:.12}},
+} as const
+export type BerthId=keyof typeof berths
+export function dockAt(x:number,z:number,inset=0){return Object.values(berths).find(({dock:d})=>x>=d.minX+inset&&x<=d.maxX-inset&&z>=d.minZ+inset&&z<=d.maxZ-inset)}
 export const oceanNavigation={offshoreLimit:12,minDepth:.22} as const
-export const dockPosts=[35.4,43.8].flatMap(x=>[-.86,.86].map(z=>({x,z,r:.2})))
+export const dockPosts=Object.values(berths).flatMap(({dock:d})=>[d.minX+.4,d.maxX-.4].flatMap(x=>[d.minZ+.24,d.maxZ-.24].map(z=>({x,z,r:.2}))))
 
-export function coastRadius(angle:number){return islandShape.coastRadius+.85*Math.sin(angle*3+.4)+.55*Math.sin(angle*5-.8)+.25*Math.cos(angle*9)}
+export function originalCoastRadius(angle:number){return islandShape.coastRadius+.85*Math.sin(angle*3+.4)+.55*Math.sin(angle*5-.8)+.25*Math.cos(angle*9)}
+export function coastRadius(angle:number){return Math.max(originalCoastRadius(angle),westCoastRadius(angle))}
 let low=0,high=1
 for(let i=0;i<30;i++){const t=(low+high)/2;if(t*t*(3-2*t)<-seaLevel/islandShape.shoreDepth)low=t;else high=t}
 export const shoreWaterFraction=(low+high)/2
@@ -36,8 +45,8 @@ function hillside(x:number,z:number){
  return hill*(1-approach)+6.2*smoothRange(-z,1,17)*approach
 }
 /** Authored broad landforms, shared by rendered terrain, water limits and foundations. */
-export function landformHeight(x:number,z:number){
- const r=Math.hypot(x,z),coast=coastRadius(Math.atan2(z,x))
+export function originalLandformHeight(x:number,z:number){
+ const r=Math.hypot(x,z),coast=originalCoastRadius(Math.atan2(z,x))
  const shore=-islandShape.shoreDepth*smoothRange(r,islandShape.plateauRadius,coast+islandShape.shoreExtension)
  const dx=-12.3,dz=-1,t=Math.max(0,Math.min(1,((x+1.7)*dx+(z+14)*dz)/(dx*dx+dz*dz)))
  // The terrace road shifts the hillside to its own grade instead of flattening it: a flat shelf cut
@@ -47,7 +56,14 @@ export function landformHeight(x:number,z:number){
  hill*=smoothRange(Math.hypot(x-pond.x,z-pond.z),5.3,9)
  return shore+hill*(1-smoothRange(r,coast-2.8,coast+.9))
 }
-export function shorelineRadius(angle:number){let lo=30,hi=coastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<28;i++){const r=(lo+hi)/2;if(landformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
-export function seaRangeRadius(angle:number){return shorelineRadius(angle)+oceanNavigation.offshoreLimit}
-export function isDockSurface(x:number,z:number,inset=0){return x>=coastalDock.minX+inset&&x<=coastalDock.maxX-inset&&z>=coastalDock.minZ+inset&&z<=coastalDock.maxZ-inset}
-export function isBeachApproach(x:number,z:number){return x>32&&Math.abs(z)<9.5}
+export function landformHeight(x:number,z:number){return x>72?mistHeight(x,z):extendWestLand(x,z,originalLandformHeight(x,z))}
+export function originalShorelineRadius(angle:number){let lo=30,hi=originalCoastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<28;i++){const r=(lo+hi)/2;if(originalLandformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
+export function shorelineRadius(angle:number){let lo=30,hi=coastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<32;i++){const r=(lo+hi)/2;if(landformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
+// A single enclosing sea ellipse stays continuous through the concave joins of the two land masses.
+// The hull still samples actual terrain depth, so the envelope never makes land navigable.
+export function seaRangeRadius(angle:number){
+ const c=Math.cos(angle),s=Math.sin(angle),a=(c/120)**2+(s/70)**2,b=2*(-20*c/14400+4*s/4900),d=(20/120)**2+(4/70)**2-1
+ return(-b+Math.sqrt(b*b-4*a*d))/(2*a)
+}
+export function isDockSurface(x:number,z:number,inset=0){return !!dockAt(x,z,inset)}
+export function isBeachApproach(x:number,z:number){return x>32&&x<48&&Math.abs(z)<9.5}

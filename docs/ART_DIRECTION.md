@@ -2,7 +2,7 @@
 
 视觉关键词：warm / cozy / storybook / handcrafted / forest / mature stylized / peaceful。
 
-## 2026-10-29 群岛与密林设计修订（计划，未接入）
+## 2026-10-29 群岛与密林设计修订（西扩及古松/云杉部分接入，完整群岛仍为计划）
 
 用户要求增加树木类型和深林密度，并扩为主岛加三座邻岛。当前设计以[群岛方案](ISLAND_EXPANSION_PLAN.md)、[九件单体参考](ISLAND_EXPANSION_REFERENCES.md)和[逐岛概念/地形图](ISLAND_NEIGHBOR_REFERENCES.md)为准。针叶仍是整体基调，补云杉、白桦、枫树、赤杨及海风松造型；秋岚岛局部使用较多阔叶，雾松岛密林、潮汐岛疏树礁岸形成差异。深林应有连续树冠、多层树干和蕨丛，生活区及码头保持可读。以下旧专题按原日期保留，不覆盖本次设计方向；新增图像均为 AI 参考，不是实机或模型验收。
 

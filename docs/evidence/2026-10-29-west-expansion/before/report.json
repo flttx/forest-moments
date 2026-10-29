@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-29T03:21:30.544Z",
+  "checks": [],
+  "errors": [],
+  "screenshots": [
+    "day-fullIsland.png",
+    "day-westOverview.png",
+    "day-westTrail.png",
+    "day-westWetland.png",
+    "dusk-fullIsland.png",
+    "dusk-westOverview.png",
+    "dusk-westTrail.png",
+    "dusk-westWetland.png",
+    "night-fullIsland.png",
+    "night-westOverview.png",
+    "night-westTrail.png",
+    "night-westWetland.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "area": {
+    "ground": 4455,
+    "walkable": 3695
+  },
+  "load": {
+    "elapsed": 32655.800000071526,
+    "resources": 114227624
+  },
+  "frames": {
+    "fullIsland": {
+      "median": 7.19999999999709,
+      "p95": 8.400000000001455,
+      "frames": 180,
+      "low": true
+    },
+    "westOverview": {
+      "median": 6.69999999999709,
+      "p95": 7.599999999998545,
+      "frames": 180,
+      "low": true
+    },
+    "westTrail": {
+      "median": 3.900000000001455,
+      "p95": 5.200000000004366,
+      "frames": 180,
+      "low": true
+    },
+    "westWetland": {
+      "median": 4.69999999999709,
+      "p95": 5.900000000001455,
+      "frames": 180,
+      "low": true
+    }
+  }
+}

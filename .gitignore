@@ -171,3 +171,31 @@ __pycache__/
 
 # Report v0.87: photo looks available without journal progress.
 !/docs/evidence/2026-10-29-photo-unlocked/01-unlocked.png
+
+# Report v0.88: selected west expansion and actual AHOLO tree production evidence.
+!/docs/evidence/2026-10-29-west-expansion/before/day-westOverview.png
+!/docs/evidence/2026-10-29-west-expansion/final-full-detail/day-westOverview.png
+!/docs/evidence/2026-10-29-west-expansion/final-full-detail/day-westWetlandClear.png
+!/docs/evidence/assets/2026-10-29-island-trees/old-pine/lod.png
+!/docs/evidence/assets/2026-10-29-island-trees/old-pine/retained-detail/before.png
+!/docs/evidence/assets/2026-10-29-island-trees/old-pine/retained-detail/after.png
+!/docs/evidence/assets/2026-10-29-island-trees/spruce/retained-detail/after.png
+# Only the pre-change snapshot is a regression fixture; later scan dumps stay local.
+/docs/evidence/2026-10-29-west-expansion/*/world-snapshot.json
+!/docs/evidence/2026-10-29-west-expansion/before/world-snapshot.json
+
+# Wetland working sources remain local; authored GLB and reproducible script are versioned.
+/assets/blender/wetland/
+/docs/evidence/2026-10-29-wetland/*/world-snapshot.json
+!/docs/evidence/2026-10-29-wetland/boardwalk-blender.png
+!/docs/evidence/2026-10-29-wetland/after/day-westWetlandClear.png
+!/docs/evidence/2026-10-29-wetland/reviewed-final/day-westWetlandClear.png
+!/docs/evidence/2026-10-29-wetland/reviewed-final/day-westBoardwalkClose.png
+!/docs/evidence/2026-10-29-wetland/reviewed-final/night-westBoardwalkClose.png
+
+# Mist Pine first playable island: selected browser figures; raw routes remain local.
+/docs/evidence/2026-10-29-mist-island/*/route.json
+!/docs/evidence/2026-10-29-mist-island/final/day-archipelago.png
+!/docs/evidence/2026-10-29-mist-island/final/day-mistOverview.png
+!/docs/evidence/2026-10-29-mist-island/final/03-pine-photo.png
+!/docs/evidence/2026-10-29-mist-island/final/night-mistBerth.png

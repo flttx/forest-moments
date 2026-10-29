@@ -1,0 +1,24 @@
+{
+  "asset": "01",
+  "name": "old-pine",
+  "taskId": 4461967,
+  "sourceSha256": "1d5121d24ffdc2b18c8c610b96aea8b51183b91ab8e8ae99bc0ac2f7fa1e0ab3",
+  "sourceTriangles": 119684,
+  "runtimeTriangles": 50000,
+  "lodTriangles": 14000,
+  "height": 8.0,
+  "bodyRadius": 2.2500806301473504,
+  "crownRadius": 3.8421480387982085,
+  "files": [
+    {
+      "path": "public/assets/island-trees/old-pine.glb",
+      "bytes": 3427852,
+      "sha256": "8331dbc2bd3741dc176ad76743b4cd86a931968428a268c105b2d076e70b2168"
+    },
+    {
+      "path": "public/assets/island-trees/old-pine-lod.glb",
+      "bytes": 1327460,
+      "sha256": "15ba994060b73f42f4ea23294eb794d187c7ea8d5e02abf56a4c886f48ebc0a9"
+    }
+  ]
+}

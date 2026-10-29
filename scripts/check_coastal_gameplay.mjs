@@ -151,14 +151,16 @@ try {
   assert(await evaluate(`qa.R.boatFits(${out1.x},${out1.z},0)`),'leaving point on open water')
   await sail(clearOfJetty.x,clearOfJetty.z,'along the jetty');await sail(out1.x,out1.z,'leave jetty')
   await press('f');assert.equal((await snapshot()).mode,'rowing');check('cannot land away from the jetty',true)
-  const radii=await evaluate("Array.from({length:73},(_,i)=>{const a=.065+i*Math.PI*2/72,r=qa.C.shorelineRadius(a)+8;return [Math.cos(a)*r,Math.sin(a)*r]})")
+  // The westward extension makes the coast concave. Use the continuous offshore envelope,
+  // and still drive every leg with real keys and the game's complete hull/depth checks.
+  const radii=await evaluate("Array.from({length:73},(_,i)=>{const a=.065+i*Math.PI*2/72,r=qa.C.seaRangeRadius(a)-3;return [Math.cos(a)*r,Math.sin(a)*r]})")
   await evaluate("window.routeFrames=[];window.routeSampling=true;let last;function sample(t){if(last!==undefined)window.routeFrames.push(t-last);last=t;if(window.routeSampling)requestAnimationFrame(sample)}requestAnimationFrame(sample)")
   for(let i=0;i<radii.length;i++){await sail(...radii[i],'circuit '+i);if(i%18===0){await shot('05-sea-quadrant-'+i);console.log('SEA QUADRANT '+i)}}
   await evaluate('window.routeSampling=false');const frames=await evaluate('window.routeFrames');frames.sort((a,b)=>a-b)
   report.movingCadence={frames:frames.length,medianFrameMs:frames[frames.length>>1],p95FrameMs:frames[Math.floor(frames.length*.95)],maxFrameMs:frames.at(-1),mode:'uncapped headless RAF; not display FPS'}
   check('full circuit outside the shoreline',{legs:radii.length,samples:route.length})
   // Straight out to sea, radially, from a few metres inside the island-following limit until it stops the hull.
-  const run=await evaluate("(()=>{const a=.6,r=qa.C.shorelineRadius(a)+5;return{x:Math.cos(a)*r,z:Math.sin(a)*r,heading:-a,clearance:qa.R.seaBoundaryClearance(Math.cos(a)*r,Math.sin(a)*r)}})()")
+  const run=await evaluate("(()=>{const a=.6,r=qa.C.seaRangeRadius(a)-7;return{x:Math.cos(a)*r,z:Math.sin(a)*r,heading:-a,clearance:qa.R.seaBoundaryClearance(Math.cos(a)*r,Math.sin(a)*r)}})()")
   assert(run.clearance>2,JSON.stringify(run))
   await sail(run.x,run.z,'boundary approach');await align(run.heading);await key('w',true);await sleep(12000);await key('w',false);await sleep(400)
   const boundary=await snapshot();await shot('06-sea-boundary')

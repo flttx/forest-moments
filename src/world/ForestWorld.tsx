@@ -37,6 +37,9 @@ import {launchPoint} from '../game/lanterns'
 import {useTourStore} from '../game/tourStore'
 import {tourFrame} from '../game/tour'
 import { IslandTerrain } from './IslandTerrain'
+import {WestWetland} from './WestWetland'
+import {MistIsland} from './MistIslandScene'
+import {IslandTrees} from './IslandTrees'
 import { ForestKit } from './ForestKit'
 import { GroundCover } from './GroundCover'
 import { PondLife } from './PondLife'
@@ -78,6 +81,16 @@ function ReviewCamera() {
       scaleWorkshop: [[-12,3.6,24],[-12,2.2,8]],
       scaleLamp: [[.5,2.1,3],[-3.8,1,-2.5]],
       fullIsland: [[68, 58, 80], [0, 0, 0]],
+      westOverview: [[-82,45,62],[-27,0,4]],
+      westTrail: [[-41,3,4],[-52,.5,-4]],
+      westWetland: [[-60,8,12],[-52,.4,-4]],
+      westWetlandClear: [[-59,13,-17],[-59,.4,-4]],
+      westBoardwalkClose: [[-55,2.8,-8],[-59,.65,-4]],
+      archipelago: [[155,105,145],[22,0,-3]],
+      mistOverview: [[72,35,27],[107,1,-10]],
+      mistBerth: [[72,7,-2],[87,.2,-10]],
+      mistPine: [[100,4,1],[106,2,-10]],
+      westTrailClear: [[-51,2.5,-3.5],[-62,1,-4]],
       flowers: [[-1, 1.1, 3], [-4, .2, 1]],
       trail: [[-2.8, 1.35, 16], [-.9, .05, 11]],
       lamp: [[-1.7, 2.2, 1], [-4.1, 1.2, -2.5]],
@@ -448,6 +461,8 @@ function Player() {
         boatAnimation: scene.getObjectByName('asset-canoe')?.userData.animation,
         boatSurface:scene.getObjectByName('asset-canoe')?.userData.surface,
         waterFeedback:scene.getObjectByName('boat-water-feedback')?.userData.qa,
+        wetland:scene.getObjectByName('Boardwalk_240')?.parent?.userData.qa,
+        travel:current.travel,
         fishing: current.fishing, fishingReady: current.fishingReady, fishBook: current.fishBook,
         fishingVisual: scene.getObjectByName('fishing-tools')?.userData.qa,
         garden:current.garden,plot:current.plot,growthReady:current.growthReady,plantingElapsed:current.plantingElapsed,growthVisual:scene.getObjectByName('planted-tree')?.userData.stage,
@@ -471,6 +486,9 @@ function Scene() {
     <Atmosphere />
     <Rainbow />
     <IslandTerrain />
+    <WestWetland />
+    <MistIsland />
+    <IslandTrees />
     <ForestKit />
     <GroundCover />
     <PathDetails />

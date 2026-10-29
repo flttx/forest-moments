@@ -1,0 +1,31 @@
+{
+  "blender": "5.2.1 LTS",
+  "source": "Local Blender authoring; IE-04 reference; no paid API call",
+  "decimated": false,
+  "bytes": 955624,
+  "sha256": "2467f344602d4776b0ed666572ef48eab0ef2331c810e169a534bd5f01f63f89",
+  "texture": [
+    512,
+    1024
+  ],
+  "modules": [
+    {
+      "name": "Boardwalk_240",
+      "triangles": 2288,
+      "sizeBlenderXYZ": [
+        2.4000000953674316,
+        1.899999976158142,
+        1.0059999227523804
+      ]
+    },
+    {
+      "name": "Rush_Clump",
+      "triangles": 684,
+      "sizeBlenderXYZ": [
+        0.6527656316757202,
+        0.6588075757026672,
+        1.159999966621399
+      ]
+    }
+  ]
+}

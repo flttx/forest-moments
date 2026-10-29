@@ -1,0 +1,21 @@
+{
+  "asset": "01",
+  "name": "old-pine",
+  "taskId": 4461967,
+  "sourceSha256": "1d5121d24ffdc2b18c8c610b96aea8b51183b91ab8e8ae99bc0ac2f7fa1e0ab3",
+  "sourceTriangles": 119684,
+  "runtimeTriangles": 119684,
+  "height": 8.0,
+  "bodyRadius": 2.291515777175523,
+  "crownRadius": 3.868079082335012,
+  "files": [
+    {
+      "path": "public/assets/island-trees/old-pine.glb",
+      "bytes": 6180400,
+      "sha256": "174799428d3cb5160f0466c30947172c44f004140a7b44e7511bd503a1ea1c05"
+    }
+  ],
+  "lodCandidateTriangles": 50000,
+  "lodAdopted": false,
+  "archivedLod": "assets/lux3d/ie-01-old-pine-v1/old-pine-lod-candidate.glb"
+}

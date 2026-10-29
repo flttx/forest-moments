@@ -2,8 +2,8 @@ import * as THREE from 'three'
 import { vegetationPositions } from './vegetationLayout'
 import { canopyMapExtent } from './terrain'
 
-const SIZE = 160
-const CROWN: Record<string, number> = { 'tall-pine-a': 2.6, 'normal-pine-b': 2.4, 'round-tree-a': 3, 'young-tree-b': 1.6, 'bush-a': 1 }
+const SIZE = 576 // Preserve half-metre texels across the main island and Mist Pine Island.
+const CROWN: Record<string, number> = { 'tall-pine-a': 2.6, 'normal-pine-b': 2.4, 'round-tree-a': 3, 'young-tree-b': 1.6, 'bush-a': 1, 'ie-old-pine':3.85,'ie-spruce':1.71 }
 const density = new Float32Array(SIZE * SIZE)
 for (const p of vegetationPositions) {
   const radius = (CROWN[p.kit] ?? 0) * p.scale

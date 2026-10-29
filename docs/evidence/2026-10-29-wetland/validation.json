@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-29",
+  "lint": "PASS, zero warnings",
+  "tests": {
+    "files": 48,
+    "passed": 219
+  },
+  "build": {
+    "status": "PASS",
+    "modules": 714,
+    "mainJsKB": 1875.52,
+    "gzipKB": 578.15,
+    "existingWarning": "large main chunk"
+  },
+  "browser": {
+    "status": "PASS",
+    "checks": 6,
+    "errors": [],
+    "report": "reviewed-final/report.json"
+  },
+  "documentation": {
+    "files": [
+      "PROGRESS.md",
+      "docs/PRD.md",
+      "docs/report/PROJECT_REPORT.md",
+      "docs/ISLAND_EXPANSION_PLAN.md",
+      "docs/ISLAND_EXPANSION_REFERENCES.md",
+      "docs/evidence/2026-10-29-wetland/evidence.md"
+    ],
+    "linksChecked": 223,
+    "imagesDecoded": 42,
+    "missing": [],
+    "ignoredReportImages": [],
+    "historicalAppendixChanged": false
+  },
+  "limits": [
+    "Local PC headless browser only",
+    "No full keyboard coastal circuit repeated this round",
+    "No cross-device or public cold-load measurement",
+    "User visual acceptance pending"
+  ]
+}

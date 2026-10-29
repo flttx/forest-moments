@@ -7,6 +7,7 @@ import {canopyTexture} from './canopyMap'
 import {trampleGLSL} from './settlement'
 import {sandGLSL,sandUniforms} from './sandField'
 import {sandTexel} from '../game/sand'
+import {westWetlandGLSL} from './westExpansion'
 
 export function IslandTerrain() {
   const geometry = useMemo(()=>createTerrainGeometry(), [])
@@ -24,6 +25,7 @@ ${pondGLSL}
 ${groundColourGLSL}
 ${trampleGLSL}
 ${sandGLSL}\n` + shader.fragmentShader
+      shader.fragmentShader=westWetlandGLSL+'\n'+shader.fragmentShader
       shader.fragmentShader=`
         float stoneHash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
         float stoneNoise(vec3 p){
@@ -43,7 +45,7 @@ ${sandGLSL}\n` + shader.fragmentShader
         float track=pathAt(p);
         float edge=pathEdgeAt(p);
         float path=1.0-smoothstep(-.09,.20,edge);
-        path *= 1.0-smoothstep(33.0,35.0,length(p));
+        path *= max(1.0-smoothstep(33.0,35.0,length(p)),smoothstep(25.0,33.0,-p.x)*(1.0-smoothstep(.78,.9,westLandAt(p))));
         vec2 soilWarp=p+vec2(noise21(p*.8),noise21(p*.8+8.0))*.22;
         float earth=noise21(soilWarp*2.6),grain=noise21(p*32.0);
         vec3 soil=mix(vec3(.19,.125,.072),vec3(.34,.245,.145),earth*.7+noise21(p*.55)*.3);
@@ -64,6 +66,7 @@ ${sandGLSL}\n` + shader.fragmentShader
         vec3 dampSoil=mix(soil*.7,grass*.78,smoothstep(.2,.8,noise21(p*1.7))*.5);
         colour=mix(colour,dampSoil,bank);
         float sand=smoothstep(${(islandShape.plateauRadius+.2).toFixed(1)},${(islandShape.plateauRadius+1.5).toFixed(1)}+(coastAt(p)-${islandShape.coastRadius.toFixed(1)})*.4,length(p)+(broad-.5)*.7);
+        sand=mix(sand,smoothstep(.8,.92,westLandAt(p)),westBlendAt(p));
         float beach=(1.0-smoothstep(6.0,10.5,abs(p.y)))*smoothstep(31.0,35.0,p.x+(broad-.5)*.8);
         float southBeach=smoothstep(22.0,30.0,p.y)*smoothstep(14.0,29.0,length(p))*(1.0-smoothstep(1.0,2.5,vGround.y));
         // Coastal sand only on low ground: cliff tops keep a grass turf right up to the edge.
@@ -92,6 +95,10 @@ ${sandGLSL}\n` + shader.fragmentShader
         rock*=mix(.7,1.0,smoothstep(-.55,.6,vGround.y));
         colour=mix(colour,rock,cliff);
         colour*=mix(.68,1.0,smoothstep(-.95,-.35,vGround.y));
+        // Peaty basin and damp moss fade into the grass, following the actual wetland contour.
+        float marsh=1.0-smoothstep(.96,1.43,wetlandRadius(p)+(noise21(p*3.2)-.5)*.07);
+        vec3 peat=mix(vec3(.075,.068,.035),vec3(.16,.17,.075),noise21(p*2.1)*.55+fleck*.25);
+        colour=mix(colour,peat,marsh*.88);
         // Rain darkens the ground a little, sand and soil alike; puddles gather in hollows of the worn tracks,
         // dark and glassy, with raindrop rings while it still rains.
         colour*=1.0-climateWet*.2;

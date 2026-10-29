@@ -1,0 +1,38 @@
+[
+  {
+    "asset": "old-pine",
+    "zipCrc": "PASS",
+    "models": [
+      {
+        "path": "assets/lux3d/ie-01-old-pine-v1/output-1.glb",
+        "bytes": 13440688,
+        "triangles": 119684,
+        "sha256": "1d5121d24ffdc2b18c8c610b96aea8b51183b91ab8e8ae99bc0ac2f7fa1e0ab3"
+      },
+      {
+        "path": "public/assets/island-trees/old-pine.glb",
+        "bytes": 6180400,
+        "triangles": 119684,
+        "sha256": "174799428d3cb5160f0466c30947172c44f004140a7b44e7511bd503a1ea1c05"
+      }
+    ]
+  },
+  {
+    "asset": "spruce",
+    "zipCrc": "PASS",
+    "models": [
+      {
+        "path": "assets/lux3d/ie-05-spruce-v1/output-1.glb",
+        "bytes": 12533196,
+        "triangles": 97828,
+        "sha256": "77c8c0c18b66f34e87cb53310c6c6666954ef649f85688af56a94debf51f73ea"
+      },
+      {
+        "path": "public/assets/island-trees/spruce.glb",
+        "bytes": 4560788,
+        "triangles": 97828,
+        "sha256": "19a90677e2fdc72efa144465c7df7b3fcd8fa0730bdd8386b1397d29e165a30e"
+      }
+    ]
+  }
+]

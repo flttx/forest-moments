@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-29T03:35:03.581Z",
+  "checks": [
+    {
+      "name": "original terrain samples, trees, lamps and berth preserved"
+    },
+    {
+      "name": "real mouse orbit and W walk cross the wetland deck",
+      "start": {
+        "position": [
+          -52.120229999935724,
+          0.8999999999999999,
+          -3.9999983898101545
+        ],
+        "camera": [
+          -42.247149658177456,
+          4.836559316715951,
+          -4.003213448447268
+        ]
+      },
+      "end": {
+        "position": [
+          -64.31438999996098,
+          0.9,
+          -3.9999979392204237
+        ],
+        "camera": [
+          -54.44077963716728,
+          5.098143463884234,
+          -3.9999976433880446
+        ]
+      },
+      "samples": 102
+    },
+    {
+      "name": "photo mode on new land and reload to original safe spawn"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-fullIsland.png",
+    "day-westOverview.png",
+    "day-westTrail.png",
+    "day-westWetland.png",
+    "dusk-fullIsland.png",
+    "dusk-westOverview.png",
+    "dusk-westTrail.png",
+    "dusk-westWetland.png",
+    "night-fullIsland.png",
+    "night-westOverview.png",
+    "night-westTrail.png",
+    "night-westWetland.png",
+    "walk-west-boardwalk.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "area": {
+    "ground": 6180.5,
+    "walkable": 5107.5,
+    "growth": 0.3873176206509539
+  },
+  "load": {
+    "elapsed": 34045.699999928474,
+    "resources": 115655603
+  },
+  "frames": {
+    "fullIsland": {
+      "median": 4.400000000001455,
+      "p95": 6.599999999998545,
+      "frames": 180,
+      "low": true
+    },
+    "westOverview": {
+      "median": 4.299999999995634,
+      "p95": 6.400000000001455,
+      "frames": 180,
+      "low": true
+    },
+    "westTrail": {
+      "median": 3,
+      "p95": 5.599999999998545,
+      "frames": 180,
+      "low": true
+    },
+    "westWetland": {
+      "median": 3,
+      "p95": 4.599999999998545,
+      "frames": 180,
+      "low": true
+    }
+  }
+}

@@ -11,6 +11,7 @@ import * as THREE from 'three'
 import { pond } from '../game/rowing'
 import { noiseGLSL, seaLevel, islandShape, shoreWaterFraction } from './terrain'
 import {pondRadiusAt,pondGLSL,pondWaterInset} from './pondShape'
+import {mistGLSL} from './mistIsland'
 
 function createWindClock() {
   const uniform={value:0}
@@ -61,11 +62,13 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
         Object.assign(shader.uniforms,uniforms,{climateRain:climateUniforms.climateRain,jellyGlow})
         shader.vertexShader='varying vec3 vWater;\n'+shader.vertexShader
         shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvWater=(modelMatrix*vec4(position,1.0)).xyz;')
-        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
+        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${mistGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
           float shore=fresh>.5 ? -pondEdgeAt(p)-${pondWaterInset.toFixed(9)} : length(p)-mix(${islandShape.plateauRadius.toFixed(1)},coastAt(p)+${islandShape.shoreExtension.toFixed(1)},${shoreWaterFraction.toFixed(9)});
+          if(fresh<.5)shore=mix(shore,min(shore,(westLandAt(p)-.896)*28.0),westBlendAt(p));
+          if(fresh<.5&&p.x>72.0)shore=min(shore,(mistRadius(p)-.98)*19.0);
           float shallows=1.0-smoothstep(.0,fresh>.5?1.2:5.0,shore);
           diffuseColor.rgb=mix(diffuseColor.rgb,shallow,shallows*.65);
           float ripples=sin(p.x*2.4+p.y*1.1-waterTime*.8)*sin(p.y*3.2-p.x*.6+waterTime*.5);
@@ -119,6 +122,8 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
 export function Atmosphere() {
   const palette=useMemo(()=>dayLighting(1),[])
   const sunLight=useRef<THREE.DirectionalLight>(null),moonLight=useRef<THREE.DirectionalLight>(null),fillLight=useRef<THREE.HemisphereLight>(null)
+  const shadowTarget=useMemo(()=>new THREE.Object3D(),[])
+  const shadowRuntime=useRef(shadowTarget)
   const get=useThree(s=>s.get)
   const sky=useRef<THREE.Mesh>(null)
   const skyMaterial=useRef<THREE.ShaderMaterial>(null)
@@ -158,7 +163,14 @@ export function Atmosphere() {
       u.meteorT.value=.001
     }
     u.top.value.copy(light.top);u.horizon.value.copy(light.horizon);u.sunlight.value.copy(light.sun);u.sun.value.copy(light.sunPosition).normalize();u.night.value=light.night;u.disc.value=light.disc;u.haze.value.copy(light.haze)
-    if(sunLight.current){sunLight.current.position.copy(light.sunPosition);sunLight.current.color.copy(light.light);sunLight.current.intensity=light.power*climateNow.light;sunLight.current.shadow.intensity=THREE.MathUtils.smoothstep(light.sunPosition.y,1,7)}
+    if(sunLight.current){
+      // Move the same-size shadow window into the west forest; preserve the original lighting direction and resolution.
+      const x=state.mode==='rowing'?state.boat.x:state.position.x
+      const target=shadowRuntime.current
+      target.position.set(x>72?107:Math.min(0,x+32),0,x>72?-10:0);target.updateMatrixWorld()
+      sunLight.current.target=target;sunLight.current.position.copy(light.sunPosition).add(target.position)
+      sunLight.current.color.copy(light.light);sunLight.current.intensity=light.power*climateNow.light;sunLight.current.shadow.intensity=THREE.MathUtils.smoothstep(light.sunPosition.y,1,7)
+    }
     if(moonLight.current)moonLight.current.intensity=.95*light.night
     if(fillLight.current){fillLight.current.intensity=light.fill*(.6+.4*climateNow.light);fillLight.current.color.copy(light.sky);fillLight.current.groundColor.copy(light.ground)}
     const viewDistance=state.mode==='sleeping'?165:camera.position.length()
@@ -167,6 +179,7 @@ export function Atmosphere() {
     if(import.meta.env.DEV && new URLSearchParams(location.search).has('qa')) gl.domElement.dataset.environmentQa=JSON.stringify({time:time.value,reduced:reduced.current,lighting:state.timeOfDay,daylight,sunPosition:light.sunPosition.toArray(),sunPower:light.power,moonPower:.95*light.night,lanternPower:lanternPower(daylight),sky:light.top.getHexString(),horizon:light.horizon.getHexString(),renderedNight:u.night.value,renderedDisc:u.disc.value})
   })
   return <>
+    <primitive object={shadowTarget}/>
     <hemisphereLight ref={fillLight} args={[palette.sky,palette.ground,palette.fill]} />
     <directionalLight ref={moonLight} position={[-24,32,-32]} color="#9db8ec" intensity={0}/>
     <directionalLight ref={sunLight} position={palette.sunPosition} color={palette.light} intensity={palette.power} castShadow

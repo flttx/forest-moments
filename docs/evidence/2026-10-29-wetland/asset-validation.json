@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "file": "public/assets/expansion/wetland-kit.glb",
+  "bytes": 955624,
+  "sha256": "2467f344602d4776b0ed666572ef48eab0ef2331c810e169a534bd5f01f63f89",
+  "modules": [
+    {
+      "name": "Cube",
+      "triangles": 2288
+    },
+    {
+      "name": "Folded rush blade",
+      "triangles": 684
+    }
+  ],
+  "embeddedImages": [
+    {
+      "size": [
+        512,
+        1024
+      ],
+      "format": "PNG"
+    }
+  ],
+  "noDecimation": true,
+  "noPaidCalls": true
+}

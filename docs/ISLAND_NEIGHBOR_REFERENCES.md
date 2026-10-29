@@ -1,6 +1,6 @@
 # 三座邻岛 · 独立概念与地形建模参考
 
-2026-10-29 · v1 · **AI 设计资料，待审阅；没有新岛屿模型或运行时地图。**
+2026-10-29 · v2 · **本文图片仍为 AI 设计参考；雾松岛首版已进入运行时，秋岚岛、潮汐岛待实施。**
 
 总布局见[群岛规划](ISLAND_EXPANSION_PLAN.md)，树木/倒木/蕨类等独立模型图见[九件单体图册](ISLAND_EXPANSION_REFERENCES.md)。每岛提供场景概念和去除布景的地形造型图。后者是图像工具生成的灰模风格插画，**不是已经制作的灰盒或 Blender 模型**。
 
@@ -9,6 +9,8 @@
 | 雾松岛 | [密林与薄雾](references/island-expansion/mist-island-concept-v1.png) | [IT-01 西湾与岩脊](references/island-expansion/it-01-mist-terrain-v1.png) | IE-01 古松、IE-02 倒木、IE-03 蕨丛、IE-05 云杉 |
 | 秋岚岛 | [白桦与枫树林](references/island-expansion/autumn-island-concept-v1.png) | [IT-02 林地与缓丘](references/island-expansion/it-02-autumn-terrain-v1.png) | IE-06 白桦、IE-07 枫树，复用普通松 |
 | 潮汐岛 | [海风松与潮池](references/island-expansion/tide-island-concept-v1.png) | [IT-03 低岩台与浅池](references/island-expansion/it-03-tide-terrain-v1.png) | IE-09 海风松，复用海岸石、贝壳与漂木 |
+
+雾松岛当前采用独立程序地形、复用 AHOLO 古松/云杉和现有码头，面积为原主岛的 24.29%；倒木、蕨丛和完整岩脊布景尚待制作。[实机实现与验证](evidence/2026-10-29-mist-island/evidence.md)单独记录，不把下列插画当作实现证据。
 
 ## 雾松岛
 

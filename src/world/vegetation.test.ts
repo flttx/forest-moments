@@ -25,7 +25,7 @@ describe('expanded island and migrated vegetation',()=>{
       const water=shorelineRadius(a)
       expect(landformHeight(Math.cos(a)*water,Math.sin(a)*water)).toBeCloseTo(seaLevel,7)
     }
-    expect(canStandAt(-44,0)).toBe(false)
+    expect(canStandAt(-78,0)).toBe(false) // Beyond the expanded western shore.
     expect(canStandAt(35.1,0)).toBe(true) // New beach / dock approach.
   })
   it('keeps source-derived trunks and posts out of the circulation and gameplay zones',()=>{

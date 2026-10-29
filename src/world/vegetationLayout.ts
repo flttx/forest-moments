@@ -1,7 +1,11 @@
 import {cabin,camp,seats,creekDistance} from '../game/expansion'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
-import templates from './vegetation-templates.json'
-import { pathDistance, islandShape, terrainHeight } from './terrain'
+import originalTemplates from './vegetation-templates.json'
+import islandTemplates from './island-tree-templates.json'
+const templates={...originalTemplates,...islandTemplates}
+import { originalPathDistance as pathDistance, islandShape, terrainHeight } from './terrain'
+import {westLandRadius,westTrailDistance,westWetlandRadius} from './westExpansion'
+import {mistRadius,mistPathDistance,mistPine} from './mistIsland'
 import {workshopPosition,lookoutPosition,lookoutHill,isBeachApproach,clearings} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
@@ -28,6 +32,8 @@ export const lampPositions=originalLampPositions.map(p=>{
 
 /** Generous canopy buffers around gameplay and entrances, in metres. */
 export function clearForVegetation(x:number,z:number,margin=0,pathOffset=workshopPathOffset) {
+  if(x>72)return mistRadius(x,z)<.85&&terrainHeight(x,z)>.5&&mistPathDistance(x,z)>2.1+margin
+  if(x< -35.5)return westLandRadius(x,z)<.79&&terrainHeight(x,z)>.6&&westTrailDistance(x,z)>2.7+margin&&westWetlandRadius(x,z)>1.65
   if(Math.hypot(x,z)>islandShape.walkRadius-.3-margin) return false
   if(x>19&&Math.abs(z-1.4)<1.5+margin)return false
   if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.7)return false
@@ -61,7 +67,7 @@ function makeLayout() {
   const sightlines=[[15,13,8,6],[14,4,6,-5],[-4,17,-12,8]]
   return plants.filter(p=>{
     // Preserve seeded placement; remove only crowns touching the enlarged building or access path.
-    const crown=({'tall-pine-a':1.9,'normal-pine-b':1.7,'round-tree-a':2.2,'young-tree-b':1,'bush-a':.95,lantern:.4}[p.kit])*p.scale
+    const crown=({'tall-pine-a':1.9,'normal-pine-b':1.7,'round-tree-a':2.2,'young-tree-b':1,'bush-a':.95,lantern:.4,'ie-old-pine':3.9,'ie-spruce':1.8}[p.kit])*p.scale
     const dx=Math.max(Math.abs(p.x-workshopPosition[0])-workshopSize.halfX*modelAssets.workshop.scale,0)
     const dz=Math.max(Math.abs(p.z-workshopPosition[2])-workshopSize.halfZ*modelAssets.workshop.scale,0)
     return clearForVegetation(p.x,p.z)&&Math.hypot(dx,dz)>crown+.2
@@ -79,7 +85,25 @@ for(let i=0;i<700;i++){
 }
 // Meadow clearings: trees stay out entirely, bushes only keep to the outer ring so the edge reads as a shrubby fringe.
 const inClearing=(p:VegetationInstance)=>clearings.some(c=>Math.hypot(p.x-c.x,p.z-c.z)<c.r*(p.kit==='bush-a'?.7:1))
-export const vegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2&&!inClearing(p))
+export const originalVegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2&&!inClearing(p))
+// Reference-driven AHOLO trees replace the first trial's old-tree proxies in the western forest.
+const westPlants:VegetationInstance[]=[]
+for(let x=-76;x< -36;x+=3.2)for(let z=-10;z<35;z+=3.2){
+ const n=Math.sin(x*13.1+z*17.7)*43758.5,f=n-Math.floor(n),px=x+(f-.5)*.7,pz=z+(.5-f)*.6
+ if(!clearForVegetation(px,pz,.25))continue
+ const kit=f<.08?'ie-old-pine':'ie-spruce',scale=kit==='ie-old-pine'?.86:.8+f*.2
+ if(kit==='ie-old-pine'&&westTrailDistance(px,pz)<4.3)continue
+ westPlants.push({kit,x:px,z:pz,scale,yaw:f*Math.PI*2})
+ const bx=px+1.4,bz=pz+1.3
+ if(f<.55&&clearForVegetation(bx,bz))westPlants.push({kit:f<.22?'ie-spruce':'bush-a',x:bx,z:bz,scale:f<.22?.45:.65+f*.3,yaw:f*5})
+}
+const mistPlants:VegetationInstance[]=[{kit:'ie-old-pine',...mistPine,scale:.92,yaw:1.1}]
+for(let x=88;x<128;x+=3.1)for(let z=-28;z<10;z+=3.1){
+ const f=(Math.sin(x*13.1+z*7.3)*43758.5)%1,px=x+f*.6,pz=z-f*.7
+ if(!clearForVegetation(px,pz,.3)||Math.hypot(px-mistPine.x,pz-mistPine.z)<5.4)continue
+ mistPlants.push({kit:'ie-spruce',x:px,z:pz,scale:.76+Math.abs(f)*.22,yaw:f*6})
+}
+export const vegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants]
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))
@@ -88,6 +112,6 @@ export const vegetationColliders=[...vegetationPositions,...lampPositions].flatM
 
 // Approximate foliage volumes in kit space (template heights 4-8 m). Bushes count too: a low or close
 // camera arm otherwise ends inside one and the view fills with leaves.
-const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9}}
+const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9},'ie-old-pine':islandTemplates['ie-old-pine'].crown,'ie-spruce':islandTemplates['ie-spruce'].crown}
 /** Crown spheres used only to keep the camera out of leaves; rendering and collisions are unaffected. */
 export const canopySpheres=vegetationPositions.flatMap(p=>{const c=crownShape[p.kit];return c?[{x:p.x,y:terrainHeight(p.x,p.z)+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]})

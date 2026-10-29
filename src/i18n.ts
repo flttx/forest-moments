@@ -5,6 +5,19 @@ export const langStorageKey='forest-moments:lang:v1'
 
 /** Chinese is the source language; every English entry must match a key here (checked by the Record type below). */
 const zh={
+ 'place.mist':'雾松岛泊位',
+ 'place.mist.hint':'从主岛东码头向东偏北出航。西湾上岸后沿林径走一圈，回到此处上船返航。',
+ 'place.mistPine':'古松林窗',
+ 'place.mistPine.hint':'在古松旁停一会儿，按 P 拍照；沿土路可返回西湾泊位。',
+ 'travel.arrived':'初次抵达雾松岛，已记录到访。刷新后会回到此泊位，船也在这里。',
+ 'travel.moored':'已停靠。刷新后从这个泊位继续旅行。',
+ 'travel.pineFound':'发现古松林窗，已记入地点。',
+ 'travel.visited':'已到访',
+ 'travel.unvisited':'尚未到访',
+ 'travel.found':'已发现',
+ 'travel.unfound':'沿林径寻找古松',
+ 'travel.landAt':'下船 · {name}',
+ 'travel.sailing':'雾松岛在主岛东偏北；沿码头方向靠近，停稳后按 F 下船。',
  'app.title':'森林拾光 · Forest Moments',
  'brand':'森林拾光',
  'loading':'正在走进森林',
@@ -558,6 +571,19 @@ const zh={
 export type Key=keyof typeof zh
 
 const en:Record<Key,string>={
+ 'place.mist':'Mist Pine Berth',
+ 'place.mist.hint':'Sail east-northeast from the main jetty. Walk the forest loop, then return to this berth.',
+ 'place.mistPine':'Old Pine Clearing',
+ 'place.mistPine.hint':'Pause by the old pine and press P for a photo. Follow the trail back to the west bay.',
+ 'travel.arrived':'First visit to Mist Pine Island recorded. Reloading returns you and your boat to this berth.',
+ 'travel.moored':'Moored. Reloading resumes your journey at this berth.',
+ 'travel.pineFound':'Old Pine Clearing discovered and recorded in Places.',
+ 'travel.visited':'Visited',
+ 'travel.unvisited':'Not yet visited',
+ 'travel.found':'Discovered',
+ 'travel.unfound':'Find the old pine along the trail',
+ 'travel.landAt':'Step off · {name}',
+ 'travel.sailing':'Mist Pine Island is east-northeast of the main island. Align with a jetty, stop and press F to step off.',
  'app.title':'Forest Moments · 森林拾光',
  'brand':'Forest Moments',
  'loading':'Walking into the forest',

@@ -11,7 +11,10 @@ import {beginSleepJourney,sleepDuration,lightingStorageKey,type TimeOfDay,type S
 import {cabin,camp,seats,seatOrigin,bedSpot,tankSpot,bedroomSpawn,decodeHome,expansionStorageKey,addCatch,catchId,latestCatchChoice,type HomeBook,type SeatSession,type SeatId} from './expansion'
 import { create } from 'zustand'
 import { findNearestLandmark, type LandmarkId } from './landmarks'
-import { canBoard, canLand, initialBoat, landing, type BoatState } from './rowing'
+import { canBoard, canLand, landingBerth, type BoatState } from './rowing'
+import {berths} from '../world/worldConfig'
+import {mistPine} from '../world/mistIsland'
+import {loadTravel,saveTravel,travelSpawn,emptyTravel,type TravelBook} from './islandTravel'
 import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSites, fishingSpot, recordCatch, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
 import {advanceGarden,decodeGarden,growthStages,growthStorageKey,growthStorageKeyV2,legacySeedlingKey,plant,plantedToday,plantingStand,plotNear,treeAt,type Garden} from './growth'
 import {transferCommit,transferDuration,type BoatTransfer} from './boatPresentation'
@@ -25,8 +28,10 @@ function saveWorkshop(book:WorkshopBook){try{window.localStorage.setItem(worksho
 function saveGarden(garden:Garden){try{window.localStorage.setItem(growthStorageKey,JSON.stringify(garden));return true}catch{return false}}
 function loadGarden():Garden{try{const ls=window.localStorage,garden=decodeGarden(ls.getItem(growthStorageKey),ls.getItem(growthStorageKeyV2),ls.getItem(legacySeedlingKey),Date.now());if(garden.trees.length)saveGarden(garden);return garden}catch{return{version:3,trees:[]}}}
 const initialGarden:Garden=typeof window!=='undefined'?loadGarden():{version:3,trees:[]}
+const initialTravel=loadTravel(),travelStart=travelSpawn(initialTravel)
 
 type ForestState = {
+  travel:TravelBook
   mode: 'walking' | 'rowing' | 'fishing' | 'planting' | 'feeding' | 'lookout' | 'gathering' | 'crafting' | 'sitting' | 'sleeping' | 'foraging' | 'launching'
   location: 'island'|'workshop'|'bedroom'
   islandOverview:boolean
@@ -148,6 +153,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   // A new message is ordinary feedback unless the caller marks it as an error explicitly.
   const set=(partial:Partial<ForestState>)=>rawSet('message' in partial&&!('messageKind' in partial)?{...partial,messageKind:'info'}:partial)
   return {
+  travel:initialTravel??emptyTravel(),
   messageKind:'info',
   menuPaused:false,
   mode: 'walking',
@@ -287,7 +293,11 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(commit){
       const boat={...get().boat,speed:0,effort:0}
       if(previous.direction==='board')set({mode:'rowing',boat,inspectingTree:false,message:''})
-      else set({mode:'walking',boat,position:{...landing},nearby:'dock',message:''})
+      else {
+        const berth=berths[previous.berth??'main'],old=get().travel
+        const travel={...old,checkpoint:berth.id,visitedMist:old.visitedMist||berth.id==='mist'},saved=saveTravel(travel)
+        set({mode:'walking',boat,travel,position:{...berth.landing},nearby:berth.id==='main'?'dock':'mist',messageKind:saved?'info':'error',message:t(berth.id==='mist'&&!old.visitedMist?'travel.arrived':'travel.moored')+(saved?'':t('msg.unsavedShort'))})
+      }
     }
     set({boatTransfer:elapsed>=transferDuration?null:{...previous,elapsed,committed:previous.committed||commit}})
     return commit
@@ -348,8 +358,8 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       set({ fishing, fishBook, message: saved ? '' : t('msg.catchUnsaved'), messageKind: saved ? 'info' : 'error' })
     } else set({ fishing })
   },
-  position: { x: 0, z: 0 },
-  boat: { ...initialBoat },
+  position: travelStart.position,
+  boat: travelStart.boat,
   boatReady: false,
   setBoatReady: (boatReady) => set({ boatReady }),
   updateBoat: (boat) => set({ boat }),
@@ -359,6 +369,10 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     const nearby = get().location==='bedroom'?'bedroom':get().location==='workshop'?'workshop':findNearestLandmark(x, z)
     const previous = get()
     if (x !== previous.position.x || z !== previous.position.z || nearby !== previous.nearby) set({ nearby, position: { x, z } })
+    if(previous.location==='island'&&previous.mode==='walking'&&!previous.travel.foundPine&&Math.hypot(x-mistPine.x,z-mistPine.z)<4.3){
+      const travel={...previous.travel,foundPine:true},saved=saveTravel(travel)
+      set({travel,messageKind:saved?'info':'error',message:t('travel.pineFound')+(saved?'':t('msg.unsavedShort'))})
+    }
   },
   interact: () => {
     const { nearby, mode, position, boat, boatReady } = get()
@@ -378,7 +392,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     }
     if (mode === 'rowing') {
       if (!canLand(boat)) { set({ message: t('msg.notAtDock') }); return }
-      set({boatTransfer:{direction:'land',elapsed:0,committed:false},message:''})
+      set({boatTransfer:{direction:'land',elapsed:0,committed:false,berth:landingBerth(boat)!.id},message:''})
       return
     }
     if(get().location==='bedroom'){
@@ -445,11 +459,11 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(Math.random, get().timeOfDay, 'pond', weatherFor(get().homeBook.nights)), message: '' })
       return
     }
-    if (nearby === 'dock') {
+    if (nearby === 'dock'||nearby==='mist') {
       if (!boatReady) { set({ message: t('msg.boatLoading') }); return }
       // The jetty's south edge is for fishing; boarding stays at the mooring on the north side.
       const sea = fishingSites.sea.stand
-      if (!canBoard(position.x, position.z, boat) && Math.hypot(position.x - sea.x, position.z - sea.z) <= .85) {
+      if (nearby==='dock'&&!canBoard(position.x, position.z, boat) && Math.hypot(position.x - sea.x, position.z - sea.z) <= .85) {
         if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
         set({ mode: 'fishing', position: { ...sea }, fishing: beginFishing(Math.random, get().timeOfDay, 'sea', weatherFor(get().homeBook.nights)), message: '' }); return
       }

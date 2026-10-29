@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-29T04:34:24.693Z",
+  "checks": [
+    {
+      "name": "original terrain samples, trees, lamps and berth preserved"
+    },
+    {
+      "name": "real mouse orbit and W walk cross the wetland deck",
+      "start": {
+        "position": [
+          -52.13529999950357,
+          0.8999999999999999,
+          -3.999989019315265
+        ],
+        "camera": [
+          -42.25705212598936,
+          4.837096699841924,
+          -4.0194709760416725
+        ]
+      },
+      "end": {
+        "position": [
+          -64.30679999945814,
+          0.9,
+          -3.9999849665951803
+        ],
+        "camera": [
+          -54.43542341003458,
+          5.0968090239991115,
+          -3.9999846708297198
+        ]
+      },
+      "samples": 97
+    },
+    {
+      "name": "three PC window sizes without horizontal overflow"
+    },
+    {
+      "name": "photo mode on new land and reload to original safe spawn"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-fullIsland.png",
+    "day-westOverview.png",
+    "day-westTrailClear.png",
+    "day-westWetlandClear.png",
+    "day-tower.png",
+    "dusk-fullIsland.png",
+    "dusk-westOverview.png",
+    "dusk-westTrailClear.png",
+    "dusk-westWetlandClear.png",
+    "dusk-tower.png",
+    "night-fullIsland.png",
+    "night-westOverview.png",
+    "night-westTrailClear.png",
+    "night-westWetlandClear.png",
+    "night-tower.png",
+    "walk-west-boardwalk.png",
+    "pc-1920x1080.png",
+    "pc-1280x720.png",
+    "pc-1024x768.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.42",
+  "viewport": [
+    1440,
+    900
+  ],
+  "area": {
+    "ground": 6180.5,
+    "walkable": 5063.5,
+    "growth": 0.3873176206509539
+  },
+  "load": {
+    "elapsed": 40576.09999990463,
+    "resources": 129113476
+  },
+  "frames": {
+    "fullIsland": {
+      "median": 9.39999999999418,
+      "p95": 15.900000000001455,
+      "frames": 180,
+      "low": false
+    },
+    "westOverview": {
+      "median": 9.200000000004366,
+      "p95": 14.30000000000291,
+      "frames": 180,
+      "low": false
+    },
+    "westTrailClear": {
+      "median": 6.099999999998545,
+      "p95": 15.400000000001455,
+      "frames": 180,
+      "low": false
+    },
+    "westWetlandClear": {
+      "median": 9.700000000004366,
+      "p95": 17.10000000000582,
+      "frames": 180,
+      "low": false
+    },
+    "tower": {
+      "median": 4.69999999999709,
+      "p95": 11,
+      "frames": 180,
+      "low": false
+    }
+  }
+}

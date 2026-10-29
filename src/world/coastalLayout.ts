@@ -1,6 +1,7 @@
 import {creekDistance,creekWaterY,creekZ,reefs} from '../game/expansion'
-import {coastRadius,isBeachApproach,oceanNavigation,seaLevel,seaRangeRadius,shorelineRadius,isDockSurface} from './worldConfig'
-import {terrainHeight} from './terrain'
+import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
+import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
+const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
 
 export type CoastKit='Rock_Slab'|'Rock_Tall'|'Rock_Boulder'|'Rock_Cobbles'|'Driftwood_Long'|'Driftwood_Short'
 export interface CoastPiece{kit:CoastKit;x:number;y:number;z:number;yaw:number;scale:number;role:'cliff'|'creek'|'tideline'}
@@ -96,4 +97,4 @@ function tidelinePieces(rand:()=>number){
  return pieces
 }
 
-export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)]})()
+export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01)})()

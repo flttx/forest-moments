@@ -1,6 +1,6 @@
 // Interaction constants follow my-blog's CameraHeading / FollowCamera.
 // Our yaw uses the actor convention: forward = (-sin yaw, -cos yaw).
-export const orbitConfig={yawPerPixel:.004,pitchPerPixel:.003,minPitch:Math.PI/18,maxPitch:Math.PI*.36,minZoom:.55,maxZoom:14,indoorMaxZoom:1.6,keySpeed:1.8,defaultPitch:.31} as const
+export const orbitConfig={yawPerPixel:.004,pitchPerPixel:.003,minPitch:Math.PI/18,maxPitch:Math.PI*.36,minZoom:.55,maxZoom:18,indoorMaxZoom:1.6,keySpeed:1.8,defaultPitch:.31} as const
 export const wrapAngle=(a:number)=>Math.atan2(Math.sin(a),Math.cos(a))
 // Opening view looks south-west past the pond to the workshop, with open sea and sky behind it.
 export const spawnYaw=Math.PI*3/4

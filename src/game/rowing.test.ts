@@ -84,7 +84,7 @@ describe('coastal rowing', () => {
 
   it('allows an entire island circuit and rejects the shore, dock and outer limit at every angle',()=>{
     for(let a=0;a<Math.PI*2;a+=.025){
-      const r=shorelineRadius(a)+8,c=Math.cos(a),s=Math.sin(a),heading=-a-Math.PI/2
+      const r=seaRangeRadius(a)-3,c=Math.cos(a),s=Math.sin(a),heading=-a-Math.PI/2
       expect(boatFits(r*c,r*s,heading),`circuit ${a}`).toBe(true)
       const outside=seaRangeRadius(a)+.2
       expect(boatFits(outside*c,outside*s,heading)).toBe(false)

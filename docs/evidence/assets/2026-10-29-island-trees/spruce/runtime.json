@@ -1,0 +1,24 @@
+{
+  "asset": "05",
+  "name": "spruce",
+  "taskId": 4461973,
+  "sourceSha256": "77c8c0c18b66f34e87cb53310c6c6666954ef649f85688af56a94debf51f73ea",
+  "sourceTriangles": 97828,
+  "runtimeTriangles": 50000,
+  "lodTriangles": 14000,
+  "height": 9.0,
+  "bodyRadius": 0.6580211314737574,
+  "crownRadius": 1.7050545468074743,
+  "files": [
+    {
+      "path": "public/assets/island-trees/spruce.glb",
+      "bytes": 2721428,
+      "sha256": "febb74bc67d4bab7a2ff6eef73594cf0d00c8464b970046eecb0eecb73171a93"
+    },
+    {
+      "path": "public/assets/island-trees/spruce-lod.glb",
+      "bytes": 1210180,
+      "sha256": "82f6fe8364f62628df8b129ffa6b57286c7717c63c666cc887c0c16523f180fd"
+    }
+  ]
+}

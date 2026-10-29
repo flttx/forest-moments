@@ -92,8 +92,9 @@ const title=panel==='season'?t('season.title'):panel==='weather'?t('weather.titl
 
 function Places(){
  const t=useT()
- const s=useForestStore(useShallow(s=>({nearby:s.nearby,meals:s.farmBook.meals,trees:s.garden.trees.length,nights:s.homeBook.nights,fireLit:s.homeBook.fireLit,phase:s.workshopBook.phase,fish:s.fishBook.count})))
+ const s=useForestStore(useShallow(s=>({travel:s.travel,nearby:s.nearby,meals:s.farmBook.meals,trees:s.garden.trees.length,nights:s.homeBook.nights,fireLit:s.homeBook.fireLit,phase:s.workshopBook.phase,fish:s.fishBook.count})))
  const status:Partial<Record<LandmarkId,string>>={
+  mist:t(s.travel.visitedMist?'travel.visited':'travel.unvisited'),mistPine:t(s.travel.foundPine?'travel.found':'travel.unfound'),
   bedroom:t('status.nights',{n:s.nights}),campfire:t(s.fireLit?'status.fireLit':'status.fireOut'),
   workshop:t(s.phase==='finished'?'status.stoolDone':s.phase==='carrying'?'status.stumpCarried':'status.stumpMissing'),
   farm:t('status.meals',{n:s.meals}),pond:t('status.fish',{n:s.fish}),

@@ -1,4 +1,4 @@
-import {coastalDock,landing,mooring,seaLevel,seaRangeRadius,oceanNavigation} from '../world/worldConfig'
+import {berths,mooring,seaLevel,seaRangeRadius,oceanNavigation} from '../world/worldConfig'
 import {terrainHeight} from '../world/terrain'
 export {pond,mooring,landing} from '../world/worldConfig'
 export const paddleDuration = 7.2
@@ -26,17 +26,17 @@ export function boatFits(x: number, z: number, heading: number): boolean {
   // world box keeps the hull clear of the deck during near-shore turns.
   const halfX = 1.7 * Math.abs(c) + .57 * Math.abs(s)
   const halfZ = 1.7 * Math.abs(s) + .57 * Math.abs(c)
-  if (x + halfX > coastalDock.minX && x - halfX < coastalDock.maxX && z + halfZ > coastalDock.minZ && z - halfZ < coastalDock.maxZ) return false
+  if(Object.values(berths).some(({dock:d})=>x+halfX>d.minX&&x-halfX<d.maxX&&z+halfZ>d.minZ&&z-halfZ<d.maxZ))return false
   return [-1.7,0,1.7].every((along) => [-.57,0,.57].every((across) =>
     isNavigableSea(x+along*c+across*s,z-along*s+across*c)))
 }
 
-export function canLand(boat: BoatState): boolean {
-  return Math.hypot(boat.x - mooring.x, boat.z - mooring.z) < .85 && Math.abs(boat.speed) < .18 && Math.abs(Math.sin(boat.heading))<.35
-}
+export function landingBerth(boat:BoatState){return Object.values(berths).find(({mooring:m})=>Math.hypot(boat.x-m.x,boat.z-m.z)<.85&&Math.abs(boat.speed)<.18&&Math.abs(Math.sin(boat.heading-m.heading))<.35)}
+export function canLand(boat: BoatState): boolean {return !!landingBerth(boat)}
 
 export function canBoard(x: number, z: number, boat: BoatState): boolean {
-  return Math.hypot(x - landing.x, z - landing.z) < .8 && canLand(boat)
+  const berth=landingBerth(boat)
+  return !!berth&&Math.hypot(x-berth.landing.x,z-berth.landing.z)<.8
 }
 
 /** Coastal kinematic controller: short steps protect the hull, no rigid-body simulation. */

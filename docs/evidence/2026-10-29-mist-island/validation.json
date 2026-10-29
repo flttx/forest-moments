@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-29",
+  "sampleStep": 0.5,
+  "originalMainWalkable": 3695,
+  "mistWalkable": 897.5,
+  "ratio": 0.2428958051420839,
+  "mistPlants": {
+    "ie-old-pine": 1,
+    "ie-spruce": 31
+  },
+  "originalTerrainSamplesUnchanged": 1517,
+  "originalPlantsUnchanged": 140,
+  "originalLampsAndBerthUnchanged": true,
+  "crossEngineComparisonTolerance": 1e-10,
+  "newPaidCalls": 0,
+  "geometryDecimation": false
+}

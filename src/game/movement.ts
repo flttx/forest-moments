@@ -1,7 +1,8 @@
 import {furnitureAt} from './furniture'
 import {cabin,camp,seats,reefs,bridge,creekDistance,onBridge,bridgeHeight} from './expansion'
 import { lookoutPosition, modelAssets, workshopPosition } from '../world/assets'
-import { islandShape, terrainHeight, pathEdgeDistance } from '../world/terrain'
+import { terrainHeight, pathEdgeDistance } from '../world/terrain'
+import {onWestBoardwalk,westBoardwalk,westWetland,westWetlandRadius} from '../world/westExpansion'
 import {pineReach} from '../world/pineReach'
 import { vegetationColliders, vegetationPositions, lampPositions, instanceCircles, lowFoliage } from '../world/vegetationLayout'
 import {pondEdgeDistance} from '../world/pondShape'
@@ -18,7 +19,7 @@ const radius = .28
 export const dockDeckHeight = coastalDock.deckY
 
 export function groundHeightAt(x: number, z: number): number {
-  return onBridge(x,z) ? bridgeHeight(z) : isDockSurface(x,z) ? dockDeckHeight : terrainHeight(x,z)
+  return onWestBoardwalk(x,z)?westBoardwalk.y:onBridge(x,z) ? bridgeHeight(z) : isDockSurface(x,z) ? dockDeckHeight : terrainHeight(x,z)
 }
 // Cabin and workshop footprints are measured from the drawn models in the raccoon's body band
 // (scripts/audit_collisions.mjs), not from their bounding sizes, so walls stop the raccoon where they stand.
@@ -104,7 +105,7 @@ export function standBlocker(x: number, z: number,trees:readonly Trunk[]=[],work
   const rock=[...rocks,...pathStoneColliders].find(r=>Math.hypot(x-r.x,z-r.z)<radius+r.r);if(rock)return rock.name
   if(seats.some(s=>{const dx=x-s.x,dz=z-s.z;return Math.abs(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))<1.2&&Math.abs(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))<.53}))return 'bench'
   const onDock=isDockSurface(x,z,radius)
-  if(!onDock&&!onBridge(x,z)){const h=terrainHeight(x,z);if(h<seaLevel+.16||Math.hypot(x,z)>islandShape.coastRadius+2)return 'terrain:water';const slope=Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3;if(slope>.85)return 'terrain:slope'}
+  if(!onDock&&!onBridge(x,z)&&!onWestBoardwalk(x,z,.28)){const h=terrainHeight(x,z);if(h<seaLevel+.16||westWetlandRadius(x,z)<1.35&&h<westWetland.waterY+.16)return 'terrain:water';const slope=Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3;if(slope>.85)return 'terrain:slope'}
   if (!onDock && pondEdgeDistance(x,z)<radius) return 'terrain:pond'
   if(dockPosts.some(p=>Math.hypot(x-p.x,z-p.z)<radius+p.r))return 'dock post'
   for (const box of boxes) {
