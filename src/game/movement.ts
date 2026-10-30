@@ -13,6 +13,7 @@ import {coastalDock,dockPosts,isDockSurface,seaLevel} from '../world/worldConfig
 import {farmColliders,animalObstacles} from './farm'
 import {woodSpot,type WorkshopBook} from './workshop'
 import {foxDen,heartStone} from './secrets'
+import {inTidePool} from '../world/tideIsland'
 import {mistLogs,mistLogHalf} from '../world/mistDetails'
 
 export interface GroundPoint { x: number; z: number }
@@ -107,6 +108,7 @@ export function standBlocker(x: number, z: number,trees:readonly Trunk[]=[],work
   const piece=furnitureAt('island',x,z,radius);if(piece)return `furniture:${piece}`
   const rock=[...rocks,...pathStoneColliders].find(r=>Math.hypot(x-r.x,z-r.z)<radius+r.r);if(rock)return rock.name
   if(seats.some(s=>{const dx=x-s.x,dz=z-s.z;return Math.abs(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))<1.2&&Math.abs(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))<.53}))return 'bench'
+  if(inTidePool(x,z,radius))return 'terrain:tide-pool'
   const onDock=isDockSurface(x,z,radius)
   if(!onDock&&!onBridge(x,z)&&!onWestBoardwalk(x,z,.28)){const h=terrainHeight(x,z);if(h<seaLevel+.16||westWetlandRadius(x,z)<1.35&&h<westWetland.waterY+.16)return 'terrain:water';const slope=Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3;if(slope>.85)return 'terrain:slope'}
   if (!onDock && pondEdgeDistance(x,z)<radius) return 'terrain:pond'

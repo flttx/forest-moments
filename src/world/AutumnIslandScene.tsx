@@ -3,6 +3,7 @@ import * as THREE from 'three'
 import {autumnIsland,autumnHeight,autumnGLSL} from './autumnIsland'
 import {noiseGLSL} from './terrain'
 import {climateUniforms,climateGLSL} from './climateUniforms'
+import {AutumnUnderstory} from './AutumnUnderstory'
 
 /** Separate terrain chunk: no giant empty grid between islands. */
 export function AutumnIsland(){
@@ -13,7 +14,7 @@ export function AutumnIsland(){
   g.computeVertexNormals();g.computeBoundingSphere();return g
  },[])
  useEffect(()=>()=>geometry.dispose(),[geometry])
- return <group><mesh name="autumn-island-terrain" geometry={geometry} receiveShadow>
+ return <group><AutumnUnderstory/><mesh name="autumn-island-terrain" geometry={geometry} receiveShadow>
   <meshStandardMaterial roughness={.94} onBeforeCompile={shader=>{
    Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet})
    shader.vertexShader='varying vec3 vAutumn;varying vec3 vAutumnNormal;\n'+shader.vertexShader

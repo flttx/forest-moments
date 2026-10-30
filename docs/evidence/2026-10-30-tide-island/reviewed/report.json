@@ -1,0 +1,151 @@
+{
+  "date": "2026-10-30T15:14:32.387Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "tideOverview",
+        "tideBerth",
+        "tidePools",
+        "tideObservation",
+        "tideArchipelago"
+      ]
+    },
+    {
+      "name": "three distinct rendered pool materials, closed beds, collision, area and fourth berth",
+      "data": {
+        "walkableArea": 578,
+        "ratio": 0.1564276048714479,
+        "pools": [
+          {
+            "x": 99,
+            "z": 97,
+            "rx": 2.8,
+            "rz": 2,
+            "phase": 0.3,
+            "bed": -0.18,
+            "waterY": 0.18,
+            "blocker": "terrain:tide-pool",
+            "shaderKey": "tide-pool-0"
+          },
+          {
+            "x": 105,
+            "z": 104,
+            "rx": 2,
+            "rz": 1.6,
+            "phase": 1.7,
+            "bed": -0.18,
+            "waterY": 0.18,
+            "blocker": "terrain:tide-pool",
+            "shaderKey": "tide-pool-1"
+          },
+          {
+            "x": 95,
+            "z": 105,
+            "rx": 1.7,
+            "rz": 1.35,
+            "phase": 3,
+            "bed": -0.18,
+            "waterY": 0.18,
+            "blocker": "terrain:tide-pool",
+            "shaderKey": "tide-pool-2"
+          }
+        ],
+        "terrainVertices": 40001,
+        "maxHeightError": 1.1913552455666832e-7,
+        "berths": [
+          "main",
+          "mist",
+          "autumn",
+          "tide"
+        ]
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-tideOverview.png",
+    "day-tideBerth.png",
+    "day-tidePools.png",
+    "day-tideObservation.png",
+    "day-tideArchipelago.png",
+    "dusk-tideOverview.png",
+    "dusk-tideBerth.png",
+    "dusk-tidePools.png",
+    "dusk-tideObservation.png",
+    "dusk-tideArchipelago.png",
+    "night-tideOverview.png",
+    "night-tideBerth.png",
+    "night-tidePools.png",
+    "night-tideObservation.png",
+    "night-tideArchipelago.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.56",
+    "revision": "@09c423bb1897b98be48b1cd7c886acfee88248fb",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.9"
+  },
+  "frames": {
+    "median": 4.899999999994179,
+    "p95": 8.5,
+    "low": false,
+    "samples": 180,
+    "view": "tideArchipelago",
+    "light": "night"
+  },
+  "tide": {
+    "walkableArea": 578,
+    "ratio": 0.1564276048714479,
+    "pools": [
+      {
+        "x": 99,
+        "z": 97,
+        "rx": 2.8,
+        "rz": 2,
+        "phase": 0.3,
+        "bed": -0.18,
+        "waterY": 0.18,
+        "blocker": "terrain:tide-pool",
+        "shaderKey": "tide-pool-0"
+      },
+      {
+        "x": 105,
+        "z": 104,
+        "rx": 2,
+        "rz": 1.6,
+        "phase": 1.7,
+        "bed": -0.18,
+        "waterY": 0.18,
+        "blocker": "terrain:tide-pool",
+        "shaderKey": "tide-pool-1"
+      },
+      {
+        "x": 95,
+        "z": 105,
+        "rx": 1.7,
+        "rz": 1.35,
+        "phase": 3,
+        "bed": -0.18,
+        "waterY": 0.18,
+        "blocker": "terrain:tide-pool",
+        "shaderKey": "tide-pool-2"
+      }
+    ],
+    "terrainVertices": 40001,
+    "maxHeightError": 1.1913552455666832e-7,
+    "berths": [
+      "main",
+      "mist",
+      "autumn",
+      "tide"
+    ]
+  }
+}

@@ -14,6 +14,7 @@ import { findNearestLandmark, type LandmarkId } from './landmarks'
 import { approachBerth, canBoard, canLand, landingBerth, type BoatState } from './rowing'
 import {berths} from '../world/worldConfig'
 import {mistPine} from '../world/mistIsland'
+import {tideObservation} from '../world/tideIsland'
 import {autumnVista} from '../world/autumnIsland'
 import {loadTravel,saveTravel,travelSpawn,emptyTravel,type TravelBook} from './islandTravel'
 import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSites, fishingSpot, recordCatch, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
@@ -297,8 +298,8 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       else {
         // Secure and turn the boat outward only while the transfer cover is opaque.
         const berth=berths[previous.berth??'main'],old=get().travel
-        const travel={...old,checkpoint:berth.id,visitedMist:old.visitedMist||berth.id==='mist',visitedAutumn:old.visitedAutumn||berth.id==='autumn'},saved=saveTravel(travel)
-        set({mode:'walking',boat:{...boat,...berth.mooring},travel,position:{...berth.landing},nearby:berth.id==='main'?'dock':berth.id,messageKind:saved?'info':'error',message:t(berth.id==='mist'&&!old.visitedMist?'travel.arrived':berth.id==='autumn'&&!old.visitedAutumn?'travel.autumnArrived':'travel.moored')+(saved?'':t('msg.unsavedShort'))})
+        const travel={...old,checkpoint:berth.id,visitedMist:old.visitedMist||berth.id==='mist',visitedAutumn:old.visitedAutumn||berth.id==='autumn',visitedTide:old.visitedTide||berth.id==='tide'},saved=saveTravel(travel)
+        set({mode:'walking',boat:{...boat,...berth.mooring},travel,position:{...berth.landing},nearby:berth.id==='main'?'dock':berth.id,messageKind:saved?'info':'error',message:t(berth.id==='mist'&&!old.visitedMist?'travel.arrived':berth.id==='autumn'&&!old.visitedAutumn?'travel.autumnArrived':berth.id==='tide'&&!old.visitedTide?'travel.tideArrived':'travel.moored')+(saved?'':t('msg.unsavedShort'))})
       }
     }
     set({boatTransfer:elapsed>=transferDuration?null:{...previous,elapsed,committed:previous.committed||commit}})
@@ -371,6 +372,10 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     const nearby = get().location==='bedroom'?'bedroom':get().location==='workshop'?'workshop':findNearestLandmark(x, z)
     const previous = get()
     if (x !== previous.position.x || z !== previous.position.z || nearby !== previous.nearby) set({ nearby, position: { x, z } })
+    if(previous.location==='island'&&previous.mode==='walking'&&!previous.travel.foundPools&&Math.hypot(x-tideObservation.x,z-tideObservation.z)<1.4){
+      const travel={...previous.travel,foundPools:true},saved=saveTravel(travel)
+      set({travel,messageKind:saved?'info':'error',message:t('travel.poolsFound')+(saved?'':t('msg.unsavedShort'))})
+    }
     if(previous.location==='island'&&previous.mode==='walking'&&!previous.travel.foundVista&&Math.hypot(x-autumnVista.x,z-autumnVista.z)<2){
       const travel={...previous.travel,foundVista:true},saved=saveTravel(travel)
       set({travel,messageKind:saved?'info':'error',message:t('travel.vistaFound')+(saved?'':t('msg.unsavedShort'))})
@@ -465,7 +470,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       set({ mode: 'fishing', position: { ...fishingSpot }, fishing: beginFishing(Math.random, get().timeOfDay, 'pond', weatherFor(get().homeBook.nights)), message: '' })
       return
     }
-    if (nearby === 'dock'||nearby==='mist'||nearby==='autumn') {
+    if (nearby === 'dock'||nearby==='mist'||nearby==='autumn'||nearby==='tide') {
       if (!boatReady) { set({ message: t('msg.boatLoading') }); return }
       // The jetty's south edge is for fishing; boarding stays at the mooring on the north side.
       const sea = fishingSites.sea.stand

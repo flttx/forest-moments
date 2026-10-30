@@ -66,7 +66,9 @@ try {
   await waitFor(s=>s?.ready&&s.models.length===4&&s.boatReady,'ready',90000)
   await evaluate(`(async()=>{const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;window.S=(await import(r('/src/game/store.ts'))).useForestStore;window.U=(await import(r('/src/game/uiStore.ts'))).useUiStore;window.P=(await import(r('/src/game/photoStore.ts'))).usePhotoStore;U.setState({guideSeen:true,panel:null});S.setState({position:{x:106,z:-6.3},timeOfDay:'day',menuPaused:true})})()`)
   await sleep(1200)
+  if(process.env.FOREST_QA_TIDE==='1'){await evaluate("S.setState({position:{x:101,z:100}})");await sleep(1500)}
   if(process.env.FOREST_QA_MAIN==='1')await evaluate("S.setState({position:{x:0,z:0}})")
+  if(process.env.FOREST_QA_AUTUMN==='1'){await evaluate("S.setState({position:{x:110,z:47}})");await sleep(1500)}
   const views=process.env.FOREST_QA_VIEWS?.split(',')??(process.env.FOREST_LOG_VIEWS==='1'?['mistLog','mistLogMouth','mistEdge']:['mistOverview','mistUnderstory','mistRidge','mistBerth'])
   for(const light of ['day','dusk','night'])for(const view of views){
     await evaluate(`history.replaceState(null,'','/?qa&view=${view}');S.setState({timeOfDay:'${light}'})`)
@@ -74,6 +76,77 @@ try {
   }
   report.frames=await evaluate(`new Promise(resolve=>{const t=[];let p=performance.now();function f(n){t.push(n-p);p=n;if(t.length<180)requestAnimationFrame(f);else{t.sort((a,b)=>a-b);resolve({median:t[90],p95:t[171],low:P.getState().lowQuality,samples:180,view:${JSON.stringify(views.at(-1))},light:'night'})}}requestAnimationFrame(f)})`)
   check('three lighting presets and matching views',views)
+  if(process.env.FOREST_COAST_SNAPSHOT==='1'){
+    const pieces=await evaluate(`(async()=>{const p='/src/world/coastalLayout.ts';return (await import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p)).coastPieces})()`)
+    await writeFile(`${out}/coast-snapshot.json`,JSON.stringify(pieces,null,2))
+  }
+  if(process.env.FOREST_QA_TIDE==='1'){
+    report.tide=await evaluate(`(async()=>{
+      const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
+      const [a,m,c]=await Promise.all(['/src/world/tideIsland.ts','/src/game/movement.ts','/src/world/worldConfig.ts'].map(p=>import(r(p))));
+      let area=0;for(let x=75;x<124;x+=.5)for(let z=80;z<122;z+=.5)if(m.canStandAt(x,z))area+=.25;
+      const ground=forestScene.getObjectByName('tide-island-terrain'),v=ground.geometry.getAttribute('position');let maxHeightError=0;
+      for(let i=0;i<v.count;i++)maxHeightError=Math.max(maxHeightError,Math.abs(v.getY(i)-a.tideHeight(v.getX(i),v.getZ(i))));
+      const pools=a.tidePools.map((p,i)=>{const mesh=forestScene.getObjectByName('tide-pool-'+i);return{...p,bed:a.tideHeight(p.x,p.z),waterY:mesh.position.y,blocker:m.standBlocker(p.x,p.z),shaderKey:mesh.material.customProgramCacheKey()}});
+      return{walkableArea:area,ratio:area/3695,pools,terrainVertices:v.count,maxHeightError,berths:Object.keys(c.berths)};
+    })()`)
+    assert(report.tide.ratio>=.12&&report.tide.ratio<=.18);assert.equal(report.tide.pools.length,3)
+    assert.equal(new Set(report.tide.pools.map(p=>p.shaderKey)).size,3)
+    assert(report.tide.pools.every(p=>p.waterY>p.bed&&p.blocker==='terrain:tide-pool'))
+    assert(report.tide.maxHeightError<1e-5);assert.equal(report.tide.berths.length,4)
+    check('three distinct rendered pool materials, closed beds, collision, area and fourth berth',report.tide)
+  }
+  if(process.env.FOREST_TIDE_COAST_AFTER==='1'){
+    report.tideCoast=await evaluate(`(async()=>{
+      const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
+      const [c,a,rowing]=await Promise.all(['/src/world/coastalLayout.ts','/src/world/tideIsland.ts','/src/game/rowing.ts'].map(p=>import(r(p))));
+      const pieces=[...c.tideShorePieces,...c.tidePoolPieces];let vertices=0,minPathGap=Infinity,invalidNormals=0;const violations=[];
+      for(const p of pieces){
+        const mesh=forestScene.getObjectByName('coastal-'+p.kit),g=mesh.geometry.getAttribute('position'),n=mesh.geometry.getAttribute('normal');
+        const k=c.coastPieces.filter(q=>q.kit===p.kit).indexOf(p),o=k*16,m=mesh.instanceMatrix.array;
+        for(let i=0;i<g.count;i++){
+          const x=m[o]*g.getX(i)+m[o+4]*g.getY(i)+m[o+8]*g.getZ(i)+m[o+12];
+          const z=m[o+2]*g.getX(i)+m[o+6]*g.getY(i)+m[o+10]*g.getZ(i)+m[o+14];
+          vertices++;if(rowing.isNavigableSea(x,z))violations.push({x,z});minPathGap=Math.min(minPathGap,a.tidePathDistance(x,z));
+          if(Math.abs(Math.hypot(n.getX(i),n.getY(i),n.getZ(i))-1)>.01)invalidNormals++;
+        }
+      }
+      return{shore:c.tideShorePieces,pools:c.tidePoolPieces,oldPieces:c.coastPieces.slice(0,c.coastPieces.length-pieces.length),vertices,minPathGap,invalidNormals,violations};
+    })()`)
+    assert(report.tideCoast.vertices>0&&report.tideCoast.minPathGap>1.15);assert.equal(report.tideCoast.invalidNormals,0);assert.deepEqual(report.tideCoast.violations,[])
+    const old=JSON.parse(await readFile('docs/evidence/2026-10-30-tide-rock-coast/before/coast-snapshot.json','utf8'))
+    assert.deepEqual(report.tideCoast.oldPieces,old);report.tideCoast.oldCount=old.length;delete report.tideCoast.oldPieces;
+    check('loaded tide rock instances: normals, full vertices, trail and boat clearance, old placements',true)
+  }
+  if(process.env.FOREST_AUTUMN_UNDERSTORY==='1'){
+    report.understory=await evaluate(`(async()=>{
+      const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
+      const [v,a,m,c]=await Promise.all(['/src/world/vegetationLayout.ts','/src/world/autumnIsland.ts','/src/game/movement.ts','/src/world/coastalLayout.ts'].map(p=>import(r(p))));
+      const fern=forestScene.getObjectByName('autumn-ferns'),g=fern.geometry.getAttribute('position'),matrices=fern.instanceMatrix.array;
+      let vertices=0,minPathGap=Infinity,invalidNormals=0;const n=fern.geometry.getAttribute('normal');
+      for(let i=0;i<n.count;i++)if(Math.abs(Math.hypot(n.getX(i),n.getY(i),n.getZ(i))-1)>.01)invalidNormals++;
+      for(let k=0;k<fern.count;k++)for(let i=0;i<g.count;i++){
+        const o=k*16,x=matrices[o]*g.getX(i)+matrices[o+4]*g.getY(i)+matrices[o+8]*g.getZ(i)+matrices[o+12];
+        const z=matrices[o+2]*g.getX(i)+matrices[o+6]*g.getY(i)+matrices[o+10]*g.getZ(i)+matrices[o+14];
+        vertices++;minPathGap=Math.min(minPathGap,a.autumnPathDistance(x,z));
+      }
+      let area=0;for(let x=82;x<142;x+=.5)for(let z=28;z<74;z+=.5)if(m.canStandAt(x,z))area+=.25;
+      const shrubs=v.autumnEdgePlants.map(p=>({...p,blocker:m.standBlocker(p.x,p.z)}));
+      return{ferns:fern.userData.qa,vertices,minPathGap,invalidNormals,shrubs,trees:v.autumnPlants.length,walkableArea:area,ratio:area/3695,rocks:c.autumnShorePieces};
+    })()`)
+    assert.equal(report.understory.ferns.geometryTriangles,3240);assert.equal(report.understory.invalidNormals,0)
+    assert(report.understory.vertices>0&&report.understory.minPathGap>1)
+    assert(report.understory.shrubs.length>3&&report.understory.shrubs.every(p=>p.blocker==='plant:bush-a'))
+    assert(report.understory.ratio>=.2&&report.understory.ratio<=.25);assert.equal(report.understory.trees,15)
+    const baseline=JSON.parse(await readFile('docs/evidence/2026-10-30-autumn-coast/reviewed/report.json','utf8'))
+    assert.deepEqual(report.understory.rocks,baseline.autumnCoast.pieces)
+    check('authored fern geometry, actual instance path clearance, shrub solids, area and adopted rocks',report.understory)
+    await evaluate("S.setState({timeOfDay:'day'});P.setState({active:true});history.replaceState(null,'','/?qa&view=autumnEdge')")
+    const seasons=await evaluate("(async()=>{const p='/src/game/weather.ts';return (await import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p)).seasonIds})()")
+    for(const season of seasons){await evaluate(`P.getState().setSeasonPreview('${season}')`);await sleep(4000);await shot(`season-${season}-autumnEdge`)}
+    await evaluate("P.setState({active:false,seasonPreview:null})")
+    check('supported seasonal understory views',seasons)
+  }
   if(process.env.FOREST_AUTUMN_TREES==='1'){
     report.autumnTrees=await evaluate(`(()=>{
       const root=forestScene.getObjectByName('aholo-island-trees'),trees=[];
@@ -155,12 +228,13 @@ try {
     report.layout={sampleStep:.5,originalMainWalkable:baseline.walkableArea,mistWalkable:layout.walkable,ratio,ridgePieces:layout.ridgePieces,shorePieces:layout.shorePieces,mistPlants:layout.plants.filter(p=>p.x>72).reduce((a,p)=>({...a,[p.kit]:(a[p.kit]??0)+1}),{}),originalTerrainSamplesUnchanged:baseline.terrainSamples.length,originalPlantsUnchanged:baseline.plants.length,originalLampsAndBerthUnchanged:true,crossEngineTolerance:1e-10}
     check('smaller island area and original main island preserved',report.layout)
   }
-  if(process.env.FOREST_ROCK_COAST_AFTER==='1'){
+  if(process.env.FOREST_ROCK_COAST_AFTER==='1'||process.env.FOREST_AUTUMN_COAST_AFTER==='1'){
     const rocks=await evaluate(`(async()=>{
       const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
       const [c,rowing]=await Promise.all(['/src/world/coastalLayout.ts','/src/game/rowing.ts'].map(p=>import(r(p))));
       let vertices=0;const violations=[];
-      for(const p of c.mistShorePieces){
+      const pieces=c.${process.env.FOREST_AUTUMN_COAST_AFTER==='1'?'autumnShorePieces':'mistShorePieces'};
+      for(const p of pieces){
         const mesh=forestScene.getObjectByName('coastal-'+p.kit),g=mesh.geometry.getAttribute('position');
         for(let i=0;i<g.count;i++){
           const x=p.x+(Math.cos(p.yaw)*g.getX(i)+Math.sin(p.yaw)*g.getZ(i))*p.scale;
@@ -168,10 +242,21 @@ try {
           vertices++;if(rowing.isNavigableSea(x,z))violations.push({x,z});
         }
       }
-      return{pieces:c.mistShorePieces.length,vertices,violations};
+      return{pieces:pieces.length,vertices,violations};
     })()`)
     assert(rocks.pieces>0&&rocks.vertices>0);assert.deepEqual(rocks.violations,[])
     report.rockGeometry=rocks;check('loaded shore rock vertices stay outside rowable water',rocks)
+    if(process.env.FOREST_AUTUMN_COAST_AFTER==='1'){
+      report.autumnCoast=await evaluate(`(async()=>{
+        const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;
+        const [c,m,v]=await Promise.all(['/src/world/coastalLayout.ts','/src/game/movement.ts','/src/world/vegetationLayout.ts'].map(p=>import(r(p))));
+        let area=0;for(let x=82;x<142;x+=.5)for(let z=28;z<74;z+=.5)if(m.canStandAt(x,z))area+=.25;
+        return{pieces:c.autumnShorePieces,kits:c.autumnShorePieces.reduce((a,p)=>(a[p.kit]=(a[p.kit]??0)+1,a),{}),walkableArea:area,originalMainArea:3695,ratio:area/3695,plants:v.autumnPlants.length,totalCoastPieces:c.coastPieces.length};
+      })()`)
+      assert(report.autumnCoast.ratio>=.2&&report.autumnCoast.ratio<=.25)
+      assert.equal(report.autumnCoast.plants,15)
+      check('autumn coast area and retained tree count',{area:report.autumnCoast.walkableArea,ratio:report.autumnCoast.ratio,plants:report.autumnCoast.plants})
+    }
   }
   if(process.env.FOREST_DETAIL_AFTER==='1'){
     await waitFor(()=>true,'snapshot')

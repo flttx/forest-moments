@@ -4,6 +4,7 @@ import {modelAssets,workshopSize,workshopPathOffset} from './assets'
 import {islandShape,workshopPosition,lookoutPosition,landformHeight,originalLandformHeight,clearings} from './worldConfig'
 import {westLand,westPaths,westTrailDistance} from './westExpansion'
 import {pondEdgeDistance,pondDepth,pondBankWidth} from './pondShape'
+import {tidePathDistance} from './tideIsland'
 import {mistPathDistance} from './mistIsland'
 import {autumnPathDistance} from './autumnIsland'
 export {seaLevel,islandShape,coastRadius,shoreWaterFraction} from './worldConfig'
@@ -34,7 +35,7 @@ export function originalPathDistance(x:number,z:number,workshopOffset=workshopPa
   const loop=Math.abs(Math.hypot(x,z)-loopRadius(Math.atan2(z,x)))
   return Math.min(main,workshop,east,tower,loop,bedroom,camp,coastTrail,highland)
 }
-export function pathDistance(x:number,z:number,workshopOffset=workshopPathOffset){return x>72?Math.min(mistPathDistance(x,z),autumnPathDistance(x,z)):Math.min(originalPathDistance(x,z,workshopOffset),westTrailDistance(x,z))}
+export function pathDistance(x:number,z:number,workshopOffset=workshopPathOffset){return x>72?Math.min(mistPathDistance(x,z),autumnPathDistance(x,z),tidePathDistance(x,z)):Math.min(originalPathDistance(x,z,workshopOffset),westTrailDistance(x,z))}
 export function groundNoise(x:number,z:number) {
   const hash=(a:number,b:number)=>{const n=Math.sin(a*127.1+b*311.7)*43758.5453;return n-Math.floor(n)}
   const ix=Math.floor(x),iz=Math.floor(z),fx=x-ix,fz=z-iz,u=fx*fx*(3-2*fx),v=fz*fz*(3-2*fz)

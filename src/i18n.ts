@@ -5,6 +5,14 @@ export const langStorageKey='forest-moments:lang:v1'
 
 /** Chinese is the source language; every English entry must match a key here (checked by the Record type below). */
 const zh={
+ 'place.tide':'潮汐岛泊位',
+ 'place.tide.hint':'沿秋岚岛西侧向南航行，在低岩台西湾靠岸；沿干燥岸径走到浅潮池再返回。',
+ 'place.tidePools':'浅潮池观察点',
+ 'place.tidePools.hint':'停在池边看看水下岩床，按 P 拍照；沿干燥环路返回泊位。',
+ 'travel.tideArrived':'初次抵达潮汐岛，已记录到访。刷新后会与船一起回到此泊位。',
+ 'travel.poolsFound':'发现浅潮池观察点，已记入地点。',
+ 'travel.poolsUnfound':'沿干燥岸径寻找浅潮池',
+
  'place.autumn':'秋岚岛泊位',
  'place.autumn.hint':'沿雾松岛西侧海面向南航行，在秋岚岛西湾靠岸；沿林路登上东北观景丘后返回。',
  'place.autumnVista':'秋岚观景丘',
@@ -25,7 +33,7 @@ const zh={
  'travel.unfound':'沿林径寻找古松',
  'travel.brake':'已到停靠区，松开 W / S 停稳后按 F 下船。',
  'travel.landAt':'停靠下船 · {name}',
- 'travel.sailing':'雾松岛在主岛东偏北，秋岚岛在雾松岛南侧；靠近泊位停稳后按 F 下船。',
+ 'travel.sailing':'雾松岛在主岛东偏北，秋岚岛在雾松岛南侧，潮汐岛再向南；靠近泊位停稳后按 F 下船。',
  'app.title':'森林拾光 · Forest Moments',
  'brand':'森林拾光',
  'loading':'正在走进森林',
@@ -579,6 +587,14 @@ const zh={
 export type Key=keyof typeof zh
 
 const en:Record<Key,string>={
+ 'place.tide':'Tide Isle Berth',
+ 'place.tide.hint':'Sail south along the west of Autumn Isle to the sheltered bay. Follow the dry rock trail to the shallow pools and back.',
+ 'place.tidePools':'Tide Pool Outlook',
+ 'place.tidePools.hint':'Look into the shallow rock pools and press P for a photo. The dry loop leads back to the berth.',
+ 'travel.tideArrived':'First visit to Tide Isle recorded. Reloading returns you and the boat to this berth.',
+ 'travel.poolsFound':'Tide Pool Outlook discovered and recorded in Places.',
+ 'travel.poolsUnfound':'Find the shallow pools along the dry trail',
+
  'place.autumn':'Autumn Isle Berth',
  'place.autumn.hint':'Sail south along the sea west of Mist Pine Island to the west bay. Follow the woodland loop to the northeast hill and back.',
  'place.autumnVista':'Autumn Vista',
@@ -599,7 +615,7 @@ const en:Record<Key,string>={
  'travel.unfound':'Find the old pine along the trail',
  'travel.brake':'At the berth. Release W / S to stop, then press F to moor.',
  'travel.landAt':'Moor and step off · {name}',
- 'travel.sailing':'Mist Pine Island is east-northeast of the main island; Autumn Isle is south of Mist. Stop beside a berth and press F to moor.',
+ 'travel.sailing':'Mist Pine Island is east-northeast of the main island; Autumn Isle is south of Mist, and Tide Isle lies further south. Stop beside a berth and press F to moor.',
  'app.title':'Forest Moments · 森林拾光',
  'brand':'Forest Moments',
  'loading':'Walking into the forest',

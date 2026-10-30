@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-30",
+  "paidCalls": 0,
+  "newModels": 0,
+  "assets": [
+    {
+      "path": "public/assets/expansion/fern-clump.glb",
+      "bytes": 317856,
+      "sha256": "60574b6f1710e9558c81ea9de03dfa6a60f9f4917718bcd6077923fba38339b5",
+      "operation": "reuse unchanged"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit.glb",
+      "bytes": 1007640,
+      "sha256": "b0059415aece77163d4f879345c4dfa1e394e690da45930eb8fb2281d5c7263c",
+      "operation": "reuse unchanged"
+    },
+    {
+      "path": "public/assets/vegetation/forest-kit-lod.glb",
+      "bytes": 162864,
+      "sha256": "55c53e571db1e91cf1e856fb2e5da8349e11f10d9ba42c0126a585cb14f047f7",
+      "operation": "reuse unchanged"
+    }
+  ]
+}

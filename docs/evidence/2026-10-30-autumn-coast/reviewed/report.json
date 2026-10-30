@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-30T14:01:02.357Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "autumnNorthShore",
+        "autumnEastShore",
+        "autumnSouthShore",
+        "autumnOverview",
+        "autumnBerth"
+      ]
+    },
+    {
+      "name": "loaded shore rock vertices stay outside rowable water",
+      "data": {
+        "pieces": 18,
+        "vertices": 5184,
+        "violations": []
+      }
+    },
+    {
+      "name": "autumn coast area and retained tree count",
+      "data": {
+        "area": 877.75,
+        "ratio": 0.23755074424898512,
+        "plants": 15
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-autumnNorthShore.png",
+    "day-autumnEastShore.png",
+    "day-autumnSouthShore.png",
+    "day-autumnOverview.png",
+    "day-autumnBerth.png",
+    "dusk-autumnNorthShore.png",
+    "dusk-autumnEastShore.png",
+    "dusk-autumnSouthShore.png",
+    "dusk-autumnOverview.png",
+    "dusk-autumnBerth.png",
+    "night-autumnNorthShore.png",
+    "night-autumnEastShore.png",
+    "night-autumnSouthShore.png",
+    "night-autumnOverview.png",
+    "night-autumnBerth.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.56",
+    "revision": "@09c423bb1897b98be48b1cd7c886acfee88248fb",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.9"
+  },
+  "frames": {
+    "median": 2.400000000001455,
+    "p95": 5.299999999995634,
+    "low": false,
+    "samples": 180,
+    "view": "autumnBerth",
+    "light": "night"
+  },
+  "rockGeometry": {
+    "pieces": 18,
+    "vertices": 5184,
+    "violations": []
+  },
+  "autumnCoast": {
+    "pieces": [
+      {
+        "kit": "Rock_Boulder",
+        "x": 106.11337153181618,
+        "z": 33.87420184753433,
+        "y": -0.7003259783561193,
+        "yaw": 1.5287613776972337,
+        "scale": 1.1282320634360574,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 112.06683488816503,
+        "z": 32.270181419671204,
+        "y": -0.652330999868187,
+        "yaw": 1.18176610255929,
+        "scale": 0.9719500588355353,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 113.68235995889592,
+        "z": 32.22805654848585,
+        "y": -0.6992413395761166,
+        "yaw": 1.8708861794000895,
+        "scale": 1.0355319098967741,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Slab",
+        "x": 117.46264459622431,
+        "z": 32.8237355638679,
+        "y": -0.698287473905582,
+        "yaw": 1.4487982015864918,
+        "scale": 0.8175954225787871,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 118.88883356992477,
+        "z": 34.96808923129243,
+        "y": 0.7950281725473203,
+        "yaw": 1.6929482919573542,
+        "scale": 0.9440074551822653,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 124.89275097649849,
+        "z": 37.85220268995573,
+        "y": -0.10223314714589882,
+        "yaw": 0.06899493939778545,
+        "scale": 1.0287359287397637,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 126.56665973288563,
+        "z": 39.76681657766391,
+        "y": -0.5327813658265017,
+        "yaw": 0.7382955487052889,
+        "scale": 1.1548256760485591,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 127.56171204502861,
+        "z": 40.845925402759356,
+        "y": -0.5453762533320698,
+        "yaw": 0.9261518609936592,
+        "scale": 1.023052854497476,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 129.12669973077502,
+        "z": 42.5108354530681,
+        "y": -0.5980520043689017,
+        "yaw": 1.015495610089505,
+        "scale": 0.7864890860563559,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 125.36424254519216,
+        "z": 40.35949119586863,
+        "y": 0.9215718628598877,
+        "yaw": 0.14561511997744203,
+        "scale": 0.8492636469655035,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 126.14702923070529,
+        "z": 41.589272712556124,
+        "y": 0.9031903716731624,
+        "yaw": -0.08547432103798458,
+        "scale": 0.8530083541306706,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 126.57030610748414,
+        "z": 43.546497369308845,
+        "y": 0.42955137230041807,
+        "yaw": 0.803892899677806,
+        "scale": 1.1724090738326354,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 130.3009606994278,
+        "z": 46.79880426858691,
+        "y": -0.6180506795666136,
+        "yaw": 0.8567695595367206,
+        "scale": 1.0611853766772827,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 130.63158210154904,
+        "z": 48.84374053774062,
+        "y": -1.1810196817135161,
+        "yaw": -0.8268589601569618,
+        "scale": 1.3452242768347376,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 129.78849243750997,
+        "z": 51.03334597534824,
+        "y": -0.6814449761553769,
+        "yaw": 0.31749767646193405,
+        "scale": 0.8857421187384715,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Slab",
+        "x": 128.52129829519177,
+        "z": 52.51297242275983,
+        "y": -1.5008639633007386,
+        "yaw": -0.511289572452097,
+        "scale": 1.2659917596336414,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 122.10342254203366,
+        "z": 58.34712876990588,
+        "y": -0.6702229209871953,
+        "yaw": -0.33778053591623003,
+        "scale": 0.9094065987315991,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 111.40341965995232,
+        "z": 60.39912015014749,
+        "y": -0.4493140817589709,
+        "yaw": -0.8147837612579033,
+        "scale": 0.9019695346951343,
+        "role": "cliff"
+      }
+    ],
+    "kits": {
+      "Rock_Boulder": 16,
+      "Rock_Slab": 2
+    },
+    "walkableArea": 877.75,
+    "originalMainArea": 3695,
+    "ratio": 0.23755074424898512,
+    "plants": 15,
+    "totalCoastPieces": 427
+  }
+}

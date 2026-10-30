@@ -37,7 +37,7 @@ export function promptFor(s:State):Prompt|null{
  if(s.mode==='launching')return{status:t('prompt.launching')}
  if(s.mode==='rowing'){
   const berth=landingBerth(s.boat)
-  return berth?{action:t('travel.landAt',{name:t(berth.id==='main'?'place.dock':berth.id==='mist'?'place.mist':'place.autumn')})}:approachBerth(s.boat)?{hint:t('travel.brake')}:seaBoundaryClearance(s.boat.x,s.boat.z)<2?{hint:t('prompt.openSea')}:{hint:t('travel.sailing')}
+  return berth?{action:t('travel.landAt',{name:t(berth.id==='main'?'place.dock':`place.${berth.id}`)})}:approachBerth(s.boat)?{hint:t('travel.brake')}:seaBoundaryClearance(s.boat.x,s.boat.z)<2?{hint:t('prompt.openSea')}:{hint:t('travel.sailing')}
  }
  if(s.location==='bedroom'){
   if(near(p,{x:0,z:2.5},.9))return{action:t('prompt.toIsland')}
@@ -85,6 +85,8 @@ export function promptFor(s:State):Prompt|null{
   case 'pond':return !s.fishingReady?{status:t('prompt.fishingLoading')}:near(p,fishingSpot,.85)?{action:t('prompt.cast')}:{hint:t('prompt.toFishingSpot')}
   case 'dock':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:near(p,fishingSites.sea.stand,.85)?{action:t('prompt.castSea')}:{hint:t('prompt.toDockEnd')}
   case 'grove':return{hint:t('prompt.toPlot')}
+  case 'tidePools':return{hint:t('place.tidePools.hint')}
+  case 'tide':
   case 'autumn':
   case 'mist':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:{hint:t('prompt.toDockEnd')}
   case 'autumnVista':return{hint:t('place.autumnVista.hint')}

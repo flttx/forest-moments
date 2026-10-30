@@ -139,7 +139,21 @@ for(let x=93;x<126;x+=3.8)for(let z=17;z<44;z+=3.8){
  const scale=.83+(f+1)*.17
  autumnPlants.push({kit:f>.55?'normal-pine-b':x<108?'ie-birch':'ie-maple',x:px,z:pz,scale,yaw:f*Math.PI})
 }
-export const vegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants,...mistEdgePlants,...mistSaplings,...autumnPlants]
+// Coast placement is already adopted. Later understory must fit it rather than resample its rocks.
+export const coastalVegetationPositions=[...originalVegetationPositions,...westPlants,...mistPlants,...mistEdgePlants,...mistSaplings,...autumnPlants]
+/** Low shrub pockets frame the broadleaf walk; the vista and central clearing stay open. */
+export const autumnEdgePlants:VegetationInstance[]=[]
+for(const [cx,cz] of [[101,55],[106,37],[115,55],[101,43]]){
+ let count=0
+ for(let i=0;i<12&&count<3;i++){
+  const a=i*2.399963,x=cx+Math.cos(a)*(1+i*.18),z=cz+Math.sin(a)*(1+i*.18),scale=.48+(i%4)*.07
+  if(!clearForVegetation(x,z)||autumnRadius(x,z)>.75||Math.hypot(x-110,z-47)<3.5||Math.hypot(x-autumnVista.x,z-autumnVista.z)<5)continue
+  if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.5)continue
+  if(autumnPlants.some(p=>Math.hypot(x-p.x,z-p.z)<1.65)||autumnEdgePlants.some(p=>Math.hypot(x-p.x,z-p.z)<1.05))continue
+  autumnEdgePlants.push({kit:'bush-a',x,z,scale,yaw:a});count++
+ }
+}
+export const vegetationPositions=[...coastalVegetationPositions,...autumnEdgePlants]
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))

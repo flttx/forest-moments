@@ -94,6 +94,7 @@ function Places(){
  const t=useT()
  const s=useForestStore(useShallow(s=>({travel:s.travel,nearby:s.nearby,meals:s.farmBook.meals,trees:s.garden.trees.length,nights:s.homeBook.nights,fireLit:s.homeBook.fireLit,phase:s.workshopBook.phase,fish:s.fishBook.count})))
  const status:Partial<Record<LandmarkId,string>>={
+  tide:t(s.travel.visitedTide?'travel.visited':'travel.unvisited'),tidePools:t(s.travel.foundPools?'travel.found':'travel.poolsUnfound'),
   autumn:t(s.travel.visitedAutumn?'travel.visited':'travel.unvisited'),autumnVista:t(s.travel.foundVista?'travel.found':'travel.vistaUnfound'),
   mist:t(s.travel.visitedMist?'travel.visited':'travel.unvisited'),mistPine:t(s.travel.foundPine?'travel.found':'travel.unfound'),
   bedroom:t('status.nights',{n:s.nights}),campfire:t(s.fireLit?'status.fireLit':'status.fireOut'),

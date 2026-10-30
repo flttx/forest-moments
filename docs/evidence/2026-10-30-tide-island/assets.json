@@ -1,0 +1,16 @@
+{
+  "operation": "reuse unchanged existing coastal jetty",
+  "path": "public/assets/models/coastal-jetty.glb",
+  "bytes": 2447124,
+  "sha256": "f2c8c4d503415a7fc610ad50a27d81ce24f19448ac1c9c8df0af404d6cef6666",
+  "originalTask": 4321451,
+  "triangles": 299741,
+  "newGeneratedModels": 0,
+  "paidCalls": 0,
+  "runtimeTerrain": {
+    "vertices": 40001,
+    "triangles": 79200,
+    "poolPlanes": 3,
+    "poolPlaneTriangles": 6
+  }
+}

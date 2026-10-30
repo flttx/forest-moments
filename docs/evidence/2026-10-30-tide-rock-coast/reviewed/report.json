@@ -1,0 +1,445 @@
+{
+  "date": "2026-10-30T15:30:47.788Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "tideOverview",
+        "tidePools",
+        "tideEastShore",
+        "tideNorthShore",
+        "tideBerth"
+      ]
+    },
+    {
+      "name": "three distinct rendered pool materials, closed beds, collision, area and fourth berth",
+      "data": {
+        "walkableArea": 553.25,
+        "ratio": 0.14972936400541273,
+        "pools": [
+          {
+            "x": 99,
+            "z": 97,
+            "rx": 2.8,
+            "rz": 2,
+            "phase": 0.3,
+            "bed": -0.18,
+            "waterY": 0.18,
+            "blocker": "terrain:tide-pool",
+            "shaderKey": "tide-pool-0"
+          },
+          {
+            "x": 105,
+            "z": 104,
+            "rx": 2,
+            "rz": 1.6,
+            "phase": 1.7,
+            "bed": -0.18,
+            "waterY": 0.18,
+            "blocker": "terrain:tide-pool",
+            "shaderKey": "tide-pool-1"
+          },
+          {
+            "x": 95,
+            "z": 105,
+            "rx": 1.7,
+            "rz": 1.35,
+            "phase": 3,
+            "bed": -0.18,
+            "waterY": 0.18,
+            "blocker": "terrain:tide-pool",
+            "shaderKey": "tide-pool-2"
+          }
+        ],
+        "terrainVertices": 40001,
+        "maxHeightError": 1.1913552455666832e-7,
+        "berths": [
+          "main",
+          "mist",
+          "autumn",
+          "tide"
+        ]
+      }
+    },
+    {
+      "name": "loaded tide rock instances: normals, full vertices, trail and boat clearance, old placements",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-tideOverview.png",
+    "day-tidePools.png",
+    "day-tideEastShore.png",
+    "day-tideNorthShore.png",
+    "day-tideBerth.png",
+    "dusk-tideOverview.png",
+    "dusk-tidePools.png",
+    "dusk-tideEastShore.png",
+    "dusk-tideNorthShore.png",
+    "dusk-tideBerth.png",
+    "night-tideOverview.png",
+    "night-tidePools.png",
+    "night-tideEastShore.png",
+    "night-tideNorthShore.png",
+    "night-tideBerth.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.56",
+    "revision": "@09c423bb1897b98be48b1cd7c886acfee88248fb",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.9"
+  },
+  "frames": {
+    "median": 1.9000000000014552,
+    "p95": 4.30000000000291,
+    "low": false,
+    "samples": 180,
+    "view": "tideBerth",
+    "light": "night"
+  },
+  "tide": {
+    "walkableArea": 553.25,
+    "ratio": 0.14972936400541273,
+    "pools": [
+      {
+        "x": 99,
+        "z": 97,
+        "rx": 2.8,
+        "rz": 2,
+        "phase": 0.3,
+        "bed": -0.18,
+        "waterY": 0.18,
+        "blocker": "terrain:tide-pool",
+        "shaderKey": "tide-pool-0"
+      },
+      {
+        "x": 105,
+        "z": 104,
+        "rx": 2,
+        "rz": 1.6,
+        "phase": 1.7,
+        "bed": -0.18,
+        "waterY": 0.18,
+        "blocker": "terrain:tide-pool",
+        "shaderKey": "tide-pool-1"
+      },
+      {
+        "x": 95,
+        "z": 105,
+        "rx": 1.7,
+        "rz": 1.35,
+        "phase": 3,
+        "bed": -0.18,
+        "waterY": 0.18,
+        "blocker": "terrain:tide-pool",
+        "shaderKey": "tide-pool-2"
+      }
+    ],
+    "terrainVertices": 40001,
+    "maxHeightError": 1.1913552455666832e-7,
+    "berths": [
+      "main",
+      "mist",
+      "autumn",
+      "tide"
+    ]
+  },
+  "tideCoast": {
+    "shore": [
+      {
+        "kit": "Rock_Boulder",
+        "x": 91.33557451666101,
+        "z": 91.84594452862986,
+        "y": -1.0080363757949273,
+        "scale": 1.100357932662758,
+        "yaw": 2.3337977870687836,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 93.32202318011613,
+        "z": 90.89083579830722,
+        "y": -0.8162578716505251,
+        "scale": 0.9326457925758538,
+        "yaw": 2.0283977029884226,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 95.9065982342251,
+        "z": 89.97655991261453,
+        "y": -0.9557018216635917,
+        "scale": 0.9093324003877735,
+        "yaw": 2.6406729651129215,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 102.17857670312651,
+        "z": 89.20138041602615,
+        "y": -1.1897522327446926,
+        "scale": 1.1371482597371323,
+        "yaw": 0.9167583480764916,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 103.7419002076904,
+        "z": 89.48223211924788,
+        "y": -0.9868489567824521,
+        "scale": 1.0235833353100268,
+        "yaw": 0.3656659525845505,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 105.83097627042433,
+        "z": 89.86975131419678,
+        "y": -1.010594570327261,
+        "scale": 0.9741301660305496,
+        "yaw": 1.0168732693287883,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 106.8635261930423,
+        "z": 90.65579664346141,
+        "y": -1.1077834196321847,
+        "scale": 1.1309498456916538,
+        "yaw": 0.9508574244593537,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 112.6805367989268,
+        "z": 96.24839681346003,
+        "y": -1.1628295430715159,
+        "scale": 1.1908762662442758,
+        "yaw": 0.7906766403306633,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 115.20381473432644,
+        "z": 98.65566433362274,
+        "y": -1.1779057080734965,
+        "scale": 1.158633828628172,
+        "yaw": 0.6171375024747743,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 115.93552322255258,
+        "z": 100.9266525049836,
+        "y": -0.7226991284387345,
+        "scale": 0.8655107524551036,
+        "yaw": -0.09455205353887382,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 112.32124420338259,
+        "z": 107.13623095357161,
+        "y": -1.1504172194247084,
+        "scale": 1.1215913685418626,
+        "yaw": -1.2097259587630287,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 88.18678708205759,
+        "z": 109.08662528456776,
+        "y": -1.4072424889687456,
+        "scale": 1.2377760136675908,
+        "yaw": -3.2336972882010495,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 86.9747599087157,
+        "z": 107.54558136220889,
+        "y": -1.1018989737036107,
+        "scale": 1.1292878908707238,
+        "yaw": -2.978187470458535,
+        "role": "cliff"
+      }
+    ],
+    "pools": [
+      {
+        "kit": "Rock_Boulder",
+        "x": 102.98094177138857,
+        "z": 97.06373649660702,
+        "y": -0.3130175035835463,
+        "scale": 0.7968686838899127,
+        "yaw": 3.4102019168831434,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 96.89683415580976,
+        "z": 99.29241088951419,
+        "y": 0.07550135131401053,
+        "scale": 0.975796325446943,
+        "yaw": 4.237599785779322,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 95.4145589533197,
+        "z": 98.40661261487182,
+        "y": 0.2874653956664072,
+        "scale": 0.7596137722672959,
+        "yaw": 1.9897612872251291,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 95.62922910585003,
+        "z": 96.85012522743753,
+        "y": 0.30236459688094586,
+        "scale": 0.7413330237014838,
+        "yaw": 0.09266241614757541,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 99.48411523447352,
+        "z": 94.1730518743148,
+        "y": 0.28791088563335593,
+        "scale": 0.7065235164046862,
+        "yaw": 3.607001957594985,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 100.9896251911269,
+        "z": 94.80192972567751,
+        "y": 0.2608450800367305,
+        "scale": 0.7502808743204367,
+        "yaw": 0.6878899397317113,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 101.83176310106295,
+        "z": 95.80888171153472,
+        "y": 0.15304025095558355,
+        "scale": 0.8465603979986908,
+        "yaw": 1.8088654101586603,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 106.32755856159847,
+        "z": 105.57475263959455,
+        "y": 0.15728188389493652,
+        "scale": 0.7146562617154122,
+        "yaw": 4.66281130327521,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 102.8132798573642,
+        "z": 105.31525447585929,
+        "y": 0.18351592151160334,
+        "scale": 0.8824208117753364,
+        "yaw": 5.084522031473255,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 102.42796273039954,
+        "z": 104.22417523659756,
+        "y": 0.12453501030324454,
+        "scale": 0.9639689016081248,
+        "yaw": 4.607579340262251,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 102.65896007302838,
+        "z": 103.07685206227345,
+        "y": 0.08256226168994568,
+        "scale": 0.9641535163038193,
+        "yaw": 5.1196407785321005,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 105.99450096789253,
+        "z": 102.13064381577773,
+        "y": 0.16866757454841597,
+        "scale": 0.7335992054797705,
+        "yaw": 4.978223785160842,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 107.06266513159,
+        "z": 102.64097162773388,
+        "y": 0.22499768956592286,
+        "scale": 0.8044916486481631,
+        "yaw": 0.6987537039818713,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Boulder",
+        "x": 96.74929442117953,
+        "z": 106.21759387316668,
+        "y": -0.18703369912394952,
+        "scale": 0.8687858767103338,
+        "yaw": 2.338912826425063,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 92.9605115513227,
+        "z": 105.57183088517932,
+        "y": 0.057742714722502975,
+        "scale": 0.8221719284365754,
+        "yaw": 2.3248062438512798,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 93.15690051406494,
+        "z": 103.76801863173745,
+        "y": 0.10553513423544214,
+        "scale": 0.8596068813649969,
+        "yaw": 2.5324625557468763,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 96.39262173615788,
+        "z": 103.46688502847832,
+        "y": 0.02828733383416447,
+        "scale": 0.7982146493802846,
+        "yaw": 2.100651384694426,
+        "role": "cliff"
+      },
+      {
+        "kit": "Rock_Cobbles",
+        "x": 97.27256495019694,
+        "z": 104.1762699893541,
+        "y": 0.2339917618207768,
+        "scale": 0.7265883146909011,
+        "yaw": 6.054410265994313,
+        "role": "cliff"
+      }
+    ],
+    "vertices": 9625,
+    "minPathGap": 1.2106419246592388,
+    "invalidNormals": 0,
+    "violations": [],
+    "oldCount": 427
+  }
+}

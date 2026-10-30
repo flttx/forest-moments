@@ -2,7 +2,9 @@ import {creekDistance,creekWaterY,creekZ,reefs} from '../game/expansion'
 import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
 import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
 import {mistIsland,mistHeight,mistPathDistance,mistRadius} from './mistIsland'
-import {vegetationPositions} from './vegetationLayout'
+import {autumnIsland,autumnHeight,autumnPathDistance,autumnBerth,autumnVista} from './autumnIsland'
+import {coastalVegetationPositions as vegetationPositions} from './vegetationLayout'
+import {buildTideCoast} from './tideCoastLayout'
 const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
 
 export type CoastKit='Rock_Slab'|'Rock_Tall'|'Rock_Boulder'|'Rock_Cobbles'|'Driftwood_Long'|'Driftwood_Short'
@@ -138,4 +140,30 @@ export const mistShorePieces:CoastPiece[]=(()=>{
  }
  return pieces
 })()
-export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces,mistShorePieces)})()
+/** Low, separated outcrops for the gentler broadleaf island, with an open west landing. */
+export const autumnShorePieces:CoastPiece[]=(()=>{
+ const pieces:CoastPiece[]=[],rand=random(301030)
+ // Unequal groups leave sand between rocky points; the northeast hill gets a second ledge.
+ for(const [angle,count] of [[-2.1,3],[-1.35,5],[-.45,4],[.12,4],[.9,3],[1.65,2]])for(const level of [.2,1.65])for(let i=0;i<count;i++){
+  const a=angle+(i-(count-1)/2)*.095+(rand()-.5)*.13+(level>1?.07:0)
+  const kit:CoastKit=rand()<.12?'Rock_Slab':'Rock_Boulder',scale=.75+rand()*.6,reach=coastKits[kit].half*scale
+  const point=(r:number)=>({x:autumnIsland.x+Math.cos(a)*r,z:autumnIsland.z+Math.sin(a)*r})
+  let lo=6,hi=27
+  const inner=point(lo);if(autumnHeight(inner.x,inner.z)<level)continue
+  for(let j=0;j<24;j++){const r=(lo+hi)/2,p=point(r);if(autumnHeight(p.x,p.z)>level)lo=r;else hi=r}
+  let r=(lo+hi)/2-.2-rand()*.65,p=point(r)
+  const footprint=()=>Array.from({length:32},(_,j)=>autumnHeight(p.x+Math.cos(j*Math.PI/16)*reach,p.z+Math.sin(j*Math.PI/16)*reach))
+  for(let j=0;j<30&&Math.min(...footprint())<seaLevel+.1;j++){r-=.1;p=point(r)}
+  if(Math.min(...footprint())<seaLevel+.1||autumnPathDistance(p.x,p.z)<reach+1.2)continue
+  if(Math.hypot(p.x-autumnBerth.landing.x,p.z-autumnBerth.landing.z)<reach+7||Math.hypot(p.x-autumnVista.x,p.z-autumnVista.z)<reach+3)continue
+  if(vegetationPositions.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<reach+1))continue
+  if(pieces.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<(reach+coastKits[v.kit].half*v.scale)*.62))continue
+  const y=autumnHeight(p.x,p.z)-coastKits[kit].height*scale*(.83+rand()*.22)
+  pieces.push({kit,...p,y,yaw:-a+(rand()-.5)*1.8,scale,role:'cliff'})
+ }
+ return pieces
+})()
+const tideCoast=buildTideCoast(coastKits)
+export const tideShorePieces=tideCoast.shore
+export const tidePoolPieces=tideCoast.pools
+export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces)})()

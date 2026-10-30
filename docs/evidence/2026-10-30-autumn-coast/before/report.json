@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-30T13:57:06.466Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "autumnNorthShore",
+        "autumnEastShore",
+        "autumnSouthShore",
+        "autumnOverview",
+        "autumnBerth"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-autumnNorthShore.png",
+    "day-autumnEastShore.png",
+    "day-autumnSouthShore.png",
+    "day-autumnOverview.png",
+    "day-autumnBerth.png",
+    "dusk-autumnNorthShore.png",
+    "dusk-autumnEastShore.png",
+    "dusk-autumnSouthShore.png",
+    "dusk-autumnOverview.png",
+    "dusk-autumnBerth.png",
+    "night-autumnNorthShore.png",
+    "night-autumnEastShore.png",
+    "night-autumnSouthShore.png",
+    "night-autumnOverview.png",
+    "night-autumnBerth.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.56",
+    "revision": "@09c423bb1897b98be48b1cd7c886acfee88248fb",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.9"
+  },
+  "frames": {
+    "median": 2.2000000000043656,
+    "p95": 4.600000000005821,
+    "low": false,
+    "samples": 180,
+    "view": "autumnBerth",
+    "light": "night"
+  }
+}

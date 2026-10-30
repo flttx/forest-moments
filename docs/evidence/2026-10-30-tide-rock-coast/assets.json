@@ -1,0 +1,10 @@
+{
+  "operation": "reuse unchanged project Blender coastal kit",
+  "path": "public/assets/expansion/coastal-kit.glb",
+  "bytes": 97244,
+  "sha256": "1267a96632235e8c593739912572a32ec26b3424f9decfa857791ce4a7c35225",
+  "source": "scripts/build_coastal_kit.py",
+  "newModels": 0,
+  "paidCalls": 0,
+  "decimated": false
+}

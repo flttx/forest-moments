@@ -292,3 +292,35 @@ __pycache__/
 !/docs/evidence/2026-10-29-autumn-trees/adopted/season-autumn-autumnBirch.png
 !/docs/evidence/2026-10-29-autumn-trees/adopted/season-summer-autumnMaple.png
 !/docs/evidence/2026-10-29-autumn-trees/adopted/season-autumn-autumnMaple.png
+
+# Autumn shore: reviewed comparison; full batches and input traces stay local.
+/docs/evidence/2026-10-30-autumn-coast/*/route.json
+!/docs/evidence/2026-10-30-autumn-coast/before/day-autumnNorthShore.png
+!/docs/evidence/2026-10-30-autumn-coast/first/day-autumnNorthShore.png
+!/docs/evidence/2026-10-30-autumn-coast/reviewed/day-autumnNorthShore.png
+!/docs/evidence/2026-10-30-autumn-coast/reviewed/day-autumnEastShore.png
+!/docs/evidence/2026-10-30-autumn-coast/reviewed/night-autumnEastShore.png
+
+# Autumn understory: selected before/after and rejected initial layout evidence.
+/docs/evidence/2026-10-30-autumn-understory/*/route.json
+!/docs/evidence/2026-10-30-autumn-understory/before/day-autumnEdge.png
+!/docs/evidence/2026-10-30-autumn-understory/first/day-autumnEdge.png
+!/docs/evidence/2026-10-30-autumn-understory/reviewed/day-autumnEdge.png
+!/docs/evidence/2026-10-30-autumn-understory/reviewed/day-autumnUnderstory.png
+!/docs/evidence/2026-10-30-autumn-understory/reviewed/season-autumn-autumnEdge.png
+
+# Tide island: actual terrain/pool iteration; other shots and traces remain local.
+/docs/evidence/2026-10-30-tide-island/*/route.json
+!/docs/evidence/2026-10-30-tide-island/before/day-tideOverview.png
+!/docs/evidence/2026-10-30-tide-island/first/day-tidePools.png
+!/docs/evidence/2026-10-30-tide-island/reviewed/day-tideOverview.png
+!/docs/evidence/2026-10-30-tide-island/reviewed/day-tidePools.png
+!/docs/evidence/2026-10-30-tide-island/reviewed/day-tideArchipelago.png
+!/docs/evidence/2026-10-30-tide-island/roundtrip/02-discovered-pools.png
+
+# Tide coast: selected real comparisons; keep the compact baseline used by tests.
+/docs/evidence/2026-10-30-tide-rock-coast/*/route.json
+!/docs/evidence/2026-10-30-tide-rock-coast/before/day-tidePools.png
+!/docs/evidence/2026-10-30-tide-rock-coast/first/day-tidePools.png
+!/docs/evidence/2026-10-30-tide-rock-coast/reviewed/day-tidePools.png
+!/docs/evidence/2026-10-30-tide-rock-coast/reviewed/day-tideEastShore.png

@@ -4,6 +4,7 @@ import {modelAssets,workshopPosition,lookoutPosition,workshopSize} from '../worl
 import {cabin} from './expansion'
 import {orbitConfig} from './orbitCamera'
 import {mistIsland} from '../world/mistIsland'
+import {tideIsland} from '../world/tideIsland'
 import {autumnIsland} from '../world/autumnIsland'
 
 export type CameraPoint={x:number;y:number;z:number}
@@ -92,7 +93,7 @@ export function clearCanopy(target:CameraPoint,eye:CameraPoint,crowns:readonly C
 /** Keep close orbit centred on the player; wide orbit frames the whole island. */
 export function outdoorOrbitFocus(position:CameraPoint,zoom:number,pitch:number){
  const t=Math.max(0,Math.min(1,(zoom-2.5)/7.5)),wide=t*t*(3-2*t)
- const neighbour=Math.hypot(position.x-mistIsland.x,position.z-mistIsland.z)<Math.hypot(position.x-autumnIsland.x,position.z-autumnIsland.z)?mistIsland:autumnIsland
+ const neighbour=[mistIsland,autumnIsland,tideIsland].reduce((a,b)=>Math.hypot(position.x-a.x,position.z-a.z)<Math.hypot(position.x-b.x,position.z-b.z)?a:b)
  const island=position.x>72?neighbour:{x:-18,z:2}
  return{target:{x:position.x*(1-wide)+island.x*wide,y:(position.y+.8)*(1-wide)+4*wide,z:position.z*(1-wide)+island.z*wide},pitch:Math.max(pitch,.58*wide)}
 }

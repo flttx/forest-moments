@@ -54,7 +54,7 @@ it('allows loaded boarding at both berths, records arrival and discovery, and re
   }
   s().interact();finish();expect(s().mode).toBe('rowing')
  }
- expect(s().travel).toEqual({version:1,checkpoint:'main',visitedMist:true,foundPine:true,visitedAutumn:false,foundVista:false})
+ expect(s().travel).toEqual({version:1,checkpoint:'main',visitedMist:true,foundPine:true,visitedAutumn:false,foundVista:false,visitedTide:false,foundPools:false})
 })
 
 it('uses the departure berth after a reload at sea and ignores missing, corrupt or unknown saves',()=>{
