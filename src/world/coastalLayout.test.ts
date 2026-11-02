@@ -1,5 +1,5 @@
 import {expect,it} from 'vitest'
-import {coastPieces,coastKits,seawardClear,mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces} from './coastalLayout'
+import {coastPieces,coastKits,seawardClear,mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces,autumnRimPieces,mistRimPieces} from './coastalLayout'
 import {mistPathDistance,mistHeight} from './mistIsland'
 import {autumnPathDistance,autumnHeight,autumnVista} from './autumnIsland'
 import {autumnPlants} from './vegetationLayout'
@@ -54,7 +54,7 @@ it('dresses cliffs, the creek mouth and the tide line with a bounded number of p
  const count=(role:string)=>coastPieces.filter(p=>p.role===role).length
  expect(count('cliff')).toBeGreaterThan(60);expect(count('creek')).toBeGreaterThan(8);expect(count('tideline')).toBeGreaterThan(30)
  // Keep the established main + Mist budget; later islands have independent bounds.
- expect(coastPieces.length-autumnShorePieces.length-tideShorePieces.length-tidePoolPieces.length).toBeLessThan(420)
+ expect(coastPieces.length-autumnShorePieces.length-tideShorePieces.length-tidePoolPieces.length-autumnRimPieces.length-mistRimPieces.length).toBeLessThan(420)
  expect(coastPieces.some(p=>p.kit.startsWith('Driftwood'))).toBe(true)
  for(const p of coastPieces)expect([p.x,p.y,p.z,p.yaw,p.scale].every(Number.isFinite)).toBe(true)
 })

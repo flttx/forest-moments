@@ -40,6 +40,7 @@ import { IslandTerrain } from './IslandTerrain'
 import {WestWetland} from './WestWetland'
 import {MistIsland} from './MistIslandScene'
 import {TideIsland} from './TideIslandScene'
+import {TideDetails} from './TideDetails'
 import {AutumnIsland} from './AutumnIslandScene'
 import {IslandTrees} from './IslandTrees'
 import { ForestKit } from './ForestKit'
@@ -85,7 +86,7 @@ function ReviewCamera() {
       fullIsland: [[68, 58, 80], [0, 0, 0]],
       westOverview: [[-82,45,62],[-27,0,4]],
       westTrail: [[-41,3,4],[-52,.5,-4]],
-      westWetland: [[-60,8,12],[-52,.4,-4]],
+      westWetland: [[-47,11,-15],[-57,.4,-4]],
       westWetlandClear: [[-59,13,-17],[-59,.4,-4]],
       westBoardwalkClose: [[-55,2.8,-8],[-59,.65,-4]],
       archipelago: [[155,105,145],[22,0,-3]],
@@ -110,6 +111,7 @@ function ReviewCamera() {
       autumnUnderstory: [[108,2.5,42],[112,1.2,38]],
       mistOverview: [[72,35,27],[107,1,-10]],
       mistBerth: [[72,7,-2],[87,.2,-10]],
+      mistSouthShore: [[104,6,19],[104,0,5]],
       mistPine: [[100,4,1],[106,2,-10]],
       mistUnderstory: [[103,2.5,-4.5],[107,1.5,-9]],
       mistRidge: [[124,12,-34],[114,3,-23]],
@@ -518,6 +520,7 @@ function Scene() {
     <MistIsland />
     <AutumnIsland />
     <TideIsland />
+    <TideDetails />
     <IslandTrees />
     <ForestKit />
     <GroundCover />

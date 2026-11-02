@@ -31,10 +31,16 @@ export function tideHeight(x:number,z:number){
  for(const p of tidePools)h=MathUtils.lerp(-.18,h,MathUtils.smoothstep(poolRadius(x,z,p),.68,1.3))
  return h
 }
+/** Salt-meadow drift field shared by the terrain tint and the grass clumps, so blades only grow on green ground. */
+export function tideTurf(x:number,z:number){
+ const field=.5+.5*Math.sin(x*.33+Math.sin(z*.21)*2)*Math.cos(z*.29-Math.sin(x*.17)*1.6)
+ return MathUtils.smoothstep(field,.42,.68)*(1-MathUtils.smoothstep(tideRadius(x,z),.7,.88))*MathUtils.smoothstep(tidePathDistance(x,z),.9,1.6)
+}
 export function inTidePool(x:number,z:number,margin=.28){return tidePools.some(p=>poolRadius(x,z,p)<1+margin/Math.min(p.rx,p.rz))}
 export const tideGLSL=`
 float tideRadius(vec2 p){vec2 q=(p-vec2(100.0,101.0))/vec2(17.0,13.0);float a=atan(q.y,q.x);return length(q)/(1.0+.055*sin(a*3.0+.7)+.035*cos(a*5.0-.2));}
 float tidePool(vec2 p,vec4 pool,float phase){vec2 q=(p-pool.xy)/pool.zw;float a=atan(q.y,q.x);return length(q)/(1.0+.08*sin(a*3.0+phase)+.045*cos(a*5.0-phase));}
 float tidePoolDistance(vec2 p){float d=1000.0;${tidePools.map(p=>`d=min(d,tidePool(p,vec4(${p.x.toFixed(1)},${p.z.toFixed(1)},${p.rx.toFixed(2)},${p.rz.toFixed(2)}),${p.phase.toFixed(2)}));`).join('')}return d;}
+float tideTurfField(vec2 p){return .5+.5*sin(p.x*.33+sin(p.y*.21)*2.0)*cos(p.y*.29-sin(p.x*.17)*1.6);}
 float tidePath(vec2 p){float d=1000.0;${tidePaths.map(([ax,az,bx,bz])=>`{vec2 a=vec2(${ax.toFixed(2)},${az.toFixed(2)}),v=vec2(${(bx-ax).toFixed(2)},${(bz-az).toFixed(2)});d=min(d,length(p-a-v*clamp(dot(p-a,v)/dot(v,v),0.0,1.0)));}`).join('')}return d;}
 `

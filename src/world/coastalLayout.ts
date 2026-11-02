@@ -5,6 +5,7 @@ import {mistIsland,mistHeight,mistPathDistance,mistRadius} from './mistIsland'
 import {autumnIsland,autumnHeight,autumnPathDistance,autumnBerth,autumnVista} from './autumnIsland'
 import {coastalVegetationPositions as vegetationPositions} from './vegetationLayout'
 import {buildTideCoast} from './tideCoastLayout'
+import {buildRimRocks} from './rimRocks'
 const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
 
 export type CoastKit='Rock_Slab'|'Rock_Tall'|'Rock_Boulder'|'Rock_Cobbles'|'Driftwood_Long'|'Driftwood_Short'
@@ -163,7 +164,15 @@ export const autumnShorePieces:CoastPiece[]=(()=>{
  }
  return pieces
 })()
+/** Appended 2026-11-01: denser reference-style rock rims; adopted placements above stay untouched. */
+const clearOfTrees=(x:number,z:number,reach:number)=>vegetationPositions.every(v=>Math.hypot(x-v.x,z-v.z)>reach+.9)
+export const autumnRimPieces=buildRimRocks({cx:autumnIsland.x,cz:autumnIsland.z,seed:11012,height:autumnHeight,minFootprint:seaLevel+.1,level:.12,inner:6,outer:27,
+ clusters:[[-2.45,5],[-1.9,4],[-1.35,6],[-.8,4],[-.35,6],[.15,5],[.6,4],[1.05,5],[1.6,3]],kits:coastKits,existing:autumnShorePieces,
+ open:(x,z,reach)=>autumnPathDistance(x,z)>reach+1.2&&Math.hypot(x-autumnBerth.landing.x,z-autumnBerth.landing.z)>reach+7&&Math.hypot(x-autumnVista.x,z-autumnVista.z)>reach+3&&clearOfTrees(x,z,reach)})
+export const mistRimPieces=buildRimRocks({cx:mistIsland.x,cz:mistIsland.z,seed:11013,height:mistHeight,minFootprint:seaLevel+.1,level:.15,inner:8,outer:25,
+ clusters:[[-2.6,4],[-2.2,5],[-1.75,4],[-1.3,6],[-.85,5],[-.4,6],[.05,5],[.5,6],[.95,4],[1.4,5],[1.85,3]],kits:coastKits,existing:[...mistRidgePieces,...mistShorePieces],
+ open:(x,z,reach)=>mistPathDistance(x,z)>reach+1.2&&Math.hypot(x-86,z+10)>reach+7&&clearOfTrees(x,z,reach)})
 const tideCoast=buildTideCoast(coastKits)
 export const tideShorePieces=tideCoast.shore
 export const tidePoolPieces=tideCoast.pools
-export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces)})()
+export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces,autumnRimPieces,mistRimPieces)})()

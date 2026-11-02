@@ -2,6 +2,7 @@ import {useEffect,useMemo} from 'react'
 import * as THREE from 'three'
 import {autumnIsland,autumnHeight,autumnGLSL} from './autumnIsland'
 import {noiseGLSL} from './terrain'
+import {rockSlabGLSL} from './rockShading'
 import {climateUniforms,climateGLSL} from './climateUniforms'
 import {AutumnUnderstory} from './AutumnUnderstory'
 
@@ -19,7 +20,7 @@ export function AutumnIsland(){
    Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet})
    shader.vertexShader='varying vec3 vAutumn;varying vec3 vAutumnNormal;\n'+shader.vertexShader
    shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvAutumn=position;vAutumnNormal=normal;')
-   shader.fragmentShader=`varying vec3 vAutumn;varying vec3 vAutumnNormal;${noiseGLSL}${autumnGLSL}${climateGLSL}\n`+shader.fragmentShader
+   shader.fragmentShader=`varying vec3 vAutumn;varying vec3 vAutumnNormal;${noiseGLSL}${rockSlabGLSL}${autumnGLSL}${climateGLSL}\n`+shader.fragmentShader
    shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */`
     #include <color_fragment>
     vec2 p=vAutumn.xz;float broad=noise21(p*.5),fleck=noise21(p*25.0);
@@ -28,7 +29,16 @@ export function AutumnIsland(){
     vec3 earth=mix(vec3(.20,.14,.085),vec3(.32,.25,.15),broad)*(.85+fleck*.25);
     vec3 colour=mix(grass,earth,path);
     float sand=smoothstep(.81,1.02,autumnRadius(p)+(noise21(p*.9)-.5)*.055)*(1.0-smoothstep(.4,1.7,vAutumn.y));
-    colour=mix(colour,vec3(.42,.36,.25)*(.88+fleck*.15),sand);
+    // Reference shores are rock-lined: keep sand only in the lee cove by the jetty, elsewhere weathered stone with lichen.
+    float cove=1.0-smoothstep(5.0,9.0,length(p-vec2(93.5,51.0))+(noise21(p*1.1)-.5)*2.0);
+    vec3 shoreRock=mix(vec3(.12,.11,.095),vec3(.26,.23,.185),noise21(p*1.6))*(.86+fleck*.2);
+    // Joints only in patches and mostly where the shore steepens, so they never read as paving.
+    vec2 slab=rockSlab(p,2.6);
+    float joints=smoothstep(.35,.7,noise21(p*.45+2.0))*(.5+.5*smoothstep(.08,.35,1.0-normalize(vAutumnNormal).y));
+    shoreRock*=1.0+(slab.x-.5)*.34*joints;shoreRock*=1.0-slab.y*.5*joints;
+    shoreRock=mix(shoreRock,vec3(.58,.40,.17),smoothstep(.66,.8,noise21(p*2.4+5.0))*smoothstep(.3,.8,noise21(p*4.0))*.5);
+    shoreRock=mix(shoreRock,vec3(.18,.21,.13),(1.0-smoothstep(.0,.35,vAutumn.y))*.45);
+    colour=mix(colour,mix(shoreRock,vec3(.46,.39,.27)*(.88+fleck*.15),cove),sand);
     float cliff=smoothstep(.18,.5,1.0-normalize(vAutumnNormal).y);
     // Broken mineral seams join the embedded kit rocks to the exposed coastal slope.
     float strata=sin((vAutumn.y+noise21(p*.6)*.32)*12.0+noise21(p*2.5)*1.8);

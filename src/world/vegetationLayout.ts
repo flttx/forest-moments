@@ -8,6 +8,7 @@ import {westLandRadius,westTrailDistance,westWetlandRadius} from './westExpansio
 import {mistRadius,mistPathDistance,mistPine} from './mistIsland'
 import {mistLogDistance} from './mistDetails'
 import {autumnRadius,autumnPathDistance,autumnVista,autumnOffset} from './autumnIsland'
+import {tideRadius,tideHeight,tidePathDistance,tidePools,poolRadius,tideObservation,tideBerth} from './tideIsland'
 import {workshopPosition,lookoutPosition,lookoutHill,isBeachApproach,clearings} from './worldConfig'
 
 export type PlantKit = keyof typeof templates
@@ -34,6 +35,7 @@ export const lampPositions=originalLampPositions.map(p=>{
 
 /** Generous canopy buffers around gameplay and entrances, in metres. */
 export function clearForVegetation(x:number,z:number,margin=0,pathOffset=workshopPathOffset) {
+  if(x>72&&z>84)return tideRadius(x,z)<.9&&tideHeight(x,z)>.3&&tidePathDistance(x,z)>1.5+margin
   if(x>72&&z>10)return autumnRadius(x,z)<.84&&terrainHeight(x,z)>.45&&autumnPathDistance(x,z)>2.4+margin&&Math.hypot(x-autumnVista.x,z-autumnVista.z)>3
   if(x>72)return mistRadius(x,z)<.85&&terrainHeight(x,z)>.5&&mistPathDistance(x,z)>2.1+margin
   if(x< -35.5)return westLandRadius(x,z)<.79&&terrainHeight(x,z)>.6&&westTrailDistance(x,z)>2.7+margin&&westWetlandRadius(x,z)>1.65
@@ -70,7 +72,7 @@ function makeLayout() {
   const sightlines=[[15,13,8,6],[14,4,6,-5],[-4,17,-12,8]]
   return plants.filter(p=>{
     // Preserve seeded placement; remove only crowns touching the enlarged building or access path.
-    const crown=({'tall-pine-a':1.9,'normal-pine-b':1.7,'round-tree-a':2.2,'young-tree-b':1,'bush-a':.95,lantern:.4,'ie-old-pine':3.9,'ie-spruce':1.8,'ie-spruce-sapling':.7,'ie-birch':2.16,'ie-maple':2.98}[p.kit])*p.scale
+    const crown=({'tall-pine-a':1.9,'normal-pine-b':1.7,'round-tree-a':2.2,'young-tree-b':1,'bush-a':.95,lantern:.4,'ie-old-pine':3.9,'ie-spruce':1.8,'ie-spruce-sapling':.7,'ie-birch':2.16,'ie-maple':2.98,'ie-windswept-pine':3.1,'ie-windswept-pine-b':3.2}[p.kit])*p.scale
     const dx=Math.max(Math.abs(p.x-workshopPosition[0])-workshopSize.halfX*modelAssets.workshop.scale,0)
     const dz=Math.max(Math.abs(p.z-workshopPosition[2])-workshopSize.halfZ*modelAssets.workshop.scale,0)
     return clearForVegetation(p.x,p.z)&&Math.hypot(dx,dz)>crown+.2
@@ -153,7 +155,46 @@ for(const [cx,cz] of [[101,55],[106,37],[115,55],[101,43]]){
   autumnEdgePlants.push({kit:'bush-a',x,z,scale,yaw:a});count++
  }
 }
-export const vegetationPositions=[...coastalVegetationPositions,...autumnEdgePlants]
+/** Reference density: a spruce rim and extra birch groves thicken the woodland edge; the maple clearing, hill and vista stay open. */
+export const autumnFringe:VegetationInstance[]=[]
+for(let x=88;x<136;x+=2.1)for(let z=30;z<68;z+=2.1){
+ const n=Math.sin(x*21.7+z*9.1)*43758.5,f=n-Math.floor(n),px=x+(f-.5)*1.2,pz=z+(.5-f)*1.1,r=autumnRadius(px,pz)
+ // The east hill carries an adopted upper rock ledge; keep its brow clear.
+ if(r<.4||r>.73||px>123&&r>.6||!clearForVegetation(px,pz,0)||Math.hypot(px-110,pz-47)<5.2||Math.hypot(px-106-autumnOffset.x,pz-29-autumnOffset.z)<4)continue
+ if(Math.hypot(terrainHeight(px+.3,pz)-terrainHeight(px-.3,pz),terrainHeight(px,pz+.3)-terrainHeight(px,pz-.3))/.6>.5)continue
+ if([...autumnPlants,...autumnEdgePlants,...autumnFringe].some(p=>Math.hypot(px-p.x,pz-p.z)<(p.kit==='bush-a'?1.5:2.6)))continue
+ if(autumnFringe.length>=16)break
+ autumnFringe.push({kit:r>.64&&f<.6?'ie-spruce':'ie-birch',x:px,z:pz,scale:.74+f*.2,yaw:f*Math.PI*2})
+}
+/** IE-09 windswept pines in two Blender-derived forms (bend baked toward local +Z) grouped on the northern rim, plus low shrub pockets. */
+// Local +Z lean turned west, toward the berth as in the concept, so the overview and north shore show the silhouette.
+export const tideWindYaw=-1.65
+const tideOpen=(x:number,z:number,reach:number)=>tidePathDistance(x,z)>reach+1.05&&tidePools.every(p=>poolRadius(x,z,p)>1.55+reach/2)
+ &&Math.hypot(x-tideObservation.x,z-tideObservation.z)>reach+3.2&&Math.hypot(x-tideBerth.landing.x,z-tideBerth.landing.z)>reach+5.5
+ &&tideHeight(x,z)>.35&&Math.hypot(tideHeight(x+.3,z)-tideHeight(x-.3,z),tideHeight(x,z+.3)-tideHeight(x,z-.3))/.6<.5
+export const tidePlants:VegetationInstance[]=[]
+const pineSites:{x:number;z:number;rank:number}[]=[]
+for(let x=84;x<118;x+=.8)for(let z=86;z<116;z+=.8){
+ const n=Math.sin(x*12.7+z*41.3)*43758.5,rank=n-Math.floor(n)
+ // Strong preference for the north and north-west rim; a lone tree may stand on the east knoll.
+ const bias=(z<99?0:.45)+(x>110?.25:0)
+ if(tideRadius(x,z)>.86||!tideOpen(x,z,1.05))continue
+ pineSites.push({x,z,rank:rank+bias})
+}
+for(const p of pineSites.sort((a,b)=>a.rank-b.rank)){
+ if(tidePlants.length>=6)break
+ if(tidePlants.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<3.1))continue
+ const f=p.rank%1
+ // Alternate form B (thinner, harder sheared) with A; only pines are pushed so far, so length is the pine index.
+ tidePlants.push(tidePlants.length%2?{kit:'ie-windswept-pine-b',x:p.x,z:p.z,scale:.56+f*.16,yaw:tideWindYaw+(f-.5)*.7}:{kit:'ie-windswept-pine',x:p.x,z:p.z,scale:.58+f*.14,yaw:tideWindYaw+(f-.5)*.7})
+}
+for(const t of [...tidePlants])for(let i=0;i<10;i++){
+ const a=i*2.399963+t.x,r=1.9+(i%4)*.45,x=t.x+Math.cos(a)*r,z=t.z+Math.sin(a)*r
+ if(tideRadius(x,z)>.88||!tideOpen(x,z,.5))continue
+ if(tidePlants.some(p=>Math.hypot(x-p.x,z-p.z)<(p.kit==='bush-a'?1.05:1.9)))continue
+ tidePlants.push({kit:'bush-a',x,z,scale:.42+(i%4)*.06,yaw:a})
+}
+export const vegetationPositions=[...coastalVegetationPositions,...autumnEdgePlants,...tidePlants,...autumnFringe]
 /** Exported source circles are in physical kit space, before quantisation, just like our layout. */
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))
@@ -162,6 +203,6 @@ export const vegetationColliders=[...vegetationPositions,...lampPositions].flatM
 
 // Approximate foliage volumes in kit space (template heights 4-8 m). Bushes count too: a low or close
 // camera arm otherwise ends inside one and the view fills with leaves.
-const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9},'ie-old-pine':islandTemplates['ie-old-pine'].crown,'ie-spruce':islandTemplates['ie-spruce'].crown,'ie-spruce-sapling':islandTemplates['ie-spruce-sapling'].crown,'ie-birch':islandTemplates['ie-birch'].crown,'ie-maple':islandTemplates['ie-maple'].crown}
+const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9},'ie-old-pine':islandTemplates['ie-old-pine'].crown,'ie-spruce':islandTemplates['ie-spruce'].crown,'ie-spruce-sapling':islandTemplates['ie-spruce-sapling'].crown,'ie-birch':islandTemplates['ie-birch'].crown,'ie-maple':islandTemplates['ie-maple'].crown,'ie-windswept-pine':islandTemplates['ie-windswept-pine'].crown,'ie-windswept-pine-b':islandTemplates['ie-windswept-pine-b'].crown}
 /** Crown spheres used only to keep the camera out of leaves; rendering and collisions are unaffected. */
 export const canopySpheres=vegetationPositions.flatMap(p=>{const c=crownShape[p.kit];return c?[{x:p.x,y:terrainHeight(p.x,p.z)+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]})

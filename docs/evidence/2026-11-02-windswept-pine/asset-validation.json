@@ -1,0 +1,77 @@
+{
+  "sourceTaskId": 4461967,
+  "source": "public\\assets\\island-trees\\old-pine.glb",
+  "sourceSha256": "174799428d3cb5160f0466c30947172c44f004140a7b44e7511bd503a1ea1c05",
+  "blender": "5.2.1 LTS",
+  "method": "planted root flare, girth thinning, continuous leeward trunk bend, crown squash, windward boughs shortened and wind-cut, windward needle pads shrunk to bare twigs, leeward reach with droop, custom normals via Jacobian",
+  "needleTexelMeanSrgb": {
+    "before": [
+      0.4108000099658966,
+      0.44179999828338623,
+      0.23360000550746918
+    ],
+    "after": [
+      0.3084999918937683,
+      0.40450000762939453,
+      0.24040000140666962
+    ]
+  },
+  "sourceTriangles": 119684,
+  "sourceVertices": 131522,
+  "paidCalls": 0,
+  "decimated": false,
+  "forms": {
+    "windswept-pine": {
+      "form": {
+        "thin": 0.7,
+        "crown": 0.8,
+        "lean": 0.92,
+        "windward": 0.45,
+        "leeward": 1.15,
+        "dead": 0.62,
+        "clip": 0.55,
+        "mirror": false
+      },
+      "height": 5.8325300216674805,
+      "baseRadius": 1.7402403899187544,
+      "trunkRadius": 1.4368852058854098,
+      "leewardReach": 4.940173149108887,
+      "windwardReach": 1.5492205619812012,
+      "needlePads": 11963,
+      "bareTwigVertices": 19612,
+      "triangles": 119684,
+      "vertices": 131522,
+      "materials": 1,
+      "uvLayers": 1,
+      "bytes": 6174684,
+      "sha256": "4bf16a4027a7ea23c0911c0b2e3a843d1c12ed8134f42e74b7314bc83263362d",
+      "candidate": "assets\\blender\\windswept-pine\\windswept-pine.glb"
+    },
+    "windswept-pine-b": {
+      "form": {
+        "thin": 0.56,
+        "crown": 0.72,
+        "lean": 1.12,
+        "windward": 0.36,
+        "leeward": 1.2,
+        "dead": 0.75,
+        "clip": 0.8,
+        "mirror": true
+      },
+      "height": 5.11624002456665,
+      "baseRadius": 1.3921991010157682,
+      "trunkRadius": 1.1497069852571444,
+      "leewardReach": 5.182708740234375,
+      "windwardReach": 1.1890009641647339,
+      "needlePads": 11963,
+      "bareTwigVertices": 21641,
+      "triangles": 119684,
+      "vertices": 131522,
+      "materials": 1,
+      "uvLayers": 1,
+      "bytes": 6174620,
+      "sha256": "635393fd86ee256b2c3caec1767d6cbc6f844f3fcd7a69feeece1dc5f6cdae14",
+      "candidate": "assets\\blender\\windswept-pine\\windswept-pine-b.glb"
+    }
+  }
+}

@@ -324,3 +324,20 @@ __pycache__/
 !/docs/evidence/2026-10-30-tide-rock-coast/first/day-tidePools.png
 !/docs/evidence/2026-10-30-tide-rock-coast/reviewed/day-tidePools.png
 !/docs/evidence/2026-10-30-tide-rock-coast/reviewed/day-tideEastShore.png
+
+# Island refine (2026-11-01): selected concept-alignment comparisons; full batches stay local.
+!/docs/evidence/2026-11-01-island-refine/before/tide-overview.png
+!/docs/evidence/2026-11-01-island-refine/after/tide-overview.png
+!/docs/evidence/2026-11-01-island-refine/after/autumn-overview.png
+!/docs/evidence/2026-11-01-island-refine/after/mist-overview.png
+!/docs/evidence/2026-11-01-island-refine/after/west-wetland-view.png
+
+# IE-09 windswept pine: studio renders of both forms and the adopted in-game views; traces stay local.
+/docs/evidence/2026-11-02-windswept-pine/*/route.json
+!/docs/evidence/2026-11-02-windswept-pine/source-side.png
+!/docs/evidence/2026-11-02-windswept-pine/windswept-side.png
+!/docs/evidence/2026-11-02-windswept-pine/windswept-b-side.png
+!/docs/evidence/2026-11-02-windswept-pine/after/day-tideBerth.png
+!/docs/evidence/2026-11-02-windswept-pine/refined/day-tideBerth.png
+!/docs/evidence/2026-11-02-windswept-pine/refined/day-tideNorthShore.png
+!/docs/evidence/2026-11-02-windswept-pine/refined/day-tideOverview.png

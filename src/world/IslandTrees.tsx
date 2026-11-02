@@ -15,12 +15,14 @@ export function IslandTrees(){
  const sapling=useGLTF('/assets/island-trees/spruce-sapling.glb')
  const birch=useGLTF('/assets/island-trees/birch.glb')
  const maple=useGLTF('/assets/island-trees/maple.glb')
+ const windswept=useGLTF('/assets/island-trees/windswept-pine.glb')
+ const windsweptB=useGLTF('/assets/island-trees/windswept-pine-b.glb')
  const field=useMemo(()=>{
   const root=new THREE.Group();root.name='aholo-island-trees'
   const geometries:THREE.BufferGeometry[]=[],materials:THREE.Material[]=[]
   const dummy=new THREE.Object3D()
   let saplingTriangles=0
-  for(const [kit,high] of [['ie-old-pine',pine.scene],['ie-spruce',spruce.scene],['ie-spruce-sapling',sapling.scene],['ie-birch',birch.scene],['ie-maple',maple.scene]] as const){
+  for(const [kit,high] of [['ie-old-pine',pine.scene],['ie-spruce',spruce.scene],['ie-spruce-sapling',sapling.scene],['ie-birch',birch.scene],['ie-maple',maple.scene],['ie-windswept-pine',windswept.scene],['ie-windswept-pine-b',windsweptB.scene]] as const){
    const items=vegetationPositions.filter(p=>p.kit===kit),groups=new Map<string,typeof items>()
    for(const p of items){const key=`${Math.floor(p.x/8)},${Math.floor(p.z/8)}`;groups.set(key,[...(groups.get(key)??[]),p])}
    const source=(scene:THREE.Group)=>{
@@ -48,7 +50,7 @@ export function IslandTrees(){
   }
   root.userData.qa={saplings:vegetationPositions.filter(p=>p.kit==='ie-spruce-sapling').length,saplingTriangles}
   return{root,geometries,materials}
- },[pine.scene,spruce.scene,sapling.scene,birch.scene,maple.scene])
+ },[pine.scene,spruce.scene,sapling.scene,birch.scene,maple.scene,windswept.scene,windsweptB.scene])
  useEffect(()=>()=>{field.root.traverse(o=>{if(o instanceof THREE.InstancedMesh)o.dispose()});field.geometries.forEach(g=>g.dispose());field.materials.forEach(m=>m.dispose())},[field])
  return <primitive object={field.root} dispose={null}/>
 }
