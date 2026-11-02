@@ -140,6 +140,8 @@ const GRASS_VERTEX = /* glsl */ `
   float flowerWide = 0.1 * (climateBloom - 1.0);
   float flowerDrift = max(smoothstep(0.66 - flowerWide, 0.8 - flowerWide, noise21(grassRoot.xz * 0.16 + 13.0)), flowerMeadow * smoothstep(0.42 - flowerWide, 0.6 - flowerWide, noise21(grassRoot.xz * 0.3 + 5.0)));
   float flowerOn = flowerDrift * step(1.0 - (1.0 - mix(0.7, 0.5, flowerMeadow)) * climateBloom, hash21(grassRoot.xz * 3.1 + 0.7)) * step(0.8, sqrt(grassScale2));
+  // the wind-cut tide shelf keeps bare salt turf: no meadow heads there
+  flowerOn *= step(1.0, length((grassRoot.xz - vec2(${tideIsland.x.toFixed(1)}, ${tideIsland.z.toFixed(1)})) / vec2(${(tideIsland.rx + 4).toFixed(1)}, ${(tideIsland.rz + 4).toFixed(1)})));
   vec3 flowerRight = vec3(viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0]);
   vec3 flowerUp = vec3(viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1]);
   // a little shorter than wide, as if the flower tipped up toward the sky

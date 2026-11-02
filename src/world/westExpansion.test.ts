@@ -1,7 +1,7 @@
 import before from '../../docs/evidence/2026-10-29-west-expansion/before/world-snapshot.json'
 import {expect,it} from 'vitest'
 import {terrainHeight} from './terrain'
-import {originalVegetationPositions,lampPositions} from './vegetationLayout'
+import {originalVegetationPositions,lampPositions,westPlants} from './vegetationLayout'
 import {canStandAt,moveOnGround,groundHeightAt,standBlocker} from '../game/movement'
 import {westTrailPoints,westWetland,westBoardwalk,onWestBoardwalk,westWetlandRadius} from './westExpansion'
 import {seaLevel,landing,mooring} from './worldConfig'
@@ -65,4 +65,14 @@ it('keeps both deck edges continuous and rejects the irregular wetland shallows'
  // The neighbouring dry coastal slope is not classified as freshwater (slope can still block walking).
  expect(westWetlandRadius(-64,-7.6)).toBeGreaterThan(1.35)
  expect(standBlocker(-64,-7.6)).not.toBe('terrain:water')
+})
+
+it('scatters the western forest off its 3.2 m sampling grid without crowding trunks',()=>{
+ // grid trees (companion saplings are 0.45 scale and bushes sit at a fixed offset from them)
+ const trees=westPlants.filter(p=>p.kit!=='bush-a'&&p.scale>=.8)
+ const onGrid=(v:number,origin:number)=>{const r=((v-origin)%3.2+3.2)%3.2;return Math.min(r,3.2-r)<.36}
+ // the old layout kept every tree within ±0.35 m of a grid node, which read as diagonal rows from the overview;
+ // blocked spots fall back to that near-grid position, so a minority may stay on it
+ expect(trees.filter(p=>onGrid(p.x,-76)&&onGrid(p.z,-10)).length/trees.length).toBeLessThan(.35)
+ for(const [i,a] of trees.entries())for(const b of trees.slice(i+1))expect(Math.hypot(a.x-b.x,a.z-b.z)).toBeGreaterThanOrEqual(1.9)
 })

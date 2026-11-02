@@ -92,12 +92,15 @@ for(let i=0;i<700;i++){
 const inClearing=(p:VegetationInstance)=>clearings.some(c=>Math.hypot(p.x-c.x,p.z-c.z)<c.r*(p.kit==='bush-a'?.7:1))
 export const originalVegetationPositions=[...originalPlants,...outerPlants].filter(p=>p.z<26+Math.sin(p.x*.22)*1.2&&!inClearing(p))
 // Reference-driven AHOLO trees replace the first trial's old-tree proxies in the western forest.
-const westPlants:VegetationInstance[]=[]
+export const westPlants:VegetationInstance[]=[]
 for(let x=-76;x< -36;x+=3.2)for(let z=-10;z<35;z+=3.2){
- const n=Math.sin(x*13.1+z*17.7)*43758.5,f=n-Math.floor(n),px=x+(f-.5)*.7,pz=z+(.5-f)*.6
- if(!clearForVegetation(px,pz,.25))continue
+ const n=Math.sin(x*13.1+z*17.7)*43758.5,f=n-Math.floor(n),m=Math.sin(x*41.3+z*29.9)*24634.6,g=m-Math.floor(m)
  const kit=f<.08?'ie-old-pine':'ie-spruce',scale=kit==='ie-old-pine'?.86:.8+f*.2
- if(kit==='ie-old-pine'&&westTrailDistance(px,pz)<4.3)continue
+ // Independent x/z jitter of up to ±1.25 m breaks the sampling grid's diagonal rows; where that spot is blocked or crowded the
+ // tree falls back to its original near-grid spot, so the forest keeps its density.
+ const spot=[[x+(f-.5)*2.5,z+(g-.5)*2.5],[x+(f-.5)*.7,z+(.5-f)*.6]].find(([px,pz])=>clearForVegetation(px,pz,.25)&&(kit!=='ie-old-pine'||westTrailDistance(px,pz)>=4.3)&&!westPlants.some(p=>p.kit!=='bush-a'&&Math.hypot(p.x-px,p.z-pz)<1.9))
+ if(!spot)continue
+ const [px,pz]=spot
  westPlants.push({kit,x:px,z:pz,scale,yaw:f*Math.PI*2})
  const bx=px+1.4,bz=pz+1.3
  if(f<.55&&clearForVegetation(bx,bz))westPlants.push({kit:f<.22?'ie-spruce':'bush-a',x:bx,z:bz,scale:f<.22?.45:.65+f*.3,yaw:f*5})

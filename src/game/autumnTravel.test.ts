@@ -3,7 +3,7 @@ import {berths,seaLevel} from '../world/worldConfig'
 import {autumnLoop,autumnPaths,autumnVista,autumnHeight,autumnIsland,autumnOffset} from '../world/autumnIsland'
 import {terrainHeight} from '../world/terrain'
 import {mistHeight,mistIsland} from '../world/mistIsland'
-import {vegetationPositions,autumnPlants,canopySpheres} from '../world/vegetationLayout'
+import {vegetationPositions,autumnPlants,canopySpheres,westPlants} from '../world/vegetationLayout'
 import {canStandAt,moveOnGround,standBlocker} from './movement'
 import {canopyDensityAt} from '../world/canopyMap'
 import {boatFits,canBoard} from './rowing'
@@ -31,7 +31,9 @@ it('makes both dedicated broadleaf species solid with camera and ground canopy c
 })
 it('preserves existing land, plants and berths while adding a separate island at the intended size',()=>{
  for(const [x,z,h] of baseline.terrain.filter(([x,z])=>x<72||z<10))expect(terrainHeight(x,z)).toBeCloseTo(h,10)
- for(const [i,p] of baseline.plants.entries()){expect(vegetationPositions[i].kit).toBe(p.kit);for(const key of ['x','z','scale','yaw'] as const)expect(Math.abs(vegetationPositions[i][key]-p[key])).toBeLessThan(1e-10)}
+ // 2026-11-02: the west forest was deliberately re-jittered to break its grid rows (user-approved baseline change); every other plant stays put.
+ const kept=vegetationPositions.filter(p=>!westPlants.includes(p)),keptBaseline=baseline.plants.filter(p=>p.x>=-35.5)
+ for(const [i,p] of keptBaseline.entries()){expect(kept[i].kit).toBe(p.kit);for(const key of ['x','z','scale','yaw'] as const)expect(Math.abs(kept[i][key]-p[key])).toBeLessThan(1e-10)}
  expect(berths.main).toEqual(baseline.berths.main);expect(berths.mist).toEqual(baseline.berths.mist)
  let area=0
  for(let x=78+autumnOffset.x;x<138+autumnOffset.x;x+=.5)for(let z=10+autumnOffset.z;z<56+autumnOffset.z;z+=.5)if(canStandAt(x,z))area+=.25

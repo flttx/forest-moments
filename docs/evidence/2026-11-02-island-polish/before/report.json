@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-02T07:11:38.940Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "mistOverview",
+        "autumnOverview",
+        "tideOverview",
+        "mistEastShore",
+        "autumnEastShore",
+        "tideNorthShore",
+        "archipelago"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-mistOverview.png",
+    "day-autumnOverview.png",
+    "day-tideOverview.png",
+    "day-mistEastShore.png",
+    "day-autumnEastShore.png",
+    "day-tideNorthShore.png",
+    "day-archipelago.png",
+    "dusk-mistOverview.png",
+    "dusk-autumnOverview.png",
+    "dusk-tideOverview.png",
+    "dusk-mistEastShore.png",
+    "dusk-autumnEastShore.png",
+    "dusk-tideNorthShore.png",
+    "dusk-archipelago.png",
+    "night-mistOverview.png",
+    "night-autumnOverview.png",
+    "night-tideOverview.png",
+    "night-mistEastShore.png",
+    "night-autumnEastShore.png",
+    "night-tideNorthShore.png",
+    "night-archipelago.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  },
+  "frames": {
+    "median": 9.200000000011642,
+    "p95": 15.599999999991269,
+    "low": true,
+    "samples": 180,
+    "view": "archipelago",
+    "light": "night"
+  }
+}

@@ -128,7 +128,7 @@ try {
       check('three PC window sizes without horizontal overflow')
     }
     await cmd('Page.reload');await sleep(600);await waitFor(ready,'reload',400)
-    await sleep(1500)
+    await sleep(1500);await waitFor("!!document.querySelector('canvas')?.dataset.forestQa",'reload QA state',400)
     const returned=await evaluate("JSON.parse(document.querySelector('canvas').dataset.forestQa).position")
     assert(Math.abs(returned[0])<1&&Math.abs(returned[2])<1,'reload returns to the original safe spawn')
     check('photo mode on new land and reload to original safe spawn')

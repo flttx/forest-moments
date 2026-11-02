@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-02T07:19:43.347Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "westOverview",
+        "westTrail",
+        "westTrailClear"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-westOverview.png",
+    "day-westTrail.png",
+    "day-westTrailClear.png",
+    "dusk-westOverview.png",
+    "dusk-westTrail.png",
+    "dusk-westTrailClear.png",
+    "night-westOverview.png",
+    "night-westTrail.png",
+    "night-westTrailClear.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  },
+  "frames": {
+    "median": 6.599999999998545,
+    "p95": 14.80000000000291,
+    "low": false,
+    "samples": 180,
+    "view": "westTrailClear",
+    "light": "night"
+  }
+}

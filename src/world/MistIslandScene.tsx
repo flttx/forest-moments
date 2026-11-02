@@ -30,7 +30,8 @@ export function MistIsland(){
     float path=1.0-smoothstep(.72,1.04,mistPath(p)+(noise21(p*4.0)-.5)*.18);
     vec3 earth=mix(vec3(.20,.14,.085),vec3(.32,.25,.15),broad)*(.85+fleck*.25);
     vec3 colour=mix(grass,earth,path);
-    float sand=smoothstep(.81,1.02,mistRadius(p)+(noise21(p*.9)-.5)*.055)*(1.0-smoothstep(.4,1.7,vMist.y));
+    // The rock band climbs the whole exposed slope; stopping at the waterline left a pale grass skirt in distant views.
+    float sand=smoothstep(.79,.9,mistRadius(p)+(noise21(p*.9)-.5)*.07)*(1.0-smoothstep(1.0,2.2,vMist.y));
     // Reference shores are rock-lined: keep sand only in the lee cove by the jetty, elsewhere weathered stone with lichen.
     float cove=1.0-smoothstep(5.0,9.0,length(p-vec2(86.0,-10.0))+(noise21(p*1.1)-.5)*2.0);
     vec3 shoreRock=mix(vec3(.12,.11,.095),vec3(.26,.23,.185),noise21(p*1.6))*(.86+fleck*.2);
