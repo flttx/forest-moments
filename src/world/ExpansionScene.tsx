@@ -8,11 +8,12 @@ import {useFrame} from '@react-three/fiber'
 import {useGLTF} from '@react-three/drei'
 import * as THREE from 'three'
 import {clone} from 'three/addons/utils/SkeletonUtils.js'
-import {cabin,camp,bridge,seats,reefs} from '../game/expansion'
+import {cabin,camp,bridge,seats,reefs,creekFord} from '../game/expansion'
 import {createCreekGeometry} from './creekGeometry'
+import {CreekFalls} from './CreekFalls'
 import {climateUniforms,rainRingsGLSL} from './climateUniforms'
 import {useForestStore} from '../game/store'
-import {terrainHeight} from './terrain'
+import {terrainHeight,noiseGLSL} from './terrain'
 import {daylightAt,lanternPower} from '../game/dayCycle'
 import CampfireFlame from './CampfireFlame'
 
@@ -64,15 +65,31 @@ function Creek(){
  return <mesh geometry={geometry} name="woodland-creek" receiveShadow><meshStandardMaterial ref={material} color="#447e76" roughness={.42} transparent depthWrite={false} side={THREE.DoubleSide} onBeforeCompile={s=>{
   Object.assign(s.uniforms,{streamTime:time.current,climateRain:climateUniforms.climateRain,climateTime:climateUniforms.climateTime})
   // The creek mesh sits at the origin, so its positions are world positions (rain rings line up with the ground).
-  s.vertexShader='attribute float streamAlpha;varying float streamFade;varying vec2 streamUv;varying vec2 streamWorld;\n'+s.vertexShader
-  s.vertexShader=s.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nstreamUv=uv;streamFade=streamAlpha;streamWorld=position.xz;')
-  s.fragmentShader='uniform float streamTime;uniform float climateTime;varying vec2 streamUv;varying float streamFade;varying vec2 streamWorld;\n'+rainRingsGLSL+s.fragmentShader
+  s.vertexShader='attribute float streamAlpha;attribute float streamFoam;varying float streamFade;varying float streamWhite;varying vec2 streamUv;varying vec2 streamWorld;\n'+s.vertexShader
+  s.vertexShader=s.vertexShader.replace('#include <uv_vertex>','#include <uv_vertex>\nstreamUv=uv;streamFade=streamAlpha;streamWhite=streamFoam;streamWorld=position.xz;')
+  s.fragmentShader='uniform float streamTime;uniform float climateTime;varying vec2 streamUv;varying float streamFade;varying float streamWhite;varying vec2 streamWorld;\n'+noiseGLSL+rainRingsGLSL+s.fragmentShader
   s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
    float ripple=sin(streamUv.x*9.0+streamTime*2.5+sin(streamUv.y*8.0));
    float edge=abs(streamUv.y*2.0-1.0);
    diffuseColor.rgb*=.95+.05*ripple;
    float thread=pow(max(0.0,ripple),12.0)*(1.0-smoothstep(.45,.95,edge));
    diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.35,.51,.43),thread*.16);
+   // Broken white water over the stones of the riffle, combed downstream.
+   float churn=noise21(streamWorld*vec2(1.1,6.0)+vec2(streamTime*1.8,0.0))*.55+noise21(streamWorld*vec2(3.0,14.0)+vec2(streamTime*2.6,0.0))*.45;
+   float white=streamWhite*smoothstep(.5,.85,churn)*(1.0-smoothstep(.6,1.0,edge));
+   // The ford: water heaps white against each stone and trails a combed wake downstream (the flow runs toward -x).
+   vec2 fordA=vec2(${creekFord.a[0].toFixed(2)},${creekFord.a[1].toFixed(2)}),fordAB=vec2(${(creekFord.b[0]-creekFord.a[0]).toFixed(2)},${(creekFord.b[1]-creekFord.a[1]).toFixed(2)});
+   float fordS=clamp(dot(streamWorld-fordA,fordAB)/dot(fordAB,fordAB),0.0,1.0);
+   vec2 fordP=fordA+fordAB*fordS;float fordD=length(streamWorld-fordP),behind=fordP.x-streamWorld.x;
+   float lobes=.5+.5*cos(fordS*${(Math.hypot(creekFord.b[0]-creekFord.a[0],creekFord.b[1]-creekFord.a[1])/.46).toFixed(2)}*6.2832);
+   // A near-solid collar of white water hugging the stones, broken only a little by the churn.
+   float heap=(1.0-smoothstep(.16,.42+.1*lobes,fordD))*(.75+.25*smoothstep(.3,.7,churn));
+   float trail=noise21(vec2(streamWorld.x*2.2+streamTime*2.6,streamWorld.y*10.0))*.6+noise21(vec2(streamWorld.x*5.0+streamTime*3.4,streamWorld.y*19.0))*.4;
+   float wake=smoothstep(.0,.2,behind)*(1.0-smoothstep(.4,2.0,behind))*(.3+.7*lobes)*smoothstep(.38,.7,trail);
+   float fordFoam=max(heap,wake)*(1.0-smoothstep(.75,1.0,edge));
+   // Brighter and more opaque than the riffle's own streaks, so the ford reads through the general white water.
+   diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.93,.97,.96),fordFoam*.75);diffuseColor.a=max(diffuseColor.a,fordFoam*.92);
+   diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.8,.88,.86),white*.6);diffuseColor.a=max(diffuseColor.a,white*.7);
    // Rings drift downstream with the current.
    vec2 streamCell=fwidth(streamWorld);
    if(climateRain>.01)diffuseColor.rgb+=vec3(.5,.56,.55)*rainRings(streamWorld+vec2(streamTime*.35,0.0),climateTime).x*climateRain*.22*(1.0-smoothstep(.02,.08,max(streamCell.x,streamCell.y)));
@@ -124,6 +141,7 @@ export function ExpansionExterior(){return <group name="expansion-exterior">
  <NightGlowClock/>
  <ExpansionModel id="cabin" position={[cabin.x,7.3,cabin.z]} windows/>
  <Creek/>
+ <CreekFalls/>
  <ExpansionModel id="bridge" position={[bridge.x,6,bridge.z]}/>
  <Campfire/>
  {seats.map(s=><ExpansionModel key={s.id} id="low-bench" position={[s.x,terrainHeight(s.x,s.z),s.z]} rotation={s.yaw+Math.PI/2} scale={7/3}/>)}

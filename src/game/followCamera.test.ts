@@ -1,6 +1,6 @@
 import {workshopDoor,indoorSpawn} from './workshop'
 import {expect,it} from 'vitest'
-import {createFollowTurn,stepFollowTurn,followTurnConfig,movementYaw,walkingCamera,clipCameraArm,clearCanopy,indoorCameraBoxes,slopePitch} from './followCamera'
+import {createFollowTurn,stepFollowTurn,followTurnConfig,movementYaw,walkingCamera,clipCameraArm,clearCanopy,clearTerrain,indoorCameraBoxes,slopePitch} from './followCamera'
 
 it('puts the camera behind all four real movement directions and preserves heading at rest',()=>{
  for(const [dx,dz] of [[0,-1],[1,0],[0,1],[-1,0]]){
@@ -95,4 +95,14 @@ it('tilts the camera down the slope ahead and toward a rise ahead',()=>{
  expect(slopePitch(uphill,{x:0,y:0,z:0},Math.PI/2)).toBeCloseTo(0)
  expect(slopePitch((_x,z)=>-z*10,{x:0,y:0,z:0},0)).toBe(-.16)
  expect(slopePitch(()=>NaN,{x:0,y:0,z:0},0)).toBe(0)
+})
+
+it('pulls the eye in front of ground that crosses the arm, and leaves a clear arm alone',()=>{
+ const target={x:0,y:1,z:0},eye={x:0,y:4,z:9}
+ // A wall 2-3 m tall between 4 and 6 m out along +z.
+ const wall=(_x:number,z:number)=>z>4&&z<6?5:0
+ const pulled=clearTerrain(target,eye,wall)
+ expect(pulled.z).toBeLessThan(4);expect(pulled.z).toBeGreaterThan(2.5)
+ for(let t=0;t<=1;t+=.05){const z=pulled.z*t,y=target.y+(pulled.y-target.y)*t;expect(wall(0,z)).toBeLessThan(y)}
+ expect(clearTerrain(target,eye,()=>0)).toEqual(eye)
 })

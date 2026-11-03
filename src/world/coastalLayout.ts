@@ -1,4 +1,4 @@
-import {creekDistance,creekWaterY,creekZ,reefs} from '../game/expansion'
+import {creekDistance,creekWaterY,originalCreekWaterY,inCreekRework,creekZ,reefs,fallsTrailAt,fallsLookout} from '../game/expansion'
 import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
 import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
 import {mistIsland,mistHeight,mistPathDistance,mistRadius} from './mistIsland'
@@ -19,7 +19,6 @@ export const coastKits:Record<CoastKit,{height:number;half:number}>={
 // Sea the boat may use: same rule as rowing.isNavigableSea, kept here to avoid importing the game loop.
 const navigable=(x:number,z:number)=>Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth
 const nearReef=(x:number,z:number,r:number)=>reefs.some(f=>Math.hypot(x-f.x,z-f.z)<2.6*f.scale+r)
-const terrainSlope=(x:number,z:number)=>Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3
 function random(seed:number){let s=seed;return()=>{s=s*16807%2147483647;return s/2147483647}}
 
 /** Radius along a ray from the island centre where the ground falls through height y (ground falls outward). */
@@ -61,8 +60,9 @@ function cliffPieces(rand:()=>number){
 }
 
 /** The creek cuts a gorge to the sea: line both walls with boulders stepping up the face, fitted across the gorge rather than toward the island centre. */
-function creekPieces(rand:()=>number){
+function creekPieces(rand:()=>number,terrainHeight:(x:number,z:number)=>number,creekWaterY:(x:number)=>number,open:(p:CoastPiece)=>boolean=()=>true){
  const pieces:CoastPiece[]=[]
+ const terrainSlope=(x:number,z:number)=>Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3
  for(let x=-40;x<=-19;x+=1.25)for(const side of [-1,1]){
   const cz=creekZ(x),water=creekWaterY(x),top=Math.max(...[2,3,4,5,6,7].map(d=>terrainHeight(x,cz+side*d))),drop=top-water
   if(drop<1)continue
@@ -76,7 +76,7 @@ function creekPieces(rand:()=>number){
    if(lo>=7)continue
    const piece:CoastPiece={kit,x:x+(rand()-.5)*.4,y:target-coastKits[kit].height*scale*.5,z:cz+side*(lo+.25),yaw:rand()*Math.PI*2,scale,role:'creek'}
    for(let i=0;i<10&&!seawardClear(piece);i++)piece.z+=side*.15
-   if(seawardClear(piece)&&terrainSlope(piece.x,piece.z)>.85)pieces.push(piece)
+   if(seawardClear(piece)&&terrainSlope(piece.x,piece.z)>.85&&open(piece))pieces.push(piece)
   }
  }
  return pieces
@@ -88,7 +88,8 @@ function tidelinePieces(rand:()=>number){
  for(let i=0;i<100;i++){
   const a=i*2.39996+rand()*.2,shore=shorelineRadius(a)
   const r=radiusAtHeight(a,seaLevel+.05,shore-6,shore+1),x=Math.cos(a)*r,z=Math.sin(a)*r
-  if(isBeachApproach(x,z)||isDockSurface(x,z,-2)||creekDistance(x,z)<3||nearReef(x,z,.5))continue
+  // ...nor on the play beach (game/sand sandRect, written out to avoid an import cycle), where channels run to the sea.
+  if(isBeachApproach(x,z)||isDockSurface(x,z,-2)||creekDistance(x,z)<3||nearReef(x,z,.5)||x>-15.6&&x<15.6&&z>22)continue
   const wood=i%7===3,kit:CoastKit=wood?(i%2?'Driftwood_Long':'Driftwood_Short'):i%3===0?'Rock_Boulder':'Rock_Cobbles'
   const scale=wood?.85+rand()*.3:kit==='Rock_Boulder'?.32+rand()*.25:.55+rand()*.45
   // Driftwood lies along the shore; stones keep a random turn.
@@ -175,4 +176,10 @@ export const mistRimPieces=buildRimRocks({cx:mistIsland.x,cz:mistIsland.z,seed:1
 const tideCoast=buildTideCoast(coastKits)
 export const tideShorePieces=tideCoast.shore
 export const tidePoolPieces=tideCoast.pools
-export const coastPieces:CoastPiece[]=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand),...tidelinePieces(rand)].filter(p=>expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z)<.01).concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces,autumnRimPieces,mistRimPieces)})()
+/** The adopted main-island layout, replayed on the pre-falls terrain so its shared random stream (and every placement) is unchanged. */
+const adoptedPieces=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand,terrainHeight,originalCreekWaterY),...tidelinePieces(rand)]})()
+/** Dropped: pieces buried by the west expansion, the old slot-wall rocks, and anything the falls rework re-shaped under it. */
+const keptAdoptedPieces=adoptedPieces.filter(p=>{const lift=expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z);return lift<.01&&p.role!=='creek'&&(lift>-.01||!inCreekRework(p.x,p.z))})
+/** New gorge walls; none on the footpath down to the pool or the rim bench pad. */
+export const fallsCreekPieces=creekPieces(random(20261102),expandedTerrainHeight,creekWaterY,p=>{const reach=coastKits[p.kit].half*p.scale;return fallsTrailAt(p.x,p.z).d>reach+.7&&Math.hypot(p.x-fallsLookout.x,p.z-fallsLookout.z)>reach+2})
+export const coastPieces:CoastPiece[]=[...keptAdoptedPieces,...fallsCreekPieces].concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces,autumnRimPieces,mistRimPieces)

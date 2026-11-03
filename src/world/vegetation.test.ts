@@ -1,4 +1,4 @@
-import {shorelineRadius,landformHeight} from './worldConfig'
+import {shorelineRadius,landformHeight,unwarpPath} from './worldConfig'
 import {creekDistance} from '../game/expansion'
 import {workshopDoor} from '../game/workshop'
 import { describe, expect, it } from 'vitest'
@@ -12,14 +12,16 @@ import { transformedGeometry } from './transformedGeometry'
 describe('expanded island and migrated vegetation',()=>{
   it('opens the lowland walking loop and places the elevated coastline at sea level',()=>{
     expect(islandShape.walkRadius).toBe(35)
+    // The loop bends with the land (pathWarp): walk it where its authored ring actually lies on the ground.
+    const onLoop=(a:number)=>unwarpPath(Math.cos(a)*loopRadius(a),Math.sin(a)*loopRadius(a))
     for(let a=0;a<Math.PI*2;a+=.012) {
-      const r=loopRadius(a),x=Math.cos(a)*r,z=Math.sin(a)*r
+      const [x,z]=onLoop(a)
       if(z< -7||creekDistance(x,z)<3)continue
       expect(canStandAt(x,z),`blocked loop ${x},${z}`).toBe(true)
-      expect(pathDistance(x,z)).toBeLessThan(.000001)
+      expect(pathDistance(x,z)).toBeLessThan(.0005)
       expect(Math.abs(terrainHeight(x,z)-landformHeight(x,z))).toBeLessThan(.126)
       expect(groundHeightAt(x,z)).toBe(terrainHeight(x,z))
-      const next=a+.012,nr=loopRadius(next),nx=Math.cos(next)*nr,nz=Math.sin(next)*nr
+      const [nx,nz]=onLoop(a+.012)
       const end=moveOnGround({x,z},nx-x,nz-z)
       expect(Math.hypot(end.x-nx,end.z-nz)).toBeLessThan(.001)
       const water=shorelineRadius(a)

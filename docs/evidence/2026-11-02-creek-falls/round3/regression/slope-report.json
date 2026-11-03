@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-02T13:57:32.745Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "flat",
+      "data": {
+        "orbitPitch": 0.31,
+        "cameraPitch": 0.3106578284367541
+      }
+    },
+    {
+      "name": "uphill",
+      "data": {
+        "spot": {
+          "x": -11.5,
+          "z": -18,
+          "s": 0.16
+        },
+        "orbitPitch": 0.31,
+        "cameraPitch": 0.17453302962320977,
+        "walkedPitch": 0.1966079470720573,
+        "climb": 0.013253239946854123
+      }
+    },
+    {
+      "name": "downhill",
+      "data": {
+        "spot": {
+          "x": -4,
+          "z": -11,
+          "s": 0.2
+        },
+        "orbitPitch": 0.31,
+        "cameraPitch": 0.5075963308498568,
+        "walkedPitch": 0.4989942319635322,
+        "climb": -0.37859930353669746
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "flat.png",
+    "uphill-still.png",
+    "uphill-walking.png",
+    "downhill-still.png",
+    "downhill-walking.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  }
+}

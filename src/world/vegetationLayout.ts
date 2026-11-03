@@ -1,4 +1,5 @@
-import {cabin,camp,seats,creekDistance} from '../game/expansion'
+import {cabin,camp,seats,creekDistance,fallsTrailAt,fallsLookout} from '../game/expansion'
+import {plantingSpots} from '../game/growth'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
 import originalTemplates from './vegetation-templates.json'
 import islandTemplates from './island-tree-templates.json'
@@ -38,13 +39,19 @@ export function clearForVegetation(x:number,z:number,margin=0,pathOffset=worksho
   if(x>72&&z>84)return tideRadius(x,z)<.9&&tideHeight(x,z)>.3&&tidePathDistance(x,z)>1.5+margin
   if(x>72&&z>10)return autumnRadius(x,z)<.84&&terrainHeight(x,z)>.45&&autumnPathDistance(x,z)>2.4+margin&&Math.hypot(x-autumnVista.x,z-autumnVista.z)>3
   if(x>72)return mistRadius(x,z)<.85&&terrainHeight(x,z)>.5&&mistPathDistance(x,z)>2.1+margin
+  // Kept open on purpose, not by luck of the layout: the gorge footpath, the rim bench pad and every planting plot.
+  // The play beach (game/sand sandRect, written out to avoid an import cycle) stays open seaward of its wooded inner edge.
+  if(x>-15.6-margin&&x<15.6+margin&&z>26.5-margin)return false
+  if(fallsTrailAt(x,z).d<2+margin||Math.hypot(x-fallsLookout.x,z-fallsLookout.z)<3+margin||plantingSpots.some(p=>Math.hypot(x-p.x,z-p.z)<3.2+margin))return false
   if(x< -35.5)return westLandRadius(x,z)<.79&&terrainHeight(x,z)>.6&&westTrailDistance(x,z)>2.7+margin&&westWetlandRadius(x,z)>1.65
   if(Math.hypot(x,z)>islandShape.walkRadius-.3-margin) return false
   if(x>19&&Math.abs(z-1.4)<1.5+margin)return false
   if(Math.hypot(terrainHeight(x+.3,z)-terrainHeight(x-.3,z),terrainHeight(x,z+.3)-terrainHeight(x,z-.3))/.6>.7)return false
   if(isBeachApproach(x,z)||creekDistance(x,z)<2.8+margin||Math.hypot(x-cabin.x,z-cabin.z)<5.4+margin||Math.hypot(x-camp.x,z-camp.z)<5+margin||seats.some(s=>Math.hypot(x-s.x,z-s.z)<3+margin))return false
-  if(pathDistance(x,z,pathOffset)<1.5+margin) return false
-  const exclusions=[[workshopPosition[0],workshopPosition[2],4.9],[lookoutPosition[0],lookoutPosition[2],4.7],[lookoutHill.x,lookoutHill.z,4.7],[8,6,4.4],[6,-5,6.1],[0,8,2.8],[0,0,3.2],[1.5,-5,2.4],[8,8,2.8]]
+  // Pine skirts reach ~1.5 m: on a slope they would overhang a bending path at the old 1.5 m clearance.
+  if(pathDistance(x,z,pathOffset)<1.9+margin||westTrailDistance(x,z)<1.9+margin) return false
+  // ...and the fox den's watching spot and the walk-up beside the heart stone (secrets.ts).
+  const exclusions=[[14,-16.9,2.2],[25.4,15.6,2],[workshopPosition[0],workshopPosition[2],4.9],[lookoutPosition[0],lookoutPosition[2],4.7],[lookoutHill.x,lookoutHill.z,4.7],[8,6,4.4],[6,-5,6.1],[0,8,2.8],[0,0,3.2],[1.5,-5,2.4],[8,8,2.8]]
   return exclusions.every(([cx,cz,r])=>Math.hypot(x-cx,z-cz)>r+margin)
     && (pathOffset===0?originalLampPositions:lampPositions).every(p=>Math.hypot(x-p.x,z-p.z)>2+margin)
 }

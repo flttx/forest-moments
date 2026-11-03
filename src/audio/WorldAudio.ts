@@ -78,7 +78,7 @@ export class WorldAudio{
  private readonly loops=new Map<string,LoopVoice>()
  private readonly levels=new Map<string,number>()
  private readonly pendingLoops=new Set<string>()
- private readonly beds:Record<'wind'|'room'|'fire'|'rain',GainNode>
+ private readonly beds:Record<'wind'|'room'|'fire'|'rain'|'falls',GainNode>
  private disposed=false
 
  private constructor(ctx:AudioContext){
@@ -87,7 +87,7 @@ export class WorldAudio{
   this.muffle=ctx.createBiquadFilter();this.muffle.type='lowpass';this.muffle.frequency.value=18000;this.muffle.connect(this.master)
   this.buses={music:ctx.createGain(),ambience:ctx.createGain(),effects:ctx.createGain()}
   this.buses.music.connect(this.master);this.buses.ambience.connect(this.muffle);this.buses.effects.connect(this.master)
-  this.beds={wind:this.bed('wind'),room:this.bed('room'),fire:this.bed('fire'),rain:this.bed('rain')}
+  this.beds={wind:this.bed('wind'),room:this.bed('room'),fire:this.bed('fire'),rain:this.bed('rain'),falls:this.bed('falls')}
  }
 
  /** Null where WebAudio is missing. Call from a user gesture. */
@@ -97,9 +97,9 @@ export class WorldAudio{
   try{const audio=new WorldAudio(new Context());void audio.ctx.resume().catch(()=>{});return audio}catch{return null}
  }
 
- private bed(kind:'wind'|'room'|'fire'|'rain'){
+ private bed(kind:'wind'|'room'|'fire'|'rain'|'falls'){
   const ctx=this.ctx,source=ctx.createBufferSource()
-  source.buffer=noiseBuffer(ctx,kind==='fire'?5.7:kind==='rain'?3.1:4.3,kind==='fire'?'fire':kind==='rain'?'white':'brown');source.loop=true
+  source.buffer=noiseBuffer(ctx,kind==='fire'?5.7:kind==='rain'?3.1:kind==='falls'?3.7:4.3,kind==='fire'?'fire':kind==='rain'||kind==='falls'?'white':'brown');source.loop=true
   const gain=ctx.createGain();gain.gain.value=0
   let node:AudioNode=source
   if(kind==='wind'){
@@ -121,6 +121,14 @@ export class WorldAudio{
    const band=ctx.createBiquadFilter();band.type='bandpass';band.frequency.value=2400;band.Q.value=.45
    const soft=ctx.createBiquadFilter();soft.type='lowpass';soft.frequency.value=6500
    node=node.connect(band).connect(soft)
+  }else if(kind==='falls'){
+   // Falling water: a full low-mid rush with the hiss rolled off, swelling slowly as the plunge churns.
+   const high=ctx.createBiquadFilter();high.type='highpass';high.frequency.value=110
+   const low=ctx.createBiquadFilter();low.type='lowpass';low.frequency.value=1500;low.Q.value=.4
+   const churn=ctx.createGain();churn.gain.value=.85
+   const lfo=ctx.createOscillator();lfo.frequency.value=.23
+   const depth=ctx.createGain();depth.gain.value=.15;lfo.connect(depth).connect(churn.gain);lfo.start()
+   node=node.connect(high).connect(low).connect(churn)
   }else{
    const high=ctx.createBiquadFilter();high.type='highpass';high.frequency.value=180
    const low=ctx.createBiquadFilter();low.type='lowpass';low.frequency.value=5200
@@ -164,6 +172,7 @@ export class WorldAudio{
   this.beds.room.gain.setTargetAtTime(mix.room*.12,t,smooth)
   this.beds.fire.gain.setTargetAtTime(mix.fire*.35,t,smooth)
   this.beds.rain.gain.setTargetAtTime(mix.rain*.28,t,smooth)
+  this.beds.falls.gain.setTargetAtTime(mix.falls*.32,t,smooth)
   this.muffle.frequency.setTargetAtTime(mix.ambienceCutoff,t,.3)
  }
 

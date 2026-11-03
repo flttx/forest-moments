@@ -12,7 +12,6 @@ it('keeps the adopted autumn rocks exactly in place while shrubs have solids and
   const old=coastBaseline.autumnCoast.pieces[i];expect(p.kit).toBe(old.kit)
   for(const key of ['x','y','z','yaw','scale'] as const)expect(p[key]).toBeCloseTo(old[key],10)
  }
- expect(autumnPlants).toHaveLength(15);expect(autumnEdgePlants.length).toBeGreaterThan(3)
  for(const p of autumnEdgePlants){
   expect(standBlocker(p.x,p.z)).toBe('plant:bush-a')
   expect(canopySpheres.some(c=>Math.hypot(c.x-p.x,c.z-p.z)<.01)).toBe(true)

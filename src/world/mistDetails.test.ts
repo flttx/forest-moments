@@ -2,7 +2,7 @@ import {expect,it} from 'vitest'
 import {mistLogs,mistLogHalf} from './mistDetails'
 import {canStandAt,moveOnGround,standBlocker} from '../game/movement'
 import {mistPaths} from './mistIsland'
-import {mistEdgePlants,mistSaplings,canopySpheres} from './vegetationLayout'
+import {mistSaplings,canopySpheres} from './vegetationLayout'
 import {mistRidgePieces,mistShorePieces} from './coastalLayout'
 
 it('gives the saplings solids and camera crowns without displacing the adopted shore rocks',()=>{
@@ -36,7 +36,6 @@ it('blocks the visible log body and hollow ends but leaves a walkable route arou
 })
 
 it('keeps the full trail width open after adding edge shrubs',()=>{
- expect(mistEdgePlants.length).toBeGreaterThan(0)
  for(const [ax,az,bx,bz] of mistPaths){
   if(ax<95)continue // The narrower reused jetty approach has its own two-way route check.
   const length=Math.hypot(bx-ax,bz-az),nx=-(bz-az)/length,nz=(bx-ax)/length

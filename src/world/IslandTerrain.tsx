@@ -8,6 +8,12 @@ import {trampleGLSL} from './settlement'
 import {sandGLSL,sandUniforms} from './sandField'
 import {sandTexel} from '../game/sand'
 import {westWetlandGLSL} from './westExpansion'
+import {creekFalls,fallsTrail} from '../game/expansion'
+
+/** Distance to the gorge footpath's centre line (fallsTrailAt in GLSL). */
+const fallsTrailGLSL=/* glsl */`float fallsTrailDistance(vec2 p){float d=1e4;vec2 a,b,ab;
+${fallsTrail.slice(1).map(([x,z],i)=>`a=vec2(${fallsTrail[i][0].toFixed(2)},${fallsTrail[i][1].toFixed(2)});b=vec2(${x.toFixed(2)},${z.toFixed(2)});ab=b-a;d=min(d,length(p-a-ab*clamp(dot(p-a,ab)/dot(ab,ab),0.0,1.0)));`).join('\n')}
+return d;}`
 
 export function IslandTerrain() {
   const geometry = useMemo(()=>createTerrainGeometry(), [])
@@ -24,7 +30,8 @@ ${pathGLSL}
 ${pondGLSL}
 ${groundColourGLSL}
 ${trampleGLSL}
-${sandGLSL}\n` + shader.fragmentShader
+${sandGLSL}
+${fallsTrailGLSL}\n` + shader.fragmentShader
       shader.fragmentShader=westWetlandGLSL+'\n'+shader.fragmentShader
       shader.fragmentShader=`
         float stoneHash(vec3 p){return fract(sin(dot(p,vec3(127.1,311.7,74.7)))*43758.5453);}
@@ -65,7 +72,7 @@ ${sandGLSL}\n` + shader.fragmentShader
         float bank=1.0-smoothstep(-.05,.4,pondEdgeAt(p)+(noise21(p*3.0)-.5)*.12);
         vec3 dampSoil=mix(soil*.7,grass*.78,smoothstep(.2,.8,noise21(p*1.7))*.5);
         colour=mix(colour,dampSoil,bank);
-        float sand=smoothstep(${(islandShape.plateauRadius+.2).toFixed(1)},${(islandShape.plateauRadius+1.5).toFixed(1)}+(coastAt(p)-${islandShape.coastRadius.toFixed(1)})*.4,length(p)+(broad-.5)*.7);
+        float plateauHere=plateauAt(p),sand=smoothstep(plateauHere+.2,plateauHere+1.5+(coastAt(p)-${islandShape.coastRadius.toFixed(1)})*.4,length(p)+(broad-.5)*.7);
         sand=mix(sand,smoothstep(.8,.92,westLandAt(p)),westBlendAt(p));
         float beach=(1.0-smoothstep(6.0,10.5,abs(p.y)))*smoothstep(31.0,35.0,p.x+(broad-.5)*.8);
         float southBeach=smoothstep(22.0,30.0,p.y)*smoothstep(14.0,29.0,length(p))*(1.0-smoothstep(1.0,2.5,vGround.y));
@@ -79,6 +86,14 @@ ${sandGLSL}\n` + shader.fragmentShader
         // The dry beach carries soft wind ripples (also in the normal).
         float sandRipple=sin(dot(p,vec2(.82,.57))*11.0+noise21(p*.9)*7.0+noise21(p*3.1)*1.5)*sand*(1.0-wet);
         colour*=1.0+sandRipple*.03;
+        // Washed pebbles, not beach sand, on the gorge floor below the falls.
+        float gorge=(1.0-smoothstep(3.0,4.6,abs(p.y+18.0-2.0*sin(p.x*.1))))*smoothstep(29.4,30.4,-p.x)*(1.0-smoothstep(41.0,43.0,-p.x))*(1.0-smoothstep(1.4,2.4,vGround.y));
+        // The footpath down into the gorge is the same washed gravel, worn a little darker along its middle.
+        float trailD=fallsTrailDistance(p);
+        gorge=max(gorge,1.0-smoothstep(.55,1.05,trailD+(noise21(p*2.3)-.5)*.25));
+        float cobble=smoothstep(.3,.7,noise21(p*5.5)),grit=noise21(p*19.0);
+        vec3 pebbles=mix(vec3(.2,.185,.16),vec3(.32,.29,.24),cobble*.6+grit*.4)*(1.0-smoothstep(.65,.85,noise21(p*5.5+3.0))*.25);
+        colour=mix(colour,pebbles*mix(.72,1.0,smoothstep(${(seaLevel+.05).toFixed(2)},${(seaLevel+.5).toFixed(2)},vGround.y))*(1.0-.12*(1.0-smoothstep(.0,.4,trailD))),gorge);
         colour=mix(colour,soil*.9,trampleAt(p)*.78);
         vec3 groundNormal=normalize(vTerrainNormal);
         // Steep faces stay rock right down to the waterline instead of a strip of sand under the cliff.
@@ -94,6 +109,12 @@ ${sandGLSL}\n` + shader.fragmentShader
         rock=mix(rock,grass*.72,moss*.4);
         rock*=mix(.7,1.0,smoothstep(-.55,.6,vGround.y));
         colour=mix(colour,rock,cliff);
+        // The face behind the falls and the pool walls run wet: darker, cooler stone with dripping streaks.
+        float behindFalls=(1.0-smoothstep(1.2,2.4,abs(p.y+18.0-2.0*sin(p.x*.1))))*(1.0-smoothstep(.3,1.2,abs(p.x+26.95)));
+        float splashWall=(1.0-smoothstep(2.4,3.6,length(p-vec2(${creekFalls.pool.x.toFixed(2)},${creekFalls.pool.z.toFixed(2)}))))*(1.0-smoothstep(${(creekFalls.pool.water+.6).toFixed(2)},${(creekFalls.pool.water+2.2).toFixed(2)},vGround.y));
+        float drip=smoothstep(.45,.75,noise21(vec2(p.y*3.5+p.x*1.3,vGround.y*.35)));
+        float fallsWet=max(behindFalls,splashWall*.75)*step(${(creekFalls.pool.water-.1).toFixed(2)},vGround.y)*(1.0-step(${(creekFalls.top+.25).toFixed(2)},vGround.y));
+        colour=mix(colour,colour*vec3(.5,.56,.58)*(.85+drip*.3),fallsWet);
         colour*=mix(.68,1.0,smoothstep(-.95,-.35,vGround.y));
         // Peaty basin and damp moss fade into the grass, following the actual wetland contour.
         float marsh=1.0-smoothstep(.96,1.43,wetlandRadius(p)+(noise21(p*3.2)-.5)*.07);
@@ -128,6 +149,7 @@ ${sandGLSL}\n` + shader.fragmentShader
         #include <roughnessmap_fragment>
         // Wet sand at the tide line takes a dull sheen.
         roughnessFactor=mix(mix(mix(roughnessFactor,.34,wet*.7),.6,climateWet*.5),.05,puddle);
+        roughnessFactor=mix(roughnessFactor,.38,fallsWet*.8);
       `)
       shader.fragmentShader=shader.fragmentShader.replace('#include <normal_fragment_maps>', /* glsl */ `
         #include <normal_fragment_maps>

@@ -1,0 +1,75 @@
+{
+  "errors": [],
+  "log": [
+    {
+      "name": "ford-close",
+      "orbit": {
+        "yaw": -2.2997515559204595,
+        "targetYaw": -2.299751559174741,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.72760000002384
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "ford-view",
+      "orbit": {
+        "yaw": -2.900000077939143,
+        "targetYaw": -2.9000000943309896,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7224999999999995
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "north-bank",
+      "orbit": {
+        "yaw": -1.6697520464527602,
+        "targetYaw": -1.6697520474559873,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7109000000953665
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "ford-dusk",
+      "orbit": {
+        "yaw": -2.8999999383632997,
+        "targetYaw": -2.8999999722606744,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7192999999523142
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "north-bank-night",
+      "orbit": {
+        "yaw": -1.6700000214829163,
+        "targetYaw": -1.6699999722606733,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.6854999999999993
+      },
+      "mode": "walking",
+      "sitting": null
+    }
+  ]
+}

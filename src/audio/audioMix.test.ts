@@ -1,5 +1,5 @@
 import {expect,it} from 'vitest'
-import {defaultAudio,busLevel,mixFor,parseAudioSettings,seaNearness,fireNearness,stepLength} from './audioMix'
+import {defaultAudio,busLevel,mixFor,parseAudioSettings,seaNearness,fireNearness,fallsNearness,stepLength} from './audioMix'
 import {islandShape} from '../world/worldConfig'
 
 it('round-trips, clamps and falls back on audio settings',()=>{
@@ -21,6 +21,8 @@ it('mixes birds by day, crickets by night, the sea near the shore and a lit fire
 it('grows the sea toward the coast, the fire near the camp, and lengthens strides with speed',()=>{
  expect(seaNearness(0,0,false)).toBe(0);expect(seaNearness(0,0,true)).toBe(1)
  expect(seaNearness(islandShape.coastRadius,0,false)).toBeGreaterThan(.9)
+ expect(fallsNearness(3,0)).toBe(1);expect(fallsNearness(16,0)).toBeGreaterThan(.2);expect(fallsNearness(30,0)).toBe(0)
+ expect(mixFor({night:0,indoors:false,sea:0,fire:0,falls:.7}).falls).toBe(.7);expect(mixFor({night:0,indoors:true,sea:0,fire:0,falls:1}).falls).toBe(0)
  expect(fireNearness(1,0,true)).toBe(1);expect(fireNearness(1,0,false)).toBe(0);expect(fireNearness(12,0,true)).toBe(0)
  expect(stepLength(1.1)).toBe(.42);expect(stepLength(3.08)).toBeGreaterThan(.8)
 })

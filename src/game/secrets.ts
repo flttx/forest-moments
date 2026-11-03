@@ -12,7 +12,7 @@ export interface SecretsBook{version:1;found:Partial<Record<SecretId,string>>}
 export const emptySecrets=():SecretsBook=>({version:1,found:{}})
 
 /** A bottle washed up on the south crescent, by the reef at (31, 25); read it with F. */
-export const bottleSpot={x:28.3,z:25.72}
+export const bottleSpot={x:27.57,z:25.05}
 export const bottleReach=1
 /** A jellyfish drifting beside the jetty, its bell just breaking the surface; it glows at night. */
 export const jellyfishSpot={x:40,y:seaLevel-.37,z:-2.2}

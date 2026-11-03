@@ -1,0 +1,117 @@
+{
+  "errors": [],
+  "log": [
+    {
+      "name": "1-trail-top",
+      "orbit": {
+        "yaw": -0.9039419800928886,
+        "targetYaw": -0.9039419888622415,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7295999999046319
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "2-trail-mid",
+      "orbit": {
+        "yaw": -1.0800000890317636,
+        "targetYaw": -1.0800000943309913,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.716999999999999
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "3-gorge-floor",
+      "orbit": {
+        "yaw": -1.1360000929126217,
+        "targetYaw": -1.1360000943309914,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7297000000476812
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "4-wading",
+      "orbit": {
+        "yaw": -1.0240000977879884,
+        "targetYaw": -1.0240000943309913,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7130999999046297
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "5-floor-seaward",
+      "orbit": {
+        "yaw": 1.249999851113011,
+        "targetYaw": 1.2499999056690088,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7363999999761557
+      },
+      "mode": "walking",
+      "sitting": null
+    },
+    {
+      "name": "6-bench",
+      "orbit": {
+        "yaw": -0.7289999527601889,
+        "targetYaw": -0.7289999722606788,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.755700000047684
+      },
+      "mode": "sitting",
+      "sitting": "falls"
+    },
+    {
+      "name": "7-bench-night",
+      "orbit": {
+        "yaw": -0.7289999722606783,
+        "targetYaw": -0.7289999722606788,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 8.162700000047671
+      },
+      "mode": "sitting",
+      "sitting": "falls"
+    },
+    {
+      "name": "8-floor-dusk",
+      "orbit": {
+        "yaw": -1.1359999587158487,
+        "targetYaw": -1.1359999722606788,
+        "pitch": 0.31,
+        "targetPitch": 0.31,
+        "zoom": 1,
+        "targetZoom": 1,
+        "idle": 1.7121000000238407
+      },
+      "mode": "walking",
+      "sitting": null
+    }
+  ]
+}

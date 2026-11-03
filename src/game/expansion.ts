@@ -37,6 +37,8 @@ export const seats=[
  {id:'camp-west',name:'篝火西侧',x:17.7,z:23,yaw:-Math.PI/2},
  {id:'camp-south',name:'篝火南侧',x:20,z:25.3,yaw:0},
  {id:'camp-east',name:'篝火东侧',x:22.3,z:23,yaw:Math.PI/2},
+ // Facing down into the gorge at the falls, from the levelled pad on the south-west rim.
+ {id:'falls',name:'瀑布观景台',x:-32.75,z:-12.75,yaw:-.773},
 ] as const
 export type SeatId=typeof seats[number]['id']|'stool'
 export type SeatSession={id:SeatId;phase:'down'|'idle'|'up';elapsed:number;returnPosition:{x:number;z:number}}
@@ -51,7 +53,43 @@ function seatBlend(s:SeatSession){return s.id==='stool'?0:s.phase==='idle'?1:s.p
 export function seatLift(s:SeatSession){return benchSeatLift*seatBlend(s)}
 export function seatSlide(s:SeatSession){return (benchApproachForward-benchSeatForward)*seatBlend(s)}
 export function creekZ(x:number){return -18+2*Math.sin(x*.1)}
-export function creekWaterY(x:number){return -.85+6.4*smoothRange(x,-40,-10)}
+/** The creek idles down from the bridge to a rock lip, falls into a plunge pool, then riffles across a pebble cove into the sea. */
+export const creekFalls={lipX:-26.6,footX:-27.2,top:4.75,pool:{x:-29.6,z:-18+2*Math.sin(-2.96),radius:2.6,water:.7}} as const
+export function creekWaterY(x:number){
+ const {lipX,footX,top,pool}=creekFalls
+ if(x>=lipX)return top+(5.55-top)*smoothRange(x,lipX,-10)
+ if(x>=footX)return pool.water+(top-pool.water)*smoothRange(x,footX,lipX)
+ return -.85+(pool.water+.85)*smoothRange(x,-39,-31.6)
+}
+/** Before 2026-11-02 the creek slid in one even slope down a slot to the sea; the adopted coast layout still derives from it. */
+export function originalCreekWaterY(x:number){return -.85+6.4*smoothRange(x,-40,-10)}
+/** Ground the falls rework re-shaped (upper creek, lip, pool, gorge, mouth); baseline checks of older layouts skip it. */
+export function inCreekRework(x:number,z:number){return x>-47&&x<-9.5&&Math.abs(z-creekZ(Math.max(-44,Math.min(-10,x))))<10}
+/** A footpath from the west beach round the headland foot, down the gorge's south bank to the pool edge: [x,z,ground y]. */
+export const fallsTrail=[[-41.8,-9.8,.85],[-38.6,-10.2,.95],[-37.4,-12.2,.9],[-36.3,-14,.6],[-34.6,-15.4,.45],[-32.4,-15.9,.75],[-31.3,-15.7,.95]] as const
+/** Distance to the trail's centre line and the ground height there. */
+export function fallsTrailAt(x:number,z:number){
+ let best={d:Infinity,y:0}
+ for(let i=0;i<fallsTrail.length-1;i++){
+  const [ax,az,ay]=fallsTrail[i],[bx,bz,by]=fallsTrail[i+1],dx=bx-ax,dz=bz-az,t=Math.max(0,Math.min(1,((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz)))
+  const d=Math.hypot(x-ax-t*dx,z-az-t*dz);if(d<best.d)best={d,y:ay+(by-ay)*t}
+ }
+ return best
+}
+/** The rim lookout over the falls: a small levelled pad for the bench. */
+const fallsSeat=seats[5]
+export const fallsLookout={x:fallsSeat.x,z:fallsSeat.z,y:4.5}
+/** A ford of flat stones across the riffle, from the footpath to the gorge's north pebble bank. */
+export const creekFord={a:[-34.35,-15.9],b:[-34.55,-19.1],half:.38} as const
+export function onCreekFord(x:number,z:number){
+ const [ax,az]=creekFord.a,[bx,bz]=creekFord.b,dx=bx-ax,dz=bz-az,t=Math.max(0,Math.min(1,((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz)))
+ return Math.hypot(x-ax-t*dx,z-az-t*dz)<creekFord.half
+}
+/** The stones stand a hand above the running water; off the channel the ford is the bank itself. */
+export const fordHeight=(x:number,ground:number)=>Math.max(ground,creekWaterY(x)+.12)
+/** Deepest water the raccoon wades into at the pool's edge. */
+export const poolWadeDepth=.3
+export function creekPoolDistance(x:number,z:number){return Math.hypot(x-creekFalls.pool.x,z-creekFalls.pool.z)}
 export function creekDistance(x:number,z:number){return Math.hypot(Math.max(-44-x,0,x+10),z-creekZ(Math.max(-44,Math.min(-10,x))))}
 export function onBridge(x:number,z:number,inset=0){return Math.abs(x-bridge.x)<bridge.halfX-inset&&Math.abs(z-bridge.z)<bridge.halfZ}
 // Centre walking surface sampled from the normalized AHOLO mesh (Blender ray casts).

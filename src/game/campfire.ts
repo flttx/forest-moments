@@ -9,7 +9,7 @@ import type {SpeciesId} from './fishSpecies'
  */
 export const roastSeconds=6
 export const campSeats=['camp-west','camp-south','camp-east'] as const
-export const skySeats=[...campSeats,'coast','reef'] as const
+export const skySeats=[...campSeats,'coast','reef','falls'] as const
 export interface Roast{catchId:string;species:SpeciesId;sizeCm:number;elapsed:number}
 
 type State=Pick<ReturnType<typeof useForestStore.getState>,'mode'|'sitting'|'homeBook'|'fishBook'|'timeOfDay'|'menuPaused'>

@@ -124,6 +124,13 @@ try {
   const farm = await log()
   check('hens and sheep call near the farm', farm.some((n) => n.startsWith('hen-')) && farm.some((n) => n.startsWith('sheep-')), farm.filter((n) => /hen|sheep/.test(n)))
 
+  // The creek falls: its rush swells on the gorge rim above the pool and is gone back in the middle of the island.
+  const fallsLevel = () => evaluate('window.audio.audioEngine().beds.falls.gain.value')
+  await evaluate("forestStore.setState({position:{x:-32,z:-12}})"); await sleep(2500); const nearFalls = await fallsLevel()
+  // The bed eases out over a few seconds (setTargetAtTime), so give it time to settle.
+  await evaluate("forestStore.setState({position:{x:0,z:2}})"); await sleep(6000); const farFalls = await fallsLevel()
+  check('the falls are heard from the gorge rim, not from the island centre', nearFalls > .05 && farFalls < .005, { nearFalls, farFalls })
+
   report.results = results
   assert.equal(report.errors.length, 0, report.errors.join('\n'))
   assert.ok(!results.failed, 'some audio checks failed')

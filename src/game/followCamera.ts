@@ -90,6 +90,18 @@ export function clearCanopy(target:CameraPoint,eye:CameraPoint,crowns:readonly C
  return current
 }
 
+/**
+ * Ground between the focus and the eye (a gorge wall, a hill shoulder) pulls the eye in along the arm to just before it,
+ * so the view never ends up behind a slope looking at its underside. Ground that does not cross the line changes nothing.
+ */
+export function clearTerrain(target:CameraPoint,eye:CameraPoint,height:(x:number,z:number)=>number,padding=.35,steps=28):CameraPoint{
+ const dx=eye.x-target.x,dy=eye.y-target.y,dz=eye.z-target.z
+ for(let i=1;i<=steps;i++){
+  const t=i/steps,x=target.x+dx*t,y=target.y+dy*t,z=target.z+dz*t
+  if(height(x,z)+padding>y){const back=Math.max(.12,(i-1)/steps);return{x:target.x+dx*back,y:target.y+dy*back,z:target.z+dz*back}}
+ }
+ return eye
+}
 /** Keep close orbit centred on the player; wide orbit frames the whole island. */
 export function outdoorOrbitFocus(position:CameraPoint,zoom:number,pitch:number){
  const t=Math.max(0,Math.min(1,(zoom-2.5)/7.5)),wide=t*t*(3-2*t)

@@ -1,27 +1,65 @@
-import {creekDistance,creekWaterY} from '../game/expansion'
+import {creekDistance,creekWaterY,originalCreekWaterY,creekFalls,creekPoolDistance,creekZ,fallsTrail,fallsTrailAt,fallsLookout,onCreekFord} from '../game/expansion'
 import { MathUtils } from 'three'
 import {modelAssets,workshopSize,workshopPathOffset} from './assets'
-import {islandShape,workshopPosition,lookoutPosition,landformHeight,originalLandformHeight,clearings} from './worldConfig'
+import {islandShape,workshopPosition,lookoutPosition,landformHeight,originalLandformHeight,clearings,smoothRange,pathWarp,pathWarpGLSL} from './worldConfig'
 import {westLand,westPaths,westTrailDistance} from './westExpansion'
 import {pondEdgeDistance,pondDepth,pondBankWidth} from './pondShape'
 import {tidePathDistance} from './tideIsland'
 import {mistPathDistance} from './mistIsland'
 import {autumnPathDistance} from './autumnIsland'
 export {seaLevel,islandShape,coastRadius,shoreWaterFraction} from './worldConfig'
+import {shoreGLSL} from './worldConfig'
 function terrainAt(x:number,z:number,land:number) {
+  const basin=1-MathUtils.smoothstep(pondEdgeDistance(x,z),-pondBankWidth,0)
+  const base=creekGorge(x,z,land-pondDepth*basin+pathRelief(x,z))
+  const creek=1-MathUtils.smoothstep(creekDistance(x,z),.75,2.2)
+  // The bed never rises above ground that is already lower (pool bowl, seabed past the mouth).
+  return base*(1-creek)+Math.min(creekWaterY(x)-.42,base)*creek
+}
+/** The pre-falls island (one straight slot to the sea): the reference the adopted coast layout was generated on. */
+function originalTerrainAt(x:number,z:number,land:number) {
   const basin=1-MathUtils.smoothstep(pondEdgeDistance(x,z),-pondBankWidth,0)
   const base=land-pondDepth*basin+pathRelief(x,z)
   const creek=1-MathUtils.smoothstep(creekDistance(x,z),.75,2.2)
-  return base*(1-creek)+(creekWaterY(x)-.42)*creek
-
+  return base*(1-creek)+(originalCreekWaterY(x)-.42)*creek
+}
+const trailEnd=fallsTrail[fallsTrail.length-1],poolEntry=(()=>{const dx=trailEnd[0]-creekFalls.pool.x,dz=trailEnd[1]-creekFalls.pool.z,l=Math.hypot(dx,dz);return{x:dx/l,z:dz/l}})()
+/** Below the falls: a plunge pool scooped from the rock wall, then a gorge that widens to a pebble cove at the sea. */
+function creekGorge(x:number,z:number,h:number){
+  const {pool,footX}=creekFalls,pd=creekPoolDistance(x,z),d=Math.abs(z-creekZ(x)),water=creekWaterY(x)
+  // Bowl under the water, steep amphitheatre walls around it; never behind the lip, so the fall keeps its rock face.
+  // Toward the footpath the wall gives way to a shelving pebble shore you can wade in from.
+  const toEntry=((x-pool.x)*poolEntry.x+(z-pool.z)*poolEntry.z)/Math.max(pd,1e-3)
+  // The shelving shore runs only 1.2 m out from the water; beyond it the wall climbs as steeply as elsewhere.
+  const beyond=pd-pool.radius,shore=MathUtils.lerp(2.8,.5,smoothRange(toEntry,.85,.96))
+  const bowl=pool.water-.05+(beyond<0?-.85*(1-(pd/pool.radius)**2):shore*Math.min(beyond,1.2)+2.8*Math.max(0,beyond-1.2))
+  h=MathUtils.lerp(h,Math.min(h,bowl),1-smoothRange(x,footX,footX+.3))
+  // Pebble floor just above the riffle, stepping into walls; dips under the sea at the mouth. Walls are only cut down,
+  // and the floor is only built up next to the stream, so no new ridge rises out of the sea beside the headland.
+  const floor=water+.08+.12*d+Math.max(0,d-2.6)**1.4*.9-.6*smoothRange(-x,37,41.5)
+  let target=Math.min(h,floor)
+  const pebbles=Math.min(floor,water+.45)
+  if(pebbles>target)target=MathUtils.lerp(target,pebbles,(1-smoothRange(d,2.4,4))*(1-smoothRange(-x,35.5,38)))
+  h=MathUtils.lerp(h,target,smoothRange(-x,29.6,31.6)*(1-smoothRange(-x,40,43))*(1-smoothRange(d,5.5,8.5)))
+  // A metre-wide footpath benched into the slope, and the levelled pad for the rim bench.
+  const trail=fallsTrailAt(x,z)
+  h=MathUtils.lerp(h,trail.y,(1-smoothRange(trail.d,.9,2))*smoothRange(pd,pool.radius,pool.radius+.5))
+  return MathUtils.lerp(h,fallsLookout.y,1-smoothRange(Math.hypot(x-fallsLookout.x,z-fallsLookout.z),1.6,2.6))
+}
+/** Where a step lands below the falls: in the pool's shallows, on the gorge gravel or footpath, or neither. */
+export function fallsGround(x:number,z:number):'water'|'gravel'|null{
+  if(creekPoolDistance(x,z)<creekFalls.pool.radius)return'water'
+  const floor=x<-29.5&&x>-41&&Math.abs(z-creekZ(x))<4&&terrainHeight(x,z)<2
+  return floor||fallsTrailAt(x,z).d<1||onCreekFord(x,z)?'gravel':null
 }
 export function terrainHeight(x:number,z:number){return terrainAt(x,z,landformHeight(x,z))}
-export function originalTerrainHeight(x:number,z:number){return terrainAt(x,z,originalLandformHeight(x,z))}
+export function originalTerrainHeight(x:number,z:number){return originalTerrainAt(x,z,originalLandformHeight(x,z))}
 export const highlandPaths=[[-1.7,-14,-14,-15],[-14,-15,-14,-24.5],[13,1.7,20,-12],[20,-12,23,-20],[23,-20,15.45,-27.65],[-14,-24.5,-9,-24],[-9,-24,-8,-28],[-8,-28,6,-29],[6,-29,9.05,-29.85],[15.45,-27.65,8.5,-28.3],[8.5,-28.3,9.05,-29.85],[-14,-11,-29,-10],[20,1,30.5,-8],[30.5,-8,30.5,-12],[30.5,-12,29.7,-12]] as const
 export function segmentDistance(x:number,z:number,ax:number,az:number,bx:number,bz:number){const dx=bx-ax,dz=bz-az,t=Math.max(0,Math.min(1,((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz)));return Math.hypot(x-ax-t*dx,z-az-t*dz)}
 export function loopRadius(angle:number){return islandShape.loopRadius+.65*Math.sin(angle*3+.3)}
 export function workshopPathZ(x:number,offset=workshopPathOffset){return 10.8+Math.sin(x*.35)*.6+offset*(1-MathUtils.smoothstep(x,-8,-5))}
-export function originalPathDistance(x:number,z:number,workshopOffset=workshopPathOffset) {
+export function originalPathDistance(px:number,pz:number,workshopOffset=workshopPathOffset) {
+  const [x,z]=pathWarp(px,pz)
   const main=Math.abs(x+1.7-Math.sin(z*.23)*1.15)
   const wx=MathUtils.clamp(x,-12,-1.5),ex=MathUtils.clamp(x,-1.7,23),tz=MathUtils.clamp(z,-4.7,1.7)
   const workshop=Math.hypot(x-wx,z-workshopPathZ(wx,workshopOffset))
@@ -60,13 +98,15 @@ export function pathRelief(x:number,z:number) {
 export const noiseGLSL=/* glsl */ `
 float hash21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float noise21(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.0-2.0*f);return mix(mix(hash21(i),hash21(i+vec2(1,0)),f.x),mix(hash21(i+vec2(0,1)),hash21(i+1.0),f.x),f.y);}
-float westLandAt(vec2 p){return length((p-vec2(${westLand.x.toFixed(1)},${westLand.z.toFixed(1)}))/vec2(${westLand.rx.toFixed(1)},${westLand.rz.toFixed(1)}));}
+float westLandAt(vec2 p){vec2 q=(p-vec2(${westLand.x.toFixed(1)},${westLand.z.toFixed(1)}))/vec2(${westLand.rx.toFixed(1)},${westLand.rz.toFixed(1)});float a=atan(q.y,q.x);return length(q)/(1.0+.05*sin(a*3.0+.7)+.035*sin(a*7.0-1.3)+.02*sin(a*13.0+.2));}
 float westBlendAt(vec2 p){return smoothstep(32.0,35.5,-p.x)*smoothstep(35.0,38.0,length(p));}
-float coastAt(vec2 p){float a=atan(p.y,p.x);return ${islandShape.coastRadius.toFixed(1)}+.85*sin(a*3.0+.4)+.55*sin(a*5.0-.8)+.25*cos(a*9.0);}
+${shoreGLSL}
 `
-export const pathGLSL=/* glsl */ `
+export const pathGLSL=/* glsl */ `${pathWarpGLSL}
 float segDist(vec2 p,vec2 a,vec2 b){vec2 d=b-a;float t=clamp(dot(p-a,d)/dot(d,d),0.0,1.0);return length(p-a-t*d);}
-float pathAt(vec2 p){
+float pathAt(vec2 o){
+ // The island's own paths bend with the land (pathWarp); the west trails are drawn as laid out.
+ vec2 p=pathWarp(o);
  float track=abs(p.x+1.7-sin(p.y*.23)*1.15);
  float wx=clamp(p.x,-12.0,-1.5),ex=clamp(p.x,-1.7,23.0),tz=clamp(p.y,-4.7,1.7);
  track=min(track,length(vec2(p.x-wx,p.y-10.8-sin(wx*.35)*.6-${workshopPathOffset.toFixed(8)}*(1.0-smoothstep(-8.0,-5.0,wx)))));
@@ -77,7 +117,7 @@ float pathAt(vec2 p){
  track=min(track,length(vec2(p.x-clamp(p.x,0.0,20.0),p.y-23.0)));
  track=min(track,length(vec2(p.x-clamp(p.x,20.0,35.0),p.y)));
  ${highlandPaths.map(([ax,az,bx,bz])=>`track=min(track,segDist(p,vec2(${ax.toFixed(4)},${az.toFixed(4)}),vec2(${bx.toFixed(4)},${bz.toFixed(4)})));`).join('\n')}
- ${westPaths.map(([ax,az,bx,bz])=>`track=min(track,segDist(p,vec2(${ax.toFixed(4)},${az.toFixed(4)}),vec2(${bx.toFixed(4)},${bz.toFixed(4)})));`).join('\n')}
+ ${westPaths.map(([ax,az,bx,bz])=>`track=min(track,segDist(o,vec2(${ax.toFixed(4)},${az.toFixed(4)}),vec2(${bx.toFixed(4)},${bz.toFixed(4)})));`).join('\n')}
  return min(track,abs(length(p)-(${islandShape.loopRadius.toFixed(1)}+.65*sin(atan(p.y,p.x)*3.0+.3))));
 }
 float pathEdgeAt(vec2 p){

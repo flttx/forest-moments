@@ -68,7 +68,7 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
-          float shore=fresh>.5 ? -pondEdgeAt(p)-${pondWaterInset.toFixed(9)} : length(p)-mix(${islandShape.plateauRadius.toFixed(1)},coastAt(p)+${islandShape.shoreExtension.toFixed(1)},${shoreWaterFraction.toFixed(9)});
+          float shore=fresh>.5 ? -pondEdgeAt(p)-${pondWaterInset.toFixed(9)} : length(p)-mix(plateauAt(p),coastAt(p)+${islandShape.shoreExtension.toFixed(1)},${shoreWaterFraction.toFixed(9)});
           if(fresh<.5)shore=mix(shore,min(shore,(westLandAt(p)-.896)*28.0),westBlendAt(p));
           if(fresh<.5&&p.x>72.0)shore=min(shore,min((mistRadius(p)-.98)*19.0,min((autumnRadius(p)-.98)*18.0,(tideRadius(p)-.98)*15.0)));
           float shallows=1.0-smoothstep(.0,fresh>.5?1.2:5.0,shore);

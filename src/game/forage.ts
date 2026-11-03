@@ -1,6 +1,6 @@
 import {vegetationPositions} from '../world/vegetationLayout'
 import {pathEdgeDistance,terrainHeight} from '../world/terrain'
-import {islandShape,seaLevel} from '../world/worldConfig'
+import {plateauRadiusAt,seaLevel} from '../world/worldConfig'
 import {canStandAt} from './movement'
 import {rainMushrooms,weatherFor} from './weather'
 
@@ -28,7 +28,7 @@ function placeable(x:number,z:number){
 /** Roughly where the ground is drawn as sand (IslandTerrain): the east beach, the south crescent and the low outer shore. */
 export function onSand(x:number,z:number){
  const r=Math.hypot(x,z),h=terrainHeight(x,z)
- return (x>30.5&&Math.abs(z)<11)||(z>21&&r>13.5&&h<2.6)||(r>islandShape.plateauRadius-.5&&h<1.8)
+ return (x>30.5&&Math.abs(z)<11)||(z>21&&r>13.5&&h<2.6)||(r>plateauRadiusAt(Math.atan2(z,x))-.5&&h<1.8)
 }
 /** First standable point around a plant, trying distances outward and eight bearings from its own yaw. */
 function beside(p:{x:number;z:number;yaw:number;scale:number},from:number,to:number){
@@ -51,7 +51,7 @@ export const forageSpots:ForageSpot[]=(()=>{
  // Shells: a ring of the sandy shore just above the water.
  for(let i=0;i<72;i++){
   const a=i/72*Math.PI*2
-  for(let r=40;r>=30;r-=.5){const x=round(Math.cos(a)*r),z=round(Math.sin(a)*r),h=terrainHeight(x,z);if(h>seaLevel+.2&&h<seaLevel+.9&&placeable(x,z)){add('shell',{x,z});break}}
+  for(let r=40;r>=30;r-=.5){const x=round(Math.cos(a)*r),z=round(Math.sin(a)*r),h=terrainHeight(x,z);if(h>seaLevel+.2&&h<seaLevel+.9&&onSand(x,z)&&placeable(x,z)){add('shell',{x,z});break}}
  }
  return spots
 })()

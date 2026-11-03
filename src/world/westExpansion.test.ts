@@ -1,16 +1,18 @@
 import before from '../../docs/evidence/2026-10-29-west-expansion/before/world-snapshot.json'
 import {expect,it} from 'vitest'
 import {terrainHeight} from './terrain'
-import {originalVegetationPositions,lampPositions,westPlants} from './vegetationLayout'
+import {westPlants} from './vegetationLayout'
 import {canStandAt,moveOnGround,groundHeightAt,standBlocker} from '../game/movement'
 import {westTrailPoints,westWetland,westBoardwalk,onWestBoardwalk,westWetlandRadius} from './westExpansion'
 import {seaLevel,landing,mooring} from './worldConfig'
+import {inCreekRework} from '../game/expansion'
 
-it('preserves the captured original gameplay terrain, vegetation and berth without a save migration',()=>{
- for(const [x,z,y] of before.terrainSamples)expect(terrainHeight(x,z),`${x},${z}`).toBeCloseTo(y,9)
- const precise=(value:unknown)=>JSON.parse(JSON.stringify(value,(_,v:unknown)=>typeof v==='number'?Math.round(v*1e9)/1e9:v))
- expect(precise(originalVegetationPositions)).toEqual(precise(before.plants));expect(precise(lampPositions)).toEqual(precise(before.lamps))
+it('keeps the berth and the old high ground after the main island was re-laid',()=>{
+ // 2026-11-03: the user approved re-laying the main island (coast, relief, bending paths, plants), so exact terrain and
+ // plant positions are no longer frozen. Saves need no migration: the berth is where it was,
+ // and the old island's ground still stands above the sea where it did.
  expect(landing).toEqual(before.landing);expect(mooring).toEqual(before.mooring)
+ for(const [x,z,y] of before.terrainSamples)if(y>seaLevel+.5&&Math.hypot(x,z)<30&&!inCreekRework(x,z))expect(terrainHeight(x,z),`${x},${z}`).toBeGreaterThan(seaLevel+.16)
 })
 
 it('walks the full western loop both ways, including the wetland deck, and rejects water',()=>{
@@ -26,8 +28,9 @@ it('walks the full western loop both ways, including the wetland deck, and rejec
    }
   }
  }
- expect(groundHeightAt(westWetland.x,westWetland.z)).toBe(westBoardwalk.y)
- expect(canStandAt(westWetland.x,westWetland.z+1.8)).toBe(false)
+ expect(groundHeightAt(westBoardwalk.points[2][0],westBoardwalk.points[2][1])).toBe(westBoardwalk.y)
+ // Open water beside the deck, inside the middle pocket.
+ expect(canStandAt(-59.4,-1.2)).toBe(false)
  expect(canStandAt(-85,8)).toBe(false)
 })
 
@@ -42,25 +45,33 @@ it('adds usable land without counting the submerged seabed as expansion',()=>{
  expect(area).toBeLessThan(before.groundArea*1.65)
 })
 
-it('keeps both deck edges continuous and rejects the irregular wetland shallows',()=>{
- for(let x=westBoardwalk.minX+.3;x<westBoardwalk.maxX-.3;x+=.12){
-  for(const z of [westBoardwalk.z-.6,westBoardwalk.z+.6]){
-   expect(canStandAt(x,z),`deck edge ${x},${z}`).toBe(true)
+it('keeps the zigzag deck continuous edge to edge and rejects the wetland shallows around it',()=>{
+ const p=westBoardwalk.points
+ for(let i=0;i<p.length-1;i++){
+  const [ax,az]=p[i],[bx,bz]=p[i+1],length=Math.hypot(bx-ax,bz-az),nx=-(bz-az)/length,nz=(bx-ax)/length
+  for(let t=0;t<=1;t+=.02)for(const side of [-.4,0,.4]){
+   const x=ax+(bx-ax)*t+nx*side,z=az+(bz-az)*t+nz*side
+   expect(canStandAt(x,z),`deck ${x.toFixed(2)},${z.toFixed(2)}`).toBe(true)
    expect(groundHeightAt(x,z)).toBeCloseTo(westBoardwalk.y,8)
   }
  }
+ // The deck crosses water: most of its length stands over the marsh, a hand above the surface.
+ let over=0,total=0
+ for(let i=0;i<p.length-1;i++)for(let t=0;t<=1;t+=.05){const x=p[i][0]+(p[i+1][0]-p[i][0])*t,z=p[i][1]+(p[i+1][1]-p[i][1])*t;total++;if(westWetlandRadius(x,z)<1)over++}
+ expect(over/total).toBeGreaterThan(.55)
+ expect(westBoardwalk.y-westWetland.waterY).toBeGreaterThan(.2);expect(westBoardwalk.y-westWetland.waterY).toBeLessThan(.45)
  let wetSamples=0
- for(let x=westWetland.x-5;x<=westWetland.x+5;x+=.2)for(let z=westWetland.z-4;z<=westWetland.z+4;z+=.2){
+ for(let x=-68;x<=-50;x+=.2)for(let z=-10;z<=2;z+=.2){
   if(westWetlandRadius(x,z)<1.25&&!onWestBoardwalk(x,z)&&terrainHeight(x,z)<westWetland.waterY){
    wetSamples++;expect(canStandAt(x,z),`water ${x},${z}`).toBe(false)
   }
  }
- expect(wetSamples).toBeGreaterThan(200)
- // Every side has a dry shoulder, including the lower sea-facing edge.
- for(let i=0;i<72;i++){
-  const a=i*Math.PI/36,shape=1+.075*Math.sin(a*3+.4)+.045*Math.cos(a*5-.7)
-  const x=westWetland.x+Math.cos(a)*westWetland.rx*shape*1.15,z=westWetland.z+Math.sin(a)*westWetland.rz*shape*1.15
-  expect(terrainHeight(x,z)).toBeGreaterThan(westWetland.waterY+.16)
+ expect(wetSamples).toBeGreaterThan(600)
+ // Every pocket keeps a dry shoulder where it does not run into a neighbour, including the lower sea-facing edge.
+ for(const [cx,cz,rx,rz,phase] of westWetland.lobes)for(let i=0;i<72;i++){
+  const a=i*Math.PI/36,shape=1+.09*Math.sin(a*3+phase)+.05*Math.cos(a*5-phase*1.7)
+  const x=cx+Math.cos(a)*rx*shape*1.2,z=cz+Math.sin(a)*rz*shape*1.2
+  if(westWetlandRadius(x,z)>1.15)expect(terrainHeight(x,z),`shoulder ${x.toFixed(1)},${z.toFixed(1)}`).toBeGreaterThan(westWetland.waterY+.16)
  }
  // The neighbouring dry coastal slope is not classified as freshwater (slope can still block walking).
  expect(westWetlandRadius(-64,-7.6)).toBeGreaterThan(1.35)

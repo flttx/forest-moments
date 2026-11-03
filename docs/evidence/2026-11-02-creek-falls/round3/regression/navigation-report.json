@@ -1,0 +1,2231 @@
+{
+  "date": "2026-11-02T14:09:07.361Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "continuous camera-relative keys across bridge to bedroom",
+      "data": {
+        "trace": [
+          {
+            "position": [
+              -14.034379531645655,
+              6.1607098711960235,
+              -16.49541507132674
+            ],
+            "motion": "idle",
+            "ready": true,
+            "models": [
+              "raccoon",
+              "workshop",
+              "lookout",
+              "canoe"
+            ],
+            "animation": {
+              "clip": "idle",
+              "time": 0.007800000071525574
+            },
+            "homeBook": {
+              "version": 1,
+              "fish": [],
+              "usedCatchIds": [],
+              "nights": 0,
+              "fireLit": false
+            },
+            "homeReady": true,
+            "homeTransfer": null,
+            "sitting": null,
+            "sleepElapsed": 0,
+            "sleepJourney": null,
+            "timeOfDay": "day",
+            "mode": "walking",
+            "boatTransfer": null,
+            "boat": {
+              "x": 42.6,
+              "z": 2.15,
+              "heading": 0,
+              "speed": 0,
+              "phase": 0,
+              "effort": 0
+            },
+            "boatReady": true,
+            "dockReady": true,
+            "lookoutReady": true,
+            "lookoutTransfer": null,
+            "lookoutView": {
+              "yaw": -2.36,
+              "pitch": -0.22
+            },
+            "cameraPosition": [
+              -7.2205733015860565,
+              10.564022559290448,
+              -23.174433922303727
+            ],
+            "orbit": {
+              "yaw": 2.356194490192345,
+              "targetYaw": 2.356194490192345,
+              "pitch": 0.31,
+              "targetPitch": 0.31,
+              "zoom": 1,
+              "targetZoom": 1,
+              "idle": null
+            },
+            "orbitDragging": false,
+            "movementHeading": -0.7853981633974483,
+            "inputDirection": null,
+            "characterYaw": -0.12480671410264223,
+            "playerVisible": true,
+            "canBoard": false,
+            "canLand": true,
+            "boatAnimation": {
+              "clip": "paddle",
+              "time": 0,
+              "phase": 0,
+              "original": true
+            },
+            "boatSurface": {
+              "heave": 0,
+              "pitch": 0,
+              "roll": 0
+            },
+            "waterFeedback": {
+              "capacity": 28,
+              "active": 0,
+              "emittedWake": 0,
+              "emittedPaddle": 0,
+              "reducedMotion": false,
+              "marks": []
+            },
+            "wetland": {
+              "modules": 5,
+              "reeds": 28,
+              "cobbleClusters": 12,
+              "deckTop": 0.9,
+              "clearWidth": 1.9,
+              "decimated": false
+            },
+            "travel": {
+              "version": 1,
+              "checkpoint": "main",
+              "visitedMist": false,
+              "foundPine": false,
+              "visitedAutumn": false,
+              "foundVista": false,
+              "visitedTide": false,
+              "foundPools": false
+            },
+            "fishing": null,
+            "fishingReady": true,
+            "fishBook": {
+              "count": 0,
+              "bestCm": 0,
+              "recent": [],
+              "kinds": {}
+            },
+            "garden": {
+              "version": 3,
+              "trees": []
+            },
+            "plot": null,
+            "growthReady": true,
+            "plantingElapsed": 0,
+            "growthVisual": null,
+            "farmReady": true,
+            "mealActive": false,
+            "farmBook": {
+              "version": 1,
+              "meals": 0
+            },
+            "feedingElapsed": 0,
+            "farmVisual": {
+              "animals": [
+                {
+                  "id": "hen",
+                  "x": 8.276503999969936,
+                  "z": 5.7,
+                  "yaw": -1.5707963267772276,
+                  "state": "idle",
+                  "eaten": 0,
+                  "wait": 0.7852999999523164,
+                  "target": 1,
+                  "clip": "idle",
+                  "clipTime": 0.21470000004768378
+                },
+                {
+                  "id": "sheep",
+                  "x": 9.525405999991913,
+                  "z": 7.1,
+                  "yaw": -1.570796326792338,
+                  "state": "walk",
+                  "eaten": 0,
+                  "wait": 2,
+                  "target": 1,
+                  "clip": "walk",
+                  "clipTime": 0.758200000047682
+                }
+              ],
+              "foodVisible": false,
+              "visibleGrains": 0,
+              "grainPositions": [
+                [
+                  9.23,
+                  0.25,
+                  3.975
+                ],
+                [
+                  9.255019408747254,
+                  0.25,
+                  3.922741438300272
+                ]
+              ],
+              "progress": 0
+            },
+            "location": "island",
+            "workshopTransfer": null,
+            "workshopReady": true,
+            "workshopBook": {
+              "version": 1,
+              "phase": "available"
+            },
+            "craft": null,
+            "gatheringElapsed": 0,
+            "workshopVisual": {
+              "inside": false,
+              "rawVisible": true,
+              "pieceVisible": false,
+              "dust": 0
+            },
+            "triangles": 1,
+            "calls": 1
+          },
+          {
+            "position": [
+              -14.04628013882866,
+              6.458669581345041,
+              -18.00299474185348
+            ],
+            "motion": "idle",
+            "ready": true,
+            "models": [
+              "raccoon",
+              "workshop",
+              "lookout",
+              "canoe"
+            ],
+            "animation": {
+              "clip": "idle",
+              "time": 0.009000000000000001
+            },
+            "homeBook": {
+              "version": 1,
+              "fish": [],
+              "usedCatchIds": [],
+              "nights": 0,
+              "fireLit": false
+            },
+            "homeReady": true,
+            "homeTransfer": null,
+            "sitting": null,
+            "sleepElapsed": 0,
+            "sleepJourney": null,
+            "timeOfDay": "day",
+            "mode": "walking",
+            "boatTransfer": null,
+            "boat": {
+              "x": 42.6,
+              "z": 2.15,
+              "heading": 0,
+              "speed": 0,
+              "phase": 0,
+              "effort": 0
+            },
+            "boatReady": true,
+            "dockReady": true,
+            "lookoutReady": true,
+            "lookoutTransfer": null,
+            "lookoutView": {
+              "yaw": -2.36,
+              "pitch": -0.22
+            },
+            "cameraPosition": [
+              -7.288025049135738,
+              11.050048086651564,
+              -24.626070192471673
+            ],
+            "orbit": {
+              "yaw": 2.356194490192345,
+              "targetYaw": 2.356194490192345,
+              "pitch": 0.31,
+              "targetPitch": 0.31,
+              "zoom": 1,
+              "targetZoom": 1,
+              "idle": null
+            },
+            "orbitDragging": false,
+            "movementHeading": -0.7853981633972287,
+            "inputDirection": null,
+            "characterYaw": -0.12427487437419468,
+            "playerVisible": true,
+            "canBoard": false,
+            "canLand": true,
+            "boatAnimation": {
+              "clip": "paddle",
+              "time": 0,
+              "phase": 0,
+              "original": true
+            },
+            "boatSurface": {
+              "heave": 0,
+              "pitch": 0,
+              "roll": 0
+            },
+            "waterFeedback": {
+              "capacity": 28,
+              "active": 0,
+              "emittedWake": 0,
+              "emittedPaddle": 0,
+              "reducedMotion": false,
+              "marks": []
+            },
+            "wetland": {
+              "modules": 5,
+              "reeds": 28,
+              "cobbleClusters": 12,
+              "deckTop": 0.9,
+              "clearWidth": 1.9,
+              "decimated": false
+            },
+            "travel": {
+              "version": 1,
+              "checkpoint": "main",
+              "visitedMist": false,
+              "foundPine": false,
+              "visitedAutumn": false,
+              "foundVista": false,
+              "visitedTide": false,
+              "foundPools": false
+            },
+            "fishing": null,
+            "fishingReady": true,
+            "fishBook": {
+              "count": 0,
+              "bestCm": 0,
+              "recent": [],
+              "kinds": {}
+            },
+            "garden": {
+              "version": 3,
+              "trees": []
+            },
+            "plot": null,
+            "growthReady": true,
+            "plantingElapsed": 0,
+            "growthVisual": null,
+            "farmReady": true,
+            "mealActive": false,
+            "farmBook": {
+              "version": 1,
+              "meals": 0
+            },
+            "feedingElapsed": 0,
+            "farmVisual": {
+              "animals": [
+                {
+                  "id": "hen",
+                  "x": 8.285349601669028,
+                  "z": 5.398821869670871,
+                  "yaw": -0.031781804955053485,
+                  "state": "walk",
+                  "eaten": 0,
+                  "wait": 2.5,
+                  "target": 2,
+                  "clip": "walk",
+                  "clipTime": 0.009066686511039805
+                },
+                {
+                  "id": "sheep",
+                  "x": 9.575080000000021,
+                  "z": 7.1,
+                  "yaw": -1.5707963267942096,
+                  "state": "idle",
+                  "eaten": 0,
+                  "wait": 0.6386000000238432,
+                  "target": 1,
+                  "clip": "idle",
+                  "clipTime": 1.3613999999761568
+                }
+              ],
+              "foodVisible": false,
+              "visibleGrains": 0,
+              "grainPositions": [
+                [
+                  9.23,
+                  0.25,
+                  3.975
+                ],
+                [
+                  9.255019408747254,
+                  0.25,
+                  3.922741438300272
+                ]
+              ],
+              "progress": 0
+            },
+            "location": "island",
+            "workshopTransfer": null,
+            "workshopReady": true,
+            "workshopBook": {
+              "version": 1,
+              "phase": "available"
+            },
+            "craft": null,
+            "gatheringElapsed": 0,
+            "workshopVisual": {
+              "inside": false,
+              "rawVisible": true,
+              "pieceVisible": false,
+              "dust": 0
+            },
+            "triangles": 1,
+            "calls": 1
+          },
+          {
+            "position": [
+              -14.04285774221171,
+              6.627489809462936,
+              -19.482033876760116
+            ],
+            "motion": "idle",
+            "ready": true,
+            "models": [
+              "raccoon",
+              "workshop",
+              "lookout",
+              "canoe"
+            ],
+            "animation": {
+              "clip": "idle",
+              "time": 0.009899999976158142
+            },
+            "homeBook": {
+              "version": 1,
+              "fish": [],
+              "usedCatchIds": [],
+              "nights": 0,
+              "fireLit": false
+            },
+            "homeReady": true,
+            "homeTransfer": null,
+            "sitting": null,
+            "sleepElapsed": 0,
+            "sleepJourney": null,
+            "timeOfDay": "day",
+            "mode": "walking",
+            "boatTransfer": null,
+            "boat": {
+              "x": 42.6,
+              "z": 2.15,
+              "heading": 0,
+              "speed": 0,
+              "phase": 0,
+              "effort": 0
+            },
+            "boatReady": true,
+            "dockReady": true,
+            "lookoutReady": true,
+            "lookoutTransfer": null,
+            "lookoutView": {
+              "yaw": -2.36,
+              "pitch": -0.22
+            },
+            "cameraPosition": [
+              -7.204270631951164,
+              10.940306378373796,
+              -26.187795127822042
+            ],
+            "orbit": {
+              "yaw": 2.356194490192345,
+              "targetYaw": 2.356194490192345,
+              "pitch": 0.31,
+              "targetPitch": 0.31,
+              "zoom": 1,
+              "targetZoom": 1,
+              "idle": null
+            },
+            "orbitDragging": false,
+            "movementHeading": -0.7853981633974483,
+            "inputDirection": null,
+            "characterYaw": -0.1396267117902829,
+            "playerVisible": true,
+            "canBoard": false,
+            "canLand": true,
+            "boatAnimation": {
+              "clip": "paddle",
+              "time": 0,
+              "phase": 0,
+              "original": true
+            },
+            "boatSurface": {
+              "heave": 0,
+              "pitch": 0,
+              "roll": 0
+            },
+            "waterFeedback": {
+              "capacity": 28,
+              "active": 0,
+              "emittedWake": 0,
+              "emittedPaddle": 0,
+              "reducedMotion": false,
+              "marks": []
+            },
+            "wetland": {
+              "modules": 5,
+              "reeds": 28,
+              "cobbleClusters": 12,
+              "deckTop": 0.9,
+              "clearWidth": 1.9,
+              "decimated": false
+            },
+            "travel": {
+              "version": 1,
+              "checkpoint": "main",
+              "visitedMist": false,
+              "foundPine": false,
+              "visitedAutumn": false,
+              "foundVista": false,
+              "visitedTide": false,
+              "foundPools": false
+            },
+            "fishing": null,
+            "fishingReady": true,
+            "fishBook": {
+              "count": 0,
+              "bestCm": 0,
+              "recent": [],
+              "kinds": {}
+            },
+            "garden": {
+              "version": 3,
+              "trees": []
+            },
+            "plot": null,
+            "growthReady": true,
+            "plantingElapsed": 0,
+            "growthVisual": null,
+            "farmReady": true,
+            "mealActive": false,
+            "farmBook": {
+              "version": 1,
+              "meals": 0
+            },
+            "feedingElapsed": 0,
+            "farmVisual": {
+              "animals": [
+                {
+                  "id": "hen",
+                  "x": 8.299273964644609,
+                  "z": 4.924720304884659,
+                  "yaw": -0.02936165286876491,
+                  "state": "idle",
+                  "eaten": 0,
+                  "wait": 2.1394999999999973,
+                  "target": 2,
+                  "clip": "idle",
+                  "clipTime": 0.36050000000000004
+                },
+                {
+                  "id": "sheep",
+                  "x": 9.583967892584697,
+                  "z": 6.814674395355007,
+                  "yaw": -0.03194479187136474,
+                  "state": "walk",
+                  "eaten": 0,
+                  "wait": 2.5,
+                  "target": 2,
+                  "clip": "walk",
+                  "clipTime": 0.8396000000238412
+                }
+              ],
+              "foodVisible": false,
+              "visibleGrains": 0,
+              "grainPositions": [
+                [
+                  9.23,
+                  0.25,
+                  3.975
+                ],
+                [
+                  9.255019408747254,
+                  0.25,
+                  3.922741438300272
+                ]
+              ],
+              "progress": 0
+            },
+            "location": "island",
+            "workshopTransfer": null,
+            "workshopReady": true,
+            "workshopBook": {
+              "version": 1,
+              "phase": "available"
+            },
+            "craft": null,
+            "gatheringElapsed": 0,
+            "workshopVisual": {
+              "inside": false,
+              "rawVisible": true,
+              "pieceVisible": false,
+              "dust": 0
+            },
+            "triangles": 1,
+            "calls": 1
+          },
+          {
+            "position": [
+              -14.039902035996162,
+              6.59060475549583,
+              -20.967186106804167
+            ],
+            "motion": "idle",
+            "ready": true,
+            "models": [
+              "raccoon",
+              "workshop",
+              "lookout",
+              "canoe"
+            ],
+            "animation": {
+              "clip": "idle",
+              "time": 0.011600000023841858
+            },
+            "homeBook": {
+              "version": 1,
+              "fish": [],
+              "usedCatchIds": [],
+              "nights": 0,
+              "fireLit": false
+            },
+            "homeReady": true,
+            "homeTransfer": null,
+            "sitting": null,
+            "sleepElapsed": 0,
+            "sleepJourney": null,
+            "timeOfDay": "day",
+            "mode": "walking",
+            "boatTransfer": null,
+            "boat": {
+              "x": 42.6,
+              "z": 2.15,
+              "heading": 0,
+              "speed": 0,
+              "phase": 0,
+              "effort": 0
+            },
+            "boatReady": true,
+            "dockReady": true,
+            "lookoutReady": true,
+            "lookoutTransfer": null,
+            "lookoutView": {
+              "yaw": -2.36,
+              "pitch": -0.22
+            },
+            "cameraPosition": [
+              -7.069580924667674,
+              10.36918782241881,
+              -27.803765559103027
+            ],
+            "orbit": {
+              "yaw": 2.356194490192345,
+              "targetYaw": 2.356194490192345,
+              "pitch": 0.31,
+              "targetPitch": 0.31,
+              "zoom": 1,
+              "targetZoom": 1,
+              "idle": null
+            },
+            "orbitDragging": false,
+            "movementHeading": -0.7853981633974483,
+            "inputDirection": null,
+            "characterYaw": -0.13173859828379128,
+            "playerVisible": true,
+            "canBoard": false,
+            "canLand": true,
+            "boatAnimation": {
+              "clip": "paddle",
+              "time": 0,
+              "phase": 0,
+              "original": true
+            },
+            "boatSurface": {
+              "heave": 0,
+              "pitch": 0,
+              "roll": 0
+            },
+            "waterFeedback": {
+              "capacity": 28,
+              "active": 0,
+              "emittedWake": 0,
+              "emittedPaddle": 0,
+              "reducedMotion": false,
+              "marks": []
+            },
+            "wetland": {
+              "modules": 5,
+              "reeds": 28,
+              "cobbleClusters": 12,
+              "deckTop": 0.9,
+              "clearWidth": 1.9,
+              "decimated": false
+            },
+            "travel": {
+              "version": 1,
+              "checkpoint": "main",
+              "visitedMist": false,
+              "foundPine": false,
+              "visitedAutumn": false,
+              "foundVista": false,
+              "visitedTide": false,
+              "foundPools": false
+            },
+            "fishing": null,
+            "fishingReady": true,
+            "fishBook": {
+              "count": 0,
+              "bestCm": 0,
+              "recent": [],
+              "kinds": {}
+            },
+            "garden": {
+              "version": 3,
+              "trees": []
+            },
+            "plot": null,
+            "growthReady": true,
+            "plantingElapsed": 0,
+            "growthVisual": null,
+            "farmReady": true,
+            "mealActive": false,
+            "farmBook": {
+              "version": 1,
+              "meals": 0
+            },
+            "feedingElapsed": 0,
+            "farmVisual": {
+              "animals": [
+                {
+                  "id": "hen",
+                  "x": 8.274457236195682,
+                  "z": 4.924208764476392,
+                  "yaw": 0.6222214255271422,
+                  "state": "walk",
+                  "eaten": 0,
+                  "wait": 2.5,
+                  "target": 3,
+                  "clip": "walk",
+                  "clipTime": 0.05910000002384186
+                },
+                {
+                  "id": "sheep",
+                  "x": 9.599224241790406,
+                  "z": 6.32490395536418,
+                  "yaw": -0.03113993255286098,
+                  "state": "idle",
+                  "eaten": 0,
+                  "wait": 1.7320000000000004,
+                  "target": 2,
+                  "clip": "idle",
+                  "clipTime": 0.7679999999999999
+                }
+              ],
+              "foodVisible": false,
+              "visibleGrains": 0,
+              "grainPositions": [
+                [
+                  9.23,
+                  0.25,
+                  3.975
+                ],
+                [
+                  9.255019408747254,
+                  0.25,
+                  3.922741438300272
+                ]
+              ],
+              "progress": 0
+            },
+            "location": "island",
+            "workshopTransfer": null,
+            "workshopReady": true,
+            "workshopBook": {
+              "version": 1,
+              "phase": "available"
+            },
+            "craft": null,
+            "gatheringElapsed": 0,
+            "workshopVisual": {
+              "inside": false,
+              "rawVisible": true,
+              "pieceVisible": false,
+              "dust": 0
+            },
+            "triangles": 1,
+            "calls": 1
+          },
+          {
+            "position": [
+              -14.038346400984828,
+              6.343948045795321,
+              -22.449159392619478
+            ],
+            "motion": "idle",
+            "ready": true,
+            "models": [
+              "raccoon",
+              "workshop",
+              "lookout",
+              "canoe"
+            ],
+            "animation": {
+              "clip": "idle",
+              "time": 0.010399999976158142
+            },
+            "homeBook": {
+              "version": 1,
+              "fish": [],
+              "usedCatchIds": [],
+              "nights": 0,
+              "fireLit": false
+            },
+            "homeReady": true,
+            "homeTransfer": null,
+            "sitting": null,
+            "sleepElapsed": 0,
+            "sleepJourney": null,
+            "timeOfDay": "day",
+            "mode": "walking",
+            "boatTransfer": null,
+            "boat": {
+              "x": 42.6,
+              "z": 2.15,
+              "heading": 0,
+              "speed": 0,
+              "phase": 0,
+              "effort": 0
+            },
+            "boatReady": true,
+            "dockReady": true,
+            "lookoutReady": true,
+            "lookoutTransfer": null,
+            "lookoutView": {
+              "yaw": -2.36,
+              "pitch": -0.22
+            },
+            "cameraPosition": [
+              -8.49148677760528,
+              9.606590004607446,
+              -27.863231580786863
+            ],
+            "orbit": {
+              "yaw": 2.356194490192345,
+              "targetYaw": 2.356194490192345,
+              "pitch": 0.31,
+              "targetPitch": 0.31,
+              "zoom": 1,
+              "targetZoom": 1,
+              "idle": null
+            },
+            "orbitDragging": false,
+            "movementHeading": -0.7853981633978167,
+            "inputDirection": null,
+            "characterYaw": -0.13629402460747528,
+            "playerVisible": true,
+            "canBoard": false,
+            "canLand": true,
+            "boatAnimation": {
+              "clip": "paddle",
+              "time": 0,
+              "phase": 0,
+              "original": true
+            },
+            "boatSurface": {
+              "heave": 0,
+              "pitch": 0,
+              "roll": 0
+            },
+            "waterFeedback": {
+              "capacity": 28,
+              "active": 0,
+              "emittedWake": 0,
+              "emittedPaddle": 0,
+              "reducedMotion": false,
+              "marks": []
+            },
+            "wetland": {
+              "modules": 5,
+              "reeds": 28,
+              "cobbleClusters": 12,
+              "deckTop": 0.9,
+              "clearWidth": 1.9,
+              "decimated": false
+            },
+            "travel": {
+              "version": 1,
+              "checkpoint": "main",
+              "visitedMist": false,
+              "foundPine": false,
+              "visitedAutumn": false,
+              "foundVista": false,
+              "visitedTide": false,
+              "foundPools": false
+            },
+            "fishing": null,
+            "fishingReady": true,
+            "fishBook": {
+              "count": 0,
+              "bestCm": 0,
+              "recent": [],
+              "kinds": {}
+            },
+            "garden": {
+              "version": 3,
+              "trees": []
+            },
+            "plot": null,
+            "growthReady": true,
+            "plantingElapsed": 0,
+            "growthVisual": null,
+            "farmReady": true,
+            "mealActive": false,
+            "farmBook": {
+              "version": 1,
+              "meals": 0
+            },
+            "feedingElapsed": 0,
+            "farmVisual": {
+              "animals": [
+                {
+                  "id": "hen",
+                  "x": 7.648034300764333,
+                  "z": 4.9112964805386765,
+                  "yaw": 1.5501851503743127,
+                  "state": "walk",
+                  "eaten": 0,
+                  "wait": 2.5,
+                  "target": 3,
+                  "clip": "walk",
+                  "clipTime": 0.1342333730459208
+                },
+                {
+                  "id": "sheep",
+                  "x": 9.599224241790406,
+                  "z": 6.32490395536418,
+                  "yaw": -0.03113993255286098,
+                  "state": "idle",
+                  "eaten": 0,
+                  "wait": 0.24020000004768538,
+                  "target": 2,
+                  "clip": "idle",
+                  "clipTime": 2.259799999952313
+                }
+              ],
+              "foodVisible": false,
+              "visibleGrains": 0,
+              "grainPositions": [
+                [
+                  9.23,
+                  0.25,
+                  3.975
+                ],
+                [
+                  9.255019408747254,
+                  0.25,
+                  3.922741438300272
+                ]
+              ],
+              "progress": 0
+            },
+            "location": "island",
+            "workshopTransfer": null,
+            "workshopReady": true,
+            "workshopBook": {
+              "version": 1,
+              "phase": "available"
+            },
+            "craft": null,
+            "gatheringElapsed": 0,
+            "workshopVisual": {
+              "inside": false,
+              "rawVisible": true,
+              "pieceVisible": false,
+              "dust": 0
+            },
+            "triangles": 1,
+            "calls": 1
+          },
+          {
+            "position": [
+              -14.041924361130732,
+              6.2002426415660485,
+              -23.996479710135787
+            ],
+            "motion": "idle",
+            "ready": true,
+            "models": [
+              "raccoon",
+              "workshop",
+              "lookout",
+              "canoe"
+            ],
+            "animation": {
+              "clip": "idle",
+              "time": 0.004699999928474426
+            },
+            "homeBook": {
+              "version": 1,
+              "fish": [],
+              "usedCatchIds": [],
+              "nights": 0,
+              "fireLit": false
+            },
+            "homeReady": true,
+            "homeTransfer": null,
+            "sitting": null,
+            "sleepElapsed": 0,
+            "sleepJourney": null,
+            "timeOfDay": "day",
+            "mode": "walking",
+            "boatTransfer": null,
+            "boat": {
+              "x": 42.6,
+              "z": 2.15,
+              "heading": 0,
+              "speed": 0,
+              "phase": 0,
+              "effort": 0
+            },
+            "boatReady": true,
+            "dockReady": true,
+            "lookoutReady": true,
+            "lookoutTransfer": null,
+            "lookoutView": {
+              "yaw": -2.36,
+              "pitch": -0.22
+            },
+            "cameraPosition": [
+              -12.978484763705678,
+              10.13918579309649,
+              -24.916012110061732
+            ],
+            "orbit": {
+              "yaw": 2.356194490192345,
+              "targetYaw": 2.356194490192345,
+              "pitch": 0.31,
+              "targetPitch": 0.31,
+              "zoom": 1,
+              "targetZoom": 1,
+              "idle": null
+            },
+            "orbitDragging": false,
+            "movementHeading": -0.7853981633979673,
+            "inputDirection": null,
+            "characterYaw": -0.07119786619108877,
+            "playerVisible": true,
+            "canBoard": false,
+            "canLand": true,
+            "boatAnimation": {
+              "clip": "paddle",
+              "time": 0,
+              "phase": 0,
+              "original": true
+            },
+            "boatSurface": {
+              "heave": 0,
+              "pitch": 0,
+              "roll": 0
+            },
+            "waterFeedback": {
+              "capacity": 28,
+              "active": 0,
+              "emittedWake": 0,
+              "emittedPaddle": 0,
+              "reducedMotion": false,
+              "marks": []
+            },
+            "wetland": {
+              "modules": 5,
+              "reeds": 28,
+              "cobbleClusters": 12,
+              "deckTop": 0.9,
+              "clearWidth": 1.9,
+              "decimated": false
+            },
+            "travel": {
+              "version": 1,
+              "checkpoint": "main",
+              "visitedMist": false,
+              "foundPine": false,
+              "visitedAutumn": false,
+              "foundVista": false,
+              "visitedTide": false,
+              "foundPools": false
+            },
+            "fishing": null,
+            "fishingReady": true,
+            "fishBook": {
+              "count": 0,
+              "bestCm": 0,
+              "recent": [],
+              "kinds": {}
+            },
+            "garden": {
+              "version": 3,
+              "trees": []
+            },
+            "plot": null,
+            "growthReady": true,
+            "plantingElapsed": 0,
+            "growthVisual": null,
+            "farmReady": true,
+            "mealActive": false,
+            "farmBook": {
+              "version": 1,
+              "meals": 0
+            },
+            "feedingElapsed": 0,
+            "farmVisual": {
+              "animals": [
+                {
+                  "id": "hen",
+                  "x": 7.124783449523637,
+                  "z": 4.90051085443892,
+                  "yaw": 1.5501865199978424,
+                  "state": "idle",
+                  "eaten": 0,
+                  "wait": 2.2396000000238385,
+                  "target": 3,
+                  "clip": "idle",
+                  "clipTime": 0.2603999999761581
+                },
+                {
+                  "id": "sheep",
+                  "x": 9.171104102906375,
+                  "z": 6.315204492393891,
+                  "yaw": 1.548125405942953,
+                  "state": "walk",
+                  "eaten": 0,
+                  "wait": 2.5,
+                  "target": 3,
+                  "clip": "walk",
+                  "clipTime": 0.13449999999999923
+                }
+              ],
+              "foodVisible": false,
+              "visibleGrains": 0,
+              "grainPositions": [
+                [
+                  9.23,
+                  0.25,
+                  3.975
+                ],
+                [
+                  9.255019408747254,
+                  0.25,
+                  3.922741438300272
+                ]
+              ],
+              "progress": 0
+            },
+            "location": "island",
+            "workshopTransfer": null,
+            "workshopReady": true,
+            "workshopBook": {
+              "version": 1,
+              "phase": "available"
+            },
+            "craft": null,
+            "gatheringElapsed": 0,
+            "workshopVisual": {
+              "inside": false,
+              "rawVisible": true,
+              "pieceVisible": false,
+              "dust": 0
+            },
+            "triangles": 1,
+            "calls": 1
+          }
+        ],
+        "state": {
+          "position": [
+            0,
+            0,
+            1.1
+          ],
+          "motion": "idle",
+          "ready": true,
+          "models": [
+            "raccoon",
+            "workshop",
+            "lookout",
+            "canoe"
+          ],
+          "animation": {
+            "clip": "idle",
+            "time": 1.4428000000715242
+          },
+          "homeBook": {
+            "version": 1,
+            "fish": [],
+            "usedCatchIds": [],
+            "nights": 0,
+            "fireLit": false
+          },
+          "homeReady": true,
+          "homeTransfer": null,
+          "sitting": null,
+          "sleepElapsed": 0,
+          "sleepJourney": null,
+          "timeOfDay": "day",
+          "mode": "walking",
+          "boatTransfer": null,
+          "boat": {
+            "x": 42.6,
+            "z": 2.15,
+            "heading": 0,
+            "speed": 0,
+            "phase": 0,
+            "effort": 0
+          },
+          "boatReady": true,
+          "dockReady": true,
+          "lookoutReady": true,
+          "lookoutTransfer": null,
+          "lookoutView": {
+            "yaw": -2.36,
+            "pitch": -0.22
+          },
+          "cameraPosition": [
+            0,
+            1.9807976166671377,
+            2.564706701830995
+          ],
+          "orbit": {
+            "yaw": 0,
+            "targetYaw": 0,
+            "pitch": 0.31,
+            "targetPitch": 0.31,
+            "zoom": 1,
+            "targetZoom": 1,
+            "idle": null
+          },
+          "orbitDragging": false,
+          "movementHeading": 0,
+          "inputDirection": null,
+          "characterYaw": 0,
+          "playerVisible": true,
+          "canBoard": false,
+          "canLand": true,
+          "boatAnimation": {
+            "clip": "paddle",
+            "time": 0,
+            "phase": 0,
+            "original": true
+          },
+          "boatSurface": {
+            "heave": 0,
+            "pitch": 0,
+            "roll": 0
+          },
+          "waterFeedback": {
+            "capacity": 28,
+            "active": 0,
+            "emittedWake": 0,
+            "emittedPaddle": 0,
+            "reducedMotion": false,
+            "marks": []
+          },
+          "wetland": {
+            "modules": 5,
+            "reeds": 28,
+            "cobbleClusters": 12,
+            "deckTop": 0.9,
+            "clearWidth": 1.9,
+            "decimated": false
+          },
+          "travel": {
+            "version": 1,
+            "checkpoint": "main",
+            "visitedMist": false,
+            "foundPine": false,
+            "visitedAutumn": false,
+            "foundVista": false,
+            "visitedTide": false,
+            "foundPools": false
+          },
+          "fishing": null,
+          "fishingReady": true,
+          "fishBook": {
+            "count": 0,
+            "bestCm": 0,
+            "recent": [],
+            "kinds": {}
+          },
+          "garden": {
+            "version": 3,
+            "trees": []
+          },
+          "plot": null,
+          "growthReady": true,
+          "plantingElapsed": 0,
+          "growthVisual": null,
+          "farmReady": true,
+          "mealActive": false,
+          "farmBook": {
+            "version": 1,
+            "meals": 0
+          },
+          "feedingElapsed": 0,
+          "farmVisual": {
+            "animals": [
+              {
+                "id": "hen",
+                "x": 7.122283580406378,
+                "z": 4.981154116897803,
+                "yaw": 2.8336614033151104,
+                "state": "walk",
+                "eaten": 0,
+                "wait": 2.5,
+                "target": 0,
+                "clip": "walk",
+                "clipTime": 0.19210000002384184
+              },
+              {
+                "id": "sheep",
+                "x": 8.524216102651971,
+                "z": 6.300548638500323,
+                "yaw": 1.5481442647916512,
+                "state": "idle",
+                "eaten": 0,
+                "wait": 1.957699999928473,
+                "target": 3,
+                "clip": "idle",
+                "clipTime": 0.5423000000715257
+              }
+            ],
+            "foodVisible": false,
+            "visibleGrains": 0,
+            "grainPositions": [
+              [
+                9.23,
+                0.25,
+                3.975
+              ],
+              [
+                9.255019408747254,
+                0.25,
+                3.922741438300272
+              ]
+            ],
+            "progress": 0
+          },
+          "location": "bedroom",
+          "workshopTransfer": null,
+          "workshopReady": true,
+          "workshopBook": {
+            "version": 1,
+            "phase": "available"
+          },
+          "craft": null,
+          "gatheringElapsed": 0,
+          "workshopVisual": {
+            "inside": false,
+            "rawVisible": true,
+            "pieceVisible": false,
+            "dust": 0
+          },
+          "triangles": 1,
+          "calls": 1
+        }
+      }
+    },
+    {
+      "name": "bedroom furniture navigation and early waking",
+      "data": {
+        "position": [
+          -14.917504035216936,
+          6.292775777169506,
+          -24.41307874126547
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.8948000000715252
+        },
+        "homeBook": {
+          "version": 1,
+          "fish": [],
+          "usedCatchIds": [],
+          "nights": 1,
+          "fireLit": false
+        },
+        "homeReady": true,
+        "homeTransfer": null,
+        "sitting": null,
+        "sleepElapsed": 0,
+        "sleepJourney": null,
+        "timeOfDay": "night",
+        "mode": "walking",
+        "boatTransfer": null,
+        "boat": {
+          "x": 42.6,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "dockReady": true,
+        "lookoutReady": true,
+        "lookoutTransfer": null,
+        "lookoutView": {
+          "yaw": -2.36,
+          "pitch": -0.22
+        },
+        "cameraPosition": [
+          -18.558094844694146,
+          8.431741547117905,
+          -17.74902196473824
+        ],
+        "orbit": {
+          "yaw": -0.5000000000000002,
+          "targetYaw": -0.5000000000000002,
+          "pitch": 0.31,
+          "targetPitch": 0.31,
+          "zoom": 1,
+          "targetZoom": 1,
+          "idle": null
+        },
+        "orbitDragging": false,
+        "movementHeading": 3.141592653589793,
+        "inputDirection": null,
+        "characterYaw": 3.141592653589793,
+        "playerVisible": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "boatSurface": {
+          "heave": 0,
+          "pitch": 0,
+          "roll": 0
+        },
+        "waterFeedback": {
+          "capacity": 28,
+          "active": 0,
+          "emittedWake": 0,
+          "emittedPaddle": 0,
+          "reducedMotion": false,
+          "marks": []
+        },
+        "wetland": {
+          "modules": 5,
+          "reeds": 28,
+          "cobbleClusters": 12,
+          "deckTop": 0.9,
+          "clearWidth": 1.9,
+          "decimated": false
+        },
+        "travel": {
+          "version": 1,
+          "checkpoint": "main",
+          "visitedMist": false,
+          "foundPine": false,
+          "visitedAutumn": false,
+          "foundVista": false,
+          "visitedTide": false,
+          "foundPools": false
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": [],
+          "kinds": {}
+        },
+        "garden": {
+          "version": 3,
+          "trees": []
+        },
+        "plot": null,
+        "growthReady": true,
+        "plantingElapsed": 0,
+        "growthVisual": null,
+        "farmReady": true,
+        "mealActive": false,
+        "farmBook": {
+          "version": 1,
+          "meals": 0
+        },
+        "feedingElapsed": 0,
+        "farmVisual": {
+          "animals": [
+            {
+              "id": "hen",
+              "x": 8.297092315954346,
+              "z": 4.996239202300601,
+              "yaw": 6.252980959236623,
+              "state": "walk",
+              "eaten": 0,
+              "wait": 2.5,
+              "target": 2,
+              "clip": "walk",
+              "clipTime": 0.25853337311744645
+            },
+            {
+              "id": "sheep",
+              "x": 9.575217889184325,
+              "z": 7.099440653699068,
+              "yaw": 4.689822244587251,
+              "state": "idle",
+              "eaten": 0,
+              "wait": 1.2707999999523214,
+              "target": 1,
+              "clip": "idle",
+              "clipTime": 1.229200000047684
+            }
+          ],
+          "foodVisible": false,
+          "visibleGrains": 0,
+          "grainPositions": [
+            [
+              9.23,
+              0.25,
+              3.975
+            ],
+            [
+              9.255019408747254,
+              0.25,
+              3.922741438300272
+            ]
+          ],
+          "progress": 0
+        },
+        "location": "island",
+        "workshopTransfer": null,
+        "workshopReady": true,
+        "workshopBook": {
+          "version": 1,
+          "phase": "available"
+        },
+        "craft": null,
+        "gatheringElapsed": 0,
+        "workshopVisual": {
+          "inside": false,
+          "rawVisible": true,
+          "pieceVisible": false,
+          "dust": 0
+        },
+        "triangles": 1,
+        "calls": 1
+      }
+    },
+    {
+      "name": "new dock boarding, rowing and returning",
+      "data": {
+        "position": [
+          42.6,
+          0.12,
+          0.8
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 8.343300000190725
+        },
+        "homeBook": {
+          "version": 1,
+          "fish": [],
+          "usedCatchIds": [],
+          "nights": 1,
+          "fireLit": false
+        },
+        "homeReady": true,
+        "homeTransfer": null,
+        "sitting": null,
+        "sleepElapsed": 0,
+        "sleepJourney": null,
+        "timeOfDay": "night",
+        "mode": "walking",
+        "boatTransfer": null,
+        "boat": {
+          "x": 42.6,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.1982386833873484
+        },
+        "boatReady": true,
+        "dockReady": true,
+        "lookoutReady": true,
+        "lookoutTransfer": null,
+        "lookoutView": {
+          "yaw": -2.36,
+          "pitch": -0.22
+        },
+        "cameraPosition": [
+          42.6,
+          5.9460923771517145,
+          -8.185454658298456
+        ],
+        "orbit": {
+          "yaw": 3.141592653589793,
+          "targetYaw": 3.141592653589793,
+          "pitch": 0.31,
+          "targetPitch": 0.31,
+          "zoom": 1,
+          "targetZoom": 1,
+          "idle": null
+        },
+        "orbitDragging": false,
+        "movementHeading": 3.141592653589793,
+        "inputDirection": null,
+        "characterYaw": 3.141592653589793,
+        "playerVisible": true,
+        "canBoard": true,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0.1982386833873484,
+          "phase": 0.1982386833873484,
+          "original": true
+        },
+        "boatSurface": {
+          "heave": 0,
+          "pitch": 0,
+          "roll": 0
+        },
+        "waterFeedback": {
+          "capacity": 28,
+          "active": 4,
+          "emittedWake": 8,
+          "emittedPaddle": 0,
+          "reducedMotion": false,
+          "marks": [
+            {
+              "x": 45.08582331037284,
+              "z": 2.15,
+              "age": 2.3956000000238387,
+              "kind": "wake"
+            },
+            {
+              "x": 44.80231473430001,
+              "z": 2.15,
+              "age": 1.9473000000715237,
+              "kind": "wake"
+            },
+            {
+              "x": 44.51603953018379,
+              "z": 2.15,
+              "age": 1.503200000047683,
+              "kind": "wake"
+            },
+            {
+              "x": 44.23578267632424,
+              "z": 2.15,
+              "age": 0.9476000000238411,
+              "kind": "wake"
+            }
+          ]
+        },
+        "wetland": {
+          "modules": 5,
+          "reeds": 28,
+          "cobbleClusters": 12,
+          "deckTop": 0.9,
+          "clearWidth": 1.9,
+          "decimated": false
+        },
+        "travel": {
+          "version": 1,
+          "checkpoint": "main",
+          "visitedMist": false,
+          "foundPine": false,
+          "visitedAutumn": false,
+          "foundVista": false,
+          "visitedTide": false,
+          "foundPools": false
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 0,
+          "bestCm": 0,
+          "recent": [],
+          "kinds": {}
+        },
+        "garden": {
+          "version": 3,
+          "trees": []
+        },
+        "plot": null,
+        "growthReady": true,
+        "plantingElapsed": 0,
+        "growthVisual": null,
+        "farmReady": true,
+        "mealActive": false,
+        "farmBook": {
+          "version": 1,
+          "meals": 0
+        },
+        "feedingElapsed": 0,
+        "farmVisual": {
+          "animals": [
+            {
+              "id": "hen",
+              "x": 7.123723512219529,
+              "z": 4.900468745968396,
+              "yaw": 7.8342254959174324,
+              "state": "idle",
+              "eaten": 0,
+              "wait": 0.5308999999761596,
+              "target": 3,
+              "clip": "idle",
+              "clipTime": 1.9691000000238401
+            },
+            {
+              "id": "sheep",
+              "x": 9.131710923718533,
+              "z": 6.3143399805403675,
+              "yaw": 7.831278661924511,
+              "state": "walk",
+              "eaten": 0,
+              "wait": 2.5,
+              "target": 3,
+              "clip": "walk",
+              "clipTime": 0.25039999997615836
+            }
+          ],
+          "foodVisible": false,
+          "visibleGrains": 0,
+          "grainPositions": [
+            [
+              9.23,
+              0.25,
+              3.975
+            ],
+            [
+              9.255019408747254,
+              0.25,
+              3.922741438300272
+            ]
+          ],
+          "progress": 0
+        },
+        "location": "island",
+        "workshopTransfer": null,
+        "workshopReady": true,
+        "workshopBook": {
+          "version": 1,
+          "phase": "available"
+        },
+        "craft": null,
+        "gatheringElapsed": 0,
+        "workshopVisual": {
+          "inside": false,
+          "rawVisible": true,
+          "pieceVisible": false,
+          "dust": 0
+        },
+        "triangles": 1,
+        "calls": 1
+      }
+    },
+    {
+      "name": "fish caught through F and tension controls becomes a resident",
+      "data": {
+        "position": [
+          1.9075579322655654,
+          0,
+          -0.22774793210820354
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.9632000000476835
+        },
+        "homeBook": {
+          "version": 1,
+          "fish": [
+            {
+              "sizeCm": 24,
+              "at": "2026-11-02T14:10:35.131Z",
+              "species": "koi",
+              "id": "2026-11-02T14:10:35.131Z:24"
+            }
+          ],
+          "usedCatchIds": [
+            "2026-11-02T14:10:35.131Z:24"
+          ],
+          "nights": 1,
+          "fireLit": false
+        },
+        "homeReady": true,
+        "homeTransfer": null,
+        "sitting": null,
+        "sleepElapsed": 0,
+        "sleepJourney": null,
+        "timeOfDay": "night",
+        "mode": "walking",
+        "boatTransfer": null,
+        "boat": {
+          "x": 42.6,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.1982386833873484
+        },
+        "boatReady": true,
+        "dockReady": true,
+        "lookoutReady": true,
+        "lookoutTransfer": null,
+        "lookoutView": {
+          "yaw": -2.36,
+          "pitch": -0.22
+        },
+        "cameraPosition": [
+          1.9073934605453255,
+          1.9807976166671377,
+          2.5647067018309944
+        ],
+        "orbit": {
+          "yaw": 0,
+          "targetYaw": 0,
+          "pitch": 0.31,
+          "targetPitch": 0.31,
+          "zoom": 1,
+          "targetZoom": 1,
+          "idle": null
+        },
+        "orbitDragging": false,
+        "movementHeading": -1.5707963267948966,
+        "inputDirection": null,
+        "characterYaw": -1.5707951556717359,
+        "playerVisible": true,
+        "canBoard": false,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0.1982386833873484,
+          "phase": 0.1982386833873484,
+          "original": true
+        },
+        "boatSurface": {
+          "heave": 0,
+          "pitch": 0,
+          "roll": 0
+        },
+        "waterFeedback": {
+          "capacity": 28,
+          "active": 0,
+          "emittedWake": 8,
+          "emittedPaddle": 0,
+          "reducedMotion": false,
+          "marks": []
+        },
+        "wetland": {
+          "modules": 5,
+          "reeds": 28,
+          "cobbleClusters": 12,
+          "deckTop": 0.9,
+          "clearWidth": 1.9,
+          "decimated": false
+        },
+        "travel": {
+          "version": 1,
+          "checkpoint": "main",
+          "visitedMist": false,
+          "foundPine": false,
+          "visitedAutumn": false,
+          "foundVista": false,
+          "visitedTide": false,
+          "foundPools": false
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 1,
+          "bestCm": 24,
+          "recent": [
+            {
+              "sizeCm": 24,
+              "at": "2026-11-02T14:10:35.131Z",
+              "species": "koi"
+            }
+          ],
+          "kinds": {
+            "koi": {
+              "count": 1,
+              "bestCm": 24
+            }
+          }
+        },
+        "fishingVisual": {
+          "grip": [
+            1.6769711020604692,
+            0.7242597063367489,
+            -5.006195350482104
+          ],
+          "rod": [
+            1.6769711020604692,
+            0.7242597063367489,
+            -5.006195350482104
+          ],
+          "tip": [
+            2.6121640247652413,
+            0.8872304744511109,
+            -5.043001646320665
+          ],
+          "float": [
+            2.6121640247652413,
+            0.4372304744511109,
+            -5.043001646320665
+          ],
+          "fishVisible": true
+        },
+        "garden": {
+          "version": 3,
+          "trees": []
+        },
+        "plot": null,
+        "growthReady": true,
+        "plantingElapsed": 0,
+        "growthVisual": null,
+        "farmReady": true,
+        "mealActive": false,
+        "farmBook": {
+          "version": 1,
+          "meals": 0
+        },
+        "feedingElapsed": 0,
+        "farmVisual": {
+          "animals": [
+            {
+              "id": "hen",
+              "x": 7.119336089503769,
+              "z": 5.675957825737865,
+              "yaw": 16.19759299904322,
+              "state": "walk",
+              "eaten": 0,
+              "wait": 2.5,
+              "target": 1,
+              "clip": "walk",
+              "clipTime": 0.04429999995231629
+            },
+            {
+              "id": "sheep",
+              "x": 8.524603328815356,
+              "z": 6.300557633898177,
+              "yaw": 14.11450584329769,
+              "state": "idle",
+              "eaten": 0,
+              "wait": 0.9419999999999991,
+              "target": 3,
+              "clip": "idle",
+              "clipTime": 1.5579999999999994
+            }
+          ],
+          "foodVisible": false,
+          "visibleGrains": 0,
+          "grainPositions": [
+            [
+              9.23,
+              0.25,
+              3.975
+            ],
+            [
+              9.255019408747254,
+              0.25,
+              3.922741438300272
+            ]
+          ],
+          "progress": 0
+        },
+        "location": "bedroom",
+        "workshopTransfer": null,
+        "workshopReady": true,
+        "workshopBook": {
+          "version": 1,
+          "phase": "available"
+        },
+        "craft": null,
+        "gatheringElapsed": 0,
+        "workshopVisual": {
+          "inside": false,
+          "rawVisible": true,
+          "pieceVisible": false,
+          "dust": 0
+        },
+        "triangles": 1,
+        "calls": 1
+      }
+    },
+    {
+      "name": "aquarium resident survives reload",
+      "data": {
+        "position": [
+          42.6,
+          0.12,
+          0.8
+        ],
+        "motion": "idle",
+        "ready": true,
+        "models": [
+          "raccoon",
+          "workshop",
+          "lookout",
+          "canoe"
+        ],
+        "animation": {
+          "clip": "idle",
+          "time": 0.1
+        },
+        "homeBook": {
+          "version": 1,
+          "fish": [
+            {
+              "sizeCm": 24,
+              "at": "2026-11-02T14:10:35.131Z",
+              "species": "koi",
+              "id": "2026-11-02T14:10:35.131Z:24"
+            }
+          ],
+          "usedCatchIds": [
+            "2026-11-02T14:10:35.131Z:24"
+          ],
+          "nights": 1,
+          "fireLit": false
+        },
+        "homeReady": true,
+        "homeTransfer": null,
+        "sitting": null,
+        "sleepElapsed": 0,
+        "sleepJourney": null,
+        "timeOfDay": "night",
+        "mode": "walking",
+        "boatTransfer": null,
+        "boat": {
+          "x": 42.6,
+          "z": 2.15,
+          "heading": 0,
+          "speed": 0,
+          "phase": 0,
+          "effort": 0
+        },
+        "boatReady": true,
+        "dockReady": true,
+        "lookoutReady": true,
+        "lookoutTransfer": null,
+        "lookoutView": {
+          "yaw": -2.36,
+          "pitch": -0.22
+        },
+        "cameraPosition": [
+          30.052905522692313,
+          5.067493532257678,
+          0.5266257451616339
+        ],
+        "orbit": {
+          "yaw": 2.356194490192345,
+          "targetYaw": 2.356194490192345,
+          "pitch": 0.31,
+          "targetPitch": 0.31,
+          "zoom": 1,
+          "targetZoom": 1,
+          "idle": null
+        },
+        "orbitDragging": false,
+        "movementHeading": 2.356194490192345,
+        "inputDirection": null,
+        "characterYaw": 2.356194490192345,
+        "playerVisible": true,
+        "canBoard": true,
+        "canLand": true,
+        "boatAnimation": {
+          "clip": "paddle",
+          "time": 0,
+          "phase": 0,
+          "original": true
+        },
+        "boatSurface": {
+          "heave": 0,
+          "pitch": 0,
+          "roll": 0
+        },
+        "waterFeedback": {
+          "capacity": 28,
+          "active": 0,
+          "emittedWake": 0,
+          "emittedPaddle": 0,
+          "reducedMotion": false,
+          "marks": []
+        },
+        "wetland": {
+          "modules": 5,
+          "reeds": 28,
+          "cobbleClusters": 12,
+          "deckTop": 0.9,
+          "clearWidth": 1.9,
+          "decimated": false
+        },
+        "travel": {
+          "version": 1,
+          "checkpoint": "main",
+          "visitedMist": false,
+          "foundPine": false,
+          "visitedAutumn": false,
+          "foundVista": false,
+          "visitedTide": false,
+          "foundPools": false
+        },
+        "fishing": null,
+        "fishingReady": true,
+        "fishBook": {
+          "count": 1,
+          "bestCm": 24,
+          "recent": [
+            {
+              "sizeCm": 24,
+              "at": "2026-11-02T14:10:35.131Z",
+              "species": "koi"
+            }
+          ],
+          "kinds": {
+            "koi": {
+              "count": 1,
+              "bestCm": 24
+            }
+          }
+        },
+        "garden": {
+          "version": 3,
+          "trees": []
+        },
+        "plot": null,
+        "growthReady": true,
+        "plantingElapsed": 0,
+        "growthVisual": null,
+        "farmReady": true,
+        "mealActive": false,
+        "farmBook": {
+          "version": 1,
+          "meals": 0
+        },
+        "feedingElapsed": 0,
+        "farmVisual": {
+          "animals": [
+            {
+              "id": "hen",
+              "x": 7.145569999999999,
+              "z": 5.7,
+              "yaw": -0.979192035647219,
+              "state": "walk",
+              "eaten": 0,
+              "wait": 1,
+              "target": 1,
+              "clip": "walk",
+              "clipTime": 0.1
+            },
+            {
+              "id": "sheep",
+              "x": 8.53689,
+              "z": 7.1,
+              "yaw": -0.979192035647219,
+              "state": "walk",
+              "eaten": 0,
+              "wait": 2,
+              "target": 1,
+              "clip": "walk",
+              "clipTime": 0.1
+            }
+          ],
+          "foodVisible": false,
+          "visibleGrains": 0,
+          "grainPositions": [
+            [
+              9.23,
+              0.25,
+              3.975
+            ],
+            [
+              9.255019408747254,
+              0.25,
+              3.922741438300272
+            ]
+          ],
+          "progress": 0
+        },
+        "location": "island",
+        "workshopTransfer": null,
+        "workshopReady": false,
+        "workshopBook": {
+          "version": 1,
+          "phase": "available"
+        },
+        "craft": null,
+        "gatheringElapsed": 0,
+        "triangles": 12,
+        "calls": 1
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-crossing-bridge.png",
+    "02-cabin-door.png",
+    "03-sleep-live-camera.png",
+    "04-tank-live-camera.png",
+    "05-highland-lookout.png",
+    "06-expanded-coast-rowing.png",
+    "07-real-catch.png",
+    "08-actual-catch-in-aquarium.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  }
+}

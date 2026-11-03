@@ -1,5 +1,5 @@
 import {furnitureAt} from './furniture'
-import {cabin,camp,seats,reefs,bridge,creekDistance,onBridge,bridgeHeight} from './expansion'
+import {cabin,camp,seats,reefs,bridge,creekDistance,creekPoolDistance,creekFalls,poolWadeDepth,onCreekFord,fordHeight,onBridge,bridgeHeight} from './expansion'
 import { lookoutPosition, modelAssets, workshopPosition } from '../world/assets'
 import { terrainHeight, pathEdgeDistance } from '../world/terrain'
 import {onWestBoardwalk,westBoardwalk,westWetland,westWetlandRadius} from '../world/westExpansion'
@@ -21,7 +21,7 @@ const radius = .28
 export const dockDeckHeight = coastalDock.deckY
 
 export function groundHeightAt(x: number, z: number): number {
-  return onWestBoardwalk(x,z)?westBoardwalk.y:onBridge(x,z) ? bridgeHeight(z) : isDockSurface(x,z) ? dockDeckHeight : terrainHeight(x,z)
+  return onWestBoardwalk(x,z)?westBoardwalk.y:onBridge(x,z) ? bridgeHeight(z) : isDockSurface(x,z) ? dockDeckHeight : onCreekFord(x,z) ? fordHeight(x,terrainHeight(x,z)) : terrainHeight(x,z)
 }
 // Cabin and workshop footprints are measured from the drawn models in the raccoon's body band
 // (scripts/audit_collisions.mjs), not from their bounding sizes, so walls stop the raccoon where they stand.
@@ -100,7 +100,9 @@ export function standBlocker(x: number, z: number,trees:readonly Trunk[]=[],work
   if(trees.some(t=>Math.hypot(x-t.x,z-t.z)<radius+t.r))return 'planted tree'
   const wood=workshopPhase==='available'?woodSpot:null
   if(wood&&Math.hypot(x-wood.x,z-wood.z)<radius+.43)return 'old stump'
-  if(creekDistance(x,z)<1.45&&!onBridge(x,z,.28))return 'terrain:creek'
+  // The stream itself stays out of bounds; the plunge pool can be waded at its shallow rim.
+  const pool=creekPoolDistance(x,z)<creekFalls.pool.radius+.5
+  if((pool?creekFalls.pool.water-terrainHeight(x,z)>poolWadeDepth:creekDistance(x,z)<1.45)&&!onBridge(x,z,.28)&&!onCreekFord(x,z))return 'terrain:creek'
   if(Math.hypot(x-camp.x,z-camp.z)<1.05)return 'campfire'
   // Each reef's ellipse fits the rock that stands above its own patch of sand (foot: u0,u1,w0,w1 in its frame).
   if(reefs.some(r=>{const dx=x-r.x,dz=z-r.z,[u0,u1,w0,w1]=r.foot,u=(dx*Math.cos(r.yaw)-dz*Math.sin(r.yaw)-(u0+u1)/2)/((u1-u0)/2+radius),v=(dx*Math.sin(r.yaw)+dz*Math.cos(r.yaw)-(w0+w1)/2)/((w1-w0)/2+radius);return u*u+v*v<1}))return 'reef'
@@ -110,7 +112,10 @@ export function standBlocker(x: number, z: number,trees:readonly Trunk[]=[],work
   if(seats.some(s=>{const dx=x-s.x,dz=z-s.z;return Math.abs(dx*Math.cos(s.yaw)-dz*Math.sin(s.yaw))<1.2&&Math.abs(dx*Math.sin(s.yaw)+dz*Math.cos(s.yaw))<.53}))return 'bench'
   if(inTidePool(x,z,radius))return 'terrain:tide-pool'
   const onDock=isDockSurface(x,z,radius)
-  if(!onDock&&!onBridge(x,z)&&!onWestBoardwalk(x,z,.28)){const h=terrainHeight(x,z);if(h<seaLevel+.16||westWetlandRadius(x,z)<1.35&&h<westWetland.waterY+.16)return 'terrain:water';const slope=Math.hypot(terrainHeight(x+.15,z)-terrainHeight(x-.15,z),terrainHeight(x,z+.15)-terrainHeight(x,z-.15))/.3;if(slope>.85)return 'terrain:slope'}
+  if(!onDock&&!onBridge(x,z)&&!onWestBoardwalk(x,z,.28)){
+    // On the ford the stones are the ground: measure water and slope on their surface, not the stream bed.
+    const ford=onCreekFord(x,z),ground=(gx:number,gz:number)=>ford?fordHeight(gx,terrainHeight(gx,gz)):terrainHeight(gx,gz)
+    const h=ground(x,z);if(h<seaLevel+.16||westWetlandRadius(x,z)<1.35&&h<westWetland.waterY+.16)return 'terrain:water';const slope=Math.hypot(ground(x+.15,z)-ground(x-.15,z),ground(x,z+.15)-ground(x,z-.15))/.3;if(slope>.85)return 'terrain:slope'}
   if (!onDock && pondEdgeDistance(x,z)<radius) return 'terrain:pond'
   if(dockPosts.some(p=>Math.hypot(x-p.x,z-p.z)<radius+p.r))return 'dock post'
   for (const box of boxes) {

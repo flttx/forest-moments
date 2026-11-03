@@ -39,7 +39,9 @@ export function AutumnIsland(){
     shoreRock*=1.0+(slab.x-.5)*.34*joints;shoreRock*=1.0-slab.y*.5*joints;
     shoreRock=mix(shoreRock,vec3(.58,.40,.17),smoothstep(.66,.8,noise21(p*2.4+5.0))*smoothstep(.3,.8,noise21(p*4.0))*.5);
     shoreRock=mix(shoreRock,vec3(.18,.21,.13),(1.0-smoothstep(.0,.35,vAutumn.y))*.45);
-    colour=mix(colour,mix(shoreRock,vec3(.46,.39,.27)*(.88+fleck*.15),cove),sand);
+    // The cove keeps its old waterline strip of sand; above it the jetty slope is rock like the rest of the shore.
+    float beach=cove*smoothstep(.81,1.02,autumnRadius(p)+(noise21(p*.9)-.5)*.055)*(1.0-smoothstep(.4,1.7,vAutumn.y));
+    colour=mix(colour,shoreRock,sand);colour=mix(colour,vec3(.46,.39,.27)*(.88+fleck*.15),beach);
     float cliff=smoothstep(.18,.5,1.0-normalize(vAutumnNormal).y);
     // Broken mineral seams join the embedded kit rocks to the exposed coastal slope.
     float strata=sin((vAutumn.y+noise21(p*.6)*.32)*12.0+noise21(p*2.5)*1.8);

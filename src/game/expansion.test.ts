@@ -1,10 +1,10 @@
 import {beforeEach,afterEach,it,expect,vi} from 'vitest'
-import {cabin,camp,seats,seatOrigin,bridge,bridgeHeight,creekZ,bedSpot,tankSpot,canStandInBedroom,moveInBedroom,decodeHome,emptyHome,addCatch,catchId,latestCatchChoice,expansionStorageKey} from './expansion'
+import {cabin,camp,seats,seatOrigin,bridge,bridgeHeight,creekZ,creekWaterY,creekFord,fallsTrail,creekFalls,poolWadeDepth,bedSpot,tankSpot,canStandInBedroom,moveInBedroom,decodeHome,emptyHome,addCatch,catchId,latestCatchChoice,expansionStorageKey} from './expansion'
 import {canStandAt,moveOnGround,groundHeightAt} from './movement'
 import {lookoutEntry} from './lookout'
 import {workshopDoor} from './workshop'
 import {terrainHeight,highlandPaths} from '../world/terrain'
-import {shorelineRadius,landformHeight,seaLevel,landing} from '../world/worldConfig'
+import {shorelineRadius,landformHeight,seaLevel,landing,unwarpPath} from '../world/worldConfig'
 import {sleepDuration} from './dayCycle'
 let memory:Map<string,string>
 beforeEach(()=>{vi.resetModules();memory=new Map();vi.stubGlobal('window',{location:{search:''},localStorage:{getItem:(k:string)=>memory.get(k)??null,setItem:(k:string,v:string)=>memory.set(k,v)}})})
@@ -23,14 +23,29 @@ it('connects all new and existing destinations over walkable terrain without cro
    visited[next]=1;queue.push(next)
   }
  }
- const targets=[['cabin',{x:cabin.x,z:cabin.doorZ}],['tower',lookoutEntry],['dock',landing],['workshop',workshopDoor],['fishing',{x:1.5,z:-5}],['farm',{x:8,z:4.3}],['camp',{x:camp.x,z:camp.z-1.5}],...seats.map(s=>[s.id,seatOrigin(s)] as const)] as const
+ const targets=[['cabin',{x:cabin.x,z:cabin.doorZ}],['tower',lookoutEntry],['dock',landing],['workshop',workshopDoor],['fishing',{x:1.5,z:-5}],['farm',{x:8,z:4.3}],['camp',{x:camp.x,z:camp.z-1.5}],...seats.map(s=>[s.id,seatOrigin(s)] as const),
+  // Down the footpath to the gorge floor and into the pool's shallows below the falls.
+  ['gorge floor',{x:fallsTrail[4][0],z:fallsTrail[4][1]}],['pool shallows',{x:-30.62,z:-16.76}],
+  // Over the stone ford to the pebble bank on the far side of the stream.
+  ['north gorge bank',{x:-35,z:-19.6}]] as const
  for(const [name,p] of targets){
   expect(canStandAt(p.x,p.z),`destination blocked: ${name}`).toBe(true)
   const connected=queue.some(id=>{const x=(id%side-offset*2)*step,z=(Math.floor(id/side)-offset*2)*step;return Math.hypot(x-p.x,z-p.z)<.71})
   expect(connected,`destination unreachable: ${name}`).toBe(true)
  }
- const blocked=[];for(const [ax,az,bx,bz] of highlandPaths)for(let t=0;t<=1;t+=.05){const x=ax+(bx-ax)*t,z=az+(bz-az)*t;if(!canStandAt(x,z))blocked.push([x,z])};expect(blocked,'authored trail centreline').toEqual([])
+ // Paths bend with the land (pathWarp): check the centre line where the authored segments actually lie on the ground.
+ const blocked=[];for(const [ax,az,bx,bz] of highlandPaths)for(let t=0;t<=1;t+=.05){const [x,z]=unwarpPath(ax+(bx-ax)*t,az+(bz-az)*t);if(!canStandAt(x,z))blocked.push([x,z])};expect(blocked,'authored trail centreline').toEqual([])
  expect(canStandAt(-25,creekZ(-25))).toBe(false)
+ // The gorge footpath is open along its whole centre line: no trunk, rock or steep step across it.
+ for(let i=0;i<fallsTrail.length-1;i++)for(let t=0;t<=1;t+=.05){const [ax,az]=fallsTrail[i],[bx,bz]=fallsTrail[i+1],x=ax+(bx-ax)*t,z=az+(bz-az)*t;expect(canStandAt(x,z),`falls trail ${x.toFixed(2)},${z.toFixed(2)}`).toBe(true)}
+ // The ford stands clear of the running water all the way across, and only the ford crosses the stream there.
+ const [fax,faz]=creekFord.a,[fbx,fbz]=creekFord.b
+ for(let t=0;t<=1;t+=.05){const x=fax+(fbx-fax)*t,z=faz+(fbz-faz)*t;expect(canStandAt(x,z),`ford ${t}`).toBe(true);expect(groundHeightAt(x,z)).toBeGreaterThan(creekWaterY(x)+.1)}
+ expect(canStandAt(fax-.8,creekZ(fax-.8))).toBe(false);expect(canStandAt(fax+.8,creekZ(fax+.8))).toBe(false)
+ // The pool is waded only where it is shallow: never at its deep middle or under the fall.
+ const {pool}=creekFalls
+ expect(canStandAt(pool.x,pool.z)).toBe(false);expect(canStandAt(creekFalls.footX-.3,creekZ(creekFalls.footX-.3))).toBe(false)
+ for(let a=0;a<Math.PI*2;a+=.1)for(let r=0;r<pool.radius;r+=.1){const x=pool.x+Math.cos(a)*r,z=pool.z+Math.sin(a)*r;if(canStandAt(x,z))expect(pool.water-terrainHeight(x,z),`${x},${z}`).toBeLessThanOrEqual(poolWadeDepth)}
  for(let z=-15;z>=-16.5;z-=.1)expect(canStandAt(-14,z),`south bridge ramp ${z}`).toBe(true)
  for(let z=bridge.z-3.2;z<bridge.z+3.2;z+=.1){expect(canStandAt(bridge.x,z),`bridge approach ${z}`).toBe(true);expect(Math.abs(groundHeightAt(bridge.x,z+.05)-groundHeightAt(bridge.x,z))).toBeLessThan(.12)}
  expect(bridgeHeight(bridge.z)).toBeCloseTo(6.6354,4)

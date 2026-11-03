@@ -10,7 +10,9 @@ import {daylightAt} from '../game/dayCycle'
 import {groundHeightAt} from '../game/movement'
 import {isDockSurface} from './worldConfig'
 import {audioEngine,playSound} from '../audio/audioStore'
-import {fireNearness,mixFor,seaNearness,stepLength} from '../audio/audioMix'
+import {fallsNearness,fireNearness,mixFor,seaNearness,stepLength} from '../audio/audioMix'
+import {fallsFoot} from './creekGeometry'
+import {fallsGround} from './terrain'
 import {soundCues} from '../audio/soundCues'
 
 const forward=new Vector3()
@@ -42,7 +44,7 @@ export function SoundDirector(){
   const indoors=s.location!=='island',onWater=s.mode==='rowing',here=onWater?s.boat:p
   const daylight=daylightAt(s),night=Math.min(1,Math.max(0,(.6-daylight)/.6)),sea=indoors?0:seaNearness(here.x,here.z,onWater)
   r.mix-=dt
-  if(r.mix<=0){r.mix=.25;engine.applyMix(mixFor({night,indoors,sea,fire:indoors?0:fireNearness(here.x-camp.x,here.z-camp.z,s.homeBook.fireLit),rain:climateNow.rain}))}
+  if(r.mix<=0){r.mix=.25;engine.applyMix(mixFor({night,indoors,sea,fire:indoors?0:fireNearness(here.x-camp.x,here.z-camp.z,s.homeBook.fireLit),rain:climateNow.rain,falls:indoors?0:fallsNearness(here.x-fallsFoot.x,here.z-fallsFoot.z)}))}
   // Footfalls: one per stride travelled on foot. Teleports (doors, landing) move far in one frame and are not steps.
   const speed=moved/Math.max(dt,1e-3)
   if(s.mode==='walking'&&!inTransfer(s)&&speed>.3&&speed<5){
@@ -50,9 +52,12 @@ export function SoundDirector(){
    const length=stepLength(speed)
    if(r.stride>=length){
     r.stride-=length
-    const surface=indoors||onBridge(p.x,p.z)||isDockSurface(p.x,p.z)?'wood':'grass'
+    // Below the falls: gravel crunches, and in the pool's shallows each step is a small splash.
+    const falls=indoors?null:fallsGround(p.x,p.z)
+    const surface=indoors||onBridge(p.x,p.z)||isDockSurface(p.x,p.z)?'wood':falls==='gravel'?'stone':'grass'
     let pick=Math.floor(Math.random()*5);if(pick===r.lastStep)pick=(pick+1)%5;r.lastStep=pick
-    playSound(`step-${surface}-${pick}`,{volume:Math.min(1,.3+speed*.15),rate:.92+Math.random()*.16})
+    if(falls==='water')playSound('splash-tiny',{volume:Math.min(.6,.2+speed*.12),rate:1.1+Math.random()*.3})
+    else playSound(`step-${surface}-${pick}`,{volume:Math.min(1,.3+speed*.15),rate:.92+Math.random()*.16})
    }
   }else r.stride=0
   // The reel clicks while the line is wound in.

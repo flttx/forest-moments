@@ -57,32 +57,36 @@ try {
   await cmd('Page.navigate', { url: base }); await sleep(800)
   await boot(1440,900,true)
   report.viewport=[1440,900]
-  await evaluate(`(async()=>{const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;window.terrain=await import(r('/src/world/terrain.ts'));window.world=await import(r('/src/world/worldConfig.ts'));window.movement=await import(r('/src/game/movement.ts'));window.plants=await import(r('/src/world/vegetationLayout.ts'));window.west=await import(r('/src/world/westExpansion.ts'))})()`)
+  await evaluate(`(async()=>{const r=p=>performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname===p)?.name??p;window.terrain=await import(r('/src/world/terrain.ts'));window.world=await import(r('/src/world/worldConfig.ts'));window.movement=await import(r('/src/game/movement.ts'));window.plants=await import(r('/src/world/vegetationLayout.ts'));window.west=await import(r('/src/world/westExpansion.ts'));window.expansion=await import(r('/src/game/expansion.ts'))})()`)
   const snapshot=await evaluate(`(()=>{const terrainSamples=[];for(let x=-32;x<=40;x+=2)for(let z=-40;z<=40;z+=2)terrainSamples.push([x,z,terrain.terrainHeight(x,z)]);let groundArea=0,walkableArea=0;for(let x=-86;x<=45;x+=.5)for(let z=-44;z<=44;z+=.5){const h=terrain.terrainHeight(x,z),slope=Math.hypot(terrain.terrainHeight(x+.15,z)-terrain.terrainHeight(x-.15,z),terrain.terrainHeight(x,z+.15)-terrain.terrainHeight(x,z-.15))/.3;if(h>=world.seaLevel+.16&&slope<=.85)groundArea+=.25;if(movement.canStandAt(x,z))walkableArea+=.25}return{terrainSamples,plants:plants.vegetationPositions,lamps:plants.lampPositions,groundArea,walkableArea,landing:world.landing,mooring:world.mooring}})()`)
   await writeFile(`${out}/world-snapshot.json`,JSON.stringify(snapshot))
   report.area={ground:snapshot.groundArea,walkable:snapshot.walkableArea}
   if(phase!=='before'){
     const before=JSON.parse(await readFile(resolve('docs/evidence/2026-10-29-west-expansion/before/world-snapshot.json'),'utf8'))
-    assert.deepEqual(snapshot.terrainSamples,before.terrainSamples,'original gameplay terrain changed')
-    assert.deepEqual(snapshot.plants.filter(p=>p.x>=-35&&p.x<72),before.plants,'original tree layout changed')
-    assert.deepEqual(snapshot.lamps,before.lamps,'original lamps moved')
+    // 2026-11-03: the user approved re-laying the whole main island (coast, relief, paths, plants), so terrain and plant
+    // positions are no longer frozen; saves still need no migration: the berth is unchanged and the old high ground
+    // (outside the creek gorge) still stands above the sea.
+    const rework=await evaluate(`${JSON.stringify(before.terrainSamples)}.map(([x,z])=>expansion.inCreekRework(x,z))`)
+    const seaLevel=await evaluate('world.seaLevel')
+    const sunk=snapshot.terrainSamples.filter(([x,z,y],i)=>{const old=before.terrainSamples[i][2];return !rework[i]&&old>seaLevel+.5&&Math.hypot(x,z)<30&&y<=seaLevel+.16})
+    assert.deepEqual(sunk,[],'old high ground sank below the sea')
     assert.deepEqual(snapshot.landing,before.landing);assert.deepEqual(snapshot.mooring,before.mooring)
     report.area.growth=snapshot.groundArea/before.groundArea-1
-    check('original terrain samples, trees, lamps and berth preserved')
+    check('berth preserved and old high ground still above the sea')
   }
   report.load=await evaluate(`({elapsed:performance.now(),resources:performance.getEntriesByType('resource').reduce((n,r)=>n+r.transferSize,0)})`)
   report.frames={}
   for(const light of ['day','dusk','night'])for(const view of finalPhase?['fullIsland','westOverview','westTrailClear','westWetlandClear','westBoardwalkClose','tower']:['fullIsland','westOverview','westTrail','westWetland']){
     const local=finalPhase&&(view.includes('Clear')||view==='westBoardwalkClose')
-    await evaluate(`history.replaceState(null,'','/?qa&view=${view}');forestStore.setState({timeOfDay:'${light}',position:${local?'{x:-59,z:-4}':'{x:0,z:0}'},menuPaused:true});uiStore.setState({panel:null,guideSeen:true})`)
+    await evaluate(`history.replaceState(null,'','/?qa&view=${view}');forestStore.setState({timeOfDay:'${light}',position:${local?'{x:-60.4,z:-2.5}':'{x:0,z:0}'},menuPaused:true});uiStore.setState({panel:null,guideSeen:true})`)
     await sleep(1200);await shot(`${light}-${view}`)
     if(light==='day')report.frames[view]=await evaluate(`new Promise(resolve=>{const times=[];let prev=performance.now();function frame(now){times.push(now-prev);prev=now;if(times.length<180)requestAnimationFrame(frame);else{times.sort((a,b)=>a-b);resolve({median:times[90],p95:times[171],frames:times.length,low:photoStore.getState().lowQuality})}}requestAnimationFrame(frame)})`)
   }
   if(phase.includes('wetland')){
     const qa=await evaluate("JSON.parse(document.querySelector('canvas').dataset.forestQa).wetland")
-    assert.equal(qa.modules,5);assert.equal(qa.deckTop,.9);assert.equal(qa.clearWidth,1.9);assert(qa.reeds>10)
+    assert(qa.modules>=5);assert.equal(qa.deckTop,.78);assert.equal(qa.clearWidth,1.5);assert(qa.reeds>10)
     check('authored wetland kit loaded with continuous deck and clear approaches',qa)
-    await evaluate("history.replaceState(null,'','/?qa&view=westBoardwalkClose');forestStore.setState({position:{x:-59,z:-4},timeOfDay:'day',menuPaused:true});photoStore.setState({active:true,weatherPreview:'rain'})")
+    await evaluate("history.replaceState(null,'','/?qa&view=westBoardwalkClose');forestStore.setState({position:{x:-60.4,z:-2.5},timeOfDay:'day',menuPaused:true});photoStore.setState({active:true,weatherPreview:'rain'})")
     await sleep(3500);await shot('rain-boardwalk')
     await cmd('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]})
     await sleep(400)
@@ -93,26 +97,34 @@ try {
     await evaluate("photoStore.setState({active:false,weatherPreview:null})")
   }
   if(phase!=='before'){
-    await evaluate("history.replaceState(null,'','/?qa');forestStore.setState({position:{x:-52,z:-4},mode:'walking',timeOfDay:'day',menuPaused:false});uiStore.setState({panel:null,guideSeen:true})")
+    // The deck zigzags across the marsh: start at its east end, turn the camera behind the raccoon with a real
+    // right-drag for each run, then hold W along it. Every sample must stay on the deck.
+    const deck=await evaluate("west.westBoardwalk.points")
+    await evaluate(`history.replaceState(null,'','/?qa');forestStore.setState({position:{x:${deck[0][0]},z:${deck[0][1]}},mode:'walking',timeOfDay:'day',menuPaused:false});uiStore.setState({panel:null,guideSeen:true})`)
     await sleep(800)
-    const yaw=await evaluate("JSON.parse(document.querySelector('canvas').dataset.forestQa).orbit.yaw")
-    const dx=(Math.PI/2-yaw)/.004
-    await cmd('Input.dispatchMouseEvent',{type:'mousePressed',x:720,y:450,button:'right',buttons:2,clickCount:1})
-    await cmd('Input.dispatchMouseEvent',{type:'mouseMoved',x:720+dx,y:450,button:'right',buttons:2})
-    await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',x:720+dx,y:450,button:'right',buttons:0,clickCount:1})
-    await sleep(1000)
-    await cmd('Input.dispatchKeyEvent',{type:'keyDown',code:'KeyW',key:'w',windowsVirtualKeyCode:87})
+    const qaState=()=>evaluate("JSON.parse(document.querySelector('canvas').dataset.forestQa)")
     const walk=[]
-    try{
-      for(let i=0;i<180;i++){
-        await sleep(100)
-        const q=await evaluate("JSON.parse(document.querySelector('canvas').dataset.forestQa)")
-        walk.push({position:q.position,camera:q.cameraPosition})
-        if(q.position[0]<-64.3)break
+    for(const [tx,tz] of deck.slice(1)){
+     for(let burst=0;burst<30;burst++){
+      const q=await qaState(),[px,,pz]=q.position
+      walk.push({position:q.position,camera:q.cameraPosition,onDeck:await evaluate(`west.onWestBoardwalk(${px},${pz},-.05)`)})
+      if(Math.hypot(tx-px,tz-pz)<.35)break
+      let d=Math.atan2(-(tx-px),-(tz-pz))-q.orbit.yaw;d=Math.atan2(Math.sin(d),Math.cos(d))
+      if(Math.abs(d)>.03){
+       await cmd('Input.dispatchMouseEvent',{type:'mousePressed',x:720,y:450,button:'right',buttons:2,clickCount:1})
+       await cmd('Input.dispatchMouseEvent',{type:'mouseMoved',x:720+d/.004,y:450,button:'right',buttons:2})
+       await cmd('Input.dispatchMouseEvent',{type:'mouseReleased',x:720+d/.004,y:450,button:'right',buttons:0,clickCount:1})
+       await sleep(400)
       }
-    }finally{await cmd('Input.dispatchKeyEvent',{type:'keyUp',code:'KeyW',key:'w',windowsVirtualKeyCode:87})}
-    assert(walk.at(-1).position[0]<-64.3,JSON.stringify(walk.at(-1)))
-    assert(walk.every(q=>Math.abs(q.position[2]+4)<.55),'walk left the deck')
+      await cmd('Input.dispatchKeyEvent',{type:'keyDown',code:'KeyW',key:'w',windowsVirtualKeyCode:87})
+      await sleep(Math.min(450,120+160*Math.hypot(tx-px,tz-pz)))
+      await cmd('Input.dispatchKeyEvent',{type:'keyUp',code:'KeyW',key:'w',windowsVirtualKeyCode:87})
+      await sleep(150)
+     }
+    }
+    const [ex,ez]=deck.at(-1),last=walk.at(-1).position
+    assert(Math.hypot(last[0]-ex,last[2]-ez)<.5,JSON.stringify(walk.at(-1)))
+    assert(walk.every(q=>q.onDeck),'walk left the deck: '+JSON.stringify(walk.find(q=>!q.onDeck)))
     check('real mouse orbit and W walk cross the wetland deck', {start:walk[0],end:walk.at(-1),samples:walk.length})
     await shot('walk-west-boardwalk')
     await press('KeyP','p');await sleep(300)

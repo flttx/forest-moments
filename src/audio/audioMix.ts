@@ -32,11 +32,13 @@ export interface MixInput{
  fire:number
  /** 0 .. 1: how hard it is raining (weather, plan X4). */
  rain?:number
+ /** 0 .. 1: the creek falls close by. */
+ falls?:number
 }
-export interface Mix{birds:number;crickets:number;sea:number;wind:number;room:number;fire:number;rain:number;musicDay:number;musicNight:number;ambienceCutoff:number}
+export interface Mix{birds:number;crickets:number;sea:number;wind:number;room:number;fire:number;rain:number;falls:number;musicDay:number;musicNight:number;ambienceCutoff:number}
 
 /** Target levels (0..1, before the bus volumes) for the island's state; walls muffle the outdoors. */
-export function mixFor({night,indoors,sea,fire,rain=0}:MixInput):Mix{
+export function mixFor({night,indoors,sea,fire,rain=0,falls=0}:MixInput):Mix{
  const day=1-night
  return{
   // Birds fall quiet in the rain; indoors the rain on the roof stays, softer (the cabin is for listening to it).
@@ -47,6 +49,7 @@ export function mixFor({night,indoors,sea,fire,rain=0}:MixInput):Mix{
   room:indoors?1:0,
   fire:indoors?0:fire,
   rain:rain*(indoors?.45:1),
+  falls:indoors?0:falls,
   musicDay:day,musicNight:night,
   ambienceCutoff:indoors?900:18000,
  }
@@ -62,6 +65,11 @@ export function seaNearness(x:number,z:number,onWater:boolean){
 export function fireNearness(dx:number,dz:number,lit:boolean){
  if(!lit)return 0
  const t=Math.min(1,Math.max(0,1-(Math.hypot(dx,dz)-1.5)/7.5))
+ return t*t
+}
+/** The falls carry further than a fire: full within ~5 m of the plunge, gone by ~28 m (from the bridge it is a murmur). */
+export function fallsNearness(dx:number,dz:number){
+ const t=Math.min(1,Math.max(0,1-(Math.hypot(dx,dz)-5)/23))
  return t*t
 }
 

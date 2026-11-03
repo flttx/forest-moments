@@ -63,7 +63,7 @@ import {WorkshopCraft} from './WorkshopCraft'
 import {woodSpot,workpieceSpot} from '../game/workshop'
 
 import {moveInWorkshop} from '../game/workshopInterior'
-import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,slopePitch,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
+import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,clearTerrain,slopePitch,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
 import {canopySpheres} from './vegetationLayout'
 import {SandPlay} from './SandPlay'
 import {pressPaw,sandGroundAt} from './sandField'
@@ -84,6 +84,7 @@ function ReviewCamera() {
       scaleWorkshop: [[-12,3.6,24],[-12,2.2,8]],
       scaleLamp: [[.5,2.1,3],[-3.8,1,-2.5]],
       fullIsland: [[68, 58, 80], [0, 0, 0]],
+      mapTop: [[-20,150,8.01],[-20,0,8]],
       westOverview: [[-82,45,62],[-27,0,4]],
       westTrail: [[-41,3,4],[-52,.5,-4]],
       westWetland: [[-47,11,-15],[-57,.4,-4]],
@@ -145,6 +146,11 @@ function ReviewCamera() {
       cabin: [[-6,12,-18],[-15,9,-28]],
       stream: [[-6,10,-13],[-17,5,-20]],
       creekMouth: [[-43,7,-10],[-34,1,-18]],
+      creekFalls: [[-38,3.5,-17],[-27,2.6,-18.6]],
+      creekCove: [[-50,7,-22],[-30,1.5,-18]],
+      creekDown: [[-6,12,-21],[-36,0,-18]],
+      creekSide: [[-33,4.5,-14.5],[-27,2.6,-18.3]],
+      creekRim: [[-33.5,7.5,-12.5],[-27,2.6,-18.8]],
       seaCliff: [[-44,18,-49],[-18,5,-31]],
       camp: [[28,5,31],[20,.6,23]],
       fireClose: [[22.8,1.9,26.5],[20,.65,23]],
@@ -448,14 +454,14 @@ function Player() {
       const view={zoom:orbit.current.zoom,pitch:THREE.MathUtils.clamp(orbit.current.pitch+slopeTilt.current,orbitConfig.minPitch,orbitConfig.maxPitch)}
       const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,view,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
       // Outdoors, a camera that would sit inside a tree crown slides along the arm to just outside it.
-      const clear=inside?eye:clearCanopy(target,eye,canopySpheres)
+      const clear=inside?eye:clearCanopy(target,clearTerrain(target,eye,groundHeightAt),canopySpheres)
       const next=new THREE.Vector3(clear.x,clear.y,clear.z)
       if(returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(next)
       else camera.position.lerp(next,1-Math.exp(-7*dt))
       // Position interpolation can cut a corner; constrain the interpolated arm too.
       const safe=clipCameraArm(target,camera.position,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
       safe.y=Math.max(safe.y,camera.position.y)
-      if(!inside)Object.assign(safe,clearCanopy(target,safe,canopySpheres))
+      if(!inside)Object.assign(safe,clearCanopy(target,clearTerrain(target,safe,groundHeightAt),canopySpheres))
       if(inside){safe.x=THREE.MathUtils.clamp(safe.x,-3.72,3.72);safe.z=THREE.MathUtils.clamp(safe.z,-2.72,2.72)}
       safe.y=inside?Math.min(3.05,safe.y):Math.max(safe.y,groundHeightAt(safe.x,safe.z)+.25)
       camera.position.set(safe.x,safe.y,safe.z)
