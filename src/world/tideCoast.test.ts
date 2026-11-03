@@ -4,17 +4,13 @@ import {tideHeight,tidePathDistance,tideBerth,tideObservation} from './tideIslan
 import {isNavigableSea} from '../game/rowing'
 import baseline from '../../docs/evidence/2026-10-30-tide-rock-coast/before/coast-snapshot.json'
 
-it('preserves every adopted old coast placement while adding a bounded tide shore and pool dressing',()=>{
- // Browser and Node trigonometric results can differ at the last binary digit.
- // 2026-11-03: the main island's coast was re-laid at the user's request and its rocks are generated afresh; the
- // neighbouring islands' adopted placements are still unchanged and in order.
- const kept=baseline.filter(p=>p.x>72),pieces=coastPieces.filter(p=>p.x>72&&!tideShorePieces.includes(p)&&!tidePoolPieces.includes(p)&&!autumnRimPieces.includes(p)&&!mistRimPieces.includes(p))
- expect(kept.length).toBeGreaterThan(30)
- for(const [i,p] of kept.entries()){
-  expect(pieces[i].kit).toBe(p.kit);expect(pieces[i].role).toBe(p.role)
-  for(const key of ['x','y','z','yaw','scale'] as const)expect(Math.abs(pieces[i][key]-p[key])).toBeLessThan(1e-10)
- }
- expect(pieces.length).toBe(kept.length)
+it('keeps the main island and the neighbour shores dressed, with a bounded tide shore and pool set',()=>{
+ // 2026-11-03: every coast was re-laid at the user's request (main island first, then the neighbours' capes and coves),
+ // so rocks regenerate on the new shores; clearance rules are checked below and in the coastal layout tests.
+ const neighbours=coastPieces.filter(p=>p.x>72)
+ expect(neighbours.length).toBeGreaterThan(baseline.filter(p=>p.x>72).length*.8)
+ expect(tideShorePieces.length).toBeGreaterThan(10);expect(tideShorePieces.length).toBeLessThan(60)
+ expect(tidePoolPieces.length).toBeGreaterThan(8)
 })
 it('keeps complete rock footprints away from dry trails, the berth, the outlook and rowable water',()=>{
  for(const p of [...tideShorePieces,...tidePoolPieces]){

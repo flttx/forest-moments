@@ -22,6 +22,8 @@ function save(inv:Inventory){
 export function installInventory(){
  return useForestStore.subscribe((next,prev)=>{
   if(next.roasted>prev.roasted)useInventoryStore.getState().give('roastFish',next.roasted-prev.roasted)
+  // A cap leaves the satchel only once it is done, so standing up mid-roast loses nothing.
+  for(let n=next.roastedCaps-prev.roastedCaps;n>0;n--)if(useInventoryStore.getState().take({mistcap:1}))useInventoryStore.getState().give('roastCap')
   if(next.harvest&&next.harvest.seq!==prev.harvest?.seq)useInventoryStore.getState().give(next.harvest.item,next.harvest.n??1)
  })
 }

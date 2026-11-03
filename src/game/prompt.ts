@@ -3,6 +3,8 @@ import {t} from '../i18n'
 import {bedSpot,cabin,camp,seats,seatOrigin,tankSpot} from './expansion'
 import {brushSpot,eggReady,eggSpot,feedSpot,woolReady} from './farm'
 import {spotNear} from './forage'
+import {creatureNear} from './tidePoolLife'
+import {reachEnd} from './curios'
 import {woodReady} from './recipes'
 import {logPile} from '../world/settlement'
 import {fishingSites,fishingSpot} from './fishing'
@@ -49,6 +51,9 @@ export function promptFor(s:State):Prompt|null{
   if(seats.some(v=>near(p,seatOrigin(v),1.3)))return{action:t('prompt.sit')}
   const note=s.mode==='walking'?noteSecretAt(p):null
   if(note)return{action:t(`prompt.${note}`)}
+  if(s.mode==='walking'&&reachEnd(p))return s.curiosBook.day===s.homeBook.nights?{hint:t('msg.curioEmpty')}:{action:t('prompt.reachIn')}
+  const creature=s.mode==='walking'?creatureNear(p):null
+  if(creature)return{action:t(s.travel.creatures.includes(creature.id)?'prompt.lookAgain':'prompt.observe',{name:t(`tide.${creature.id}`)})}
   const spot=s.mode==='walking'?spotNear(p,s.forageBook,s.homeBook.nights):null
   if(spot)return{action:t('prompt.forage',{item:t(`item.${spot.kind}`)})}
   if(s.mode==='walking'&&near(p,logPile,1.4))return woodReady(s.workshopBook,s.homeBook.nights)?{action:t('prompt.wood')}:{hint:t('msg.woodTaken')}
@@ -88,7 +93,7 @@ export function promptFor(s:State):Prompt|null{
   case 'tidePools':return{hint:t('place.tidePools.hint')}
   case 'tide':
   case 'autumn':
-  case 'mist':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:{hint:t('prompt.toDockEnd')}
+  case 'mist':return !s.boatReady?{status:t('prompt.boatLoading')}:canBoard(p.x,p.z,s.boat)?{action:t('prompt.board')}:near(p,fishingSites.mistDock.stand,.85)?{action:t('prompt.castSea')}:{hint:t('prompt.toDockEnd')}
   case 'autumnVista':return{hint:t('place.autumnVista.hint')}
   case 'mistPine':return{hint:t('place.mistPine.hint')}
   default:return null

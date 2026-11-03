@@ -167,7 +167,7 @@ for(const [cx,cz] of [[101,55],[106,37],[115,55],[101,43]]){
 }
 /** Reference density: a spruce rim and extra birch groves thicken the woodland edge; the maple clearing, hill and vista stay open. */
 export const autumnFringe:VegetationInstance[]=[]
-for(let x=88;x<136;x+=2.1)for(let z=30;z<68;z+=2.1){
+for(let x=88;x<136;x+=1.7)for(let z=30;z<68;z+=1.7){
  const n=Math.sin(x*21.7+z*9.1)*43758.5,f=n-Math.floor(n),px=x+(f-.5)*1.2,pz=z+(.5-f)*1.1,r=autumnRadius(px,pz)
  // The east hill carries an adopted upper rock ledge; keep its brow clear.
  if(r<.4||r>.73||px>123&&r>.6||!clearForVegetation(px,pz,0)||Math.hypot(px-110,pz-47)<5.2||Math.hypot(px-106-autumnOffset.x,pz-29-autumnOffset.z)<4)continue

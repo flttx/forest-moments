@@ -1,5 +1,6 @@
 import {berths,mooring,seaLevel,seaRangeRadius,oceanNavigation} from '../world/worldConfig'
 import {terrainHeight} from '../world/terrain'
+import {reefBlocks,buoyBlocks} from '../world/archipelago'
 export {pond,mooring,landing} from '../world/worldConfig'
 export const paddleDuration = 7.2
 
@@ -15,7 +16,7 @@ export const initialBoat: BoatState = { ...mooring, speed: 0, phase: 0, effort: 
 
 export function seaBoundaryClearance(x:number,z:number){return seaRangeRadius(Math.atan2(z,x))-Math.hypot(x,z)-1.8}
 export function isNavigableSea(x:number,z:number){
-  return Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth
+  return Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth&&!reefBlocks(x,z)&&!buoyBlocks(x,z)
 }
 
 /** Sample the hull perimeter and centre against coastal depth and the island-following outer limit. */

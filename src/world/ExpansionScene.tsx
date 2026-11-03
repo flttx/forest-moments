@@ -1,9 +1,10 @@
 import {dressFish} from './fishLook'
+import {BedroomShelf} from './BedroomShelf'
 import {kindOf} from '../game/fishing'
 import {roastSeconds} from '../game/campfire'
 import {PhotoWall} from './PhotoWall'
 import {Furniture} from './Furniture'
-import {useEffect,useMemo,useRef} from 'react'
+import {Suspense,useEffect,useMemo,useRef} from 'react'
 import {useFrame} from '@react-three/fiber'
 import {useGLTF} from '@react-three/drei'
 import * as THREE from 'three'
@@ -108,8 +109,12 @@ function Embers({lit}:{lit:boolean}){
 function RoastSpit(){
  const source=useGLTF('/assets/models/fish-koi.glb')
  const roast=useForestStore(s=>s.roast)
- const kind=roast?.species,size=roast?.sizeCm
- const fish=useMemo(()=>{if(!kind||!size)return null;const root=clone(source.scene);dressFish(root,kind);root.scale.setScalar(size/100);return root},[source,kind,size])
+ const kind=roast?.item==='fish'?roast.species:undefined,size=roast?.item==='fish'?roast.sizeCm:undefined,cap=roast?.item==='mistcap'
+ // a fish on the spit, or a pale mist cap skewered through its stem
+ const fish=useMemo(()=>{
+  if(cap){const g=new THREE.Group(),c=new THREE.Mesh(new THREE.SphereGeometry(.07,14,8,0,Math.PI*2,0,Math.PI/2).scale(1,.6,1),new THREE.MeshStandardMaterial({color:'#c3ccd0',roughness:.7})),stem=new THREE.Mesh(new THREE.CylinderGeometry(.025,.03,.09,8),new THREE.MeshStandardMaterial({color:'#e6ddc8',roughness:.8}));stem.position.y=-.04;g.add(c,stem);g.rotation.z=Math.PI/2;return g}
+  if(!kind||!size)return null;const root=clone(source.scene);dressFish(root,kind);root.scale.setScalar(size/100);return root
+ },[source,kind,size,cap])
  const spin=useRef<THREE.Group>(null),cooked=new THREE.Color('#7b4a28')
  useFrame((_,dt)=>{
   const r=useForestStore.getState().roast;if(!r||!fish||!spin.current)return
@@ -174,6 +179,7 @@ export function Bedroom(){
   </group>
   <PhotoWall/>
   <Furniture place="bedroom"/>
+  <Suspense fallback={null}><BedroomShelf/></Suspense>
   <hemisphereLight args={['#ffe5bc','#463223',1.1]}/>
   <pointLight position={[0,2.8,.4]} color="#ffd4a0" intensity={18} distance={9} castShadow shadow-mapSize={[512,512]} shadow-bias={-.001}/>
   <pointLight position={[0,2.1,-2.2]} color={day?'#d4e4e5':'#97b4dc'} intensity={day?7:2} distance={5}/>

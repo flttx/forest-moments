@@ -53,3 +53,12 @@ it('the jetty has its own kinds; the pond never yields sea fish and the sea neve
  const s=fishingSites.sea,ahead={x:-Math.sin(s.facing),z:-Math.cos(s.facing)}
  expect(Math.sign(s.float.z-s.stand.z)).toBe(Math.sign(ahead.z))
 })
+
+it('off the Mist Isle jetty the sea fish bite, and in fog the mistfish joins them',async()=>{
+ const {pickCatch}=await import('./fishSpecies')
+ const seen=(weather:'clear'|'mist')=>new Set(Array.from({length:400},(_,i)=>pickCatch('day',()=>((i*7919)%400)/400,'mistDock',weather).species))
+ expect([...seen('clear')].sort()).toEqual(['mackerel','seaBass'])
+ expect(seen('mist').has('mistfish')).toBe(true)
+ // the home jetty is unchanged: no mistfish at sea even in fog
+ expect(new Set(Array.from({length:400},(_,i)=>pickCatch('day',()=>((i*7919)%400)/400,'sea','mist').species)).has('mistfish')).toBe(false)
+})

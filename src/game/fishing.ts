@@ -11,6 +11,8 @@ import type { Weather } from './weather'
 export const fishingSites: Record<FishingSite, { stand: { x: number; z: number }; facing: number; float: { x: number; z: number }; cast: { x: number; z: number }; waterY: number }> = {
   pond: { stand: { x: 1.5, z: -5 }, facing: -Math.PI / 2, float: { x: 4.2, z: -5 }, cast: { x: 2.45, z: -5 }, waterY: pond.waterY },
   sea: { stand: { x: 41, z: -.8 }, facing: 0, float: { x: 41, z: -3.5 }, cast: { x: 41, z: -1.75 }, waterY: seaLevel },
+  // Mist Isle jetty: the south edge, casting south; boarding stays at the mooring on the north side.
+  mistDock: { stand: { x: 81.2, z: -9.3 }, facing: Math.PI, float: { x: 81.2, z: -6.6 }, cast: { x: 81.2, z: -8.1 }, waterY: seaLevel },
 }
 export const fishingSpot = fishingSites.pond.stand
 export const catchStorageKey = 'forest-moments:fish-book:v1'

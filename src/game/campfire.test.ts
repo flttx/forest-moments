@@ -11,14 +11,16 @@ const base={mode:'sitting' as const,sitting:seat('camp-west'),homeBook:{version:
 
 it('roasts only seated by a lit fire with a fish on hand, newest first',()=>{
  expect(roastBlock(base)).toBeNull()
- expect(beginRoast(base)).toEqual({catchId:catchId(fish),species:'goldKoi',sizeCm:26,elapsed:0})
+ expect(beginRoast(base)).toEqual({item:'fish',catchId:catchId(fish),species:'goldKoi',sizeCm:26,elapsed:0})
  expect(roastBlock({...base,homeBook:{...base.homeBook,fireLit:false}})).toBe('fire')
  expect(roastBlock({...base,sitting:seat('coast')})).toBe('seat')
  expect(roastBlock({...base,sitting:seat('camp-west','down')})).toBe('seat')
  // Kept, released or roasted catches are no longer on hand.
  const used={...base,homeBook:{...base.homeBook,usedCatchIds:[catchId(fish),catchId(older)]}}
  expect(roastable(used)).toEqual([]);expect(roastBlock(used)).toBe('fish')
- expect(beginRoast({...base,homeBook:{...base.homeBook,usedCatchIds:[catchId(fish)]}})?.species).toBe('koi')
+ expect(beginRoast({...base,homeBook:{...base.homeBook,usedCatchIds:[catchId(fish)]}})).toMatchObject({item:'fish',species:'koi'})
+ // With no fish on hand, a mist cap from the satchel can go on the fire instead.
+ expect(roastBlock(used,1)).toBeNull();expect(beginRoast(used,1)).toEqual({item:'mistcap',elapsed:0});expect(beginRoast(used,0)).toBeNull()
 })
 it('looks up at the stars only at night, settled on a camp or sea seat',()=>{
  expect(canStargaze({...base,timeOfDay:'night'})).toBe(true)
@@ -30,7 +32,7 @@ it('a roast finishes after a while seated, uses up the fish and fills the satche
  const {useForestStore:s}=await import('./store'),{useInventoryStore:i,installInventory}=await import('./inventoryStore')
  const stop=installInventory()
  s.setState({...base})
- s.getState().startRoast();expect(s.getState().roast?.species).toBe('goldKoi')
+ s.getState().startRoast();expect(s.getState().roast).toMatchObject({item:'fish',species:'goldKoi'})
  for(let k=0;k<roastSeconds/.05-2;k++)s.getState().tickHome(.05)
  expect(s.getState().roast).not.toBeNull()
  for(let k=0;k<4;k++)s.getState().tickHome(.05)
@@ -42,5 +44,19 @@ it('a roast finishes after a while seated, uses up the fish and fills the satche
  // Stargazing toggles at night and ends on standing up.
  s.setState({...base,timeOfDay:'night',roast:null});s.getState().toggleStargaze();expect(s.getState().stargazing).toBe(true)
  s.getState().leaveSeat();expect(s.getState().stargazing).toBe(false)
+ stop()
+})
+it('with no fish on hand, R roasts a mist cap: the satchel swaps it for a roasted one only when it is done',async()=>{
+ const {useForestStore:s}=await import('./store'),{useInventoryStore:i,installInventory}=await import('./inventoryStore')
+ const stop=installInventory()
+ i.setState({inv:{version:1,items:{mistcap:2},found:['mistcap']}})
+ s.setState({...base,homeBook:{...base.homeBook,usedCatchIds:base.fishBook.recent.map(catchId)}})
+ s.getState().startRoast(2);expect(s.getState().roast).toEqual({item:'mistcap',elapsed:0})
+ // halfway through: the cap is still in the satchel
+ for(let k=0;k<20;k++)s.getState().tickHome(.05)
+ expect(i.getState().inv.items.mistcap).toBe(2)
+ for(let k=0;k<roastSeconds/.05;k++)s.getState().tickHome(.05)
+ expect(s.getState().roast).toBeNull()
+ expect(i.getState().inv.items).toMatchObject({mistcap:1,roastCap:1})
  stop()
 })

@@ -2,7 +2,7 @@ import {afterEach,beforeEach,expect,it,vi} from 'vitest'
 import {berths,seaLevel} from '../world/worldConfig'
 import {autumnLoop,autumnPaths,autumnVista,autumnHeight,autumnIsland,autumnOffset} from '../world/autumnIsland'
 import {terrainHeight} from '../world/terrain'
-import {mistHeight,mistIsland} from '../world/mistIsland'
+import {mistHeight,mistIsland,mistRadius} from '../world/mistIsland'
 import {vegetationPositions,autumnPlants,canopySpheres} from '../world/vegetationLayout'
 import {canStandAt,moveOnGround,standBlocker} from './movement'
 import {canopyDensityAt} from '../world/canopyMap'
@@ -32,8 +32,11 @@ it('makes both dedicated broadleaf species solid with camera and ground canopy c
 it('preserves existing land, plants and berths while adding a separate island at the intended size',()=>{
  // 2026-11-03: the user approved re-laying the whole main island (coast, relief, paths, plants); the neighbouring
  // islands' ground and plants must still match the baseline exactly.
- for(const [x,z,h] of baseline.terrain.filter(([x,z])=>x>72&&z<10))expect(terrainHeight(x,z)).toBeCloseTo(h,10)
- const neighbours=vegetationPositions.filter(p=>p.x>72),neighbourBaseline=baseline.plants.filter(p=>p.x>72)
+ // 2026-11-03: Mist's rim was reshaped with capes and coves (user-approved); its interior ground must not move.
+ for(const [x,z,h] of baseline.terrain.filter(([x,z])=>x>72&&z<10&&mistRadius(x,z)<.55))expect(terrainHeight(x,z)).toBeCloseTo(h,10)
+ // Mist's plants re-flow with its reshaped rim, so the frozen set is the other neighbours'.
+ const frozen=(p:{x:number;z:number})=>p.x>72&&mistRadius(p.x,p.z)>=1.4
+ const neighbours=vegetationPositions.filter(frozen),neighbourBaseline=baseline.plants.filter(frozen)
  // Later neighbour plants were appended after the baseline was taken; the first ones are the baseline's, in order.
  expect(neighbours.length).toBeGreaterThanOrEqual(neighbourBaseline.length)
  for(const [i,p] of neighbourBaseline.entries()){expect(neighbours[i].kit).toBe(p.kit);for(const key of ['x','z','scale','yaw'] as const)expect(Math.abs(neighbours[i][key]-p[key])).toBeLessThan(1e-10)}

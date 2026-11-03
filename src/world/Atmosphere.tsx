@@ -3,6 +3,7 @@ import {climateNow,climateUniforms,jellyGlow,rainRingsGLSL} from './climateUnifo
 const mistGrey=new THREE.Color('#c3cbc7')
 import {constellation} from '../game/secrets'
 import {daylightAt,lanternPower} from '../game/dayCycle'
+import {shelfGLSL,reefGLSL} from './archipelago'
 import {dayLighting} from './dayLighting'
 import {useForestStore} from '../game/store'
 import { useEffect, useMemo, useRef } from 'react'
@@ -64,7 +65,7 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
         Object.assign(shader.uniforms,uniforms,{climateRain:climateUniforms.climateRain,jellyGlow})
         shader.vertexShader='varying vec3 vWater;\n'+shader.vertexShader
         shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>','#include <begin_vertex>\nvWater=(modelMatrix*vec4(position,1.0)).xyz;')
-        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${mistGLSL}\n${autumnGLSL}\n${tideGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
+        shader.fragmentShader=`uniform float waterTime; uniform float fresh; uniform vec3 shallow; uniform vec3 seaHaze; uniform vec4 jellyGlow; varying vec3 vWater;\n${noiseGLSL}\n${pondGLSL}\n${mistGLSL}\n${autumnGLSL}\n${tideGLSL}\n${shelfGLSL}\n${reefGLSL}\n${waveGLSL}\n${rainRingsGLSL}\n`+shader.fragmentShader
         shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',/* glsl */ `
           #include <color_fragment>
           vec2 p=vWater.xz;
@@ -73,6 +74,20 @@ function WaterSurface({ time, fresh = false }: { time: THREE.IUniform<number>; f
           if(fresh<.5&&p.x>72.0)shore=min(shore,min((mistRadius(p)-.98)*19.0,min((autumnRadius(p)-.98)*18.0,(tideRadius(p)-.98)*15.0)));
           float shallows=1.0-smoothstep(.0,fresh>.5?1.2:5.0,shore);
           diffuseColor.rgb=mix(diffuseColor.rgb,shallow,shallows*.65);
+          // The islands share one shallow shelf: lighter water joins them, with drifting sand bars inside it.
+          if(fresh<.5){
+            float shelfD=shelfDistance(p)+(noise21(p*.05)-.5)*8.0;
+            float shelf=1.0-smoothstep(4.0,17.0,shelfD);
+            float bar=smoothstep(.93,.985,1.0-abs(noise21(p*.03+vec2(noise21(p*.011)*3.0,0.0))*2.0-1.0))*smoothstep(2.0,8.0,shelfD);
+            diffuseColor.rgb=mix(diffuseColor.rgb,shallow*.82,shelf*.34*(1.0-shallows));
+            diffuseColor.rgb=mix(diffuseColor.rgb,shallow*1.08,bar*shelf*.22);
+            // Each reef sits in a pale halo with broken white water breaking round its rocks.
+            // noise bends the halo and breaks the surf, so no reef sits in a perfect ring
+            float reefD=reefDistance(p)+(noise21(p*.32)-.5)*3.2+(noise21(p*1.1)-.5)*.9;
+            diffuseColor.rgb=mix(diffuseColor.rgb,shallow,(1.0-smoothstep(0.0,6.0,reefD))*.45);
+            float reefWash=1.0-smoothstep(0.0,.9+.8*noise21(p*1.3+waterTime*.15),abs(reefD+.6-.5*sin(waterTime*.7+noise21(p*.4)*5.0)));
+            diffuseColor.rgb=mix(diffuseColor.rgb,vec3(.8,.85,.8),reefWash*smoothstep(.25,.75,noise21(p*1.6-waterTime*.12))*(.45+.35*noise21(p*3.5-waterTime*.2)));
+          }
           float ripples=sin(p.x*2.4+p.y*1.1-waterTime*.8)*sin(p.y*3.2-p.x*.6+waterTime*.5);
           // A soft line washes up and back along the whole shore; noise only varies its width and density.
           float wash=.3+.28*sin(waterTime*.55+noise21(p*.12)*6.0);

@@ -5,13 +5,16 @@ import type {WorkshopBook} from './workshop'
  * Workshop recipes after the stool (docs/GAMEPLAY_EXPANSION_PLAN.md §2.5): each made once at the bench with the same
  * three-stroke rhythm, from things gathered on the island; the piece then stands at its own fixed place. Pure.
  */
-export const recipeIds=['table','birdhouse','rodRack','signpost'] as const
+export const recipeIds=['table','birdhouse','rodRack','signpost','mapleCharm','birchFrame'] as const
 export type RecipeId=typeof recipeIds[number]
 export const recipes:Record<RecipeId,{cost:ItemCounts}>={
  table:{cost:{wood:3}},
  birdhouse:{cost:{wood:2,pinecone:2}},
  rodRack:{cost:{wood:2,shell:2}},
  signpost:{cost:{wood:2,wool:1}},
+ // From the Autumn Isle: a charm of maple leaves for the window, a birch-bark frame round a pressed leaf.
+ mapleCharm:{cost:{mapleLeaf:3,wood:1}},
+ birchFrame:{cost:{birchBark:2,mapleLeaf:1,wood:1}},
 }
 export const isRecipe=(id:unknown):id is RecipeId=>typeof id==='string'&&(recipeIds as readonly string[]).includes(id)
 export const woodPerDay=2

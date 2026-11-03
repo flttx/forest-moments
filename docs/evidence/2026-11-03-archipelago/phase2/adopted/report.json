@@ -1,0 +1,58 @@
+{
+  "date": "2026-11-03T05:45:28.225Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "three lighting presets and matching views",
+      "data": [
+        "tideArchipelago",
+        "mistOverview",
+        "autumnOverview",
+        "tideOverview",
+        "autumnBerth",
+        "tideBerth"
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-tideArchipelago.png",
+    "day-mistOverview.png",
+    "day-autumnOverview.png",
+    "day-tideOverview.png",
+    "day-autumnBerth.png",
+    "day-tideBerth.png",
+    "dusk-tideArchipelago.png",
+    "dusk-mistOverview.png",
+    "dusk-autumnOverview.png",
+    "dusk-tideOverview.png",
+    "dusk-autumnBerth.png",
+    "dusk-tideBerth.png",
+    "night-tideArchipelago.png",
+    "night-mistOverview.png",
+    "night-autumnOverview.png",
+    "night-tideOverview.png",
+    "night-autumnBerth.png",
+    "night-tideBerth.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  },
+  "frames": {
+    "median": 4.600000000005821,
+    "p95": 9.30000000000291,
+    "low": true,
+    "samples": 180,
+    "view": "tideBerth",
+    "light": "night"
+  }
+}

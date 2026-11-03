@@ -29,7 +29,7 @@ async function evaluate(expression) {
 }
 const snapshot = async () => {
   try { return await evaluate("(()=>{const s=JSON.parse(document.querySelector('canvas')?.dataset.forestQa || 'null');return s?{...s,documentId:performance.timeOrigin}:null})()") }
-  catch(e){if(/Execution context was destroyed|Cannot find context/.test(String(e)))return null;throw e}
+  catch(e){if(/Execution context was destroyed|Cannot find context|Inspected target navigated or closed/.test(String(e)))return null;throw e}
 }
 async function waitFor(predicate, label, limit = 45000) {
   const start = Date.now()

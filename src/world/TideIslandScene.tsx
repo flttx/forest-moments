@@ -1,6 +1,7 @@
-import {useEffect,useMemo} from 'react'
+import {Suspense,useEffect,useMemo} from 'react'
 import * as THREE from 'three'
 import {tideHeight,tideIsland,tidePools,tidePoolWaterY,tideGLSL} from './tideIsland'
+import {TidePoolLife} from './TidePoolLife'
 import {noiseGLSL} from './terrain'
 import {rockSlabGLSL} from './rockShading'
 import {climateUniforms,climateGLSL} from './climateUniforms'
@@ -13,7 +14,7 @@ export function TideIsland(){
   g.computeVertexNormals();g.computeBoundingSphere();return g
  },[])
  useEffect(()=>()=>geometry.dispose(),[geometry])
- return <group><mesh name="tide-island-terrain" geometry={geometry} receiveShadow>
+ return <group><Suspense fallback={null}><TidePoolLife/></Suspense><mesh name="tide-island-terrain" geometry={geometry} receiveShadow>
   <meshStandardMaterial roughness={.96} onBeforeCompile={shader=>{
    Object.assign(shader.uniforms,{climateWet:climateUniforms.climateWet})
    shader.vertexShader='varying vec3 vTide;varying vec3 vTideNormal;\n'+shader.vertexShader
@@ -71,7 +72,8 @@ export function TideIsland(){
     #include <color_fragment>
     float r=tidePool(vPool.xz,vec4(${p.x.toFixed(1)},${p.z.toFixed(1)},${p.rx.toFixed(2)},${p.rz.toFixed(2)}),${p.phase.toFixed(2)});
     if(r>1.18)discard;
-    diffuseColor.a*=1.0-smoothstep(.90,1.18,r);
+    // clearer toward the middle, so the creature on the bed shows through; the rim keeps its old density
+    diffuseColor.a*=(1.0-smoothstep(.90,1.18,r))*mix(.55,1.0,smoothstep(.35,.95,r));
     diffuseColor.rgb*=.94+.08*noise21(vPool.xz*9.0);
    `)
   }}/>

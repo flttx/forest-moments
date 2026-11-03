@@ -7,13 +7,15 @@ import type {Weather} from './weather'
  */
 export type Light='day'|'dusk'|'night'
 export const speciesIds=['koi','goldKoi','inkKoi','silverfish','glowfish','mistfish','seaBass','mackerel'] as const
-/** Where a kind lives: the pond, or the sea off the jetty. */
-export type FishingSite='pond'|'sea'
+/** Where a kind lives: the pond, the sea off the home jetty, or the sea off the Mist Isle jetty. */
+export type FishingSite='pond'|'sea'|'mistDock'
 export type SpeciesId=typeof speciesIds[number]
 export interface Species{
  /** Relative odds by light; a missing light means it never bites then. */
  odds:Partial<Record<Light,number>>
  site:FishingSite
+ /** Other sites it also bites at (under its own weather rule). */
+ alsoAt?:readonly FishingSite[]
  size:readonly [number,number]
  /** Multiplied into the koi texture; `glow` adds a soft emissive of the same hue. */
  tint:string
@@ -27,9 +29,10 @@ export const species:Record<SpeciesId,Species>={
  inkKoi:{odds:{day:18,dusk:18,night:16},site:'pond',size:[18,34],tint:'#8f969c'},
  silverfish:{odds:{day:18,dusk:16,night:10},site:'pond',size:[18,24],tint:'#d8e4ee'},
  glowfish:{odds:{night:24},site:'pond',size:[20,30],tint:'#9fe8dc',glow:.55},
- mistfish:{odds:{day:30,dusk:30,night:30},site:'pond',size:[20,32],tint:'#c3d3d6',weather:'mist'},
- seaBass:{odds:{day:30,dusk:30,night:25},site:'sea',size:[24,36],tint:'#a7b0b5'},
- mackerel:{odds:{day:30,dusk:20},site:'sea',size:[20,32],tint:'#7fb3bd'},
+ // In fog the mistfish also rises off the Mist Isle jetty, among the sea fish there.
+ mistfish:{odds:{day:30,dusk:30,night:30},site:'pond',alsoAt:['mistDock'],size:[20,32],tint:'#c3d3d6',weather:'mist'},
+ seaBass:{odds:{day:30,dusk:30,night:25},site:'sea',alsoAt:['mistDock'],size:[24,36],tint:'#a7b0b5'},
+ mackerel:{odds:{day:30,dusk:20},site:'sea',alsoAt:['mistDock'],size:[20,32],tint:'#7fb3bd'},
 }
 export const isSpecies=(id:unknown):id is SpeciesId=>typeof id==='string'&&(speciesIds as readonly string[]).includes(id)
 export const lightsFor=(id:SpeciesId)=>(Object.keys(species[id].odds) as Light[])
@@ -42,7 +45,7 @@ export function bestLight(id:SpeciesId):{light:Light;only:boolean}{
 
 /** Which fish takes the bait and how big it is. One random number for the kind, one for the size. */
 export function pickCatch(light:Light,random=Math.random,site:FishingSite='pond',weather:Weather='clear'):{species:SpeciesId;sizeCm:number}{
- const pool=speciesIds.filter(id=>species[id].site===site&&(species[id].odds[light]??0)>0&&(!species[id].weather||species[id].weather===weather)),total=pool.reduce((n,id)=>n+species[id].odds[light]!,0)
+ const pool=speciesIds.filter(id=>(species[id].site===site||!!species[id].alsoAt?.includes(site))&&(species[id].odds[light]??0)>0&&(!species[id].weather||species[id].weather===weather)),total=pool.reduce((n,id)=>n+species[id].odds[light]!,0)
  let roll=random()*total,kind:SpeciesId=pool[pool.length-1]
  for(const id of pool){roll-=species[id].odds[light]!;if(roll<0){kind=id;break}}
  const [min,max]=species[kind].size

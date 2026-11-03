@@ -4,7 +4,7 @@
  */
 export const inventoryStorageKey='forest-moments:inventory:v1'
 /** Items join this list as their play lands (plan stages X2–X4); a save holding an unknown id simply drops it. */
-export const itemIds=['roastFish','mushroom','berry','shell','pinecone','egg','wool','wood'] as const
+export const itemIds=['roastFish','mushroom','berry','shell','pinecone','egg','wool','wood','mistcap','mapleLeaf','birchBark','seaGlass','roastCap'] as const
 export type ItemId=typeof itemIds[number]
 export type ItemCounts=Partial<Record<ItemId,number>>
 export interface Inventory{version:1;items:ItemCounts;found:ItemId[]}

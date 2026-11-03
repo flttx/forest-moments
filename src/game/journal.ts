@@ -1,4 +1,4 @@
-import {speciesIds,type SpeciesId} from './fishSpecies'
+import {speciesIds,type FishingSite,type SpeciesId} from './fishSpecies'
 import type {SubjectId} from './photoSubjects'
 import {forageKinds,type ForageKind} from './forage'
 import {rainbowFor,weatherFor} from './weather'
@@ -24,7 +24,7 @@ export const tasksPerPage=3
 export const photoModeReady=true
 
 export type JournalEvent=
- {type:'catch';sizeCm:number;species:SpeciesId;isNew:boolean;site?:'pond'|'sea'}|{type:'keep'}|{type:'feed'}|{type:'fireside';seconds:number}|{type:'seaside'}
+ {type:'catch';sizeCm:number;species:SpeciesId;isNew:boolean;site?:FishingSite}|{type:'keep'}|{type:'feed'}|{type:'fireside';seconds:number}|{type:'seaside'}
  |{type:'lookout'}|{type:'row';meters:number}|{type:'sleep'}|{type:'photo';night:boolean;subjects?:SubjectId[]}|{type:'tree'}
  |{type:'roast'}|{type:'stars'}|{type:'forage';kind:ForageKind}|{type:'chore';item:'egg'|'wool'|'wood'}|{type:'craft'}|{type:'secret'}|{type:'rainCabin'}|{type:'mistTower'}|{type:'lantern'}
  |{type:'reset';task:'row'|'fireside'}
@@ -83,7 +83,7 @@ export function taskStep(id:TaskId,e:JournalEvent){
   case 'craft':return e.type==='craft'?1:0
   case 'secret':return e.type==='secret'?1:0
   case 'rainCabin':case 'mistTower':return e.type===id?1:0
-  case 'seaCatch':return e.type==='catch'&&e.site==='sea'?1:0
+  case 'seaCatch':return e.type==='catch'&&(e.site==='sea'||e.site==='mistDock')?1:0
   case 'mushrooms':return e.type==='forage'&&e.kind==='mushroom'?1:0
   case 'shell':return e.type==='forage'&&e.kind==='shell'?1:0
   case 'newKind':return e.type==='catch'&&e.isNew?1:0

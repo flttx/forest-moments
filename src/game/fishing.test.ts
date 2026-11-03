@@ -60,3 +60,14 @@ it('F on the jetty edge casts into the sea; boarding stays at the mooring',async
  s.getState().interact()
  expect(s.getState().mode).toBe('fishing');expect(s.getState().fishing?.site).toBe('sea')
 })
+
+it('F on the Mist Isle jetty edge casts off it, while the mooring side still boards',async()=>{
+ const {vi}=await import('vitest')
+ vi.stubGlobal('window',{location:{search:''},localStorage:{getItem:()=>null,setItem:()=>undefined}})
+ vi.resetModules()
+ const {useForestStore:s}=await import('./store'),{fishingSites}=await import('./fishing'),{berths}=await import('../world/worldConfig')
+ s.setState({location:'island',mode:'walking',position:{...fishingSites.mistDock.stand},nearby:'mist',boatReady:true,fishingReady:true,boat:{...berths.main.mooring,speed:0,phase:0,effort:0}})
+ s.getState().interact()
+ expect(s.getState().mode).toBe('fishing');expect(s.getState().fishing?.site).toBe('mistDock')
+ vi.unstubAllGlobals()
+})

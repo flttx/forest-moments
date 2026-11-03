@@ -1,0 +1,42 @@
+{
+  "source": "Original Blender geometry for the Tide Isle shore; no reference image or texture copied",
+  "blender": "5.2.1 LTS",
+  "shells": {
+    "Shell_Scallop": {
+      "triangles": 1924,
+      "sizeXYZ": [
+        0.0677,
+        0.038,
+        0.0109
+      ]
+    },
+    "Shell_Turban": {
+      "triangles": 3360,
+      "sizeXYZ": [
+        0.0372,
+        0.0405,
+        0.036
+      ]
+    },
+    "Shell_Cowrie": {
+      "triangles": 1920,
+      "sizeXYZ": [
+        0.044,
+        0.03,
+        0.0194
+      ]
+    },
+    "Shell_Clam": {
+      "triangles": 1920,
+      "sizeXYZ": [
+        0.056,
+        0.05,
+        0.0157
+      ]
+    }
+  },
+  "bytes": 210788,
+  "sha256": "74caeebb9c6c5c7b41f1e961686bc1249e96a988dd553ee6ec0d25f76bd22d9e",
+  "decimated": false,
+  "paidCalls": 0
+}

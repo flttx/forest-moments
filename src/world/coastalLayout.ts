@@ -3,7 +3,7 @@ import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLe
 import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
 import {mistIsland,mistHeight,mistPathDistance,mistRadius} from './mistIsland'
 import {autumnIsland,autumnHeight,autumnPathDistance,autumnBerth,autumnVista} from './autumnIsland'
-import {coastalVegetationPositions as vegetationPositions} from './vegetationLayout'
+import {coastalVegetationPositions as vegetationPositions,autumnEdgePlants} from './vegetationLayout'
 import {buildTideCoast} from './tideCoastLayout'
 import {buildRimRocks} from './rimRocks'
 const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
@@ -158,7 +158,8 @@ export const autumnShorePieces:CoastPiece[]=(()=>{
   for(let j=0;j<30&&Math.min(...footprint())<seaLevel+.1;j++){r-=.1;p=point(r)}
   if(Math.min(...footprint())<seaLevel+.1||autumnPathDistance(p.x,p.z)<reach+1.2)continue
   if(Math.hypot(p.x-autumnBerth.landing.x,p.z-autumnBerth.landing.z)<reach+7||Math.hypot(p.x-autumnVista.x,p.z-autumnVista.z)<reach+3)continue
-  if(vegetationPositions.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<reach+1))continue
+  // the edge shrubs too: on the reshaped shore they can sit where the rock line now runs
+  if(vegetationPositions.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<reach+1)||autumnEdgePlants.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<reach+.92*v.scale+.1))continue
   if(pieces.some(v=>Math.hypot(p.x-v.x,p.z-v.z)<(reach+coastKits[v.kit].half*v.scale)*.62))continue
   const y=autumnHeight(p.x,p.z)-coastKits[kit].height*scale*(.83+rand()*.22)
   pieces.push({kit,...p,y,yaw:-a+(rand()-.5)*1.8,scale,role:'cliff'})

@@ -15,6 +15,9 @@ export const furniturePlaces:Record<RecipeId,FurniturePlace>={
  rodRack:{place:'island',x:-.4,z:-5,yaw:Math.PI/2,rect:{hx:.47,hz:.27}},
  // At the fork just north of the spawn, beside the path.
  signpost:{place:'island',x:1.25,z:2.75,yaw:.6,rect:{hx:.58,hz:.12}},
+ // Hung in the bedroom, so nothing to walk round: in front of the north window, and on the south wall left of the door.
+ mapleCharm:{place:'bedroom',x:0,y:1.55,z:-2.55,yaw:0},
+ birchFrame:{place:'bedroom',x:-1.55,y:1.45,z:2.74,yaw:Math.PI},
 }
 
 let made:readonly RecipeId[]=[]

@@ -50,6 +50,11 @@ import { SoundDirector } from './SoundDirector'
 import { Stockpiles } from './Stockpiles'
 import { AmbientLife } from './AmbientLife'
 import { CoastalRocks } from './CoastalRocks'
+import { ArchipelagoSea } from './ArchipelagoSea'
+import { spotsForDay, type ForageKind, type ForageRegion } from '../game/forage'
+import { useInventoryStore } from '../game/inventoryStore'
+import { tideCreatures } from '../game/tidePoolLife'
+import { tideHeight, tidePools } from './tideIsland'
 import { PathDetails } from './PathDetails'
 import {seaLevel} from './worldConfig'
 import {OceanBoundary} from './OceanBoundary'
@@ -79,7 +84,17 @@ function ReviewCamera() {
   useFrame(({ camera }) => {
     const view = new URLSearchParams(location.search).get('view')
     if (!qaEnabled || !view || useForestStore.getState().mode==='sleeping') return
+    // Island finds: frame the first of each kind on offer today from just above, so the small props can be judged.
+    const find=(region:ForageRegion,kind:ForageKind)=>{const f=spotsForDay(useForestStore.getState().homeBook.nights).find(s=>s.region===region&&s.kind===kind);return f?[[f.x+1.1,groundHeightAt(f.x,f.z)+.9,f.z+1.1],[f.x,groundHeightAt(f.x,f.z),f.z]]:[[0,1,0],[0,0,0]]}
     const views: Record<string, [number[], number[]]> = {
+      forageMist: find('mist','mistcap') as [number[],number[]],
+      forageMaple: find('autumn','mapleLeaf') as [number[],number[]],
+      forageBirch: find('autumn','birchBark') as [number[],number[]],
+      forageTide: find('tide','shell') as [number[],number[]],
+      forageGlass: find('tide','seaGlass') as [number[],number[]],
+      autumnBirds: [[113.5,1.6+groundHeightAt(110,47),49.5],[110,groundHeightAt(110,47)+.1,47]],
+      // from the rim on the creature's side of the pool, looking down at it as a raccoon leaning over would
+      ...Object.fromEntries(tideCreatures.map(c=>{const p=tidePools[c.pool],a=Math.atan2(c.z-p.z,c.x-p.x),r=Math.max(p.rx,p.rz)+.6;return[`pool-${c.id}`,[[p.x+Math.cos(a)*r,1.6,p.z+Math.sin(a)*r],[c.x,tideHeight(c.x,c.z),c.z]]]})),
       scaleFish: [[4,2,0],[2,1,-5]],
       scaleWorkshop: [[-12,3.6,24],[-12,2.2,8]],
       scaleLamp: [[.5,2.1,3],[-3.8,1,-2.5]],
@@ -99,6 +114,8 @@ function ReviewCamera() {
       tidePools: [[99,7,113],[100,.2,100]],
       tideObservation: [[101,2.8,104],[99,.1,97]],
       tideArchipelago: [[-22,110,172],[64,0,39]],
+      archipelagoChannel: [[50,7,8],[92,0,28]],
+      archipelagoLagoon: [[60,45,60],[92,0,40]],
       autumnOverview: [[81,32,83],[112,1.5,47]],
       autumnBerth: [[77,7,59],[98,.8,50]],
       autumnVista: [[129,7,51],[117,2.5,41]],
@@ -240,7 +257,7 @@ function Player() {
       }
       if (e.code === 'KeyP' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey) { photo.enter(); return }
       // Seated by the fire or the sea: R roasts a fish, V looks up at the stars.
-      if ((e.code === 'KeyR' || e.code === 'KeyV') && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && useForestStore.getState().mode === 'sitting') { e.preventDefault(); if (e.code === 'KeyR') useForestStore.getState().startRoast(); else useForestStore.getState().toggleStargaze(); return }
+      if ((e.code === 'KeyR' || e.code === 'KeyV') && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey && useForestStore.getState().mode === 'sitting') { e.preventDefault(); if (e.code === 'KeyR') useForestStore.getState().startRoast(useInventoryStore.getState().inv.items.mistcap ?? 0); else useForestStore.getState().toggleStargaze(); return }
       // Sand play on the south beach: B opens the quick bar; 1-4 choose, R turns the outline, F builds, Esc steps back.
       const sand=useSandStore.getState()
       if (e.code === 'KeyB' && !e.repeat && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); if (sand.active) sand.exit(); else sand.enter(); return }
@@ -535,6 +552,7 @@ function Scene() {
     <Stockpiles />
     <AmbientLife />
     <Suspense fallback={null}><CoastalRocks /></Suspense>
+    <Suspense fallback={null}><ArchipelagoSea /></Suspense>
     <OceanBoundary />
     {stones.map(([x, z], i) => <mesh key={i} position={[x, .13, z]} scale={[1, .44, .8]} rotation={[0, i, 0]}>
       <icosahedronGeometry args={[.36, 1]} /><meshStandardMaterial color="#9f9e86" roughness={.95} />

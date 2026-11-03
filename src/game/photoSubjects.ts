@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import {autumnVista} from '../world/autumnIsland'
 import type {Light} from './fishSpecies'
 import {carvingReach,heartStoneAngle} from './secrets'
 
@@ -7,7 +8,7 @@ import {carvingReach,heartStoneAngle} from './secrets'
  * A subject counts when its box sits in the frame large enough, unhidden, at the right time. Pure apart from the
  * `clear` line-of-sight test the scene supplies.
  */
-export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation','carving','heartStone','rainbow','lanterns'] as const
+export const subjectIds=['sunsetSea','fireflies','cabin','fireside','boatSunset','jellyfish','constellation','carving','heartStone','rainbow','lanterns','archipelago'] as const
 export type SubjectId=typeof subjectIds[number]
 
 export interface Framing{
@@ -77,6 +78,11 @@ function heartFaceOn(stone:{centre:THREE.Vector3;normal:THREE.Vector3},camera:TH
  return Math.acos(Math.min(1,Math.abs(to.dot(stone.normal))/d))<heartStoneAngle
 }
 
+/** From the Autumn Isle vista hill: the main island and the other neighbours, as seen across the sea. */
+const islandMarks=[new THREE.Vector3(0,3,0),new THREE.Vector3(107,2,-10),new THREE.Vector3(100,1,101)] as const
+// The camera trails the raccoon by a few metres, so "on the hill" allows 8 m round the vista point.
+const archipelagoView=(s:Shot)=>Math.hypot(s.camera.x-autumnVista.x,s.camera.z-autumnVista.z)<8&&islandMarks.filter(p=>inPicture(p,s.viewProjection,.05)).length>=2
+
 /** Every subject this picture shows. */
 export function subjectsIn(s:Shot):SubjectId[]{
  const near=s.fireflies.filter(p=>p.distanceTo(s.camera)<15&&inPicture(p,s.viewProjection))
@@ -96,6 +102,8 @@ export function subjectsIn(s:Shot):SubjectId[]{
   rainbow:s.light==='day'&&(s.rainbow??[]).filter(p=>inPicture(p,s.viewProjection,.02)).length>=2,
   // A lantern on the water, close enough to read as one.
   lanterns:s.light!=='day'&&(s.lanterns??[]).some(p=>p.distanceTo(s.camera)<18&&inPicture(p,s.viewProjection,.03)&&s.clear(p)),
+  // Two or more of the other islands in frame from the Autumn vista hill.
+  archipelago:archipelagoView(s),
   fireside:s.fireLit&&s.raccoonShown&&s.mode==='sitting'&&!!s.seat?.startsWith('camp-')&&whole(s.raccoon,s,.75,.01)&&whole(s.campfire,s,.6,.004),
  }
  return subjectIds.filter(id=>found[id])

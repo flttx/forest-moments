@@ -1,4 +1,5 @@
 import {MathUtils} from 'three'
+import {shapeRadius,shapeGLSL,smoothPath,toSegments,type CoastFeature} from './coastFeatures'
 
 /** IT-02: southwest landing, open woodland, a gentle northeast lookout hill. */
 // Move the whole local layout together: preserve paths, hull clearance and save berth IDs.
@@ -8,10 +9,13 @@ export const autumnIsland={...point(108,29),rx:20.5,rz:16.5} as const
 export const autumnBerth={id:'autumn',landing:point(83.6,32.3),mooring:{...point(83.6,30.95),heading:Math.PI},dock:{minX:82+autumnOffset.x,maxX:91.2+autumnOffset.x,minZ:32+autumnOffset.z,maxZ:34.2+autumnOffset.z,deckY:.12}} as const
 export const autumnVista=point(117,24)
 export const autumnLoop=[[91.2,33.1],[97,33],[101,24],[110,20],[117,24],[119,31],[113,38],[104,39],[97,33]].map(([x,z])=>[x+autumnOffset.x,z+autumnOffset.z] as const)
-export const autumnPaths=[...autumnLoop.slice(1).map((p,i)=>[...autumnLoop[i],...p] as const),...[[101,24,106,29],[106,29,113,38]].map(([ax,az,bx,bz])=>[ax+autumnOffset.x,az+autumnOffset.z,bx+autumnOffset.x,bz+autumnOffset.z] as const)] as const
+// The trail curves through its control points; the berth approach, vista and clearing links stay where they were.
+export const autumnPaths=[[...autumnLoop[0],...autumnLoop[1]] as const,...toSegments(smoothPath(autumnLoop.slice(1,-1),true)),...toSegments(smoothPath([[101,24],[106,29],[113,38]].map(([x,z])=>[x+autumnOffset.x,z+autumnOffset.z] as const),false))]
+/** A headland under the vista hill and two southern points; small bays east and north. The west jetty side is untouched. */
+export const autumnCoast:readonly CoastFeature[]=[{angle:-.7,width:.3,amount:.12},{angle:1.3,width:.25,amount:.08},{angle:2.4,width:.2,amount:.07},{angle:.35,width:.22,amount:-.1},{angle:-1.6,width:.22,amount:-.09},{angle:-2.4,width:.18,amount:-.06}]
 export function autumnRadius(x:number,z:number){
  const dx=(x-autumnIsland.x)/autumnIsland.rx,dz=(z-autumnIsland.z)/autumnIsland.rz,a=Math.atan2(dz,dx)
- return Math.hypot(dx,dz)/(1+.035*Math.sin(a*3+.7)+.025*Math.cos(a*5-.2))
+ return shapeRadius(Math.hypot(dx,dz)/(1+.035*Math.sin(a*3+.7)+.025*Math.cos(a*5-.2)),a,autumnCoast)
 }
 export function autumnPathDistance(x:number,z:number){
  let distance=Infinity
@@ -29,7 +33,7 @@ export function autumnHeight(x:number,z:number){
  return h
 }
 export const autumnGLSL=`
-float autumnRadius(vec2 p){vec2 q=(p-vec2(${autumnIsland.x.toFixed(1)},${autumnIsland.z.toFixed(1)}))/vec2(20.5,16.5);float a=atan(q.y,q.x);return length(q)/(1.0+.035*sin(a*3.0+.7)+.025*cos(a*5.0-.2));}
+${shapeGLSL('autumnShape',autumnCoast)}float autumnRadius(vec2 p){vec2 q=(p-vec2(${autumnIsland.x.toFixed(1)},${autumnIsland.z.toFixed(1)}))/vec2(20.5,16.5);float a=atan(q.y,q.x);return autumnShape(length(q)/(1.0+.035*sin(a*3.0+.7)+.025*cos(a*5.0-.2)),a);}
 float autumnSegment(vec2 p,vec2 a,vec2 b){vec2 d=b-a;return length(p-a-d*clamp(dot(p-a,d)/dot(d,d),0.0,1.0));}
 float autumnPath(vec2 p){float d=1000.0;${autumnPaths.map(([ax,az,bx,bz])=>`d=min(d,autumnSegment(p,vec2(${ax.toFixed(2)},${az.toFixed(2)}),vec2(${bx.toFixed(2)},${bz.toFixed(2)})));`).join('')}return d;}
 `

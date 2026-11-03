@@ -15,6 +15,8 @@ import { approachBerth, canBoard, canLand, landingBerth, type BoatState } from '
 import {berths} from '../world/worldConfig'
 import {mistPine} from '../world/mistIsland'
 import {tideObservation} from '../world/tideIsland'
+import {creatureNear,recordCreature,tideCreatureIds} from './tidePoolLife'
+import {curiosStorageKey,decodeCurios,emptyCurios,reachEnd,reachIn,type CurioBook} from './curios'
 import {autumnVista} from '../world/autumnIsland'
 import {loadTravel,saveTravel,travelSpawn,emptyTravel,type TravelBook} from './islandTravel'
 import { beginFishing, catchStorageKey, decodeCatchBook, emptyBook, fishingSites, fishingSpot, recordCatch, stepFishing, strikeFish, type CatchBook, type FishingState } from './fishing'
@@ -53,8 +55,11 @@ type ForestState = {
   roast:Roast|null
   /** Fish roasted this visit; the satchel counts the results. */
   roasted:number
+  /** Mist caps roasted this visit; the satchel swaps each raw cap for a roasted one. */
+  roastedCaps:number
   stargazing:boolean
-  startRoast:()=>void
+  /** `caps`: mist caps in the satchel, read by the caller (the satchel store sits outside this one). */
+  startRoast:(caps?:number)=>void
   /** What was picked up today (day = nights slept). */
   forageBook:ForageBook
   /** Bending to pick something up: a gatherable, the egg by the coop, or brushing the sheep. */
@@ -68,6 +73,7 @@ type ForestState = {
   tickLaunch:(delta:number)=>void
   /** Hidden corners found, with when. */
   secretsBook:SecretsBook
+  curiosBook:CurioBook
   discoverSecret:(id:SecretId)=>void
   toggleStargaze:()=>void
   sit:(id:SeatId)=>void
@@ -149,6 +155,7 @@ const forageNotice=(item:ItemId)=>t(item==='wool'?'msg.brushed':'msg.foraged',{i
 function saveFarm(book:FarmBook){try{window.localStorage.setItem(farmStorageKey,JSON.stringify(book));return true}catch{return false}}
 function saveForage(book:ForageBook){try{window.localStorage.setItem(forageStorageKey,JSON.stringify(book));return true}catch{return false}}
 const roastNotice=(saved:boolean)=>saved?t('msg.roasted'):t('msg.roastedUnsaved')
+const capNotice=()=>t('msg.roastedCap')
 /** When a crafting session last finished, to swallow the taps that overshoot it. */
 let craftDoneAt=0
 export const useForestStore = create<ForestState>((rawSet, get) => {
@@ -171,7 +178,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
   },
   // Standing up ends a roast (the fish stays on hand) and the stargazing.
   leaveSeat:()=>{const sitting=get().sitting;if(sitting&&sitting.phase==='idle')set({sitting:{...sitting,phase:'up',elapsed:0},roast:null,stargazing:false})},
-  roast:null,roasted:0,stargazing:false,
+  roast:null,roasted:0,roastedCaps:0,stargazing:false,
   forageBook:(()=>{if(typeof window==='undefined')return emptyForage();try{return decodeForage(window.localStorage.getItem(forageStorageKey))??emptyForage()}catch{return emptyForage()}})(),
   foraging:null,harvest:null,
   lanterns:{launched:[],total:0},launchingElapsed:0,
@@ -182,6 +189,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     const now=Date.now(),launched=[...afloat(s.lanterns.launched,now),now]
     set({mode:'walking',launchingElapsed:0,lanterns:{launched,total:s.lanterns.total+1},message:t('msg.lanternAway')})
   },
+  curiosBook:(()=>{if(typeof window==='undefined')return emptyCurios();try{return decodeCurios(window.localStorage.getItem(curiosStorageKey))??emptyCurios()}catch{return emptyCurios()}})(),
   secretsBook:(()=>{if(typeof window==='undefined')return emptySecrets();try{return decodeSecrets(window.localStorage.getItem(secretsStorageKey))??emptySecrets()}catch{return emptySecrets()}})(),
   discoverSecret:id=>{
     const book=discover(get().secretsBook,id,new Date().toISOString());if(book===get().secretsBook)return
@@ -199,7 +207,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     else{const farmBook:FarmBook=f.source==='egg'?{...s.farmBook,eggDay:null}:{...s.farmBook,woolDay:today};saved=saveFarm(farmBook);set({farmBook})}
     set({mode:'walking',foraging:null,harvest,messageKind:saved?'info':'error',message:saved?forageNotice(f.item):t('msg.forageUnsaved')})
   },
-  startRoast:()=>{const s=get();if(s.roast||s.menuPaused)return;const roast=beginRoast(s);if(roast)set({roast,stargazing:false,message:''})},
+  startRoast:(caps=0)=>{const s=get();if(s.roast||s.menuPaused)return;const roast=beginRoast(s,caps);if(roast)set({roast,stargazing:false,message:''})},
   toggleStargaze:()=>{const s=get();if(s.menuPaused)return;if(s.stargazing)set({stargazing:false});else if(canStargaze(s)&&!s.roast)set({stargazing:true,message:''})},
   wakeUp:()=>{
     const s=get();if(s.mode!=='sleeping'||!s.sleepJourney)return
@@ -217,6 +225,7 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
     if(s.roast&&s.mode==='sitting'){
       const elapsed=s.roast.elapsed+dt
       if(elapsed<roastSeconds)set({roast:{...s.roast,elapsed}})
+      else if(s.roast.item==='mistcap')set({roast:null,roastedCaps:s.roastedCaps+1,messageKind:'info',message:capNotice()})
       else{const homeBook={...s.homeBook,usedCatchIds:[...s.homeBook.usedCatchIds,s.roast.catchId]},saved=saveHome(homeBook);set({roast:null,roasted:s.roasted+1,homeBook,messageKind:saved?'info':'error',message:roastNotice(saved)})}
     }
     if(s.mode==='sitting'&&s.sitting){const sitting={...s.sitting,elapsed:s.sitting.elapsed+dt};if(sitting.phase==='down'&&sitting.elapsed>=2.234){sitting.phase='idle';sitting.elapsed=0}if(sitting.phase==='up'&&sitting.elapsed>=2.267)set({mode:'walking',position:sitting.returnPosition,sitting:null});else set({sitting})}
@@ -418,6 +427,22 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       // The bottle and the fox den: read the note (found the first time).
       const note=mode==='walking'?noteSecretAt(position):null
       if(note){if(get().secretsBook.found[note])set({message:t(`secret.${note}Note`),messageKind:'info'});else get().discoverSecret(note);return}
+      // Mist Isle hollow logs: reach into an open end; one small old thing a day until all are found.
+      if(mode==='walking'&&reachEnd(position)){
+       const {book,find}=reachIn(get().curiosBook,get().homeBook.nights)
+       let saved=true;if(book!==get().curiosBook){try{window.localStorage.setItem(curiosStorageKey,JSON.stringify(book))}catch{saved=false}}
+       const message=find.kind==='found'?t(saved?'msg.curioFound':'msg.curioUnsaved',{name:t(`curio.${find.id}`),n:book.found.length})+' '+t(`curio.${find.id}Note`):t(find.kind==='emptyToday'?'msg.curioEmpty':'msg.curioAll')
+       set({curiosBook:book,messageKind:saved?'info':'error',message});return
+      }
+      // Tide Isle pools: look at the creature in the pool beside you; the first look records it in the guide.
+      const creature=mode==='walking'?creatureNear(position):null
+      if(creature){
+       const found=get().travel.creatures,known=found.includes(creature.id),name=t(`tide.${creature.id}`)
+       if(known){set({message:t(`tide.${creature.id}Note`),messageKind:'info'});return}
+       const travel={...get().travel,creatures:recordCreature(found,creature.id)},saved=saveTravel(travel)
+       set({travel,messageKind:saved?'info':'error',message:t(saved?'msg.observed':'msg.observedUnsaved',{name,n:travel.creatures.length,total:tideCreatureIds.length})+' '+t(`tide.${creature.id}Note`)})
+       return
+      }
       const spot=mode==='walking'?spotNear(position,get().forageBook,get().homeBook.nights):null
       if(spot){set({mode:'foraging',foraging:{item:spot.kind,source:'forage',spotId:spot.id,x:spot.x,z:spot.z,seconds:forageSeconds,elapsed:0},inspectingTree:false,message:''});return}
       if(mode==='walking'&&nearLogPile(position)){if(!woodReady(get().workshopBook,get().homeBook.nights)){set({message:t('msg.woodTaken')});return}set({mode:'foraging',foraging:{item:'wood',source:'wood',x:logPile.x,z:logPile.z,seconds:1.6,elapsed:0},inspectingTree:false,message:''});return}
@@ -477,6 +502,11 @@ export const useForestStore = create<ForestState>((rawSet, get) => {
       if (nearby==='dock'&&!canBoard(position.x, position.z, boat) && Math.hypot(position.x - sea.x, position.z - sea.z) <= .85) {
         if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
         set({ mode: 'fishing', position: { ...sea }, fishing: beginFishing(Math.random, get().timeOfDay, 'sea', weatherFor(get().homeBook.nights)), message: '' }); return
+      }
+      const mistDock = fishingSites.mistDock.stand
+      if (nearby==='mist'&&!canBoard(position.x, position.z, boat) && Math.hypot(position.x - mistDock.x, position.z - mistDock.z) <= .85) {
+        if (!get().fishingReady) { set({ message: t('msg.fishingLoading') }); return }
+        set({ mode: 'fishing', position: { ...mistDock }, fishing: beginFishing(Math.random, get().timeOfDay, 'mistDock', weatherFor(get().homeBook.nights)), message: '' }); return
       }
       if (!canBoard(position.x, position.z, boat)) { set({ message: t('msg.toDockEnd') }); return }
       set({boatTransfer:{direction:'board',elapsed:0,committed:false},message:''})

@@ -1,4 +1,5 @@
 import {useEffect,useMemo} from 'react'
+import {ClearingBirds} from './ClearingBirds'
 import * as THREE from 'three'
 import {autumnIsland,autumnHeight,autumnGLSL} from './autumnIsland'
 import {noiseGLSL} from './terrain'
@@ -15,7 +16,7 @@ export function AutumnIsland(){
   g.computeVertexNormals();g.computeBoundingSphere();return g
  },[])
  useEffect(()=>()=>geometry.dispose(),[geometry])
- return <group><AutumnUnderstory/><mesh name="autumn-island-terrain" geometry={geometry} receiveShadow>
+ return <group><AutumnUnderstory/><ClearingBirds/><mesh name="autumn-island-terrain" geometry={geometry} receiveShadow>
   <meshStandardMaterial roughness={.94} onBeforeCompile={shader=>{
    Object.assign(shader.uniforms,{climateGrass:climateUniforms.climateGrass,climateWet:climateUniforms.climateWet})
    shader.vertexShader='varying vec3 vAutumn;varying vec3 vAutumnNormal;\n'+shader.vertexShader
