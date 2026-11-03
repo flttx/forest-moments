@@ -10,7 +10,7 @@ import type {SeasonRecap} from './game/seasons'
 const none:SeasonRecap[]=[]
 
 const stampIcon:Record<StampId,IconName>={pine:'pine',koi:'fishbook',flame:'flame',feather:'feather',boat:'boat',moon:'moon'}
-const measured:Partial<Record<TaskId,Key>>={row:'journal.meters',fireside:'journal.seconds',mushrooms:'journal.count'}
+const measured:Partial<Record<TaskId,Key>>={row:'journal.meters',fireside:'journal.seconds',mushrooms:'journal.count',mistcaps:'journal.count',mapleLeaves:'journal.count'}
 
 /** A stamp in ink: one of six designs, rotating by page. */
 export function Stamp({id,size=28}:{id:StampId;size?:number}){
@@ -46,7 +46,7 @@ export function JournalPanel(){
     const unit=measured[task.id]
     return <li key={task.id} className={task.doneAt?'done':undefined}>
      <Icon name={task.doneAt?'done':'todo'}/>
-     <span>{t(`journal.task.${task.id}` as Key)}{!task.doneAt&&measured[task.id]&&<small className="journal-condition">{t(task.id==='row'?'journal.rowCondition':'journal.fireCondition')}</small>}</span>
+     <span>{t(`journal.task.${task.id}` as Key)}{!task.doneAt&&(task.id==='row'||task.id==='fireside')&&<small className="journal-condition">{t(task.id==='row'?'journal.rowCondition':'journal.fireCondition')}</small>}</span>
      {task.doneAt?<small>{time(task.doneAt)}</small>:unit&&<small>{t(unit,{p:Math.floor(task.progress),target:taskTarget[task.id]})}</small>}
     </li>
    })}

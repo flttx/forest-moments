@@ -5,9 +5,10 @@ import {useForestStore} from '../game/store'
 import {madeOf,type RecipeId} from '../game/recipes'
 import {furniturePlaces} from '../game/furniture'
 import {groundHeightAt} from '../game/movement'
+import {mapleLeafShape} from './mapleLeaf'
 
 const models:Record<Exclude<RecipeId,'mapleCharm'|'birchFrame'>,string>={table:'small-wood-table',birdhouse:'birdhouse',rodRack:'fishing-rod-rack',signpost:'wood-signpost'}
-const leafShape=(()=>{const shape=new THREE.Shape();for(let i=0;i<=50;i++){const a=i/50*Math.PI*2,r=.03+.045*Math.pow(Math.abs(Math.cos(a*2.5)),.6);const [x,y]=[Math.cos(a+Math.PI/2)*r,Math.sin(a+Math.PI/2)*r];if(i)shape.lineTo(x,y);else shape.moveTo(x,y)}return shape})()
+const leafShape=mapleLeafShape(.075)
 
 /** Three maple leaves on threads from a short twig, hung in front of the north window. */
 function mapleCharm(){

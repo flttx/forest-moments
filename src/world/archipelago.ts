@@ -59,7 +59,9 @@ export const {reefStacks,reefClusters}=(()=>{
  return{reefStacks:stacks,reefClusters:clusters}
 })()
 /** Hull test: a stack blocks the boat across its footprint plus a small margin. */
-export function reefBlocks(x:number,z:number){return reefClusters.some(c=>Math.hypot(x-c.x,z-c.z)<c.r+.2)&&reefStacks.some(s=>Math.hypot(x-s.x,z-s.z)<coastKits[s.kit].half*s.scale*.9+.15)}
+/** Each reef rock as the circle the boat must keep out of. */
+export const reefSolids=reefStacks.map(s=>({x:s.x,z:s.z,r:coastKits[s.kit].half*s.scale*.9+.15}))
+export function reefBlocks(x:number,z:number){return reefClusters.some(c=>Math.hypot(x-c.x,z-c.z)<c.r+.2)&&reefSolids.some(s=>Math.hypot(x-s.x,z-s.z)<s.r)}
 /** Distance (m) outside the nearest reef cluster, for the white water and pale halo the sea draws round each reef. */
 export const reefGLSL=/* glsl */ `
 float reefDistance(vec2 p){float d=1000.0;${reefClusters.map(c=>`d=min(d,length(p-vec2(${c.x.toFixed(2)},${c.z.toFixed(2)}))-${c.r.toFixed(2)});`).join('')}return d;}

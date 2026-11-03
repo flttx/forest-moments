@@ -8,6 +8,7 @@ import type { Group } from 'three'
 import { clone } from 'three/addons/utils/SkeletonUtils.js'
 import { modelAssets } from './assets'
 import { useForestStore } from '../game/store'
+import { useUiStore } from '../game/uiStore'
 import { t } from '../i18n'
 import { RaccoonPatch } from '../Patch'
 import {smoothRange} from './worldConfig'
@@ -100,6 +101,8 @@ export function ModelAsset({ asset, motion, onReadyChange }: {
 export class WorldErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false }
   static getDerivedStateFromError() { return { failed: true } }
+  // Let the loading card step aside so this message is seen.
+  componentDidCatch() { useUiStore.setState({ worldFailed: true }) }
   render() {
     if (this.state.failed) return <div className="world-error twill" role="alert">
       <RaccoonPatch arc="FOREST MOMENTS" className="loading-patch" />

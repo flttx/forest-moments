@@ -209,10 +209,39 @@ export const vegetationPositions=[...coastalVegetationPositions,...autumnEdgePla
 export function instanceCircles(p:VegetationInstance) {
   return templates[p.kit].colliders.map(([x,z,r])=>({x:p.x+(Math.cos(p.yaw)*x+Math.sin(p.yaw)*z)*p.scale,z:p.z+(-Math.sin(p.yaw)*x+Math.cos(p.yaw)*z)*p.scale,r:r*p.scale,kit:p.kit}))
 }
-export const vegetationColliders=[...vegetationPositions,...lampPositions].flatMap(instanceCircles)
+/** Head of a lamp hangs .35 m past its origin, opposite its post: this yaw hangs it towards (tx,tz). */
+const hangTowards=(x:number,z:number,tx:number,tz:number)=>Math.atan2(x-tx,z-tz)
+/**
+ * Island lamps (archipelago stage 4): where each dock meets its trail, the head hung back over the dock, and beside each
+ * island bench, hung towards the seat; then three round each loop, spread along it and hung along the trail as the main
+ * island's ring lamps are, so the islands carry a string of lights at night. Outside the trees' and trail's room
+ * (islandSetPieces.test.ts); the main island's own lamps above keep their count.
+ */
+export const islandLampPositions:VegetationInstance[]=([
+ [88.98,-8.78,84,-10],[97.79,-6.29,99.04,-5.12],
+ [95.99,52.32,90,51.1],[104.26,45.35,104,47],
+ // Tide: on the shore past the dock's end, clear of the two trail branches that leave it
+ [86.04,102.66,83,101.1],[103.02,108.55,104.49,107.75],
+] as const).map(([x,z,tx,tz]):VegetationInstance=>({kit:'lantern',x,z,yaw:hangTowards(x,z,tx,tz),scale:1.3})).concat(([
+ [96.97,-17.96,-.464],[119.58,-9.7,2.976],[98.8,2.75,1.107],
+ [106.89,38.86,-1.153],[123.01,42.47,-2.863],[109.25,58.67,1.681],
+ [93.78,91.47,-.896],[111.4,102.38,2.923],[92.8,110.2,1.373],
+] as const).map(([x,z,yaw])=>({kit:'lantern',x,z,yaw,scale:1.3})))
+export const allLamps=[...lampPositions,...islandLampPositions]
+export const vegetationColliders=[...vegetationPositions,...allLamps].flatMap(instanceCircles)
 
 // Approximate foliage volumes in kit space (template heights 4-8 m). Bushes count too: a low or close
 // camera arm otherwise ends inside one and the view fills with leaves.
 const crownShape:Partial<Record<PlantKit,{y:number;r:number}>>={'normal-pine-b':{y:3,r:2.1},'tall-pine-a':{y:4.2,r:2.4},'round-tree-a':{y:3.7,r:2},'young-tree-b':{y:2.7,r:1.4},'bush-a':{y:.55,r:.9},'ie-old-pine':islandTemplates['ie-old-pine'].crown,'ie-spruce':islandTemplates['ie-spruce'].crown,'ie-spruce-sapling':islandTemplates['ie-spruce-sapling'].crown,'ie-birch':islandTemplates['ie-birch'].crown,'ie-maple':islandTemplates['ie-maple'].crown,'ie-windswept-pine':islandTemplates['ie-windswept-pine'].crown,'ie-windswept-pine-b':islandTemplates['ie-windswept-pine-b'].crown}
+/**
+ * Tall narrow crowns one sphere cannot hold. The spruce's needles run from 1 m to its 9 m tip, widest (1.8 m) near the
+ * bottom: its template sphere sat at 3.7-7.1 m, so a camera looking past the lower skirts saw no crown (stage 5). Stacked
+ * from the kit's measured radius per half-metre band ([height, radius] in kit space).
+ */
+const crownStack:Partial<Record<PlantKit,readonly (readonly [number,number])[]>>={'ie-spruce':[[2.2,1.85],[3.8,1.6],[5.4,1.3],[6.9,.85]]}
 /** Crown spheres used only to keep the camera out of leaves; rendering and collisions are unaffected. */
-export const canopySpheres=vegetationPositions.flatMap(p=>{const c=crownShape[p.kit];return c?[{x:p.x,y:terrainHeight(p.x,p.z)+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]})
+export const canopySpheres=vegetationPositions.flatMap(p=>{
+ const g=terrainHeight(p.x,p.z),stack=crownStack[p.kit]
+ if(stack)return stack.map(([y,r])=>({x:p.x,y:g+y*p.scale,z:p.z,r:r*p.scale}))
+ const c=crownShape[p.kit];return c?[{x:p.x,y:g+c.y*p.scale,z:p.z,r:c.r*p.scale}]:[]
+})

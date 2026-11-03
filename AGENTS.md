@@ -35,6 +35,11 @@
 - 每个测试在最外层 `finally` 中 `await cleanup()`，报告写入失败也必须执行清理。辅助测试使用 `createProjectTempDirectory`，并在结束后删除自己的临时目录。
 - `.tmp/legacy-browser-profiles/` 是从 C 盘迁回的历史目录，保留备查，不用于新测试。强制结束进程或断电仍可能在项目 `.tmp/` 留下目录。
 
+## Never（重复出错后追加）
+
+- 2026-11-03：新建文件前先查同目录，文件名不得与已有文件只差大小写（如 `islandProps.ts` 与 `IslandProps.tsx`、`clearingBirds.ts` 与 `ClearingBirds.tsx`）。Windows 不区分大小写，TypeScript 会报大小写冲突；本轮已出现两次。
+- 2026-11-04：运行带默认输出目录的检查脚本前，先确认它读的输出环境变量名（`FOREST_QA_OUT` 或 `FOREST_OUT`）。传错了名字，脚本会写进旧日期的证据目录，覆盖历史结果；`check_west_expansion.mjs` 因此两次覆盖了 10-29 的证据。现已让它同时认 `FOREST_QA_OUT`。
+
 ## 国际站部署
 
 目标必须是 https://www.modelscope.ai，绝不默默回退到 modelscope.cn。

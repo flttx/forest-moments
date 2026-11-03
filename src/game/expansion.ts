@@ -39,6 +39,11 @@ export const seats=[
  {id:'camp-east',name:'篝火东侧',x:22.3,z:23,yaw:Math.PI/2},
  // Facing down into the gorge at the falls, from the levelled pad on the south-west rim.
  {id:'falls',name:'瀑布观景台',x:-32.75,z:-12.75,yaw:-.773},
+ // One bench on each neighbour island (archipelago stage 4), on level ground clear of trees and trail, facing its sight:
+ // the Mist Isle old pine 8.5 m off, the Autumn maple clearing 6 m off (outside the robins' 3.5 m flight distance), the tide pools.
+ {id:'mistBench',name:'古松长椅',x:99.04,z:-5.12,yaw:-.959},
+ {id:'autumnBench',name:'林窗长椅',x:104,z:47,yaw:-Math.PI/2},
+ {id:'tideBench',name:'潮池长椅',x:104.49,z:107.75,yaw:.698},
 ] as const
 export type SeatId=typeof seats[number]['id']|'stool'
 export type SeatSession={id:SeatId;phase:'down'|'idle'|'up';elapsed:number;returnPosition:{x:number;z:number}}

@@ -1,0 +1,368 @@
+{
+  "date": "2026-11-03T15:49:37.216Z",
+  "mode": "isolated muted headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "clearing robins hop without jumps, scatter to perches in real crowns when the raccoon walks in, and drop back once it has gone",
+      "data": {
+        "calm": [
+          {
+            "lift": 0,
+            "d": 7.49
+          },
+          {
+            "lift": 0,
+            "d": 9
+          },
+          {
+            "lift": 0,
+            "d": 6.23
+          }
+        ],
+        "step": {
+          "max": 0.042,
+          "frames": 627
+        },
+        "scattered": [
+          {
+            "lift": 0,
+            "d": 4.16
+          },
+          {
+            "lift": 0,
+            "d": 6
+          },
+          {
+            "lift": 2.8,
+            "d": 2.55
+          }
+        ],
+        "perched": [
+          {
+            "lift": 0,
+            "d": 4
+          },
+          {
+            "lift": 0,
+            "d": 5.61
+          },
+          {
+            "lift": 3.1,
+            "d": 1.81
+          }
+        ],
+        "onPerch": [
+          6.44,
+          4.35,
+          0
+        ],
+        "away": 9.85036999992126,
+        "back": [
+          {
+            "lift": 0,
+            "d": 9.21
+          },
+          {
+            "lift": 0,
+            "d": 11.54
+          },
+          {
+            "lift": 0,
+            "d": 8.84
+          }
+        ]
+      }
+    },
+    {
+      "name": "above the vista hill crowns the main and Mist isles count as the archipelago panorama; screened by the crowns, or facing out to sea, they do not",
+      "data": {
+        "aim": {
+          "yaw": -2.3917449274723186,
+          "y": 5.055847763568292
+        },
+        "raised": {
+          "x": 121,
+          "y": 16.05584776356829,
+          "z": 42,
+          "yaw": -2.3917449274723186,
+          "pitch": -0.14
+        },
+        "screened": [],
+        "panorama": [
+          "archipelago"
+        ],
+        "turned": []
+      }
+    },
+    {
+      "name": "two maple leaves picked up on Autumn Isle with F",
+      "data": {
+        "spots": [
+          {
+            "x": 113.85,
+            "z": 43.26
+          },
+          {
+            "x": 110.65,
+            "z": 42.86
+          }
+        ],
+        "mapleLeaf": 6
+      }
+    },
+    {
+      "name": "reaching into the hollow log adds the next curio",
+      "data": {
+        "curiosFound": [
+          "compass",
+          "button",
+          "marble"
+        ]
+      }
+    },
+    {
+      "name": "R at the lit fire roasts a mist cap and the satchel swaps it for a roasted one",
+      "data": {
+        "satchel": {
+          "mistcap": 1,
+          "mapleLeaf": 6,
+          "birchBark": 2,
+          "wood": 2,
+          "shell": 1,
+          "seaGlass": 1,
+          "roastCap": 1
+        },
+        "message": "雾松菌烤得焦香，收进了背包。"
+      }
+    },
+    {
+      "name": "both Autumn recipes made at the bench, taking exactly their leaves, bark and wood",
+      "data": {
+        "held": {
+          "mistcap": 1,
+          "mapleLeaf": 6,
+          "birchBark": 2,
+          "wood": 2,
+          "shell": 1,
+          "seaGlass": 1,
+          "roastCap": 1
+        },
+        "leftover": {
+          "mistcap": 1,
+          "mapleLeaf": 2,
+          "shell": 1,
+          "seaGlass": 1,
+          "roastCap": 1
+        }
+      }
+    },
+    {
+      "name": "the island journal page fills in from a real curio find, panorama shot and leaf pickups",
+      "data": {
+        "tasks": [
+          "curio:1",
+          "shotArchipelago:1",
+          "mapleLeaves:1"
+        ],
+        "lines": [
+          "从雾松岛的倒木树洞里摸出一件旧物23:51",
+          "在秋岚观景丘拍一张群岛全景23:51",
+          "在秋岚岛拾 2 片枫叶23:51"
+        ]
+      }
+    },
+    {
+      "name": "after a reload the bedroom shows three curios, two shells and sea glass on the shelf, the maple charm and the birch frame",
+      "data": {
+        "shelfItems": 6,
+        "charm": true,
+        "frame": true
+      }
+    },
+    {
+      "name": "fallen maple leaves follow the season: 2 weathered brown in spring, 3 early yellow in summer, 5 red, orange and gold in autumn",
+      "data": {
+        "spring": {
+          "count": 2,
+          "colours": [
+            "#8a6a44",
+            "#a5845a",
+            "#74563a"
+          ]
+        },
+        "summer": {
+          "count": 3,
+          "colours": [
+            "#c2a23c",
+            "#b08a34",
+            "#a8a046"
+          ]
+        },
+        "autumn": {
+          "count": 5,
+          "colours": [
+            "#a8402a",
+            "#c4762c",
+            "#c99a34"
+          ]
+        }
+      }
+    },
+    {
+      "name": "each island bench seats the raccoon with F and its two nearby lamps light up at night",
+      "data": {
+        "mistBench": {
+          "origin": {
+            "x": 99.52516738727088,
+            "z": -5.46039151591443
+          },
+          "litLamps": [
+            [
+              88.7,
+              1.4,
+              -8.9
+            ],
+            [
+              97.1,
+              2.3,
+              -18.2
+            ],
+            [
+              98.6,
+              2.2,
+              2.6
+            ],
+            [
+              98,
+              2.3,
+              -6.1
+            ]
+          ]
+        },
+        "autumnBench": {
+          "origin": {
+            "x": 104.59266666666667,
+            "z": 47
+          },
+          "litLamps": [
+            [
+              104.2,
+              2.1,
+              45.6
+            ],
+            [
+              107.2,
+              2.2,
+              38.8
+            ],
+            [
+              95.7,
+              1.4,
+              52.2
+            ],
+            [
+              109,
+              2,
+              58.7
+            ]
+          ]
+        },
+        "tideBench": {
+          "origin": {
+            "x": 104.1091010066445,
+            "z": 107.29594082473916
+          },
+          "litLamps": [
+            [
+              103.3,
+              1.8,
+              108.4
+            ],
+            [
+              111.3,
+              1.9,
+              102.7
+            ],
+            [
+              92.5,
+              2,
+              110.1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "rowing straight at a channel buoy stops the hull at it instead of passing through",
+      "data": {
+        "start": {
+          "x": 59.41889294301451,
+          "z": -8.579594197610724,
+          "heading": -3.141592653589793,
+          "buoy": {
+            "x": 52.41889294301451,
+            "z": -8.579594197610724,
+            "phase": 0
+          }
+        },
+        "moved": 4.65,
+        "closest": 0.2
+      }
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-birds-ground.png",
+    "02-birds-scatter.png",
+    "03-birds-perched.png",
+    "03-birds-perch-2.png",
+    "04-birds-back.png",
+    "05-archipelago-screened.png",
+    "06-archipelago-shot.png",
+    "07-roasting-cap.png",
+    "08-roasted-cap.png",
+    "09-made-charm.png",
+    "10-made-frame.png",
+    "13-journal-island-tasks.png",
+    "11-bedroom-player.png",
+    "12-bedroomShelf.png",
+    "12-bedroomCharm.png",
+    "12-bedroomFrame.png",
+    "12-bedroom.png",
+    "14-spring-forageMaple.png",
+    "14-spring-autumnMaple.png",
+    "14-summer-forageMaple.png",
+    "14-summer-autumnMaple.png",
+    "14-autumn-forageMaple.png",
+    "14-autumn-autumnMaple.png",
+    "../../phase4/night-seated-mistBench.png",
+    "../../phase4/night-seated-autumnBench.png",
+    "../../phase4/night-seated-tideBench.png",
+    "../../phase4/day-mistBench.png",
+    "../../phase4/day-autumnBench.png",
+    "../../phase4/day-tideBench.png",
+    "../../phase4/day-mistDockHead.png",
+    "../../phase4/day-autumnDockHead.png",
+    "../../phase4/day-tideDockHead.png",
+    "../../phase4/dusk-mistBench.png",
+    "../../phase4/dusk-autumnBench.png",
+    "../../phase4/dusk-tideBench.png",
+    "../../phase4/dusk-mistDockHead.png",
+    "../../phase4/dusk-autumnDockHead.png",
+    "../../phase4/dusk-tideDockHead.png",
+    "../../phase4/night-mistBench.png",
+    "../../phase4/night-autumnBench.png",
+    "../../phase4/night-tideBench.png",
+    "../../phase4/night-mistDockHead.png",
+    "../../phase4/night-autumnDockHead.png",
+    "../../phase4/night-tideDockHead.png",
+    "17-boat-at-buoy.png",
+    "18-boat-at-buoy-side.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.58"
+}

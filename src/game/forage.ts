@@ -5,7 +5,7 @@ import {canStandAt} from './movement'
 import {mistPathDistance,mistRadius} from '../world/mistIsland'
 import {autumnPathDistance,autumnRadius} from '../world/autumnIsland'
 import {tideHeight,tidePathDistance,tideRadius,tideIsland,inTidePool} from '../world/tideIsland'
-import {rainMushrooms,weatherFor} from './weather'
+import {rainMushrooms,seasonFor,weatherFor,type Season} from './weather'
 
 /**
  * Gathering (docs/GAMEPLAY_EXPANSION_PLAN.md §2.4): mushrooms under the trees, berries by the bushes, shells on the
@@ -22,10 +22,22 @@ export type ForageRegion=typeof forageRegions[number]
 export const regionQuota:Record<ForageRegion,Partial<Record<ForageKind,number>>>={
  main:{mushroom:5,berry:4,shell:5,pinecone:4},
  mist:{mistcap:4,pinecone:3},
+ // maple leaves follow the season instead (mapleLeavesBySeason); 3 is the summer count
  autumn:{mapleLeaf:3,birchBark:3},
  tide:{shell:5,seaGlass:2},
 }
-/** Across all regions, how many of each appear on a dry day. */
+/** Fallen maple leaves: a few in spring and summer, the clearing littered in autumn (7 spots in all). */
+export const mapleLeavesBySeason:Record<Season,number>={spring:2,summer:3,autumn:5}
+/** How many of a kind a region offers on a day: rain brings out more caps on both islands, the season sets the maple leaves. */
+export function dailyCount(region:ForageRegion,kind:ForageKind,day:number){
+ const base=regionQuota[region][kind],rain=weatherFor(day)==='rain'
+ if(base===undefined)return 0
+ if(kind==='mushroom'&&rain)return rainMushrooms
+ if(kind==='mistcap'&&rain)return base+2
+ if(kind==='mapleLeaf')return mapleLeavesBySeason[seasonFor(day)]
+ return base
+}
+/** Across all regions, how many of each appear on a dry summer day. */
 export const perDay=Object.fromEntries(forageKinds.map(k=>[k,forageRegions.reduce((n,r)=>n+(regionQuota[r][k]??0),0)])) as Record<ForageKind,number>
 export const pickRadius=.9
 export const forageSeconds=1.1
@@ -109,14 +121,12 @@ export const forageSpots:ForageSpot[]=(()=>{
 function seeded(seed:number){let n=(seed*2654435761)%4294967296||1;return()=>((n=(n*1664525+1013904223)%4294967296)/4294967296)}
 /** The spots offering something on a given day (day = nights slept). */
 export function spotsForDay(day:number,spots:readonly ForageSpot[]=forageSpots):ForageSpot[]{
- const out:ForageSpot[]=[],rain=weatherFor(day)==='rain'
+ const out:ForageSpot[]=[]
  forageRegions.forEach((region,r)=>{
   // The main island draws with its original seed and order, so a day offers exactly what it always did there.
   const random=seeded(day+17+r*7919)
-  for(const [kind,base] of Object.entries(regionQuota[region]) as [ForageKind,number][]){
-   const pool=spots.filter(s=>s.region===region&&s.kind===kind)
-   // rain brings out more caps on both islands
-   const count=rain&&kind==='mushroom'?rainMushrooms:rain&&kind==='mistcap'?base+2:base
+  for(const kind of Object.keys(regionQuota[region]) as ForageKind[]){
+   const pool=spots.filter(s=>s.region===region&&s.kind===kind),count=dailyCount(region,kind,day)
    for(let i=0;i<count&&pool.length;i++)out.push(pool.splice(Math.floor(random()*pool.length),1)[0])
   }
  })

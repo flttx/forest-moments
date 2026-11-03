@@ -1,8 +1,10 @@
 import {Suspense,useEffect,useMemo} from 'react'
 import {useGLTF} from '@react-three/drei'
 import * as THREE from 'three'
+import {mapleLeafShape} from './mapleLeaf'
 import {useForestStore} from '../game/store'
 import {useWeatherStore} from '../game/weatherStore'
+import {seasonFor,type Season} from '../game/weather'
 import {availableSpots,type ForageKind} from '../game/forage'
 import {groundHeightAt} from '../game/movement'
 import {eggReady,eggSpot} from '../game/farm'
@@ -27,19 +29,17 @@ function fogCaps(material:THREE.MeshStandardMaterial,tint:THREE.Color){
 // Shells lie on the sand rather than standing on their hinge; half their thickness keeps them above it.
 const pose:Partial<Record<ForageKind,{tilt:number;lift:number}>>={shell:{tilt:-Math.PI/2,lift:.028}}
 
-/** Two or three fallen maple leaves: five pointed lobes, a slight cup, autumn red to amber. */
-function mapleLeaves(){
- const shape=new THREE.Shape()
- for(let i=0;i<=60;i++){
-  const a=i/60*Math.PI*2,lobe=Math.pow(Math.abs(Math.cos(a*2.5)),.6),r=.035+.05*lobe*(a>Math.PI*1.2&&a<Math.PI*1.8?.55:1)
-  const [x,y]=[Math.cos(a+Math.PI/2)*r,Math.sin(a+Math.PI/2)*r];if(i)shape.lineTo(x,y);else shape.moveTo(x,y)
- }
- const geometry=new THREE.ShapeGeometry(shape,2).rotateX(-Math.PI/2)
+/** What lies under the maples by season: last year's weathered browns in spring, a few early yellow drops in summer,
+ * red, orange and gold in autumn as the crowns turn. None is grass-green, so they still read in the spring grass. */
+const leafColours:Record<Season,readonly string[]>={spring:['#8a6a44','#a5845a','#74563a'],summer:['#c2a23c','#b08a34','#a8a046'],autumn:['#a8402a','#c4762c','#c99a34']}
+/** Three fallen maple leaves: five pointed lobes, a slight cup, in the season's colours. */
+function mapleLeaves(season:Season){
+ const geometry=new THREE.ShapeGeometry(mapleLeafShape(.085),2).rotateX(-Math.PI/2)
  const position=geometry.getAttribute('position')
  for(let i=0;i<position.count;i++)position.setY(i,(position.getX(i)**2+position.getZ(i)**2)*1.6)
  geometry.computeVertexNormals()
  const group=new THREE.Group()
- ;[['#a8402a',0,0,0],['#c4762c',.07,.05,2.1],['#b85a2a',-.05,.06,4]].forEach(([colour,x,z,yaw])=>{
+ ;[[leafColours[season][0],0,0,0],[leafColours[season][1],.07,.05,2.1],[leafColours[season][2],-.05,.06,4]].forEach(([colour,x,z,yaw])=>{
   const leaf=new THREE.Mesh(geometry,new THREE.MeshStandardMaterial({color:colour as string,roughness:.85,side:THREE.DoubleSide}))
   leaf.position.set(x as number,.006,z as number);leaf.rotation.y=yaw as number;leaf.receiveShadow=true;group.add(leaf)
  })
@@ -89,7 +89,8 @@ function Prop({id}:{id:ForageKind|'egg'}){
  return <Model id={id}/>
 }
 function Made({id}:{id:'mapleLeaf'|'birchBark'|'seaGlass'}){
- const object=useMemo(()=>id==='mapleLeaf'?mapleLeaves():id==='birchBark'?birchCurl():seaGlass(),[id])
+ const season=useForestStore(s=>seasonFor(s.homeBook.nights))
+ const object=useMemo(()=>id==='mapleLeaf'?mapleLeaves(season):id==='birchBark'?birchCurl():seaGlass(),[id,season])
  // picked props unmount: free what was built for them
  useEffect(()=>()=>object.traverse(o=>{if(o instanceof THREE.Mesh){o.geometry.dispose();(o.material as THREE.Material).dispose()}}),[object])
  return <primitive object={object}/>

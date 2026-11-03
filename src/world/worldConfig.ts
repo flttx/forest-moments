@@ -1,4 +1,4 @@
-import {extendWestLand,westCoastRadius,westBayHeight,westBay} from './westExpansion'
+import {extendWestLand,westCoastRadius,westCoveHeight,westCove} from './westExpansion'
 import {tideHeight,tideBerth} from './tideIsland'
 import {mistHeight} from './mistIsland'
 import {autumnHeight,autumnBerth} from './autumnIsland'
@@ -62,8 +62,8 @@ float plateauAt(vec2 p){float a=atan(p.y,p.x);return ${islandShape.plateauRadius
 float coastAt(vec2 p){float a=atan(p.y,p.x);return ${islandShape.coastRadius.toFixed(1)}+.85*sin(a*3.0+.4)+.55*sin(a*5.0-.8)+.25*cos(a*9.0)+.45*sin(a*11.0+.6)*freeShore(a)+featureShift(a,2);}
 `
 export function coastRadius(angle:number){return Math.max(originalCoastRadius(angle),westCoastRadius(angle),bayCoastBound(angle))}
-/** Far edge of the bay sand along a bearing (a generous bound for the shoreline search only). */
-function bayCoastBound(angle:number){const [bx,bz]=westBay.b,d=Math.hypot(bx,bz),gap=Math.abs(bearingGap(angle,Math.atan2(bz,bx)));return gap<.45?d+westBay.radius*1.3:0}
+/** Far edge of the cove sand along a bearing (a generous bound for the shoreline search only). */
+function bayCoastBound(angle:number){const [bx,bz]=westCove.b,d=Math.hypot(bx,bz),gap=Math.abs(bearingGap(angle,Math.atan2(bz,bx)));return gap<.45?d+westCove.halfWidth*1.3:0}
 let low=0,high=1
 for(let i=0;i<30;i++){const t=(low+high)/2;if(t*t*(3-2*t)<-seaLevel/islandShape.shoreDepth)low=t;else high=t}
 export const shoreWaterFraction=(low+high)/2
@@ -141,7 +141,7 @@ export function originalLandformHeight(x:number,z:number){
  hill+=inlandRelief(x,z)+beachDunes(x,z,r,angle,coast)
  return shore+hill*(1-smoothRange(r,coast-2.8,coast+.9))
 }
-export function landformHeight(x:number,z:number){return x>72?Math.max(mistHeight(x,z),autumnHeight(x,z),tideHeight(x,z)):Math.max(extendWestLand(x,z,originalLandformHeight(x,z)),westBayHeight(x,z))}
+export function landformHeight(x:number,z:number){return x>72?Math.max(mistHeight(x,z),autumnHeight(x,z),tideHeight(x,z)):Math.max(extendWestLand(x,z,originalLandformHeight(x,z)),westCoveHeight(x,z))}
 export function originalShorelineRadius(angle:number){let lo=30,hi=originalCoastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<28;i++){const r=(lo+hi)/2;if(originalLandformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
 export function shorelineRadius(angle:number){let lo=30,hi=coastRadius(angle)+islandShape.shoreExtension;for(let i=0;i<32;i++){const r=(lo+hi)/2;if(landformHeight(Math.cos(angle)*r,Math.sin(angle)*r)>seaLevel)lo=r;else hi=r}return(lo+hi)/2}
 // A single enclosing sea ellipse stays continuous through the channels between the islands.

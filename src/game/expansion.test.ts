@@ -23,7 +23,7 @@ it('connects all new and existing destinations over walkable terrain without cro
    visited[next]=1;queue.push(next)
   }
  }
- const targets=[['cabin',{x:cabin.x,z:cabin.doorZ}],['tower',lookoutEntry],['dock',landing],['workshop',workshopDoor],['fishing',{x:1.5,z:-5}],['farm',{x:8,z:4.3}],['camp',{x:camp.x,z:camp.z-1.5}],...seats.map(s=>[s.id,seatOrigin(s)] as const),
+ const targets=[['cabin',{x:cabin.x,z:cabin.doorZ}],['tower',lookoutEntry],['dock',landing],['workshop',workshopDoor],['fishing',{x:1.5,z:-5}],['farm',{x:8,z:4.3}],['camp',{x:camp.x,z:camp.z-1.5}],...seats.filter(s=>s.x<70).map(s=>[s.id,seatOrigin(s)] as const),
   // Down the footpath to the gorge floor and into the pool's shallows below the falls.
   ['gorge floor',{x:fallsTrail[4][0],z:fallsTrail[4][1]}],['pool shallows',{x:-30.62,z:-16.76}],
   // Over the stone ford to the pebble bank on the far side of the stream.

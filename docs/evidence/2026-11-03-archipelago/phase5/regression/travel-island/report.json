@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-03T15:54:49.487Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "legacy save starts on main island with the original boat",
+      "data": true
+    },
+    {
+      "name": "real keyboard crossing and landing at the neighbour",
+      "data": 45.423
+    },
+    {
+      "name": "reload on neighbour restores player and returnable boat",
+      "data": [
+        80.6,
+        0.12,
+        -10.8
+      ]
+    },
+    {
+      "name": "walking reaches the old pine and records discovery",
+      "data": true
+    },
+    {
+      "name": "forest trail returns to the same berth",
+      "data": true
+    },
+    {
+      "name": "real keyboard return trip and main berth landing",
+      "data": true
+    },
+    {
+      "name": "main-island reload preserves discovery and moored boat",
+      "data": true
+    },
+    {
+      "name": "places panel in three PC sizes",
+      "data": true
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "01-island-scale.png",
+    "02-landed-mist.png",
+    "03-pine-photo.png",
+    "day-mistOverview.png",
+    "day-mistBerth.png",
+    "day-mistPine.png",
+    "day-archipelago.png",
+    "dusk-mistOverview.png",
+    "dusk-mistBerth.png",
+    "dusk-mistPine.png",
+    "dusk-archipelago.png",
+    "night-mistOverview.png",
+    "night-mistBerth.png",
+    "night-mistPine.png",
+    "night-archipelago.png",
+    "04-returned-main.png",
+    "places-1920x1080.png",
+    "places-1280x720.png",
+    "places-1024x768.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  },
+  "outboundSeconds": 45.423,
+  "frames": {
+    "median": 6.899999999994179,
+    "p95": 13.5,
+    "low": false,
+    "view": "archipelago",
+    "light": "night",
+    "samples": 180
+  },
+  "travel": {
+    "version": 1,
+    "checkpoint": "main",
+    "visitedMist": true,
+    "foundPine": true,
+    "visitedAutumn": false,
+    "foundVista": false,
+    "visitedTide": false,
+    "foundPools": false,
+    "creatures": []
+  },
+  "routeSamples": 1753
+}

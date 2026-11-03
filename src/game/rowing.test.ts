@@ -121,3 +121,14 @@ it('clears empty jetty corners while turning, but still blocks actual hull conta
  expect(boatFits(45.4,2.2,Math.PI*3/4)).toBe(false)
  expect(boatFits(80.6,-12.15,Math.PI/2)).toBe(false)
 })
+
+it('keeps the whole hull off a channel buoy, not just its sample points',async()=>{
+  const {buoys,buoyRadius}=await import('../world/archipelago')
+  const b=buoys[0]
+  // heading 0 runs the hull along x (as the sampling does): put the buoy 0.85 m along, midway between two samples
+  expect(boatFits(b.x-.85,b.z,0)).toBe(false)
+  expect(boatFits(b.x,b.z+.57+buoyRadius-.05,0)).toBe(false)
+  // the bow stops a hand (0.2 m) short of the float; past that the boat fits again where the water allows
+  expect(boatFits(b.x-1.7-buoyRadius-.15,b.z,0)).toBe(false)
+  expect(boatFits(b.x-1.7-buoyRadius-.3,b.z,0)).toBe(true)
+})

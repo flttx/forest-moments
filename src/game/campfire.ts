@@ -9,7 +9,7 @@ import type {SpeciesId} from './fishSpecies'
  */
 export const roastSeconds=6
 export const campSeats=['camp-west','camp-south','camp-east'] as const
-export const skySeats=[...campSeats,'coast','reef','falls'] as const
+export const skySeats=[...campSeats,'coast','reef','falls','mistBench','autumnBench','tideBench'] as const
 /** A fish from the day's catches, or (with no fish on hand) a Mist Isle cap from the satchel. */
 export type Roast={item:'fish';catchId:string;species:SpeciesId;sizeCm:number;elapsed:number}|{item:'mistcap';elapsed:number}
 

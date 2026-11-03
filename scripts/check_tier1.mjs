@@ -213,5 +213,9 @@ try {
 } catch (e) {
   report.status = 'FAIL'; report.failure = e.stack ?? String(e); console.error(e); process.exitCode = 1
 } finally {
-  try { await writeFile(`${out}/report.json`, JSON.stringify(report, null, 2)) } finally { socket?.close(); await cleanup() }
+  try { await writeFile(`${out}/report.json`, JSON.stringify(report, null, 2)) } finally {
+    // Close Edge through CDP first: killing it with the profile still open leaves locked files behind.
+    if (socket?.readyState === 1) { try { await cmd('Browser.close') } catch { /* The socket can close before the reply. */ } socket.close() }
+    await cleanup()
+  }
 }

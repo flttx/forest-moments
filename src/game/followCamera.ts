@@ -68,21 +68,28 @@ export function clipCameraArm(target:CameraPoint,eye:CameraPoint,boxes:readonly 
 
 export type CameraSphere={x:number;y:number;z:number;r:number}
 /**
- * Pull the eye toward the focus until it is no longer inside a tree crown. Crowns that only cross
- * the middle of the arm are left alone, so passing trees do not make the camera pump in and out.
+ * Pull the eye toward the focus until no tree crown stands between them (archipelago plan stage 5; the user chose
+ * "pull the camera in when the canopy blocks it" over fading trees). An eye inside a crown slides to its surface as
+ * before; a crown that crosses the arm now pulls the eye in front of it too, unless the focus itself stands under that
+ * crown (pulling cannot help), the crown is within `minArm` of the focus (the eye would end up in the raccoon's face),
+ * or the arm is longer than `reach` (the wheel's wide views look over the woods on purpose). The caller eases the
+ * result so passing trees do not pump the camera in and out.
  */
-export function clearCanopy(target:CameraPoint,eye:CameraPoint,crowns:readonly CameraSphere[],padding=.45):CameraPoint{
+export function clearCanopy(target:CameraPoint,eye:CameraPoint,crowns:readonly CameraSphere[],padding=.45,reach=14,minArm=1.6):CameraPoint{
  let current=eye
  for(let pass=0;pass<4;pass++){
   let fraction=1
-  const dx=current.x-target.x,dy=current.y-target.y,dz=current.z-target.z,a=dx*dx+dy*dy+dz*dz
+  const dx=current.x-target.x,dy=current.y-target.y,dz=current.z-target.z,a=dx*dx+dy*dy+dz*dz,arm=Math.sqrt(a)
   if(a<1e-8)return current
   for(const c of crowns){
    const r=c.r+padding,fx=target.x-c.x,fy=target.y-c.y,fz=target.z-c.z,base=fx*fx+fy*fy+fz*fz-r*r
-   // Skip crowns that do not hold the eye, and ones that also hold the focus (nothing to pull toward).
-   if(base<=0||(current.x-c.x)**2+(current.y-c.y)**2+(current.z-c.z)**2>=r*r)continue
+   // Crowns that also hold the focus: nothing to pull toward.
+   if(base<=0)continue
    const b=2*(fx*dx+fy*dy+fz*dz),disc=b*b-4*a*base
-   if(disc>=0)fraction=Math.min(fraction,Math.max(0,(-b-Math.sqrt(disc))/(2*a)))
+   if(disc<0)continue
+   const enter=(-b-Math.sqrt(disc))/(2*a),eyeInside=(current.x-c.x)**2+(current.y-c.y)**2+(current.z-c.z)**2<r*r
+   if(eyeInside)fraction=Math.min(fraction,Math.max(0,enter))
+   else if(enter>0&&enter<1&&arm<=reach&&enter*arm>=minArm)fraction=Math.min(fraction,enter)
   }
   if(fraction>=1)return current
   current={x:target.x+dx*fraction,y:target.y+dy*fraction,z:target.z+dz*fraction}

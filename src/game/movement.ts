@@ -4,7 +4,8 @@ import { lookoutPosition, modelAssets, workshopPosition } from '../world/assets'
 import { terrainHeight, pathEdgeDistance } from '../world/terrain'
 import {onWestBoardwalk,westBoardwalk,westWetland,westWetlandRadius} from '../world/westExpansion'
 import {pineReach} from '../world/pineReach'
-import { vegetationColliders, vegetationPositions, lampPositions, instanceCircles, lowFoliage } from '../world/vegetationLayout'
+import { vegetationColliders, vegetationPositions, allLamps, instanceCircles, lowFoliage } from '../world/vegetationLayout'
+import { islandSigns, signHalf } from '../world/islandSetPieces'
 import {pondEdgeDistance} from '../world/pondShape'
 import {pondStoneColliders} from '../world/pondLayout'
 import {coastPieces,coastKits} from '../world/coastalLayout'
@@ -48,7 +49,8 @@ const rects=[...hayBales.map(b=>({name:'hay bale',x:b.x,z:b.z,yaw:b.yaw,hx:.5,hz
   // The heart stone's slab and its foot pebbles (the face spans its local x).
   {name:'heart stone',x:heartStone.x,z:heartStone.z,yaw:Math.atan2(heartStone.normal.x,heartStone.normal.z),hx:.5,hz:.2},
   // The fox den mound and the fox asleep beside it.
-  {name:'fox den',x:foxDen.x,z:foxDen.z,yaw:0,hx:.62,hz:.6},{name:'sleeping fox',x:foxDen.sleep.x,z:foxDen.sleep.z,yaw:0,hx:.3,hz:.3}]
+  {name:'fox den',x:foxDen.x,z:foxDen.z,yaw:0,hx:.62,hz:.6},{name:'sleeping fox',x:foxDen.sleep.x,z:foxDen.sleep.z,yaw:0,hx:.3,hz:.3},
+  ...islandSigns.map(s=>({name:'island signpost',x:s.x,z:s.z,yaw:s.yaw,...signHalf}))]
 const rectDistance=(x:number,z:number,r:{x:number;z:number;yaw:number;hx:number;hz:number})=>{
   const dx=x-r.x,dz=z-r.z,c=Math.cos(r.yaw),s=Math.sin(r.yaw)
   return Math.hypot(Math.max(Math.abs(c*dx-s*dz)-r.hx,0),Math.max(Math.abs(s*dx+c*dz)-r.hz,0))
@@ -80,7 +82,7 @@ const profiles=[
   ...vegetationPositions.flatMap(p=>{const f=lowFoliage[p.kit];return f?[profile(`plant:${p.kit}`,p.x,p.z,f.reach*p.scale,terrainHeight(p.x,p.z)+f.base*p.scale,Infinity,p.kit==='normal-pine-b'?(a,lo,hi)=>pineReach(p.scale,p.yaw,a,lo,hi):undefined)]:[]}),
   ...coastPieces.filter(p=>!p.kit.startsWith('Driftwood')).map(p=>profile('coast rock',p.x,p.z,coastKits[p.kit].half*p.scale*.8,p.y,p.y+coastKits[p.kit].height*p.scale)),
   // Street lamps hang their lantern 0.62 m out from the post, 0.72-1.8 m up: head height for the raccoon.
-  ...lampPositions.map(l=>{const post=instanceCircles(l)[0],dx=l.x-post.x,dz=l.z-post.z,n=Math.hypot(dx,dz)||1,g=terrainHeight(l.x,l.z)
+  ...allLamps.map(l=>{const post=instanceCircles(l)[0],dx=l.x-post.x,dz=l.z-post.z,n=Math.hypot(dx,dz)||1,g=terrainHeight(l.x,l.z)
     return profile('lamp head',post.x+dx/n*.62,post.z+dz/n*.62,.18,g+.72,g+1.8)}),
 ].filter(c=>c.max>0)
 const profileHit=(x:number,z:number,c:typeof profiles[number])=>{

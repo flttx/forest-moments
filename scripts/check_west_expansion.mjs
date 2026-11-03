@@ -6,7 +6,8 @@ import { createHeadlessBrowser } from './browser-session.mjs'
 
 const phase=process.env.FOREST_PHASE ?? 'after'
 const finalPhase=phase.startsWith('final')
-const out = resolve(process.env.FOREST_OUT ?? `docs/evidence/2026-10-29-west-expansion/${phase}`)
+// FOREST_QA_OUT as in the other checks (FOREST_OUT kept): passing the wrong name twice overwrote the 10-29 evidence.
+const out = resolve(process.env.FOREST_QA_OUT ?? process.env.FOREST_OUT ?? `docs/evidence/2026-10-29-west-expansion/${phase}`)
 const base = process.env.FOREST_URL ?? 'http://127.0.0.1:5176/'
 await mkdir(out, { recursive: true })
 const { profile, cleanup } = await createHeadlessBrowser([

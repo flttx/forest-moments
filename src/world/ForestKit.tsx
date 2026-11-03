@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
-import { vegetationPositions, lampPositions } from './vegetationLayout'
+import { vegetationPositions, allLamps } from './vegetationLayout'
 import type { PlantKit, VegetationInstance } from './vegetationLayout'
 import { patchFoliageMaterial } from './foliageMaterial'
 import { maskedCentroid, nearestAnchors } from './lampAnchors'
@@ -44,7 +44,7 @@ export function ForestKit() {
       if(!source?.isMesh)throw Error('Missing vegetation template '+kit)
       const geometry=transformedGeometry(source.geometry,source.matrixWorld);geometries.push(geometry)
       const material=(source.material as THREE.MeshStandardMaterial).clone();materials.push(material)
-      const all=kit==='lantern'?lampPositions:vegetationPositions.filter(p=>p.kit===kit)
+      const all=kit==='lantern'?allLamps:vegetationPositions.filter(p=>p.kit===kit)
       if(kit==='lantern') {
         material.emissive.set('#ffb15c');material.emissiveMap=glow;material.emissiveIntensity=lanternGlow*power
         const mesh=new THREE.InstancedMesh(geometry,material,all.length);mesh.name='wooden-lanterns';place(mesh,all);mesh.castShadow=true;root.add(mesh)
@@ -102,7 +102,7 @@ export function ForestKit() {
       const target=wanted.includes(slot.index)?3.5*field.power*THREE.MathUtils.clamp((boundary-d)/4,0,1):0
       slot.light.intensity=THREE.MathUtils.damp(slot.light.intensity,target,8,Math.min(dt,.05))
     }
-    if(import.meta.env.DEV&&new URLSearchParams(location.search).has('qa'))gl.domElement.dataset.vegetationQa=JSON.stringify({plants:vegetationPositions.length,lamps:lampPositions.length,lodChunks:field.chunks.filter(c=>c.far).length,rendering:{missingChunks:field.chunks.filter(c=>!c.hi.visible&&!c.lo.visible).length,duplicateChunks:field.chunks.filter(c=>c.hi.visible&&c.lo.visible).length,visibleInstances:field.chunks.reduce((n,c)=>n+(c.hi.visible?c.hi.count:0)+(c.lo.visible?c.lo.count:0),0),coverageAttributes:field.chunks.filter(c=>c.hi.geometry.hasAttribute('foliageVisibility')||c.lo.geometry.hasAttribute('foliageVisibility')).length},anchors:field.anchors,lights:field.lights.map(s=>({index:s.index,intensity:s.light.intensity,assignmentIntensity:s.light.userData.assignmentIntensity??0,position:s.light.position.toArray()}))})
+    if(import.meta.env.DEV&&new URLSearchParams(location.search).has('qa'))gl.domElement.dataset.vegetationQa=JSON.stringify({plants:vegetationPositions.length,lamps:allLamps.length,lodChunks:field.chunks.filter(c=>c.far).length,rendering:{missingChunks:field.chunks.filter(c=>!c.hi.visible&&!c.lo.visible).length,duplicateChunks:field.chunks.filter(c=>c.hi.visible&&c.lo.visible).length,visibleInstances:field.chunks.reduce((n,c)=>n+(c.hi.visible?c.hi.count:0)+(c.lo.visible?c.lo.count:0),0),coverageAttributes:field.chunks.filter(c=>c.hi.geometry.hasAttribute('foliageVisibility')||c.lo.geometry.hasAttribute('foliageVisibility')).length},anchors:field.anchors,lights:field.lights.map(s=>({index:s.index,intensity:s.light.intensity,assignmentIntensity:s.light.userData.assignmentIntensity??0,position:s.light.position.toArray()}))})
   })
   return <primitive object={field.root} dispose={null}/>
 }

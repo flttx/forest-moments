@@ -71,6 +71,8 @@ import {moveInWorkshop} from '../game/workshopInterior'
 import {movementYaw,walkingCamera,outdoorOrbitFocus,clipCameraArm,clearCanopy,clearTerrain,slopePitch,indoorCameraBoxes,bedroomCameraBoxes,outdoorCameraBoxes} from '../game/followCamera'
 import {canopySpheres} from './vegetationLayout'
 import {SandPlay} from './SandPlay'
+import {IslandProps} from './IslandProps'
+import {perchFor} from './birdPerches'
 import {pressPaw,sandGroundAt} from './sandField'
 import {useSandStore,sandAim} from '../game/sandStore'
 import {inSandRect,sandObstacles,stepStride,type SandKind} from '../game/sand'
@@ -93,6 +95,15 @@ function ReviewCamera() {
       forageTide: find('tide','shell') as [number[],number[]],
       forageGlass: find('tide','seaGlass') as [number[],number[]],
       autumnBirds: [[113.5,1.6+groundHeightAt(110,47),49.5],[110,groundHeightAt(110,47)+.1,47]],
+      // each robin's perch in its crown, from 3 m out on the clearing side
+      ...Object.fromEntries([0,1,2].map(i=>{const p=perchFor(i*2.2+.7),a=Math.atan2(47-p.z,110-p.x);return[`perch-${i}`,[[p.x+Math.cos(a)*3,p.y+.4,p.z+Math.sin(a)*3],[p.x,p.y,p.z]]]})),
+      // stage 4 island set pieces: each bench with its lamp, and each dock head with its lamp and signpost
+      mistBench: [[94.5,3.2+groundHeightAt(99,-5),-1.5],[99.5,groundHeightAt(99,-5)+.6,-5.6]],
+      autumnBench: [[100.5,3+groundHeightAt(104,47),50.5],[104.5,groundHeightAt(104,47)+.6,46.5]],
+      tideBench: [[100,3,112],[104.3,.9,107.4]],
+      mistDockHead: [[84,3.2,-5.5],[89,.8,-10.2]],
+      autumnDockHead: [[91,3.2,55.5],[96,1,51]],
+      tideDockHead: [[83,3.2,96],[87.5,.8,100.6]],
       // from the rim on the creature's side of the pool, looking down at it as a raccoon leaning over would
       ...Object.fromEntries(tideCreatures.map(c=>{const p=tidePools[c.pool],a=Math.atan2(c.z-p.z,c.x-p.x),r=Math.max(p.rx,p.rz)+.6;return[`pool-${c.id}`,[[p.x+Math.cos(a)*r,1.6,p.z+Math.sin(a)*r],[c.x,tideHeight(c.x,c.z),c.z]]]})),
       scaleFish: [[4,2,0],[2,1,-5]],
@@ -139,6 +150,10 @@ function ReviewCamera() {
       mistEdge: [[98,2.8,-13],[95,1.4,-16]],
       mistLogMouth: [[97.5,2.45,-9],[101,1.8,-9.5]],
       westTrailClear: [[-51,2.5,-3.5],[-62,1,-4]],
+      // the small cove where the west lobe meets the old south shore: from the beach to the east, and from above
+      westCove: [[-20,5,38],[-30.5,-.6,25]],
+      westCoveTop: [[-30,38,44],[-30,0,25]],
+      westCovePlayer: [[-32.5,2.4,15.5],[-29,-.8,30]],
       flowers: [[-1, 1.1, 3], [-4, .2, 1]],
       trail: [[-2.8, 1.35, 16], [-.9, .05, 11]],
       lamp: [[-1.7, 2.2, 1], [-4.1, 1.2, -2.5]],
@@ -160,6 +175,10 @@ function ReviewCamera() {
       sprout: [[.8, .48, 9], [0, .12, 8]],
       bedroom: [[3.2,2.8,2.6],[-.2,1,-.8]],
       tank: [[3.2,1.7,1.5],[2.3,.95,-1.3]],
+      // island keepsakes in the bedroom: the east-wall shelf, the maple charm at the north window, the birch frame by the door
+      bedroomShelf: [[2.2,1.6,.55],[3.62,1.38,.55]],
+      bedroomCharm: [[0,1.45,-.6],[0,1.85,-2.55]],
+      bedroomFrame: [[-1.55,1.5,1.2],[-1.55,1.45,2.74]],
       cabin: [[-6,12,-18],[-15,9,-28]],
       stream: [[-6,10,-13],[-17,5,-20]],
       creekMouth: [[-43,7,-10],[-34,1,-18]],
@@ -228,6 +247,8 @@ function Player() {
   const skyLook=useRef(new THREE.Vector3())
   const stride=useRef({travelled:0,left:true})
   const slopeTilt=useRef(0)
+  // How much of the arm the canopy leaves the camera (1 = all of it), eased: in quickly, back out slowly.
+  const canopyArm=useRef(1)
   const onReadyChange = useCallback((value: boolean) => { ready.current = value }, [])
   const pressed = useRef(new Set<string>())
   const movementIntent=useRef<ReturnType<typeof cameraRelativeMovement>>(null)
@@ -470,15 +491,20 @@ function Player() {
       slopeTilt.current=returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted?tilt:slopeTilt.current+(tilt-slopeTilt.current)*(1-Math.exp(-2.5*dt))
       const view={zoom:orbit.current.zoom,pitch:THREE.MathUtils.clamp(orbit.current.pitch+slopeTilt.current,orbitConfig.minPitch,orbitConfig.maxPitch)}
       const {eye,target}=walkingCamera(character.position,orbit.current.yaw,inside,view,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
-      // Outdoors, a camera that would sit inside a tree crown slides along the arm to just outside it.
-      const clear=inside?eye:clearCanopy(target,clearTerrain(target,eye,groundHeightAt),canopySpheres)
-      const next=new THREE.Vector3(clear.x,clear.y,clear.z)
-      if(returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted)camera.position.copy(next)
+      // Outdoors, a crown on the eye or across the arm pulls the eye in front of it. The pull eases in fast so the raccoon
+      // is soon clear, and lets go slowly, so walking past a row of trunks does not pump the camera in and out.
+      const ground=inside?eye:clearTerrain(target,eye,groundHeightAt),clear=inside?ground:clearCanopy(target,ground,canopySpheres)
+      const full=Math.hypot(ground.x-target.x,ground.y-target.y,ground.z-target.z),want=full>1e-6?Math.hypot(clear.x-target.x,clear.y-target.y,clear.z-target.z)/full:1
+      const snap=returnedFromSleep||homeCommitted||transferCommitted||lookoutCommitted||workshopCommitted
+      canopyArm.current=snap?want:canopyArm.current+(want-canopyArm.current)*(1-Math.exp(-(want<canopyArm.current?8:1.2)*dt))
+      const next=new THREE.Vector3(target.x+(ground.x-target.x)*canopyArm.current,target.y+(ground.y-target.y)*canopyArm.current,target.z+(ground.z-target.z)*canopyArm.current)
+      if(snap)camera.position.copy(next)
       else camera.position.lerp(next,1-Math.exp(-7*dt))
       // Position interpolation can cut a corner; constrain the interpolated arm too.
       const safe=clipCameraArm(target,camera.position,current.location==='bedroom'?bedroomCameraBoxes:inside?indoorCameraBoxes:outdoorCameraBoxes)
       safe.y=Math.max(safe.y,camera.position.y)
-      if(!inside)Object.assign(safe,clearCanopy(target,clearTerrain(target,safe,groundHeightAt),canopySpheres))
+      // only crowns the eye itself has entered (reach 0): crossing crowns are left to the eased pull above
+      if(!inside)Object.assign(safe,clearCanopy(target,clearTerrain(target,safe,groundHeightAt),canopySpheres,.45,0))
       if(inside){safe.x=THREE.MathUtils.clamp(safe.x,-3.72,3.72);safe.z=THREE.MathUtils.clamp(safe.z,-2.72,2.72)}
       safe.y=inside?Math.min(3.05,safe.y):Math.max(safe.y,groundHeightAt(safe.x,safe.z)+.25)
       camera.position.set(safe.x,safe.y,safe.z)
@@ -498,7 +524,11 @@ function Player() {
     else camera.lookAt(focus.target.x,focus.target.y,focus.target.z)
   }, -2)
 
+  // The loading card stays until the scene is really on screen: mounted (past its Suspense), the raccoon loaded and a few
+  // frames drawn, so shader compiles are behind us. Before this the canvas shows only its clear colour.
+  const drawnFrames=useRef(0)
   useFrame(({ gl, scene, camera }) => {
+    if(ready.current&&drawnFrames.current<3&&++drawnFrames.current===3)useUiStore.setState({worldDrawn:true})
     // Opt-in, read-only local QA telemetry; removed from production builds.
     if (qaEnabled && root.current) {
       // Geometry audits (scripts/audit_collisions.mjs) read the live scene graph.
@@ -567,6 +597,7 @@ function Scene() {
     <ForageItems />
     <SandPlay />
     <Furniture place="island" />
+    <IslandProps />
     <Secrets />
     <RiverLanterns />
     </group>

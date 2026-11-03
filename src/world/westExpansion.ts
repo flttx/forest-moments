@@ -15,14 +15,27 @@ export function westLandRadius(x:number,z:number){
  return Math.hypot(dx,dz)/(1+.05*Math.sin(a*3+.7)+.035*Math.sin(a*7-1.3)+.02*Math.sin(a*13+.2))
 }
 /**
- * Where the west lobe meets the old south shore the two coasts left a deep, narrow inlet. Low sand fills its inner
- * two-thirds (a capsule along the inlet's axis), leaving a broad crescent cove at its mouth.
+ * Where the west lobe meets the old south shore the two coasts left a deep, narrow slot. It is opened into a small
+ * shallow cove: dry sand at its head (a), the floor sliding gently under the sea level (-0.85) towards the mouth (b), and
+ * sandy banks rising softly to meet each shore. The banks are capped lower towards the mouth, so the cove opens into the
+ * sea instead of standing proud of it. Only ever raises the old slot floor (terrain takes the higher of the two).
  */
-export const westBay={a:[-32.3,19],b:[-27.6,32.2],radius:6.8,top:.6} as const
-export function westBayHeight(x:number,z:number){
- const [ax,az]=westBay.a,[bx,bz]=westBay.b,dx=bx-ax,dz=bz-az,t=MathUtils.clamp(((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz),0,1)
- const d=Math.hypot(x-ax-t*dx,z-az-t*dz)*(1+.08*Math.sin(Math.atan2(z-bz,x-bx)*3+.9))
- return westBay.top-(westBay.top+2.3)*MathUtils.smoothstep(d,westBay.radius*.45,westBay.radius)
+export const westCove={a:[-33.4,16.6],b:[-26.8,33.8],halfWidth:7.5,flat:2.5} as const
+export function westCoveHeight(x:number,z:number){
+ const [ax,az]=westCove.a,[bx,bz]=westCove.b,dx=bx-ax,dz=bz-az,t=MathUtils.clamp(((x-ax)*dx+(z-az)*dz)/(dx*dx+dz*dz),0,1)
+ // a wandering edge, so the banks are not a ruled trough
+ // the west lobe's own shore stands further from the axis towards the mouth, so its ramp lengthens with it
+ const ramp=4+3*t,west=(x-ax)*dz-(z-az)*dx<0,d=Math.hypot(x-ax-t*dx,z-az-t*dz)*(1+.1*Math.sin(t*9+(west?1.3:-1.3))),w=west?westCove.flat*MathUtils.smoothstep(t,.25,.55)+ramp+1.5:westCove.halfWidth
+ const floor=MathUtils.lerp(-.35,-1.4,MathUtils.smoothstep(t,0,.8)),seaward=MathUtils.smoothstep(t,.1,.85)
+ // The west lobe (0.9 m high) ended in a steep step along the slot, so the west bank climbs all the way up to it. At
+ // the head (the west loop runs by) and at the mouth (open sea) both banks stay low, as the old south shore's does.
+ const low=MathUtils.lerp(.05,-1.05,seaward),high=MathUtils.smoothstep(t,.03,.15)*(1-MathUtils.smoothstep(t,.7,.9))
+ const top=west?MathUtils.lerp(low,.95,high):low
+ // A flat shallow floor either side of the axis, then the banks: west an even ramp that stays above the old step
+ // (1.4 m over 2 m) all the way up, east a soft dish.
+ // the old step sits hard by the axis at the head, so the west floor only widens further out
+ const f=west?westCove.flat*MathUtils.smoothstep(t,.25,.55):westCove.flat,bank=west?floor+(top-floor)*MathUtils.smoothstep(d,f-1,f+ramp):floor+(top-floor+.3)*(Math.max(0,d-f)/(w-f))**2
+ return Math.min(bank,top)-4*MathUtils.smoothstep(d,w,w*1.45)
 }
 /** Below 1 inside the marsh: the nearest pocket's wobbly ellipse radius, so every check shares one bank contour. */
 export function westWetlandRadius(x:number,z:number){

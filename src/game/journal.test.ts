@@ -66,7 +66,7 @@ it('restores a valid save and starts afresh from a broken one; a blocked save ke
  window.localStorage.setItem=()=>{throw Error('denied')}
  j.getState().record([{type:'feed'}])
  expect(j.getState().book.page.tasks[1].doneAt).not.toBeNull();expect(s.getState().messageKind).toBe('error')
- expect(taskIds).toHaveLength(34)
+ expect(taskIds).toHaveLength(40)
 })
 
 const now='2026-10-26T14:00:00Z'
@@ -141,4 +141,50 @@ it('credits every available task from the corresponding event and protects unrel
   expect(result.book.page.tasks[0].doneAt).toBe(now)
   expect(result.finished).toEqual([id])
  }
+})
+it('island tasks wait for a visit to that island, and stop when nothing is left to find there',()=>{
+ const travel={visitedMist:false,visitedAutumn:false,visitedTide:false,creatures:[] as string[]}
+ const pool=(over:Partial<typeof travel>={},curios:{found:string[];day:number|null}={found:[],day:null})=>{
+  const ids=new Set<TaskId>()
+  for(let seed=1;seed<400;seed++){let n=seed;const random=()=>((n=n*16807%2147483647)/2147483647)||.5;drawPage(1,{homeBook:{fish:[],nights:3},travel:{...travel,...over} as never,curiosBook:curios},[],random).tasks.forEach(t=>ids.add(t.id))}
+  return ids
+ }
+ const island:TaskId[]=['mistcaps','mapleLeaves','seaGlass','curio','poolLife','shotArchipelago']
+ // no boat trip yet, or an older caller without the island records: none of them
+ expect(island.filter(id=>pool().has(id))).toEqual([])
+ expect(island.filter(id=>drawPage(1,roomy).tasks.some(t=>t.id===id))).toEqual([])
+ expect(island.filter(id=>pool({visitedMist:true}).has(id)).sort()).toEqual(['curio','mistcaps'])
+ expect(island.filter(id=>pool({visitedAutumn:true}).has(id)).sort()).toEqual(['mapleLeaves','shotArchipelago'])
+ expect(island.filter(id=>pool({visitedTide:true}).has(id)).sort()).toEqual(['poolLife','seaGlass'])
+ // every curio found, or today's already taken; every creature already in the guide
+ expect(pool({visitedMist:true},{found:['compass','button','marble','whistle','key'],day:1}).has('curio')).toBe(false)
+ expect(pool({visitedMist:true},{found:['compass'],day:3}).has('curio')).toBe(false)
+ expect(pool({visitedTide:true,creatures:['starfish','hermitCrab','anemone']}).has('poolLife')).toBe(false)
+})
+it('credits island tasks from island finds, observations and the panorama shot',async()=>{
+ const cases:[TaskId,Parameters<typeof recordEvents>[1][number],number][]=[
+  ['mistcaps',{type:'forage',kind:'mistcap'},2],['mapleLeaves',{type:'forage',kind:'mapleLeaf'},2],['seaGlass',{type:'forage',kind:'seaGlass'},1],
+  ['curio',{type:'curio'},1],['poolLife',{type:'poolLife'},1],['shotArchipelago',{type:'photo',night:false,subjects:['archipelago']},1],
+ ]
+ for(const [id,event,times] of cases){
+  expect(taskTarget[id]).toBe(times)
+  const other:TaskId[]=['egg','wool']
+  let result=recordEvents(book([id,...other]),[event],now)
+  if(times>1){expect(result.book.page.tasks[0]).toMatchObject({progress:1,doneAt:null});result=recordEvents(result.book,[event],now)}
+  expect(result.finished).toEqual([id])
+ }
+ // a birch-bark find or another photo does not count
+ expect(recordEvents(book(['mapleLeaves','shotArchipelago','egg']),[{type:'forage',kind:'birchBark'},{type:'photo',night:false,subjects:['cabin']}],now).finished).toEqual([])
+ const {useForestStore:s}=await import('./store'),base=s.getState()
+ expect(journalEvents(base,{...base,curiosBook:{version:1,found:['compass'],day:0}})).toEqual([{type:'curio'}])
+ expect(journalEvents(base,{...base,travel:{...base.travel,creatures:['starfish']}})).toEqual([{type:'poolLife'}])
+ // looking again at a creature already in the guide adds nothing
+ const seen={...base,travel:{...base.travel,creatures:['starfish' as const]}}
+ expect(journalEvents(seen,{...seen,message:'again'})).toEqual([])
+})
+it('an older save with only the original tasks still loads, and a page holding island tasks round-trips',()=>{
+ const old=book(['catch','feed','row'])
+ expect(decodeJournal(JSON.stringify(old))?.page.tasks.map(t=>t.id)).toEqual(['catch','feed','row'])
+ const islands=book(['mistcaps','poolLife','shotArchipelago'])
+ expect(decodeJournal(JSON.stringify(islands))).toEqual(islands)
 })

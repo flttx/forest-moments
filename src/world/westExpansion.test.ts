@@ -3,7 +3,7 @@ import {expect,it} from 'vitest'
 import {terrainHeight} from './terrain'
 import {westPlants} from './vegetationLayout'
 import {canStandAt,moveOnGround,groundHeightAt,standBlocker} from '../game/movement'
-import {westTrailPoints,westWetland,westBoardwalk,onWestBoardwalk,westWetlandRadius} from './westExpansion'
+import {westTrailPoints,westWetland,westBoardwalk,onWestBoardwalk,westWetlandRadius,westCove} from './westExpansion'
 import {seaLevel,landing,mooring} from './worldConfig'
 import {inCreekRework} from '../game/expansion'
 
@@ -86,4 +86,13 @@ it('scatters the western forest off its 3.2 m sampling grid without crowding tru
  // blocked spots fall back to that near-grid position, so a minority may stay on it
  expect(trees.filter(p=>onGrid(p.x,-76)&&onGrid(p.z,-10)).length/trees.length).toBeLessThan(.35)
  for(const [i,a] of trees.entries())for(const b of trees.slice(i+1))expect(Math.hypot(a.x-b.x,a.z-b.z)).toBeGreaterThanOrEqual(1.9)
+})
+it('opens the old south slot into a small cove: dry sand at its head, water reaching in, no sand mound',()=>{
+ const [ax,az]=westCove.a,[bx,bz]=westCove.b,at=(t:number)=>[ax+(bx-ax)*t,az+(bz-az)*t] as const
+ // a dry beach at the head the raccoon can walk down onto, and water in the cove beyond it
+ expect(terrainHeight(...at(.05))).toBeGreaterThan(seaLevel)
+ expect(canStandAt(...at(.05))).toBe(true)
+ for(const t of [.45,.7,.95])expect(terrainHeight(...at(t))).toBeLessThan(seaLevel)
+ // the old fill was a flat-topped mound 0.6 m high; nothing along the cove stands that proud again
+ for(let t=0;t<=1;t+=.05)expect(terrainHeight(...at(t))).toBeLessThan(0)
 })

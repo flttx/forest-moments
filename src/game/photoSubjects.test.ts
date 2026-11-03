@@ -73,6 +73,8 @@ it('the archipelago is seen from the Autumn vista hill, with two other islands i
  // north-west across the strait, between the main island and Mist Isle: both in the picture
  const fromHill=view([autumnVista.x,6,autumnVista.z],[66,0,-16])
  expect(subjectsIn(shot(fromHill))).toContain('archipelago')
+ // the hill's own crowns in the way: the sea and islands are not in the picture
+ expect(subjectsIn(shot({...fromHill,clear:()=>false}))).not.toContain('archipelago')
  // facing the open sea to the east from the hill: no other island in frame
  expect(subjectsIn(shot(view([autumnVista.x,6,autumnVista.z],[200,0,40])))).not.toContain('archipelago')
  // the same view taken from the boat in the strait is not from the hill

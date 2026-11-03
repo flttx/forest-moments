@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-03T14:42:19.298Z",
+  "mode": "isolated muted headless Edge, cache disabled",
+  "viewport": [
+    1440,
+    900
+  ],
+  "runs": [
+    {
+      "card": false,
+      "error": false,
+      "ready": false,
+      "calls": 0,
+      "ms": 16131
+    }
+  ],
+  "errors": [],
+  "status": "FAIL",
+  "browser": "Edg/156.0.4314.58",
+  "failure": "AssertionError [ERR_ASSERTION]: run 0: card left before the world was drawn {\"card\":false,\"error\":false,\"ready\":false,\"calls\":0,\"ms\":16131}"
+}

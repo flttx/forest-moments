@@ -1,11 +1,11 @@
 import {expect,it} from 'vitest'
-import {availableSpots,decodeForage,onSand,emptyForage,forageKinds,forageSpots,forageRegions,regionQuota,perDay,spotNear,spotsForDay,takeSpot,type ForageKind} from './forage'
+import {availableSpots,decodeForage,onSand,emptyForage,forageKinds,forageSpots,forageRegions,regionQuota,perDay,dailyCount,mapleLeavesBySeason,spotNear,spotsForDay,takeSpot,type ForageKind} from './forage'
 import {rainMushrooms} from './weather'
 import {mistRadius} from '../world/mistIsland'
 import {autumnRadius} from '../world/autumnIsland'
 import {tideRadius} from '../world/tideIsland'
 import {canStandAt} from './movement'
-import {weatherFor} from './weather'
+import {seasonFor,weatherFor} from './weather'
 
 it('has room on the island for every kind, each on standable ground and apart',()=>{
  for(const kind of forageKinds)expect(forageSpots.filter(s=>s.kind===kind).length).toBeGreaterThanOrEqual(perDay[kind]*2)
@@ -26,7 +26,7 @@ it('offers a fixed handful per day, different from day to day',()=>{
  const [d,e]=Array.from({length:40},(_,i)=>i+1).filter(n=>weatherFor(n)!=='rain')
  const a=spotsForDay(d),b=spotsForDay(d),c=spotsForDay(e)
  expect(a).toEqual(b)
- for(const kind of forageKinds)expect(a.filter(s=>s.kind===kind)).toHaveLength(perDay[kind])
+ for(const kind of forageKinds)expect(a.filter(s=>s.kind===kind)).toHaveLength(forageRegions.reduce((n,r)=>n+dailyCount(r,kind,d),0))
  expect(a.map(s=>s.id)).not.toEqual(c.map(s=>s.id))
 })
 it('draws each region on its own, leaving the main island exactly as it was before the islands had finds',()=>{
@@ -104,4 +104,18 @@ it('F on the neighbour islands gathers their own finds into the satchel, and a r
  const {useForestStore:again}=await import('./store'),{availableSpots}=await import('./forage')
  expect(availableSpots(again.getState().forageBook,0).map(x=>x.id)).not.toContain(picked[0])
  vi.unstubAllGlobals()
+})
+it('maple leaves follow the season: a few in spring and summer, most of the clearing in autumn',()=>{
+ const spots=forageSpots.filter(s=>s.kind==='mapleLeaf')
+ expect(spots.length).toBeGreaterThanOrEqual(mapleLeavesBySeason.autumn)
+ for(let day=0;day<24;day++){
+  const leaves=spotsForDay(day).filter(s=>s.kind==='mapleLeaf')
+  expect(leaves).toHaveLength(mapleLeavesBySeason[seasonFor(day)])
+  expect(new Set(leaves.map(s=>s.id)).size).toBe(leaves.length)
+ }
+ expect([mapleLeavesBySeason.spring,mapleLeavesBySeason.summer,mapleLeavesBySeason.autumn]).toEqual([2,3,5])
+ // only the Autumn Isle has maple leaves
+ expect(dailyCount('main','mapleLeaf',8)).toBe(0)
+ // birch bark does not change with the season
+ for(const day of [0,4,8])expect(spotsForDay(day).filter(s=>s.kind==='birchBark')).toHaveLength(regionQuota.autumn.birchBark??0)
 })

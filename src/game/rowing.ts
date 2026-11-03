@@ -1,6 +1,6 @@
 import {berths,mooring,seaLevel,seaRangeRadius,oceanNavigation} from '../world/worldConfig'
 import {terrainHeight} from '../world/terrain'
-import {reefBlocks,buoyBlocks} from '../world/archipelago'
+import {reefBlocks,buoyBlocks,buoys,buoyRadius,reefSolids} from '../world/archipelago'
 export {pond,mooring,landing} from '../world/worldConfig'
 export const paddleDuration = 7.2
 
@@ -34,6 +34,10 @@ export function boatFits(x: number, z: number, heading: number): boolean {
       &&Math.abs(dx*c-dz*s)<1.7+hx*Math.abs(c)+hz*Math.abs(s)
       &&Math.abs(dx*s+dz*c)<.57+hx*Math.abs(s)+hz*Math.abs(c)
   }))return false
+  // Buoys and reef rocks are small next to the 3.4 m hull: a buoy can sit between the sample points below, so they
+  // are tested against the whole hull outline instead, with a hand's clearance so the bow visibly stops short of them.
+  const hits=(o:{x:number;z:number},r:number)=>{const dx=o.x-x,dz=o.z-z,along=dx*c-dz*s,across=dx*s+dz*c;return Math.hypot(Math.max(Math.abs(along)-1.7,0),Math.max(Math.abs(across)-.57,0))<r}
+  if(buoys.some(b=>hits(b,buoyRadius+.2))||reefSolids.some(r=>hits(r,r.r+.1)))return false
   return [-1.7,0,1.7].every((along) => [-.57,0,.57].every((across) =>
     isNavigableSea(x+along*c+across*s,z-along*s+across*c)))
 }

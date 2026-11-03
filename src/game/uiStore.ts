@@ -28,6 +28,9 @@ type UiState={
  activeHint:ModeHint|null
  /** Photo view: the HUD steps aside except a restore button, errors and an active game's own card. Not remembered across reloads. */
  hudHidden:boolean
+ /** The world has actually been drawn (scene mounted, raccoon in it, a few frames out), or it failed: the loading card waits for one. */
+ worldDrawn:boolean
+ worldFailed:boolean
  toggleHud:()=>void
  openPanel:(panel:MenuPanel)=>void
  closePanel:()=>void
@@ -43,6 +46,7 @@ export const useUiStore=create<UiState>((set,get)=>({
  seenHints:seen.hints,
  activeHint:null,
  hudHidden:false,
+ worldDrawn:false,worldFailed:false,
  toggleHud:()=>{const hidden=!get().hudHidden;if(hidden)get().closePanel();set({hudHidden:hidden})},
  openPanel:panel=>{
   // One panel at a time: a menu panel replaces the aquarium. Held reel input is released, never re-pressed on close.

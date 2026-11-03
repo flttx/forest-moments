@@ -80,8 +80,15 @@ function heartFaceOn(stone:{centre:THREE.Vector3;normal:THREE.Vector3},camera:TH
 
 /** From the Autumn Isle vista hill: the main island and the other neighbours, as seen across the sea. */
 const islandMarks=[new THREE.Vector3(0,3,0),new THREE.Vector3(107,2,-10),new THREE.Vector3(100,1,101)] as const
-// The camera trails the raccoon by a few metres, so "on the hill" allows 8 m round the vista point.
-const archipelagoView=(s:Shot)=>Math.hypot(s.camera.x-autumnVista.x,s.camera.z-autumnVista.z)<8&&islandMarks.filter(p=>inPicture(p,s.viewProjection,.05)).length>=2
+// The camera trails the raccoon by a few metres, so "on the hill" allows 8 m round the vista point. Only the first stretch
+// of each sight line is tested: the hill's own crowns hide the sea, while the far island's trees are part of the view.
+// An island counts when its middle is in frame and most of five sight lines across its width (±16 m) are open.
+const islandSeen=(p:THREE.Vector3,s:Shot)=>{
+ if(!inPicture(p,s.viewProjection,.05))return false
+ const across=new THREE.Vector3(p.z-s.camera.z,0,s.camera.x-p.x).normalize()
+ return [-16,-8,0,8,16].filter(o=>{const q=p.clone().addScaledVector(across,o);return s.clear(s.camera.clone().lerp(q,Math.min(1,50/s.camera.distanceTo(q))))}).length>=3
+}
+const archipelagoView=(s:Shot)=>Math.hypot(s.camera.x-autumnVista.x,s.camera.z-autumnVista.z)<8&&islandMarks.filter(p=>islandSeen(p,s)).length>=2
 
 /** Every subject this picture shows. */
 export function subjectsIn(s:Shot):SubjectId[]{
