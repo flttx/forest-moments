@@ -1,0 +1,147 @@
+{
+  "blender": "5.2.1 LTS",
+  "method": "thinner trunk and root flare, shorter clear bole, narrower tapered crown with uneven bough lengths, slight leader lean, leaf pads moved rigidly and shrunk about their centres, bark normals via Jacobian",
+  "paidCalls": 0,
+  "decimated": false,
+  "forms": {
+    "young-pine": {
+      "form": {
+        "source": "old-pine",
+        "taskId": 4461967,
+        "height": 4.6,
+        "trunk": 0.42,
+        "crown": [
+          [
+            0,
+            0.62
+          ],
+          [
+            0.55,
+            0.5
+          ],
+          [
+            1,
+            0.3
+          ]
+        ],
+        "bole": 1.44,
+        "boleScale": 0.75,
+        "pad": 0.72,
+        "leaf": "green"
+      },
+      "sourceHeight": 7.999999523162842,
+      "uniformScale": 0.5750000342726728,
+      "height": 4.5716986656188965,
+      "trunkRadius": 0.4935720175609492,
+      "uniformTrunkRadius": 1.0568426200365164,
+      "crownBase": 0.6210000370144866,
+      "crownRadius": 1.4345846991591091,
+      "leafPads": 11823,
+      "sheetPadsLeftToBend": 1,
+      "leafVertices": 82011,
+      "triangles": 119684,
+      "vertices": 131522,
+      "materials": 1,
+      "uvLayers": 1,
+      "source": "public\\assets\\island-trees\\old-pine.glb",
+      "sourceSha256": "174799428d3cb5160f0466c30947172c44f004140a7b44e7511bd503a1ea1c05",
+      "bytes": 6182320,
+      "sha256": "2f1fb2b86ff2edb056d762a93998b2940609ed9437437bc84b7a8973a322c0d9",
+      "candidate": "assets\\blender\\young-trees\\young-pine.glb"
+    },
+    "young-birch": {
+      "form": {
+        "source": "birch",
+        "height": 4.0,
+        "trunk": 0.58,
+        "crown": [
+          [
+            0,
+            0.6
+          ],
+          [
+            0.6,
+            0.56
+          ],
+          [
+            1,
+            0.46
+          ]
+        ],
+        "bole": 1.3,
+        "boleScale": 0.8,
+        "pad": 0.8,
+        "leaf": [
+          0.22,
+          0.46
+        ]
+      },
+      "sourceHeight": 6.5,
+      "uniformScale": 0.6153846153846154,
+      "height": 3.9969987869262695,
+      "trunkRadius": 0.12236172626409507,
+      "uniformTrunkRadius": 0.18968508540572687,
+      "crownBase": 0.64,
+      "crownRadius": 0.7702439262905943,
+      "leafPads": 20521,
+      "sheetPadsLeftToBend": 1,
+      "leafVertices": 119895,
+      "triangles": 97792,
+      "vertices": 133449,
+      "materials": 1,
+      "uvLayers": 1,
+      "source": "public\\assets\\island-trees\\birch.glb",
+      "sourceSha256": "f790c548483f99e8e6b094fcd497c430bc30c5aa36a9f45b1bbb18d5d0d5d56a",
+      "bytes": 6457608,
+      "sha256": "ca4860d27097f2d397d2a1e2fab524026b305b75571f4b18b9c6ea8348387d2d",
+      "candidate": "assets\\blender\\young-trees\\young-birch.glb"
+    },
+    "young-maple": {
+      "form": {
+        "source": "maple",
+        "height": 3.7,
+        "trunk": 0.55,
+        "crown": [
+          [
+            0,
+            0.68
+          ],
+          [
+            0.6,
+            0.62
+          ],
+          [
+            1,
+            0.5
+          ]
+        ],
+        "bole": 1.2,
+        "boleScale": 0.85,
+        "pad": 0.8,
+        "leaf": [
+          0.56,
+          0.7
+        ]
+      },
+      "sourceHeight": 6.0,
+      "uniformScale": 0.6166666666666667,
+      "height": 3.6956334114074707,
+      "trunkRadius": 0.19628261836623365,
+      "uniformTrunkRadius": 0.36020013089964364,
+      "crownBase": 0.629,
+      "crownRadius": 1.28404705461761,
+      "leafPads": 36756,
+      "sheetPadsLeftToBend": 0,
+      "leafVertices": 176949,
+      "triangles": 119142,
+      "vertices": 188619,
+      "materials": 1,
+      "uvLayers": 1,
+      "source": "public\\assets\\island-trees\\maple.glb",
+      "sourceSha256": "1426cbb6538435072441f8d2c0e6dabd88cbe807d747ee675d14ce8fe1e7f989",
+      "bytes": 8455488,
+      "sha256": "2e2e428297ee8b9f148fb0bf1eaf230be9667475d6e42edf1e46993d85bdeeb7",
+      "candidate": "assets\\blender\\young-trees\\young-maple.glb"
+    }
+  }
+}

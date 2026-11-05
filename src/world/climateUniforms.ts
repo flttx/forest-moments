@@ -20,6 +20,8 @@ export const climateUniforms={
  climateLitter:{value:0},
  /** How far broadleaf crowns have turned to autumn colours, 0..1. */
  climateTurn:{value:0},
+ /** Night, 0..1 (Atmosphere's light.night): moonlit rims on the shore rocks. */
+ climateNight:{value:0},
 }
 export const climateGLSL='uniform vec3 climateGrass;uniform float climateWet;\n'
 /** Eased weather numbers for the sky, light, fog, rain and leaves (not shader uniforms); written by Climate. */

@@ -79,8 +79,8 @@ it('keeps the zigzag deck continuous edge to edge and rejects the wetland shallo
 })
 
 it('scatters the western forest off its 3.2 m sampling grid without crowding trunks',()=>{
- // grid trees (companion saplings are 0.45 scale and bushes sit at a fixed offset from them)
- const trees=westPlants.filter(p=>p.kit!=='bush-a'&&p.scale>=.8)
+ // grid trees (companion young trees and bushes sit at a fixed offset from them)
+ const trees=westPlants.filter(p=>p.kit==='ie-spruce'||p.kit==='ie-old-pine')
  const onGrid=(v:number,origin:number)=>{const r=((v-origin)%3.2+3.2)%3.2;return Math.min(r,3.2-r)<.36}
  // the old layout kept every tree within ±0.35 m of a grid node, which read as diagonal rows from the overview;
  // blocked spots fall back to that near-grid position, so a minority may stay on it

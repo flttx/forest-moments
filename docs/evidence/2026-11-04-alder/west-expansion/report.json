@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-04T10:27:55.685Z",
+  "checks": [
+    {
+      "name": "berth preserved and old high ground still above the sea"
+    },
+    {
+      "name": "real mouse orbit and W walk cross the wetland deck",
+      "start": {
+        "position": [
+          -51.6,
+          0.78,
+          -3.2
+        ],
+        "camera": [
+          -50.39322653905002,
+          2.1375994494499775,
+          -4.417343558092803
+        ],
+        "onDeck": true
+      },
+      "end": {
+        "position": [
+          -65.40528300233042,
+          0.78,
+          -3.85484282489935
+        ],
+        "camera": [
+          -55.87023846446951,
+          4.529194673541482,
+          -6.4762523858881496
+        ],
+        "onDeck": true
+      },
+      "samples": 43
+    },
+    {
+      "name": "photo mode on new land and reload to original safe spawn"
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "day-fullIsland.png",
+    "day-westOverview.png",
+    "day-westTrail.png",
+    "day-westWetland.png",
+    "dusk-fullIsland.png",
+    "dusk-westOverview.png",
+    "dusk-westTrail.png",
+    "dusk-westWetland.png",
+    "night-fullIsland.png",
+    "night-westOverview.png",
+    "night-westTrail.png",
+    "night-westWetland.png",
+    "walk-west-boardwalk.png"
+  ],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.58",
+  "viewport": [
+    1440,
+    900
+  ],
+  "area": {
+    "ground": 6209.25,
+    "walkable": 5087.75,
+    "growth": 0.39377104377104377
+  },
+  "load": {
+    "elapsed": 70312.59999999404,
+    "resources": 138575733
+  },
+  "frames": {
+    "fullIsland": {
+      "median": 11.30000000000291,
+      "p95": 13.39999999999418,
+      "frames": 180,
+      "low": true
+    },
+    "westOverview": {
+      "median": 11.89999999999418,
+      "p95": 13.80000000000291,
+      "frames": 180,
+      "low": true
+    },
+    "westTrail": {
+      "median": 7.399999999994179,
+      "p95": 9.19999999999709,
+      "frames": 180,
+      "low": true
+    },
+    "westWetland": {
+      "median": 7.899999999994179,
+      "p95": 9.69999999999709,
+      "frames": 180,
+      "low": true
+    }
+  }
+}

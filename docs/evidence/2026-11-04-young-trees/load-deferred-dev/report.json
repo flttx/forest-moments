@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-04T06:16:21.159Z",
+  "mode": "isolated muted headless Edge, cache disabled",
+  "viewport": [
+    1440,
+    900
+  ],
+  "runs": [
+    {
+      "card": false,
+      "error": false,
+      "ready": true,
+      "ms": 67957,
+      "youngAfterCardMs": 775
+    },
+    {
+      "card": false,
+      "error": false,
+      "ready": true,
+      "ms": 48707,
+      "youngAfterCardMs": 1347
+    },
+    {
+      "card": false,
+      "error": false,
+      "ready": true,
+      "ms": 41948,
+      "youngAfterCardMs": 1245
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "browser": "Edg/156.0.4314.58"
+}

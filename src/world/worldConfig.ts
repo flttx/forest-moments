@@ -95,10 +95,14 @@ export function openGround(x:number,z:number){
  openMemo={x,z,v:q}
  return q
 }
-/** Low knolls and dells over open country, and a few named rises: [x, z, height, radius]. */
-const knolls=[[-21,4,1.3,5.5],[19,-7,1,4.5],[-3,19,.9,5]] as const
+/**
+ * Low knolls and dells over open country, and a few named rises: [x, z, height, radius]. Archipelago stage 9 raised them
+ * (1.3/1.0/0.9 m → 1.8/1.4/1.25 m, a little wider) and the broad roll by about 40%; the fine ripple keeps its height, since it
+ * sets the steepest grades on the trails that cross open country.
+ */
+const knolls=[[-21,4,1.8,6],[19,-7,1.4,5],[-3,19,1.25,5.5]] as const
 export function inlandRelief(x:number,z:number){
- const roll=.45*Math.sin(x*.23+z*.11+1.3)*Math.cos(z*.19-x*.07+.4)+.25*Math.sin(x*.47-z*.37+2.1)
+ const roll=.62*Math.sin(x*.23+z*.11+1.3)*Math.cos(z*.19-x*.07+.4)+.25*Math.sin(x*.47-z*.37+2.1)
  return openGround(x,z)*(roll+knolls.reduce((s,[kx,kz,h,r])=>s+h*Math.exp(-((x-kx)**2+(z-kz)**2)/(r*r)),0))
 }
 /**

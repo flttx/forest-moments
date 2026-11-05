@@ -102,8 +102,8 @@ export const forageSpots:ForageSpot[]=(()=>{
  })
  // Autumn: fallen leaves under the maples' wide crowns, curls of bark at the foot of the birches.
  for(const p of vegetationPositions.filter(p=>autumnRadius(p.x,p.z)<1)){
-  if(p.kit==='ie-maple')for(const turn of [0,2.1])add('mapleLeaf',islandBeside({...p,yaw:p.yaw+turn},1.8,3.4,autumnPathDistance),'autumn')
-  else if(p.kit==='ie-birch')add('birchBark',islandBeside(p,1,1.8,autumnPathDistance),'autumn')
+  if(p.kit==='ie-maple'||p.kit==='ie-young-maple')for(const turn of [0,2.1])add('mapleLeaf',islandBeside({...p,yaw:p.yaw+turn},1.8,3.4,autumnPathDistance),'autumn')
+  else if(p.kit==='ie-birch'||p.kit==='ie-young-birch')add('birchBark',islandBeside(p,1,1.8,autumnPathDistance),'autumn')
  }
  // Tide: shells washed onto the outer shelf, from just above the water to its low rim, never in the pools.
  for(let i=0;i<96;i++){

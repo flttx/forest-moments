@@ -189,6 +189,7 @@ export function Atmosphere() {
       sunLight.current.color.copy(light.light);sunLight.current.intensity=light.power*climateNow.light;sunLight.current.shadow.intensity=THREE.MathUtils.smoothstep(light.sunPosition.y,1,7)
     }
     if(moonLight.current)moonLight.current.intensity=.95*light.night
+    climateUniforms.climateNight.value=light.night
     if(fillLight.current){fillLight.current.intensity=light.fill*(.6+.4*climateNow.light);fillLight.current.color.copy(light.sky);fillLight.current.groundColor.copy(light.ground)}
     const viewDistance=state.mode==='sleeping'?165:camera.position.length()
     const scene=get().scene;if(scene.fog){scene.fog.color.copy(light.horizon).lerp(mistGrey,Math.min(1,Math.max(0,(1-climateNow.fog)*1.2))*.7);if(scene.fog instanceof THREE.Fog){scene.fog.near=Math.max(65,viewDistance-25)*climateNow.fog;scene.fog.far=(270+Math.max(0,viewDistance-65)*1.8)*climateNow.fog}}scene.environmentIntensity=light.environment*climateNow.light

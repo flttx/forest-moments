@@ -1,14 +1,14 @@
-"""Normalize IE-06/07 without decimation; preserve originals and render controlled evidence."""
+"""Normalize IE-06/07/08 without decimation; preserve originals and render controlled evidence."""
 import bpy, json, math, sys, hashlib
 from pathlib import Path
 from mathutils import Vector
 
 ROOT=Path(__file__).resolve().parents[2]
 ID=sys.argv[sys.argv.index('--')+1]
-NAME,HEIGHT={'06':('birch',6.5),'07':('maple',6.0)}[ID]
+NAME,HEIGHT,EVIDENCE={'06':('birch',6.5,'2026-10-29-autumn-trees'),'07':('maple',6.0,'2026-10-29-autumn-trees'),'08':('alder',6.5,'2026-11-04-alder')}[ID]
 RUN=ROOT/f'assets/lux3d/ie-{ID}-{NAME}-v1'
 OUT=ROOT/'public/assets/island-trees'/f'{NAME}.glb'
-FOLDER=ROOT/'docs/evidence/2026-10-29-autumn-trees'/NAME
+FOLDER=ROOT/'docs/evidence'/EVIDENCE/NAME
 FOLDER.mkdir(parents=True,exist_ok=True)
 source=next(RUN.glob('output-*.glb'))
 bpy.ops.wm.read_factory_settings(use_empty=True)

@@ -62,6 +62,14 @@ try {
     assert(sawCard && at, `run ${run}: the card never showed or never left`)
     const shot = await cmd('Page.captureScreenshot', { format: 'png' })
     await writeFile(`${out}/run-${run}-card-gone.png`, Buffer.from(shot.data, 'base64'))
+    // Dev only (the QA scene hook is stripped from production): how long after the card the deferred young trees appear.
+    if (!process.env.PROD) {
+      const gone = Date.now()
+      for (let i = 0; i < 600; i++) {
+        if (await evaluate("!!window.forestScene?.getObjectByName('aholo-young-trees')").catch(() => false)) { at.youngAfterCardMs = Date.now() - gone; break }
+        await sleep(50)
+      }
+    }
     report.runs.push(at); console.log(`run ${run}`, JSON.stringify(at))
     // PROD=1: a production build has no dev telemetry, so the screenshot taken above is the evidence
     if (!process.env.PROD) assert(at.ready, `run ${run}: card left before the world was drawn ${JSON.stringify(at)}`)

@@ -1,6 +1,7 @@
 import {berths,mooring,seaLevel,seaRangeRadius,oceanNavigation} from '../world/worldConfig'
 import {terrainHeight} from '../world/terrain'
 import {reefBlocks,buoyBlocks,buoys,buoyRadius,reefSolids} from '../world/archipelago'
+import {reefShoreSolids} from '../world/coastalLayout'
 export {pond,mooring,landing} from '../world/worldConfig'
 export const paddleDuration = 7.2
 
@@ -16,7 +17,7 @@ export const initialBoat: BoatState = { ...mooring, speed: 0, phase: 0, effort: 
 
 export function seaBoundaryClearance(x:number,z:number){return seaRangeRadius(Math.atan2(z,x))-Math.hypot(x,z)-1.8}
 export function isNavigableSea(x:number,z:number){
-  return Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth&&!reefBlocks(x,z)&&!buoyBlocks(x,z)
+  return Math.hypot(x,z)<=seaRangeRadius(Math.atan2(z,x))&&terrainHeight(x,z)<=seaLevel-oceanNavigation.minDepth&&!reefBlocks(x,z)&&!buoyBlocks(x,z)&&!reefShoreSolids.some(s=>Math.hypot(x-s.x,z-s.z)<s.r)
 }
 
 /** Sample the hull perimeter and centre against coastal depth and the island-following outer limit. */
@@ -37,7 +38,7 @@ export function boatFits(x: number, z: number, heading: number): boolean {
   // Buoys and reef rocks are small next to the 3.4 m hull: a buoy can sit between the sample points below, so they
   // are tested against the whole hull outline instead, with a hand's clearance so the bow visibly stops short of them.
   const hits=(o:{x:number;z:number},r:number)=>{const dx=o.x-x,dz=o.z-z,along=dx*c-dz*s,across=dx*s+dz*c;return Math.hypot(Math.max(Math.abs(along)-1.7,0),Math.max(Math.abs(across)-.57,0))<r}
-  if(buoys.some(b=>hits(b,buoyRadius+.2))||reefSolids.some(r=>hits(r,r.r+.1)))return false
+  if(buoys.some(b=>hits(b,buoyRadius+.2))||reefSolids.some(r=>hits(r,r.r+.1))||reefShoreSolids.some(r=>hits(r,r.r+.1)))return false
   return [-1.7,0,1.7].every((along) => [-.57,0,.57].every((across) =>
     isNavigableSea(x+along*c+across*s,z-along*s+across*c)))
 }

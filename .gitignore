@@ -341,3 +341,35 @@ __pycache__/
 !/docs/evidence/2026-11-02-windswept-pine/refined/day-tideBerth.png
 !/docs/evidence/2026-11-02-windswept-pine/refined/day-tideNorthShore.png
 !/docs/evidence/2026-11-02-windswept-pine/refined/day-tideOverview.png
+
+# Young pine/birch/maple derivatives (archipelago stage 6): working blends stay local, selected evidence in Git.
+/assets/blender/young-trees/
+!/docs/evidence/2026-11-04-young-trees/young-pine-uniform-front.png
+!/docs/evidence/2026-11-04-young-trees/young-pine-front.png
+!/docs/evidence/2026-11-04-young-trees/young-birch-uniform-front.png
+!/docs/evidence/2026-11-04-young-trees/young-birch-front.png
+!/docs/evidence/2026-11-04-young-trees/young-maple-uniform-front.png
+!/docs/evidence/2026-11-04-young-trees/young-maple-front.png
+!/docs/evidence/2026-11-04-young-trees/before/day-westYoungPine.png
+!/docs/evidence/2026-11-04-young-trees/after/day-westYoungPine.png
+!/docs/evidence/2026-11-04-young-trees/before/day-autumnYoung.png
+!/docs/evidence/2026-11-04-young-trees/after/day-autumnYoung.png
+!/docs/evidence/2026-11-04-young-trees/after/autumn-autumnMaple.png
+# Archipelago stage 7 reef coast: selected comparisons.
+!/docs/evidence/2026-11-04-reef-coast/v1/day-mistEastShore.png
+!/docs/evidence/2026-11-04-reef-coast/before/day-mistEastShore.png
+!/docs/evidence/2026-11-04-reef-coast/final/day-mistEastShore.png
+!/docs/evidence/2026-11-04-reef-coast/final/day-mistOverview.png
+!/docs/evidence/2026-11-04-reef-coast/before/night-mistEastShore.png
+!/docs/evidence/2026-11-04-reef-coast/final/night-mistEastShore.png
+!/docs/evidence/2026-11-04-reef-coast/final/day-archipelago.png
+# Archipelago stage 8 alder (AHOLO 4649902): selected renders and comparisons.
+!/docs/evidence/2026-11-04-alder/alder/before.png
+!/docs/evidence/2026-11-04-alder/alder/after.png
+!/docs/evidence/2026-11-04-alder/before/day-westWetland.png
+!/docs/evidence/2026-11-04-alder/after/day-westWetland.png
+!/docs/evidence/2026-11-04-alder/after/day-stream.png
+# Archipelago stage 9 inland relief: low views across the raised knolls.
+!/docs/evidence/2026-11-04-inland-relief/before/day-reliefKnollEast.png
+!/docs/evidence/2026-11-04-inland-relief/after/day-reliefKnollEast.png
+!/docs/evidence/2026-11-04-inland-relief/after/day-reliefKnollNorth.png

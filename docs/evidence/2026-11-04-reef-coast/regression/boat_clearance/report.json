@@ -1,0 +1,156 @@
+{
+  "date": "2026-11-04T08:20:37.150Z",
+  "mode": "isolated headless Edge",
+  "viewport": [
+    1440,
+    900
+  ],
+  "checks": [
+    {
+      "name": "mist turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 77.8,
+          "z": -12.2,
+          "heading": 0
+        },
+        "turned": {
+          "x": 77.8,
+          "z": -12.2,
+          "heading": 0.8738400000095369,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.7099950000077424
+        },
+        "angle": 0.8738400000095369,
+        "moved": {
+          "x": 78.47117757041894,
+          "z": -13.001790279075973,
+          "heading": 0.8738400000095369,
+          "speed": 0.08831649580916752,
+          "effort": 0.08831649580916752,
+          "phase": 1.7556273362781267
+        },
+        "elapsedSeconds": 5.692,
+        "hullLocalBounds": {
+          "min": [
+            -1.6724759340286184,
+            -0.36508724093437206,
+            -0.437896192073822
+          ],
+          "max": [
+            1.6799108982086253,
+            0.36508724093437195,
+            0.5560644268989563
+          ]
+        }
+      }
+    },
+    {
+      "name": "main turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 45.400000000000006,
+          "z": 2.2,
+          "heading": 3.141592653589793
+        },
+        "turned": {
+          "x": 45.400000000000006,
+          "z": 2.2,
+          "heading": -2.306152653580257,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.6787950000077458
+        },
+        "angle": 0.835440000009536,
+        "moved": {
+          "x": 44.732603162907914,
+          "z": 2.937772864389048,
+          "heading": -2.306152653580257,
+          "speed": 0.08465473808370103,
+          "effort": 0.08465473808370103,
+          "phase": 1.6736454096620692
+        },
+        "elapsedSeconds": 4.77,
+        "hullLocalBounds": {
+          "min": [
+            -1.6724759340286255,
+            -0.3650872409343723,
+            -0.4378961920738149
+          ],
+          "max": [
+            1.6799108982086146,
+            0.36508724093437184,
+            0.5560644268989563
+          ]
+        }
+      }
+    },
+    {
+      "name": "autumn turn and move around outer corner",
+      "data": {
+        "initial": {
+          "x": 84.8,
+          "z": 48.9,
+          "heading": 0
+        },
+        "turned": {
+          "x": 84.8,
+          "z": 48.9,
+          "heading": 0.8561599999904633,
+          "speed": 0,
+          "effort": 0,
+          "phase": 0.6956299999922546
+        },
+        "angle": 0.8561599999904633,
+        "moved": {
+          "x": 85.47176660613017,
+          "z": 48.1257386725894,
+          "heading": 0.8561599999904633,
+          "speed": 0.08935993874062557,
+          "effort": 0.08935993874062557,
+          "phase": 1.7206914499723114
+        },
+        "elapsedSeconds": 6.101,
+        "hullLocalBounds": {
+          "min": [
+            -1.6724759340286255,
+            -0.36508724093437195,
+            -0.4378961920738078
+          ],
+          "max": [
+            1.6799108982086182,
+            0.36508724093437195,
+            0.5560644268989563
+          ]
+        }
+      }
+    },
+    {
+      "name": "actual wide orbit from moved Autumn berth",
+      "data": [
+        10.096567954559546,
+        105.56046818371257,
+        163.81233046715602
+      ]
+    }
+  ],
+  "errors": [],
+  "screenshots": [
+    "mist-tip-turn.png",
+    "mist-tip-clear.png",
+    "main-tip-turn.png",
+    "main-tip-clear.png",
+    "autumn-tip-turn.png",
+    "autumn-tip-clear.png",
+    "autumn-real-wide-orbit.png"
+  ],
+  "status": "PASS",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Edg/156.0.4314.58",
+    "revision": "@7806b68d20d1c1273d5b07b4f4de18e8f5852581",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0",
+    "jsVersion": "15.6.12.10"
+  }
+}

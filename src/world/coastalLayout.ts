@@ -1,11 +1,14 @@
 import {creekDistance,creekWaterY,originalCreekWaterY,inCreekRework,creekZ,reefs,fallsTrailAt,fallsLookout} from '../game/expansion'
-import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
+import {originalCoastRadius as coastRadius,isBeachApproach,oceanNavigation,seaLevel,berths,originalShorelineRadius as shorelineRadius,isDockSurface} from './worldConfig'
 import {originalTerrainHeight as terrainHeight,terrainHeight as expandedTerrainHeight} from './terrain'
-import {mistIsland,mistHeight,mistPathDistance,mistRadius} from './mistIsland'
-import {autumnIsland,autumnHeight,autumnPathDistance,autumnBerth,autumnVista} from './autumnIsland'
+import {mistIsland,mistHeight,mistPathDistance,mistRadius,mistCoast} from './mistIsland'
+import {autumnIsland,autumnHeight,autumnPathDistance,autumnBerth,autumnVista,autumnCoast} from './autumnIsland'
+import {tideIsland,tideHeight,tidePathDistance,tideBerth,tidePools,poolRadius,tideCoastFeatures} from './tideIsland'
+import type {CoastFeature} from './coastFeatures'
 import {coastalVegetationPositions as vegetationPositions,autumnEdgePlants} from './vegetationLayout'
 import {buildTideCoast} from './tideCoastLayout'
 import {buildRimRocks} from './rimRocks'
+import {buildReefShore} from './reefShore'
 const seaRangeRadius=(a:number)=>shorelineRadius(a)+oceanNavigation.offshoreLimit
 
 export type CoastKit='Rock_Slab'|'Rock_Tall'|'Rock_Boulder'|'Rock_Cobbles'|'Driftwood_Long'|'Driftwood_Short'
@@ -177,10 +180,31 @@ export const mistRimPieces=buildRimRocks({cx:mistIsland.x,cz:mistIsland.z,seed:1
 const tideCoast=buildTideCoast(coastKits)
 export const tideShorePieces=tideCoast.shore
 export const tidePoolPieces=tideCoast.pools
+/** Bays (negative coast features, in the island's normalised angle) stay sandy: the reef breaks off there. */
+const bayGap=(island:{rx:number;rz:number},features:readonly CoastFeature[])=>(a:number)=>{
+ const n=Math.atan2(Math.sin(a)/island.rz,Math.cos(a)/island.rx)
+ return features.some(f=>f.amount<0&&Math.abs(Math.atan2(Math.sin(n-f.angle),Math.cos(n-f.angle)))<f.width*.8)
+}
+const reefSea={sea:seaLevel,navigable:seaLevel-oceanNavigation.minDepth}
+// The boat swings in to every dock head; keep the water round each mooring free of reef stones.
+const clearOfMoorings=(x:number,z:number,reach:number)=>Object.values(berths).every(b=>Math.hypot(x-b.mooring.x,z-b.mooring.z)>reach+8)
+/** Archipelago stage 7: a continuous waterline reef on the three small islands, appended after every adopted rock. */
+// (86,-10) is where Mist's dock meets the shore (the berth's landing is out at the dock head, covered by clearOfMoorings).
+export const mistReefPieces=buildReefShore({cx:mistIsland.x,cz:mistIsland.z,seed:20261104,height:mistHeight,...reefSea,inner:8,outer:26,gap:bayGap(mistIsland,mistCoast),kits:coastKits,
+ existing:[...mistRidgePieces,...mistShorePieces,...mistRimPieces],open:(x,z,reach)=>mistPathDistance(x,z)>reach+1.2&&Math.hypot(x-86,z+10)>reach+7&&clearOfMoorings(x,z,reach)&&clearOfTrees(x,z,reach)})
+export const autumnReefPieces=buildReefShore({cx:autumnIsland.x,cz:autumnIsland.z,seed:20261105,height:autumnHeight,...reefSea,inner:6,outer:28,gap:bayGap(autumnIsland,autumnCoast),kits:coastKits,
+ existing:[...autumnShorePieces,...autumnRimPieces],open:(x,z,reach)=>autumnPathDistance(x,z)>reach+1.2&&Math.hypot(x-autumnBerth.landing.x,z-autumnBerth.landing.z)>reach+7&&Math.hypot(x-autumnVista.x,z-autumnVista.z)>reach+3&&clearOfMoorings(x,z,reach)&&clearOfTrees(x,z,reach)})
+export const tideReefPieces=buildReefShore({cx:tideIsland.x,cz:tideIsland.z,seed:20261106,height:tideHeight,...reefSea,inner:5,outer:22,gap:bayGap(tideIsland,tideCoastFeatures),kits:coastKits,
+ existing:[...tideShorePieces,...tidePoolPieces],open:(x,z,reach)=>tidePathDistance(x,z)>reach+1.2&&Math.hypot(x-tideBerth.landing.x,z-tideBerth.landing.z)>reach+7&&tidePools.every(p=>poolRadius(x,z,p)>1.4+reach/2)&&clearOfMoorings(x,z,reach)&&clearOfTrees(x,z,reach)})
+/** Reef stones whose waterline footprint reaches rowable water: the boat stops at them like at the outer reefs. */
+export const reefShoreSolids=[...mistReefPieces,...autumnReefPieces,...tideReefPieces].flatMap(p=>{
+ const r=coastKits[p.kit].half*p.scale*.8,height=p.x>72&&p.z>84?tideHeight:p.z>10?autumnHeight:mistHeight
+ return Array.from({length:12},(_,i)=>height(p.x+Math.cos(i*Math.PI/6)*r,p.z+Math.sin(i*Math.PI/6)*r)).some(h=>h<=reefSea.navigable)?[{x:p.x,z:p.z,r}]:[]
+})
 /** The adopted main-island layout, replayed on the pre-falls terrain so its shared random stream (and every placement) is unchanged. */
 const adoptedPieces=(()=>{const rand=random(20261025);return[...cliffPieces(rand),...creekPieces(rand,terrainHeight,originalCreekWaterY),...tidelinePieces(rand)]})()
 /** Dropped: pieces buried by the west expansion, the old slot-wall rocks, and anything the falls rework re-shaped under it. */
 const keptAdoptedPieces=adoptedPieces.filter(p=>{const lift=expandedTerrainHeight(p.x,p.z)-terrainHeight(p.x,p.z);return lift<.01&&p.role!=='creek'&&(lift>-.01||!inCreekRework(p.x,p.z))})
 /** New gorge walls; none on the footpath down to the pool or the rim bench pad. */
 export const fallsCreekPieces=creekPieces(random(20261102),expandedTerrainHeight,creekWaterY,p=>{const reach=coastKits[p.kit].half*p.scale;return fallsTrailAt(p.x,p.z).d>reach+.7&&Math.hypot(p.x-fallsLookout.x,p.z-fallsLookout.z)>reach+2})
-export const coastPieces:CoastPiece[]=[...keptAdoptedPieces,...fallsCreekPieces].concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces,autumnRimPieces,mistRimPieces)
+export const coastPieces:CoastPiece[]=[...keptAdoptedPieces,...fallsCreekPieces].concat(mistRidgePieces,mistShorePieces,autumnShorePieces,tideShorePieces,tidePoolPieces,autumnRimPieces,mistRimPieces,mistReefPieces,autumnReefPieces,tideReefPieces)

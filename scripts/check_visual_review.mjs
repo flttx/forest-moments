@@ -55,6 +55,8 @@ try {
   // Default gameplay camera with real HUD, as a player first sees it.
   await shot('00-default-hud')
   await evaluate(`(async()=>{window.forestStore=(await import(performance.getEntriesByType('resource').find(e=>new URL(e.name).pathname==='/src/game/store.ts').name)).useForestStore})()`)
+  // NIGHTS=9: nights slept, which sets the season (1 spring, 5 summer, 9 autumn) for seasonal foliage reviews.
+  if (process.env.NIGHTS) { await evaluate(`forestStore.setState(s=>({homeBook:{...s.homeBook,nights:${Number(process.env.NIGHTS)}}}))`); await sleep(3500) }
   for (const light of ['dusk', 'night']) { await evaluate(`forestStore.setState({timeOfDay:'${light}'})`); await sleep(1500); await shot(`00-default-${light}`) }
   await evaluate(`forestStore.setState({timeOfDay:'day'})`)
   // Mid zoom-out with gameplay camera

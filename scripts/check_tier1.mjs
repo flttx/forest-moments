@@ -154,8 +154,10 @@ try {
   // From upstream on the north bank, looking down the creek toward the bridge as the lanterns set off.
   await openFree(); await free(look([launch.x + 2.6, 7.3, launch.z + .4], [launch.x - 4, 5.5, launch.z - 1.7]), 1200); await shot('07-lanterns-set')
   subjects = await shoot(); assert(subjects.includes('lanterns'), JSON.stringify(subjects)); await leave()
-  await sleep(22000)
-  const mid = await evaluate("(()=>{const g=forestScene.getObjectByName('river-lanterns');return g.children.filter(o=>o.visible).map(o=>({x:+o.position.x.toFixed(1),y:+o.position.y.toFixed(2),z:+o.position.z.toFixed(1)}))})()")
+  // Wait on where the lanterns are, not a fixed time (their drift varies run to run): all three past the launch reach
+  // while the leader is still above the falls lip, so the shot from behind looks along open creek, not into the gorge.
+  await waitFor(`(()=>{const v=forestScene.getObjectByName('river-lanterns').children.filter(o=>o.visible).map(o=>o.position.x);return v.length===3&&Math.max(...v)<-18.5&&Math.min(...v)>expansion.creekFalls.lipX+.8})()`, 'lanterns on the upper creek', 900)
+  const mid =await evaluate("(()=>{const g=forestScene.getObjectByName('river-lanterns');return g.children.filter(o=>o.visible).map(o=>({x:+o.position.x.toFixed(1),y:+o.position.y.toFixed(2),z:+o.position.z.toFixed(1)}))})()")
   assert.equal(mid.length, 3); assert(mid.every(p => p.x < -18), JSON.stringify(mid))
   const lead = mid.reduce((a, b) => a.x < b.x ? a : b)
   const bank = await evaluate(`(()=>{for(const d of [2.2,2.6,3,-2.2,-2.6,-3])if(movement.canStandAt(${lead.x}+2,${lead.z}+d))return{x:${lead.x}+2,z:${lead.z}+d};return null})()`)

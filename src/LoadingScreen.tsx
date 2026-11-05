@@ -22,7 +22,7 @@ export function LoadingScreen(){
  if(active&&progress>peak)setPeak(progress)
  useEffect(()=>{
   if(done||active||progress<100||!drawn)return
-  const timer=setTimeout(()=>setDone(true),settleMs)
+  const timer=setTimeout(()=>{setDone(true);useUiStore.setState({loadingDone:true})},settleMs)
   return()=>clearTimeout(timer)
  },[active,progress,done,drawn])
  if(done)return null

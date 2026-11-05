@@ -132,6 +132,12 @@ function ReviewCamera() {
       autumnVista: [[129,7,51],[117,2.5,41]],
       autumnClearing: [[105,3.5,53],[112,1.8,47]],
       autumnBirch: [[90,4,59],[96.4,4,54]],
+      // archipelago stage 6: a young pine in the west forest; a young birch beside two adults on Autumn Isle
+      // archipelago stage 9: low views across the raised knolls of open country
+      reliefKnollEast: [[31,groundHeightAt(31,-14)+2.2,-14],[19,groundHeightAt(19,-7)+.8,-7]],
+      reliefKnollNorth: [[-3,groundHeightAt(-3,31)+2.2,31],[-3,groundHeightAt(-3,19)+.8,19]],
+      westYoungPine: [[-69.1,2.8,31.8],[-69.1,groundHeightAt(-69.1,26.3)+1.9,26.3]],
+      autumnYoung: [[93.5,groundHeightAt(100.3,38.4)+2.4,33],[101,groundHeightAt(100.3,38.4)+2.2,40]],
       autumnMaple: [[113,5,26],[112.5,4,35.5]],
       autumnNorthShore: [[119,7,18],[119,1,33]],
       autumnEastShore: [[145,6,45],[129,.6,45]],

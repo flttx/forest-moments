@@ -31,6 +31,8 @@ type UiState={
  /** The world has actually been drawn (scene mounted, raccoon in it, a few frames out), or it failed: the loading card waits for one. */
  worldDrawn:boolean
  worldFailed:boolean
+ /** The loading card has gone for good: later downloads (trees far from the spawn) start only now, behind the play. */
+ loadingDone:boolean
  toggleHud:()=>void
  openPanel:(panel:MenuPanel)=>void
  closePanel:()=>void
@@ -46,7 +48,7 @@ export const useUiStore=create<UiState>((set,get)=>({
  seenHints:seen.hints,
  activeHint:null,
  hudHidden:false,
- worldDrawn:false,worldFailed:false,
+ worldDrawn:false,worldFailed:false,loadingDone:false,
  toggleHud:()=>{const hidden=!get().hudHidden;if(hidden)get().closePanel();set({hudHidden:hidden})},
  openPanel:panel=>{
   // One panel at a time: a menu panel replaces the aquarium. Held reel input is released, never re-pressed on close.
