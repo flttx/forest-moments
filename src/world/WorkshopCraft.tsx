@@ -8,7 +8,7 @@ import {useForestStore} from '../game/store'
 import {woodSpot,workpieceSpot,stoolSeatHeight} from '../game/workshop'
 import {groundHeightAt} from '../game/movement'
 
-const base='/assets/interiors/'
+const base='./assets/interiors/'
 const bakedNames=['Room_Baked','Hero_workshop-workbench','Hero_workshop-stove']
 const bakeFiles=['workshop-light','workshop-workbench-light','workshop-stove-light']
 

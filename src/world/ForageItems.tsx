@@ -72,7 +72,7 @@ function seaGlass(){
 /** Tide Isle shells come from the Blender shell set (scripts/build_shell_set.py), one of four forms per spot. */
 const tideShells=['Shell_Scallop','Shell_Turban','Shell_Cowrie','Shell_Clam'] as const
 function TideShell({id}:{id:string}){
- const gltf=useGLTF('/assets/expansion/shell-set.glb')
+ const gltf=useGLTF('./assets/expansion/shell-set.glb')
  const object=useMemo(()=>{
   const name=tideShells[[...id].reduce((n,c)=>n+c.charCodeAt(0),0)%tideShells.length]
   const source=gltf.scene.getObjectByName(name)?.clone(true)??new THREE.Group()
@@ -96,7 +96,7 @@ function Made({id}:{id:'mapleLeaf'|'birchBark'|'seaGlass'}){
  return <primitive object={object}/>
 }
 function Model({id}:{id:Exclude<ForageKind,'mapleLeaf'|'birchBark'|'seaGlass'>|'egg'}){
- const gltf=useGLTF(`/assets/x3/${models[id]}.glb`)
+ const gltf=useGLTF(`./assets/x3/${models[id]}.glb`)
  const object=useMemo(()=>{
   const o=gltf.scene.clone(true),tint=id==='egg'?undefined:tints[id]
   o.traverse(m=>{if(m instanceof THREE.Mesh){m.castShadow=true;m.receiveShadow=true;if(tint){const material=(m.material as THREE.MeshStandardMaterial).clone();fogCaps(material,tint);m.material=material}}})

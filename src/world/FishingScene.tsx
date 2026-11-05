@@ -34,8 +34,8 @@ interface Ripple { mesh: THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>; 
 interface Drop { position: THREE.Vector3; velocity: THREE.Vector3; alive: boolean }
 
 export function FishingScene() {
-  const rodSource = useGLTF('/assets/models/fishing-rod.glb')
-  const fishSource = useGLTF('/assets/models/fish-koi.glb')
+  const rodSource = useGLTF('./assets/models/fishing-rod.glb')
+  const fishSource = useGLTF('./assets/models/fish-koi.glb')
   const parts = useMemo(() => {
     const group = new THREE.Group()
     group.name = 'fishing-tools'

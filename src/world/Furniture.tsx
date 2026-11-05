@@ -40,7 +40,7 @@ function Made({id}:{id:'mapleCharm'|'birchFrame'}){
 }
 
 function Piece({id}:{id:Exclude<RecipeId,'mapleCharm'|'birchFrame'>}){
- const gltf=useGLTF(`/assets/x3/${models[id]}.glb`)
+ const gltf=useGLTF(`./assets/x3/${models[id]}.glb`)
  const object=useMemo(()=>{const o=gltf.scene.clone(true);o.traverse(m=>{if(m instanceof THREE.Mesh){m.castShadow=true;m.receiveShadow=true}});return o},[gltf])
  const f=furniturePlaces[id],ground=f.place==='bedroom'?0:groundHeightAt(f.x,f.z)
  return <group name={`furniture-${id}`} position={[f.x,ground+(f.y??0),f.z]} rotation={[0,f.yaw,0]}><primitive object={object}/></group>

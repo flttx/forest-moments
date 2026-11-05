@@ -13,14 +13,14 @@ const stillMotion=()=>matchMedia('(prefers-reduced-motion: reduce)').matches
 
 /** The bottle on the sand, lying on its side and half sunk. */
 function Bottle(){
- const gltf=useGLTF('/assets/x3/message-bottle.glb')
+ const gltf=useGLTF('./assets/x3/message-bottle.glb')
  const object=useMemo(()=>gltf.scene.clone(true),[gltf])
  return <group name="secret-bottle" position={[bottleSpot.x,groundHeightAt(bottleSpot.x,bottleSpot.z)+.06,bottleSpot.z]} rotation={[0,.9,Math.PI/2.15]}><primitive object={object}/></group>
 }
 
 /** The jellyfish beside the jetty: translucent, gently bobbing, glowing after dark (and through the water). */
 function Jellyfish(){
- const gltf=useGLTF('/assets/x3/glowing-jellyfish.glb')
+ const gltf=useGLTF('./assets/x3/glowing-jellyfish.glb')
  const group=useRef<THREE.Group>(null)
  const object=useMemo(()=>{const o=gltf.scene.clone(true);o.traverse(m=>{if(m instanceof THREE.Mesh&&m.material instanceof THREE.MeshStandardMaterial){const mat=m.material.clone();mat.transparent=true;mat.opacity=.82;mat.depthWrite=false;mat.emissive=new THREE.Color('#7fe6d6');mat.emissiveMap=mat.map;m.material=mat}});return o},[gltf])
  useFrame(({clock})=>{
@@ -98,7 +98,7 @@ function useModel(url:string){
 
 /** The heart stone (Lux3D): a thin weathered slab, heart-shaped face on and plain from the trail. */
 function HeartStone(){
- const object=useModel('/assets/x5/heart-stone.glb')
+ const object=useModel('./assets/x5/heart-stone.glb')
  return <group name="secret-heart-stone" position={[heartStone.x,groundHeightAt(heartStone.x,heartStone.z)-.04,heartStone.z]} rotation={[0,Math.atan2(heartStone.normal.x,heartStone.normal.z),0]}>
   <primitive object={object}/>
  </group>
@@ -123,7 +123,7 @@ function denMouthTexture(){
  * shaded half disc deepens it.
  */
 function FoxDen(){
- const den=useModel('/assets/x5/fox-den-entrance.glb'),sleeper=useModel('/assets/x5/sleeping-fox.glb'),peeker=useModel('/assets/x5/peeking-fox.glb')
+ const den=useModel('./assets/x5/fox-den-entrance.glb'),sleeper=useModel('./assets/x5/sleeping-fox.glb'),peeker=useModel('./assets/x5/peeking-fox.glb')
  const eyes=useRef<THREE.Group>(null),sleeping=useRef<THREE.Group>(null),peeking=useRef<THREE.Group>(null)
  const mouth=useMemo(()=>denMouthTexture(),[])
  useEffect(()=>()=>mouth.dispose(),[mouth])

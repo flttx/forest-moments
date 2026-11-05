@@ -30,7 +30,7 @@ const mistFerns=(()=>{
 })()
 
 export function MistFerns(){
- const gltf=useGLTF('/assets/expansion/fern-clump.glb')
+ const gltf=useGLTF('./assets/expansion/fern-clump.glb')
  const mesh=useMemo(()=>{
   const source=gltf.scene.getObjectByName('Fern_Clump')
   if(!(source instanceof THREE.Mesh))throw new Error('Fern asset module is missing')

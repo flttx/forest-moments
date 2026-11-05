@@ -37,7 +37,7 @@ function patchMoonlitRock(material: THREE.Material) {
 
 /** Hand-made Blender coastal kit (scripts/build_coastal_kit.py), one instanced mesh per module, placed by coastalLayout. */
 export function CoastalRocks() {
-  const gltf = useGLTF('/assets/expansion/coastal-kit.glb')
+  const gltf = useGLTF('./assets/expansion/coastal-kit.glb')
   const group = useMemo(() => {
     const root = new THREE.Group(), matrix = new THREE.Object3D(), colour = new THREE.Color()
     root.name = 'coastal-kit'

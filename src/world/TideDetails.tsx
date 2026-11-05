@@ -6,7 +6,7 @@ import {tideDriftwood} from './tideDetailsLayout'
 
 /** Reuses the coastal driftwood GLB; only the instance buffers are owned here. */
 export function TideDetails(){
- const coast=useGLTF('/assets/expansion/coastal-kit.glb')
+ const coast=useGLTF('./assets/expansion/coastal-kit.glb')
  const root=useMemo(()=>{
   const group=new THREE.Group()
   const instance=(name:string,source:THREE.Object3D|undefined,items:{x:number;z:number;scale:number;yaw:number}[],sink:number)=>{

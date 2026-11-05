@@ -1,7 +1,7 @@
 # ModelScope 国际站 Static 创空间部署指南
 
 目标站点：**https://www.modelscope.ai**（国际站）；本项目明确不部署到 modelscope.cn。
-状态：准备文档；尚未建 Studio、未获取 Token、未推送代码、未消耗积分。
+状态：准备中。2026-11-05 已把运行时资源路径改为相对路径，并在子路径下实测加载通过；尚未建 Studio、未配置 Token、未推送、未消耗积分。
 
 官方资料：
 - https://github.com/modelscope/modelscope-skills
@@ -27,7 +27,7 @@ pnpm preview
 
 确认：
 - dist/index.html 存在，dist/assets/ 的 JS/CSS/GLB/纹理均可访问。
-- vite.config.ts 的 base 为 './'，模型使用相对资源路径且在部署路径真实可访问；浏览器控制台无 404。
+- vite.config.ts 的 base 为 './'，模型使用相对资源路径且在部署路径真实可访问；浏览器控制台无 404。2026-11-05 实测：代码里原有 44 处 `/assets/...` 绝对路径，放在子路径下会 404，已全部改为 `./assets/...`；新增资源时也要用相对路径。
 - 没有服务端 API、Prisma、环境秘密、调试服务器依赖。
 - 确认资源来源许可（尤其 AI 生成的资产）、体积和真实运行 FPS。
 - 当前版本移动端触控操作未完成；比赛主推 PC。

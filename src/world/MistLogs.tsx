@@ -5,7 +5,7 @@ import {mistHeight} from './mistIsland'
 import {mistLogs} from './mistDetails'
 
 export function MistLogs(){
- const gltf=useGLTF('/assets/expansion/hollow-log.glb')
+ const gltf=useGLTF('./assets/expansion/hollow-log.glb')
  const mesh=useMemo(()=>{
   const source=gltf.scene.getObjectByName('Hollow_Log')
   if(!(source instanceof THREE.Mesh))throw new Error('Hollow log asset is missing')

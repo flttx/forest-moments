@@ -9,7 +9,7 @@ import { daylightAt, lanternPower } from '../game/dayCycle'
 
 /** Reef stacks from the Blender coastal kit and lit channel buoys between the islands (archipelago.ts holds the layout). */
 export function ArchipelagoSea() {
-  const gltf = useGLTF('/assets/expansion/coastal-kit.glb')
+  const gltf = useGLTF('./assets/expansion/coastal-kit.glb')
   const reefs = useMemo(() => {
     const root = new THREE.Group(), matrix = new THREE.Object3D(), colour = new THREE.Color()
     root.name = 'archipelago-reefs'

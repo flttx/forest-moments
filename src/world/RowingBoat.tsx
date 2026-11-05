@@ -17,10 +17,10 @@ interface PropTrack {
 
 /** Same assembly transforms and prop samples as the validated center-seat-v11 review. */
 export function RowingBoat() {
-  const boatGltf = useGLTF('/assets/models/canoe-center-seat.glb')
-  const sourceBoat = useGLTF('/assets/models/paddle.glb')
+  const boatGltf = useGLTF('./assets/models/canoe-center-seat.glb')
+  const sourceBoat = useGLTF('./assets/models/paddle.glb')
   const actorGltf = useGLTF(modelAssets.raccoon.url)
-  const trackFile = useLoader(FileLoader, '/assets/models/paddle-track.json')
+  const trackFile = useLoader(FileLoader, './assets/models/paddle-track.json')
   const track = useMemo(() => JSON.parse(String(trackFile)) as PropTrack, [trackFile])
   const root = useRef<Group>(null)
   const reducedMotion=useRef(false),surfaceTime=useRef(0)

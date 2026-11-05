@@ -11,13 +11,13 @@ interface SoundEntry{file:string;kind:'ambience'|'music'|'sfx';seconds:number}
 interface AudioList{version:1;sounds:Record<string,SoundEntry>}
 export interface PlayOptions{volume?:number;rate?:number;at?:{x:number;y:number;z:number}}
 
-const listUrl='/assets/audio/audio.json'
+const listUrl='./assets/audio/audio.json'
 const crossfade=2.5,smooth=.6
 
 function isAudioList(value:unknown):value is AudioList{
  if(typeof value!=='object'||value===null||(value as AudioList).version!==1)return false
  const sounds=(value as AudioList).sounds
- return typeof sounds==='object'&&sounds!==null&&Object.values(sounds).every(e=>typeof e?.file==='string'&&e.file.startsWith('/assets/audio/')&&typeof e.seconds==='number')
+ return typeof sounds==='object'&&sounds!==null&&Object.values(sounds).every(e=>typeof e?.file==='string'&&e.file.startsWith('./assets/audio/')&&typeof e.seconds==='number')
 }
 
 /** A recorded loop: overlapping copies of the buffer, each faded in and out over the crossfade. */

@@ -16,9 +16,9 @@ import { useForestStore } from '../game/store'
 const lanternGlow=4.4
 
 export function ForestKit() {
-  const high=useGLTF('/assets/vegetation/forest-kit.glb',true,true)
-  const low=useGLTF('/assets/vegetation/forest-kit-lod.glb',true,true)
-  const mask=useTexture('/assets/vegetation/lantern-glow.webp')
+  const high=useGLTF('./assets/vegetation/forest-kit.glb',true,true)
+  const low=useGLTF('./assets/vegetation/forest-kit-lod.glb',true,true)
+  const mask=useTexture('./assets/vegetation/lantern-glow.webp')
   const field=useMemo(()=>{
     const root=new THREE.Group();root.name='forest-kit'
     const materials:THREE.Material[]=[],geometries:THREE.BufferGeometry[]=[]

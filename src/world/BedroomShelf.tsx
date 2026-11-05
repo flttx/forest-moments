@@ -34,7 +34,7 @@ function curio(id: CurioId) {
 export function BedroomShelf() {
   const found = useForestStore(s => s.curiosBook.found)
   const shore = useInventoryStore(s => s.inv.found.filter(id => id === 'shell' || id === 'seaGlass').join(','))
-  const shells = useGLTF('/assets/expansion/shell-set.glb')
+  const shells = useGLTF('./assets/expansion/shell-set.glb')
   const object = useMemo(() => {
     const g = new THREE.Group(); g.name = 'bedroom-shelf'
     const plank = new THREE.Mesh(new THREE.BoxGeometry(.22, .03, 1.1), wood()); plank.castShadow = true; plank.receiveShadow = true; g.add(plank)

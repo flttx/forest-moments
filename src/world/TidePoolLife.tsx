@@ -46,7 +46,7 @@ function hermitCrab(shell: THREE.Object3D | undefined) {
 }
 
 export function TidePoolLife() {
-  const gltf = useGLTF('/assets/expansion/shell-set.glb')
+  const gltf = useGLTF('./assets/expansion/shell-set.glb')
   const life = useMemo(() => {
     const root = new THREE.Group(); root.name = 'tide-pool-life'
     const made = { starfish: starfish(), anemone: anemone(), hermitCrab: hermitCrab(gltf.scene.getObjectByName('Shell_Turban')) }

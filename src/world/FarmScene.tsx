@@ -7,7 +7,7 @@ import {createAnimals,stepAnimal,animalObstacles} from '../game/farm'
 import {useForestStore} from '../game/store'
 
 export function FarmScene(){
- const assets=useGLTF(['/assets/models/farm-ranch.glb','/assets/models/farm-hen.glb','/assets/models/farm-sheep.glb'],true,true)
+ const assets=useGLTF(['./assets/models/farm-ranch.glb','./assets/models/farm-hen.glb','./assets/models/farm-sheep.glb'],true,true)
  const root=useRef<Group>(null),grain=useRef<Group>(null)
  const scene=useMemo(()=>{
   const ranch=assets[0].scene.clone(true)

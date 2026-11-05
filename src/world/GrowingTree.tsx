@@ -23,7 +23,7 @@ function Plot({spot}:{spot:number}){
 }
 
 export function GrowingTree(){
- const assets=useGLTF(growthStages.map(s=>`/assets/models/tree-${s.id}.glb`),true,true)
+ const assets=useGLTF(growthStages.map(s=>`./assets/models/tree-${s.id}.glb`),true,true)
  const garden=useForestStore(s=>s.garden)
  const root=useRef<Group>(null),time=useRef({value:0}),reduced=useRef(false)
  const models=useMemo(()=>assets.map((gltf,index)=>{

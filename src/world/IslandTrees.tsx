@@ -20,7 +20,7 @@ const youngKits:TreeKits=[['ie-young-pine','young-pine'],['ie-young-birch','youn
 
 /** Full-detail AHOLO trees, instanced in small chunks. Simplification requires measured need and visual review. */
 function TreeField({kits,name}:{kits:TreeKits;name:string}){
- const gltfs=useGLTF(kits.map(([,file])=>`/assets/island-trees/${file}.glb`))
+ const gltfs=useGLTF(kits.map(([,file])=>`./assets/island-trees/${file}.glb`))
  const field=useMemo(()=>{
   const root=new THREE.Group();root.name=name
   const geometries:THREE.BufferGeometry[]=[],materials:THREE.Material[]=[]

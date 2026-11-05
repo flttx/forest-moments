@@ -1,9 +1,9 @@
 /** Runtime transforms only. Source geometry, clothes, tail and animation tracks stay intact. */
 export const modelAssets = {
-  raccoon: { url: '/assets/models/raccoon.glb', scale: 1.4 / .6, lift: .3 },
-  workshop: { url: '/assets/models/workshop.glb', scale: 1.25, lift: 2.2749598026275635 },
-  lookout: { url: '/assets/models/lookout.glb', scale: 6.8 / 6, lift: 3 },
-  canoe: { url: '/assets/models/canoe-center-seat.glb', scale: .5, lift: 0 },
+  raccoon: { url: './assets/models/raccoon.glb', scale: 1.4 / .6, lift: .3 },
+  workshop: { url: './assets/models/workshop.glb', scale: 1.25, lift: 2.2749598026275635 },
+  lookout: { url: './assets/models/lookout.glb', scale: 6.8 / 6, lift: 3 },
+  canoe: { url: './assets/models/canoe-center-seat.glb', scale: .5, lift: 0 },
 } as const
 
 // Decoded GLB dimensions in metres, before the runtime scale.

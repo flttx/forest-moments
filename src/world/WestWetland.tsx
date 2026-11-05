@@ -13,7 +13,7 @@ const marshBox=(()=>{const xs=pool.lobes.flatMap(([x,,rx])=>[x-rx*1.4,x+rx*1.4])
  * with a low rail on both sides. Reeds crowd the banks and the hummocks between the pockets.
  */
 export function WestWetland(){
- const kit=useGLTF('/assets/expansion/wetland-kit.glb'),coast=useGLTF('/assets/expansion/coastal-kit.glb')
+ const kit=useGLTF('./assets/expansion/wetland-kit.glb'),coast=useGLTF('./assets/expansion/coastal-kit.glb')
  const props=useMemo(()=>{
   const root=new THREE.Group(),matrix=new THREE.Object3D()
   const instance=(source:THREE.Object3D|undefined,placements:number[][])=>{

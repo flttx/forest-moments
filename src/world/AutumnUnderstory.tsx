@@ -6,7 +6,7 @@ import {autumnFerns} from './autumnUnderstoryLayout'
 
 /** Reuse IE-03's full geometry and cached material; only this island's instance buffer is owned here. */
 export function AutumnUnderstory(){
- const gltf=useGLTF('/assets/expansion/fern-clump.glb')
+ const gltf=useGLTF('./assets/expansion/fern-clump.glb')
  const mesh=useMemo(()=>{
   const source=gltf.scene.getObjectByName('Fern_Clump')
   if(!(source instanceof THREE.Mesh))throw new Error('Fern asset module is missing')

@@ -5,7 +5,7 @@ import {berths} from './worldConfig'
 
 /** AHOLO task 4321451, normalized in Blender; deck origin is local y=0. */
 export function SeasideDock(){
-  const gltf=useGLTF('/assets/models/coastal-jetty.glb',true,true)
+  const gltf=useGLTF('./assets/models/coastal-jetty.glb',true,true)
   const model=useMemo(()=>{
     const scene=gltf.scene.clone(true)
     scene.traverse(o=>{if(o instanceof Mesh){o.castShadow=true;o.receiveShadow=true}})

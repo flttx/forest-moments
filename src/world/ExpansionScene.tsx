@@ -52,7 +52,7 @@ function withCoastStone(material:THREE.Material){
 }
 
 export function ExpansionModel({id,position=[0,0,0],rotation=0,scale=1,windows=false,stone=false}:{id:string;position?:[number,number,number];rotation?:number;scale?:number;windows?:boolean;stone?:boolean}){
- const gltf=useGLTF(`/assets/expansion/${id}.glb`)
+ const gltf=useGLTF(`./assets/expansion/${id}.glb`)
  const model=useMemo(()=>{const s=gltf.scene.clone(true);s.traverse(o=>{if(o instanceof THREE.Mesh){o.castShadow=true;o.receiveShadow=true;if(windows)o.material=withWindowGlow(o.material);if(stone)o.material=withCoastStone(o.material)}});return s},[gltf.scene,windows,stone])
  return <group name={`expansion-${id}`} position={position} rotation={[0,rotation,0]} scale={scale}><primitive object={model} dispose={null}/></group>
 }
@@ -107,7 +107,7 @@ function Embers({lit}:{lit:boolean}){
 
 /** A fish on a green stick over the fire while it roasts; it turns slowly and browns as it cooks. */
 function RoastSpit(){
- const source=useGLTF('/assets/models/fish-koi.glb')
+ const source=useGLTF('./assets/models/fish-koi.glb')
  const roast=useForestStore(s=>s.roast)
  const kind=roast?.item==='fish'?roast.species:undefined,size=roast?.item==='fish'?roast.sizeCm:undefined,cap=roast?.item==='mistcap'
  // a fish on the spit, or a pale mist cap skewered through its stem
@@ -154,7 +154,7 @@ export function ExpansionExterior(){return <group name="expansion-exterior">
  </group>}
 
 function TankResidents(){
- const source=useGLTF('/assets/models/fish-koi.glb')
+ const source=useGLTF('./assets/models/fish-koi.glb')
  const fish=useForestStore(s=>s.homeBook.fish)
  const residents=useMemo(()=>fish.map((f,i)=>{const root=clone(source.scene);dressFish(root,kindOf(f));root.scale.setScalar(Math.min(.29,f.sizeCm/100));const mixer=new THREE.AnimationMixer(root);for(const clip of source.animations)mixer.clipAction(clip).play();return{root,mixer,phase:i*2.4}}),[fish,source])
  useEffect(()=>()=>residents.forEach(r=>r.mixer.stopAllAction()),[residents])
