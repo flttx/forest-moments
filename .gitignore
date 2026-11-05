@@ -373,3 +373,8 @@ __pycache__/
 !/docs/evidence/2026-11-04-inland-relief/before/day-reliefKnollEast.png
 !/docs/evidence/2026-11-04-inland-relief/after/day-reliefKnollEast.png
 !/docs/evidence/2026-11-04-inland-relief/after/day-reliefKnollNorth.png
+# Tree LOD (2026-11-05): full vs distant-LOD comparisons.
+!/docs/evidence/2026-11-05-tree-lod/full/day-westOverview.png
+!/docs/evidence/2026-11-05-tree-lod/lod/day-westOverview.png
+!/docs/evidence/2026-11-05-tree-lod/full/day-autumnOverview.png
+!/docs/evidence/2026-11-05-tree-lod/lod/day-autumnOverview.png

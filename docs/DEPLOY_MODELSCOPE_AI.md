@@ -1,7 +1,12 @@
 # ModelScope 国际站 Static 创空间部署指南
 
 目标站点：**https://www.modelscope.ai**（国际站）；本项目明确不部署到 modelscope.cn。
-状态：准备中。2026-11-05 已把运行时资源路径改为相对路径，并在子路径下实测加载通过；尚未建 Studio、未配置 Token、未推送、未消耗积分。
+状态：2026-11-05 已部署到私有 Studio `flttxq/forest-moments`（https://www.modelscope.ai/studios/flttxq/forest-moments，应用域名 https://flttxq-forest-moments.ms.fun），类型 static、免费平台资源，状态 Running。Token 保存在被 Git 忽略的 `.env.local`。发布仓库在项目外临时目录，只含 dist 内容和 Studio 自带的 README.md、.gitattributes。
+
+部署记录：
+- 用户先在网页上建好 Studio，类型为 gradio；经 `PATCH /settings` 改为 static。
+- 发布提交推到 Studio master，`POST /deploy` 后约 4 分钟 Running。
+- 私有 Studio 访问需要平台登录态；无头浏览器带 Token 请求头也只得到登录流程的白屏，线上帧率无法在本地自动测，需在已登录的浏览器里人工验证。
 
 官方资料：
 - https://github.com/modelscope/modelscope-skills

@@ -1,0 +1,73 @@
+{
+  "blender": "5.2.1 LTS",
+  "ratio": 0.12,
+  "method": "collapse decimate, triangulated, geometry only (runtime reuses the full material)",
+  "trees": {
+    "old-pine": {
+      "fullTriangles": 119684,
+      "lodTriangles": 14362,
+      "bytes": 818860,
+      "sha256": "3eaaee0d1bb7c6e8095fb21d5f99e491182f47f77fc406e3a0180428b6ea2781"
+    },
+    "spruce": {
+      "fullTriangles": 97828,
+      "lodTriangles": 11739,
+      "bytes": 619060,
+      "sha256": "f1663e9f5e88263447c8ac4a051ac1639bf9280a84d7d9440d566477a07d8b40"
+    },
+    "spruce-sapling": {
+      "fullTriangles": 97828,
+      "lodTriangles": 11739,
+      "bytes": 618648,
+      "sha256": "26d201482ac9baf30b107330eabb1b6e908cdbed249d266f2ced59b719a4c8c6"
+    },
+    "birch": {
+      "fullTriangles": 97792,
+      "lodTriangles": 11735,
+      "bytes": 770104,
+      "sha256": "f4fa85170eb5bcc124a3626437e3fb0efe2ca2d67de752afae8a20c6abada522"
+    },
+    "maple": {
+      "fullTriangles": 119142,
+      "lodTriangles": 14297,
+      "bytes": 935108,
+      "sha256": "1c4cd3aa9bc49aa2c70be77e30597959ff359a9dc21a922416c7b48b13c0524c"
+    },
+    "windswept-pine": {
+      "fullTriangles": 119684,
+      "lodTriangles": 14362,
+      "bytes": 809520,
+      "sha256": "c446da000b9efef60617c98e50939831e4fd5936fa9188e21e42bfc866ea5d2e"
+    },
+    "windswept-pine-b": {
+      "fullTriangles": 119684,
+      "lodTriangles": 14361,
+      "bytes": 807564,
+      "sha256": "551532f4b245501bddae3123ae6d9cc5c087f77e59e8a1382717fb2dd527295f"
+    },
+    "young-pine": {
+      "fullTriangles": 119684,
+      "lodTriangles": 14362,
+      "bytes": 823052,
+      "sha256": "5f54b218b586deb205f6140d1d615084008e53a407dc210612daefa5495a9f87"
+    },
+    "young-birch": {
+      "fullTriangles": 97792,
+      "lodTriangles": 11735,
+      "bytes": 772028,
+      "sha256": "ff7d94c9bc4e6fd2c2617c1ce4604f005ebee9bcb6e38f058d52d17c8ad47ebb"
+    },
+    "young-maple": {
+      "fullTriangles": 119142,
+      "lodTriangles": 14297,
+      "bytes": 936968,
+      "sha256": "daf9e46afcb180d19d16ed24c64e0f11730ddf120248f6cd2213adfb27614ff6"
+    },
+    "alder": {
+      "fullTriangles": 94250,
+      "lodTriangles": 11310,
+      "bytes": 641380,
+      "sha256": "0cf0236e35ead429cdfdee6b4d5ed79055a5d1513d79b7589433ba06f4878983"
+    }
+  }
+}
